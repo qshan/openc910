@@ -19,10 +19,11 @@ include ./setup/env_check.mk
 ################################################################################
 # Simulation related
 ################################################################################
-SIM = iverilog
+#SIM = iverilog
+SIM ?= vcs
 #DUMP = off
-DUMP = on
-THREADS = 4
+DUMP ?= on
+THREADS ?= 8
 
 # Generate C++ in executable form
 VERILATOR_FLAGS += -cc --exe
