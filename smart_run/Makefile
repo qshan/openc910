@@ -20,7 +20,8 @@ include ./setup/env_check.mk
 # Simulation related
 ################################################################################
 SIM = iverilog
-DUMP = off
+#DUMP = off
+DUMP = on
 THREADS = 4
 
 # Generate C++ in executable form
@@ -80,48 +81,54 @@ endif
 endif
 
 ifeq ($(SIM), vcs)
-TIMESCALE := -timescale=1ns/100fs
-SIMULATOR_OPT := -sverilog -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L
-SIMULATOR_DEF := +define+no_warning +define+TSMC_NO_WARNING
-SIMULATOR_LOG := -l comp.vcs.log
-ifeq ($(UPF), on)
-SIMULATOR_POWER_OPT := -upf ../impl/upf/example_cpu_power_spec.upf +define+UPF_INCLUDED
-SIMV_POWER_OPT      := +fsdb+power +fsdb+all 
+  TIMESCALE := -timescale=1ns/100fs
+  #SIMULATOR_OPT := -sverilog -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L
+  #SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L
+  SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L -LDFLAGS -Wl,--no-as-needed
+
+  #SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L -LDFLAGS -Wl,--no-as-needed -debug_acc+all -debug_region+cell+encrypt
+  #debug#SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L -debug_all
+  #SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L -debug_acc+all -debug_region+cell+encrypt
+  SIMULATOR_DEF := +define+no_warning +define+TSMC_NO_WARNING
+  SIMULATOR_LOG := -l comp.vcs.log
+  ifeq ($(UPF), on)
+    SIMULATOR_POWER_OPT := -upf ../impl/upf/example_cpu_power_spec.upf +define+UPF_INCLUDED
+    SIMV_POWER_OPT      := +fsdb+power +fsdb+all
+  else
+    SIMULATOR_POWER_OPT :=
+    SIMV_POWER_OPT      :=
+  endif
 else
-SIMULATOR_POWER_OPT := 
-SIMV_POWER_OPT      := 
-endif
-else 
-    ifeq ($(SIM), nc) 
-    TIMESCALE := -timescale 1ns/100fs
-    SIMULATOR_OPT := +v2k -sysv +sv +access+wrc +notimingcheck -default_ext verilog -elaborate +tcl+../setup/nc.tcl
-    SIMULATOR_DEF := +define+no_warning +define+TSMC_NO_WARNING +define+VMC +define+NC_SIM 
-    SIMULATOR_LOG := -l comp.nc.log
+  ifeq ($(SIM), nc)
+  TIMESCALE := -timescale 1ns/100fs
+  SIMULATOR_OPT := +v2k -sysv +sv +access+wrc +notimingcheck -default_ext verilog -elaborate +tcl+../setup/nc.tcl
+  SIMULATOR_DEF := +define+no_warning +define+TSMC_NO_WARNING +define+VMC +define+NC_SIM
+  SIMULATOR_LOG := -l comp.nc.log
+  else
+    ifeq ($(SIM), iverilog)
+      TIMESCALE :=
+      SIMULATOR_OPT := -o xuantie_core.vvp -Diverilog=1 -g2012
+      SIMULATOR_DEF := -DIVERILOG_SIM
+      SIMULATOR_LOG := sim.iverilog.log
     else
-        ifeq ($(SIM), iverilog)
-          TIMESCALE := 
-          SIMULATOR_OPT := -o xuantie_core.vvp -Diverilog=1 -g2012 
-          SIMULATOR_DEF := -DIVERILOG_SIM
-          SIMULATOR_LOG := 
-        else
-            ifeq ($(SIM), verilator)
-              SIMULATOR_OPT := -Os -x-assign 0 -Wno-fatal --threads ${THREADS}
-              SIMULATOR_DEF := -cc --exe --top-module top 
-              SIMULATOR_LOG := 
-            else
-            endif
-        endif
+      ifeq ($(SIM), verilator)
+        SIMULATOR_OPT := -Os -x-assign 0 -Wno-fatal --threads ${THREADS}
+        SIMULATOR_DEF := -cc --exe --top-module top
+        SIMULATOR_LOG :=
+      else
+      endif
     endif
+  endif
 endif
 
 ifeq ($(SIM), iverilog)
-    SIM_FILELIST := $(SIM_FILELIST) -f ${CODE_BASE_PATH}/gen_rtl/filelists/C910_asic_rtl.fl -c ../logical/filelists/smart.fl -c ../logical/filelists/tb.fl
+  SIM_FILELIST := $(SIM_FILELIST) -f ${CODE_BASE_PATH}/gen_rtl/filelists/C910_asic_rtl.fl -c ../logical/filelists/smart.fl -c ../logical/filelists/tb.fl
 else
-    ifeq ($(SIM), verilator)
+  ifeq ($(SIM), verilator)
     SIM_FILELIST := $(SIM_FILELIST) -f ../logical/filelists/sim_verilator.fl
-    else
+  else
     SIM_FILELIST := $(SIM_FILELIST) -f ../logical/filelists/sim.fl
-    endif
+  endif
 endif
 
 compile:
@@ -129,10 +136,10 @@ compile:
 	@echo "  [THead-smart] SIM = $(SIM)"
 ifeq ($(SIM), vcs)
 	@make -s cleansim
-	@cd ./work && vcs $(SIMULATOR_OPT) $(TIMESCALE) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG) $(SIMULATOR_POWER_OPT) 
-else 
-    ifeq ($(SIM), nc) 
-	@cd ./work && irun $(SIMULATOR_OPT) $(TIMESCALE) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG) 
+	@cd ./work && vcs $(SIMULATOR_OPT) $(TIMESCALE) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG) $(SIMULATOR_POWER_OPT)
+else
+    ifeq ($(SIM), nc)
+	@cd ./work && irun $(SIMULATOR_OPT) $(TIMESCALE) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG)
     else
         ifeq ($(SIM), iverilog)
 	  @cd ./work && iverilog $(TIMESCALE) $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG)
@@ -143,8 +150,8 @@ else
 	      @echo "  [THead-smart] Please specify SIM = vcs to use VCS, or SIM = nc ,or SIM = verilator to use irun ..."
             endif
         endif
-    endif 
-endif 
+    endif
+endif
 
 buildVerilator:
 	@cp ./logical/tb/Makefile_obj ./work/Makefile_obj
@@ -158,7 +165,7 @@ cleanVerilator:
 # Cases related
 ################################################################################
 showcase:
-	@echo "  Case lists:" \ 
+	@echo "  Case lists:"
 	@for case in $(CASE_LIST) ; do \
           echo "    $$case"; \
         done
@@ -204,14 +211,14 @@ ifeq ($(findstring $(CASE), $(CASE_LIST)), $(CASE))
 ifeq ($(SIM), vcs)
 	cd ./work && ./simv -l run.vcs.log $(SIMV_POWER_OPT)
 else
-        ifeq ($(SIM), nc)	
+        ifeq ($(SIM), nc)
 		cd ./work && irun -R -l run.irun.log
         else
             ifeq ($(SIM), verilator)
 		make buildVerilator
-		cd ./work && obj_dir/Vtop	
+		cd ./work && obj_dir/Vtop
             else
-	        cd ./work && vvp xuantie_core.vvp 
+	        cd ./work && vvp xuantie_core.vvp
             endif
         endif
 endif
@@ -220,6 +227,10 @@ else
         $(newline)   The list of valid cases can be obtained by executing: \
         $(newline)   > make showcase ...)
 endif
+
+verdi:
+	@echo "  [THead-smart] open verdi now ... "
+	@cd ./work && verdi -sv -f ../logical/filelists/sim.fl -ssy -ssv -top tb -ssf novas.fsdb &
 
 # Execute all cases
 regress:
@@ -240,10 +251,10 @@ regress:
 memlist:
 	@make -s compile
 	${VERDI_HOME}/share/VIA/Apps/Bin/findInstDefWild.pl -dbdir ./work/simv.daidir -pattern "ct_spsram*" -scope "tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top" -dump_def_name -outlog ./work/memlist.verdi.log
-	perl impl/memlist/memlist.pl 
+	perl impl/memlist/memlist.pl
 
 clean:
-	@cd ./work && rm -rf * 
+	@cd ./work && rm -rf *
 
 help:
 	@echo "  ########## Smart Help Info ##########"
@@ -261,18 +272,15 @@ help:
 	@echo "    cleancase                       : clean files generated by GNU in ./work ";
 	@echo "    clean                           : clean ./work ";
 	@echo "  Optional arguments:";
-	@echo "    SIM=                            : options: vcs / nc / verilator(use version 4.215 or newer)"; 
-	@echo "    CASE=                           : options: the list print by 'make showcase'"; 
+	@echo "    SIM=                            : options: vcs / nc / verilator(use version 4.215 or newer)";
+	@echo "    CASE=                           : options: the list print by 'make showcase'";
 	@echo "    DUMP=                           : options: on / off";
 	@echo "  Examples:";
-	@echo "    make runcase CASE=dhry          : run case 'dhry' (by iverilog withtout dump) "; 
-	@echo "    make runcase CASE=dhry SIM=nc   : run case 'dhry' (by nc withtout dump) "; 
-	@echo "    make runcase CASE=dhry DUMP=on  : run case 'dhry' with dump "; 
-	@echo "    make runcase CASE=coremark SIM=verilator THREADS=8 	: run case 'coremark' without dump(by verilator) with 8 threads;
-	@echo "    make cleanVerilator		   			: clean the verilator generated file before Verilator operations;
-	@echo "    make compile SIM=verilator DUMP=on THREADS=8  	: run compile with dump (by Verilator with dump) with 8 threads;
-	@echo "    make buildVerilator             			: run build executable file with Verilator;
-	@echo "    make runVerilator	           			: run simulation file with Verilator;
-	
-
-
+	@echo "    make runcase CASE=dhry          : run case 'dhry' (by iverilog withtout dump) ";
+	@echo "    make runcase CASE=dhry SIM=nc   : run case 'dhry' (by nc withtout dump) ";
+	@echo "    make runcase CASE=dhry DUMP=on  : run case 'dhry' with dump ";
+	@echo "    make runcase CASE=coremark SIM=verilator THREADS=8 	: run case 'coremark' without dump(by verilator) with 8 threads";
+	@echo "    make cleanVerilator		   			: clean the verilator generated file before Verilator operations";
+	@echo "    make compile SIM=verilator DUMP=on THREADS=8  	: run compile with dump (by Verilator with dump) with 8 threads";
+	@echo "    make buildVerilator             			: run build executable file with Verilator";
+	@echo "    make runVerilator	           			: run simulation file with Verilator";
