@@ -23,7 +23,7 @@ include ./setup/env_check.mk
 SIM ?= vcs
 #DUMP = off
 DUMP ?= on
-THREADS ?= 8
+THREADS ?= 4
 
 # Generate C++ in executable form
 VERILATOR_FLAGS += -cc --exe
