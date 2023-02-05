@@ -25,6 +25,9 @@ SIM ?= vcs
 DUMP ?= on
 THREADS ?= 4
 
+BUILD_LOG_FILE?=build.file.log.txt
+#@echo $@ | tee -a ./work/$(BUILD_LOG_FILE)
+
 # Generate C++ in executable form
 VERILATOR_FLAGS += -cc --exe
 # Generate makefile dependencies (not shown as complicates the Makefile)
@@ -199,7 +202,7 @@ runVerilator:
 	@cd ./work && obj_dir/Vtop
 
 runcase:
-	@make cleanVerilator
+	@make cleanVerilator | tee -a ./work/$(BUILD_LOG_FILE)
 ifeq ($(CASE),)
 	$(error Please specify CASE=xxx on the command line, like: \
         $(newline)   > make buildcase CASE=xxx... \
@@ -207,21 +210,21 @@ ifeq ($(CASE),)
         $(newline)   > make showcase ...)
 endif
 ifeq ($(findstring $(CASE), $(CASE_LIST)), $(CASE))
-	@make -s compile
-	@make -s buildcase CASE=$(CASE)
+	@make compile 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
+	@make buildcase CASE=$(CASE) 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 ifeq ($(SIM), vcs)
 	cd ./work && ./simv -l run.vcs.log $(SIMV_POWER_OPT)
 else
-        ifeq ($(SIM), nc)
+  ifeq ($(SIM), nc)
 		cd ./work && irun -R -l run.irun.log
-        else
-            ifeq ($(SIM), verilator)
-		make buildVerilator
-		cd ./work && obj_dir/Vtop
-            else
-	        cd ./work && vvp xuantie_core.vvp
-            endif
-        endif
+  else
+    ifeq ($(SIM), verilator)
+			make buildVerilator 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
+			cd ./work ; obj_dir/Vtop 2>&1 | tee -a $(BUILD_LOG_FILE)
+    else
+			cd ./work ; vvp xuantie_core.vvp | tee -a $(BUILD_LOG_FILE)
+    endif
+  endif
 endif
 else
 	$(error Argument CASE=xxx is not valid: \
