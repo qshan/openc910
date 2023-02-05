@@ -118,7 +118,7 @@ else
       ifeq ($(SIM), verilator)
         SIMULATOR_OPT := -Os -x-assign 0 -Wno-fatal --threads ${THREADS}
         SIMULATOR_DEF := -cc --exe --top-module top
-        SIMULATOR_LOG :=
+        SIMULATOR_LOG :=sim.verilator.log
       else
       endif
     endif
@@ -142,19 +142,19 @@ ifeq ($(SIM), vcs)
 	@make -s cleansim
 	@cd ./work && vcs $(SIMULATOR_OPT) $(TIMESCALE) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG) $(SIMULATOR_POWER_OPT)
 else
-    ifeq ($(SIM), nc)
-	@cd ./work && irun $(SIMULATOR_OPT) $(TIMESCALE) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG)
+  ifeq ($(SIM), nc)
+		@cd ./work && irun $(SIMULATOR_OPT) $(TIMESCALE) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG)
+  else
+    ifeq ($(SIM), iverilog)
+			@cd ./work && iverilog $(TIMESCALE) $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG)
     else
-        ifeq ($(SIM), iverilog)
-	  @cd ./work && iverilog $(TIMESCALE) $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG)
-        else
-            ifeq ($(SIM), verilator)
-	      @cd ./work && verilator $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIMULATOR_LOG) $(SIM_FILELIST) $(SIM_DUMP)
-            else
-	      @echo "  [THead-smart] Please specify SIM = vcs to use VCS, or SIM = nc ,or SIM = verilator to use irun ..."
-            endif
-        endif
+      ifeq ($(SIM), verilator)
+				@cd ./work && verilator $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIMULATOR_LOG) $(SIM_FILELIST) $(SIM_DUMP)
+      else
+				@echo "  [THead-smart] Please specify SIM = vcs to use VCS, or SIM = nc ,or SIM = verilator to use irun ..."
+      endif
     endif
+  endif
 endif
 
 buildVerilator:
@@ -213,10 +213,10 @@ ifeq ($(findstring $(CASE), $(CASE_LIST)), $(CASE))
 	@make compile 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 	@make buildcase CASE=$(CASE) 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 ifeq ($(SIM), vcs)
-	cd ./work && ./simv -l run.vcs.log $(SIMV_POWER_OPT)
+	cd ./work && ./simv -l run.vcs.log $(SIMV_POWER_OPT) 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 else
   ifeq ($(SIM), nc)
-		cd ./work && irun -R -l run.irun.log
+		cd ./work && irun -R -l run.irun.log 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
   else
     ifeq ($(SIM), verilator)
 			make buildVerilator 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
@@ -283,8 +283,8 @@ help:
 	@echo "    make runcase CASE=dhry          : run case 'dhry' (by iverilog withtout dump) ";
 	@echo "    make runcase CASE=dhry SIM=nc   : run case 'dhry' (by nc withtout dump) ";
 	@echo "    make runcase CASE=dhry DUMP=on  : run case 'dhry' with dump ";
-	@echo "    make runcase CASE=coremark SIM=verilator THREADS=8 	: run case 'coremark' without dump(by verilator) with 8 threads";
-	@echo "    make cleanVerilator		   			: clean the verilator generated file before Verilator operations";
-	@echo "    make compile SIM=verilator DUMP=on THREADS=8  	: run compile with dump (by Verilator with dump) with 8 threads";
-	@echo "    make buildVerilator             			: run build executable file with Verilator";
-	@echo "    make runVerilator	           			: run simulation file with Verilator";
+	@echo "    make runcase CASE=coremark SIM=verilator THREADS=8  : run case 'coremark' without dump(by verilator) with 8 threads";
+	@echo "    make cleanVerilator             : clean the verilator generated file before Verilator operations";
+	@echo "    make compile SIM=verilator DUMP=on THREADS=8  : run compile with dump (by Verilator with dump) with 8 threads";
+	@echo "    make buildVerilator             : run build executable file with Verilator";
+	@echo "    make runVerilator               : run simulation file with Verilator";
