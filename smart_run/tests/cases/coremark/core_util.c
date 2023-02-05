@@ -180,27 +180,32 @@ ee_u16 crc16(ee_s16 newval, ee_u16 crc) {
 ee_u8 check_data_types() {
 	ee_u8 retval=0;
 	if (sizeof(ee_u8) != 1) {
-		printf("ERROR: ee_u8 is not an 8b datatype!\n");
+		printf("ERROR: ee_u8 is %d, not an 8b datatype!\n", sizeof(ee_u8));
 		retval++;
 	}
 	if (sizeof(ee_u16) != 2) {
 		printf("ERROR: ee_u16 is not a 16b datatype!\n");
+		printf("ERROR: ee_u16 is %d, not an 16b datatype!\n", sizeof(ee_u16));
 		retval++;
 	}
 	if (sizeof(ee_s16) != 2) {
 		printf("ERROR: ee_s16 is not a 16b datatype!\n");
+		printf("ERROR: ee_s16 is %d, not an 16b datatype!\n", sizeof(ee_s16));
 		retval++;
 	}
 	if (sizeof(ee_s32) != 4) {
 		printf("ERROR: ee_s32 is not a 32b datatype!\n");
+		printf("ERROR: ee_s32 is %d, not an 32b datatype!\n", sizeof(ee_s32));
 		retval++;
 	}
 	if (sizeof(ee_u32) != 4) {
 		printf("ERROR: ee_u32 is not a 32b datatype!\n");
+		printf("ERROR: ee_u32 is %d, not an 32b datatype!\n", sizeof(ee_u32));
 		retval++;
 	}
 	if (sizeof(ee_ptr_int) != sizeof(int *)) {
 		printf("ERROR: ee_ptr_int is not a datatype that holds an int pointer!\n");
+		printf("ERROR: ee_ptr_int is %d, not a datatype that holds an int pointer: %d!\n", sizeof(ee_ptr_int), sizeof(int *));
 		retval++;
 	}
 	if (retval>0) {
