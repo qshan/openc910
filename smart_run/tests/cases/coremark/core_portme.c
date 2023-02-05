@@ -106,10 +106,19 @@ void portable_init(core_portable *p, int *argc, char *argv[])
         start_time();
         //--------------------------------------------
 	if (sizeof(ee_ptr_int) != sizeof(ee_u8 *)) {
+		printf("[D] sizeof(ee_ptr_int) is 0x%x; sizeof(ee_u8 *) is 0x%x\n", sizeof(ee_ptr_int), sizeof(ee_u8 *));
+		printf("[D] sizeof(ee_u32 *) is 0x%x\n", sizeof(ee_u32 *));
+		printf("[D] sizeof(ee_u32) is 0x%x; sizeof(ee_u8) is 0x%x\n", sizeof(ee_u32), sizeof(ee_u8));
+		//printf("WARNNING! Please define ee_ptr_int to a type that holds a pointer!\n");
+		//printf("ERROR! Please define ee_ptr_int to a type that holds a pointer!\n");
 		printf("ERROR! Please define ee_ptr_int to a type that holds a pointer!\n");
+		printf("ERROR! sizeof(ee_ptr_int) is 0x%x; sizeof(ee_u8 *) is 0x%x\n", sizeof(ee_ptr_int), sizeof(ee_u8 *));
+		printf("ERROR! sizeof(ee_u32) is 0x%x; sizeof(ee_u8) is 0x%x\n", sizeof(ee_u32), sizeof(ee_u8));
+		printf("ERROR! sizeof(ee_ptr_int) is 0x%x; sizeof(ee_u8 *) is 0x%x\n", sizeof(ee_ptr_int), sizeof(ee_u8 *));
 	}
 	if (sizeof(ee_u32) != 4) {
 		printf("ERROR! Please define ee_u32 to a 32b unsigned type!\n");
+		printf("ERROR! sizeof(ee_u32) is 0x%x; sizeof(ee_u8) is 0x%x\n", sizeof(ee_u32), sizeof(ee_u8));
 	}
 	p->portable_id=1;
 }
