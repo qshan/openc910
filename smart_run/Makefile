@@ -20,13 +20,14 @@ include ./setup/env_check.mk
 # Simulation related
 ################################################################################
 #SIM = iverilog
-SIM ?= vcs
+#SIM ?= vcs
+SIM ?= verilator
 #DUMP = off
 DUMP ?= on
 THREADS ?= 4
 
 BUILD_LOG_FILE?=build.file.log.txt
-#@echo $@ | tee -a ./work/$(BUILD_LOG_FILE)
+#@echo $@  2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 
 # Generate C++ in executable form
 VERILATOR_FLAGS += -cc --exe
@@ -89,6 +90,8 @@ ifeq ($(SIM), vcs)
   #SIMULATOR_OPT := -sverilog -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L
   #SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L
   SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L -LDFLAGS -Wl,--no-as-needed
+  SIMULATOR_OPT += -j4
+  SIMULATOR_OPT += -fpg=4
 
   #SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L -LDFLAGS -Wl,--no-as-needed -debug_acc+all -debug_region+cell+encrypt
   #debug#SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L -debug_all
@@ -118,7 +121,7 @@ else
       ifeq ($(SIM), verilator)
         SIMULATOR_OPT := -Os -x-assign 0 -Wno-fatal --threads ${THREADS}
         SIMULATOR_DEF := -cc --exe --top-module top
-        SIMULATOR_LOG :=sim.verilator.log
+        SIMULATOR_LOG :=
       else
       endif
     endif
@@ -149,7 +152,8 @@ else
 			@cd ./work && iverilog $(TIMESCALE) $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG)
     else
       ifeq ($(SIM), verilator)
-				@cd ./work && verilator $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIMULATOR_LOG) $(SIM_FILELIST) $(SIM_DUMP)
+				@cd ./work && verilator $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIMULATOR_LOG) $(SIM_FILELIST) $(SIM_DUMP) 2>&1 | tee -a $(BUILD_LOG_FILE)
+
       else
 				@echo "  [THead-smart] Please specify SIM = vcs to use VCS, or SIM = nc ,or SIM = verilator to use irun ..."
       endif
@@ -202,7 +206,7 @@ runVerilator:
 	@cd ./work && obj_dir/Vtop
 
 runcase:
-	@make cleanVerilator | tee -a ./work/$(BUILD_LOG_FILE)
+	@make cleanVerilator  2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 ifeq ($(CASE),)
 	$(error Please specify CASE=xxx on the command line, like: \
         $(newline)   > make buildcase CASE=xxx... \
@@ -213,7 +217,7 @@ ifeq ($(findstring $(CASE), $(CASE_LIST)), $(CASE))
 	@make compile 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 	@make buildcase CASE=$(CASE) 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 ifeq ($(SIM), vcs)
-	cd ./work && ./simv -l run.vcs.log $(SIMV_POWER_OPT) 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
+	cd ./work && ./simv -l run.vcs.log $(SIMV_POWER_OPT) 2>&1 | tee -a $(BUILD_LOG_FILE)
 else
   ifeq ($(SIM), nc)
 		cd ./work && irun -R -l run.irun.log 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
@@ -222,7 +226,7 @@ else
 			make buildVerilator 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 			cd ./work ; obj_dir/Vtop 2>&1 | tee -a $(BUILD_LOG_FILE)
     else
-			cd ./work ; vvp xuantie_core.vvp | tee -a $(BUILD_LOG_FILE)
+			cd ./work ; vvp xuantie_core.vvp  2>&1 | tee -a $(BUILD_LOG_FILE)
     endif
   endif
 endif
