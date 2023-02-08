@@ -1,4 +1,4 @@
-#!/bin/csh
+#!/usr/bin/tcsh
 
 set pattern = "\/setup"`echo '$'`
 setenv CODE_BASE_PATH `pwd | perl -pe "s/$pattern//"`
