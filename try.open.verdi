@@ -1,0 +1,2 @@
+#verdi -f verilog.file.list.txt -top XSTop
+verdi -f verilog.file.list.txt -top top
