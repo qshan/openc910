@@ -20,8 +20,8 @@ include ./setup/env_check.mk
 # Simulation related
 ################################################################################
 #SIM = iverilog
-#SIM ?= vcs
-SIM ?= verilator
+SIM ?= vcs
+#SIM ?= verilator
 #DUMP = off
 DUMP ?= on
 THREADS ?= 4
@@ -89,7 +89,9 @@ ifeq ($(SIM), vcs)
   TIMESCALE := -timescale=1ns/100fs
   #SIMULATOR_OPT := -sverilog -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L
   #SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L
-  SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L -LDFLAGS -Wl,--no-as-needed
+  SIMULATOR_OPT := -sverilog -top tb -full64 -kdb -lca -debug_access +nospecify +notimingchecks +lint=TFIPC-L
+  SIMULATOR_OPT += -LDFLAGS -Wl,--no-as-needed
+  #to support system task called to $fsdbDumpfile#SIMULATOR_OPT += -P ${VERDI_HOME}/share/PLI/VCS/LINUX64/novas.tab ${VERDI_HOME}/share/PLI/VCS/LINUX64/pli.a
   SIMULATOR_OPT += -j4
   SIMULATOR_OPT += -fpg=4
 
@@ -152,7 +154,7 @@ else
 			@cd ./work && iverilog $(TIMESCALE) $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIM_FILELIST) $(SIM_DUMP) $(SIMULATOR_LOG)
     else
       ifeq ($(SIM), verilator)
-				@cd ./work && verilator $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIMULATOR_LOG) $(SIM_FILELIST) $(SIM_DUMP) 2>&1 | tee -a $(BUILD_LOG_FILE)
+				@cd ./work && verilator $(SIMULATOR_OPT) $(SIMULATOR_DEF) $(SIMULATOR_LOG) $(SIM_FILELIST) $(SIM_DUMP)
 
       else
 				@echo "  [THead-smart] Please specify SIM = vcs to use VCS, or SIM = nc ,or SIM = verilator to use irun ..."
@@ -206,7 +208,7 @@ runVerilator:
 	@cd ./work && obj_dir/Vtop
 
 runcase:
-	@make cleanVerilator  2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
+	@make cleanVerilator
 ifeq ($(CASE),)
 	$(error Please specify CASE=xxx on the command line, like: \
         $(newline)   > make buildcase CASE=xxx... \
@@ -214,8 +216,8 @@ ifeq ($(CASE),)
         $(newline)   > make showcase ...)
 endif
 ifeq ($(findstring $(CASE), $(CASE_LIST)), $(CASE))
-	@make compile 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
-	@make buildcase CASE=$(CASE) 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
+	@make -s compile 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
+	@make -s buildcase CASE=$(CASE) 2>&1 | tee -a ./work/$(BUILD_LOG_FILE)
 ifeq ($(SIM), vcs)
 	cd ./work && ./simv -l run.vcs.log $(SIMV_POWER_OPT) 2>&1 | tee -a $(BUILD_LOG_FILE)
 else

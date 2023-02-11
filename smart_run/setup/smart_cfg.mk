@@ -23,6 +23,8 @@ CASE_LIST := \
       ISA_FP \
       ISA_IMAC \
       coremark \
+      coremark1 \
+      dhry \
       hello_world \
       MMU \
       csr \
@@ -85,6 +87,20 @@ coremark_build:
 	@cp ./tests/lib/clib/* ./work
 	@cp ./tests/lib/newlib_wrap/* ./work
 	@cd ./work && make -s clean && make -s all CPU_ARCH_FLAG_0=c910  ENDIAN_MODE=little-endian CASENAME=coremark FILE=core_main >& coremark_build.case.log
+
+coremark1_build:
+	@cp ./tests/cases/coremark1/* ./work
+	@find ./tests/lib/ -maxdepth 1 -type f -exec cp {} ./work/ \;
+	@cp ./tests/lib/clib/* ./work
+	@cp ./tests/lib/newlib_wrap/* ./work
+	@cd ./work && make -s clean && make -s all CPU_ARCH_FLAG_0=c910  ENDIAN_MODE=little-endian CASENAME=coremark FILE=core_main >& coremark1_build.case.log
+
+dhry_build:
+	@cp ./tests/cases/dhry/* ./work
+	@find ./tests/lib/ -maxdepth 1 -type f -exec cp {} ./work/ \;
+	@cp ./tests/lib/clib/* ./work
+	@cp ./tests/lib/newlib_wrap/* ./work
+	@cd ./work && make -s clean && make -s all CPU_ARCH_FLAG_0=c910  ENDIAN_MODE=little-endian CASENAME=dhry FILE=dhry_1_main >& dhry_build.case.log
 
 
 hello_world_build:
