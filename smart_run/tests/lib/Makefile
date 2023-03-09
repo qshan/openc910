@@ -39,12 +39,25 @@ else
 endif
 CFLAGS = ${FLAG_MARCH} ${FLAG_ABI} 
 
+
 ifeq (${CASENAME}, coremark)
   CFLAGS += -c -O3 -mtune=c910 -static -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns --param max-rtl-if-conversion-unpredictable-cost=100 -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-imm -DITERATIONS=10000
   # CFLAGS += -c -v -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns --param max-rtl-if-conversion-unpredictable-cost=100 -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -DITERATIONS=10000 -O3 -static -mbit-translate
+  #$(info "Current CASENAME is ${CASENAME}")
+endif
+
+ifeq (${CASENAME}, coremark1)
+  CFLAGS += -c -O3 -mtune=c910 -static -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns --param max-rtl-if-conversion-unpredictable-cost=100 -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-imm -DITERATIONS=10000
+  #$(info "Current CASENAME is ${CASENAME}")
+endif
+
+ifeq (${CASENAME}, dhry)
+  CFLAGS += -c -O3 -mtune=c910 -static -funroll-all-loops -finline-limit=500 -fgcse-sm -fno-schedule-insns --param max-rtl-if-conversion-unpredictable-cost=100 -msignedness-cmpiv -fno-code-hoisting -mno-thread-jumps1 -mno-iv-adjust-addr-cost -mno-expand-split-imm -DITERATIONS=10000
+  #$(info "Current CASENAME is ${CASENAME}")
 else
   CFLAGS += -c -O2
 endif
+
 
 CFLAGS += --specs=nano.specs
 
