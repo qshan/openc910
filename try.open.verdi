@@ -1,2 +1,4 @@
 #verdi -f verilog.file.list.txt -top XSTop
-verdi -f verilog.file.list.txt -top top
+#verdi -f verilog.file.list.txt -top top
+#verdi -f /data/work/risc-v/openc910/verilog.file.list.txt -top top
+verdi -f /data/work/risc-v/openc910/verilog.file.list.txt -top tb
