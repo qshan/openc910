@@ -122,249 +122,249 @@ module ct_ifu_pcgen(
 );
 
 // &Ports; @23
-input   [38:0]  addrgen_pcgen_pc;                    
-input           addrgen_pcgen_pcload;                
-input           cp0_ifu_icg_en;                      
-input           cp0_ifu_iwpe;                        
-input           cp0_yy_clk_en;                       
-input           cpurst_b;                            
-input           forever_cpuclk;                      
-input   [38:0]  had_ifu_pc;                          
-input           had_ifu_pcload;                      
-input           ibctrl_pcgen_ip_stall;               
-input   [38:0]  ibctrl_pcgen_pc;                     
-input           ibctrl_pcgen_pcload;                 
-input           ibctrl_pcgen_pcload_vld;             
-input   [1 :0]  ibctrl_pcgen_way_pred;               
-input           ifctrl_pcgen_chgflw_no_stall_mask;   
-input           ifctrl_pcgen_chgflw_vld;             
-input           ifctrl_pcgen_ins_icache_inv_done;    
-input   [38:0]  ifctrl_pcgen_pcload_pc;              
-input           ifctrl_pcgen_reissue_pcload;         
-input           ifctrl_pcgen_stall;                  
-input           ifctrl_pcgen_stall_short;            
-input   [1 :0]  ifctrl_pcgen_way_pred;               
-input           ipctrl_pcgen_branch_mistaken;        
-input           ipctrl_pcgen_branch_taken;           
-input   [38:0]  ipctrl_pcgen_chgflw_pc;              
-input           ipctrl_pcgen_chgflw_pcload;          
-input   [1 :0]  ipctrl_pcgen_chgflw_way_pred;        
-input           ipctrl_pcgen_chk_err_reissue;        
-input           ipctrl_pcgen_h0_vld;                 
-input           ipctrl_pcgen_if_stall;               
-input           ipctrl_pcgen_inner_way0;             
-input           ipctrl_pcgen_inner_way1;             
-input   [1 :0]  ipctrl_pcgen_inner_way_pred;         
-input   [38:0]  ipctrl_pcgen_reissue_pc;             
-input           ipctrl_pcgen_reissue_pcload;         
-input   [1 :0]  ipctrl_pcgen_reissue_way_pred;       
-input   [38:0]  ipctrl_pcgen_taken_pc;               
-input   [62:0]  iu_ifu_chgflw_pc;                    
-input           iu_ifu_chgflw_vld;                   
-input           lbuf_pcgen_active;                   
-input           lbuf_pcgen_vld_mask;                 
-input           pad_yy_icg_scan_en;                  
-input   [38:0]  rtu_ifu_chgflw_pc;                   
-input           rtu_ifu_chgflw_vld;                  
-input           rtu_ifu_xx_dbgon;                    
-input           rtu_ifu_xx_expt_vld;                 
-input   [38:0]  vector_pcgen_pc;                     
-input           vector_pcgen_pcload;                 
-input           vector_pcgen_reset_on;               
-output          ifu_mmu_abort;                       
-output  [62:0]  ifu_mmu_va;                          
-output          ifu_mmu_va_vld;                      
-output  [38:0]  ifu_rtu_cur_pc;                      
-output          ifu_rtu_cur_pc_load;                 
-output          pcgen_addrgen_cancel;                
-output          pcgen_bht_chgflw;                    
-output          pcgen_bht_chgflw_short;              
-output  [6 :0]  pcgen_bht_ifpc;                      
-output  [9 :0]  pcgen_bht_pcindex;                   
-output          pcgen_bht_seq_read;                  
-output          pcgen_btb_chgflw;                    
-output          pcgen_btb_chgflw_higher_than_addrgen; 
-output          pcgen_btb_chgflw_higher_than_if;     
-output          pcgen_btb_chgflw_higher_than_ip;     
-output          pcgen_btb_chgflw_short;              
-output  [9 :0]  pcgen_btb_index;                     
-output          pcgen_btb_stall;                     
-output          pcgen_btb_stall_short;               
-output          pcgen_debug_chgflw;                  
-output  [13:0]  pcgen_debug_pcbus;                   
-output          pcgen_ibctrl_bju_chgflw;             
-output          pcgen_ibctrl_cancel;                 
-output          pcgen_ibctrl_ibuf_flush;             
-output          pcgen_ibctrl_lbuf_flush;             
-output          pcgen_icache_if_chgflw;              
-output          pcgen_icache_if_chgflw_bank0;        
-output          pcgen_icache_if_chgflw_bank1;        
-output          pcgen_icache_if_chgflw_bank2;        
-output          pcgen_icache_if_chgflw_bank3;        
-output          pcgen_icache_if_chgflw_short;        
-output          pcgen_icache_if_gateclk_en;          
-output  [15:0]  pcgen_icache_if_index;               
-output          pcgen_icache_if_seq_data_req;        
-output          pcgen_icache_if_seq_data_req_short;  
-output          pcgen_icache_if_seq_tag_req;         
-output  [1 :0]  pcgen_icache_if_way_pred;            
-output          pcgen_ifctrl_cancel;                 
-output  [38:0]  pcgen_ifctrl_pc;                     
-output          pcgen_ifctrl_pipe_cancel;            
-output          pcgen_ifctrl_reissue;                
-output  [1 :0]  pcgen_ifctrl_way_pred;               
-output          pcgen_ifctrl_way_pred_stall;         
-output  [38:0]  pcgen_ifdp_inc_pc;                   
-output  [38:0]  pcgen_ifdp_pc;                       
-output  [1 :0]  pcgen_ifdp_way_pred;                 
-output          pcgen_ipb_chgflw;                    
-output          pcgen_ipctrl_cancel;                 
-output          pcgen_ipctrl_pipe_cancel;            
-output          pcgen_l0_btb_chgflw_mask;            
-output  [14:0]  pcgen_l0_btb_chgflw_pc;              
-output          pcgen_l0_btb_chgflw_vld;             
-output  [38:0]  pcgen_l0_btb_if_pc;                  
-output          pcgen_l1_refill_chgflw;              
-output  [16:0]  pcgen_sfp_pc;                        
+input   [38:0]  addrgen_pcgen_pc;
+input           addrgen_pcgen_pcload;
+input           cp0_ifu_icg_en;
+input           cp0_ifu_iwpe;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input   [38:0]  had_ifu_pc;
+input           had_ifu_pcload;
+input           ibctrl_pcgen_ip_stall;
+input   [38:0]  ibctrl_pcgen_pc;
+input           ibctrl_pcgen_pcload;
+input           ibctrl_pcgen_pcload_vld;
+input   [1 :0]  ibctrl_pcgen_way_pred;
+input           ifctrl_pcgen_chgflw_no_stall_mask;
+input           ifctrl_pcgen_chgflw_vld;
+input           ifctrl_pcgen_ins_icache_inv_done;
+input   [38:0]  ifctrl_pcgen_pcload_pc;
+input           ifctrl_pcgen_reissue_pcload;
+input           ifctrl_pcgen_stall;
+input           ifctrl_pcgen_stall_short;
+input   [1 :0]  ifctrl_pcgen_way_pred;
+input           ipctrl_pcgen_branch_mistaken;
+input           ipctrl_pcgen_branch_taken;
+input   [38:0]  ipctrl_pcgen_chgflw_pc;
+input           ipctrl_pcgen_chgflw_pcload;
+input   [1 :0]  ipctrl_pcgen_chgflw_way_pred;
+input           ipctrl_pcgen_chk_err_reissue;
+input           ipctrl_pcgen_h0_vld;
+input           ipctrl_pcgen_if_stall;
+input           ipctrl_pcgen_inner_way0;
+input           ipctrl_pcgen_inner_way1;
+input   [1 :0]  ipctrl_pcgen_inner_way_pred;
+input   [38:0]  ipctrl_pcgen_reissue_pc;
+input           ipctrl_pcgen_reissue_pcload;
+input   [1 :0]  ipctrl_pcgen_reissue_way_pred;
+input   [38:0]  ipctrl_pcgen_taken_pc;
+input   [62:0]  iu_ifu_chgflw_pc;
+input           iu_ifu_chgflw_vld;
+input           lbuf_pcgen_active;
+input           lbuf_pcgen_vld_mask;
+input           pad_yy_icg_scan_en;
+input   [38:0]  rtu_ifu_chgflw_pc;
+input           rtu_ifu_chgflw_vld;
+input           rtu_ifu_xx_dbgon;
+input           rtu_ifu_xx_expt_vld;
+input   [38:0]  vector_pcgen_pc;
+input           vector_pcgen_pcload;
+input           vector_pcgen_reset_on;
+output          ifu_mmu_abort;
+output  [62:0]  ifu_mmu_va;
+output          ifu_mmu_va_vld;
+output  [38:0]  ifu_rtu_cur_pc;
+output          ifu_rtu_cur_pc_load;
+output          pcgen_addrgen_cancel;
+output          pcgen_bht_chgflw;
+output          pcgen_bht_chgflw_short;
+output  [6 :0]  pcgen_bht_ifpc;
+output  [9 :0]  pcgen_bht_pcindex;
+output          pcgen_bht_seq_read;
+output          pcgen_btb_chgflw;
+output          pcgen_btb_chgflw_higher_than_addrgen;
+output          pcgen_btb_chgflw_higher_than_if;
+output          pcgen_btb_chgflw_higher_than_ip;
+output          pcgen_btb_chgflw_short;
+output  [9 :0]  pcgen_btb_index;
+output          pcgen_btb_stall;
+output          pcgen_btb_stall_short;
+output          pcgen_debug_chgflw;
+output  [13:0]  pcgen_debug_pcbus;
+output          pcgen_ibctrl_bju_chgflw;
+output          pcgen_ibctrl_cancel;
+output          pcgen_ibctrl_ibuf_flush;
+output          pcgen_ibctrl_lbuf_flush;
+output          pcgen_icache_if_chgflw;
+output          pcgen_icache_if_chgflw_bank0;
+output          pcgen_icache_if_chgflw_bank1;
+output          pcgen_icache_if_chgflw_bank2;
+output          pcgen_icache_if_chgflw_bank3;
+output          pcgen_icache_if_chgflw_short;
+output          pcgen_icache_if_gateclk_en;
+output  [15:0]  pcgen_icache_if_index;
+output          pcgen_icache_if_seq_data_req;
+output          pcgen_icache_if_seq_data_req_short;
+output          pcgen_icache_if_seq_tag_req;
+output  [1 :0]  pcgen_icache_if_way_pred;
+output          pcgen_ifctrl_cancel;
+output  [38:0]  pcgen_ifctrl_pc;
+output          pcgen_ifctrl_pipe_cancel;
+output          pcgen_ifctrl_reissue;
+output  [1 :0]  pcgen_ifctrl_way_pred;
+output          pcgen_ifctrl_way_pred_stall;
+output  [38:0]  pcgen_ifdp_inc_pc;
+output  [38:0]  pcgen_ifdp_pc;
+output  [1 :0]  pcgen_ifdp_way_pred;
+output          pcgen_ipb_chgflw;
+output          pcgen_ipctrl_cancel;
+output          pcgen_ipctrl_pipe_cancel;
+output          pcgen_l0_btb_chgflw_mask;
+output  [14:0]  pcgen_l0_btb_chgflw_pc;
+output          pcgen_l0_btb_chgflw_vld;
+output  [38:0]  pcgen_l0_btb_if_pc;
+output          pcgen_l1_refill_chgflw;
+output  [16:0]  pcgen_sfp_pc;
 
 // &Regs; @24
-reg     [1 :0]  chgflw_way_pred;                     
-reg     [1 :0]  chgflw_way_pred_flop;                
-reg             dbg_dly_reg;                         
-reg     [6 :0]  if_bht_pc;                           
-reg     [38:0]  if_pc;                               
-reg     [23:0]  if_pc_high_spe;                      
-reg             if_pc_high_spe_vld;                  
-reg             ifctrl_pcgen_stall_flop;             
-reg     [6 :0]  ifpc_bht_chgflw_pre;                 
-reg     [38:0]  ifpc_chgflw_pre;                     
-reg     [38:0]  ifu_rtu_cur_pc;                      
-reg             ifu_rtu_cur_pc_load;                 
-reg     [1 :0]  inner_way_pred;                      
-reg     [15:0]  pc_bus;                              
-reg             pcgen_chgflw_flop;                   
-reg             pcgen_ifctrl_way_pred_stall;         
-reg     [1 :0]  way_pred_flop;                       
-reg     [1 :0]  way_predict;                         
+reg     [1 :0]  chgflw_way_pred;
+reg     [1 :0]  chgflw_way_pred_flop;
+reg             dbg_dly_reg;
+reg     [6 :0]  if_bht_pc;
+reg     [38:0]  if_pc;
+reg     [23:0]  if_pc_high_spe;
+reg             if_pc_high_spe_vld;
+reg             ifctrl_pcgen_stall_flop;
+reg     [6 :0]  ifpc_bht_chgflw_pre;
+reg     [38:0]  ifpc_chgflw_pre;
+reg     [38:0]  ifu_rtu_cur_pc;
+reg             ifu_rtu_cur_pc_load;
+reg     [1 :0]  inner_way_pred;
+reg     [15:0]  pc_bus;
+reg             pcgen_chgflw_flop;
+reg             pcgen_ifctrl_way_pred_stall;
+reg     [1 :0]  way_pred_flop;
+reg     [1 :0]  way_predict;
 
 // &Wires; @25
-wire    [38:0]  addrgen_pcgen_pc;                    
-wire            addrgen_pcgen_pcload;                
-wire            chgflw_higher_than_btb;              
-wire            cp0_ifu_icg_en;                      
-wire            cp0_ifu_iwpe;                        
-wire            cp0_yy_clk_en;                       
-wire            cpurst_b;                            
-wire            dbg_cancel;                          
-wire            dbg_dly_clk;                         
-wire            dbg_dly_clk_en;                      
-wire            forever_cpuclk;                      
-wire    [38:0]  had_ifu_pc;                          
-wire            had_ifu_pcload;                      
-wire            ibctrl_pcgen_ip_stall;               
-wire    [38:0]  ibctrl_pcgen_pc;                     
-wire            ibctrl_pcgen_pcload;                 
-wire            ibctrl_pcgen_pcload_vld;             
-wire    [1 :0]  ibctrl_pcgen_way_pred;               
-wire            ifctrl_pcgen_chgflw_no_stall_mask;   
-wire            ifctrl_pcgen_chgflw_vld;             
-wire            ifctrl_pcgen_ins_icache_inv_done;    
-wire    [38:0]  ifctrl_pcgen_pcload_pc;              
-wire            ifctrl_pcgen_reissue_pcload;         
-wire            ifctrl_pcgen_stall;                  
-wire            ifctrl_pcgen_stall_short;            
-wire    [1 :0]  ifctrl_pcgen_way_pred;               
-wire            ifu_mmu_abort;                       
-wire    [62:0]  ifu_mmu_va;                          
-wire    [23:0]  ifu_mmu_va_high;                     
-wire            ifu_mmu_va_vld;                      
-wire    [38:0]  inc_pc;                              
-wire    [35:0]  inc_pc_hi;                           
-wire    [1 :0]  inner_way_pred_default;              
-wire            ipctrl_pcgen_branch_mistaken;        
-wire            ipctrl_pcgen_branch_taken;           
-wire    [38:0]  ipctrl_pcgen_chgflw_pc;              
-wire            ipctrl_pcgen_chgflw_pcload;          
-wire    [1 :0]  ipctrl_pcgen_chgflw_way_pred;        
-wire            ipctrl_pcgen_chk_err_reissue;        
-wire            ipctrl_pcgen_h0_vld;                 
-wire            ipctrl_pcgen_if_stall;               
-wire            ipctrl_pcgen_inner_way0;             
-wire            ipctrl_pcgen_inner_way1;             
-wire    [1 :0]  ipctrl_pcgen_inner_way_pred;         
-wire    [38:0]  ipctrl_pcgen_reissue_pc;             
-wire            ipctrl_pcgen_reissue_pcload;         
-wire    [1 :0]  ipctrl_pcgen_reissue_way_pred;       
-wire    [38:0]  ipctrl_pcgen_taken_pc;               
-wire    [62:0]  iu_ifu_chgflw_pc;                    
-wire            iu_ifu_chgflw_vld;                   
-wire            lbuf_pcgen_active;                   
-wire            lbuf_pcgen_vld_mask;                 
-wire            pad_yy_icg_scan_en;                  
-wire            pcgen_addrgen_cancel;                
-wire            pcgen_bht_chgflw;                    
-wire            pcgen_bht_chgflw_short;              
-wire    [6 :0]  pcgen_bht_ifpc;                      
-wire    [9 :0]  pcgen_bht_pcindex;                   
-wire            pcgen_bht_seq_read;                  
-wire            pcgen_btb_chgflw;                    
-wire            pcgen_btb_chgflw_higher_than_addrgen; 
-wire            pcgen_btb_chgflw_higher_than_if;     
-wire            pcgen_btb_chgflw_higher_than_ip;     
-wire            pcgen_btb_chgflw_short;              
-wire    [9 :0]  pcgen_btb_index;                     
-wire            pcgen_btb_stall;                     
-wire            pcgen_btb_stall_short;               
-wire            pcgen_chgflw;                        
-wire            pcgen_chgflw_higher_than_ib;         
-wire            pcgen_chgflw_short;                  
-wire            pcgen_chgflw_without_l0_btb;         
-wire            pcgen_debug_chgflw;                  
-wire    [13:0]  pcgen_debug_pcbus;                   
-wire            pcgen_ibctrl_bju_chgflw;             
-wire            pcgen_ibctrl_cancel;                 
-wire            pcgen_ibctrl_ibuf_flush;             
-wire            pcgen_ibctrl_lbuf_flush;             
-wire            pcgen_icache_if_chgflw;              
-wire            pcgen_icache_if_chgflw_bank0;        
-wire            pcgen_icache_if_chgflw_bank1;        
-wire            pcgen_icache_if_chgflw_bank2;        
-wire            pcgen_icache_if_chgflw_bank3;        
-wire            pcgen_icache_if_chgflw_short;        
-wire            pcgen_icache_if_gateclk_en;          
-wire    [15:0]  pcgen_icache_if_index;               
-wire            pcgen_icache_if_seq_data_req;        
-wire            pcgen_icache_if_seq_data_req_short;  
-wire            pcgen_icache_if_seq_tag_req;         
-wire    [1 :0]  pcgen_icache_if_way_pred;            
-wire            pcgen_ifctrl_cancel;                 
-wire    [38:0]  pcgen_ifctrl_pc;                     
-wire            pcgen_ifctrl_pipe_cancel;            
-wire            pcgen_ifctrl_reissue;                
-wire    [1 :0]  pcgen_ifctrl_way_pred;               
-wire    [38:0]  pcgen_ifdp_inc_pc;                   
-wire    [38:0]  pcgen_ifdp_pc;                       
-wire    [1 :0]  pcgen_ifdp_way_pred;                 
-wire            pcgen_ipb_chgflw;                    
-wire            pcgen_ipctrl_cancel;                 
-wire            pcgen_ipctrl_pipe_cancel;            
-wire            pcgen_l0_btb_chgflw_mask;            
-wire    [14:0]  pcgen_l0_btb_chgflw_pc;              
-wire            pcgen_l0_btb_chgflw_vld;             
-wire    [38:0]  pcgen_l0_btb_if_pc;                  
-wire            pcgen_l1_refill_chgflw;              
-wire    [16:0]  pcgen_sfp_pc;                        
-wire    [38:0]  rtu_cur_pc;                          
-wire            rtu_cur_pc_load;                     
-wire    [38:0]  rtu_ifu_chgflw_pc;                   
-wire            rtu_ifu_chgflw_vld;                  
-wire            rtu_ifu_xx_dbgon;                    
-wire            rtu_ifu_xx_expt_vld;                 
-wire            rtu_pcload_clk;                      
-wire            rtu_pcload_clk_en;                   
-wire    [38:0]  vector_pcgen_pc;                     
-wire            vector_pcgen_pcload;                 
-wire            vector_pcgen_reset_on;               
+wire    [38:0]  addrgen_pcgen_pc;
+wire            addrgen_pcgen_pcload;
+wire            chgflw_higher_than_btb;
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_iwpe;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            dbg_cancel;
+wire            dbg_dly_clk;
+wire            dbg_dly_clk_en;
+wire            forever_cpuclk;
+wire    [38:0]  had_ifu_pc;
+wire            had_ifu_pcload;
+wire            ibctrl_pcgen_ip_stall;
+wire    [38:0]  ibctrl_pcgen_pc;
+wire            ibctrl_pcgen_pcload;
+wire            ibctrl_pcgen_pcload_vld;
+wire    [1 :0]  ibctrl_pcgen_way_pred;
+wire            ifctrl_pcgen_chgflw_no_stall_mask;
+wire            ifctrl_pcgen_chgflw_vld;
+wire            ifctrl_pcgen_ins_icache_inv_done;
+wire    [38:0]  ifctrl_pcgen_pcload_pc;
+wire            ifctrl_pcgen_reissue_pcload;
+wire            ifctrl_pcgen_stall;
+wire            ifctrl_pcgen_stall_short;
+wire    [1 :0]  ifctrl_pcgen_way_pred;
+wire            ifu_mmu_abort;
+wire    [62:0]  ifu_mmu_va;
+wire    [23:0]  ifu_mmu_va_high;
+wire            ifu_mmu_va_vld;
+wire    [38:0]  inc_pc;
+wire    [35:0]  inc_pc_hi;
+wire    [1 :0]  inner_way_pred_default;
+wire            ipctrl_pcgen_branch_mistaken;
+wire            ipctrl_pcgen_branch_taken;
+wire    [38:0]  ipctrl_pcgen_chgflw_pc;
+wire            ipctrl_pcgen_chgflw_pcload;
+wire    [1 :0]  ipctrl_pcgen_chgflw_way_pred;
+wire            ipctrl_pcgen_chk_err_reissue;
+wire            ipctrl_pcgen_h0_vld;
+wire            ipctrl_pcgen_if_stall;
+wire            ipctrl_pcgen_inner_way0;
+wire            ipctrl_pcgen_inner_way1;
+wire    [1 :0]  ipctrl_pcgen_inner_way_pred;
+wire    [38:0]  ipctrl_pcgen_reissue_pc;
+wire            ipctrl_pcgen_reissue_pcload;
+wire    [1 :0]  ipctrl_pcgen_reissue_way_pred;
+wire    [38:0]  ipctrl_pcgen_taken_pc;
+wire    [62:0]  iu_ifu_chgflw_pc;
+wire            iu_ifu_chgflw_vld;
+wire            lbuf_pcgen_active;
+wire            lbuf_pcgen_vld_mask;
+wire            pad_yy_icg_scan_en;
+wire            pcgen_addrgen_cancel;
+wire            pcgen_bht_chgflw;
+wire            pcgen_bht_chgflw_short;
+wire    [6 :0]  pcgen_bht_ifpc;
+wire    [9 :0]  pcgen_bht_pcindex;
+wire            pcgen_bht_seq_read;
+wire            pcgen_btb_chgflw;
+wire            pcgen_btb_chgflw_higher_than_addrgen;
+wire            pcgen_btb_chgflw_higher_than_if;
+wire            pcgen_btb_chgflw_higher_than_ip;
+wire            pcgen_btb_chgflw_short;
+wire    [9 :0]  pcgen_btb_index;
+wire            pcgen_btb_stall;
+wire            pcgen_btb_stall_short;
+wire            pcgen_chgflw;
+wire            pcgen_chgflw_higher_than_ib;
+wire            pcgen_chgflw_short;
+wire            pcgen_chgflw_without_l0_btb;
+wire            pcgen_debug_chgflw;
+wire    [13:0]  pcgen_debug_pcbus;
+wire            pcgen_ibctrl_bju_chgflw;
+wire            pcgen_ibctrl_cancel;
+wire            pcgen_ibctrl_ibuf_flush;
+wire            pcgen_ibctrl_lbuf_flush;
+wire            pcgen_icache_if_chgflw;
+wire            pcgen_icache_if_chgflw_bank0;
+wire            pcgen_icache_if_chgflw_bank1;
+wire            pcgen_icache_if_chgflw_bank2;
+wire            pcgen_icache_if_chgflw_bank3;
+wire            pcgen_icache_if_chgflw_short;
+wire            pcgen_icache_if_gateclk_en;
+wire    [15:0]  pcgen_icache_if_index;
+wire            pcgen_icache_if_seq_data_req;
+wire            pcgen_icache_if_seq_data_req_short;
+wire            pcgen_icache_if_seq_tag_req;
+wire    [1 :0]  pcgen_icache_if_way_pred;
+wire            pcgen_ifctrl_cancel;
+wire    [38:0]  pcgen_ifctrl_pc;
+wire            pcgen_ifctrl_pipe_cancel;
+wire            pcgen_ifctrl_reissue;
+wire    [1 :0]  pcgen_ifctrl_way_pred;
+wire    [38:0]  pcgen_ifdp_inc_pc;
+wire    [38:0]  pcgen_ifdp_pc;
+wire    [1 :0]  pcgen_ifdp_way_pred;
+wire            pcgen_ipb_chgflw;
+wire            pcgen_ipctrl_cancel;
+wire            pcgen_ipctrl_pipe_cancel;
+wire            pcgen_l0_btb_chgflw_mask;
+wire    [14:0]  pcgen_l0_btb_chgflw_pc;
+wire            pcgen_l0_btb_chgflw_vld;
+wire    [38:0]  pcgen_l0_btb_if_pc;
+wire            pcgen_l1_refill_chgflw;
+wire    [16:0]  pcgen_sfp_pc;
+wire    [38:0]  rtu_cur_pc;
+wire            rtu_cur_pc_load;
+wire    [38:0]  rtu_ifu_chgflw_pc;
+wire            rtu_ifu_chgflw_vld;
+wire            rtu_ifu_xx_dbgon;
+wire            rtu_ifu_xx_expt_vld;
+wire            rtu_pcload_clk;
+wire            rtu_pcload_clk_en;
+wire    [38:0]  vector_pcgen_pc;
+wire            vector_pcgen_pcload;
+wire            vector_pcgen_reset_on;
 
 
 parameter PC_WIDTH = 40;
@@ -459,14 +459,14 @@ else
 // &CombEnd; @81
 end
 
-assign pcgen_ifctrl_reissue = had_ifu_pcload || 
-                              vector_pcgen_pcload || 
+assign pcgen_ifctrl_reissue = had_ifu_pcload ||
+                              vector_pcgen_pcload ||
                               rtu_ifu_chgflw_vld;
 
 //-------------------inc_pc[PC_WIDTH-2:0]---------------------------
 assign inc_pc_hi[35:0]      = {if_pc[PC_WIDTH-2:3]} + {35'b0, !ifctrl_pcgen_reissue_pcload};
 assign inc_pc[PC_WIDTH-2:0] = {
-                                inc_pc_hi[35:0], 
+                                inc_pc_hi[35:0],
                                 {3{ifctrl_pcgen_reissue_pcload}} & if_pc[2:0]
                               };
 assign pcgen_ifdp_inc_pc[PC_WIDTH-2:0] = inc_pc[PC_WIDTH-2:0];
@@ -493,18 +493,18 @@ begin
     if_pc[PC_WIDTH-2:0] <= if_pc[PC_WIDTH-2:0]; //Stall IF PC
 end
 
-//pc high is only for mmu 
+//pc high is only for mmu
 //when iu chgflw ,we should update pc high,
 //when inc pc,we should update pc high
-//only these two situation will cause bit[63:39] different 
+//only these two situation will cause bit[63:39] different
 //from bit[38]
 always @(posedge forever_cpuclk or negedge cpurst_b)
-begin 
+begin
   if(!cpurst_b) begin
     if_pc_high_spe[23:0] <= 24'b0;
     if_pc_high_spe_vld   <= 1'b0;
   end
-//  else if(had_ifu_pcload || vector_pcgen_pcload 
+//  else if(had_ifu_pcload || vector_pcgen_pcload
 //       || rtu_ifu_chgflw_vld  || vector_pcgen_vpn_valid) begin
   else if(had_ifu_pcload || vector_pcgen_pcload || rtu_ifu_chgflw_vld) begin
     if_pc_high_spe[23:0] <= 24'b0;
@@ -578,7 +578,7 @@ else if(addrgen_pcgen_pcload)
 else if(ibctrl_pcgen_pcload)
   ifpc_bht_chgflw_pre[6:0] = ibctrl_pcgen_pc[6:0];
 else if(ipctrl_pcgen_reissue_pcload && ipctrl_pcgen_h0_vld)
-  ifpc_bht_chgflw_pre[6:0] = {{ipctrl_pcgen_reissue_pc[6:3] -4'b1}, 
+  ifpc_bht_chgflw_pre[6:0] = {{ipctrl_pcgen_reissue_pc[6:3] -4'b1},
                                ipctrl_pcgen_reissue_pc[2:0]};
 else if(ipctrl_pcgen_reissue_pcload && !ipctrl_pcgen_h0_vld)
   ifpc_bht_chgflw_pre[6:0] = ipctrl_pcgen_reissue_pc[6:0];
@@ -596,7 +596,7 @@ assign pcgen_ifdp_pc[PC_WIDTH-2:0]   = if_pc[PC_WIDTH-2:0];
 assign pcgen_sfp_pc[16:0]            = if_pc[19:3];
 
 //-------------------pcgen_chgflw---------------------------
-assign pcgen_chgflw = had_ifu_pcload || 
+assign pcgen_chgflw = had_ifu_pcload ||
                       vector_pcgen_pcload ||
                       rtu_ifu_chgflw_vld ||
                       iu_ifu_chgflw_vld ||
@@ -606,8 +606,8 @@ assign pcgen_chgflw = had_ifu_pcload ||
                       ipctrl_pcgen_reissue_pcload ||
                       ifctrl_pcgen_reissue_pcload ||
                       ifctrl_pcgen_chgflw_vld;
-                  
-assign pcgen_chgflw_without_l0_btb = had_ifu_pcload || 
+
+assign pcgen_chgflw_without_l0_btb = had_ifu_pcload ||
                                      vector_pcgen_pcload ||
                                      rtu_ifu_chgflw_vld ||
                                      iu_ifu_chgflw_vld ||
@@ -640,12 +640,12 @@ always @( cp0_ifu_iwpe
        or inc_pc[4:3]
        or chgflw_way_pred_flop[1:0])
 begin
-if(!cp0_ifu_iwpe)//not enable way_pred 
+if(!cp0_ifu_iwpe)//not enable way_pred
   way_predict[1:0] = 2'b11;
 else if(pcgen_chgflw)
   way_predict[1:0] = chgflw_way_pred[1:0];
 else if(ifctrl_pcgen_stall|| ifctrl_pcgen_stall_flop)
-  way_predict[1:0] = way_pred_flop[1:0]; 
+  way_predict[1:0] = way_pred_flop[1:0];
 else if(pcgen_chgflw_flop && !(inc_pc[4:3] == 2'b00))
   way_predict[1:0] = chgflw_way_pred_flop[1:0];
 else
@@ -698,7 +698,7 @@ else
 end
 
 //-------------pcgen_chgflw_higher_than_ib------------------
-assign pcgen_chgflw_higher_than_ib = had_ifu_pcload || 
+assign pcgen_chgflw_higher_than_ib = had_ifu_pcload ||
                                      vector_pcgen_pcload ||
                                      rtu_ifu_chgflw_vld ||
                                      iu_ifu_chgflw_vld ||
@@ -730,7 +730,7 @@ begin
     chgflw_way_pred_flop[1:0] <= 2'b11;
   end
 end
-  
+
 //==========================================================
 //            Way_Predict of Inner Line
 //==========================================================
@@ -767,19 +767,19 @@ end
 //==========================================================
 //-----------------------IF Cancel--------------------------
 assign pcgen_ifctrl_cancel = pcgen_chgflw_without_l0_btb ||
-                             rtu_ifu_xx_expt_vld || 
+                             rtu_ifu_xx_expt_vld ||
                              dbg_cancel;
 // &Force("output","pcgen_ifctrl_cancel"); @362
-//Pipe_cancel is used for forming if_ip_vld, 
+//Pipe_cancel is used for forming if_ip_vld,
 //whose Priority is Higher than ip_if_stall
-//Deal with the condition IP Chgflw Valid, 
+//Deal with the condition IP Chgflw Valid,
 //While IP need if_ip pipe reg stall
 //lbuf_chgflw is formed by flop
 //When before flop, lbuf cancel pipe line before
-assign pcgen_ifctrl_pipe_cancel = pcgen_ipctrl_cancel || 
+assign pcgen_ifctrl_pipe_cancel = pcgen_ipctrl_cancel ||
                                   lbuf_pcgen_vld_mask ||
-                                  ipctrl_pcgen_chk_err_reissue || 
-                                  ipctrl_pcgen_chgflw_pcload && 
+                                  ipctrl_pcgen_chk_err_reissue ||
+                                  ipctrl_pcgen_chgflw_pcload &&
                                   !ipctrl_pcgen_if_stall;
 
 always @(posedge forever_cpuclk or negedge cpurst_b)
@@ -791,59 +791,59 @@ begin
 end
 assign pcgen_ifctrl_way_pred[1:0] = way_pred_flop[1:0];
 assign pcgen_ifdp_way_pred[1:0]   = way_pred_flop[1:0];
-    
+
 //-----------------------IP Cancel--------------------------
-assign pcgen_ipctrl_cancel      = had_ifu_pcload || 
-                                  vector_pcgen_pcload ||
-                                  rtu_ifu_chgflw_vld ||
-                                  iu_ifu_chgflw_vld ||
-                                  addrgen_pcgen_pcload || 
-                                  ibctrl_pcgen_pcload ||
-                                  rtu_ifu_xx_expt_vld || 
-                                  dbg_cancel;
-// &Force("output","pcgen_ipctrl_cancel"); @394
-assign pcgen_ipctrl_pipe_cancel = had_ifu_pcload || 
+assign pcgen_ipctrl_cancel      = had_ifu_pcload ||
                                   vector_pcgen_pcload ||
                                   rtu_ifu_chgflw_vld ||
                                   iu_ifu_chgflw_vld ||
                                   addrgen_pcgen_pcload ||
-                                  rtu_ifu_xx_expt_vld || 
-                                  dbg_cancel || 
-                                  lbuf_pcgen_vld_mask || 
-                                  ibctrl_pcgen_pcload && 
-                                  !ibctrl_pcgen_ip_stall;
-
-//-----------------------IB Cancel--------------------------
-assign pcgen_ibctrl_cancel      = had_ifu_pcload || 
+                                  ibctrl_pcgen_pcload ||
+                                  rtu_ifu_xx_expt_vld ||
+                                  dbg_cancel;
+// &Force("output","pcgen_ipctrl_cancel"); @394
+assign pcgen_ipctrl_pipe_cancel = had_ifu_pcload ||
                                   vector_pcgen_pcload ||
                                   rtu_ifu_chgflw_vld ||
                                   iu_ifu_chgflw_vld ||
-                                  rtu_ifu_xx_expt_vld || 
+                                  addrgen_pcgen_pcload ||
+                                  rtu_ifu_xx_expt_vld ||
+                                  dbg_cancel ||
+                                  lbuf_pcgen_vld_mask ||
+                                  ibctrl_pcgen_pcload &&
+                                  !ibctrl_pcgen_ip_stall;
+
+//-----------------------IB Cancel--------------------------
+assign pcgen_ibctrl_cancel      = had_ifu_pcload ||
+                                  vector_pcgen_pcload ||
+                                  rtu_ifu_chgflw_vld ||
+                                  iu_ifu_chgflw_vld ||
+                                  rtu_ifu_xx_expt_vld ||
                                   dbg_cancel;
 // &Force("output","pcgen_ibctrl_cancel"); @413
 //IDU will deal with the condition of iu_chgflw
 //vec_pcload will not pipe inst down
 
 //-------------------Addrgen Cancel-------------------------
-assign pcgen_addrgen_cancel     = had_ifu_pcload || 
+assign pcgen_addrgen_cancel     = had_ifu_pcload ||
                                   vector_pcgen_pcload ||
                                   rtu_ifu_chgflw_vld ||
                                   iu_ifu_chgflw_vld  ||
-                                  addrgen_pcgen_pcload; 
+                                  addrgen_pcgen_pcload;
 //When multi_core icache ins inv done
 //Lbuf should be flushed
 assign pcgen_ibctrl_bju_chgflw  = iu_ifu_chgflw_vld;
-assign pcgen_ibctrl_lbuf_flush  = had_ifu_pcload || 
-                                  vector_pcgen_pcload || 
-                                  ifctrl_pcgen_ins_icache_inv_done && !lbuf_pcgen_active || 
+assign pcgen_ibctrl_lbuf_flush  = had_ifu_pcload ||
+                                  vector_pcgen_pcload ||
+                                  ifctrl_pcgen_ins_icache_inv_done && !lbuf_pcgen_active ||
                                   rtu_ifu_chgflw_vld ||
-                                  rtu_ifu_xx_expt_vld || 
+                                  rtu_ifu_xx_expt_vld ||
                                   dbg_cancel;
-assign pcgen_ibctrl_ibuf_flush  = had_ifu_pcload || 
+assign pcgen_ibctrl_ibuf_flush  = had_ifu_pcload ||
                                   vector_pcgen_pcload ||
                                   rtu_ifu_chgflw_vld ||
                                   iu_ifu_chgflw_vld ||
-                                  rtu_ifu_xx_expt_vld || 
+                                  rtu_ifu_xx_expt_vld ||
                                   dbg_cancel;
 
 // &Instance("gated_clk_cell","x_dbg_dly_clk"); @441
@@ -873,7 +873,7 @@ begin
   else
     dbg_dly_reg <= rtu_ifu_xx_dbgon;
 end
-assign dbg_cancel = !dbg_dly_reg && rtu_ifu_xx_dbgon;                               
+assign dbg_cancel = !dbg_dly_reg && rtu_ifu_xx_dbgon;
 
 //==========================================================
 //                  Interface with MMU
@@ -891,10 +891,10 @@ assign ifu_mmu_va_vld = 1'b1;
 //==========================================================
 //                  Interface with RTU
 //==========================================================
-assign rtu_cur_pc_load  = had_ifu_pcload || 
+assign rtu_cur_pc_load  = had_ifu_pcload ||
                           vector_pcgen_pcload;
 assign rtu_cur_pc[PC_WIDTH-2:0] = had_ifu_pcload
-                                ? had_ifu_pc[PC_WIDTH-2:0] 
+                                ? had_ifu_pc[PC_WIDTH-2:0]
                                 : vector_pcgen_pc[PC_WIDTH-2:0];
 //Gate Clk
 // &Instance("gated_clk_cell","x_rtu_pcload_clk"); @482
@@ -915,7 +915,7 @@ gated_clk_cell  x_rtu_pcload_clk (
 //           .local_en       (rtu_pcload_clk_en),//Local Condition @487
 //           .module_en      (cp0_ifu_icg_en) @488
 //         ); @489
-assign rtu_pcload_clk_en = rtu_cur_pc_load || 
+assign rtu_pcload_clk_en = rtu_cur_pc_load ||
                            ifu_rtu_cur_pc_load;
 
 //ifu_rtu pc load flop to gurantee rtu timing
@@ -950,25 +950,25 @@ assign pcgen_btb_stall        = ifctrl_pcgen_stall;
 assign pcgen_btb_stall_short  = ifctrl_pcgen_stall_short;
 assign pcgen_btb_chgflw       = pcgen_chgflw;
 assign pcgen_btb_chgflw_short = pcgen_chgflw_short;
-assign pcgen_btb_chgflw_higher_than_if      = had_ifu_pcload || 
-                                              vector_pcgen_pcload || 
-                                              rtu_ifu_chgflw_vld || 
-                                              iu_ifu_chgflw_vld || 
-                                              addrgen_pcgen_pcload || 
+assign pcgen_btb_chgflw_higher_than_if      = had_ifu_pcload ||
+                                              vector_pcgen_pcload ||
+                                              rtu_ifu_chgflw_vld ||
+                                              iu_ifu_chgflw_vld ||
+                                              addrgen_pcgen_pcload ||
                                               ibctrl_pcgen_pcload  ||
                                               ipctrl_pcgen_chgflw_pcload ||
                                               ipctrl_pcgen_reissue_pcload ||
                                               ifctrl_pcgen_reissue_pcload;
 
-assign pcgen_btb_chgflw_higher_than_ip      = had_ifu_pcload || 
-                                              vector_pcgen_pcload || 
-                                              rtu_ifu_chgflw_vld || 
-                                              iu_ifu_chgflw_vld || 
-                                              addrgen_pcgen_pcload || 
+assign pcgen_btb_chgflw_higher_than_ip      = had_ifu_pcload ||
+                                              vector_pcgen_pcload ||
+                                              rtu_ifu_chgflw_vld ||
+                                              iu_ifu_chgflw_vld ||
+                                              addrgen_pcgen_pcload ||
                                               ibctrl_pcgen_pcload;
-assign pcgen_btb_chgflw_higher_than_addrgen = had_ifu_pcload || 
-                                              vector_pcgen_pcload || 
-                                              rtu_ifu_chgflw_vld || 
+assign pcgen_btb_chgflw_higher_than_addrgen = had_ifu_pcload ||
+                                              vector_pcgen_pcload ||
+                                              rtu_ifu_chgflw_vld ||
                                               iu_ifu_chgflw_vld;
 //==========================================================
 //                  Interface with L0 BTB
@@ -1041,9 +1041,9 @@ assign pcgen_icache_if_chgflw        = pcgen_chgflw;
 assign pcgen_icache_if_chgflw_short  = pcgen_chgflw_short;
 assign pcgen_icache_if_seq_data_req  = !ifctrl_pcgen_stall;
 assign pcgen_icache_if_seq_data_req_short = !ifctrl_pcgen_stall_short;
-assign pcgen_icache_if_seq_tag_req   = !ifctrl_pcgen_stall && 
-                                       (pc_bus[4:3] == 2'b00);                                 
-assign pcgen_icache_if_gateclk_en    = pcgen_chgflw_short || 
+assign pcgen_icache_if_seq_tag_req   = !ifctrl_pcgen_stall &&
+                                       (pc_bus[4:3] == 2'b00);
+assign pcgen_icache_if_gateclk_en    = pcgen_chgflw_short ||
                                        !ifctrl_pcgen_stall_short;
 assign pcgen_icache_if_way_pred[1:0] = way_predict[1:0];
 assign pcgen_icache_if_index[15:0]   = pc_bus[15:0];
@@ -1052,8 +1052,8 @@ assign pcgen_l1_refill_chgflw        = pcgen_chgflw;
 assign pcgen_ipb_chgflw              = pcgen_chgflw;
 //ICACHE BANK USE
 assign chgflw_higher_than_btb        = iu_ifu_chgflw_vld    ||
-                                       addrgen_pcgen_pcload || 
-                                       ibctrl_pcgen_pcload; 
+                                       addrgen_pcgen_pcload ||
+                                       ibctrl_pcgen_pcload;
 assign pcgen_icache_if_chgflw_bank0  = ipctrl_pcgen_branch_taken && !chgflw_higher_than_btb
                                      ? (ipctrl_pcgen_taken_pc[2:1] == 2'b00)
                                      : pcgen_chgflw;
@@ -1063,7 +1063,7 @@ assign pcgen_icache_if_chgflw_bank1  = ipctrl_pcgen_branch_taken && !chgflw_high
 assign pcgen_icache_if_chgflw_bank2  = ipctrl_pcgen_branch_taken && !chgflw_higher_than_btb
                                      ? !(ipctrl_pcgen_taken_pc[2:1] == 2'b11)
                                      : pcgen_chgflw;
-assign pcgen_icache_if_chgflw_bank3  = pcgen_chgflw;                                     
+assign pcgen_icache_if_chgflw_bank3  = pcgen_chgflw;
 
 
 //Debug infor

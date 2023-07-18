@@ -54,110 +54,110 @@ module ct_ifu_addrgen(
 );
 
 // &Ports; @23
-input           cp0_ifu_icg_en;               
-input           cp0_yy_clk_en;                
-input           cpurst_b;                     
-input           forever_cpuclk;               
-input   [38:0]  ibdp_addrgen_branch_base;     
-input   [20:0]  ibdp_addrgen_branch_offset;   
-input   [38:0]  ibdp_addrgen_branch_result;   
-input           ibdp_addrgen_branch_valid;    
-input   [7 :0]  ibdp_addrgen_branch_vl;       
-input   [1 :0]  ibdp_addrgen_branch_vlmul;    
-input   [2 :0]  ibdp_addrgen_branch_vsew;     
-input   [38:0]  ibdp_addrgen_btb_index_pc;    
-input           ibdp_addrgen_l0_btb_hit;      
-input   [15:0]  ibdp_addrgen_l0_btb_hit_entry; 
-input           lbuf_addrgen_active_state;    
-input           lbuf_addrgen_cache_state;     
-input           lbuf_addrgen_chgflw_mask;     
-input           pad_yy_icg_scan_en;           
-input           pcgen_addrgen_cancel;         
-output  [9 :0]  addrgen_btb_index;            
-output  [9 :0]  addrgen_btb_tag;              
-output  [19:0]  addrgen_btb_target_pc;        
-output          addrgen_btb_update_vld;       
-output          addrgen_ibctrl_cancel;        
-output  [7 :0]  addrgen_ipdp_chgflw_vl;       
-output  [1 :0]  addrgen_ipdp_chgflw_vlmul;    
-output  [2 :0]  addrgen_ipdp_chgflw_vsew;     
-output  [15:0]  addrgen_l0_btb_update_entry;  
-output          addrgen_l0_btb_update_vld;    
-output          addrgen_l0_btb_update_vld_bit; 
-output  [3 :0]  addrgen_l0_btb_wen;           
-output  [38:0]  addrgen_pcgen_pc;             
-output          addrgen_pcgen_pcload;         
-output          addrgen_xx_pcload;            
-output          ifu_hpcp_btb_inst;            
-output          ifu_hpcp_btb_mispred;         
+input           cp0_ifu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input   [38:0]  ibdp_addrgen_branch_base;
+input   [20:0]  ibdp_addrgen_branch_offset;
+input   [38:0]  ibdp_addrgen_branch_result;
+input           ibdp_addrgen_branch_valid;
+input   [7 :0]  ibdp_addrgen_branch_vl;
+input   [1 :0]  ibdp_addrgen_branch_vlmul;
+input   [2 :0]  ibdp_addrgen_branch_vsew;
+input   [38:0]  ibdp_addrgen_btb_index_pc;
+input           ibdp_addrgen_l0_btb_hit;
+input   [15:0]  ibdp_addrgen_l0_btb_hit_entry;
+input           lbuf_addrgen_active_state;
+input           lbuf_addrgen_cache_state;
+input           lbuf_addrgen_chgflw_mask;
+input           pad_yy_icg_scan_en;
+input           pcgen_addrgen_cancel;
+output  [9 :0]  addrgen_btb_index;
+output  [9 :0]  addrgen_btb_tag;
+output  [19:0]  addrgen_btb_target_pc;
+output          addrgen_btb_update_vld;
+output          addrgen_ibctrl_cancel;
+output  [7 :0]  addrgen_ipdp_chgflw_vl;
+output  [1 :0]  addrgen_ipdp_chgflw_vlmul;
+output  [2 :0]  addrgen_ipdp_chgflw_vsew;
+output  [15:0]  addrgen_l0_btb_update_entry;
+output          addrgen_l0_btb_update_vld;
+output          addrgen_l0_btb_update_vld_bit;
+output  [3 :0]  addrgen_l0_btb_wen;
+output  [38:0]  addrgen_pcgen_pc;
+output          addrgen_pcgen_pcload;
+output          addrgen_xx_pcload;
+output          ifu_hpcp_btb_inst;
+output          ifu_hpcp_btb_mispred;
 
 // &Regs; @24
-reg     [9 :0]  addrgen_branch_index;         
-reg     [9 :0]  addrgen_branch_tag;           
-reg     [7 :0]  addrgen_branch_vl;            
-reg     [1 :0]  addrgen_branch_vlmul;         
-reg     [2 :0]  addrgen_branch_vsew;          
-reg             addrgen_btb_mispred;          
-reg     [38:0]  addrgen_cal_result_flop;      
-reg             addrgen_l0_btb_hit;           
-reg     [15:0]  addrgen_l0_btb_hit_entry;     
-reg             addrgen_vld;                  
+reg     [9 :0]  addrgen_branch_index;
+reg     [9 :0]  addrgen_branch_tag;
+reg     [7 :0]  addrgen_branch_vl;
+reg     [1 :0]  addrgen_branch_vlmul;
+reg     [2 :0]  addrgen_branch_vsew;
+reg             addrgen_btb_mispred;
+reg     [38:0]  addrgen_cal_result_flop;
+reg             addrgen_l0_btb_hit;
+reg     [15:0]  addrgen_l0_btb_hit_entry;
+reg             addrgen_vld;
 
 // &Wires; @25
-wire    [9 :0]  addrgen_btb_index;            
-wire    [9 :0]  addrgen_btb_tag;              
-wire    [19:0]  addrgen_btb_target_pc;        
-wire            addrgen_btb_update_vld;       
-wire            addrgen_flop_clk;             
-wire            addrgen_flop_clk_en;          
-wire            addrgen_ibctrl_cancel;        
-wire    [7 :0]  addrgen_ipdp_chgflw_vl;       
-wire    [1 :0]  addrgen_ipdp_chgflw_vlmul;    
-wire    [2 :0]  addrgen_ipdp_chgflw_vsew;     
-wire    [15:0]  addrgen_l0_btb_update_entry;  
-wire            addrgen_l0_btb_update_vld;    
-wire            addrgen_l0_btb_update_vld_bit; 
-wire    [3 :0]  addrgen_l0_btb_wen;           
-wire    [38:0]  addrgen_pcgen_pc;             
-wire            addrgen_pcgen_pcload;         
-wire            addrgen_xx_pcload;            
-wire    [38:0]  branch_base;                  
-wire    [38:0]  branch_cal_result;            
-wire    [9 :0]  branch_index;                 
-wire            branch_mispred;               
-wire    [38:0]  branch_offset;                
-wire    [38:0]  branch_pred_result;           
-wire    [9 :0]  branch_tag;                   
-wire    [7 :0]  branch_vl;                    
-wire            branch_vld;                   
-wire            branch_vld_for_gateclk;       
-wire    [1 :0]  branch_vlmul;                 
-wire    [2 :0]  branch_vsew;                  
-wire            cp0_ifu_icg_en;               
-wire            cp0_yy_clk_en;                
-wire            cpurst_b;                     
-wire            forever_cpuclk;               
-wire    [38:0]  ibdp_addrgen_branch_base;     
-wire    [20:0]  ibdp_addrgen_branch_offset;   
-wire    [38:0]  ibdp_addrgen_branch_result;   
-wire            ibdp_addrgen_branch_valid;    
-wire    [7 :0]  ibdp_addrgen_branch_vl;       
-wire    [1 :0]  ibdp_addrgen_branch_vlmul;    
-wire    [2 :0]  ibdp_addrgen_branch_vsew;     
-wire    [38:0]  ibdp_addrgen_btb_index_pc;    
-wire            ibdp_addrgen_l0_btb_hit;      
-wire    [15:0]  ibdp_addrgen_l0_btb_hit_entry; 
-wire            ifu_hpcp_btb_inst;            
-wire            ifu_hpcp_btb_mispred;         
-wire            l0_btb_hit;                   
-wire    [15:0]  l0_btb_hit_entry;             
-wire            l0_btb_update_vld;            
-wire    [3 :0]  l0_btb_wen;                   
-wire            lbuf_addrgen_active_state;    
-wire            lbuf_addrgen_cache_state;     
-wire            lbuf_addrgen_chgflw_mask;     
-wire            pad_yy_icg_scan_en;           
-wire            pcgen_addrgen_cancel;         
+wire    [9 :0]  addrgen_btb_index;
+wire    [9 :0]  addrgen_btb_tag;
+wire    [19:0]  addrgen_btb_target_pc;
+wire            addrgen_btb_update_vld;
+wire            addrgen_flop_clk;
+wire            addrgen_flop_clk_en;
+wire            addrgen_ibctrl_cancel;
+wire    [7 :0]  addrgen_ipdp_chgflw_vl;
+wire    [1 :0]  addrgen_ipdp_chgflw_vlmul;
+wire    [2 :0]  addrgen_ipdp_chgflw_vsew;
+wire    [15:0]  addrgen_l0_btb_update_entry;
+wire            addrgen_l0_btb_update_vld;
+wire            addrgen_l0_btb_update_vld_bit;
+wire    [3 :0]  addrgen_l0_btb_wen;
+wire    [38:0]  addrgen_pcgen_pc;
+wire            addrgen_pcgen_pcload;
+wire            addrgen_xx_pcload;
+wire    [38:0]  branch_base;
+wire    [38:0]  branch_cal_result;
+wire    [9 :0]  branch_index;
+wire            branch_mispred;
+wire    [38:0]  branch_offset;
+wire    [38:0]  branch_pred_result;
+wire    [9 :0]  branch_tag;
+wire    [7 :0]  branch_vl;
+wire            branch_vld;
+wire            branch_vld_for_gateclk;
+wire    [1 :0]  branch_vlmul;
+wire    [2 :0]  branch_vsew;
+wire            cp0_ifu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            forever_cpuclk;
+wire    [38:0]  ibdp_addrgen_branch_base;
+wire    [20:0]  ibdp_addrgen_branch_offset;
+wire    [38:0]  ibdp_addrgen_branch_result;
+wire            ibdp_addrgen_branch_valid;
+wire    [7 :0]  ibdp_addrgen_branch_vl;
+wire    [1 :0]  ibdp_addrgen_branch_vlmul;
+wire    [2 :0]  ibdp_addrgen_branch_vsew;
+wire    [38:0]  ibdp_addrgen_btb_index_pc;
+wire            ibdp_addrgen_l0_btb_hit;
+wire    [15:0]  ibdp_addrgen_l0_btb_hit_entry;
+wire            ifu_hpcp_btb_inst;
+wire            ifu_hpcp_btb_mispred;
+wire            l0_btb_hit;
+wire    [15:0]  l0_btb_hit_entry;
+wire            l0_btb_update_vld;
+wire    [3 :0]  l0_btb_wen;
+wire            lbuf_addrgen_active_state;
+wire            lbuf_addrgen_cache_state;
+wire            lbuf_addrgen_chgflw_mask;
+wire            pad_yy_icg_scan_en;
+wire            pcgen_addrgen_cancel;
 
 parameter PC_WIDTH = 40;
 // &Force("bus","ibdp_addrgen_branch_offset",20,0); @27
@@ -169,8 +169,8 @@ parameter PC_WIDTH = 40;
 //When lbuf cache state, the miss/mispred branch can only be loop end
 //While for loop end branch, we will not use BTB target as target PC
 //We use Loop Buffer adder get its target and it will not mispred/miss
-assign branch_vld_for_gateclk   = ibdp_addrgen_branch_valid && 
-                                  !lbuf_addrgen_active_state && 
+assign branch_vld_for_gateclk   = ibdp_addrgen_branch_valid &&
+                                  !lbuf_addrgen_active_state &&
                                   !lbuf_addrgen_cache_state;
 assign branch_vld               =  branch_vld_for_gateclk &&
                                   !lbuf_addrgen_chgflw_mask;
@@ -183,7 +183,7 @@ assign branch_pred_result[PC_WIDTH-2:0] = ibdp_addrgen_branch_result[PC_WIDTH-2:
 assign branch_cal_result[PC_WIDTH-2:0]  = branch_base[PC_WIDTH-2:0] + branch_offset[PC_WIDTH-2:0];
 assign branch_mispred                   = (branch_pred_result[PC_WIDTH-2:0] != branch_cal_result[PC_WIDTH-2:0]);
 assign branch_index[9:0]                = ibdp_addrgen_btb_index_pc[12:3];
-assign branch_tag[9:0]                  = {ibdp_addrgen_btb_index_pc[19:13], 
+assign branch_tag[9:0]                  = {ibdp_addrgen_btb_index_pc[19:13],
                                            ibdp_addrgen_btb_index_pc[2:0]};
 assign l0_btb_hit              = ibdp_addrgen_l0_btb_hit;
 assign l0_btb_hit_entry[15:0]  = ibdp_addrgen_l0_btb_hit_entry[15:0];
@@ -260,15 +260,15 @@ gated_clk_cell  x_addrgen_flop_clk (
 //           .local_en       (addrgen_flop_clk_en),//Local Condition @122
 //           .module_en      (cp0_ifu_icg_en) @123
 //         ); @124
-assign addrgen_flop_clk_en = branch_vld_for_gateclk || 
-                             addrgen_vld || 
+assign addrgen_flop_clk_en = branch_vld_for_gateclk ||
+                             addrgen_vld ||
                              pcgen_addrgen_cancel;
 
 //==========================================================
 //                 Addrgen Change Flow
 //==========================================================
 assign addrgen_pcgen_pcload           = addrgen_vld && addrgen_btb_mispred;
-assign addrgen_xx_pcload              = addrgen_vld && addrgen_btb_mispred;   
+assign addrgen_xx_pcload              = addrgen_vld && addrgen_btb_mispred;
 assign addrgen_pcgen_pc[PC_WIDTH-2:0] = addrgen_cal_result_flop[PC_WIDTH-2:0];
 assign addrgen_ipdp_chgflw_vlmul[1:0] = addrgen_branch_vlmul[1:0];
 assign addrgen_ipdp_chgflw_vsew[2:0]  = addrgen_branch_vsew[2:0];
@@ -276,7 +276,7 @@ assign addrgen_ipdp_chgflw_vl[7:0]    = addrgen_branch_vl[7:0];
 assign addrgen_btb_index[9:0]         = addrgen_branch_index[9:0];
 assign addrgen_btb_tag[9:0]           = addrgen_branch_tag[9:0];
 assign addrgen_btb_target_pc[19:0]    = addrgen_cal_result_flop[19:0];
-assign addrgen_btb_update_vld         = addrgen_pcgen_pcload; 
+assign addrgen_btb_update_vld         = addrgen_pcgen_pcload;
 // &Force("output","addrgen_pcgen_pcload"); @144
 
 assign ifu_hpcp_btb_mispred           = addrgen_vld && addrgen_btb_mispred;
@@ -290,10 +290,10 @@ assign addrgen_ibctrl_cancel = addrgen_pcgen_pcload;
 //==========================================================
 //                 Addrgen L0 BTB Update
 //==========================================================
-assign l0_btb_update_vld = addrgen_vld 
+assign l0_btb_update_vld = addrgen_vld
                         && addrgen_btb_mispred
                         && addrgen_l0_btb_hit;
-assign l0_btb_wen[3]     = l0_btb_update_vld; 
+assign l0_btb_wen[3]     = l0_btb_update_vld;
 assign l0_btb_wen[2:0]   = 3'b0;
 
 assign addrgen_l0_btb_update_vld         = l0_btb_update_vld;
