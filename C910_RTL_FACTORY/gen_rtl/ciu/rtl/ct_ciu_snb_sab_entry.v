@@ -116,489 +116,489 @@ module ct_ciu_snb_sab_entry(
 );
 
 // &Ports; @22
-input   [23 :0]  agevec_clr;            
-input   [6  :0]  ar_crt_entry_index;    
-input            arb_sab_no_l2c_req;    
-input   [6  :0]  aw_crt_entry_index;    
-input   [2  :0]  aw_mid;                
-input            aw_sh;                 
-input            ciu_chr2_bar_dis;      
-input            ciu_chr2_sf_dis;       
-input            ciu_icg_en;            
-input   [3  :0]  ciu_xx_smpen;          
-input            cpurst_b;              
-input   [23 :0]  create_age;            
-input   [74 :0]  create_bus;            
-input   [23 :0]  create_depd;           
-input   [23 :0]  depd_clr;              
-input            forever_cpuclk;        
-input   [511:0]  l1_data;               
-input            l1_wcd_err;            
-input            l1_wen_x;              
-input   [15 :0]  l1_wstrb;              
-input            l2c_cmplt_x;           
-input   [3  :0]  l2c_cp;                
-input   [511:0]  l2c_data;              
-input            l2c_grant_x;           
-input   [4  :0]  l2c_resp;              
-input            memr_ar_grant_x;       
-input            memr_cmplt_x;          
-input   [127:0]  memr_data;             
-input            memr_data_vld_x;       
-input   [3  :0]  memr_resp;             
-input            memr_resp_err;         
-input            memw_aw_grant_x;       
-input            memw_cmplt_x;          
-input            pad_yy_icg_scan_en;    
-input            piu0_ac_grant_x;       
-input            piu0_cdvld_x;          
-input   [4  :0]  piu0_crresp;           
-input            piu0_crvld_x;          
-input            piu1_ac_grant_x;       
-input            piu1_cdvld_x;          
-input   [4  :0]  piu1_crresp;           
-input            piu1_crvld_x;          
-input            piu2_ac_grant_x;       
-input            piu2_cdvld_x;          
-input   [4  :0]  piu2_crresp;           
-input            piu2_crvld_x;          
-input            piu3_ac_grant_x;       
-input            piu3_cdvld_x;          
-input   [4  :0]  piu3_crresp;           
-input            piu3_crvld_x;          
-input            sab_b_grant_x;         
-input            sab_back_x;            
-input            sab_cen_x;             
-input            sab_depd_set_by_wns_x; 
-input            sab_r_grant_x;         
-input            sab_rack_x;            
-input            sab_snpl2_cmplt_x;     
-input   [4  :0]  sab_snpl2_ini_sid;     
-input            snb1;                  
-input   [6  :0]  snpext_index;          
-input   [23 :0]  x_depd_set;            
-input   [4  :0]  x_sid;                 
-output           sab_ar_depd_snb_x;     
-output           sab_aw_depd_snb_x;     
-output           sab_back_mark_by_wns_x; 
-output           sab_bar_depd_snb_x;    
-output           sab_bresp_req_x;       
-output           sab_busy_x;            
-output           sab_ebiur_req_x;       
-output           sab_ebiuw_req_x;       
-output           sab_in_process_x;      
-output           sab_l2c_req_x;         
-output           sab_piu0_ac_req_x;     
-output           sab_piu0_bar_cmplt_x;  
-output           sab_piu1_ac_req_x;     
-output           sab_piu1_bar_cmplt_x;  
-output           sab_piu2_ac_req_x;     
-output           sab_piu2_bar_cmplt_x;  
-output           sab_piu3_ac_req_x;     
-output           sab_piu3_bar_cmplt_x;  
-output           sab_pop_en_x;          
-output           sab_rresp_req_x;       
-output           sab_snpext_depd_snb_x; 
-output           sab_vld_x;             
-output           sab_wns_x;             
-output  [14 :0]  x_bresp_bus;           
-output  [3  :0]  x_dbg_info;            
-output  [68 :0]  x_ebiu_arbus;          
-output  [67 :0]  x_ebiu_awbus;          
-output  [534:0]  x_ebiu_dbus;           
-output  [2  :0]  x_ebiu_mid;            
-output  [63 :0]  x_l2c_addr_bus;        
-output  [511:0]  x_l2c_data_bus;        
-output  [2  :0]  x_l2c_hpcp_bus;        
-output  [54 :0]  x_piux_ac_bus;         
-output  [535:0]  x_rresp_bus;           
-output  [23 :0]  x_sab_agevec;          
-output  [23 :0]  x_sab_snpl2_cmplt;     
+input   [23 :0]  agevec_clr;
+input   [6  :0]  ar_crt_entry_index;
+input            arb_sab_no_l2c_req;
+input   [6  :0]  aw_crt_entry_index;
+input   [2  :0]  aw_mid;
+input            aw_sh;
+input            ciu_chr2_bar_dis;
+input            ciu_chr2_sf_dis;
+input            ciu_icg_en;
+input   [3  :0]  ciu_xx_smpen;
+input            cpurst_b;
+input   [23 :0]  create_age;
+input   [74 :0]  create_bus;
+input   [23 :0]  create_depd;
+input   [23 :0]  depd_clr;
+input            forever_cpuclk;
+input   [511:0]  l1_data;
+input            l1_wcd_err;
+input            l1_wen_x;
+input   [15 :0]  l1_wstrb;
+input            l2c_cmplt_x;
+input   [3  :0]  l2c_cp;
+input   [511:0]  l2c_data;
+input            l2c_grant_x;
+input   [4  :0]  l2c_resp;
+input            memr_ar_grant_x;
+input            memr_cmplt_x;
+input   [127:0]  memr_data;
+input            memr_data_vld_x;
+input   [3  :0]  memr_resp;
+input            memr_resp_err;
+input            memw_aw_grant_x;
+input            memw_cmplt_x;
+input            pad_yy_icg_scan_en;
+input            piu0_ac_grant_x;
+input            piu0_cdvld_x;
+input   [4  :0]  piu0_crresp;
+input            piu0_crvld_x;
+input            piu1_ac_grant_x;
+input            piu1_cdvld_x;
+input   [4  :0]  piu1_crresp;
+input            piu1_crvld_x;
+input            piu2_ac_grant_x;
+input            piu2_cdvld_x;
+input   [4  :0]  piu2_crresp;
+input            piu2_crvld_x;
+input            piu3_ac_grant_x;
+input            piu3_cdvld_x;
+input   [4  :0]  piu3_crresp;
+input            piu3_crvld_x;
+input            sab_b_grant_x;
+input            sab_back_x;
+input            sab_cen_x;
+input            sab_depd_set_by_wns_x;
+input            sab_r_grant_x;
+input            sab_rack_x;
+input            sab_snpl2_cmplt_x;
+input   [4  :0]  sab_snpl2_ini_sid;
+input            snb1;
+input   [6  :0]  snpext_index;
+input   [23 :0]  x_depd_set;
+input   [4  :0]  x_sid;
+output           sab_ar_depd_snb_x;
+output           sab_aw_depd_snb_x;
+output           sab_back_mark_by_wns_x;
+output           sab_bar_depd_snb_x;
+output           sab_bresp_req_x;
+output           sab_busy_x;
+output           sab_ebiur_req_x;
+output           sab_ebiuw_req_x;
+output           sab_in_process_x;
+output           sab_l2c_req_x;
+output           sab_piu0_ac_req_x;
+output           sab_piu0_bar_cmplt_x;
+output           sab_piu1_ac_req_x;
+output           sab_piu1_bar_cmplt_x;
+output           sab_piu2_ac_req_x;
+output           sab_piu2_bar_cmplt_x;
+output           sab_piu3_ac_req_x;
+output           sab_piu3_bar_cmplt_x;
+output           sab_pop_en_x;
+output           sab_rresp_req_x;
+output           sab_snpext_depd_snb_x;
+output           sab_vld_x;
+output           sab_wns_x;
+output  [14 :0]  x_bresp_bus;
+output  [3  :0]  x_dbg_info;
+output  [68 :0]  x_ebiu_arbus;
+output  [67 :0]  x_ebiu_awbus;
+output  [534:0]  x_ebiu_dbus;
+output  [2  :0]  x_ebiu_mid;
+output  [63 :0]  x_l2c_addr_bus;
+output  [511:0]  x_l2c_data_bus;
+output  [2  :0]  x_l2c_hpcp_bus;
+output  [54 :0]  x_piux_ac_bus;
+output  [535:0]  x_rresp_bus;
+output  [23 :0]  x_sab_agevec;
+output  [23 :0]  x_sab_snpl2_cmplt;
 
 // &Regs; @23
-reg     [23 :0]  agevec;                
-reg              alct_cnt;              
-reg              back_f;                
-reg              bresp_already_rdy;     
-reg              bresp_rdy_f;           
-reg     [15 :0]  byte_sel_0;            
-reg     [15 :0]  byte_sel_1;            
-reg     [15 :0]  byte_sel_2;            
-reg     [15 :0]  byte_sel_3;            
-reg     [3  :0]  cp;                    
-reg     [4  :0]  crresp;                
-reg     [127:0]  data0;                 
-reg     [127:0]  data0_din;             
-reg     [127:0]  data1;                 
-reg     [127:0]  data1_din;             
-reg     [127:0]  data2;                 
-reg     [127:0]  data2_din;             
-reg     [127:0]  data3;                 
-reg     [127:0]  data3_din;             
-reg     [2  :0]  data_sel;              
-reg     [23 :0]  depd_val;              
-reg     [4  :0]  l2_resp;               
-reg     [1  :0]  l2c_cur_state;         
-reg     [1  :0]  l2c_nxt_state;         
-reg     [3  :0]  main_cur_state;        
-reg     [3  :0]  main_next_state;       
-reg     [3  :0]  mem_quad_sel;          
-reg              memr_cmplt_f;          
-reg     [1  :0]  memr_cur_state;        
-reg     [1  :0]  memr_nxt_state;        
-reg     [1  :0]  memr_resp_f_3_2;       
-reg     [3  :0]  memr_resp_f_err;       
-reg     [1  :0]  memw_cur_state;        
-reg     [1  :0]  memw_nxt_state;        
-reg              _process;               
-reg              rack_f;                
-reg              rresp_rdy_f;           
-reg              ru_miss_by_snpext;     
-reg     [74 :0]  sab_cont;              
-reg              set_alct;              
-reg     [3  :0]  smpen;                 
-reg     [1  :0]  snp0_cur_state;        
-reg     [1  :0]  snp0_next_state;       
-reg     [1  :0]  snp1_cur_state;        
-reg     [1  :0]  snp1_next_state;       
-reg     [1  :0]  snp2_cur_state;        
-reg     [1  :0]  snp2_next_state;       
-reg     [1  :0]  snp3_cur_state;        
-reg     [1  :0]  snp3_next_state;       
-reg              snpl2_done;            
-reg     [4  :0]  snpl2_ini_sid;         
-reg              wns_pend;              
-reg     [15 :0]  wstrb;                 
-reg              wt_data_vld;           
-reg              wt_err;                
+reg     [23 :0]  agevec;
+reg              alct_cnt;
+reg              back_f;
+reg              bresp_already_rdy;
+reg              bresp_rdy_f;
+reg     [15 :0]  byte_sel_0;
+reg     [15 :0]  byte_sel_1;
+reg     [15 :0]  byte_sel_2;
+reg     [15 :0]  byte_sel_3;
+reg     [3  :0]  cp;
+reg     [4  :0]  crresp;
+reg     [127:0]  data0;
+reg     [127:0]  data0_din;
+reg     [127:0]  data1;
+reg     [127:0]  data1_din;
+reg     [127:0]  data2;
+reg     [127:0]  data2_din;
+reg     [127:0]  data3;
+reg     [127:0]  data3_din;
+reg     [2  :0]  data_sel;
+reg     [23 :0]  depd_val;
+reg     [4  :0]  l2_resp;
+reg     [1  :0]  l2c_cur_state;
+reg     [1  :0]  l2c_nxt_state;
+reg     [3  :0]  main_cur_state;
+reg     [3  :0]  main_next_state;
+reg     [3  :0]  mem_quad_sel;
+reg              memr_cmplt_f;
+reg     [1  :0]  memr_cur_state;
+reg     [1  :0]  memr_nxt_state;
+reg     [1  :0]  memr_resp_f_3_2;
+reg     [3  :0]  memr_resp_f_err;
+reg     [1  :0]  memw_cur_state;
+reg     [1  :0]  memw_nxt_state;
+reg              _process;
+reg              rack_f;
+reg              rresp_rdy_f;
+reg              ru_miss_by_snpext;
+reg     [74 :0]  sab_cont;
+reg              set_alct;
+reg     [3  :0]  smpen;
+reg     [1  :0]  snp0_cur_state;
+reg     [1  :0]  snp0_next_state;
+reg     [1  :0]  snp1_cur_state;
+reg     [1  :0]  snp1_next_state;
+reg     [1  :0]  snp2_cur_state;
+reg     [1  :0]  snp2_next_state;
+reg     [1  :0]  snp3_cur_state;
+reg     [1  :0]  snp3_next_state;
+reg              snpl2_done;
+reg     [4  :0]  snpl2_ini_sid;
+reg              wns_pend;
+reg     [15 :0]  wstrb;
+reg              wt_data_vld;
+reg              wt_err;
 
 // &Wires; @24
-wire             ace_cfig;              
-wire    [3  :0]  acsnoop;               
-wire    [1  :0]  addr_5_4;              
-wire    [23 :0]  agevec_clr;            
-wire             alct_cmplt;            
-wire             alct_done;             
-wire             alct_ecc_err;          
-wire             alct_req_en;           
-wire    [6  :0]  ar_crt_entry_index;    
-wire    [5  :0]  araddr_5_0;            
-wire             arb_sab_no_l2c_req;    
-wire    [6  :0]  aw_crt_entry_index;    
-wire    [2  :0]  aw_mid;                
-wire             aw_sh;                 
-wire    [5  :0]  awaddr_5_0;            
-wire             back;                  
-wire             back_mark;             
-wire             bar_cmplt;             
-wire             bar_raw;               
-wire    [1  :0]  bar_val;               
-wire             bresp_rdy;             
-wire    [3  :0]  cd_sel;                
-wire             ci;                    
-wire             ciu_chr2_bar_dis;      
-wire             ciu_chr2_sf_dis;       
-wire             ciu_icg_en;            
-wire    [3  :0]  ciu_xx_smpen;          
-wire    [3  :0]  clr_cp;                
-wire    [3  :0]  clr_cp_sel;            
-wire             clr_cp_vld;            
-wire             clr_process;           
-wire             cml2;                  
-wire             cmop;                  
-wire    [3  :0]  cp_after_mask;         
-wire    [3  :0]  cp_after_sf;           
-wire    [3  :0]  cp_mask;               
-wire             cp_vld;                
-wire             cpurst_b;              
-wire    [23 :0]  create_age;            
-wire    [74 :0]  create_bus;            
-wire    [23 :0]  create_depd;           
-wire             cs;                    
-wire             csl1;                  
-wire             csl2;                  
-wire             cu;                    
-wire    [511:0]  data;                  
-wire             data0_clk;             
-wire             data0_clk_en;          
-wire             data0_wen;             
-wire             data1_clk;             
-wire             data1_clk_en;          
-wire             data1_wen;             
-wire             data2_clk;             
-wire             data2_clk_en;          
-wire             data2_wen;             
-wire             data3_clk;             
-wire             data3_clk_en;          
-wire             data3_wen;             
-wire             data_sel_l1c;          
-wire             data_sel_l2c;          
-wire             data_sel_mem;          
-wire    [23 :0]  depd_clr;              
-wire             depd_vld;              
-wire             depd_vld_raw;          
-wire    [39 :0]  ebiu_araddr;           
-wire    [68 :0]  ebiu_arbus;            
-wire    [1  :0]  ebiu_arlen;            
-wire             ebiu_arlen_4;          
-wire    [3  :0]  ebiu_arsnoop;          
-wire    [39 :0]  ebiu_awaddr;           
-wire    [67 :0]  ebiu_awbus;            
-wire    [1  :0]  ebiu_awlen;            
-wire             ebiu_awlen_1;          
-wire             ebiu_awlen_4;          
-wire    [2  :0]  ebiu_awsnoop;          
-wire    [1  :0]  ebiu_bar;              
-wire    [1  :0]  ebiu_burst;            
-wire    [3  :0]  ebiu_cache;            
-wire             ebiu_cr_done;          
-wire    [1  :0]  ebiu_domain;           
-wire    [2  :0]  ebiu_prot;             
-wire    [2  :0]  ebiu_size;             
-wire    [511:0]  ebiu_wdata;            
-wire    [15 :0]  ebiu_wstrb;            
-wire             evict;                 
-wire             evict_raw;             
-wire             forever_cpuclk;        
-wire             fsm_busy;              
-wire             fsm_clk;               
-wire             fsm_clk_en;            
-wire             inst;                  
-wire    [511:0]  l1_data;               
-wire    [127:0]  l1_data_0;             
-wire    [127:0]  l1_data_1;             
-wire    [127:0]  l1_data_2;             
-wire    [127:0]  l1_data_3;             
-wire             l1_dt;                 
-wire             l1_err;                
-wire             l1_err_t;              
-wire             l1_pd;                 
-wire    [3  :0]  l1_quad_sel;           
-wire    [3  :0]  l1_quad_wen;           
-wire             l1_sh;                 
-wire             l1_wcd_err;            
-wire             l1_wdata_err;          
-wire             l1_wdata_vld;          
-wire             l1_wen_x;              
-wire    [15 :0]  l1_wstrb;              
-wire    [127:0]  l1c_data0;             
-wire    [127:0]  l1c_data1;             
-wire    [127:0]  l1c_data2;             
-wire    [127:0]  l1c_data3;             
-wire             l1orl2_dirty;          
-wire             l2_err;                
-wire             l2_hit;                
-wire             l2_pd;                 
-wire             l2_prf;                
-wire             l2_prf_from_l2c;       
-wire             l2_prf_from_l2c_raw;   
-wire             l2_prf_raw;            
-wire    [3  :0]  l2_quad_sel;           
-wire    [3  :0]  l2_quad_sel_rd;        
-wire    [3  :0]  l2_quad_wen;           
-wire             l2_sh;                 
-wire             l2_wen;                
-wire             l2c_cmplt;             
-wire             l2c_cmplt_x;           
-wire    [3  :0]  l2c_cp;                
-wire    [511:0]  l2c_data;              
-wire    [127:0]  l2c_data0;             
-wire    [127:0]  l2c_data1;             
-wire    [127:0]  l2c_data2;             
-wire    [127:0]  l2c_data3;             
-wire    [127:0]  l2c_data_0;            
-wire    [127:0]  l2c_data_1;            
-wire    [127:0]  l2c_data_2;            
-wire    [127:0]  l2c_data_3;            
-wire             l2c_grant_x;           
-wire             l2c_req_mask;          
-wire             l2c_req_vld;           
-wire    [4  :0]  l2c_resp;              
-wire             l2c_resp_wen;          
-wire    [1  :0]  len;                   
-wire             mem_data_vld;          
-wire    [3  :0]  mem_quad_wen;          
-wire    [127:0]  mem_rdata;             
-wire             memr_ar_grant_x;       
-wire             memr_cmplt;            
-wire             memr_cmplt_x;          
-wire    [127:0]  memr_data;             
-wire             memr_data_vld_x;       
-wire             memr_err;              
-wire             memr_pd;               
-wire             memr_req_vld;          
-wire    [3  :0]  memr_resp;             
-wire             memr_resp_err;         
-wire    [3  :0]  memr_resp_f_err_next;  
-wire             memr_resp_wen;         
-wire             memr_sc;               
-wire             memr_sd;               
-wire             memr_sh;               
-wire             memr_uc;               
-wire             memr_ud;               
-wire             memw_aw_grant_x;       
-wire             memw_cmplt;            
-wire             memw_cmplt_x;          
-wire             memw_req_vld;          
-wire             mi;                    
-wire    [2  :0]  mid;                   
-wire             mu;                    
-wire             pad_yy_icg_scan_en;    
-wire             part_req;              
-wire             piu0_ac_grant_x;       
-wire             piu0_cdvld_x;          
-wire    [4  :0]  piu0_crresp;           
-wire             piu0_crvld_x;          
-wire             piu1_ac_grant_x;       
-wire             piu1_cdvld_x;          
-wire    [4  :0]  piu1_crresp;           
-wire             piu1_crvld_x;          
-wire             piu2_ac_grant_x;       
-wire             piu2_cdvld_x;          
-wire    [4  :0]  piu2_crresp;           
-wire             piu2_crvld_x;          
-wire             piu3_ac_grant_x;       
-wire             piu3_cdvld_x;          
-wire    [4  :0]  piu3_crresp;           
-wire             piu3_crvld_x;          
-wire    [4  :0]  piu_crresp;            
-wire    [3  :0]  piu_crvld;             
-wire    [3  :0]  piu_sel;               
-wire             pop_en;                
-wire    [3  :0]  quad_sel_wt;           
-wire             rack;                  
-wire             rd;                    
-wire             rd_alct;               
-wire             rd_first;              
-wire             reply;                 
-wire    [39 :0]  req_addr;              
-wire             req_alct;              
-wire             req_atag;              
-wire             req_cln;               
-wire             req_icln;              
-wire    [7  :0]  req_id;                
-wire             req_inv;               
-wire             req_read;              
-wire             req_rls;               
-wire             req_sh;                
-wire    [12 :0]  req_type;              
-wire             req_uni;               
-wire             req_vld;               
-wire             req_wtsc;              
-wire             req_wtsd;              
-wire             req_wtuc;              
-wire             req_wtud;              
-wire    [4  :0]  rid;                   
-wire             rns;                   
-wire             ro;                    
-wire    [6  :0]  rresp;                 
-wire             rresp_ecc_err;         
-wire    [3  :0]  rresp_err;             
-wire             rresp_is;              
-wire             rresp_rdy;             
-wire             rs;                    
-wire             ru;                    
-wire             sab_ar_depd_snb_x;     
-wire             sab_aw_depd_snb_x;     
-wire             sab_b_grant_x;         
-wire             sab_back_mark_by_wns_x; 
-wire             sab_back_x;            
-wire             sab_bar_depd_snb_x;    
-wire             sab_bresp_req_x;       
-wire             sab_busy_x;            
-wire             sab_cen_x;             
-wire             sab_clk;               
-wire             sab_clk_en;            
-wire             sab_depd_set_by_wns_x; 
-wire             sab_ebiur_req_x;       
-wire             sab_ebiuw_req_x;       
-wire             sab_in_process_x;      
-wire             sab_l2c_req_x;         
-wire             sab_piu0_ac_req_x;     
-wire             sab_piu0_bar_cmplt_x;  
-wire             sab_piu1_ac_req_x;     
-wire             sab_piu1_bar_cmplt_x;  
-wire             sab_piu2_ac_req_x;     
-wire             sab_piu2_bar_cmplt_x;  
-wire             sab_piu3_ac_req_x;     
-wire             sab_piu3_bar_cmplt_x;  
-wire             sab_pop_en_x;          
-wire             sab_r_grant_x;         
-wire             sab_rack_x;            
-wire             sab_rresp_req_x;       
-wire             sab_snpext_depd_snb_x; 
-wire             sab_snpl2_cmplt_x;     
-wire    [4  :0]  sab_snpl2_ini_sid;     
-wire             sab_vld_x;             
-wire             sab_wns_x;             
-wire    [3  :0]  set_cp;                
-wire    [3  :0]  set_cp_sel;            
-wire             set_cp_vld;            
-wire             set_process;           
-wire             snb1;                  
-wire             snp0_cmplt;            
-wire             snp0_fsm_busy;         
-wire             snp0_req_vld;          
-wire             snp1_cmplt;            
-wire             snp1_fsm_busy;         
-wire             snp1_req_vld;          
-wire             snp2_cmplt;            
-wire             snp2_fsm_busy;         
-wire             snp2_req_vld;          
-wire             snp3_cmplt;            
-wire             snp3_fsm_busy;         
-wire             snp3_req_vld;          
-wire             snp_clk;               
-wire             snp_clk_en;            
-wire             snp_cmplt;             
-wire             snp_fsm_busy;          
-wire    [3  :0]  snp_req_en;            
-wire             snp_req_vld;           
-wire             snpext;                
-wire    [6  :0]  snpext_index;          
-wire             snpl2;                 
-wire             snpl2_cmplt;           
-wire             tlb;                   
-wire             uni_op;                
-wire             vld;                   
-wire             wb;                    
-wire             wc;                    
-wire    [3  :0]  wd_sel;                
-wire             wd_wen;                
-wire             wd_wen_err;            
-wire    [3  :0]  wen_sel;               
-wire             wlu;                   
-wire             wns;                   
-wire             wns_i;                 
-wire             wns_raw;               
-wire             wr_first;              
-wire             ws;                    
-wire             wstrb_all_one;         
-wire             wstrb_clk;             
-wire             wstrb_clk_en;          
-wire             wt_part;               
-wire             wt_raw;                
-wire             wt_val;                
-wire             wu;                    
-wire             x_bar_cmplt;           
-wire    [14 :0]  x_bresp_bus;           
-wire    [74 :0]  x_cbus;                
-wire             x_cen;                 
-wire    [3  :0]  x_dbg_info;            
-wire    [23 :0]  x_depd_set;            
-wire    [68 :0]  x_ebiu_arbus;          
-wire    [67 :0]  x_ebiu_awbus;          
-wire    [534:0]  x_ebiu_dbus;           
-wire    [2  :0]  x_ebiu_mid;            
-wire    [63 :0]  x_l2c_addr_bus;        
-wire    [511:0]  x_l2c_data_bus;        
-wire    [2  :0]  x_l2c_hpcp_bus;        
-wire    [2  :0]  x_mid;                 
-wire    [54 :0]  x_piux_ac_bus;         
-wire    [535:0]  x_rresp_bus;           
-wire    [23 :0]  x_sab_agevec;          
-wire    [23 :0]  x_sab_snpl2_cmplt;     
-wire    [4  :0]  x_sid;                 
+wire             ace_cfig;
+wire    [3  :0]  acsnoop;
+wire    [1  :0]  addr_5_4;
+wire    [23 :0]  agevec_clr;
+wire             alct_cmplt;
+wire             alct_done;
+wire             alct_ecc_err;
+wire             alct_req_en;
+wire    [6  :0]  ar_crt_entry_index;
+wire    [5  :0]  araddr_5_0;
+wire             arb_sab_no_l2c_req;
+wire    [6  :0]  aw_crt_entry_index;
+wire    [2  :0]  aw_mid;
+wire             aw_sh;
+wire    [5  :0]  awaddr_5_0;
+wire             back;
+wire             back_mark;
+wire             bar_cmplt;
+wire             bar_raw;
+wire    [1  :0]  bar_val;
+wire             bresp_rdy;
+wire    [3  :0]  cd_sel;
+wire             ci;
+wire             ciu_chr2_bar_dis;
+wire             ciu_chr2_sf_dis;
+wire             ciu_icg_en;
+wire    [3  :0]  ciu_xx_smpen;
+wire    [3  :0]  clr_cp;
+wire    [3  :0]  clr_cp_sel;
+wire             clr_cp_vld;
+wire             clr_process;
+wire             cml2;
+wire             cmop;
+wire    [3  :0]  cp_after_mask;
+wire    [3  :0]  cp_after_sf;
+wire    [3  :0]  cp_mask;
+wire             cp_vld;
+wire             cpurst_b;
+wire    [23 :0]  create_age;
+wire    [74 :0]  create_bus;
+wire    [23 :0]  create_depd;
+wire             cs;
+wire             csl1;
+wire             csl2;
+wire             cu;
+wire    [511:0]  data;
+wire             data0_clk;
+wire             data0_clk_en;
+wire             data0_wen;
+wire             data1_clk;
+wire             data1_clk_en;
+wire             data1_wen;
+wire             data2_clk;
+wire             data2_clk_en;
+wire             data2_wen;
+wire             data3_clk;
+wire             data3_clk_en;
+wire             data3_wen;
+wire             data_sel_l1c;
+wire             data_sel_l2c;
+wire             data_sel_mem;
+wire    [23 :0]  depd_clr;
+wire             depd_vld;
+wire             depd_vld_raw;
+wire    [39 :0]  ebiu_araddr;
+wire    [68 :0]  ebiu_arbus;
+wire    [1  :0]  ebiu_arlen;
+wire             ebiu_arlen_4;
+wire    [3  :0]  ebiu_arsnoop;
+wire    [39 :0]  ebiu_awaddr;
+wire    [67 :0]  ebiu_awbus;
+wire    [1  :0]  ebiu_awlen;
+wire             ebiu_awlen_1;
+wire             ebiu_awlen_4;
+wire    [2  :0]  ebiu_awsnoop;
+wire    [1  :0]  ebiu_bar;
+wire    [1  :0]  ebiu_burst;
+wire    [3  :0]  ebiu_cache;
+wire             ebiu_cr_done;
+wire    [1  :0]  ebiu_domain;
+wire    [2  :0]  ebiu_prot;
+wire    [2  :0]  ebiu_size;
+wire    [511:0]  ebiu_wdata;
+wire    [15 :0]  ebiu_wstrb;
+wire             evict;
+wire             evict_raw;
+wire             forever_cpuclk;
+wire             fsm_busy;
+wire             fsm_clk;
+wire             fsm_clk_en;
+wire             inst;
+wire    [511:0]  l1_data;
+wire    [127:0]  l1_data_0;
+wire    [127:0]  l1_data_1;
+wire    [127:0]  l1_data_2;
+wire    [127:0]  l1_data_3;
+wire             l1_dt;
+wire             l1_err;
+wire             l1_err_t;
+wire             l1_pd;
+wire    [3  :0]  l1_quad_sel;
+wire    [3  :0]  l1_quad_wen;
+wire             l1_sh;
+wire             l1_wcd_err;
+wire             l1_wdata_err;
+wire             l1_wdata_vld;
+wire             l1_wen_x;
+wire    [15 :0]  l1_wstrb;
+wire    [127:0]  l1c_data0;
+wire    [127:0]  l1c_data1;
+wire    [127:0]  l1c_data2;
+wire    [127:0]  l1c_data3;
+wire             l1orl2_dirty;
+wire             l2_err;
+wire             l2_hit;
+wire             l2_pd;
+wire             l2_prf;
+wire             l2_prf_from_l2c;
+wire             l2_prf_from_l2c_raw;
+wire             l2_prf_raw;
+wire    [3  :0]  l2_quad_sel;
+wire    [3  :0]  l2_quad_sel_rd;
+wire    [3  :0]  l2_quad_wen;
+wire             l2_sh;
+wire             l2_wen;
+wire             l2c_cmplt;
+wire             l2c_cmplt_x;
+wire    [3  :0]  l2c_cp;
+wire    [511:0]  l2c_data;
+wire    [127:0]  l2c_data0;
+wire    [127:0]  l2c_data1;
+wire    [127:0]  l2c_data2;
+wire    [127:0]  l2c_data3;
+wire    [127:0]  l2c_data_0;
+wire    [127:0]  l2c_data_1;
+wire    [127:0]  l2c_data_2;
+wire    [127:0]  l2c_data_3;
+wire             l2c_grant_x;
+wire             l2c_req_mask;
+wire             l2c_req_vld;
+wire    [4  :0]  l2c_resp;
+wire             l2c_resp_wen;
+wire    [1  :0]  len;
+wire             mem_data_vld;
+wire    [3  :0]  mem_quad_wen;
+wire    [127:0]  mem_rdata;
+wire             memr_ar_grant_x;
+wire             memr_cmplt;
+wire             memr_cmplt_x;
+wire    [127:0]  memr_data;
+wire             memr_data_vld_x;
+wire             memr_err;
+wire             memr_pd;
+wire             memr_req_vld;
+wire    [3  :0]  memr_resp;
+wire             memr_resp_err;
+wire    [3  :0]  memr_resp_f_err_next;
+wire             memr_resp_wen;
+wire             memr_sc;
+wire             memr_sd;
+wire             memr_sh;
+wire             memr_uc;
+wire             memr_ud;
+wire             memw_aw_grant_x;
+wire             memw_cmplt;
+wire             memw_cmplt_x;
+wire             memw_req_vld;
+wire             mi;
+wire    [2  :0]  mid;
+wire             mu;
+wire             pad_yy_icg_scan_en;
+wire             part_req;
+wire             piu0_ac_grant_x;
+wire             piu0_cdvld_x;
+wire    [4  :0]  piu0_crresp;
+wire             piu0_crvld_x;
+wire             piu1_ac_grant_x;
+wire             piu1_cdvld_x;
+wire    [4  :0]  piu1_crresp;
+wire             piu1_crvld_x;
+wire             piu2_ac_grant_x;
+wire             piu2_cdvld_x;
+wire    [4  :0]  piu2_crresp;
+wire             piu2_crvld_x;
+wire             piu3_ac_grant_x;
+wire             piu3_cdvld_x;
+wire    [4  :0]  piu3_crresp;
+wire             piu3_crvld_x;
+wire    [4  :0]  piu_crresp;
+wire    [3  :0]  piu_crvld;
+wire    [3  :0]  piu_sel;
+wire             pop_en;
+wire    [3  :0]  quad_sel_wt;
+wire             rack;
+wire             rd;
+wire             rd_alct;
+wire             rd_first;
+wire             reply;
+wire    [39 :0]  req_addr;
+wire             req_alct;
+wire             req_atag;
+wire             req_cln;
+wire             req_icln;
+wire    [7  :0]  req_id;
+wire             req_inv;
+wire             req_read;
+wire             req_rls;
+wire             req_sh;
+wire    [12 :0]  req_type;
+wire             req_uni;
+wire             req_vld;
+wire             req_wtsc;
+wire             req_wtsd;
+wire             req_wtuc;
+wire             req_wtud;
+wire    [4  :0]  rid;
+wire             rns;
+wire             ro;
+wire    [6  :0]  rresp;
+wire             rresp_ecc_err;
+wire    [3  :0]  rresp_err;
+wire             rresp_is;
+wire             rresp_rdy;
+wire             rs;
+wire             ru;
+wire             sab_ar_depd_snb_x;
+wire             sab_aw_depd_snb_x;
+wire             sab_b_grant_x;
+wire             sab_back_mark_by_wns_x;
+wire             sab_back_x;
+wire             sab_bar_depd_snb_x;
+wire             sab_bresp_req_x;
+wire             sab_busy_x;
+wire             sab_cen_x;
+wire             sab_clk;
+wire             sab_clk_en;
+wire             sab_depd_set_by_wns_x;
+wire             sab_ebiur_req_x;
+wire             sab_ebiuw_req_x;
+wire             sab_in_process_x;
+wire             sab_l2c_req_x;
+wire             sab_piu0_ac_req_x;
+wire             sab_piu0_bar_cmplt_x;
+wire             sab_piu1_ac_req_x;
+wire             sab_piu1_bar_cmplt_x;
+wire             sab_piu2_ac_req_x;
+wire             sab_piu2_bar_cmplt_x;
+wire             sab_piu3_ac_req_x;
+wire             sab_piu3_bar_cmplt_x;
+wire             sab_pop_en_x;
+wire             sab_r_grant_x;
+wire             sab_rack_x;
+wire             sab_rresp_req_x;
+wire             sab_snpext_depd_snb_x;
+wire             sab_snpl2_cmplt_x;
+wire    [4  :0]  sab_snpl2_ini_sid;
+wire             sab_vld_x;
+wire             sab_wns_x;
+wire    [3  :0]  set_cp;
+wire    [3  :0]  set_cp_sel;
+wire             set_cp_vld;
+wire             set_process;
+wire             snb1;
+wire             snp0_cmplt;
+wire             snp0_fsm_busy;
+wire             snp0_req_vld;
+wire             snp1_cmplt;
+wire             snp1_fsm_busy;
+wire             snp1_req_vld;
+wire             snp2_cmplt;
+wire             snp2_fsm_busy;
+wire             snp2_req_vld;
+wire             snp3_cmplt;
+wire             snp3_fsm_busy;
+wire             snp3_req_vld;
+wire             snp_clk;
+wire             snp_clk_en;
+wire             snp_cmplt;
+wire             snp_fsm_busy;
+wire    [3  :0]  snp_req_en;
+wire             snp_req_vld;
+wire             snpext;
+wire    [6  :0]  snpext_index;
+wire             snpl2;
+wire             snpl2_cmplt;
+wire             tlb;
+wire             uni_op;
+wire             vld;
+wire             wb;
+wire             wc;
+wire    [3  :0]  wd_sel;
+wire             wd_wen;
+wire             wd_wen_err;
+wire    [3  :0]  wen_sel;
+wire             wlu;
+wire             wns;
+wire             wns_i;
+wire             wns_raw;
+wire             wr_first;
+wire             ws;
+wire             wstrb_all_one;
+wire             wstrb_clk;
+wire             wstrb_clk_en;
+wire             wt_part;
+wire             wt_raw;
+wire             wt_val;
+wire             wu;
+wire             x_bar_cmplt;
+wire    [14 :0]  x_bresp_bus;
+wire    [74 :0]  x_cbus;
+wire             x_cen;
+wire    [3  :0]  x_dbg_info;
+wire    [23 :0]  x_depd_set;
+wire    [68 :0]  x_ebiu_arbus;
+wire    [67 :0]  x_ebiu_awbus;
+wire    [534:0]  x_ebiu_dbus;
+wire    [2  :0]  x_ebiu_mid;
+wire    [63 :0]  x_l2c_addr_bus;
+wire    [511:0]  x_l2c_data_bus;
+wire    [2  :0]  x_l2c_hpcp_bus;
+wire    [2  :0]  x_mid;
+wire    [54 :0]  x_piux_ac_bus;
+wire    [535:0]  x_rresp_bus;
+wire    [23 :0]  x_sab_agevec;
+wire    [23 :0]  x_sab_snpl2_cmplt;
+wire    [4  :0]  x_sid;
 
 
 parameter DEPTH = `SAB_DEPTH;
@@ -672,20 +672,20 @@ gated_clk_cell  x_fsm_gated_clk (
 //          .clk_out     (fsm_clk)); @84
 
 //================================================
-//    main fsm 
+//    main fsm
 //================================================
-parameter IDLE = 4'b0000; 
+parameter IDLE = 4'b0000;
 parameter DEPD = 4'b0001;
-parameter L2C  = 4'b0010; 
-parameter SNOP = 4'b0011; 
-parameter L2CR = 4'b0100; 
-parameter L2CW = 4'b0101; 
-parameter L2CA = 4'b0110; 
+parameter L2C  = 4'b0010;
+parameter SNOP = 4'b0011;
+parameter L2CR = 4'b0100;
+parameter L2CW = 4'b0101;
+parameter L2CA = 4'b0110;
 parameter MEMR = 4'b0111;
-parameter L2CT = 4'b1000; 
-parameter MEMW = 4'b1001; 
-parameter BAR  = 4'b1010; 
-parameter POP  = 4'b1011; 
+parameter L2CT = 4'b1000;
+parameter MEMW = 4'b1001;
+parameter BAR  = 4'b1010;
+parameter POP  = 4'b1011;
 parameter CR   = 4'b1100;
 parameter ECC_ERR = 4'b1101;
 
@@ -768,9 +768,9 @@ begin
   end
   L2C: begin
     if (l2c_cmplt & !l2_err) begin
-      if (cp_vld) 
+      if (cp_vld)
         main_next_state = SNOP;
-      else if (evict | csl1) 
+      else if (evict | csl1)
         main_next_state = POP;  //csl1 + evict
       else if (!depd_vld & (cml2 | snpl2))
         main_next_state = L2CW; //csl2 + ci + mi + snpl2
@@ -781,16 +781,16 @@ begin
           main_next_state = MEMR;   // ru + cu + wu + wlu
         else if (ws)
           main_next_state = L2CR;   //wu + wlu
-        else 
+        else
           main_next_state = L2CW;   //rns + ro + rs + ru + cu + wns + ro_ext + l2_prf
       end
       else if (snpext)
         main_next_state = CR;
-      else if (rd_alct)          
-        main_next_state = L2CA;  //rns_line + rs + ru + l2_prf 
+      else if (rd_alct)
+        main_next_state = L2CA;  //rns_line + rs + ru + l2_prf
       else if (wns)
         main_next_state = MEMW;  //wns
-      else 
+      else
         main_next_state = (ace_cfig | ro | rns) ? MEMR : (cu ? L2CW : L2CR);  //ro + rns_part + cu + wu + wlu
     end
     else if (l2c_cmplt & l2_err)
@@ -813,7 +813,7 @@ begin
       main_next_state = ECC_ERR;
     else
       main_next_state = SNOP;
-  end 
+  end
   L2CR: begin
     if (l2c_cmplt & !l2_err)
       main_next_state = (!ws | l2_hit) ? L2CW : MEMW;
@@ -841,7 +841,7 @@ begin
       else
          main_next_state =  L2CW;  // rns + ro + rs + cu
     end
-    else 
+    else
       main_next_state = MEMR;
   end
   L2CT: begin
@@ -860,7 +860,7 @@ begin
         main_next_state = (ace_cfig | l1orl2_dirty) ? MEMW : POP;
       else if (cml2)
         main_next_state = (l1orl2_dirty & !mi) ? MEMW : (ace_cfig ? MEMR : POP);
-      else 
+      else
         main_next_state = POP; //rns + ro + rs + ru + cu + wu + wlu + csl1 + wns
     end
     else if (l2c_cmplt & l2_err)
@@ -877,7 +877,7 @@ begin
   CR: begin
     if (ebiu_cr_done)
       main_next_state = IDLE;
-    else 
+    else
       main_next_state = CR;
   end
   POP: begin
@@ -928,7 +928,7 @@ assign reply        = wns_pend & rd & !(l1_dt | l2_sh);
 
 //main fsm output
 assign l2c_req_mask = rns & part_req | ro | l2_prf & l2_hit;// | rs & !snpext & l2_hit & !l1_pd;
-assign l2c_req_vld  = (main_cur_state == IDLE) & req_vld & !bar_raw & !depd_vld_raw & !wt_raw | 
+assign l2c_req_vld  = (main_cur_state == IDLE) & req_vld & !bar_raw & !depd_vld_raw & !wt_raw |
                       (main_cur_state == DEPD)  & !depd_vld & (!wt_val | evict | l1_wdata_vld) |  //all request should first request L2C
                       (main_cur_state != L2CR) & (main_next_state == L2CR) |    //L2CR, for rd reply and ws
                       (main_cur_state == L2CA) & alct_req_en |    //& arb_sab_no_l2c_req |    //L2CA, for rd_alct
@@ -936,20 +936,20 @@ assign l2c_req_vld  = (main_cur_state == IDLE) & req_vld & !bar_raw & !depd_vld_
                       (main_cur_state != L2CT) & (main_next_state == L2CT);      //L2CT
 assign rresp_rdy    = !wt_val & !snpext & !snpl2 & !l2_prf_from_l2c &
                            (
-                            (!l2_prf & (rns | ro | rs | cu | ru)) & (main_cur_state != L2CW) & (main_next_state == L2CW) | 
-                            csl1 & ((main_next_state == POP)  & (main_cur_state != L2CW) & (main_cur_state != POP) | 
+                            (!l2_prf & (rns | ro | rs | cu | ru)) & (main_cur_state != L2CW) & (main_next_state == L2CW) |
+                            csl1 & ((main_next_state == POP)  & (main_cur_state != L2CW) & (main_cur_state != POP) |
                                     (main_cur_state != L2CW) & (main_next_state == L2CW)) |
                             cml2 & (main_next_state == POP) & (main_cur_state != POP) |
                             (main_cur_state != ECC_ERR) & (main_next_state == ECC_ERR)
                            );
 
 assign snp_req_vld  = (main_cur_state == L2C) & l2c_cmplt & !l2_err & cp_vld;
-assign memr_req_vld = (main_cur_state != MEMR) & (main_next_state == MEMR); 
+assign memr_req_vld = (main_cur_state != MEMR) & (main_next_state == MEMR);
 assign memw_req_vld = (main_cur_state != MEMW) & (main_next_state == MEMW);
-assign set_process  = req_vld & wns_raw | 
-                      (main_cur_state != L2C) & (main_next_state == L2C) | 
+assign set_process  = req_vld & wns_raw |
+                      (main_cur_state != L2C) & (main_next_state == L2C) |
                       (main_cur_state == MEMR) & (memr_cmplt_f | memr_cmplt) & snpl2_done;
-assign clr_process  = (main_cur_state != MEMR) & (main_next_state == MEMR) | 
+assign clr_process  = (main_cur_state != MEMR) & (main_next_state == MEMR) |
                       (main_cur_state != IDLE) & (main_next_state == IDLE);
 assign data_sel_l1c = (main_cur_state == SNOP) | wt_val & (main_cur_state == DEPD);
 assign data_sel_l2c = (main_cur_state == L2C) | (main_cur_state == L2CR) | (main_cur_state == L2CW);
@@ -1039,7 +1039,7 @@ always@(posedge fsm_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)
     l2c_cur_state[1:0] <= L2C_IDLE;
-  else 
+  else
     l2c_cur_state[1:0] <= l2c_nxt_state[1:0];
 end
 
@@ -1053,13 +1053,13 @@ begin
   L2C_IDLE: begin
     if (l2c_req_vld)
       l2c_nxt_state = L2C_REQ;
-    else 
+    else
       l2c_nxt_state = L2C_IDLE;
   end
   L2C_REQ: begin
     if(l2c_grant_x)
       l2c_nxt_state = L2C_WAIT;
-    else 
+    else
       l2c_nxt_state = L2C_REQ;
   end
   L2C_WAIT: begin
@@ -1160,7 +1160,7 @@ begin
       snp0_next_state = SNP0_IDLE;
     else
       snp0_next_state = SNP0_WAIT;
-  end      
+  end
   SNP0_CD: begin
     if (piu0_cdvld_x)
       snp0_next_state = SNP0_IDLE;
@@ -1172,7 +1172,7 @@ begin
 // &CombEnd; @530
 end
 
-assign snp0_cmplt = (snp0_cur_state == SNP0_WAIT) & piu0_crvld_x & !piu0_crresp[DT] | 
+assign snp0_cmplt = (snp0_cur_state == SNP0_WAIT) & piu0_crvld_x & !piu0_crresp[DT] |
                     (snp0_cur_state == SNP0_CD)   & piu0_cdvld_x |
                     (snp0_cur_state == SNP0_IDLE);
 
@@ -1223,7 +1223,7 @@ begin
       snp1_next_state = SNP1_IDLE;
     else
       snp1_next_state = SNP1_WAIT;
-  end      
+  end
   SNP1_CD: begin
     if (piu1_cdvld_x)
       snp1_next_state = SNP1_IDLE;
@@ -1236,7 +1236,7 @@ begin
 end
 
 assign sab_piu1_ac_req_x = (snp1_cur_state == SNP1_REQ);
-assign snp1_cmplt = (snp1_cur_state == SNP0_WAIT) & piu1_crvld_x & !piu1_crresp[DT] | 
+assign snp1_cmplt = (snp1_cur_state == SNP0_WAIT) & piu1_crvld_x & !piu1_crresp[DT] |
                     (snp1_cur_state == SNP0_CD)   & piu1_cdvld_x |
                     (snp1_cur_state == SNP0_IDLE);
 
@@ -1284,7 +1284,7 @@ begin
       snp2_next_state = SNP2_IDLE;
     else
       snp2_next_state = SNP2_WAIT;
-  end      
+  end
   SNP2_CD: begin
     if (piu2_cdvld_x)
       snp2_next_state = SNP2_IDLE;
@@ -1297,7 +1297,7 @@ begin
 end
 
 assign sab_piu2_ac_req_x = (snp2_cur_state == SNP2_REQ);
-assign snp2_cmplt = (snp2_cur_state == SNP0_WAIT) & piu2_crvld_x & !piu2_crresp[DT] | 
+assign snp2_cmplt = (snp2_cur_state == SNP0_WAIT) & piu2_crvld_x & !piu2_crresp[DT] |
                     (snp2_cur_state == SNP0_CD)   & piu2_cdvld_x |
                     (snp2_cur_state == SNP0_IDLE);
 
@@ -1345,7 +1345,7 @@ begin
       snp3_next_state = SNP3_IDLE;
     else
       snp3_next_state = SNP3_WAIT;
-  end      
+  end
   SNP3_CD: begin
     if (piu3_cdvld_x)
       snp3_next_state = SNP3_IDLE;
@@ -1358,7 +1358,7 @@ begin
 end
 
 assign sab_piu3_ac_req_x = (snp3_cur_state == SNP3_REQ);
-assign snp3_cmplt = (snp3_cur_state == SNP0_WAIT) & piu3_crvld_x & !piu3_crresp[DT] | 
+assign snp3_cmplt = (snp3_cur_state == SNP0_WAIT) & piu3_crvld_x & !piu3_crresp[DT] |
                     (snp3_cur_state == SNP0_CD)   & piu3_cdvld_x |
                     (snp3_cur_state == SNP0_IDLE);
 
@@ -1402,7 +1402,7 @@ assign snp_fsm_busy  = snp0_fsm_busy | snp1_fsm_busy | snp2_fsm_busy | snp3_fsm_
 
 assign snp_cmplt = snp0_cmplt & snp1_cmplt & snp2_cmplt & snp3_cmplt;
 
-assign acsnoop[3:0] = (cu | snpl2 | ru | wu) 
+assign acsnoop[3:0] = (cu | snpl2 | ru | wu)
                     ? 4'b1001                       //CI
                     : ((mu | wlu) ? 4'b1101         //MI
                                   : (rs ? 4'b1000   //CS
@@ -1445,7 +1445,7 @@ begin
   MEMR_REQ: begin
     if (memr_ar_grant_x)
       memr_nxt_state = MEMR_WFD;
-    else 
+    else
       memr_nxt_state = MEMR_REQ;
   end
   MEMR_WFD: begin
@@ -1505,7 +1505,7 @@ begin
   MEMW_REQ: begin
     if (memw_aw_grant_x)
       memw_nxt_state = MEMW_WFC;
-    else 
+    else
       memw_nxt_state = MEMW_REQ;
   end
   MEMW_WFC: begin
@@ -1545,8 +1545,8 @@ assign ebiu_awaddr[ADDRW-1:0] = {sab_cont[ADDR_H:ADDR_6], awaddr_5_0[5:0]};
 assign ebiu_arsnoop[3:0] = (wu | ru & l2_sh) ? 4'b1011                //CU
                                              : (wlu ? 4'b1100         //MU
                                                     : sab_cont[SNOOP_3:SNOOP_0]);
-assign ebiu_awsnoop[2:0] = wns_i ? 3'b000 
-                                 : (cs ? 3'b010 
+assign ebiu_awsnoop[2:0] = wns_i ? 3'b000
+                                 : (cs ? 3'b010
                                        : ((snpl2 & !l1orl2_dirty) ? 3'b100       //EVICT to L3
                                                                   : 3'b011));
 
@@ -1619,8 +1619,8 @@ assign rresp_err[3:0]   = memr_resp_f_err[3:0] |
 assign rresp_ecc_err = l1_err | l2_err;
 assign rresp[6:0]    = {rresp_is, 1'b0, rresp_err[3:0], rresp_ecc_err};
 assign addr_5_4[1:0] = sab_cont[ADDR_5:ADDR_4];
-assign len[1:0]      = sab_cont[SNOOP_3] 
-                     ? 2'b00 
+assign len[1:0]      = sab_cont[SNOOP_3]
+                     ? 2'b00
                      : sab_cont[LEN_1:LEN_0]; //len of CU\CS\CI\MI is transferred from 3 to 0.
 
 assign x_rresp_bus[R_WIDTH-1:0] = {data[511:0],
@@ -1660,7 +1660,7 @@ end
 assign bresp_rdy = wt_val & (l1_wen_x | evict) & (main_cur_state == DEPD) & ~bresp_already_rdy;
 
 assign sab_bresp_req_x = bresp_rdy_f;
-assign x_bresp_bus[B_WIDTH-1:0] = {x_sid[4:0], 
+assign x_bresp_bus[B_WIDTH-1:0] = {x_sid[4:0],
                                    req_id[7:0],
                                    2'b0};
 
@@ -1701,7 +1701,7 @@ end
 assign bar_raw = x_cbus[BAR_0];
 assign wt_raw  = x_cbus[WT];
 assign l2_prf_raw = x_cbus[USER_2] & !wt_raw;
-assign wns_raw = wt_raw & 
+assign wns_raw = wt_raw &
                 ((x_cbus[SNOOP_2:SNOOP_0] == 3'b000) & (x_cbus[DOMAIN_1:DOMAIN_0] != 2'b01) | //WriteNoSnoop
                  (x_cbus[SNOOP_2:SNOOP_0] == 3'b011) | //WriteBack
                  (x_cbus[SNOOP_2:SNOOP_0] == 3'b010)); //writeclean
@@ -1782,15 +1782,15 @@ assign req_wtsd = (main_cur_state == L2CW) & (
                      rs & snpext & l1_pd
                   );
 assign req_wtuc = (main_cur_state == L2CW) & (
-                     (rns & !part_req | rs | ru ) & !snpext & memr_uc & !l2_hit | 
+                     (rns & !part_req | rs | ru ) & !snpext & memr_uc & !l2_hit |
                      (csl2 & l1_pd)
                   );
 assign req_wtud = (main_cur_state == L2CW) & (
-                      ((rs | ru) & !snpext | cu | csl1) & l1_pd | 
+                      ((rs | ru) & !snpext | cu | csl1) & l1_pd |
                       (rs | ru) & !snpext & memr_ud & !l2_hit  |
-                       wu | wlu | wns 
+                       wu | wlu | wns
                    );
-assign req_wtsc = (main_cur_state == L2CW) & 
+assign req_wtsc = (main_cur_state == L2CW) &
                      rs & !snpext & memr_sc & !l2_hit;
 assign req_atag = (main_cur_state == L2C) & (cu | snpl2 | cmop | wu | wlu | wns & !part_req | evict | l2_prf) |
                   (main_cur_state == L2CR) & wlu |
@@ -1800,7 +1800,7 @@ assign req_rls  = ((main_cur_state == L2CW) & memr_err | (main_cur_state == L2CT
 assign req_uni  = (main_cur_state == L2CW) & (ru & !snpext & l2_hit | cu) & !l1_pd;
 assign req_sh   = (main_cur_state == L2CW) & rs & snpext & l2_hit & !l1_pd;
 
-//rs:!snpext & l2_hit &!l1_pd 
+//rs:!snpext & l2_hit &!l1_pd
 //rns:l2_hit
 //it should setcp, but req_type is 0.
 assign req_type[12:0] = {req_read,req_alct,req_cln, req_icln,
@@ -1814,7 +1814,7 @@ assign clr_cp_vld  = (main_cur_state == L2C) & (ru | cu | ws | wb | ci | mi | ev
 assign clr_cp[3:0] = (wb | evict) ? piu_sel[3:0] : ~piu_sel[3:0];
 assign clr_cp_sel[3:0] = {4{clr_cp_vld}} & clr_cp[3:0];
 
-//set_cp 
+//set_cp
 assign set_cp_vld  = (main_cur_state == L2CW) & rd_alct & !l2_prf;
 assign set_cp[3:0] = piu_sel[3:0];
 assign set_cp_sel[3:0] = {4{set_cp_vld}} & set_cp[3:0];
@@ -1823,8 +1823,8 @@ assign set_cp_sel[3:0] = {4{set_cp_vld}} & set_cp[3:0];
 //        back mark for WNS
 //------------------------------------------------
 assign back_mark = rns & (main_cur_state == DEPD) |
-                  !rns & !wns & !evict & ((main_cur_state == DEPD) | 
-                                          (main_cur_state == L2C) | 
+                  !rns & !wns & !evict & ((main_cur_state == DEPD) |
+                                          (main_cur_state == L2C) |
                                           (main_cur_state == SNOP) & !snp_cmplt);
 
 assign sab_back_mark_by_wns_x = back_mark;
@@ -2014,7 +2014,7 @@ begin
   else if (memr_resp_wen)
     memr_resp_f_3_2[1:0] <= memr_resp[3:2];
 end
-assign memr_err = |memr_resp_f_err[3:0];   
+assign memr_err = |memr_resp_f_err[3:0];
 assign memr_sh  = memr_resp_f_3_2[IS-2];
 assign memr_pd  = memr_resp_f_3_2[PD-2];
 
@@ -2253,7 +2253,7 @@ begin
     data_sel[2:0] <= 3'b001;   //mem sel
   else if (x_cen | data_sel_l2c)
     data_sel[2:0] <= 3'b010;   //l2_sel
-  else 
+  else
     data_sel[2:0] <= data_sel[2:0];
 end
 
@@ -2529,7 +2529,7 @@ end
 //--------------------------------------
 //        sab_cont/sdb_cont
 //--------------------------------------
- 
+
 assign bar_val[1:0] = sab_cont[BAR_1:BAR_0];
 
 assign sab_vld_x   = vld;

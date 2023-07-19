@@ -239,599 +239,599 @@ module ct_vfpu_dp(
 );
 
 // &Ports; @23
-input   [31:0]  cp0_vfpu_fxcr;                        
-input           cp0_vfpu_icg_en;                      
-input           cp0_yy_clk_en;                        
-input           cpurst_b;                             
-input           ctrl_dp_ex2_pipe7_inst_vld;           
-input   [11:0]  ctrl_ex1_pipe6_eu_sel;                
-input           ctrl_ex1_pipe6_inst_vld;              
-input           ctrl_ex1_pipe6_mfvr_inst_vld;         
-input           ctrl_ex1_pipe6_mfvr_inst_vld_dup0;    
-input           ctrl_ex1_pipe6_mfvr_inst_vld_dup1;    
-input           ctrl_ex1_pipe6_mfvr_inst_vld_dup2;    
-input           ctrl_ex1_pipe6_mfvr_inst_vld_dup3;    
-input   [11:0]  ctrl_ex1_pipe7_eu_sel;                
-input           ctrl_ex1_pipe7_mfvr_inst_vld;         
-input           ctrl_ex1_pipe7_mfvr_inst_vld_dup0;    
-input           ctrl_ex1_pipe7_mfvr_inst_vld_dup1;    
-input           ctrl_ex1_pipe7_mfvr_inst_vld_dup2;    
-input           ctrl_ex1_pipe7_mfvr_inst_vld_dup3;    
-input           ctrl_ex2_pipe6_inst_vld;              
-input           ctrl_ex2_pipe6_mfvr_inst_vld;         
-input           ctrl_ex2_pipe7_inst_vld;              
-input           ctrl_ex2_pipe7_mfvr_inst_vld;         
-input           ctrl_ex3_pipe6_inst_vld;              
-input           ctrl_ex3_pipe7_inst_vld;              
-input           ctrl_ex4_pipe6_inst_vld;              
-input           forever_cpuclk;                       
-input           idu_vfpu_is_vdiv_gateclk_issue;       
-input           idu_vfpu_is_vdiv_issue;               
-input   [4 :0]  idu_vfpu_rf_pipe6_dst_ereg;           
-input   [6 :0]  idu_vfpu_rf_pipe6_dst_preg;           
-input           idu_vfpu_rf_pipe6_dst_vld;            
-input   [6 :0]  idu_vfpu_rf_pipe6_dst_vreg;           
-input           idu_vfpu_rf_pipe6_dste_vld;           
-input           idu_vfpu_rf_pipe6_dstv_vld;           
-input   [11:0]  idu_vfpu_rf_pipe6_eu_sel;             
-input   [19:0]  idu_vfpu_rf_pipe6_func;               
-input           idu_vfpu_rf_pipe6_gateclk_sel;        
-input   [6 :0]  idu_vfpu_rf_pipe6_iid;                
-input   [2 :0]  idu_vfpu_rf_pipe6_imm0;               
-input   [5 :0]  idu_vfpu_rf_pipe6_inst_type;          
-input           idu_vfpu_rf_pipe6_mla_srcv2_vld;      
-input   [6 :0]  idu_vfpu_rf_pipe6_mla_srcv2_vreg;     
-input   [2 :0]  idu_vfpu_rf_pipe6_ready_stage;        
-input   [63:0]  idu_vfpu_rf_pipe6_srcv0_fr;           
-input   [63:0]  idu_vfpu_rf_pipe6_srcv1_fr;           
-input   [2 :0]  idu_vfpu_rf_pipe6_vmla_type;          
-input   [4 :0]  idu_vfpu_rf_pipe7_dst_ereg;           
-input   [6 :0]  idu_vfpu_rf_pipe7_dst_preg;           
-input           idu_vfpu_rf_pipe7_dst_vld;            
-input   [6 :0]  idu_vfpu_rf_pipe7_dst_vreg;           
-input           idu_vfpu_rf_pipe7_dste_vld;           
-input           idu_vfpu_rf_pipe7_dstv_vld;           
-input   [11:0]  idu_vfpu_rf_pipe7_eu_sel;             
-input   [19:0]  idu_vfpu_rf_pipe7_func;               
-input           idu_vfpu_rf_pipe7_gateclk_sel;        
-input   [2 :0]  idu_vfpu_rf_pipe7_imm0;               
-input   [5 :0]  idu_vfpu_rf_pipe7_inst_type;          
-input           idu_vfpu_rf_pipe7_mla_srcv2_vld;      
-input   [6 :0]  idu_vfpu_rf_pipe7_mla_srcv2_vreg;     
-input   [2 :0]  idu_vfpu_rf_pipe7_ready_stage;        
-input   [63:0]  idu_vfpu_rf_pipe7_srcv0_fr;           
-input   [63:0]  idu_vfpu_rf_pipe7_srcv1_fr;           
-input   [2 :0]  idu_vfpu_rf_pipe7_vmla_type;          
-input   [4 :0]  iu_vfpu_ex1_pipe0_mtvr_inst;          
-input           iu_vfpu_ex1_pipe0_mtvr_vld;           
-input   [6 :0]  iu_vfpu_ex1_pipe0_mtvr_vreg;          
-input   [4 :0]  iu_vfpu_ex1_pipe1_mtvr_inst;          
-input           iu_vfpu_ex1_pipe1_mtvr_vld;           
-input   [6 :0]  iu_vfpu_ex1_pipe1_mtvr_vreg;          
-input   [63:0]  iu_vfpu_ex2_pipe0_mtvr_src0;          
-input   [63:0]  iu_vfpu_ex2_pipe1_mtvr_src0;          
-input           pad_yy_icg_scan_en;                   
-input           pipe6_dp_ex1_mult_id;                 
-input   [63:0]  pipe6_dp_ex1_vfalu_mfvr_data;         
-input   [4 :0]  pipe6_dp_ex3_vfalu_ereg_data;         
-input   [63:0]  pipe6_dp_ex3_vfalu_freg_data;         
-input   [4 :0]  pipe6_dp_ex3_vfmau_ereg_data;         
-input   [63:0]  pipe6_dp_ex3_vfmau_freg_data;         
-input   [4 :0]  pipe6_dp_ex4_vfmau_ereg_data;         
-input   [63:0]  pipe6_dp_ex4_vfmau_freg_data;         
-input   [4 :0]  pipe6_dp_vfdsu_ereg;                  
-input   [4 :0]  pipe6_dp_vfdsu_ereg_data;             
-input   [63:0]  pipe6_dp_vfdsu_freg_data;             
-input           pipe6_dp_vfdsu_inst_vld;              
-input   [6 :0]  pipe6_dp_vfdsu_vreg;                  
-input           pipe7_dp_ex1_mult_id;                 
-input   [63:0]  pipe7_dp_ex1_vfalu_mfvr_data;         
-input   [4 :0]  pipe7_dp_ex3_vfalu_ereg_data;         
-input   [63:0]  pipe7_dp_ex3_vfalu_freg_data;         
-input   [4 :0]  pipe7_dp_ex3_vfmau_ereg_data;         
-input   [63:0]  pipe7_dp_ex3_vfmau_freg_data;         
-input   [4 :0]  pipe7_dp_ex4_vfmau_ereg_data;         
-input   [63:0]  pipe7_dp_ex4_vfmau_freg_data;         
-input   [6 :0]  vdivu_vfpu_ex1_pipe6_dst_vreg;        
-input           vdivu_vfpu_ex1_pipe6_result_vld;      
-input           vdivu_vfpu_pipe6_req_for_bubble;      
-input           vdivu_vfpu_pipe6_vdiv_busy;           
-input   [63:0]  vdsp_vfpu_ex1_pipe6_mfvr_data;        
-input   [63:0]  vdsp_vfpu_ex1_pipe7_mfvr_data;        
-input           vfdsu_dp_fdiv_busy;                   
-input           vfdsu_dp_inst_wb_req;                 
-output          dp_ctrl_ex1_pipe6_data_vld_pre;       
-output          dp_ctrl_ex1_pipe7_data_vld_pre;       
-output          dp_ctrl_ex2_pipe6_data_vld_pre;       
-output          dp_ctrl_ex2_pipe7_data_vld_pre;       
-output          dp_ctrl_ex3_pipe6_data_vld_pre;       
-output          dp_ctrl_ex3_pipe6_fwd_vld_pre;        
-output          dp_ctrl_ex3_pipe7_data_vld_pre;       
-output          dp_ctrl_ex3_pipe7_fwd_vld_pre;        
-output          dp_ctrl_ex4_pipe6_fwd_vld_pre;        
-output          dp_ctrl_ex4_pipe7_fwd_vld_pre;        
-output          dp_ctrl_pipe6_vfdsu_inst_vld;         
-output          dp_ex1_pipe6_dst_vld_pre;             
-output          dp_ex1_pipe7_dst_vld_pre;             
-output  [6 :0]  dp_ex3_pipe6_dst_vreg;                
-output  [63:0]  dp_ex3_pipe6_freg_data;               
-output  [6 :0]  dp_ex3_pipe7_dst_vreg;                
-output  [63:0]  dp_ex3_pipe7_freg_data;               
-output  [4 :0]  dp_ex4_pipe6_dst_ereg;                
-output  [6 :0]  dp_ex4_pipe6_dst_vreg;                
-output          dp_ex4_pipe6_normal_dste_wb_vld;      
-output          dp_ex4_pipe6_normal_dstv_wb_vld;      
-output  [4 :0]  dp_ex4_pipe7_dst_ereg;                
-output  [6 :0]  dp_ex4_pipe7_dst_vreg;                
-output          dp_ex4_pipe7_dste_vld;                
-output          dp_ex4_pipe7_dstv_vld;                
-output  [4 :0]  dp_ex5_pipe6_ereg_data_pre;           
-output  [63:0]  dp_ex5_pipe6_freg_data_pre;           
-output  [4 :0]  dp_ex5_pipe7_ereg_data_pre;           
-output  [63:0]  dp_ex5_pipe7_freg_data_pre;           
-output  [6 :0]  dp_rbus_pipe6_ex1_vreg;               
-output  [6 :0]  dp_rbus_pipe6_ex1_vreg_dup0;          
-output  [6 :0]  dp_rbus_pipe6_ex1_vreg_dup1;          
-output  [6 :0]  dp_rbus_pipe6_ex1_vreg_dup2;          
-output  [6 :0]  dp_rbus_pipe6_ex2_vreg;               
-output  [6 :0]  dp_rbus_pipe6_ex2_vreg_dup0;          
-output  [6 :0]  dp_rbus_pipe6_ex2_vreg_dup1;          
-output  [6 :0]  dp_rbus_pipe6_ex2_vreg_dup2;          
-output  [6 :0]  dp_rbus_pipe6_ex3_vreg_dup0;          
-output  [6 :0]  dp_rbus_pipe6_ex3_vreg_dup1;          
-output  [6 :0]  dp_rbus_pipe6_ex3_vreg_dup2;          
-output  [6 :0]  dp_rbus_pipe6_ex3_vreg_dup3;          
-output  [6 :0]  dp_rbus_pipe7_ex1_vreg;               
-output  [6 :0]  dp_rbus_pipe7_ex1_vreg_dup0;          
-output  [6 :0]  dp_rbus_pipe7_ex1_vreg_dup1;          
-output  [6 :0]  dp_rbus_pipe7_ex1_vreg_dup2;          
-output  [6 :0]  dp_rbus_pipe7_ex2_vreg;               
-output  [6 :0]  dp_rbus_pipe7_ex2_vreg_dup0;          
-output  [6 :0]  dp_rbus_pipe7_ex2_vreg_dup1;          
-output  [6 :0]  dp_rbus_pipe7_ex2_vreg_dup2;          
-output  [6 :0]  dp_rbus_pipe7_ex3_vreg_dup0;          
-output  [6 :0]  dp_rbus_pipe7_ex3_vreg_dup1;          
-output  [6 :0]  dp_rbus_pipe7_ex3_vreg_dup2;          
-output  [6 :0]  dp_rbus_pipe7_ex3_vreg_dup3;          
-output  [19:0]  dp_vfalu_ex1_pipe6_func;              
-output  [2 :0]  dp_vfalu_ex1_pipe6_imm0;              
-output  [63:0]  dp_vfalu_ex1_pipe6_mtvr_src0;         
-output  [2 :0]  dp_vfalu_ex1_pipe6_sel;               
-output  [63:0]  dp_vfalu_ex1_pipe6_srcf0;             
-output  [63:0]  dp_vfalu_ex1_pipe6_srcf1;             
-output  [19:0]  dp_vfalu_ex1_pipe7_func;              
-output  [2 :0]  dp_vfalu_ex1_pipe7_imm0;              
-output  [63:0]  dp_vfalu_ex1_pipe7_mtvr_src0;         
-output  [2 :0]  dp_vfalu_ex1_pipe7_sel;               
-output  [63:0]  dp_vfalu_ex1_pipe7_srcf0;             
-output  [63:0]  dp_vfalu_ex1_pipe7_srcf1;             
-output  [4 :0]  dp_vfdsu_ex1_pipe6_dst_ereg;          
-output  [6 :0]  dp_vfdsu_ex1_pipe6_dst_vreg;          
-output  [6 :0]  dp_vfdsu_ex1_pipe6_iid;               
-output  [2 :0]  dp_vfdsu_ex1_pipe6_imm0;              
-output          dp_vfdsu_ex1_pipe6_sel;               
-output  [63:0]  dp_vfdsu_ex1_pipe6_srcf0;             
-output  [63:0]  dp_vfdsu_ex1_pipe6_srcf1;             
-output          dp_vfdsu_fdiv_gateclk_issue;          
-output          dp_vfdsu_idu_fdiv_issue;              
-output  [6 :0]  dp_vfmau_ex1_pipe6_dst_vreg;          
-output  [2 :0]  dp_vfmau_ex1_pipe6_imm0;              
-output          dp_vfmau_ex1_pipe6_sel;               
-output  [6 :0]  dp_vfmau_ex1_pipe7_dst_vreg;          
-output  [2 :0]  dp_vfmau_ex1_pipe7_imm0;              
-output          dp_vfmau_ex1_pipe7_sel;               
-output  [5 :0]  dp_vfmau_pipe6_inst_type;             
-output          dp_vfmau_pipe6_mla_srcv2_vld;         
-output  [6 :0]  dp_vfmau_pipe6_mla_srcv2_vreg;        
-output  [2 :0]  dp_vfmau_pipe6_mla_type;              
-output          dp_vfmau_pipe6_sel;                   
-output          dp_vfmau_pipe6_vfmau_sel;             
-output  [5 :0]  dp_vfmau_pipe7_inst_type;             
-output          dp_vfmau_pipe7_mla_srcv2_vld;         
-output  [6 :0]  dp_vfmau_pipe7_mla_srcv2_vreg;        
-output  [2 :0]  dp_vfmau_pipe7_mla_type;              
-output          dp_vfmau_pipe7_sel;                   
-output          dp_vfmau_pipe7_vfmau_sel;             
-output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup0; 
-output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup1; 
-output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup2; 
-output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup3; 
-output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup4; 
-output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup0;         
-output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup1;         
-output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup2;         
-output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup3;         
-output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup4;         
-output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup0; 
-output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup1; 
-output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup2; 
-output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup3; 
-output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup4; 
-output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup0;         
-output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup1;         
-output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup2;         
-output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup3;         
-output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup4;         
-output          vfpu_idu_vdiv_busy;                   
-output          vfpu_idu_vdiv_wb_stall;               
-output  [63:0]  vfpu_iu_ex2_pipe6_mfvr_data;          
-output          vfpu_iu_ex2_pipe6_mfvr_data_vld;      
-output  [6 :0]  vfpu_iu_ex2_pipe6_mfvr_preg;          
-output  [63:0]  vfpu_iu_ex2_pipe7_mfvr_data;          
-output          vfpu_iu_ex2_pipe7_mfvr_data_vld;      
-output  [6 :0]  vfpu_iu_ex2_pipe7_mfvr_preg;          
-output          vfpu_yy_xx_dqnan;                     
-output  [2 :0]  vfpu_yy_xx_rm;                        
+input   [31:0]  cp0_vfpu_fxcr;
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           ctrl_dp_ex2_pipe7_inst_vld;
+input   [11:0]  ctrl_ex1_pipe6_eu_sel;
+input           ctrl_ex1_pipe6_inst_vld;
+input           ctrl_ex1_pipe6_mfvr_inst_vld;
+input           ctrl_ex1_pipe6_mfvr_inst_vld_dup0;
+input           ctrl_ex1_pipe6_mfvr_inst_vld_dup1;
+input           ctrl_ex1_pipe6_mfvr_inst_vld_dup2;
+input           ctrl_ex1_pipe6_mfvr_inst_vld_dup3;
+input   [11:0]  ctrl_ex1_pipe7_eu_sel;
+input           ctrl_ex1_pipe7_mfvr_inst_vld;
+input           ctrl_ex1_pipe7_mfvr_inst_vld_dup0;
+input           ctrl_ex1_pipe7_mfvr_inst_vld_dup1;
+input           ctrl_ex1_pipe7_mfvr_inst_vld_dup2;
+input           ctrl_ex1_pipe7_mfvr_inst_vld_dup3;
+input           ctrl_ex2_pipe6_inst_vld;
+input           ctrl_ex2_pipe6_mfvr_inst_vld;
+input           ctrl_ex2_pipe7_inst_vld;
+input           ctrl_ex2_pipe7_mfvr_inst_vld;
+input           ctrl_ex3_pipe6_inst_vld;
+input           ctrl_ex3_pipe7_inst_vld;
+input           ctrl_ex4_pipe6_inst_vld;
+input           forever_cpuclk;
+input           idu_vfpu_is_vdiv_gateclk_issue;
+input           idu_vfpu_is_vdiv_issue;
+input   [4 :0]  idu_vfpu_rf_pipe6_dst_ereg;
+input   [6 :0]  idu_vfpu_rf_pipe6_dst_preg;
+input           idu_vfpu_rf_pipe6_dst_vld;
+input   [6 :0]  idu_vfpu_rf_pipe6_dst_vreg;
+input           idu_vfpu_rf_pipe6_dste_vld;
+input           idu_vfpu_rf_pipe6_dstv_vld;
+input   [11:0]  idu_vfpu_rf_pipe6_eu_sel;
+input   [19:0]  idu_vfpu_rf_pipe6_func;
+input           idu_vfpu_rf_pipe6_gateclk_sel;
+input   [6 :0]  idu_vfpu_rf_pipe6_iid;
+input   [2 :0]  idu_vfpu_rf_pipe6_imm0;
+input   [5 :0]  idu_vfpu_rf_pipe6_inst_type;
+input           idu_vfpu_rf_pipe6_mla_srcv2_vld;
+input   [6 :0]  idu_vfpu_rf_pipe6_mla_srcv2_vreg;
+input   [2 :0]  idu_vfpu_rf_pipe6_ready_stage;
+input   [63:0]  idu_vfpu_rf_pipe6_srcv0_fr;
+input   [63:0]  idu_vfpu_rf_pipe6_srcv1_fr;
+input   [2 :0]  idu_vfpu_rf_pipe6_vmla_type;
+input   [4 :0]  idu_vfpu_rf_pipe7_dst_ereg;
+input   [6 :0]  idu_vfpu_rf_pipe7_dst_preg;
+input           idu_vfpu_rf_pipe7_dst_vld;
+input   [6 :0]  idu_vfpu_rf_pipe7_dst_vreg;
+input           idu_vfpu_rf_pipe7_dste_vld;
+input           idu_vfpu_rf_pipe7_dstv_vld;
+input   [11:0]  idu_vfpu_rf_pipe7_eu_sel;
+input   [19:0]  idu_vfpu_rf_pipe7_func;
+input           idu_vfpu_rf_pipe7_gateclk_sel;
+input   [2 :0]  idu_vfpu_rf_pipe7_imm0;
+input   [5 :0]  idu_vfpu_rf_pipe7_inst_type;
+input           idu_vfpu_rf_pipe7_mla_srcv2_vld;
+input   [6 :0]  idu_vfpu_rf_pipe7_mla_srcv2_vreg;
+input   [2 :0]  idu_vfpu_rf_pipe7_ready_stage;
+input   [63:0]  idu_vfpu_rf_pipe7_srcv0_fr;
+input   [63:0]  idu_vfpu_rf_pipe7_srcv1_fr;
+input   [2 :0]  idu_vfpu_rf_pipe7_vmla_type;
+input   [4 :0]  iu_vfpu_ex1_pipe0_mtvr_inst;
+input           iu_vfpu_ex1_pipe0_mtvr_vld;
+input   [6 :0]  iu_vfpu_ex1_pipe0_mtvr_vreg;
+input   [4 :0]  iu_vfpu_ex1_pipe1_mtvr_inst;
+input           iu_vfpu_ex1_pipe1_mtvr_vld;
+input   [6 :0]  iu_vfpu_ex1_pipe1_mtvr_vreg;
+input   [63:0]  iu_vfpu_ex2_pipe0_mtvr_src0;
+input   [63:0]  iu_vfpu_ex2_pipe1_mtvr_src0;
+input           pad_yy_icg_scan_en;
+input           pipe6_dp_ex1_mult_id;
+input   [63:0]  pipe6_dp_ex1_vfalu_mfvr_data;
+input   [4 :0]  pipe6_dp_ex3_vfalu_ereg_data;
+input   [63:0]  pipe6_dp_ex3_vfalu_freg_data;
+input   [4 :0]  pipe6_dp_ex3_vfmau_ereg_data;
+input   [63:0]  pipe6_dp_ex3_vfmau_freg_data;
+input   [4 :0]  pipe6_dp_ex4_vfmau_ereg_data;
+input   [63:0]  pipe6_dp_ex4_vfmau_freg_data;
+input   [4 :0]  pipe6_dp_vfdsu_ereg;
+input   [4 :0]  pipe6_dp_vfdsu_ereg_data;
+input   [63:0]  pipe6_dp_vfdsu_freg_data;
+input           pipe6_dp_vfdsu_inst_vld;
+input   [6 :0]  pipe6_dp_vfdsu_vreg;
+input           pipe7_dp_ex1_mult_id;
+input   [63:0]  pipe7_dp_ex1_vfalu_mfvr_data;
+input   [4 :0]  pipe7_dp_ex3_vfalu_ereg_data;
+input   [63:0]  pipe7_dp_ex3_vfalu_freg_data;
+input   [4 :0]  pipe7_dp_ex3_vfmau_ereg_data;
+input   [63:0]  pipe7_dp_ex3_vfmau_freg_data;
+input   [4 :0]  pipe7_dp_ex4_vfmau_ereg_data;
+input   [63:0]  pipe7_dp_ex4_vfmau_freg_data;
+input   [6 :0]  vdivu_vfpu_ex1_pipe6_dst_vreg;
+input           vdivu_vfpu_ex1_pipe6_result_vld;
+input           vdivu_vfpu_pipe6_req_for_bubble;
+input           vdivu_vfpu_pipe6_vdiv_busy;
+input   [63:0]  vdsp_vfpu_ex1_pipe6_mfvr_data;
+input   [63:0]  vdsp_vfpu_ex1_pipe7_mfvr_data;
+input           vfdsu_dp_fdiv_busy;
+input           vfdsu_dp_inst_wb_req;
+output          dp_ctrl_ex1_pipe6_data_vld_pre;
+output          dp_ctrl_ex1_pipe7_data_vld_pre;
+output          dp_ctrl_ex2_pipe6_data_vld_pre;
+output          dp_ctrl_ex2_pipe7_data_vld_pre;
+output          dp_ctrl_ex3_pipe6_data_vld_pre;
+output          dp_ctrl_ex3_pipe6_fwd_vld_pre;
+output          dp_ctrl_ex3_pipe7_data_vld_pre;
+output          dp_ctrl_ex3_pipe7_fwd_vld_pre;
+output          dp_ctrl_ex4_pipe6_fwd_vld_pre;
+output          dp_ctrl_ex4_pipe7_fwd_vld_pre;
+output          dp_ctrl_pipe6_vfdsu_inst_vld;
+output          dp_ex1_pipe6_dst_vld_pre;
+output          dp_ex1_pipe7_dst_vld_pre;
+output  [6 :0]  dp_ex3_pipe6_dst_vreg;
+output  [63:0]  dp_ex3_pipe6_freg_data;
+output  [6 :0]  dp_ex3_pipe7_dst_vreg;
+output  [63:0]  dp_ex3_pipe7_freg_data;
+output  [4 :0]  dp_ex4_pipe6_dst_ereg;
+output  [6 :0]  dp_ex4_pipe6_dst_vreg;
+output          dp_ex4_pipe6_normal_dste_wb_vld;
+output          dp_ex4_pipe6_normal_dstv_wb_vld;
+output  [4 :0]  dp_ex4_pipe7_dst_ereg;
+output  [6 :0]  dp_ex4_pipe7_dst_vreg;
+output          dp_ex4_pipe7_dste_vld;
+output          dp_ex4_pipe7_dstv_vld;
+output  [4 :0]  dp_ex5_pipe6_ereg_data_pre;
+output  [63:0]  dp_ex5_pipe6_freg_data_pre;
+output  [4 :0]  dp_ex5_pipe7_ereg_data_pre;
+output  [63:0]  dp_ex5_pipe7_freg_data_pre;
+output  [6 :0]  dp_rbus_pipe6_ex1_vreg;
+output  [6 :0]  dp_rbus_pipe6_ex1_vreg_dup0;
+output  [6 :0]  dp_rbus_pipe6_ex1_vreg_dup1;
+output  [6 :0]  dp_rbus_pipe6_ex1_vreg_dup2;
+output  [6 :0]  dp_rbus_pipe6_ex2_vreg;
+output  [6 :0]  dp_rbus_pipe6_ex2_vreg_dup0;
+output  [6 :0]  dp_rbus_pipe6_ex2_vreg_dup1;
+output  [6 :0]  dp_rbus_pipe6_ex2_vreg_dup2;
+output  [6 :0]  dp_rbus_pipe6_ex3_vreg_dup0;
+output  [6 :0]  dp_rbus_pipe6_ex3_vreg_dup1;
+output  [6 :0]  dp_rbus_pipe6_ex3_vreg_dup2;
+output  [6 :0]  dp_rbus_pipe6_ex3_vreg_dup3;
+output  [6 :0]  dp_rbus_pipe7_ex1_vreg;
+output  [6 :0]  dp_rbus_pipe7_ex1_vreg_dup0;
+output  [6 :0]  dp_rbus_pipe7_ex1_vreg_dup1;
+output  [6 :0]  dp_rbus_pipe7_ex1_vreg_dup2;
+output  [6 :0]  dp_rbus_pipe7_ex2_vreg;
+output  [6 :0]  dp_rbus_pipe7_ex2_vreg_dup0;
+output  [6 :0]  dp_rbus_pipe7_ex2_vreg_dup1;
+output  [6 :0]  dp_rbus_pipe7_ex2_vreg_dup2;
+output  [6 :0]  dp_rbus_pipe7_ex3_vreg_dup0;
+output  [6 :0]  dp_rbus_pipe7_ex3_vreg_dup1;
+output  [6 :0]  dp_rbus_pipe7_ex3_vreg_dup2;
+output  [6 :0]  dp_rbus_pipe7_ex3_vreg_dup3;
+output  [19:0]  dp_vfalu_ex1_pipe6_func;
+output  [2 :0]  dp_vfalu_ex1_pipe6_imm0;
+output  [63:0]  dp_vfalu_ex1_pipe6_mtvr_src0;
+output  [2 :0]  dp_vfalu_ex1_pipe6_sel;
+output  [63:0]  dp_vfalu_ex1_pipe6_srcf0;
+output  [63:0]  dp_vfalu_ex1_pipe6_srcf1;
+output  [19:0]  dp_vfalu_ex1_pipe7_func;
+output  [2 :0]  dp_vfalu_ex1_pipe7_imm0;
+output  [63:0]  dp_vfalu_ex1_pipe7_mtvr_src0;
+output  [2 :0]  dp_vfalu_ex1_pipe7_sel;
+output  [63:0]  dp_vfalu_ex1_pipe7_srcf0;
+output  [63:0]  dp_vfalu_ex1_pipe7_srcf1;
+output  [4 :0]  dp_vfdsu_ex1_pipe6_dst_ereg;
+output  [6 :0]  dp_vfdsu_ex1_pipe6_dst_vreg;
+output  [6 :0]  dp_vfdsu_ex1_pipe6_iid;
+output  [2 :0]  dp_vfdsu_ex1_pipe6_imm0;
+output          dp_vfdsu_ex1_pipe6_sel;
+output  [63:0]  dp_vfdsu_ex1_pipe6_srcf0;
+output  [63:0]  dp_vfdsu_ex1_pipe6_srcf1;
+output          dp_vfdsu_fdiv_gateclk_issue;
+output          dp_vfdsu_idu_fdiv_issue;
+output  [6 :0]  dp_vfmau_ex1_pipe6_dst_vreg;
+output  [2 :0]  dp_vfmau_ex1_pipe6_imm0;
+output          dp_vfmau_ex1_pipe6_sel;
+output  [6 :0]  dp_vfmau_ex1_pipe7_dst_vreg;
+output  [2 :0]  dp_vfmau_ex1_pipe7_imm0;
+output          dp_vfmau_ex1_pipe7_sel;
+output  [5 :0]  dp_vfmau_pipe6_inst_type;
+output          dp_vfmau_pipe6_mla_srcv2_vld;
+output  [6 :0]  dp_vfmau_pipe6_mla_srcv2_vreg;
+output  [2 :0]  dp_vfmau_pipe6_mla_type;
+output          dp_vfmau_pipe6_sel;
+output          dp_vfmau_pipe6_vfmau_sel;
+output  [5 :0]  dp_vfmau_pipe7_inst_type;
+output          dp_vfmau_pipe7_mla_srcv2_vld;
+output  [6 :0]  dp_vfmau_pipe7_mla_srcv2_vreg;
+output  [2 :0]  dp_vfmau_pipe7_mla_type;
+output          dp_vfmau_pipe7_sel;
+output          dp_vfmau_pipe7_vfmau_sel;
+output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup0;
+output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup1;
+output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup2;
+output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup3;
+output          vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup4;
+output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup0;
+output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup1;
+output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup2;
+output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup3;
+output  [6 :0]  vfpu_idu_ex1_pipe6_preg_dup4;
+output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup0;
+output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup1;
+output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup2;
+output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup3;
+output          vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup4;
+output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup0;
+output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup1;
+output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup2;
+output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup3;
+output  [6 :0]  vfpu_idu_ex1_pipe7_preg_dup4;
+output          vfpu_idu_vdiv_busy;
+output          vfpu_idu_vdiv_wb_stall;
+output  [63:0]  vfpu_iu_ex2_pipe6_mfvr_data;
+output          vfpu_iu_ex2_pipe6_mfvr_data_vld;
+output  [6 :0]  vfpu_iu_ex2_pipe6_mfvr_preg;
+output  [63:0]  vfpu_iu_ex2_pipe7_mfvr_data;
+output          vfpu_iu_ex2_pipe7_mfvr_data_vld;
+output  [6 :0]  vfpu_iu_ex2_pipe7_mfvr_preg;
+output          vfpu_yy_xx_dqnan;
+output  [2 :0]  vfpu_yy_xx_rm;
 
 // &Regs; @24
-reg     [4 :0]  dp_ex1_pipe6_dst_ereg;                
-reg     [6 :0]  dp_ex1_pipe6_dst_preg;                
-reg     [6 :0]  dp_ex1_pipe6_dst_preg_dup0;           
-reg     [6 :0]  dp_ex1_pipe6_dst_preg_dup1;           
-reg     [6 :0]  dp_ex1_pipe6_dst_preg_dup2;           
-reg     [6 :0]  dp_ex1_pipe6_dst_preg_dup3;           
-reg             dp_ex1_pipe6_dst_vld_pre;             
-reg     [6 :0]  dp_ex1_pipe6_dst_vreg;                
-reg     [6 :0]  dp_ex1_pipe6_dst_vreg_dup0;           
-reg     [6 :0]  dp_ex1_pipe6_dst_vreg_dup1;           
-reg     [6 :0]  dp_ex1_pipe6_dst_vreg_dup2;           
-reg             dp_ex1_pipe6_dste_vld;                
-reg             dp_ex1_pipe6_dstv_vld;                
-reg     [19:0]  dp_ex1_pipe6_func;                    
-reg     [6 :0]  dp_ex1_pipe6_iid;                     
-reg     [2 :0]  dp_ex1_pipe6_imm0;                    
-reg     [6 :0]  dp_ex1_pipe6_mla_srcv2_vreg;          
-reg     [2 :0]  dp_ex1_pipe6_ready_stage;             
-reg     [63:0]  dp_ex1_pipe6_vfpu_srcf0;              
-reg     [63:0]  dp_ex1_pipe6_vfpu_srcf1;              
-reg     [4 :0]  dp_ex1_pipe7_dst_ereg;                
-reg     [6 :0]  dp_ex1_pipe7_dst_preg;                
-reg     [6 :0]  dp_ex1_pipe7_dst_preg_dup0;           
-reg     [6 :0]  dp_ex1_pipe7_dst_preg_dup1;           
-reg     [6 :0]  dp_ex1_pipe7_dst_preg_dup2;           
-reg     [6 :0]  dp_ex1_pipe7_dst_preg_dup3;           
-reg             dp_ex1_pipe7_dst_vld_pre;             
-reg     [6 :0]  dp_ex1_pipe7_dst_vreg;                
-reg     [6 :0]  dp_ex1_pipe7_dst_vreg_dup0;           
-reg     [6 :0]  dp_ex1_pipe7_dst_vreg_dup1;           
-reg     [6 :0]  dp_ex1_pipe7_dst_vreg_dup2;           
-reg             dp_ex1_pipe7_dste_vld;                
-reg             dp_ex1_pipe7_dstv_vld;                
-reg     [19:0]  dp_ex1_pipe7_func;                    
-reg     [2 :0]  dp_ex1_pipe7_imm0;                    
-reg     [6 :0]  dp_ex1_pipe7_mla_srcv2_vreg;          
-reg     [2 :0]  dp_ex1_pipe7_ready_stage;             
-reg     [63:0]  dp_ex1_pipe7_vfpu_srcf0;              
-reg     [63:0]  dp_ex1_pipe7_vfpu_srcf1;              
-reg     [4 :0]  dp_ex2_pipe6_dst_ereg;                
-reg     [6 :0]  dp_ex2_pipe6_dst_preg;                
-reg     [6 :0]  dp_ex2_pipe6_dst_vreg;                
-reg     [6 :0]  dp_ex2_pipe6_dst_vreg_dup0;           
-reg     [6 :0]  dp_ex2_pipe6_dst_vreg_dup1;           
-reg     [6 :0]  dp_ex2_pipe6_dst_vreg_dup2;           
-reg             dp_ex2_pipe6_dste_vld;                
-reg             dp_ex2_pipe6_dstv_vld;                
-reg     [4 :0]  dp_ex2_pipe6_ereg_data;               
-reg     [4 :0]  dp_ex2_pipe6_eu_sel;                  
-reg     [63:0]  dp_ex2_pipe6_freg_data;               
-reg     [63:0]  dp_ex2_pipe6_mfvr_data;               
-reg     [2 :0]  dp_ex2_pipe6_ready_stage;             
-reg     [4 :0]  dp_ex2_pipe7_dst_ereg;                
-reg     [6 :0]  dp_ex2_pipe7_dst_preg;                
-reg     [6 :0]  dp_ex2_pipe7_dst_vreg;                
-reg     [6 :0]  dp_ex2_pipe7_dst_vreg_dup0;           
-reg     [6 :0]  dp_ex2_pipe7_dst_vreg_dup1;           
-reg     [6 :0]  dp_ex2_pipe7_dst_vreg_dup2;           
-reg             dp_ex2_pipe7_dste_vld;                
-reg             dp_ex2_pipe7_dstv_vld;                
-reg     [3 :0]  dp_ex2_pipe7_eu_sel;                  
-reg     [63:0]  dp_ex2_pipe7_mfvr_data;               
-reg     [2 :0]  dp_ex2_pipe7_ready_stage;             
-reg     [4 :0]  dp_ex3_pipe6_dst_ereg;                
-reg     [6 :0]  dp_ex3_pipe6_dst_vreg;                
-reg     [6 :0]  dp_ex3_pipe6_dst_vreg_dup0;           
-reg     [6 :0]  dp_ex3_pipe6_dst_vreg_dup1;           
-reg     [6 :0]  dp_ex3_pipe6_dst_vreg_dup2;           
-reg     [6 :0]  dp_ex3_pipe6_dst_vreg_dup3;           
-reg             dp_ex3_pipe6_dste_vld;                
-reg             dp_ex3_pipe6_dstv_vld;                
-reg     [4 :0]  dp_ex3_pipe6_ereg_data;               
-reg     [4 :0]  dp_ex3_pipe6_ereg_data_raw;           
-reg     [4 :0]  dp_ex3_pipe6_eu_sel;                  
-reg     [63:0]  dp_ex3_pipe6_freg_data;               
-reg     [63:0]  dp_ex3_pipe6_freg_data_raw;           
-reg     [2 :0]  dp_ex3_pipe6_ready_stage;             
-reg             dp_ex3_pipe6_vreg_fwd_vld;            
-reg     [4 :0]  dp_ex3_pipe7_dst_ereg;                
-reg     [6 :0]  dp_ex3_pipe7_dst_vreg;                
-reg     [6 :0]  dp_ex3_pipe7_dst_vreg_dup0;           
-reg     [6 :0]  dp_ex3_pipe7_dst_vreg_dup1;           
-reg     [6 :0]  dp_ex3_pipe7_dst_vreg_dup2;           
-reg     [6 :0]  dp_ex3_pipe7_dst_vreg_dup3;           
-reg             dp_ex3_pipe7_dste_vld;                
-reg             dp_ex3_pipe7_dstv_vld;                
-reg     [4 :0]  dp_ex3_pipe7_ereg_data;               
-reg     [3 :0]  dp_ex3_pipe7_eu_sel;                  
-reg     [63:0]  dp_ex3_pipe7_freg_data;               
-reg     [2 :0]  dp_ex3_pipe7_ready_stage;             
-reg             dp_ex3_pipe7_vfalu_wb_vld;            
-reg             dp_ex3_pipe7_vreg_fwd_vld;            
-reg     [4 :0]  dp_ex4_pipe6_dst_ereg;                
-reg     [6 :0]  dp_ex4_pipe6_dst_vreg;                
-reg             dp_ex4_pipe6_dste_vld;                
-reg             dp_ex4_pipe6_dstv_vld;                
-reg     [4 :0]  dp_ex4_pipe6_ereg_data;               
-reg     [3 :0]  dp_ex4_pipe6_eu_sel;                  
-reg     [63:0]  dp_ex4_pipe6_freg_data;               
-reg     [2 :0]  dp_ex4_pipe6_ready_stage;             
-reg             dp_ex4_pipe6_vreg_fwd_vld;            
-reg     [1 :0]  dp_ex4_pipe6_wb_vld;                  
-reg     [4 :0]  dp_ex4_pipe7_dst_ereg;                
-reg     [6 :0]  dp_ex4_pipe7_dst_vreg;                
-reg             dp_ex4_pipe7_dste_vld;                
-reg             dp_ex4_pipe7_dstv_vld;                
-reg     [4 :0]  dp_ex4_pipe7_ereg_data;               
-reg     [3 :0]  dp_ex4_pipe7_eu_sel;                  
-reg     [63:0]  dp_ex4_pipe7_freg_data;               
-reg     [2 :0]  dp_ex4_pipe7_ready_stage;             
-reg             dp_ex4_pipe7_vreg_fwd_vld;            
-reg     [1 :0]  dp_ex4_pipe7_wb_vld;                  
+reg     [4 :0]  dp_ex1_pipe6_dst_ereg;
+reg     [6 :0]  dp_ex1_pipe6_dst_preg;
+reg     [6 :0]  dp_ex1_pipe6_dst_preg_dup0;
+reg     [6 :0]  dp_ex1_pipe6_dst_preg_dup1;
+reg     [6 :0]  dp_ex1_pipe6_dst_preg_dup2;
+reg     [6 :0]  dp_ex1_pipe6_dst_preg_dup3;
+reg             dp_ex1_pipe6_dst_vld_pre;
+reg     [6 :0]  dp_ex1_pipe6_dst_vreg;
+reg     [6 :0]  dp_ex1_pipe6_dst_vreg_dup0;
+reg     [6 :0]  dp_ex1_pipe6_dst_vreg_dup1;
+reg     [6 :0]  dp_ex1_pipe6_dst_vreg_dup2;
+reg             dp_ex1_pipe6_dste_vld;
+reg             dp_ex1_pipe6_dstv_vld;
+reg     [19:0]  dp_ex1_pipe6_func;
+reg     [6 :0]  dp_ex1_pipe6_iid;
+reg     [2 :0]  dp_ex1_pipe6_imm0;
+reg     [6 :0]  dp_ex1_pipe6_mla_srcv2_vreg;
+reg     [2 :0]  dp_ex1_pipe6_ready_stage;
+reg     [63:0]  dp_ex1_pipe6_vfpu_srcf0;
+reg     [63:0]  dp_ex1_pipe6_vfpu_srcf1;
+reg     [4 :0]  dp_ex1_pipe7_dst_ereg;
+reg     [6 :0]  dp_ex1_pipe7_dst_preg;
+reg     [6 :0]  dp_ex1_pipe7_dst_preg_dup0;
+reg     [6 :0]  dp_ex1_pipe7_dst_preg_dup1;
+reg     [6 :0]  dp_ex1_pipe7_dst_preg_dup2;
+reg     [6 :0]  dp_ex1_pipe7_dst_preg_dup3;
+reg             dp_ex1_pipe7_dst_vld_pre;
+reg     [6 :0]  dp_ex1_pipe7_dst_vreg;
+reg     [6 :0]  dp_ex1_pipe7_dst_vreg_dup0;
+reg     [6 :0]  dp_ex1_pipe7_dst_vreg_dup1;
+reg     [6 :0]  dp_ex1_pipe7_dst_vreg_dup2;
+reg             dp_ex1_pipe7_dste_vld;
+reg             dp_ex1_pipe7_dstv_vld;
+reg     [19:0]  dp_ex1_pipe7_func;
+reg     [2 :0]  dp_ex1_pipe7_imm0;
+reg     [6 :0]  dp_ex1_pipe7_mla_srcv2_vreg;
+reg     [2 :0]  dp_ex1_pipe7_ready_stage;
+reg     [63:0]  dp_ex1_pipe7_vfpu_srcf0;
+reg     [63:0]  dp_ex1_pipe7_vfpu_srcf1;
+reg     [4 :0]  dp_ex2_pipe6_dst_ereg;
+reg     [6 :0]  dp_ex2_pipe6_dst_preg;
+reg     [6 :0]  dp_ex2_pipe6_dst_vreg;
+reg     [6 :0]  dp_ex2_pipe6_dst_vreg_dup0;
+reg     [6 :0]  dp_ex2_pipe6_dst_vreg_dup1;
+reg     [6 :0]  dp_ex2_pipe6_dst_vreg_dup2;
+reg             dp_ex2_pipe6_dste_vld;
+reg             dp_ex2_pipe6_dstv_vld;
+reg     [4 :0]  dp_ex2_pipe6_ereg_data;
+reg     [4 :0]  dp_ex2_pipe6_eu_sel;
+reg     [63:0]  dp_ex2_pipe6_freg_data;
+reg     [63:0]  dp_ex2_pipe6_mfvr_data;
+reg     [2 :0]  dp_ex2_pipe6_ready_stage;
+reg     [4 :0]  dp_ex2_pipe7_dst_ereg;
+reg     [6 :0]  dp_ex2_pipe7_dst_preg;
+reg     [6 :0]  dp_ex2_pipe7_dst_vreg;
+reg     [6 :0]  dp_ex2_pipe7_dst_vreg_dup0;
+reg     [6 :0]  dp_ex2_pipe7_dst_vreg_dup1;
+reg     [6 :0]  dp_ex2_pipe7_dst_vreg_dup2;
+reg             dp_ex2_pipe7_dste_vld;
+reg             dp_ex2_pipe7_dstv_vld;
+reg     [3 :0]  dp_ex2_pipe7_eu_sel;
+reg     [63:0]  dp_ex2_pipe7_mfvr_data;
+reg     [2 :0]  dp_ex2_pipe7_ready_stage;
+reg     [4 :0]  dp_ex3_pipe6_dst_ereg;
+reg     [6 :0]  dp_ex3_pipe6_dst_vreg;
+reg     [6 :0]  dp_ex3_pipe6_dst_vreg_dup0;
+reg     [6 :0]  dp_ex3_pipe6_dst_vreg_dup1;
+reg     [6 :0]  dp_ex3_pipe6_dst_vreg_dup2;
+reg     [6 :0]  dp_ex3_pipe6_dst_vreg_dup3;
+reg             dp_ex3_pipe6_dste_vld;
+reg             dp_ex3_pipe6_dstv_vld;
+reg     [4 :0]  dp_ex3_pipe6_ereg_data;
+reg     [4 :0]  dp_ex3_pipe6_ereg_data_raw;
+reg     [4 :0]  dp_ex3_pipe6_eu_sel;
+reg     [63:0]  dp_ex3_pipe6_freg_data;
+reg     [63:0]  dp_ex3_pipe6_freg_data_raw;
+reg     [2 :0]  dp_ex3_pipe6_ready_stage;
+reg             dp_ex3_pipe6_vreg_fwd_vld;
+reg     [4 :0]  dp_ex3_pipe7_dst_ereg;
+reg     [6 :0]  dp_ex3_pipe7_dst_vreg;
+reg     [6 :0]  dp_ex3_pipe7_dst_vreg_dup0;
+reg     [6 :0]  dp_ex3_pipe7_dst_vreg_dup1;
+reg     [6 :0]  dp_ex3_pipe7_dst_vreg_dup2;
+reg     [6 :0]  dp_ex3_pipe7_dst_vreg_dup3;
+reg             dp_ex3_pipe7_dste_vld;
+reg             dp_ex3_pipe7_dstv_vld;
+reg     [4 :0]  dp_ex3_pipe7_ereg_data;
+reg     [3 :0]  dp_ex3_pipe7_eu_sel;
+reg     [63:0]  dp_ex3_pipe7_freg_data;
+reg     [2 :0]  dp_ex3_pipe7_ready_stage;
+reg             dp_ex3_pipe7_vfalu_wb_vld;
+reg             dp_ex3_pipe7_vreg_fwd_vld;
+reg     [4 :0]  dp_ex4_pipe6_dst_ereg;
+reg     [6 :0]  dp_ex4_pipe6_dst_vreg;
+reg             dp_ex4_pipe6_dste_vld;
+reg             dp_ex4_pipe6_dstv_vld;
+reg     [4 :0]  dp_ex4_pipe6_ereg_data;
+reg     [3 :0]  dp_ex4_pipe6_eu_sel;
+reg     [63:0]  dp_ex4_pipe6_freg_data;
+reg     [2 :0]  dp_ex4_pipe6_ready_stage;
+reg             dp_ex4_pipe6_vreg_fwd_vld;
+reg     [1 :0]  dp_ex4_pipe6_wb_vld;
+reg     [4 :0]  dp_ex4_pipe7_dst_ereg;
+reg     [6 :0]  dp_ex4_pipe7_dst_vreg;
+reg             dp_ex4_pipe7_dste_vld;
+reg             dp_ex4_pipe7_dstv_vld;
+reg     [4 :0]  dp_ex4_pipe7_ereg_data;
+reg     [3 :0]  dp_ex4_pipe7_eu_sel;
+reg     [63:0]  dp_ex4_pipe7_freg_data;
+reg     [2 :0]  dp_ex4_pipe7_ready_stage;
+reg             dp_ex4_pipe7_vreg_fwd_vld;
+reg     [1 :0]  dp_ex4_pipe7_wb_vld;
 
 // &Wires; @25
-wire    [31:0]  cp0_vfpu_fxcr;                        
-wire            cp0_vfpu_icg_en;                      
-wire            cp0_yy_clk_en;                        
-wire            cpurst_b;                             
-wire            ctrl_dp_ex2_pipe7_inst_vld;           
-wire    [11:0]  ctrl_ex1_pipe6_eu_sel;                
-wire            ctrl_ex1_pipe6_inst_vld;              
-wire            ctrl_ex1_pipe6_mfvr_inst_vld;         
-wire            ctrl_ex1_pipe6_mfvr_inst_vld_dup0;    
-wire            ctrl_ex1_pipe6_mfvr_inst_vld_dup1;    
-wire            ctrl_ex1_pipe6_mfvr_inst_vld_dup2;    
-wire            ctrl_ex1_pipe6_mfvr_inst_vld_dup3;    
-wire    [11:0]  ctrl_ex1_pipe7_eu_sel;                
-wire            ctrl_ex1_pipe7_mfvr_inst_vld;         
-wire            ctrl_ex1_pipe7_mfvr_inst_vld_dup0;    
-wire            ctrl_ex1_pipe7_mfvr_inst_vld_dup1;    
-wire            ctrl_ex1_pipe7_mfvr_inst_vld_dup2;    
-wire            ctrl_ex1_pipe7_mfvr_inst_vld_dup3;    
-wire            ctrl_ex2_pipe6_inst_vld;              
-wire            ctrl_ex2_pipe6_mfvr_inst_vld;         
-wire            ctrl_ex2_pipe7_inst_vld;              
-wire            ctrl_ex2_pipe7_mfvr_inst_vld;         
-wire            ctrl_ex3_pipe6_inst_vld;              
-wire            ctrl_ex3_pipe7_inst_vld;              
-wire            ctrl_ex4_pipe6_inst_vld;              
-wire            dp_ctrl_ex1_pipe6_data_vld_pre;       
-wire            dp_ctrl_ex1_pipe7_data_vld_pre;       
-wire            dp_ctrl_ex2_pipe6_data_vld_pre;       
-wire            dp_ctrl_ex2_pipe7_data_vld_pre;       
-wire            dp_ctrl_ex3_pipe6_data_vld_pre;       
-wire            dp_ctrl_ex3_pipe6_fwd_vld_pre;        
-wire            dp_ctrl_ex3_pipe7_data_vld_pre;       
-wire            dp_ctrl_ex3_pipe7_fwd_vld_pre;        
-wire            dp_ctrl_ex4_pipe6_fwd_vld_pre;        
-wire            dp_ctrl_ex4_pipe7_fwd_vld_pre;        
-wire            dp_ctrl_pipe6_vfdsu_inst_vld;         
-wire    [63:0]  dp_ex1_pipe6_mfvr_data;               
-wire            dp_ex1_pipe6_pipe_clk;                
-wire            dp_ex1_pipe6_pipe_en;                 
-wire    [63:0]  dp_ex1_pipe7_mfvr_data;               
-wire            dp_ex1_pipe7_pipe_clk;                
-wire            dp_ex1_pipe7_pipe_en;                 
-wire            dp_ex2_pipe6_clk;                     
-wire    [4 :0]  dp_ex2_pipe6_dst_ereg_pre;            
-wire    [6 :0]  dp_ex2_pipe6_dst_vreg_pre;            
-wire            dp_ex2_pipe6_en;                      
-wire    [4 :0]  dp_ex2_pipe6_eu_sel_pre;              
-wire    [2 :0]  dp_ex2_pipe6_ready_stage_pre;         
-wire            dp_ex2_pipe7_clk;                     
-wire            dp_ex2_pipe7_en;                      
-wire    [3 :0]  dp_ex2_pipe7_eu_sel_pre;              
-wire    [2 :0]  dp_ex2_pipe7_ready_stage_pre;         
-wire            dp_ex3_pipe6_clk;                     
-wire            dp_ex3_pipe6_en;                      
-wire            dp_ex3_pipe6_vreg_fwd_vld_pre;        
-wire            dp_ex3_pipe7_clk;                     
-wire            dp_ex3_pipe7_en;                      
-wire            dp_ex3_pipe7_vfalu_wb_vld_pre;        
-wire            dp_ex3_pipe7_vreg_fwd_vld_pre;        
-wire            dp_ex4_pipe6_clk;                     
-wire            dp_ex4_pipe6_en;                      
-wire    [4 :0]  dp_ex4_pipe6_ereg_data_new;           
-wire    [1 :0]  dp_ex4_pipe6_ereg_sel;                
-wire            dp_ex4_pipe6_normal_dste_wb_vld;      
-wire            dp_ex4_pipe6_normal_dstv_wb_vld;      
-wire            dp_ex4_pipe6_vreg_fwd_vld_pre;        
-wire    [1 :0]  dp_ex4_pipe6_wb_vld_pre;              
-wire            dp_ex4_pipe7_clk;                     
-wire            dp_ex4_pipe7_en;                      
-wire    [4 :0]  dp_ex4_pipe7_ereg_data_new;           
-wire    [1 :0]  dp_ex4_pipe7_ereg_sel;                
-wire            dp_ex4_pipe7_vreg_fwd_vld_pre;        
-wire    [1 :0]  dp_ex4_pipe7_wb_vld_pre;              
-wire    [4 :0]  dp_ex5_pipe6_ereg_data_pre;           
-wire    [63:0]  dp_ex5_pipe6_freg_data_pre;           
-wire    [4 :0]  dp_ex5_pipe7_ereg_data_pre;           
-wire    [63:0]  dp_ex5_pipe7_freg_data_pre;           
-wire    [6 :0]  dp_rbus_pipe6_ex1_vreg;               
-wire    [6 :0]  dp_rbus_pipe6_ex1_vreg_dup0;          
-wire    [6 :0]  dp_rbus_pipe6_ex1_vreg_dup1;          
-wire    [6 :0]  dp_rbus_pipe6_ex1_vreg_dup2;          
-wire    [6 :0]  dp_rbus_pipe6_ex2_vreg;               
-wire    [6 :0]  dp_rbus_pipe6_ex2_vreg_dup0;          
-wire    [6 :0]  dp_rbus_pipe6_ex2_vreg_dup1;          
-wire    [6 :0]  dp_rbus_pipe6_ex2_vreg_dup2;          
-wire    [6 :0]  dp_rbus_pipe6_ex3_vreg_dup0;          
-wire    [6 :0]  dp_rbus_pipe6_ex3_vreg_dup1;          
-wire    [6 :0]  dp_rbus_pipe6_ex3_vreg_dup2;          
-wire    [6 :0]  dp_rbus_pipe6_ex3_vreg_dup3;          
-wire    [6 :0]  dp_rbus_pipe7_ex1_vreg;               
-wire    [6 :0]  dp_rbus_pipe7_ex1_vreg_dup0;          
-wire    [6 :0]  dp_rbus_pipe7_ex1_vreg_dup1;          
-wire    [6 :0]  dp_rbus_pipe7_ex1_vreg_dup2;          
-wire    [6 :0]  dp_rbus_pipe7_ex2_vreg;               
-wire    [6 :0]  dp_rbus_pipe7_ex2_vreg_dup0;          
-wire    [6 :0]  dp_rbus_pipe7_ex2_vreg_dup1;          
-wire    [6 :0]  dp_rbus_pipe7_ex2_vreg_dup2;          
-wire    [6 :0]  dp_rbus_pipe7_ex3_vreg_dup0;          
-wire    [6 :0]  dp_rbus_pipe7_ex3_vreg_dup1;          
-wire    [6 :0]  dp_rbus_pipe7_ex3_vreg_dup2;          
-wire    [6 :0]  dp_rbus_pipe7_ex3_vreg_dup3;          
-wire    [19:0]  dp_vfalu_ex1_pipe6_func;              
-wire    [2 :0]  dp_vfalu_ex1_pipe6_imm0;              
-wire    [63:0]  dp_vfalu_ex1_pipe6_mtvr_src0;         
-wire    [2 :0]  dp_vfalu_ex1_pipe6_sel;               
-wire    [63:0]  dp_vfalu_ex1_pipe6_srcf0;             
-wire    [63:0]  dp_vfalu_ex1_pipe6_srcf1;             
-wire    [19:0]  dp_vfalu_ex1_pipe7_func;              
-wire    [2 :0]  dp_vfalu_ex1_pipe7_imm0;              
-wire    [63:0]  dp_vfalu_ex1_pipe7_mtvr_src0;         
-wire    [2 :0]  dp_vfalu_ex1_pipe7_sel;               
-wire    [63:0]  dp_vfalu_ex1_pipe7_srcf0;             
-wire    [63:0]  dp_vfalu_ex1_pipe7_srcf1;             
-wire    [4 :0]  dp_vfdsu_ex1_pipe6_dst_ereg;          
-wire    [6 :0]  dp_vfdsu_ex1_pipe6_dst_vreg;          
-wire    [6 :0]  dp_vfdsu_ex1_pipe6_iid;               
-wire    [2 :0]  dp_vfdsu_ex1_pipe6_imm0;              
-wire            dp_vfdsu_ex1_pipe6_sel;               
-wire    [63:0]  dp_vfdsu_ex1_pipe6_srcf0;             
-wire    [63:0]  dp_vfdsu_ex1_pipe6_srcf1;             
-wire            dp_vfdsu_fdiv_gateclk_issue;          
-wire            dp_vfdsu_idu_fdiv_issue;              
-wire    [6 :0]  dp_vfmau_ex1_pipe6_dst_vreg;          
-wire    [2 :0]  dp_vfmau_ex1_pipe6_imm0;              
-wire            dp_vfmau_ex1_pipe6_sel;               
-wire    [6 :0]  dp_vfmau_ex1_pipe7_dst_vreg;          
-wire    [2 :0]  dp_vfmau_ex1_pipe7_imm0;              
-wire            dp_vfmau_ex1_pipe7_sel;               
-wire    [5 :0]  dp_vfmau_pipe6_inst_type;             
-wire            dp_vfmau_pipe6_mla_srcv2_vld;         
-wire    [6 :0]  dp_vfmau_pipe6_mla_srcv2_vreg;        
-wire    [2 :0]  dp_vfmau_pipe6_mla_type;              
-wire            dp_vfmau_pipe6_sel;                   
-wire            dp_vfmau_pipe6_vfmau_sel;             
-wire    [5 :0]  dp_vfmau_pipe7_inst_type;             
-wire            dp_vfmau_pipe7_mla_srcv2_vld;         
-wire    [6 :0]  dp_vfmau_pipe7_mla_srcv2_vreg;        
-wire    [2 :0]  dp_vfmau_pipe7_mla_type;              
-wire            dp_vfmau_pipe7_sel;                   
-wire            dp_vfmau_pipe7_vfmau_sel;             
-wire            ex1_pipe6_eu_sel_vec_mtvr;            
-wire            ex1_pipe7_eu_sel_vec_mtvr;            
-wire            forever_cpuclk;                       
-wire            idu_vfpu_is_vdiv_gateclk_issue;       
-wire            idu_vfpu_is_vdiv_issue;               
-wire    [4 :0]  idu_vfpu_rf_pipe6_dst_ereg;           
-wire    [6 :0]  idu_vfpu_rf_pipe6_dst_preg;           
-wire            idu_vfpu_rf_pipe6_dst_vld;            
-wire    [6 :0]  idu_vfpu_rf_pipe6_dst_vreg;           
-wire            idu_vfpu_rf_pipe6_dste_vld;           
-wire            idu_vfpu_rf_pipe6_dstv_vld;           
-wire    [11:0]  idu_vfpu_rf_pipe6_eu_sel;             
-wire    [19:0]  idu_vfpu_rf_pipe6_func;               
-wire            idu_vfpu_rf_pipe6_gateclk_sel;        
-wire    [6 :0]  idu_vfpu_rf_pipe6_iid;                
-wire    [2 :0]  idu_vfpu_rf_pipe6_imm0;               
-wire    [5 :0]  idu_vfpu_rf_pipe6_inst_type;          
-wire            idu_vfpu_rf_pipe6_mla_srcv2_vld;      
-wire    [6 :0]  idu_vfpu_rf_pipe6_mla_srcv2_vreg;     
-wire    [2 :0]  idu_vfpu_rf_pipe6_ready_stage;        
-wire    [63:0]  idu_vfpu_rf_pipe6_srcv0_fr;           
-wire    [63:0]  idu_vfpu_rf_pipe6_srcv1_fr;           
-wire    [2 :0]  idu_vfpu_rf_pipe6_vmla_type;          
-wire    [4 :0]  idu_vfpu_rf_pipe7_dst_ereg;           
-wire    [6 :0]  idu_vfpu_rf_pipe7_dst_preg;           
-wire            idu_vfpu_rf_pipe7_dst_vld;            
-wire    [6 :0]  idu_vfpu_rf_pipe7_dst_vreg;           
-wire            idu_vfpu_rf_pipe7_dste_vld;           
-wire            idu_vfpu_rf_pipe7_dstv_vld;           
-wire    [11:0]  idu_vfpu_rf_pipe7_eu_sel;             
-wire    [19:0]  idu_vfpu_rf_pipe7_func;               
-wire            idu_vfpu_rf_pipe7_gateclk_sel;        
-wire    [2 :0]  idu_vfpu_rf_pipe7_imm0;               
-wire    [5 :0]  idu_vfpu_rf_pipe7_inst_type;          
-wire            idu_vfpu_rf_pipe7_mla_srcv2_vld;      
-wire    [6 :0]  idu_vfpu_rf_pipe7_mla_srcv2_vreg;     
-wire    [2 :0]  idu_vfpu_rf_pipe7_ready_stage;        
-wire    [63:0]  idu_vfpu_rf_pipe7_srcv0_fr;           
-wire    [63:0]  idu_vfpu_rf_pipe7_srcv1_fr;           
-wire    [2 :0]  idu_vfpu_rf_pipe7_vmla_type;          
-wire    [4 :0]  iu_vfpu_ex1_pipe0_mtvr_inst;          
-wire            iu_vfpu_ex1_pipe0_mtvr_vld;           
-wire    [6 :0]  iu_vfpu_ex1_pipe0_mtvr_vreg;          
-wire    [4 :0]  iu_vfpu_ex1_pipe1_mtvr_inst;          
-wire            iu_vfpu_ex1_pipe1_mtvr_vld;           
-wire    [6 :0]  iu_vfpu_ex1_pipe1_mtvr_vreg;          
-wire    [63:0]  iu_vfpu_ex2_pipe0_mtvr_src0;          
-wire    [63:0]  iu_vfpu_ex2_pipe1_mtvr_src0;          
-wire            pad_yy_icg_scan_en;                   
-wire            pipe6_dp_ex1_mult_id;                 
-wire    [63:0]  pipe6_dp_ex1_vfalu_mfvr_data;         
-wire    [4 :0]  pipe6_dp_ex3_vfalu_ereg_data;         
-wire    [63:0]  pipe6_dp_ex3_vfalu_freg_data;         
-wire    [4 :0]  pipe6_dp_ex3_vfmau_ereg_data;         
-wire    [63:0]  pipe6_dp_ex3_vfmau_freg_data;         
-wire    [4 :0]  pipe6_dp_ex4_vfalu_ereg_data;         
-wire    [4 :0]  pipe6_dp_ex4_vfmau_ereg_data;         
-wire    [63:0]  pipe6_dp_ex4_vfmau_freg_data;         
-wire    [4 :0]  pipe6_dp_vfdsu_ereg;                  
-wire    [4 :0]  pipe6_dp_vfdsu_ereg_data;             
-wire    [63:0]  pipe6_dp_vfdsu_freg_data;             
-wire            pipe6_dp_vfdsu_inst_vld;              
-wire    [6 :0]  pipe6_dp_vfdsu_vreg;                  
-wire    [19:0]  pipe6_mtvr_func;                      
-wire    [6 :0]  pipe6_mtvr_vreg;                      
-wire            pipe7_dp_ex1_mult_id;                 
-wire    [63:0]  pipe7_dp_ex1_vfalu_mfvr_data;         
-wire    [4 :0]  pipe7_dp_ex3_vfalu_ereg_data;         
-wire    [63:0]  pipe7_dp_ex3_vfalu_freg_data;         
-wire    [4 :0]  pipe7_dp_ex3_vfmau_ereg_data;         
-wire    [63:0]  pipe7_dp_ex3_vfmau_freg_data;         
-wire    [4 :0]  pipe7_dp_ex4_vfalu_ereg_data;         
-wire    [4 :0]  pipe7_dp_ex4_vfmau_ereg_data;         
-wire    [63:0]  pipe7_dp_ex4_vfmau_freg_data;         
-wire    [19:0]  pipe7_mtvr_func;                      
-wire    [6 :0]  pipe7_mtvr_vreg;                      
-wire    [6 :0]  vdivu_vfpu_ex1_pipe6_dst_vreg;        
-wire            vdivu_vfpu_ex1_pipe6_result_vld;      
-wire            vdivu_vfpu_pipe6_req_for_bubble;      
-wire            vdivu_vfpu_pipe6_vdiv_busy;           
-wire    [63:0]  vdsp_vfpu_ex1_pipe6_mfvr_data;        
-wire    [63:0]  vdsp_vfpu_ex1_pipe7_mfvr_data;        
-wire            vfdsu_dp_fdiv_busy;                   
-wire            vfdsu_dp_inst_wb_req;                 
-wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup0; 
-wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup1; 
-wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup2; 
-wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup3; 
-wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup4; 
-wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup0;         
-wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup1;         
-wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup2;         
-wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup3;         
-wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup4;         
-wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup0; 
-wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup1; 
-wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup2; 
-wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup3; 
-wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup4; 
-wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup0;         
-wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup1;         
-wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup2;         
-wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup3;         
-wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup4;         
-wire            vfpu_idu_vdiv_busy;                   
-wire            vfpu_idu_vdiv_wb_stall;               
-wire    [63:0]  vfpu_iu_ex2_pipe6_mfvr_data;          
-wire            vfpu_iu_ex2_pipe6_mfvr_data_vld;      
-wire    [6 :0]  vfpu_iu_ex2_pipe6_mfvr_preg;          
-wire    [63:0]  vfpu_iu_ex2_pipe7_mfvr_data;          
-wire            vfpu_iu_ex2_pipe7_mfvr_data_vld;      
-wire    [6 :0]  vfpu_iu_ex2_pipe7_mfvr_preg;          
-wire            vfpu_yy_xx_dqnan;                     
-wire    [2 :0]  vfpu_yy_xx_rm;                        
+wire    [31:0]  cp0_vfpu_fxcr;
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            ctrl_dp_ex2_pipe7_inst_vld;
+wire    [11:0]  ctrl_ex1_pipe6_eu_sel;
+wire            ctrl_ex1_pipe6_inst_vld;
+wire            ctrl_ex1_pipe6_mfvr_inst_vld;
+wire            ctrl_ex1_pipe6_mfvr_inst_vld_dup0;
+wire            ctrl_ex1_pipe6_mfvr_inst_vld_dup1;
+wire            ctrl_ex1_pipe6_mfvr_inst_vld_dup2;
+wire            ctrl_ex1_pipe6_mfvr_inst_vld_dup3;
+wire    [11:0]  ctrl_ex1_pipe7_eu_sel;
+wire            ctrl_ex1_pipe7_mfvr_inst_vld;
+wire            ctrl_ex1_pipe7_mfvr_inst_vld_dup0;
+wire            ctrl_ex1_pipe7_mfvr_inst_vld_dup1;
+wire            ctrl_ex1_pipe7_mfvr_inst_vld_dup2;
+wire            ctrl_ex1_pipe7_mfvr_inst_vld_dup3;
+wire            ctrl_ex2_pipe6_inst_vld;
+wire            ctrl_ex2_pipe6_mfvr_inst_vld;
+wire            ctrl_ex2_pipe7_inst_vld;
+wire            ctrl_ex2_pipe7_mfvr_inst_vld;
+wire            ctrl_ex3_pipe6_inst_vld;
+wire            ctrl_ex3_pipe7_inst_vld;
+wire            ctrl_ex4_pipe6_inst_vld;
+wire            dp_ctrl_ex1_pipe6_data_vld_pre;
+wire            dp_ctrl_ex1_pipe7_data_vld_pre;
+wire            dp_ctrl_ex2_pipe6_data_vld_pre;
+wire            dp_ctrl_ex2_pipe7_data_vld_pre;
+wire            dp_ctrl_ex3_pipe6_data_vld_pre;
+wire            dp_ctrl_ex3_pipe6_fwd_vld_pre;
+wire            dp_ctrl_ex3_pipe7_data_vld_pre;
+wire            dp_ctrl_ex3_pipe7_fwd_vld_pre;
+wire            dp_ctrl_ex4_pipe6_fwd_vld_pre;
+wire            dp_ctrl_ex4_pipe7_fwd_vld_pre;
+wire            dp_ctrl_pipe6_vfdsu_inst_vld;
+wire    [63:0]  dp_ex1_pipe6_mfvr_data;
+wire            dp_ex1_pipe6_pipe_clk;
+wire            dp_ex1_pipe6_pipe_en;
+wire    [63:0]  dp_ex1_pipe7_mfvr_data;
+wire            dp_ex1_pipe7_pipe_clk;
+wire            dp_ex1_pipe7_pipe_en;
+wire            dp_ex2_pipe6_clk;
+wire    [4 :0]  dp_ex2_pipe6_dst_ereg_pre;
+wire    [6 :0]  dp_ex2_pipe6_dst_vreg_pre;
+wire            dp_ex2_pipe6_en;
+wire    [4 :0]  dp_ex2_pipe6_eu_sel_pre;
+wire    [2 :0]  dp_ex2_pipe6_ready_stage_pre;
+wire            dp_ex2_pipe7_clk;
+wire            dp_ex2_pipe7_en;
+wire    [3 :0]  dp_ex2_pipe7_eu_sel_pre;
+wire    [2 :0]  dp_ex2_pipe7_ready_stage_pre;
+wire            dp_ex3_pipe6_clk;
+wire            dp_ex3_pipe6_en;
+wire            dp_ex3_pipe6_vreg_fwd_vld_pre;
+wire            dp_ex3_pipe7_clk;
+wire            dp_ex3_pipe7_en;
+wire            dp_ex3_pipe7_vfalu_wb_vld_pre;
+wire            dp_ex3_pipe7_vreg_fwd_vld_pre;
+wire            dp_ex4_pipe6_clk;
+wire            dp_ex4_pipe6_en;
+wire    [4 :0]  dp_ex4_pipe6_ereg_data_new;
+wire    [1 :0]  dp_ex4_pipe6_ereg_sel;
+wire            dp_ex4_pipe6_normal_dste_wb_vld;
+wire            dp_ex4_pipe6_normal_dstv_wb_vld;
+wire            dp_ex4_pipe6_vreg_fwd_vld_pre;
+wire    [1 :0]  dp_ex4_pipe6_wb_vld_pre;
+wire            dp_ex4_pipe7_clk;
+wire            dp_ex4_pipe7_en;
+wire    [4 :0]  dp_ex4_pipe7_ereg_data_new;
+wire    [1 :0]  dp_ex4_pipe7_ereg_sel;
+wire            dp_ex4_pipe7_vreg_fwd_vld_pre;
+wire    [1 :0]  dp_ex4_pipe7_wb_vld_pre;
+wire    [4 :0]  dp_ex5_pipe6_ereg_data_pre;
+wire    [63:0]  dp_ex5_pipe6_freg_data_pre;
+wire    [4 :0]  dp_ex5_pipe7_ereg_data_pre;
+wire    [63:0]  dp_ex5_pipe7_freg_data_pre;
+wire    [6 :0]  dp_rbus_pipe6_ex1_vreg;
+wire    [6 :0]  dp_rbus_pipe6_ex1_vreg_dup0;
+wire    [6 :0]  dp_rbus_pipe6_ex1_vreg_dup1;
+wire    [6 :0]  dp_rbus_pipe6_ex1_vreg_dup2;
+wire    [6 :0]  dp_rbus_pipe6_ex2_vreg;
+wire    [6 :0]  dp_rbus_pipe6_ex2_vreg_dup0;
+wire    [6 :0]  dp_rbus_pipe6_ex2_vreg_dup1;
+wire    [6 :0]  dp_rbus_pipe6_ex2_vreg_dup2;
+wire    [6 :0]  dp_rbus_pipe6_ex3_vreg_dup0;
+wire    [6 :0]  dp_rbus_pipe6_ex3_vreg_dup1;
+wire    [6 :0]  dp_rbus_pipe6_ex3_vreg_dup2;
+wire    [6 :0]  dp_rbus_pipe6_ex3_vreg_dup3;
+wire    [6 :0]  dp_rbus_pipe7_ex1_vreg;
+wire    [6 :0]  dp_rbus_pipe7_ex1_vreg_dup0;
+wire    [6 :0]  dp_rbus_pipe7_ex1_vreg_dup1;
+wire    [6 :0]  dp_rbus_pipe7_ex1_vreg_dup2;
+wire    [6 :0]  dp_rbus_pipe7_ex2_vreg;
+wire    [6 :0]  dp_rbus_pipe7_ex2_vreg_dup0;
+wire    [6 :0]  dp_rbus_pipe7_ex2_vreg_dup1;
+wire    [6 :0]  dp_rbus_pipe7_ex2_vreg_dup2;
+wire    [6 :0]  dp_rbus_pipe7_ex3_vreg_dup0;
+wire    [6 :0]  dp_rbus_pipe7_ex3_vreg_dup1;
+wire    [6 :0]  dp_rbus_pipe7_ex3_vreg_dup2;
+wire    [6 :0]  dp_rbus_pipe7_ex3_vreg_dup3;
+wire    [19:0]  dp_vfalu_ex1_pipe6_func;
+wire    [2 :0]  dp_vfalu_ex1_pipe6_imm0;
+wire    [63:0]  dp_vfalu_ex1_pipe6_mtvr_src0;
+wire    [2 :0]  dp_vfalu_ex1_pipe6_sel;
+wire    [63:0]  dp_vfalu_ex1_pipe6_srcf0;
+wire    [63:0]  dp_vfalu_ex1_pipe6_srcf1;
+wire    [19:0]  dp_vfalu_ex1_pipe7_func;
+wire    [2 :0]  dp_vfalu_ex1_pipe7_imm0;
+wire    [63:0]  dp_vfalu_ex1_pipe7_mtvr_src0;
+wire    [2 :0]  dp_vfalu_ex1_pipe7_sel;
+wire    [63:0]  dp_vfalu_ex1_pipe7_srcf0;
+wire    [63:0]  dp_vfalu_ex1_pipe7_srcf1;
+wire    [4 :0]  dp_vfdsu_ex1_pipe6_dst_ereg;
+wire    [6 :0]  dp_vfdsu_ex1_pipe6_dst_vreg;
+wire    [6 :0]  dp_vfdsu_ex1_pipe6_iid;
+wire    [2 :0]  dp_vfdsu_ex1_pipe6_imm0;
+wire            dp_vfdsu_ex1_pipe6_sel;
+wire    [63:0]  dp_vfdsu_ex1_pipe6_srcf0;
+wire    [63:0]  dp_vfdsu_ex1_pipe6_srcf1;
+wire            dp_vfdsu_fdiv_gateclk_issue;
+wire            dp_vfdsu_idu_fdiv_issue;
+wire    [6 :0]  dp_vfmau_ex1_pipe6_dst_vreg;
+wire    [2 :0]  dp_vfmau_ex1_pipe6_imm0;
+wire            dp_vfmau_ex1_pipe6_sel;
+wire    [6 :0]  dp_vfmau_ex1_pipe7_dst_vreg;
+wire    [2 :0]  dp_vfmau_ex1_pipe7_imm0;
+wire            dp_vfmau_ex1_pipe7_sel;
+wire    [5 :0]  dp_vfmau_pipe6_inst_type;
+wire            dp_vfmau_pipe6_mla_srcv2_vld;
+wire    [6 :0]  dp_vfmau_pipe6_mla_srcv2_vreg;
+wire    [2 :0]  dp_vfmau_pipe6_mla_type;
+wire            dp_vfmau_pipe6_sel;
+wire            dp_vfmau_pipe6_vfmau_sel;
+wire    [5 :0]  dp_vfmau_pipe7_inst_type;
+wire            dp_vfmau_pipe7_mla_srcv2_vld;
+wire    [6 :0]  dp_vfmau_pipe7_mla_srcv2_vreg;
+wire    [2 :0]  dp_vfmau_pipe7_mla_type;
+wire            dp_vfmau_pipe7_sel;
+wire            dp_vfmau_pipe7_vfmau_sel;
+wire            ex1_pipe6_eu_sel_vec_mtvr;
+wire            ex1_pipe7_eu_sel_vec_mtvr;
+wire            forever_cpuclk;
+wire            idu_vfpu_is_vdiv_gateclk_issue;
+wire            idu_vfpu_is_vdiv_issue;
+wire    [4 :0]  idu_vfpu_rf_pipe6_dst_ereg;
+wire    [6 :0]  idu_vfpu_rf_pipe6_dst_preg;
+wire            idu_vfpu_rf_pipe6_dst_vld;
+wire    [6 :0]  idu_vfpu_rf_pipe6_dst_vreg;
+wire            idu_vfpu_rf_pipe6_dste_vld;
+wire            idu_vfpu_rf_pipe6_dstv_vld;
+wire    [11:0]  idu_vfpu_rf_pipe6_eu_sel;
+wire    [19:0]  idu_vfpu_rf_pipe6_func;
+wire            idu_vfpu_rf_pipe6_gateclk_sel;
+wire    [6 :0]  idu_vfpu_rf_pipe6_iid;
+wire    [2 :0]  idu_vfpu_rf_pipe6_imm0;
+wire    [5 :0]  idu_vfpu_rf_pipe6_inst_type;
+wire            idu_vfpu_rf_pipe6_mla_srcv2_vld;
+wire    [6 :0]  idu_vfpu_rf_pipe6_mla_srcv2_vreg;
+wire    [2 :0]  idu_vfpu_rf_pipe6_ready_stage;
+wire    [63:0]  idu_vfpu_rf_pipe6_srcv0_fr;
+wire    [63:0]  idu_vfpu_rf_pipe6_srcv1_fr;
+wire    [2 :0]  idu_vfpu_rf_pipe6_vmla_type;
+wire    [4 :0]  idu_vfpu_rf_pipe7_dst_ereg;
+wire    [6 :0]  idu_vfpu_rf_pipe7_dst_preg;
+wire            idu_vfpu_rf_pipe7_dst_vld;
+wire    [6 :0]  idu_vfpu_rf_pipe7_dst_vreg;
+wire            idu_vfpu_rf_pipe7_dste_vld;
+wire            idu_vfpu_rf_pipe7_dstv_vld;
+wire    [11:0]  idu_vfpu_rf_pipe7_eu_sel;
+wire    [19:0]  idu_vfpu_rf_pipe7_func;
+wire            idu_vfpu_rf_pipe7_gateclk_sel;
+wire    [2 :0]  idu_vfpu_rf_pipe7_imm0;
+wire    [5 :0]  idu_vfpu_rf_pipe7_inst_type;
+wire            idu_vfpu_rf_pipe7_mla_srcv2_vld;
+wire    [6 :0]  idu_vfpu_rf_pipe7_mla_srcv2_vreg;
+wire    [2 :0]  idu_vfpu_rf_pipe7_ready_stage;
+wire    [63:0]  idu_vfpu_rf_pipe7_srcv0_fr;
+wire    [63:0]  idu_vfpu_rf_pipe7_srcv1_fr;
+wire    [2 :0]  idu_vfpu_rf_pipe7_vmla_type;
+wire    [4 :0]  iu_vfpu_ex1_pipe0_mtvr_inst;
+wire            iu_vfpu_ex1_pipe0_mtvr_vld;
+wire    [6 :0]  iu_vfpu_ex1_pipe0_mtvr_vreg;
+wire    [4 :0]  iu_vfpu_ex1_pipe1_mtvr_inst;
+wire            iu_vfpu_ex1_pipe1_mtvr_vld;
+wire    [6 :0]  iu_vfpu_ex1_pipe1_mtvr_vreg;
+wire    [63:0]  iu_vfpu_ex2_pipe0_mtvr_src0;
+wire    [63:0]  iu_vfpu_ex2_pipe1_mtvr_src0;
+wire            pad_yy_icg_scan_en;
+wire            pipe6_dp_ex1_mult_id;
+wire    [63:0]  pipe6_dp_ex1_vfalu_mfvr_data;
+wire    [4 :0]  pipe6_dp_ex3_vfalu_ereg_data;
+wire    [63:0]  pipe6_dp_ex3_vfalu_freg_data;
+wire    [4 :0]  pipe6_dp_ex3_vfmau_ereg_data;
+wire    [63:0]  pipe6_dp_ex3_vfmau_freg_data;
+wire    [4 :0]  pipe6_dp_ex4_vfalu_ereg_data;
+wire    [4 :0]  pipe6_dp_ex4_vfmau_ereg_data;
+wire    [63:0]  pipe6_dp_ex4_vfmau_freg_data;
+wire    [4 :0]  pipe6_dp_vfdsu_ereg;
+wire    [4 :0]  pipe6_dp_vfdsu_ereg_data;
+wire    [63:0]  pipe6_dp_vfdsu_freg_data;
+wire            pipe6_dp_vfdsu_inst_vld;
+wire    [6 :0]  pipe6_dp_vfdsu_vreg;
+wire    [19:0]  pipe6_mtvr_func;
+wire    [6 :0]  pipe6_mtvr_vreg;
+wire            pipe7_dp_ex1_mult_id;
+wire    [63:0]  pipe7_dp_ex1_vfalu_mfvr_data;
+wire    [4 :0]  pipe7_dp_ex3_vfalu_ereg_data;
+wire    [63:0]  pipe7_dp_ex3_vfalu_freg_data;
+wire    [4 :0]  pipe7_dp_ex3_vfmau_ereg_data;
+wire    [63:0]  pipe7_dp_ex3_vfmau_freg_data;
+wire    [4 :0]  pipe7_dp_ex4_vfalu_ereg_data;
+wire    [4 :0]  pipe7_dp_ex4_vfmau_ereg_data;
+wire    [63:0]  pipe7_dp_ex4_vfmau_freg_data;
+wire    [19:0]  pipe7_mtvr_func;
+wire    [6 :0]  pipe7_mtvr_vreg;
+wire    [6 :0]  vdivu_vfpu_ex1_pipe6_dst_vreg;
+wire            vdivu_vfpu_ex1_pipe6_result_vld;
+wire            vdivu_vfpu_pipe6_req_for_bubble;
+wire            vdivu_vfpu_pipe6_vdiv_busy;
+wire    [63:0]  vdsp_vfpu_ex1_pipe6_mfvr_data;
+wire    [63:0]  vdsp_vfpu_ex1_pipe7_mfvr_data;
+wire            vfdsu_dp_fdiv_busy;
+wire            vfdsu_dp_inst_wb_req;
+wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup0;
+wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup1;
+wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup2;
+wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup3;
+wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dup4;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup0;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup1;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup2;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup3;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dup4;
+wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup0;
+wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup1;
+wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup2;
+wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup3;
+wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dup4;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup0;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup1;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup2;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup3;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dup4;
+wire            vfpu_idu_vdiv_busy;
+wire            vfpu_idu_vdiv_wb_stall;
+wire    [63:0]  vfpu_iu_ex2_pipe6_mfvr_data;
+wire            vfpu_iu_ex2_pipe6_mfvr_data_vld;
+wire    [6 :0]  vfpu_iu_ex2_pipe6_mfvr_preg;
+wire    [63:0]  vfpu_iu_ex2_pipe7_mfvr_data;
+wire            vfpu_iu_ex2_pipe7_mfvr_data_vld;
+wire    [6 :0]  vfpu_iu_ex2_pipe7_mfvr_preg;
+wire            vfpu_yy_xx_dqnan;
+wire    [2 :0]  vfpu_yy_xx_rm;
 
 
 // &Depend("cpu_cfig.h"); @27
@@ -856,7 +856,7 @@ parameter FUNC_WIDTH = 20;
 //----------------------------------------------------------
 //                    EX1 data preparation
 //----------------------------------------------------------
-assign pipe6_mtvr_func[19:0]   = 
+assign pipe6_mtvr_func[19:0]   =
     {20{iu_vfpu_ex1_pipe0_mtvr_inst[4]}} & 20'b0010_0000_0000_0010_0001   //half
   | {20{iu_vfpu_ex1_pipe0_mtvr_inst[0]}} & 20'b0010_1000_0000_0010_0001   //single
   | {20{iu_vfpu_ex1_pipe0_mtvr_inst[1]}} & 20'b0011_0000_0000_0010_0001   //double
@@ -866,7 +866,7 @@ assign pipe6_mtvr_func[19:0]   =
 assign pipe6_mtvr_vreg[VREG-1:0]    = iu_vfpu_ex1_pipe0_mtvr_vreg[VREG-1:0];
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
  assign dp_ex1_pipe6_pipe_en = idu_vfpu_rf_pipe6_gateclk_sel
                             || iu_vfpu_ex1_pipe0_mtvr_vld;
@@ -897,7 +897,7 @@ begin
   if(!cpurst_b)
   begin
     dp_ex1_pipe6_func[19:0]               <= 20'b0;
-    dp_ex1_pipe6_iid[6:0]                 <= 7'b0;    
+    dp_ex1_pipe6_iid[6:0]                 <= 7'b0;
     dp_ex1_pipe6_dst_ereg[4:0]            <= 5'b0;
     dp_ex1_pipe6_dst_preg[6:0]            <= 7'b0;
     dp_ex1_pipe6_dst_preg_dup0[6:0]            <= 7'b0;
@@ -918,7 +918,7 @@ begin
   else if(idu_vfpu_rf_pipe6_gateclk_sel)
   begin
     dp_ex1_pipe6_func[19:0]               <= idu_vfpu_rf_pipe6_func[19:0];
-    dp_ex1_pipe6_iid[6:0]                 <= idu_vfpu_rf_pipe6_iid[6:0];    
+    dp_ex1_pipe6_iid[6:0]                 <= idu_vfpu_rf_pipe6_iid[6:0];
     dp_ex1_pipe6_dst_ereg[4:0]            <= idu_vfpu_rf_pipe6_dst_ereg[4:0];
     dp_ex1_pipe6_dst_preg[6:0]            <= idu_vfpu_rf_pipe6_dst_preg[6:0];
     dp_ex1_pipe6_dst_preg_dup0[6:0]            <= idu_vfpu_rf_pipe6_dst_preg[6:0];
@@ -936,10 +936,10 @@ begin
     dp_ex1_pipe6_imm0[2:0]                <= idu_vfpu_rf_pipe6_imm0[2:0];
     dp_ex1_pipe6_ready_stage[2:0]         <= idu_vfpu_rf_pipe6_ready_stage[2:0];
   end
-  else if(iu_vfpu_ex1_pipe0_mtvr_vld)     
+  else if(iu_vfpu_ex1_pipe0_mtvr_vld)
   begin
     dp_ex1_pipe6_func[19:0]               <= pipe6_mtvr_func[19:0];
-    dp_ex1_pipe6_iid[6:0]                 <= dp_ex1_pipe6_iid[6:0];  //no complete     
+    dp_ex1_pipe6_iid[6:0]                 <= dp_ex1_pipe6_iid[6:0];  //no complete
     dp_ex1_pipe6_dst_ereg[4:0]            <= dp_ex1_pipe6_dst_ereg[4:0];
     dp_ex1_pipe6_dst_preg[6:0]            <= dp_ex1_pipe6_dst_preg[6:0];
     dp_ex1_pipe6_dst_preg_dup0[6:0]            <= dp_ex1_pipe6_dst_preg_dup0[6:0];
@@ -959,22 +959,22 @@ begin
   end
   else
   begin
-    dp_ex1_pipe6_func[19:0]               <= dp_ex1_pipe6_func[19:0];      
-    dp_ex1_pipe6_iid[6:0]                 <= dp_ex1_pipe6_iid[6:0];     
-    dp_ex1_pipe6_dst_ereg[4:0]            <= dp_ex1_pipe6_dst_ereg[4:0];           
-    dp_ex1_pipe6_dst_preg[6:0]            <= dp_ex1_pipe6_dst_preg[6:0];           
-    dp_ex1_pipe6_dst_preg_dup0[6:0]            <= dp_ex1_pipe6_dst_preg_dup0[6:0];           
-    dp_ex1_pipe6_dst_preg_dup1[6:0]            <= dp_ex1_pipe6_dst_preg_dup1[6:0];           
-    dp_ex1_pipe6_dst_preg_dup2[6:0]            <= dp_ex1_pipe6_dst_preg_dup2[6:0];           
-    dp_ex1_pipe6_dst_preg_dup3[6:0]            <= dp_ex1_pipe6_dst_preg_dup3[6:0];           
-    dp_ex1_pipe6_dst_vreg[VREG-1:0]       <= dp_ex1_pipe6_dst_vreg[VREG-1:0];           
-    dp_ex1_pipe6_dst_vreg_dup0[VREG-1:0]       <= dp_ex1_pipe6_dst_vreg_dup0[VREG-1:0];           
-    dp_ex1_pipe6_dst_vreg_dup1[VREG-1:0]       <= dp_ex1_pipe6_dst_vreg_dup1[VREG-1:0];           
-    dp_ex1_pipe6_dst_vreg_dup2[VREG-1:0]       <= dp_ex1_pipe6_dst_vreg_dup2[VREG-1:0];           
-    dp_ex1_pipe6_mla_srcv2_vreg[VREG-1:0] <= dp_ex1_pipe6_mla_srcv2_vreg[VREG-1:0];     
-    dp_ex1_pipe6_dste_vld                 <= dp_ex1_pipe6_dste_vld;                
-    dp_ex1_pipe6_dstv_vld                 <= dp_ex1_pipe6_dstv_vld;                
- //   dp_ex1_pipe6_dst_vld                  <= dp_ex1_pipe6_dst_vld;                 
+    dp_ex1_pipe6_func[19:0]               <= dp_ex1_pipe6_func[19:0];
+    dp_ex1_pipe6_iid[6:0]                 <= dp_ex1_pipe6_iid[6:0];
+    dp_ex1_pipe6_dst_ereg[4:0]            <= dp_ex1_pipe6_dst_ereg[4:0];
+    dp_ex1_pipe6_dst_preg[6:0]            <= dp_ex1_pipe6_dst_preg[6:0];
+    dp_ex1_pipe6_dst_preg_dup0[6:0]            <= dp_ex1_pipe6_dst_preg_dup0[6:0];
+    dp_ex1_pipe6_dst_preg_dup1[6:0]            <= dp_ex1_pipe6_dst_preg_dup1[6:0];
+    dp_ex1_pipe6_dst_preg_dup2[6:0]            <= dp_ex1_pipe6_dst_preg_dup2[6:0];
+    dp_ex1_pipe6_dst_preg_dup3[6:0]            <= dp_ex1_pipe6_dst_preg_dup3[6:0];
+    dp_ex1_pipe6_dst_vreg[VREG-1:0]       <= dp_ex1_pipe6_dst_vreg[VREG-1:0];
+    dp_ex1_pipe6_dst_vreg_dup0[VREG-1:0]       <= dp_ex1_pipe6_dst_vreg_dup0[VREG-1:0];
+    dp_ex1_pipe6_dst_vreg_dup1[VREG-1:0]       <= dp_ex1_pipe6_dst_vreg_dup1[VREG-1:0];
+    dp_ex1_pipe6_dst_vreg_dup2[VREG-1:0]       <= dp_ex1_pipe6_dst_vreg_dup2[VREG-1:0];
+    dp_ex1_pipe6_mla_srcv2_vreg[VREG-1:0] <= dp_ex1_pipe6_mla_srcv2_vreg[VREG-1:0];
+    dp_ex1_pipe6_dste_vld                 <= dp_ex1_pipe6_dste_vld;
+    dp_ex1_pipe6_dstv_vld                 <= dp_ex1_pipe6_dstv_vld;
+ //   dp_ex1_pipe6_dst_vld                  <= dp_ex1_pipe6_dst_vld;
     dp_ex1_pipe6_imm0[2:0]                <= dp_ex1_pipe6_imm0[2:0];
     dp_ex1_pipe6_ready_stage[2:0]         <= dp_ex1_pipe6_ready_stage[2:0];
   end
@@ -990,7 +990,7 @@ begin
    dp_ex1_pipe6_dst_vld_pre  = idu_vfpu_rf_pipe6_dst_vld;
  else if(iu_vfpu_ex1_pipe0_mtvr_vld)
     dp_ex1_pipe6_dst_vld_pre  = 1'b0;
- else 
+ else
     dp_ex1_pipe6_dst_vld_pre  = idu_vfpu_rf_pipe6_dst_vld;
 // &CombEnd; @171
 end
@@ -1012,12 +1012,12 @@ assign vfpu_idu_ex1_pipe6_preg_dup4[6:0]     = dp_ex1_pipe6_dst_preg_dup3[6:0];
 //----------------------------------------------------------
 //                    EX2 data preparation
 //----------------------------------------------------------
-assign dp_ex1_pipe6_mfvr_data[XLEN-1:0] = ex1_pipe6_eu_sel_vec_mtvr 
+assign dp_ex1_pipe6_mfvr_data[XLEN-1:0] = ex1_pipe6_eu_sel_vec_mtvr
                                         ? vdsp_vfpu_ex1_pipe6_mfvr_data[XLEN-1:0]
                                         : pipe6_dp_ex1_vfalu_mfvr_data[XLEN-1:0];
 //select singal rebuild
 //bit0: FALU
-//bit1: FDSU/VDIV no data 
+//bit1: FDSU/VDIV no data
 //bit2: FMAU
 //bit3: VDSP
 //bit4: FDSU/VDIV return data
@@ -1027,24 +1027,24 @@ assign  dp_ex2_pipe6_eu_sel_pre[2]  = ctrl_ex1_pipe6_eu_sel[4];
 assign  dp_ex2_pipe6_eu_sel_pre[3]  = |ctrl_ex1_pipe6_eu_sel[10:5];
 assign  dp_ex2_pipe6_eu_sel_pre[4]  =  pipe6_dp_vfdsu_inst_vld|| vdivu_vfpu_ex1_pipe6_result_vld;
 
-assign dp_ex2_pipe6_dst_vreg_pre[VREG-1:0] = pipe6_dp_vfdsu_inst_vld 
+assign dp_ex2_pipe6_dst_vreg_pre[VREG-1:0] = pipe6_dp_vfdsu_inst_vld
                                            ? pipe6_dp_vfdsu_vreg[VREG-1:0]
-                                           : (vdivu_vfpu_ex1_pipe6_result_vld 
+                                           : (vdivu_vfpu_ex1_pipe6_result_vld
                                              ? vdivu_vfpu_ex1_pipe6_dst_vreg[VREG-1:0]
                                              : dp_ex1_pipe6_dst_vreg[VREG-1:0]);
-assign dp_ex2_pipe6_ready_stage_pre[2:0] = (pipe6_dp_vfdsu_inst_vld || vdivu_vfpu_ex1_pipe6_result_vld) 
+assign dp_ex2_pipe6_ready_stage_pre[2:0] = (pipe6_dp_vfdsu_inst_vld || vdivu_vfpu_ex1_pipe6_result_vld)
                                          ? 3'b001
                                          : (pipe6_dp_ex1_mult_id)
                                            ? 3'b100
                                            : dp_ex1_pipe6_ready_stage[2:0];
 
-assign dp_ex2_pipe6_dst_ereg_pre[4:0] = pipe6_dp_vfdsu_inst_vld 
-                                      ? pipe6_dp_vfdsu_ereg[4:0] 
+assign dp_ex2_pipe6_dst_ereg_pre[4:0] = pipe6_dp_vfdsu_inst_vld
+                                      ? pipe6_dp_vfdsu_ereg[4:0]
                                       : dp_ex1_pipe6_dst_ereg[4:0];
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
-assign dp_ex2_pipe6_en =  ctrl_ex1_pipe6_inst_vld 
+assign dp_ex2_pipe6_en =  ctrl_ex1_pipe6_inst_vld
                        || pipe6_dp_vfdsu_inst_vld
                        || vdivu_vfpu_ex1_pipe6_result_vld;
 
@@ -1089,12 +1089,12 @@ begin
   begin
     dp_ex2_pipe6_eu_sel[4:0]           <= dp_ex2_pipe6_eu_sel_pre[4:0];
     dp_ex2_pipe6_ready_stage[2:0]      <= dp_ex2_pipe6_ready_stage_pre[2:0];
-    dp_ex2_pipe6_dst_ereg[4:0]         <= dp_ex2_pipe6_dst_ereg_pre[4:0];  
-    dp_ex2_pipe6_dst_vreg[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_pre[VREG-1:0];  
-    dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_pre[VREG-1:0];  
-    dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_pre[VREG-1:0];  
-    dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_pre[VREG-1:0];  
-    dp_ex2_pipe6_dst_preg[6:0]         <= dp_ex1_pipe6_dst_preg[6:0];  
+    dp_ex2_pipe6_dst_ereg[4:0]         <= dp_ex2_pipe6_dst_ereg_pre[4:0];
+    dp_ex2_pipe6_dst_vreg[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_pre[VREG-1:0];
+    dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_pre[VREG-1:0];
+    dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_pre[VREG-1:0];
+    dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_pre[VREG-1:0];
+    dp_ex2_pipe6_dst_preg[6:0]         <= dp_ex1_pipe6_dst_preg[6:0];
     dp_ex2_pipe6_dstv_vld              <= dp_ex1_pipe6_dstv_vld || pipe6_dp_vfdsu_inst_vld || vdivu_vfpu_ex1_pipe6_result_vld;
     dp_ex2_pipe6_dste_vld              <= dp_ex1_pipe6_dste_vld && !vdivu_vfpu_ex1_pipe6_result_vld || pipe6_dp_vfdsu_inst_vld;
     dp_ex2_pipe6_mfvr_data[63:0]       <= dp_ex1_pipe6_mfvr_data[63:0];
@@ -1103,12 +1103,12 @@ begin
   begin
     dp_ex2_pipe6_eu_sel[4:0]           <= dp_ex2_pipe6_eu_sel[4:0];
     dp_ex2_pipe6_ready_stage[2:0]      <= dp_ex2_pipe6_ready_stage[2:0];
-    dp_ex2_pipe6_dst_ereg[4:0]         <= dp_ex2_pipe6_dst_ereg[4:0];  
-    dp_ex2_pipe6_dst_vreg[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg[VREG-1:0];  
-    dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0];  
-    dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0];  
-    dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0];  
-    dp_ex2_pipe6_dst_preg[6:0]         <= dp_ex2_pipe6_dst_preg[6:0];  
+    dp_ex2_pipe6_dst_ereg[4:0]         <= dp_ex2_pipe6_dst_ereg[4:0];
+    dp_ex2_pipe6_dst_vreg[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg[VREG-1:0];
+    dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0];
+    dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0];
+    dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0]    <= dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0];
+    dp_ex2_pipe6_dst_preg[6:0]         <= dp_ex2_pipe6_dst_preg[6:0];
     dp_ex2_pipe6_dste_vld              <= dp_ex2_pipe6_dste_vld;
     dp_ex2_pipe6_mfvr_data[63:0]       <= dp_ex2_pipe6_mfvr_data[63:0];
   end
@@ -1146,11 +1146,11 @@ assign vfpu_iu_ex2_pipe6_mfvr_preg[6:0]      = dp_ex2_pipe6_dst_preg[6:0];
 //                    EX3 data preparation
 //----------------------------------------------------------
 //forward valid signal
-assign dp_ex3_pipe6_vreg_fwd_vld_pre  = dp_ex2_pipe6_ready_stage[0] && 
+assign dp_ex3_pipe6_vreg_fwd_vld_pre  = dp_ex2_pipe6_ready_stage[0] &&
                                         dp_ex2_pipe6_dstv_vld;
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign dp_ex3_pipe6_en =  ctrl_ex2_pipe6_inst_vld;
 //  &Instance("gated_clk_cell", "x_dp_ex3_pipe6_gated_clk"); @321
@@ -1178,7 +1178,7 @@ always @(posedge dp_ex3_pipe6_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
   begin
-    dp_ex3_pipe6_eu_sel[4:0]        <= 5'b0; 
+    dp_ex3_pipe6_eu_sel[4:0]        <= 5'b0;
     dp_ex3_pipe6_ready_stage[2:0]   <= 3'b0;
     dp_ex3_pipe6_dst_ereg[4:0]      <= 5'b0;
     dp_ex3_pipe6_dst_vreg[VREG-1:0] <= {VREG{1'b0}};
@@ -1194,12 +1194,12 @@ begin
   begin
     dp_ex3_pipe6_eu_sel[4:0]        <= dp_ex2_pipe6_eu_sel[4:0];
     dp_ex3_pipe6_ready_stage[2:0]   <= dp_ex2_pipe6_ready_stage[2:0];
-    dp_ex3_pipe6_dst_ereg[4:0]      <= dp_ex2_pipe6_dst_ereg[4:0];  
-    dp_ex3_pipe6_dst_vreg[VREG-1:0] <= dp_ex2_pipe6_dst_vreg[VREG-1:0];  
-    dp_ex3_pipe6_dst_vreg_dup0[VREG-1:0] <= dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0];  
-    dp_ex3_pipe6_dst_vreg_dup1[VREG-1:0] <= dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0];  
-    dp_ex3_pipe6_dst_vreg_dup2[VREG-1:0] <= dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0];  
-    dp_ex3_pipe6_dst_vreg_dup3[VREG-1:0] <= dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0];  
+    dp_ex3_pipe6_dst_ereg[4:0]      <= dp_ex2_pipe6_dst_ereg[4:0];
+    dp_ex3_pipe6_dst_vreg[VREG-1:0] <= dp_ex2_pipe6_dst_vreg[VREG-1:0];
+    dp_ex3_pipe6_dst_vreg_dup0[VREG-1:0] <= dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0];
+    dp_ex3_pipe6_dst_vreg_dup1[VREG-1:0] <= dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0];
+    dp_ex3_pipe6_dst_vreg_dup2[VREG-1:0] <= dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0];
+    dp_ex3_pipe6_dst_vreg_dup3[VREG-1:0] <= dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0];
     dp_ex3_pipe6_dstv_vld           <= dp_ex2_pipe6_dstv_vld;
     dp_ex3_pipe6_dste_vld           <= dp_ex2_pipe6_dste_vld;
     dp_ex3_pipe6_vreg_fwd_vld       <= dp_ex3_pipe6_vreg_fwd_vld_pre;
@@ -1208,12 +1208,12 @@ begin
   begin
     dp_ex3_pipe6_eu_sel[4:0]        <= dp_ex3_pipe6_eu_sel[4:0];
     dp_ex3_pipe6_ready_stage[2:0]   <= dp_ex3_pipe6_ready_stage[2:0];
-    dp_ex3_pipe6_dst_ereg[4:0]      <= dp_ex3_pipe6_dst_ereg[4:0];  
-    dp_ex3_pipe6_dst_vreg[VREG-1:0] <= dp_ex3_pipe6_dst_vreg[VREG-1:0];  
-    dp_ex3_pipe6_dst_vreg_dup0[VREG-1:0] <= dp_ex3_pipe6_dst_vreg_dup0[VREG-1:0];  
-    dp_ex3_pipe6_dst_vreg_dup1[VREG-1:0] <= dp_ex3_pipe6_dst_vreg_dup1[VREG-1:0];  
-    dp_ex3_pipe6_dst_vreg_dup2[VREG-1:0] <= dp_ex3_pipe6_dst_vreg_dup2[VREG-1:0];  
-    dp_ex3_pipe6_dst_vreg_dup3[VREG-1:0] <= dp_ex3_pipe6_dst_vreg_dup3[VREG-1:0];  
+    dp_ex3_pipe6_dst_ereg[4:0]      <= dp_ex3_pipe6_dst_ereg[4:0];
+    dp_ex3_pipe6_dst_vreg[VREG-1:0] <= dp_ex3_pipe6_dst_vreg[VREG-1:0];
+    dp_ex3_pipe6_dst_vreg_dup0[VREG-1:0] <= dp_ex3_pipe6_dst_vreg_dup0[VREG-1:0];
+    dp_ex3_pipe6_dst_vreg_dup1[VREG-1:0] <= dp_ex3_pipe6_dst_vreg_dup1[VREG-1:0];
+    dp_ex3_pipe6_dst_vreg_dup2[VREG-1:0] <= dp_ex3_pipe6_dst_vreg_dup2[VREG-1:0];
+    dp_ex3_pipe6_dst_vreg_dup3[VREG-1:0] <= dp_ex3_pipe6_dst_vreg_dup3[VREG-1:0];
     dp_ex3_pipe6_dstv_vld           <= dp_ex3_pipe6_dstv_vld;
     dp_ex3_pipe6_dste_vld           <= dp_ex3_pipe6_dste_vld;
     dp_ex3_pipe6_vreg_fwd_vld       <= dp_ex3_pipe6_vreg_fwd_vld;
@@ -1278,7 +1278,7 @@ end
 //forward valid signal
 assign dp_ex4_pipe6_vreg_fwd_vld_pre  = dp_ex3_pipe6_vreg_fwd_vld
                                      || dp_ex3_pipe6_ready_stage[1] && dp_ex3_pipe6_dstv_vld;
-                                    
+
 //forward data seletion
 //bit0: Ex3 data
 //bit1: Ex4 FMA data
@@ -1287,7 +1287,7 @@ assign dp_ex4_pipe6_wb_vld_pre[1] = dp_ex3_pipe6_ready_stage[1] && dp_ex3_pipe6_
                                  && dp_ex3_pipe6_dstv_vld;
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign dp_ex4_pipe6_en =  ctrl_ex3_pipe6_inst_vld;
 //  &Instance("gated_clk_cell", "x_dp_ex4_pipe6_gated_clk"); @434
@@ -1330,8 +1330,8 @@ begin
   begin
     dp_ex4_pipe6_eu_sel[3:0]          <= dp_ex3_pipe6_eu_sel[3:0];
     dp_ex4_pipe6_ready_stage[2:0]     <= dp_ex3_pipe6_ready_stage[2:0];
-    dp_ex4_pipe6_dst_ereg[4:0]        <= dp_ex3_pipe6_dst_ereg[4:0];  
-    dp_ex4_pipe6_dst_vreg[VREG-1:0]   <= dp_ex3_pipe6_dst_vreg[VREG-1:0];  
+    dp_ex4_pipe6_dst_ereg[4:0]        <= dp_ex3_pipe6_dst_ereg[4:0];
+    dp_ex4_pipe6_dst_vreg[VREG-1:0]   <= dp_ex3_pipe6_dst_vreg[VREG-1:0];
     dp_ex4_pipe6_dstv_vld             <= dp_ex3_pipe6_dstv_vld;
     dp_ex4_pipe6_dste_vld             <= dp_ex3_pipe6_dste_vld;
     dp_ex4_pipe6_vreg_fwd_vld         <= dp_ex4_pipe6_vreg_fwd_vld_pre;
@@ -1339,12 +1339,12 @@ begin
     dp_ex4_pipe6_ereg_data[4:0]       <= dp_ex3_pipe6_ereg_data[4:0];
     dp_ex4_pipe6_wb_vld[1:0]          <= dp_ex4_pipe6_wb_vld_pre[1:0];
   end
-  else 
+  else
   begin
     dp_ex4_pipe6_eu_sel[3:0]          <= dp_ex4_pipe6_eu_sel[3:0];
     dp_ex4_pipe6_ready_stage[2:0]     <= dp_ex4_pipe6_ready_stage[2:0];
-    dp_ex4_pipe6_dst_ereg[4:0]        <= dp_ex4_pipe6_dst_ereg[4:0];  
-    dp_ex4_pipe6_dst_vreg[VREG-1:0]   <= dp_ex4_pipe6_dst_vreg[VREG-1:0];  
+    dp_ex4_pipe6_dst_ereg[4:0]        <= dp_ex4_pipe6_dst_ereg[4:0];
+    dp_ex4_pipe6_dst_vreg[VREG-1:0]   <= dp_ex4_pipe6_dst_vreg[VREG-1:0];
     dp_ex4_pipe6_dstv_vld             <= dp_ex4_pipe6_dstv_vld;
     dp_ex4_pipe6_dste_vld             <= dp_ex4_pipe6_dste_vld;
     dp_ex4_pipe6_vreg_fwd_vld         <= dp_ex4_pipe6_vreg_fwd_vld;
@@ -1368,7 +1368,7 @@ assign dp_ex5_pipe6_freg_data_pre[FPR_MSB:0] = (dp_ex4_pipe6_wb_vld[1])
 assign dp_ex4_pipe6_ereg_sel[0] = dp_ex4_pipe6_eu_sel[0] && dp_ex4_pipe6_ready_stage[1];
 assign dp_ex4_pipe6_ereg_sel[1] = dp_ex4_pipe6_eu_sel[2] && dp_ex4_pipe6_ready_stage[1];
 
-assign dp_ex4_pipe6_ereg_data_new[4:0] = dp_ex4_pipe6_ereg_sel[1] 
+assign dp_ex4_pipe6_ereg_data_new[4:0] = dp_ex4_pipe6_ereg_sel[1]
                                        ? pipe6_dp_ex4_vfmau_ereg_data[4:0]
                                        : pipe6_dp_ex4_vfalu_ereg_data[4:0];
 
@@ -1379,10 +1379,10 @@ assign dp_ex5_pipe6_ereg_data_pre[4:0] = (|dp_ex4_pipe6_ereg_sel[1:0])
 // &Force("output","dp_ex5_pipe6_freg_data_pre"); @513
 // &Force("output","dp_ex5_pipe6_ereg_data_pre"); @514
 
-assign dp_ex4_pipe6_normal_dstv_wb_vld = ctrl_ex4_pipe6_inst_vld 
+assign dp_ex4_pipe6_normal_dstv_wb_vld = ctrl_ex4_pipe6_inst_vld
                                       && dp_ex4_pipe6_dstv_vld
                                       && !dp_ex4_pipe6_eu_sel[1];  //not vfdsu
-assign dp_ex4_pipe6_normal_dste_wb_vld = ctrl_ex4_pipe6_inst_vld 
+assign dp_ex4_pipe6_normal_dste_wb_vld = ctrl_ex4_pipe6_inst_vld
                                       && dp_ex4_pipe6_dste_vld
                                       && !dp_ex4_pipe6_eu_sel[1];
 
@@ -1390,7 +1390,7 @@ assign dp_ex4_pipe6_normal_dste_wb_vld = ctrl_ex4_pipe6_inst_vld
 //                 Instruction Dispatch
 //==========================================================
 //----------------------------------------------------------
-//                     Pipe6 FALU 
+//                     Pipe6 FALU
 //----------------------------------------------------------
 assign dp_vfalu_ex1_pipe6_sel[2:0]         = {1'b0,ctrl_ex1_pipe6_eu_sel[1:0]};
 assign dp_vfalu_ex1_pipe6_func[19:0]       = dp_ex1_pipe6_func[19:0];
@@ -1434,10 +1434,10 @@ assign dp_rbus_pipe6_ex1_vreg[VREG-1:0] = dp_ex1_pipe6_dst_vreg[VREG-1:0];
 assign dp_rbus_pipe6_ex1_vreg_dup0[VREG-1:0] = dp_ex1_pipe6_dst_vreg_dup0[VREG-1:0];
 assign dp_rbus_pipe6_ex1_vreg_dup1[VREG-1:0] = dp_ex1_pipe6_dst_vreg_dup1[VREG-1:0];
 assign dp_rbus_pipe6_ex1_vreg_dup2[VREG-1:0] = dp_ex1_pipe6_dst_vreg_dup2[VREG-1:0];
-assign dp_rbus_pipe6_ex2_vreg[VREG-1:0] = dp_ex2_pipe6_dst_vreg[VREG-1:0];                                   
-assign dp_rbus_pipe6_ex2_vreg_dup0[VREG-1:0] = dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0];                                   
-assign dp_rbus_pipe6_ex2_vreg_dup1[VREG-1:0] = dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0];                                   
-assign dp_rbus_pipe6_ex2_vreg_dup2[VREG-1:0] = dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0];                                   
+assign dp_rbus_pipe6_ex2_vreg[VREG-1:0] = dp_ex2_pipe6_dst_vreg[VREG-1:0];
+assign dp_rbus_pipe6_ex2_vreg_dup0[VREG-1:0] = dp_ex2_pipe6_dst_vreg_dup0[VREG-1:0];
+assign dp_rbus_pipe6_ex2_vreg_dup1[VREG-1:0] = dp_ex2_pipe6_dst_vreg_dup1[VREG-1:0];
+assign dp_rbus_pipe6_ex2_vreg_dup2[VREG-1:0] = dp_ex2_pipe6_dst_vreg_dup2[VREG-1:0];
 assign dp_rbus_pipe6_ex3_vreg_dup0[VREG-1:0] = dp_ex3_pipe6_dst_vreg_dup0[VREG-1:0];
 assign dp_rbus_pipe6_ex3_vreg_dup1[VREG-1:0] = dp_ex3_pipe6_dst_vreg_dup1[VREG-1:0];
 assign dp_rbus_pipe6_ex3_vreg_dup2[VREG-1:0] = dp_ex3_pipe6_dst_vreg_dup2[VREG-1:0];
@@ -1452,7 +1452,7 @@ assign vfpu_idu_vdiv_busy     = vdivu_vfpu_pipe6_vdiv_busy || vfdsu_dp_fdiv_busy
 //----------------------------------------------------------
 //                    EX1 data preparation
 //----------------------------------------------------------
-assign pipe7_mtvr_func[19:0]     = 
+assign pipe7_mtvr_func[19:0]     =
     {20{iu_vfpu_ex1_pipe1_mtvr_inst[4]}} & 20'b0010_0000_0000_0010_0001   //half
   | {20{iu_vfpu_ex1_pipe1_mtvr_inst[0]}} & 20'b0010_1000_0000_0010_0001   //single
   | {20{iu_vfpu_ex1_pipe1_mtvr_inst[1]}} & 20'b0011_0000_0000_0010_0001   //double
@@ -1462,7 +1462,7 @@ assign pipe7_mtvr_func[19:0]     =
 assign pipe7_mtvr_vreg[VREG-1:0] = iu_vfpu_ex1_pipe1_mtvr_vreg[VREG-1:0];
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
  assign dp_ex1_pipe7_pipe_en = idu_vfpu_rf_pipe7_gateclk_sel
                             || iu_vfpu_ex1_pipe1_mtvr_vld;
@@ -1551,21 +1551,21 @@ begin
   end
   else
   begin
-    dp_ex1_pipe7_func[19:0]               <= dp_ex1_pipe7_func[19:0];              
-    dp_ex1_pipe7_dst_ereg[4:0]            <= dp_ex1_pipe7_dst_ereg[4:0];           
-    dp_ex1_pipe7_dst_preg[6:0]            <= dp_ex1_pipe7_dst_preg[6:0];           
-    dp_ex1_pipe7_dst_preg_dup0[6:0]            <= dp_ex1_pipe7_dst_preg_dup0[6:0];           
-    dp_ex1_pipe7_dst_preg_dup1[6:0]            <= dp_ex1_pipe7_dst_preg_dup1[6:0];           
-    dp_ex1_pipe7_dst_preg_dup2[6:0]            <= dp_ex1_pipe7_dst_preg_dup2[6:0];           
-    dp_ex1_pipe7_dst_preg_dup3[6:0]            <= dp_ex1_pipe7_dst_preg_dup3[6:0];           
-    dp_ex1_pipe7_dst_vreg[VREG-1:0]       <= dp_ex1_pipe7_dst_vreg[VREG-1:0];           
-    dp_ex1_pipe7_dst_vreg_dup0[VREG-1:0]       <= dp_ex1_pipe7_dst_vreg_dup0[VREG-1:0];           
-    dp_ex1_pipe7_dst_vreg_dup1[VREG-1:0]       <= dp_ex1_pipe7_dst_vreg_dup1[VREG-1:0];           
-    dp_ex1_pipe7_dst_vreg_dup2[VREG-1:0]       <= dp_ex1_pipe7_dst_vreg_dup2[VREG-1:0];           
-    dp_ex1_pipe7_mla_srcv2_vreg[VREG-1:0] <= dp_ex1_pipe7_mla_srcv2_vreg[VREG-1:0];     
-    dp_ex1_pipe7_dste_vld                 <= dp_ex1_pipe7_dste_vld;                
-    dp_ex1_pipe7_dstv_vld                 <= dp_ex1_pipe7_dstv_vld;                
- //   dp_ex1_pipe7_dst_vld                  <= dp_ex1_pipe7_dst_vld;                 
+    dp_ex1_pipe7_func[19:0]               <= dp_ex1_pipe7_func[19:0];
+    dp_ex1_pipe7_dst_ereg[4:0]            <= dp_ex1_pipe7_dst_ereg[4:0];
+    dp_ex1_pipe7_dst_preg[6:0]            <= dp_ex1_pipe7_dst_preg[6:0];
+    dp_ex1_pipe7_dst_preg_dup0[6:0]            <= dp_ex1_pipe7_dst_preg_dup0[6:0];
+    dp_ex1_pipe7_dst_preg_dup1[6:0]            <= dp_ex1_pipe7_dst_preg_dup1[6:0];
+    dp_ex1_pipe7_dst_preg_dup2[6:0]            <= dp_ex1_pipe7_dst_preg_dup2[6:0];
+    dp_ex1_pipe7_dst_preg_dup3[6:0]            <= dp_ex1_pipe7_dst_preg_dup3[6:0];
+    dp_ex1_pipe7_dst_vreg[VREG-1:0]       <= dp_ex1_pipe7_dst_vreg[VREG-1:0];
+    dp_ex1_pipe7_dst_vreg_dup0[VREG-1:0]       <= dp_ex1_pipe7_dst_vreg_dup0[VREG-1:0];
+    dp_ex1_pipe7_dst_vreg_dup1[VREG-1:0]       <= dp_ex1_pipe7_dst_vreg_dup1[VREG-1:0];
+    dp_ex1_pipe7_dst_vreg_dup2[VREG-1:0]       <= dp_ex1_pipe7_dst_vreg_dup2[VREG-1:0];
+    dp_ex1_pipe7_mla_srcv2_vreg[VREG-1:0] <= dp_ex1_pipe7_mla_srcv2_vreg[VREG-1:0];
+    dp_ex1_pipe7_dste_vld                 <= dp_ex1_pipe7_dste_vld;
+    dp_ex1_pipe7_dstv_vld                 <= dp_ex1_pipe7_dstv_vld;
+ //   dp_ex1_pipe7_dst_vld                  <= dp_ex1_pipe7_dst_vld;
     dp_ex1_pipe7_imm0[2:0]                <= dp_ex1_pipe7_imm0[2:0];
     dp_ex1_pipe7_ready_stage[2:0]         <= dp_ex1_pipe7_ready_stage[2:0];
   end
@@ -1579,7 +1579,7 @@ begin
    dp_ex1_pipe7_dst_vld_pre  = idu_vfpu_rf_pipe7_dst_vld;
  else if(iu_vfpu_ex1_pipe1_mtvr_vld)
     dp_ex1_pipe7_dst_vld_pre  = 1'b0;
- else 
+ else
     dp_ex1_pipe7_dst_vld_pre  = idu_vfpu_rf_pipe7_dst_vld;
 // &CombEnd; @718
 end
@@ -1602,7 +1602,7 @@ assign vfpu_idu_ex1_pipe7_preg_dup4[6:0]     = dp_ex1_pipe7_dst_preg_dup3[6:0];
 //----------------------------------------------------------
 //                    EX2 data preparation
 //----------------------------------------------------------
-assign dp_ex1_pipe7_mfvr_data[XLEN-1:0] = ex1_pipe7_eu_sel_vec_mtvr 
+assign dp_ex1_pipe7_mfvr_data[XLEN-1:0] = ex1_pipe7_eu_sel_vec_mtvr
                                         ? vdsp_vfpu_ex1_pipe7_mfvr_data[XLEN-1:0]
                                         : pipe7_dp_ex1_vfalu_mfvr_data[XLEN-1:0];
 
@@ -1617,10 +1617,10 @@ assign  dp_ex2_pipe7_eu_sel_pre[3]  = 1'b0;
 
 assign dp_ex2_pipe7_ready_stage_pre[2:0] = (pipe7_dp_ex1_mult_id)
                                          ? 3'b100
-                                         : dp_ex1_pipe7_ready_stage[2:0]; 
+                                         : dp_ex1_pipe7_ready_stage[2:0];
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign dp_ex2_pipe7_en =  ctrl_dp_ex2_pipe7_inst_vld;
 //  &Instance("gated_clk_cell", "x_dp_ex2_pipe7_gated_clk"); @763
@@ -1658,32 +1658,32 @@ begin
     dp_ex2_pipe7_dst_preg[6:0]      <= 7'b0;
     dp_ex2_pipe7_dstv_vld           <= 1'b0;
     dp_ex2_pipe7_dste_vld           <= 1'b0;
-    dp_ex2_pipe7_mfvr_data[63:0]    <= 64'b0; 
+    dp_ex2_pipe7_mfvr_data[63:0]    <= 64'b0;
   end
   else if(ctrl_dp_ex2_pipe7_inst_vld)
   begin
     dp_ex2_pipe7_eu_sel[3:0]        <= dp_ex2_pipe7_eu_sel_pre[3:0];
     dp_ex2_pipe7_ready_stage[2:0]   <= dp_ex2_pipe7_ready_stage_pre[2:0];
-    dp_ex2_pipe7_dst_ereg[4:0]      <= dp_ex1_pipe7_dst_ereg[4:0];  
-    dp_ex2_pipe7_dst_vreg[VREG-1:0] <= dp_ex1_pipe7_dst_vreg[VREG-1:0];  
-    dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0] <= dp_ex1_pipe7_dst_vreg_dup0[VREG-1:0];  
-    dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0] <= dp_ex1_pipe7_dst_vreg_dup1[VREG-1:0];  
-    dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0] <= dp_ex1_pipe7_dst_vreg_dup2[VREG-1:0];  
-    dp_ex2_pipe7_dst_preg[6:0]      <= dp_ex1_pipe7_dst_preg[6:0];  
+    dp_ex2_pipe7_dst_ereg[4:0]      <= dp_ex1_pipe7_dst_ereg[4:0];
+    dp_ex2_pipe7_dst_vreg[VREG-1:0] <= dp_ex1_pipe7_dst_vreg[VREG-1:0];
+    dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0] <= dp_ex1_pipe7_dst_vreg_dup0[VREG-1:0];
+    dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0] <= dp_ex1_pipe7_dst_vreg_dup1[VREG-1:0];
+    dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0] <= dp_ex1_pipe7_dst_vreg_dup2[VREG-1:0];
+    dp_ex2_pipe7_dst_preg[6:0]      <= dp_ex1_pipe7_dst_preg[6:0];
     dp_ex2_pipe7_dstv_vld           <= dp_ex1_pipe7_dstv_vld;
     dp_ex2_pipe7_dste_vld           <= dp_ex1_pipe7_dste_vld;
-    dp_ex2_pipe7_mfvr_data[63:0]    <= dp_ex1_pipe7_mfvr_data[63:0];  
+    dp_ex2_pipe7_mfvr_data[63:0]    <= dp_ex1_pipe7_mfvr_data[63:0];
   end
   else
   begin
     dp_ex2_pipe7_eu_sel[3:0]        <= dp_ex2_pipe7_eu_sel[3:0];
     dp_ex2_pipe7_ready_stage[2:0]   <= dp_ex2_pipe7_ready_stage[2:0];
-    dp_ex2_pipe7_dst_ereg[4:0]      <= dp_ex2_pipe7_dst_ereg[4:0];  
-    dp_ex2_pipe7_dst_vreg[VREG-1:0] <= dp_ex2_pipe7_dst_vreg[VREG-1:0];  
-    dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0];  
-    dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0];  
-    dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0];  
-    dp_ex2_pipe7_dst_preg[5:0]      <= dp_ex2_pipe7_dst_preg[5:0];  
+    dp_ex2_pipe7_dst_ereg[4:0]      <= dp_ex2_pipe7_dst_ereg[4:0];
+    dp_ex2_pipe7_dst_vreg[VREG-1:0] <= dp_ex2_pipe7_dst_vreg[VREG-1:0];
+    dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0];
+    dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0];
+    dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0];
+    dp_ex2_pipe7_dst_preg[5:0]      <= dp_ex2_pipe7_dst_preg[5:0];
     dp_ex2_pipe7_dstv_vld           <= dp_ex2_pipe7_dstv_vld;
     dp_ex2_pipe7_dste_vld           <= dp_ex2_pipe7_dste_vld;
     dp_ex2_pipe7_mfvr_data[63:0]    <= dp_ex2_pipe7_mfvr_data[63:0];
@@ -1701,14 +1701,14 @@ assign vfpu_iu_ex2_pipe7_mfvr_preg[6:0]  = dp_ex2_pipe7_dst_preg[6:0];
 //                    EX3 data preparation
 //----------------------------------------------------------
 //forward valid signal
-assign dp_ex3_pipe7_vreg_fwd_vld_pre  = dp_ex2_pipe7_ready_stage[0] 
+assign dp_ex3_pipe7_vreg_fwd_vld_pre  = dp_ex2_pipe7_ready_stage[0]
                                      && dp_ex2_pipe7_dstv_vld;
 //forward signal
-assign dp_ex3_pipe7_vfalu_wb_vld_pre  = dp_ex2_pipe7_ready_stage[0] 
+assign dp_ex3_pipe7_vfalu_wb_vld_pre  = dp_ex2_pipe7_ready_stage[0]
                                      && dp_ex2_pipe7_eu_sel[0];
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign dp_ex3_pipe7_en =  ctrl_ex2_pipe7_inst_vld;
 //  &Instance("gated_clk_cell", "x_dp_ex3_pipe7_gated_clk"); @841
@@ -1736,7 +1736,7 @@ always @(posedge dp_ex3_pipe7_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
   begin
-    dp_ex3_pipe7_eu_sel[3:0]        <= 4'b0; 
+    dp_ex3_pipe7_eu_sel[3:0]        <= 4'b0;
     dp_ex3_pipe7_ready_stage[2:0]   <= 3'b0;
     dp_ex3_pipe7_dst_ereg[4:0]      <= 5'b0;
     dp_ex3_pipe7_dst_vreg[VREG-1:0] <= {VREG{1'b0}};
@@ -1753,12 +1753,12 @@ begin
   begin
     dp_ex3_pipe7_eu_sel[3:0]        <= dp_ex2_pipe7_eu_sel[3:0];
     dp_ex3_pipe7_ready_stage[2:0]   <= dp_ex2_pipe7_ready_stage[2:0];
-    dp_ex3_pipe7_dst_ereg[4:0]      <= dp_ex2_pipe7_dst_ereg[4:0];  
-    dp_ex3_pipe7_dst_vreg[VREG-1:0] <= dp_ex2_pipe7_dst_vreg[VREG-1:0];  
-    dp_ex3_pipe7_dst_vreg_dup0[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0];  
-    dp_ex3_pipe7_dst_vreg_dup1[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0];  
-    dp_ex3_pipe7_dst_vreg_dup2[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0];  
-    dp_ex3_pipe7_dst_vreg_dup3[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0];  
+    dp_ex3_pipe7_dst_ereg[4:0]      <= dp_ex2_pipe7_dst_ereg[4:0];
+    dp_ex3_pipe7_dst_vreg[VREG-1:0] <= dp_ex2_pipe7_dst_vreg[VREG-1:0];
+    dp_ex3_pipe7_dst_vreg_dup0[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0];
+    dp_ex3_pipe7_dst_vreg_dup1[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0];
+    dp_ex3_pipe7_dst_vreg_dup2[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0];
+    dp_ex3_pipe7_dst_vreg_dup3[VREG-1:0] <= dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0];
     dp_ex3_pipe7_dstv_vld           <= dp_ex2_pipe7_dstv_vld;
     dp_ex3_pipe7_dste_vld           <= dp_ex2_pipe7_dste_vld;
     dp_ex3_pipe7_vreg_fwd_vld       <= dp_ex3_pipe7_vreg_fwd_vld_pre;
@@ -1768,12 +1768,12 @@ begin
   begin
     dp_ex3_pipe7_eu_sel[3:0]        <= dp_ex3_pipe7_eu_sel[3:0];
     dp_ex3_pipe7_ready_stage[2:0]   <= dp_ex3_pipe7_ready_stage[2:0];
-    dp_ex3_pipe7_dst_ereg[4:0]      <= dp_ex3_pipe7_dst_ereg[4:0];  
-    dp_ex3_pipe7_dst_vreg[VREG-1:0] <= dp_ex3_pipe7_dst_vreg[VREG-1:0];  
-    dp_ex3_pipe7_dst_vreg_dup0[VREG-1:0] <= dp_ex3_pipe7_dst_vreg_dup0[VREG-1:0];  
-    dp_ex3_pipe7_dst_vreg_dup1[VREG-1:0] <= dp_ex3_pipe7_dst_vreg_dup1[VREG-1:0];  
-    dp_ex3_pipe7_dst_vreg_dup2[VREG-1:0] <= dp_ex3_pipe7_dst_vreg_dup2[VREG-1:0];  
-    dp_ex3_pipe7_dst_vreg_dup3[VREG-1:0] <= dp_ex3_pipe7_dst_vreg_dup3[VREG-1:0];  
+    dp_ex3_pipe7_dst_ereg[4:0]      <= dp_ex3_pipe7_dst_ereg[4:0];
+    dp_ex3_pipe7_dst_vreg[VREG-1:0] <= dp_ex3_pipe7_dst_vreg[VREG-1:0];
+    dp_ex3_pipe7_dst_vreg_dup0[VREG-1:0] <= dp_ex3_pipe7_dst_vreg_dup0[VREG-1:0];
+    dp_ex3_pipe7_dst_vreg_dup1[VREG-1:0] <= dp_ex3_pipe7_dst_vreg_dup1[VREG-1:0];
+    dp_ex3_pipe7_dst_vreg_dup2[VREG-1:0] <= dp_ex3_pipe7_dst_vreg_dup2[VREG-1:0];
+    dp_ex3_pipe7_dst_vreg_dup3[VREG-1:0] <= dp_ex3_pipe7_dst_vreg_dup3[VREG-1:0];
     dp_ex3_pipe7_dstv_vld           <= dp_ex3_pipe7_dstv_vld;
     dp_ex3_pipe7_dste_vld           <= dp_ex3_pipe7_dste_vld;
     dp_ex3_pipe7_vreg_fwd_vld       <= dp_ex3_pipe7_vreg_fwd_vld;
@@ -1817,7 +1817,7 @@ end
 //forward valid signal
 assign dp_ex4_pipe7_vreg_fwd_vld_pre  = dp_ex3_pipe7_vreg_fwd_vld
                                      || dp_ex3_pipe7_ready_stage[1];
-                                    
+
 //forward data seletion
 //bit0: Ex3 data
 //bit1: Ex4 FMA data
@@ -1825,7 +1825,7 @@ assign dp_ex4_pipe7_wb_vld_pre[0] = !dp_ex3_pipe7_ready_stage[1];
 assign dp_ex4_pipe7_wb_vld_pre[1] = dp_ex3_pipe7_ready_stage[1] && dp_ex3_pipe7_eu_sel[2];
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign dp_ex4_pipe7_en =  ctrl_ex3_pipe7_inst_vld;
 //  &Instance("gated_clk_cell", "x_dp_ex4_pipe7_gated_clk"); @936
@@ -1862,33 +1862,33 @@ begin
     dp_ex4_pipe7_vreg_fwd_vld         <= 1'b0;
     dp_ex4_pipe7_freg_data[FPR_MSB:0] <= {FPR_MSB+1{1'b0}};
     dp_ex4_pipe7_ereg_data[4:0]       <= 5'b0;
-    dp_ex4_pipe7_wb_vld[1:0]          <= 2'b0;    
+    dp_ex4_pipe7_wb_vld[1:0]          <= 2'b0;
   end
   else if(ctrl_ex3_pipe7_inst_vld)
   begin
     dp_ex4_pipe7_eu_sel[3:0]          <= dp_ex3_pipe7_eu_sel[3:0];
     dp_ex4_pipe7_ready_stage[2:0]     <= dp_ex3_pipe7_ready_stage[2:0];
-    dp_ex4_pipe7_dst_ereg[4:0]        <= dp_ex3_pipe7_dst_ereg[4:0];  
-    dp_ex4_pipe7_dst_vreg[VREG-1:0]   <= dp_ex3_pipe7_dst_vreg[VREG-1:0];  
+    dp_ex4_pipe7_dst_ereg[4:0]        <= dp_ex3_pipe7_dst_ereg[4:0];
+    dp_ex4_pipe7_dst_vreg[VREG-1:0]   <= dp_ex3_pipe7_dst_vreg[VREG-1:0];
     dp_ex4_pipe7_dstv_vld             <= dp_ex3_pipe7_dstv_vld;
     dp_ex4_pipe7_dste_vld             <= dp_ex3_pipe7_dste_vld;
     dp_ex4_pipe7_vreg_fwd_vld         <= dp_ex4_pipe7_vreg_fwd_vld_pre;
     dp_ex4_pipe7_freg_data[FPR_MSB:0] <= dp_ex3_pipe7_freg_data[FPR_MSB:0];
     dp_ex4_pipe7_ereg_data[4:0]       <= dp_ex3_pipe7_ereg_data[4:0];
-    dp_ex4_pipe7_wb_vld[1:0]          <= dp_ex4_pipe7_wb_vld_pre[1:0];    
+    dp_ex4_pipe7_wb_vld[1:0]          <= dp_ex4_pipe7_wb_vld_pre[1:0];
   end
-  else 
+  else
   begin
     dp_ex4_pipe7_eu_sel[3:0]          <= dp_ex4_pipe7_eu_sel[3:0];
     dp_ex4_pipe7_ready_stage[2:0]     <= dp_ex4_pipe7_ready_stage[2:0];
-    dp_ex4_pipe7_dst_ereg[4:0]        <= dp_ex4_pipe7_dst_ereg[4:0];  
-    dp_ex4_pipe7_dst_vreg[VREG-1:0]   <= dp_ex4_pipe7_dst_vreg[VREG-1:0];  
+    dp_ex4_pipe7_dst_ereg[4:0]        <= dp_ex4_pipe7_dst_ereg[4:0];
+    dp_ex4_pipe7_dst_vreg[VREG-1:0]   <= dp_ex4_pipe7_dst_vreg[VREG-1:0];
     dp_ex4_pipe7_dstv_vld             <= dp_ex4_pipe7_dstv_vld;
     dp_ex4_pipe7_dste_vld             <= dp_ex4_pipe7_dste_vld;
     dp_ex4_pipe7_vreg_fwd_vld         <= dp_ex4_pipe7_vreg_fwd_vld;
     dp_ex4_pipe7_freg_data[FPR_MSB:0] <= dp_ex4_pipe7_freg_data[FPR_MSB:0];
     dp_ex4_pipe7_ereg_data[4:0]       <= dp_ex4_pipe7_ereg_data[4:0];
-    dp_ex4_pipe7_wb_vld[1:0]          <= dp_ex4_pipe7_wb_vld[1:0];    
+    dp_ex4_pipe7_wb_vld[1:0]          <= dp_ex4_pipe7_wb_vld[1:0];
   end
 end
 
@@ -1924,7 +1924,7 @@ assign dp_ex5_pipe7_ereg_data_pre[4:0] = (|dp_ex4_pipe7_ereg_sel[1:0])
 //                 Instruction Dispatch
 //==========================================================
 //----------------------------------------------------------
-//                     Pipe7 FALU 
+//                     Pipe7 FALU
 //----------------------------------------------------------
 assign dp_vfalu_ex1_pipe7_sel[2:0]         = ctrl_ex1_pipe7_eu_sel[2:0];
 assign dp_vfalu_ex1_pipe7_func[19:0]       = dp_ex1_pipe7_func[19:0];
@@ -1958,10 +1958,10 @@ assign dp_rbus_pipe7_ex1_vreg[VREG-1:0] = dp_ex1_pipe7_dst_vreg[VREG-1:0];
 assign dp_rbus_pipe7_ex1_vreg_dup0[VREG-1:0] = dp_ex1_pipe7_dst_vreg_dup0[VREG-1:0];
 assign dp_rbus_pipe7_ex1_vreg_dup1[VREG-1:0] = dp_ex1_pipe7_dst_vreg_dup1[VREG-1:0];
 assign dp_rbus_pipe7_ex1_vreg_dup2[VREG-1:0] = dp_ex1_pipe7_dst_vreg_dup2[VREG-1:0];
-assign dp_rbus_pipe7_ex2_vreg[VREG-1:0] = dp_ex2_pipe7_dst_vreg[VREG-1:0];                                   
-assign dp_rbus_pipe7_ex2_vreg_dup0[VREG-1:0] = dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0];                                   
-assign dp_rbus_pipe7_ex2_vreg_dup1[VREG-1:0] = dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0];                                   
-assign dp_rbus_pipe7_ex2_vreg_dup2[VREG-1:0] = dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0];                                   
+assign dp_rbus_pipe7_ex2_vreg[VREG-1:0] = dp_ex2_pipe7_dst_vreg[VREG-1:0];
+assign dp_rbus_pipe7_ex2_vreg_dup0[VREG-1:0] = dp_ex2_pipe7_dst_vreg_dup0[VREG-1:0];
+assign dp_rbus_pipe7_ex2_vreg_dup1[VREG-1:0] = dp_ex2_pipe7_dst_vreg_dup1[VREG-1:0];
+assign dp_rbus_pipe7_ex2_vreg_dup2[VREG-1:0] = dp_ex2_pipe7_dst_vreg_dup2[VREG-1:0];
 assign dp_rbus_pipe7_ex3_vreg_dup0[VREG-1:0] = dp_ex3_pipe7_dst_vreg_dup0[VREG-1:0];
 assign dp_rbus_pipe7_ex3_vreg_dup1[VREG-1:0] = dp_ex3_pipe7_dst_vreg_dup1[VREG-1:0];
 assign dp_rbus_pipe7_ex3_vreg_dup2[VREG-1:0] = dp_ex3_pipe7_dst_vreg_dup2[VREG-1:0];
@@ -2090,7 +2090,7 @@ begin
   if(!cpurst_b)
   begin
     dp_ex1_pipe6_vfpu_srcf0[FPR_MSB:0]       <= {FPR_MSB+1{1'b0}};
-    dp_ex1_pipe6_vfpu_srcf1[FPR_MSB:0]       <= {FPR_MSB+1{1'b0}}; 
+    dp_ex1_pipe6_vfpu_srcf1[FPR_MSB:0]       <= {FPR_MSB+1{1'b0}};
   end
   else if (idu_vfpu_rf_pipe6_gateclk_sel && |idu_vfpu_rf_pipe6_eu_sel[4:0])
   begin
@@ -2099,8 +2099,8 @@ begin
   end
   else
   begin
-    dp_ex1_pipe6_vfpu_srcf0[FPR_MSB:0]       <= dp_ex1_pipe6_vfpu_srcf0[FPR_MSB:0];    
-    dp_ex1_pipe6_vfpu_srcf1[FPR_MSB:0]       <= dp_ex1_pipe6_vfpu_srcf1[FPR_MSB:0];    
+    dp_ex1_pipe6_vfpu_srcf0[FPR_MSB:0]       <= dp_ex1_pipe6_vfpu_srcf0[FPR_MSB:0];
+    dp_ex1_pipe6_vfpu_srcf1[FPR_MSB:0]       <= dp_ex1_pipe6_vfpu_srcf1[FPR_MSB:0];
   end
 end
 assign dp_vfalu_ex1_pipe6_srcf0[FPR_MSB:0] = dp_ex1_pipe6_vfpu_srcf0[FPR_MSB:0];
@@ -2113,7 +2113,7 @@ begin
   if(!cpurst_b)
   begin
     dp_ex1_pipe7_vfpu_srcf0[FPR_MSB:0]       <= {FPR_MSB+1{1'b0}};
-    dp_ex1_pipe7_vfpu_srcf1[FPR_MSB:0]       <= {FPR_MSB+1{1'b0}}; 
+    dp_ex1_pipe7_vfpu_srcf1[FPR_MSB:0]       <= {FPR_MSB+1{1'b0}};
   end
   else if (idu_vfpu_rf_pipe7_gateclk_sel && |idu_vfpu_rf_pipe7_eu_sel[4:0])
   begin
@@ -2122,8 +2122,8 @@ begin
   end
   else
   begin
-    dp_ex1_pipe7_vfpu_srcf0[FPR_MSB:0]       <= dp_ex1_pipe7_vfpu_srcf0[FPR_MSB:0];    
-    dp_ex1_pipe7_vfpu_srcf1[FPR_MSB:0]       <= dp_ex1_pipe7_vfpu_srcf1[FPR_MSB:0];    
+    dp_ex1_pipe7_vfpu_srcf0[FPR_MSB:0]       <= dp_ex1_pipe7_vfpu_srcf0[FPR_MSB:0];
+    dp_ex1_pipe7_vfpu_srcf1[FPR_MSB:0]       <= dp_ex1_pipe7_vfpu_srcf1[FPR_MSB:0];
   end
 end
 assign dp_vfalu_ex1_pipe7_srcf0[FPR_MSB:0] = dp_ex1_pipe7_vfpu_srcf0[FPR_MSB:0];

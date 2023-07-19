@@ -31,48 +31,48 @@ module ct_iu_div_entry(
 );
 
 // &Ports; @26
-input            cp0_iu_div_entry_disable_clr; 
-input            cp0_iu_icg_en;               
-input            cp0_yy_clk_en;               
-input            cpurst_b;                    
-input            div_clk;                     
-input            div_entry0_read_vld;         
-input            div_entry1_read_vld;         
-input   [257:0]  div_entry_write_data;        
-input            div_entry_write_en;          
-input            forever_cpuclk;              
-input            pad_yy_icg_scan_en;          
-output  [257:0]  div_entry0_read_data;        
-output  [257:0]  div_entry1_read_data;        
+input            cp0_iu_div_entry_disable_clr;
+input            cp0_iu_icg_en;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            div_clk;
+input            div_entry0_read_vld;
+input            div_entry1_read_vld;
+input   [257:0]  div_entry_write_data;
+input            div_entry_write_en;
+input            forever_cpuclk;
+input            pad_yy_icg_scan_en;
+output  [257:0]  div_entry0_read_data;
+output  [257:0]  div_entry1_read_data;
 
 // &Regs; @27
-reg     [257:0]  div_entry0_data;             
-reg              div_entry0_older;            
-reg     [257:0]  div_entry1_data;             
+reg     [257:0]  div_entry0_data;
+reg              div_entry0_older;
+reg     [257:0]  div_entry1_data;
 
 // &Wires; @28
-wire             cp0_iu_div_entry_disable_clr; 
-wire             cp0_iu_icg_en;               
-wire             cp0_yy_clk_en;               
-wire             cpurst_b;                    
-wire             div_clk;                     
-wire             div_entry0_clk;              
-wire             div_entry0_clk_en;           
-wire    [257:0]  div_entry0_read_data;        
-wire             div_entry0_read_vld;         
-wire             div_entry1_clk;              
-wire             div_entry1_clk_en;           
-wire    [257:0]  div_entry1_read_data;        
-wire             div_entry1_read_vld;         
-wire    [257:0]  div_entry_write_data;        
-wire             div_entry_write_en;          
-wire             forever_cpuclk;              
-wire             pad_yy_icg_scan_en;          
+wire             cp0_iu_div_entry_disable_clr;
+wire             cp0_iu_icg_en;
+wire             cp0_yy_clk_en;
+wire             cpurst_b;
+wire             div_clk;
+wire             div_entry0_clk;
+wire             div_entry0_clk_en;
+wire    [257:0]  div_entry0_read_data;
+wire             div_entry0_read_vld;
+wire             div_entry1_clk;
+wire             div_entry1_clk_en;
+wire    [257:0]  div_entry1_read_data;
+wire             div_entry1_read_vld;
+wire    [257:0]  div_entry_write_data;
+wire             div_entry_write_en;
+wire             forever_cpuclk;
+wire             pad_yy_icg_scan_en;
 
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign div_entry0_clk_en = div_entry_write_en && div_entry0_older
                            || cp0_iu_div_entry_disable_clr;

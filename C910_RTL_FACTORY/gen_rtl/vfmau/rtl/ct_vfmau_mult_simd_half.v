@@ -60,356 +60,356 @@ module ct_vfmau_mult_simd_half(
 );
 
 // &Ports; @24
-input           cp0_vfpu_icg_en;                       
-input           cp0_yy_clk_en;                         
-input           cpurst_b;                              
-input   [15:0]  dp_mult_ex1_op0_slicex_halfy;          
-input   [47:0]  dp_mult_ex1_op0_slicex_halfy_high;     
-input   [15:0]  dp_mult_ex1_op1_slicex_halfy;          
-input   [47:0]  dp_mult_ex1_op1_slicex_halfy_high;     
-input   [31:0]  dp_mult_ex1_op2_slicex_halfy;          
-input   [47:0]  dp_mult_ex1_op2_slicex_halfy_high;     
-input           dp_mult_op2_slicex_vl_halfy_mask;      
-input           dp_mult_op2_slicex_vm_halfy_mask;      
-input           dp_xx_ex1_fma;                         
-input           dp_xx_ex1_half;                        
-input           dp_xx_ex1_neg;                         
-input   [2 :0]  dp_xx_ex1_rm;                          
-input           dp_xx_ex1_simd;                        
-input           dp_xx_ex1_sub;                         
-input           dp_xx_ex1_widen;                       
-input           dp_xx_ex2_fma;                         
-input           dp_xx_ex2_half;                        
-input   [2 :0]  dp_xx_ex2_rm;                          
-input           dp_xx_ex2_simd;                        
-input   [2 :0]  dp_xx_ex3_rm;                          
-input           forever_cpuclk;                        
-input           mult1_simd_halfy_sel;                  
-input           mult_ex1_ex2_half_pipedown;            
-input           mult_ex2_ex3_half_pipedown;            
-input           mult_ex3_ex4_half_pipedown;            
-input           pad_yy_icg_scan_en;                    
-input           pipe6_pipex_ex4_fmla_fwd_vld;          
-input   [15:0]  pipe6_vfmau_ex4_fmla_slicex_halfy_data; 
-input           pipe7_pipex_ex4_fmla_fwd_vld;          
-input   [15:0]  pipe7_vfmau_ex4_fmla_slicex_halfy_data; 
-input   [21:0]  simd_halfy_product;                    
-input           vfpu_yy_xx_dqnan;                      
-output          halfy_ex1_op0_hidden_bit;              
-output          halfy_ex1_op1_hidden_bit;              
-output  [4 :0]  halfy_fma_expt;                        
-output  [15:0]  halfy_fma_result;                      
-output  [4 :0]  halfy_mult_expt;                       
-output  [15:0]  halfy_mult_result;                     
-output          slicex_dp_halfy_mult_id;               
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input   [15:0]  dp_mult_ex1_op0_slicex_halfy;
+input   [47:0]  dp_mult_ex1_op0_slicex_halfy_high;
+input   [15:0]  dp_mult_ex1_op1_slicex_halfy;
+input   [47:0]  dp_mult_ex1_op1_slicex_halfy_high;
+input   [31:0]  dp_mult_ex1_op2_slicex_halfy;
+input   [47:0]  dp_mult_ex1_op2_slicex_halfy_high;
+input           dp_mult_op2_slicex_vl_halfy_mask;
+input           dp_mult_op2_slicex_vm_halfy_mask;
+input           dp_xx_ex1_fma;
+input           dp_xx_ex1_half;
+input           dp_xx_ex1_neg;
+input   [2 :0]  dp_xx_ex1_rm;
+input           dp_xx_ex1_simd;
+input           dp_xx_ex1_sub;
+input           dp_xx_ex1_widen;
+input           dp_xx_ex2_fma;
+input           dp_xx_ex2_half;
+input   [2 :0]  dp_xx_ex2_rm;
+input           dp_xx_ex2_simd;
+input   [2 :0]  dp_xx_ex3_rm;
+input           forever_cpuclk;
+input           mult1_simd_halfy_sel;
+input           mult_ex1_ex2_half_pipedown;
+input           mult_ex2_ex3_half_pipedown;
+input           mult_ex3_ex4_half_pipedown;
+input           pad_yy_icg_scan_en;
+input           pipe6_pipex_ex4_fmla_fwd_vld;
+input   [15:0]  pipe6_vfmau_ex4_fmla_slicex_halfy_data;
+input           pipe7_pipex_ex4_fmla_fwd_vld;
+input   [15:0]  pipe7_vfmau_ex4_fmla_slicex_halfy_data;
+input   [21:0]  simd_halfy_product;
+input           vfpu_yy_xx_dqnan;
+output          halfy_ex1_op0_hidden_bit;
+output          halfy_ex1_op1_hidden_bit;
+output  [4 :0]  halfy_fma_expt;
+output  [15:0]  halfy_fma_result;
+output  [4 :0]  halfy_mult_expt;
+output  [15:0]  halfy_mult_result;
+output          slicex_dp_halfy_mult_id;
 
 // &Regs; @25
-reg             mult_ex1_ex2_sticky1;                  
-reg     [6 :0]  mult_ex1_fma_id_adjust;                
-reg     [4 :0]  mult_ex1_offset_adjust;                
-reg     [31:0]  mult_ex1_op2;                          
-reg     [36:0]  mult_ex1_op2_shift_result;             
-reg             mult_ex1_sticky1;                      
-reg     [15:0]  mult_ex2_abnorm_result;                
-reg             mult_ex2_add1;                         
-reg     [4 :0]  mult_ex2_expnt_offset;                 
-reg     [4 :0]  mult_ex2_expt;                         
-reg     [6 :0]  mult_ex2_fma_expnt_diff;               
-reg             mult_ex2_fmla_ex4_fwd_vld;             
-reg     [37:0]  mult_ex2_frac_result;                  
-reg     [3 :0]  mult_ex2_id_offset;                    
-reg     [1 :0]  mult_ex2_l2_sa_offset;                 
-reg     [21:0]  mult_ex2_lshift_result;                
-reg     [6 :0]  mult_ex2_mult_expnt_plus_3_result;     
-reg     [6 :0]  mult_ex2_mult_expnt_result;            
-reg     [21:0]  mult_ex2_mult_frac;                    
-reg     [6 :0]  mult_ex2_mult_id_adjust;               
-reg     [15:0]  mult_ex2_mult_result;                  
-reg             mult_ex2_mult_result_sign;             
-reg             mult_ex2_of_result_lfn;                
-reg             mult_ex2_op0_id;                       
-reg             mult_ex2_op1_id;                       
-reg     [4 :0]  mult_ex2_op2_expnt;                    
-reg     [9 :0]  mult_ex2_op2_frac;                     
-reg             mult_ex2_op2_id;                       
-reg     [36:0]  mult_ex2_op2_shift_result;             
-reg             mult_ex2_op2_sign;                     
-reg             mult_ex2_op_id;                        
-reg             mult_ex2_potnt_of;                     
-reg             mult_ex2_result_abnorm;                
-reg     [21:0]  mult_ex2_rshift_result;                
-reg     [12:0]  mult_ex2_rshit_out;                    
-reg     [36:0]  mult_ex2_sa_op2;                       
-reg     [6 :0]  mult_ex2_sa_result;                    
-reg             mult_ex2_simd_half_sel;                
-reg             mult_ex2_sticky1;                      
-reg             mult_ex2_sub_vld;                      
-reg     [15:0]  mult_ex3_abnorm_result;                
-reg     [6 :0]  mult_ex3_expnt_result;                 
-reg     [4 :0]  mult_ex3_expt;                         
-reg     [6 :0]  mult_ex3_fma_expnt;                    
-reg     [37:0]  mult_ex3_fma_expnt_shift;              
-reg     [37:0]  mult_ex3_fma_norm_result;              
-reg             mult_ex3_fma_of_result_lfn;            
-reg             mult_ex3_fma_sign;                     
-reg     [37:0]  mult_ex3_frac_result;                  
-reg     [4 :0]  mult_ex3_lza_result;                   
-reg             mult_ex3_lza_result_zero;              
-reg             mult_ex3_result_abnorm;                
-reg             mult_ex3_simd_half_sel;                
-reg             mult_ex3_sticky1;                      
-reg             mult_ex3_sub_vld;                      
-reg     [4 :0]  mult_ex4_fma_expt;                     
-reg     [15:0]  mult_ex4_fma_result;                   
+reg             mult_ex1_ex2_sticky1;
+reg     [6 :0]  mult_ex1_fma_id_adjust;
+reg     [4 :0]  mult_ex1_offset_adjust;
+reg     [31:0]  mult_ex1_op2;
+reg     [36:0]  mult_ex1_op2_shift_result;
+reg             mult_ex1_sticky1;
+reg     [15:0]  mult_ex2_abnorm_result;
+reg             mult_ex2_add1;
+reg     [4 :0]  mult_ex2_expnt_offset;
+reg     [4 :0]  mult_ex2_expt;
+reg     [6 :0]  mult_ex2_fma_expnt_diff;
+reg             mult_ex2_fmla_ex4_fwd_vld;
+reg     [37:0]  mult_ex2_frac_result;
+reg     [3 :0]  mult_ex2_id_offset;
+reg     [1 :0]  mult_ex2_l2_sa_offset;
+reg     [21:0]  mult_ex2_lshift_result;
+reg     [6 :0]  mult_ex2_mult_expnt_plus_3_result;
+reg     [6 :0]  mult_ex2_mult_expnt_result;
+reg     [21:0]  mult_ex2_mult_frac;
+reg     [6 :0]  mult_ex2_mult_id_adjust;
+reg     [15:0]  mult_ex2_mult_result;
+reg             mult_ex2_mult_result_sign;
+reg             mult_ex2_of_result_lfn;
+reg             mult_ex2_op0_id;
+reg             mult_ex2_op1_id;
+reg     [4 :0]  mult_ex2_op2_expnt;
+reg     [9 :0]  mult_ex2_op2_frac;
+reg             mult_ex2_op2_id;
+reg     [36:0]  mult_ex2_op2_shift_result;
+reg             mult_ex2_op2_sign;
+reg             mult_ex2_op_id;
+reg             mult_ex2_potnt_of;
+reg             mult_ex2_result_abnorm;
+reg     [21:0]  mult_ex2_rshift_result;
+reg     [12:0]  mult_ex2_rshit_out;
+reg     [36:0]  mult_ex2_sa_op2;
+reg     [6 :0]  mult_ex2_sa_result;
+reg             mult_ex2_simd_half_sel;
+reg             mult_ex2_sticky1;
+reg             mult_ex2_sub_vld;
+reg     [15:0]  mult_ex3_abnorm_result;
+reg     [6 :0]  mult_ex3_expnt_result;
+reg     [4 :0]  mult_ex3_expt;
+reg     [6 :0]  mult_ex3_fma_expnt;
+reg     [37:0]  mult_ex3_fma_expnt_shift;
+reg     [37:0]  mult_ex3_fma_norm_result;
+reg             mult_ex3_fma_of_result_lfn;
+reg             mult_ex3_fma_sign;
+reg     [37:0]  mult_ex3_frac_result;
+reg     [4 :0]  mult_ex3_lza_result;
+reg             mult_ex3_lza_result_zero;
+reg             mult_ex3_result_abnorm;
+reg             mult_ex3_simd_half_sel;
+reg             mult_ex3_sticky1;
+reg             mult_ex3_sub_vld;
+reg     [4 :0]  mult_ex4_fma_expt;
+reg     [15:0]  mult_ex4_fma_result;
 
 // &Wires; @26
-wire            cp0_vfpu_icg_en;                       
-wire            cp0_yy_clk_en;                         
-wire            cpurst_b;                              
-wire    [15:0]  dp_mult_ex1_op0_slicex_halfy;          
-wire    [47:0]  dp_mult_ex1_op0_slicex_halfy_high;     
-wire    [15:0]  dp_mult_ex1_op1_slicex_halfy;          
-wire    [47:0]  dp_mult_ex1_op1_slicex_halfy_high;     
-wire    [31:0]  dp_mult_ex1_op2_slicex_halfy;          
-wire    [47:0]  dp_mult_ex1_op2_slicex_halfy_high;     
-wire            dp_mult_op2_slicex_vl_halfy_mask;      
-wire            dp_mult_op2_slicex_vm_halfy_mask;      
-wire            dp_xx_ex1_fma;                         
-wire            dp_xx_ex1_half;                        
-wire            dp_xx_ex1_neg;                         
-wire    [2 :0]  dp_xx_ex1_rm;                          
-wire            dp_xx_ex1_simd;                        
-wire            dp_xx_ex1_sub;                         
-wire            dp_xx_ex1_widen;                       
-wire            dp_xx_ex2_fma;                         
-wire            dp_xx_ex2_half;                        
-wire    [2 :0]  dp_xx_ex2_rm;                          
-wire            dp_xx_ex2_simd;                        
-wire    [2 :0]  dp_xx_ex3_rm;                          
-wire            forever_cpuclk;                        
-wire            halfy_ex1_op0_hidden_bit;              
-wire            halfy_ex1_op1_hidden_bit;              
-wire    [4 :0]  halfy_fma_expt;                        
-wire    [15:0]  halfy_fma_result;                      
-wire    [4 :0]  halfy_mult_expt;                       
-wire    [15:0]  halfy_mult_result;                     
-wire            mult1_simd_halfy_sel;                  
-wire    [38:0]  mult2_ex2_addr0;                       
-wire    [38:0]  mult2_ex2_addr1;                       
-wire    [15:0]  mult_ex1_abnorm_result;                
-wire            mult_ex1_ex2_half_pipedown;            
-wire            mult_ex1_expnt0_inf;                   
-wire            mult_ex1_expnt0_zero;                  
-wire            mult_ex1_expnt1_inf;                   
-wire            mult_ex1_expnt1_zero;                  
-wire            mult_ex1_expnt2_half_inf;              
-wire            mult_ex1_expnt2_inf;                   
-wire            mult_ex1_expnt2_sing_inf;              
-wire            mult_ex1_expnt2_zero;                  
-wire    [4 :0]  mult_ex1_expnt_addr_op0;               
-wire    [4 :0]  mult_ex1_expnt_addr_op1;               
-wire    [9 :0]  mult_ex1_expnt_bias;                   
-wire            mult_ex1_expnt_of;                     
-wire    [4 :0]  mult_ex1_expnt_offset;                 
-wire    [9 :0]  mult_ex1_expnt_plus_3_bias;            
-wire            mult_ex1_expnt_potnt_of;               
-wire    [4 :0]  mult_ex1_expt;                         
-wire    [6 :0]  mult_ex1_fma_expnt_diff;               
-wire            mult_ex1_fmla_ex4_fwd_vld;             
-wire            mult_ex1_frac0_all_zero;               
-wire            mult_ex1_frac1_all_zero;               
-wire            mult_ex1_frac2_all_zero;               
-wire    [3 :0]  mult_ex1_id_lshift_offset;             
-wire    [3 :0]  mult_ex1_id_offset;                    
-wire    [1 :0]  mult_ex1_l2_sa_offset;                 
-wire            mult_ex1_l2_sa_vld;                    
-wire    [9 :0]  mult_ex1_mult_expnt_plus_3_result;     
-wire    [9 :0]  mult_ex1_mult_expnt_result;            
-wire            mult_ex1_mult_result_sign;             
-wire    [22:0]  mult_ex1_nan_result;                   
-wire            mult_ex1_nv;                           
-wire            mult_ex1_nx;                           
-wire            mult_ex1_of;                           
-wire            mult_ex1_op0_cnan;                     
-wire    [4 :0]  mult_ex1_op0_expnt;                    
-wire    [3 :0]  mult_ex1_op0_ff1_result;               
-wire    [9 :0]  mult_ex1_op0_frac;                     
-wire            mult_ex1_op0_high_vld;                 
-wire            mult_ex1_op0_id;                       
-wire    [3 :0]  mult_ex1_op0_id_offset;                
-wire            mult_ex1_op0_inf;                      
-wire            mult_ex1_op0_norm;                     
-wire            mult_ex1_op0_qnan;                     
-wire    [22:0]  mult_ex1_op0_qnan_result;              
-wire            mult_ex1_op0_sign;                     
-wire            mult_ex1_op0_snan;                     
-wire            mult_ex1_op0_zero;                     
-wire            mult_ex1_op1_cnan;                     
-wire    [4 :0]  mult_ex1_op1_expnt;                    
-wire    [3 :0]  mult_ex1_op1_ff1_result;               
-wire    [9 :0]  mult_ex1_op1_frac;                     
-wire            mult_ex1_op1_high_vld;                 
-wire            mult_ex1_op1_id;                       
-wire    [3 :0]  mult_ex1_op1_id_offset;                
-wire            mult_ex1_op1_inf;                      
-wire            mult_ex1_op1_norm;                     
-wire            mult_ex1_op1_qnan;                     
-wire    [22:0]  mult_ex1_op1_qnan_result;              
-wire            mult_ex1_op1_sign;                     
-wire            mult_ex1_op1_snan;                     
-wire            mult_ex1_op1_zero;                     
-wire            mult_ex1_op2_cnan;                     
-wire    [7 :0]  mult_ex1_op2_expnt;                    
-wire    [22:0]  mult_ex1_op2_frac;                     
-wire            mult_ex1_op2_high_vld;                 
-wire            mult_ex1_op2_id;                       
-wire    [23:0]  mult_ex1_op2_id_frac;                  
-wire            mult_ex1_op2_inf;                      
-wire            mult_ex1_op2_norm;                     
-wire            mult_ex1_op2_qnan;                     
-wire    [22:0]  mult_ex1_op2_qnan_result;              
-wire    [36:0]  mult_ex1_op2_shift_aft;                
-wire    [36:0]  mult_ex1_op2_shift_pre;                
-wire            mult_ex1_op2_sign;                     
-wire            mult_ex1_op2_snan;                     
-wire            mult_ex1_op2_zero;                     
-wire            mult_ex1_op_id;                        
-wire            mult_ex1_op_qnan;                      
-wire            mult_ex1_op_qnan_select;               
-wire            mult_ex1_op_snan;                      
-wire            mult_ex1_op_snan_select;               
-wire            mult_ex1_potnt_of;                     
-wire    [22:0]  mult_ex1_qnan_result;                  
-wire            mult_ex1_result_abnorm;                
-wire            mult_ex1_result_inf;                   
-wire            mult_ex1_result_inf_sign;              
-wire            mult_ex1_result_op2;                   
-wire            mult_ex1_result_op2_sign;              
-wire            mult_ex1_result_qnan;                  
-wire            mult_ex1_result_zero;                  
-wire            mult_ex1_result_zero_sign;             
-wire            mult_ex1_sa_ge_37;                     
-wire            mult_ex1_sa_lt_0;                      
-wire    [6 :0]  mult_ex1_sa_result;                    
-wire    [22:0]  mult_ex1_snan_result;                  
-wire            mult_ex1_sub_vld;                      
-wire    [38:0]  mult_ex2_addr_plus_1_result;           
-wire    [38:0]  mult_ex2_addr_result;                  
-wire            mult_ex2_eq;                           
-wire            mult_ex2_ex3_half_pipedown;            
-wire            mult_ex2_expnt_diff_ge_neg2;           
-wire    [6 :0]  mult_ex2_expnt_final_result;           
-wire            mult_ex2_expnt_plus1;                  
-wire    [6 :0]  mult_ex2_expnt_plus1_result;           
-wire            mult_ex2_expnt_plus2;                  
-wire    [6 :0]  mult_ex2_expnt_plus2_result;           
-wire    [15:0]  mult_ex2_fma_abnorm_result;            
-wire    [6 :0]  mult_ex2_fma_expnt;                    
-wire    [4 :0]  mult_ex2_fma_expt;                     
-wire    [6 :0]  mult_ex2_fma_mult_expnt;               
-wire    [6 :0]  mult_ex2_fma_op2_expnt;                
-wire            mult_ex2_fma_result_abnorm;            
-wire            mult_ex2_fma_sign;                     
-wire    [9 :0]  mult_ex2_frac_10;                      
-wire            mult_ex2_frac_result_add;              
-wire            mult_ex2_frac_result_negate;           
-wire    [37:0]  mult_ex2_frac_result_shift;            
-wire            mult_ex2_frac_result_sub;              
-wire            mult_ex2_frac_shift_11;                
-wire            mult_ex2_gr;                           
-wire    [23:0]  mult_ex2_lza_addend;                   
-wire    [4 :0]  mult_ex2_lza_result;                   
-wire            mult_ex2_lza_result_zero;              
-wire    [23:0]  mult_ex2_lza_summand;                  
-wire    [6 :0]  mult_ex2_mult_expnt_shift;             
-wire    [4 :0]  mult_ex2_mult_expt;                    
-wire    [11:0]  mult_ex2_mult_frac_result;             
-wire    [11:0]  mult_ex2_mult_frac_round_op0;          
-wire    [11:0]  mult_ex2_mult_frac_round_op1;          
-wire    [11:0]  mult_ex2_mult_frac_round_result;       
-wire    [21:0]  mult_ex2_mult_frac_shift;              
-wire            mult_ex2_mult_mask;                    
-wire            mult_ex2_mult_result_abnorm;           
-wire            mult_ex2_mult_result_inf;              
-wire            mult_ex2_mult_result_lfn;              
-wire            mult_ex2_mult_result_norm;             
-wire            mult_ex2_mult_rshift_sticky;           
-wire            mult_ex2_nx;                           
-wire            mult_ex2_of;                           
-wire    [6 :0]  mult_ex2_op2_expnt_adjust;             
-wire    [6 :0]  mult_ex2_op2_expnt_bias;               
-wire            mult_ex2_result_mask;                  
-wire            mult_ex2_rshift_sel;                   
-wire    [15:0]  mult_ex2_rst_abnorm;                   
-wire            mult_ex2_rst_gbit;                     
-wire    [15:0]  mult_ex2_rst_inf;                      
-wire    [15:0]  mult_ex2_rst_lfn;                      
-wire            mult_ex2_rst_lsb;                      
-wire    [15:0]  mult_ex2_rst_masked;                   
-wire    [15:0]  mult_ex2_rst_norm;                     
-wire            mult_ex2_rst_rsbit;                    
-wire            mult_ex2_uf;                           
-wire            mult_ex2_zero;                         
-wire    [15:0]  mult_ex3_ex4_fma_result;               
-wire            mult_ex3_ex4_half_pipedown;            
-wire            mult_ex3_ex4_result_abnorm;            
-wire            mult_ex3_exp_shift_sel;                
-wire    [6 :0]  mult_ex3_expnt_adder0;                 
-wire    [6 :0]  mult_ex3_expnt_adder1;                 
-wire            mult_ex3_expnt_eq_lza_plus1;           
-wire            mult_ex3_expnt_is_0;                   
-wire            mult_ex3_expnt_is_1;                   
-wire            mult_ex3_expnt_le_lza;                 
-wire    [6 :0]  mult_ex3_expnt_lza_shift;              
-wire            mult_ex3_expnt_of;                     
-wire    [4 :0]  mult_ex3_expt_result;                  
-wire    [15:0]  mult_ex3_fma_abnorm_result;            
-wire            mult_ex3_fma_expnt_m1;                 
-wire    [6 :0]  mult_ex3_fma_expnt_m1_result;          
-wire            mult_ex3_fma_expnt_nx;                 
-wire            mult_ex3_fma_expnt_of;                 
-wire            mult_ex3_fma_expnt_p1;                 
-wire    [6 :0]  mult_ex3_fma_expnt_p1_result;          
-wire    [6 :0]  mult_ex3_fma_expnt_result;             
-wire            mult_ex3_fma_expnt_uf;                 
-wire    [37:0]  mult_ex3_fma_frac;                     
-wire    [10:0]  mult_ex3_fma_frac_result;              
-wire    [11:0]  mult_ex3_fma_frac_round_add;           
-wire    [10:0]  mult_ex3_fma_frac_round_result;        
-wire    [37:0]  mult_ex3_fma_norm_shift;               
-wire            mult_ex3_fma_result_inf;               
-wire            mult_ex3_fma_result_lfn;               
-wire            mult_ex3_fma_zero_sign;                
-wire            mult_ex3_frac_nx;                      
-wire            mult_ex3_grs_zero;                     
-wire            mult_ex3_potnt_add_of;                 
-wire            mult_ex3_potnt_add_uf;                 
-wire            mult_ex3_potnt_sub_of;                 
-wire            mult_ex3_potnt_sub_uf;                 
-wire            mult_ex3_result_zero;                  
-wire            mult_ex3_rst_add1;                     
-wire            mult_ex3_rst_gbit;                     
-wire            mult_ex3_rst_ge;                       
-wire            mult_ex3_rst_gr;                       
-wire    [15:0]  mult_ex3_rst_inf;                      
-wire    [15:0]  mult_ex3_rst_lfn;                      
-wire            mult_ex3_rst_lsb;                      
-wire            mult_ex3_rst_rsbit;                    
-wire    [15:0]  mult_ex3_rst_zero;                     
-wire            pad_yy_icg_scan_en;                    
-wire            pipe6_pipex_ex4_fmla_fwd_vld;          
-wire    [15:0]  pipe6_vfmau_ex4_fmla_slicex_halfy_data; 
-wire            pipe7_pipex_ex4_fmla_fwd_vld;          
-wire    [15:0]  pipe7_vfmau_ex4_fmla_slicex_halfy_data; 
-wire            simd_ex1_ex2_pipe_clk;                 
-wire            simd_ex1_ex2_pipedown;                 
-wire            simd_ex2_ex3_pipe_clk;                 
-wire            simd_ex2_ex3_pipedown;                 
-wire            simd_ex3_ex4_pipe_clk;                 
-wire            simd_ex3_ex4_pipedown;                 
-wire    [21:0]  simd_halfy_product;                    
-wire            slicex_dp_halfy_mult_id;               
-wire            vfpu_yy_xx_dqnan;                      
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [15:0]  dp_mult_ex1_op0_slicex_halfy;
+wire    [47:0]  dp_mult_ex1_op0_slicex_halfy_high;
+wire    [15:0]  dp_mult_ex1_op1_slicex_halfy;
+wire    [47:0]  dp_mult_ex1_op1_slicex_halfy_high;
+wire    [31:0]  dp_mult_ex1_op2_slicex_halfy;
+wire    [47:0]  dp_mult_ex1_op2_slicex_halfy_high;
+wire            dp_mult_op2_slicex_vl_halfy_mask;
+wire            dp_mult_op2_slicex_vm_halfy_mask;
+wire            dp_xx_ex1_fma;
+wire            dp_xx_ex1_half;
+wire            dp_xx_ex1_neg;
+wire    [2 :0]  dp_xx_ex1_rm;
+wire            dp_xx_ex1_simd;
+wire            dp_xx_ex1_sub;
+wire            dp_xx_ex1_widen;
+wire            dp_xx_ex2_fma;
+wire            dp_xx_ex2_half;
+wire    [2 :0]  dp_xx_ex2_rm;
+wire            dp_xx_ex2_simd;
+wire    [2 :0]  dp_xx_ex3_rm;
+wire            forever_cpuclk;
+wire            halfy_ex1_op0_hidden_bit;
+wire            halfy_ex1_op1_hidden_bit;
+wire    [4 :0]  halfy_fma_expt;
+wire    [15:0]  halfy_fma_result;
+wire    [4 :0]  halfy_mult_expt;
+wire    [15:0]  halfy_mult_result;
+wire            mult1_simd_halfy_sel;
+wire    [38:0]  mult2_ex2_addr0;
+wire    [38:0]  mult2_ex2_addr1;
+wire    [15:0]  mult_ex1_abnorm_result;
+wire            mult_ex1_ex2_half_pipedown;
+wire            mult_ex1_expnt0_inf;
+wire            mult_ex1_expnt0_zero;
+wire            mult_ex1_expnt1_inf;
+wire            mult_ex1_expnt1_zero;
+wire            mult_ex1_expnt2_half_inf;
+wire            mult_ex1_expnt2_inf;
+wire            mult_ex1_expnt2_sing_inf;
+wire            mult_ex1_expnt2_zero;
+wire    [4 :0]  mult_ex1_expnt_addr_op0;
+wire    [4 :0]  mult_ex1_expnt_addr_op1;
+wire    [9 :0]  mult_ex1_expnt_bias;
+wire            mult_ex1_expnt_of;
+wire    [4 :0]  mult_ex1_expnt_offset;
+wire    [9 :0]  mult_ex1_expnt_plus_3_bias;
+wire            mult_ex1_expnt_potnt_of;
+wire    [4 :0]  mult_ex1_expt;
+wire    [6 :0]  mult_ex1_fma_expnt_diff;
+wire            mult_ex1_fmla_ex4_fwd_vld;
+wire            mult_ex1_frac0_all_zero;
+wire            mult_ex1_frac1_all_zero;
+wire            mult_ex1_frac2_all_zero;
+wire    [3 :0]  mult_ex1_id_lshift_offset;
+wire    [3 :0]  mult_ex1_id_offset;
+wire    [1 :0]  mult_ex1_l2_sa_offset;
+wire            mult_ex1_l2_sa_vld;
+wire    [9 :0]  mult_ex1_mult_expnt_plus_3_result;
+wire    [9 :0]  mult_ex1_mult_expnt_result;
+wire            mult_ex1_mult_result_sign;
+wire    [22:0]  mult_ex1_nan_result;
+wire            mult_ex1_nv;
+wire            mult_ex1_nx;
+wire            mult_ex1_of;
+wire            mult_ex1_op0_cnan;
+wire    [4 :0]  mult_ex1_op0_expnt;
+wire    [3 :0]  mult_ex1_op0_ff1_result;
+wire    [9 :0]  mult_ex1_op0_frac;
+wire            mult_ex1_op0_high_vld;
+wire            mult_ex1_op0_id;
+wire    [3 :0]  mult_ex1_op0_id_offset;
+wire            mult_ex1_op0_inf;
+wire            mult_ex1_op0_norm;
+wire            mult_ex1_op0_qnan;
+wire    [22:0]  mult_ex1_op0_qnan_result;
+wire            mult_ex1_op0_sign;
+wire            mult_ex1_op0_snan;
+wire            mult_ex1_op0_zero;
+wire            mult_ex1_op1_cnan;
+wire    [4 :0]  mult_ex1_op1_expnt;
+wire    [3 :0]  mult_ex1_op1_ff1_result;
+wire    [9 :0]  mult_ex1_op1_frac;
+wire            mult_ex1_op1_high_vld;
+wire            mult_ex1_op1_id;
+wire    [3 :0]  mult_ex1_op1_id_offset;
+wire            mult_ex1_op1_inf;
+wire            mult_ex1_op1_norm;
+wire            mult_ex1_op1_qnan;
+wire    [22:0]  mult_ex1_op1_qnan_result;
+wire            mult_ex1_op1_sign;
+wire            mult_ex1_op1_snan;
+wire            mult_ex1_op1_zero;
+wire            mult_ex1_op2_cnan;
+wire    [7 :0]  mult_ex1_op2_expnt;
+wire    [22:0]  mult_ex1_op2_frac;
+wire            mult_ex1_op2_high_vld;
+wire            mult_ex1_op2_id;
+wire    [23:0]  mult_ex1_op2_id_frac;
+wire            mult_ex1_op2_inf;
+wire            mult_ex1_op2_norm;
+wire            mult_ex1_op2_qnan;
+wire    [22:0]  mult_ex1_op2_qnan_result;
+wire    [36:0]  mult_ex1_op2_shift_aft;
+wire    [36:0]  mult_ex1_op2_shift_pre;
+wire            mult_ex1_op2_sign;
+wire            mult_ex1_op2_snan;
+wire            mult_ex1_op2_zero;
+wire            mult_ex1_op_id;
+wire            mult_ex1_op_qnan;
+wire            mult_ex1_op_qnan_select;
+wire            mult_ex1_op_snan;
+wire            mult_ex1_op_snan_select;
+wire            mult_ex1_potnt_of;
+wire    [22:0]  mult_ex1_qnan_result;
+wire            mult_ex1_result_abnorm;
+wire            mult_ex1_result_inf;
+wire            mult_ex1_result_inf_sign;
+wire            mult_ex1_result_op2;
+wire            mult_ex1_result_op2_sign;
+wire            mult_ex1_result_qnan;
+wire            mult_ex1_result_zero;
+wire            mult_ex1_result_zero_sign;
+wire            mult_ex1_sa_ge_37;
+wire            mult_ex1_sa_lt_0;
+wire    [6 :0]  mult_ex1_sa_result;
+wire    [22:0]  mult_ex1_snan_result;
+wire            mult_ex1_sub_vld;
+wire    [38:0]  mult_ex2_addr_plus_1_result;
+wire    [38:0]  mult_ex2_addr_result;
+wire            mult_ex2_eq;
+wire            mult_ex2_ex3_half_pipedown;
+wire            mult_ex2_expnt_diff_ge_neg2;
+wire    [6 :0]  mult_ex2_expnt_final_result;
+wire            mult_ex2_expnt_plus1;
+wire    [6 :0]  mult_ex2_expnt_plus1_result;
+wire            mult_ex2_expnt_plus2;
+wire    [6 :0]  mult_ex2_expnt_plus2_result;
+wire    [15:0]  mult_ex2_fma_abnorm_result;
+wire    [6 :0]  mult_ex2_fma_expnt;
+wire    [4 :0]  mult_ex2_fma_expt;
+wire    [6 :0]  mult_ex2_fma_mult_expnt;
+wire    [6 :0]  mult_ex2_fma_op2_expnt;
+wire            mult_ex2_fma_result_abnorm;
+wire            mult_ex2_fma_sign;
+wire    [9 :0]  mult_ex2_frac_10;
+wire            mult_ex2_frac_result_add;
+wire            mult_ex2_frac_result_negate;
+wire    [37:0]  mult_ex2_frac_result_shift;
+wire            mult_ex2_frac_result_sub;
+wire            mult_ex2_frac_shift_11;
+wire            mult_ex2_gr;
+wire    [23:0]  mult_ex2_lza_addend;
+wire    [4 :0]  mult_ex2_lza_result;
+wire            mult_ex2_lza_result_zero;
+wire    [23:0]  mult_ex2_lza_summand;
+wire    [6 :0]  mult_ex2_mult_expnt_shift;
+wire    [4 :0]  mult_ex2_mult_expt;
+wire    [11:0]  mult_ex2_mult_frac_result;
+wire    [11:0]  mult_ex2_mult_frac_round_op0;
+wire    [11:0]  mult_ex2_mult_frac_round_op1;
+wire    [11:0]  mult_ex2_mult_frac_round_result;
+wire    [21:0]  mult_ex2_mult_frac_shift;
+wire            mult_ex2_mult_mask;
+wire            mult_ex2_mult_result_abnorm;
+wire            mult_ex2_mult_result_inf;
+wire            mult_ex2_mult_result_lfn;
+wire            mult_ex2_mult_result_norm;
+wire            mult_ex2_mult_rshift_sticky;
+wire            mult_ex2_nx;
+wire            mult_ex2_of;
+wire    [6 :0]  mult_ex2_op2_expnt_adjust;
+wire    [6 :0]  mult_ex2_op2_expnt_bias;
+wire            mult_ex2_result_mask;
+wire            mult_ex2_rshift_sel;
+wire    [15:0]  mult_ex2_rst_abnorm;
+wire            mult_ex2_rst_gbit;
+wire    [15:0]  mult_ex2_rst_inf;
+wire    [15:0]  mult_ex2_rst_lfn;
+wire            mult_ex2_rst_lsb;
+wire    [15:0]  mult_ex2_rst_masked;
+wire    [15:0]  mult_ex2_rst_norm;
+wire            mult_ex2_rst_rsbit;
+wire            mult_ex2_uf;
+wire            mult_ex2_zero;
+wire    [15:0]  mult_ex3_ex4_fma_result;
+wire            mult_ex3_ex4_half_pipedown;
+wire            mult_ex3_ex4_result_abnorm;
+wire            mult_ex3_exp_shift_sel;
+wire    [6 :0]  mult_ex3_expnt_adder0;
+wire    [6 :0]  mult_ex3_expnt_adder1;
+wire            mult_ex3_expnt_eq_lza_plus1;
+wire            mult_ex3_expnt_is_0;
+wire            mult_ex3_expnt_is_1;
+wire            mult_ex3_expnt_le_lza;
+wire    [6 :0]  mult_ex3_expnt_lza_shift;
+wire            mult_ex3_expnt_of;
+wire    [4 :0]  mult_ex3_expt_result;
+wire    [15:0]  mult_ex3_fma_abnorm_result;
+wire            mult_ex3_fma_expnt_m1;
+wire    [6 :0]  mult_ex3_fma_expnt_m1_result;
+wire            mult_ex3_fma_expnt_nx;
+wire            mult_ex3_fma_expnt_of;
+wire            mult_ex3_fma_expnt_p1;
+wire    [6 :0]  mult_ex3_fma_expnt_p1_result;
+wire    [6 :0]  mult_ex3_fma_expnt_result;
+wire            mult_ex3_fma_expnt_uf;
+wire    [37:0]  mult_ex3_fma_frac;
+wire    [10:0]  mult_ex3_fma_frac_result;
+wire    [11:0]  mult_ex3_fma_frac_round_add;
+wire    [10:0]  mult_ex3_fma_frac_round_result;
+wire    [37:0]  mult_ex3_fma_norm_shift;
+wire            mult_ex3_fma_result_inf;
+wire            mult_ex3_fma_result_lfn;
+wire            mult_ex3_fma_zero_sign;
+wire            mult_ex3_frac_nx;
+wire            mult_ex3_grs_zero;
+wire            mult_ex3_potnt_add_of;
+wire            mult_ex3_potnt_add_uf;
+wire            mult_ex3_potnt_sub_of;
+wire            mult_ex3_potnt_sub_uf;
+wire            mult_ex3_result_zero;
+wire            mult_ex3_rst_add1;
+wire            mult_ex3_rst_gbit;
+wire            mult_ex3_rst_ge;
+wire            mult_ex3_rst_gr;
+wire    [15:0]  mult_ex3_rst_inf;
+wire    [15:0]  mult_ex3_rst_lfn;
+wire            mult_ex3_rst_lsb;
+wire            mult_ex3_rst_rsbit;
+wire    [15:0]  mult_ex3_rst_zero;
+wire            pad_yy_icg_scan_en;
+wire            pipe6_pipex_ex4_fmla_fwd_vld;
+wire    [15:0]  pipe6_vfmau_ex4_fmla_slicex_halfy_data;
+wire            pipe7_pipex_ex4_fmla_fwd_vld;
+wire    [15:0]  pipe7_vfmau_ex4_fmla_slicex_halfy_data;
+wire            simd_ex1_ex2_pipe_clk;
+wire            simd_ex1_ex2_pipedown;
+wire            simd_ex2_ex3_pipe_clk;
+wire            simd_ex2_ex3_pipedown;
+wire            simd_ex3_ex4_pipe_clk;
+wire            simd_ex3_ex4_pipedown;
+wire    [21:0]  simd_halfy_product;
+wire            slicex_dp_halfy_mult_id;
+wire            vfpu_yy_xx_dqnan;
 
 
 // &Depend("cpu_cfig.h"); @28
@@ -466,8 +466,8 @@ assign mult_ex1_mult_result_sign = mult_ex1_op0_sign
                                  ^ mult_ex1_op1_sign
                                  ^ dp_xx_ex1_neg;
 
-//we always regard the sign of A*B is positive,so when execute 
-//src0*src1 +/- src2, the add or sub operation is decided by 
+//we always regard the sign of A*B is positive,so when execute
+//src0*src1 +/- src2, the add or sub operation is decided by
 //sign(src0*src1) and sign(src2) and =/-
 //if sign(src0*src1) ^ sign(src2)^sub_vld == 1, execute sub, src2 will opposite
 //if sign(src0*src1) ^ sign(src2)^sub_vld == 0, execute add, src2 won't opposite
@@ -529,9 +529,9 @@ assign mult_ex1_op2_id   = mult_ex1_expnt2_zero && ~mult_ex1_frac2_all_zero;
 
 
 //when single and high not valid NaN-boxing ,data will be canonical-Nan
-assign mult_ex1_op0_cnan  = dp_xx_ex1_half && !mult_ex1_op0_high_vld; 
-assign mult_ex1_op1_cnan  = dp_xx_ex1_half && !mult_ex1_op1_high_vld; 
-assign mult_ex1_op2_cnan  = dp_xx_ex1_half && !mult_ex1_op2_high_vld && dp_xx_ex1_fma; 
+assign mult_ex1_op0_cnan  = dp_xx_ex1_half && !mult_ex1_op0_high_vld;
+assign mult_ex1_op1_cnan  = dp_xx_ex1_half && !mult_ex1_op1_high_vld;
+assign mult_ex1_op2_cnan  = dp_xx_ex1_half && !mult_ex1_op2_high_vld && dp_xx_ex1_fma;
 
 //sNaN
 assign mult_ex1_op0_snan = mult_ex1_expnt0_inf
@@ -550,8 +550,8 @@ assign mult_ex1_op2_snan = mult_ex1_expnt2_inf
                         && !mult_ex1_op2_frac[22];  //msb of frac
 
 //qNaN
-assign mult_ex1_op0_qnan = mult_ex1_expnt0_inf && mult_ex1_op0_frac[9]  || mult_ex1_op0_cnan; 
-assign mult_ex1_op1_qnan = mult_ex1_expnt1_inf && mult_ex1_op1_frac[9]  || mult_ex1_op1_cnan; 
+assign mult_ex1_op0_qnan = mult_ex1_expnt0_inf && mult_ex1_op0_frac[9]  || mult_ex1_op0_cnan;
+assign mult_ex1_op1_qnan = mult_ex1_expnt1_inf && mult_ex1_op1_frac[9]  || mult_ex1_op1_cnan;
 assign mult_ex1_op2_qnan = mult_ex1_expnt2_inf && mult_ex1_op2_frac[22] || mult_ex1_op2_cnan;
 
 assign mult_ex1_op_id    = mult_ex1_op0_id
@@ -574,7 +574,7 @@ assign mult_ex1_expnt_addr_op1[4:0] = mult_ex1_op1_expnt[4:0];
 
 assign mult_ex1_expnt_bias[9:0]          = (dp_xx_ex1_widen)
                                          ? 10'h61    //97
-                                         : 10'h3f1;  //-15 
+                                         : 10'h3f1;  //-15
 assign mult_ex1_expnt_plus_3_bias[9:0]   = (dp_xx_ex1_widen)
                                          ? 10'h64   //100
                                          : 10'h3f4;  //-12
@@ -583,7 +583,7 @@ assign mult_ex1_mult_expnt_result[9:0]   = {5'b0,mult_ex1_expnt_addr_op0[4:0]}
                                          + {5'b0,mult_ex1_expnt_addr_op1[4:0]}
                                          + mult_ex1_expnt_bias[9:0];
 
-//for fused multiply add ,when diff>=-2.select E0+E1-bias+3 as initial exponent 
+//for fused multiply add ,when diff>=-2.select E0+E1-bias+3 as initial exponent
 assign mult_ex1_mult_expnt_plus_3_result[9:0] = {5'b0,mult_ex1_expnt_addr_op0[4:0]}
                                               + {5'b0,mult_ex1_expnt_addr_op1[4:0]}
                                               + mult_ex1_expnt_plus_3_bias[9:0];
@@ -616,7 +616,7 @@ begin
    3'b101 : mult_ex1_fma_id_adjust[6:0] = 7'h0;    //0
    3'b110 : mult_ex1_fma_id_adjust[6:0] = 7'h0;    //0
    3'b111 : mult_ex1_fma_id_adjust[6:0] = 7'h1;    //1
-   default: mult_ex1_fma_id_adjust[6:0] = {7{1'bx}}; 
+   default: mult_ex1_fma_id_adjust[6:0] = {7{1'bx}};
  endcase
 // &CombEnd; @228
 end
@@ -652,21 +652,21 @@ ct_vfmau_ff1_10bit  x_ct_vfmau_op1_ff1 (
 //with multiple 0 ahead,we should result frac result
 //Note:
 //when DN*DN,if operation is Non-Widen,the result must trigger underflow,
-//so,only simd half should only consider  DN*NM 
-assign mult_ex1_op0_id_offset[3:0] = (mult_ex1_op0_id) 
+//so,only simd half should only consider  DN*NM
+assign mult_ex1_op0_id_offset[3:0] = (mult_ex1_op0_id)
                                    ? mult_ex1_op0_ff1_result[3:0]
                                    : 4'b0;
-        
-assign mult_ex1_op1_id_offset[3:0] = (mult_ex1_op1_id) 
+
+assign mult_ex1_op1_id_offset[3:0] = (mult_ex1_op1_id)
                                    ? mult_ex1_op1_ff1_result[3:0]
                                    : 4'b0;
 
-assign mult_ex1_id_offset[3:0] = 
+assign mult_ex1_id_offset[3:0] =
    {4{mult_ex1_op0_id}} & mult_ex1_op0_id_offset[3:0]
  | {4{mult_ex1_op1_id}} & mult_ex1_op1_id_offset[3:0];
 
 //for NM*DM,the exponent > 0,but fraction should adjust.
-//like NM*NM,we can find first 1 in DM's fraction ,and shift 
+//like NM*NM,we can find first 1 in DM's fraction ,and shift
 //left to make fraction behave normal,but if shift left offset
 //is bigger than mult exponent,the exponent <0,we should adjust
 //exponent >=0,so we should select shift offset.
@@ -681,7 +681,7 @@ assign mult_ex1_id_lshift_offset[3:0] = ($signed({3'b0,mult_ex1_id_offset[3:0]})
 //----------------------------------------------------------
 //                     Shift  Alignment
 //----------------------------------------------------------
-//1. shift amount preparation 
+//1. shift amount preparation
 //      |<-------- 11 --------->|
 //      +---+   +---------------+
 // C:   | 1 | . |               |
@@ -696,7 +696,7 @@ assign mult_ex1_id_lshift_offset[3:0] = ($signed({3'b0,mult_ex1_id_offset[3:0]})
 // SA  = offset - (e2-(e0+e1))
 //     = E0 + E1 - E2 - bias + offset
 // for timing consideration and source use,SA is calcuated as follows:
-// EX1 stage : 1. calculate  (E0 + E1 -bias) 
+// EX1 stage : 1. calculate  (E0 + E1 -bias)
 //             2. calculate (E0 + E1 - bias)-E2
 // EX2 stage : calculate (E0 + E1- E2 - bias) + offset
 // &CombBeg; @298
@@ -749,7 +749,7 @@ assign mult_ex1_sa_ge_37 = $signed(mult_ex1_sa_result[6:0]) > 36;
 
 assign mult_ex1_l2_sa_vld = !mult_ex1_sa_lt_0
                          && !mult_ex1_sa_ge_37;
-assign mult_ex1_l2_sa_offset[1:0] = (mult_ex1_l2_sa_vld)        
+assign mult_ex1_l2_sa_offset[1:0] = (mult_ex1_l2_sa_vld)
                                   ? mult_ex1_sa_result[5:4]
                                   : 2'b0;
 // &CombBeg; @374
@@ -766,9 +766,9 @@ endcase
 // &CombEnd; @380
 end
 
-//sticky calculation 
+//sticky calculation
 //1.  26 <sa < 37 sticky = |frac_shift_out
-//2.  sa<=26  
+//2.  sa<=26
 //3.  sa>=37  sa = 0,the result won't be used
 // &CombBeg; @386
 always @( mult_ex1_op2_id_frac[22:13]
@@ -821,16 +821,16 @@ assign mult_ex1_op2_norm = !mult_ex1_op2_zero
 
 
 //1. IO exception contain:
-//(1) input is sNaN 
+//(1) input is sNaN
 //(2) 0*inf /inf*0,except special inst
 //(3) denorm *inf / inf*denorm  FM=0,expcept special inst
-//(4) for FMA inst: inf - inf  
+//(4) for FMA inst: inf - inf
 assign mult_ex1_nv = mult_ex1_op_snan   //sNan
                   || (mult_ex1_op0_zero //0*inf
-                     && mult_ex1_op1_inf) 
-                  || (mult_ex1_op1_zero //inf*0 
+                     && mult_ex1_op1_inf)
+                  || (mult_ex1_op1_zero //inf*0
                      && mult_ex1_op0_inf)
-                  || (mult_ex1_op0_inf  //inf*F -inf 
+                  || (mult_ex1_op0_inf  //inf*F -inf
                      && mult_ex1_op1_norm
                      && mult_ex1_op2_inf
                      && mult_ex1_sub_vld)
@@ -843,14 +843,14 @@ assign mult_ex1_nv = mult_ex1_op_snan   //sNan
                      && mult_ex1_op2_inf
                      && mult_ex1_sub_vld);
 
-                      
+
 //2. OF exception: for normal multiply
 // single: E0+E1 - bias >=255
 // &Force("nonport","mult_ex1_expnt_of"); @452
 //csky vperl_off
 assign mult_ex1_expnt_of = $signed(mult_ex1_mult_expnt_result[6:0])>30;
 //csky vperl_on
-                         
+
 assign mult_ex1_of            = !dp_xx_ex1_fma
                               && mult_ex1_expnt_of
                               && mult_ex1_op0_norm
@@ -865,14 +865,14 @@ assign mult_ex1_nx            = mult_ex1_of;
 
 //5. potential overflow
 //single: E0+E1-bias = 31
-assign mult_ex1_expnt_potnt_of = (mult_ex1_mult_expnt_result[4:0] == 5'h1e); 
+assign mult_ex1_expnt_potnt_of = (mult_ex1_mult_expnt_result[4:0] == 5'h1e);
 
 assign mult_ex1_potnt_of       = !dp_xx_ex1_fma
                                && mult_ex1_op0_norm
                                && mult_ex1_op1_norm
                                && mult_ex1_expnt_potnt_of;
 
-assign mult_ex1_expt[4:0]      = {mult_ex1_nv,1'b0,mult_ex1_of,1'b0, mult_ex1_nx};   
+assign mult_ex1_expt[4:0]      = {mult_ex1_nv,1'b0,mult_ex1_of,1'b0, mult_ex1_nx};
 
 
 //----------------------------------------------------------
@@ -881,22 +881,22 @@ assign mult_ex1_expt[4:0]      = {mult_ex1_nv,1'b0,mult_ex1_of,1'b0, mult_ex1_nx
 assign mult_ex1_result_qnan = mult_ex1_op_qnan
                            || mult_ex1_nv;
 
-assign mult_ex1_result_op2  = 
+assign mult_ex1_result_op2  =
        dp_xx_ex1_fma
     && !mult_ex1_result_qnan
     && mult_ex1_op2_norm
     && (mult_ex1_op0_zero || mult_ex1_op1_zero);
 
-assign mult_ex1_result_inf  = 
+assign mult_ex1_result_inf  =
     !mult_ex1_result_qnan
  && (mult_ex1_op0_inf || mult_ex1_op1_inf || mult_ex1_op2_inf);
 
-assign mult_ex1_result_zero = 
-    !mult_ex1_result_qnan 
+assign mult_ex1_result_zero =
+    !mult_ex1_result_qnan
     && !dp_xx_ex1_fma
     && (mult_ex1_op0_zero || mult_ex1_op1_zero)
- || !mult_ex1_result_qnan 
-    && dp_xx_ex1_fma 
+ || !mult_ex1_result_qnan
+    && dp_xx_ex1_fma
     && mult_ex1_op2_zero
     && (mult_ex1_op0_zero || mult_ex1_op1_zero);
 
@@ -922,13 +922,13 @@ assign mult_ex1_op2_qnan_result[22:0] = (mult_ex1_op1_cnan)
                                       ? 23'b0
                                       : {mult_ex1_op2_sign,mult_ex1_op2_frac[21:0]};
 
-assign mult_ex1_snan_result[22:0] = (mult_ex1_op0_snan) 
+assign mult_ex1_snan_result[22:0] = (mult_ex1_op0_snan)
                                  ? {mult_ex1_op0_sign,mult_ex1_op0_frac[8:0],13'b0}
                                  : (mult_ex1_op1_snan)
                                    ? {mult_ex1_op1_sign,mult_ex1_op1_frac[8:0],13'b0}
                                    : {mult_ex1_op2_sign,mult_ex1_op2_frac[21:0]};
 
-assign mult_ex1_qnan_result[22:0] = (mult_ex1_op0_qnan) 
+assign mult_ex1_qnan_result[22:0] = (mult_ex1_op0_qnan)
                                  ? mult_ex1_op0_qnan_result[22:0]
                                  : (mult_ex1_op1_qnan)
                                    ? mult_ex1_op1_qnan_result[22:0]
@@ -947,11 +947,11 @@ assign mult_ex1_result_zero_sign = (mult_ex1_sub_vld)
                                  ? (dp_xx_ex1_rm[2:0] == 3'b10) //RDN
                                  : mult_ex1_mult_result_sign;
 
-assign mult_ex1_result_inf_sign  = 
+assign mult_ex1_result_inf_sign  =
      mult_ex1_op2_inf && (mult_ex1_mult_result_sign ^ mult_ex1_sub_vld)
  || (mult_ex1_op0_inf|| mult_ex1_op1_inf) && mult_ex1_mult_result_sign;
 
-assign mult_ex1_abnorm_result[15:0] = 
+assign mult_ex1_abnorm_result[15:0] =
     {16{mult_ex1_result_qnan}}    & {mult_ex1_nan_result[22],6'h3f,mult_ex1_nan_result[21:13]}
   | {16{mult_ex1_result_op2}}     & {mult_ex1_result_op2_sign,mult_ex1_op2_expnt[4:0],mult_ex1_op2_frac[22:13]}
   | {16{mult_ex1_result_inf}}     & {mult_ex1_result_inf_sign,5'h1f,10'b0}
@@ -959,7 +959,7 @@ assign mult_ex1_abnorm_result[15:0] =
 
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 // &Instance("gated_clk_cell", "x_simd_ex1_ex2_gated_clk"); @632
 gated_clk_cell  x_simd_ex1_ex2_gated_clk (
@@ -1002,9 +1002,9 @@ begin
     mult_ex2_abnorm_result[15:0]           <= 16'b0;
     mult_ex2_potnt_of                      <= 1'b0;
     mult_ex2_op_id                         <= 1'b0;
-    mult_ex2_op0_id                        <= 1'b0; 
-    mult_ex2_op1_id                        <= 1'b0; 
-    mult_ex2_op2_id                        <= 1'b0; 
+    mult_ex2_op0_id                        <= 1'b0;
+    mult_ex2_op1_id                        <= 1'b0;
+    mult_ex2_op2_id                        <= 1'b0;
     mult_ex2_mult_frac[21:0]               <= 22'b0;
     mult_ex2_expnt_offset[4:0]             <= 5'b0;
     mult_ex2_sa_result[6:0]                <= 7'b0;
@@ -1030,9 +1030,9 @@ begin
     mult_ex2_abnorm_result[15:0]           <= mult_ex1_abnorm_result[15:0];
     mult_ex2_potnt_of                      <= mult_ex1_potnt_of;
     mult_ex2_op_id                         <= mult_ex1_op_id;
-    mult_ex2_op0_id                        <= mult_ex1_op0_id; 
-    mult_ex2_op1_id                        <= mult_ex1_op1_id; 
-    mult_ex2_op2_id                        <= mult_ex1_op2_id; 
+    mult_ex2_op0_id                        <= mult_ex1_op0_id;
+    mult_ex2_op1_id                        <= mult_ex1_op1_id;
+    mult_ex2_op2_id                        <= mult_ex1_op2_id;
     mult_ex2_mult_frac[21:0]               <= simd_halfy_product[21:0];
     mult_ex2_expnt_offset[4:0]             <= mult_ex1_expnt_offset[4:0];
     mult_ex2_sa_result[6:0]                <= mult_ex1_sa_result[6:0];
@@ -1058,9 +1058,9 @@ begin
     mult_ex2_abnorm_result[15:0]           <= mult_ex2_abnorm_result[15:0];
     mult_ex2_potnt_of                      <= mult_ex2_potnt_of;
     mult_ex2_op_id                         <= mult_ex2_op_id;
-    mult_ex2_op0_id                        <= mult_ex1_op0_id; 
-    mult_ex2_op1_id                        <= mult_ex1_op1_id; 
-    mult_ex2_op2_id                        <= mult_ex1_op2_id; 
+    mult_ex2_op0_id                        <= mult_ex1_op0_id;
+    mult_ex2_op1_id                        <= mult_ex1_op1_id;
+    mult_ex2_op2_id                        <= mult_ex1_op2_id;
     mult_ex2_mult_frac[21:0]               <= mult_ex2_mult_frac[21:0];
     mult_ex2_expnt_offset[4:0]             <= mult_ex2_expnt_offset[4:0];
     mult_ex2_sa_result[6:0]                <= mult_ex2_sa_result[6:0];
@@ -1069,7 +1069,7 @@ begin
     mult_ex2_l2_sa_offset[1:0]             <= mult_ex2_l2_sa_offset[1:0];
   end
 end
-    
+
 //==========================================================
 //                    EX2  Stage
 //==========================================================
@@ -1081,7 +1081,7 @@ end
 //              exponent < 0 : shift right to let exponent 0
 //  (b) NM*NM : exponent > 0 : no shift
 //              exponent < 0 : shift right to let expnent 0
-//  (c) DM*DM : shift right 
+//  (c) DM*DM : shift right
 //  exponent>0
 // &CombBeg; @744
 always @( mult_ex2_id_offset[3:0]
@@ -1172,17 +1172,17 @@ end
 assign mult_ex2_rshift_sel  = mult_ex2_mult_expnt_result[6]
                            || (~|mult_ex2_mult_expnt_result[6:0]) && !mult_ex2_op_id;
 
-assign mult_ex2_mult_frac_shift[21:0] = (mult_ex2_rshift_sel)     
+assign mult_ex2_mult_frac_shift[21:0] = (mult_ex2_rshift_sel)
                                       ? mult_ex2_rshift_result[21:0]
                                       : mult_ex2_lshift_result[21:0];
 
-assign mult_ex2_mult_expnt_shift[6:0] = (mult_ex2_rshift_sel)   
+assign mult_ex2_mult_expnt_shift[6:0] = (mult_ex2_rshift_sel)
                                       ? 7'b0
                                       : (mult_ex2_mult_expnt_result[6:0] - {3'b0,mult_ex2_id_offset[3:0]});
-    
+
 assign mult_ex2_mult_rshift_sticky    = (mult_ex2_rshift_sel)
                                       ? |mult_ex2_rshit_out[12:0]
-                                      : 1'b0; 
+                                      : 1'b0;
 
 //----------------------------------------------------------
 //                  Normal Multiply Rounding
@@ -1203,7 +1203,7 @@ assign mult_ex2_rst_gbit  = (mult_ex2_mult_frac_shift[21])
 assign mult_ex2_rst_rsbit = (mult_ex2_mult_frac_shift[21])
                           ? |mult_ex2_mult_frac_shift[9:0] || mult_ex2_mult_rshift_sticky
                           : |mult_ex2_mult_frac_shift[8:0] || mult_ex2_mult_rshift_sticky;
-                                      
+
 //greate than 1000.....
 assign mult_ex2_gr      = mult_ex2_rst_gbit
                        && mult_ex2_rst_rsbit;
@@ -1227,7 +1227,7 @@ begin
   case(dp_xx_ex2_rm[2:0])
     3'b000 :  //round to nearest
              mult_ex2_add1   = mult_ex2_gr || (mult_ex2_eq && mult_ex2_rst_lsb);
-    3'b001 :  //round to zero 
+    3'b001 :  //round to zero
              mult_ex2_add1   = 1'b0;
     3'b010 :  //round to positive infinity
              mult_ex2_add1   = !mult_ex2_zero && mult_ex2_mult_result_sign;
@@ -1245,7 +1245,7 @@ assign mult_ex2_mult_frac_round_op1[11:0] = {10'b0,mult_ex2_mult_frac_shift[21],
 
 assign mult_ex2_mult_frac_round_result[11:0] = mult_ex2_mult_frac_round_op0[11:0]
                                              + mult_ex2_mult_frac_round_op1[11:0];
-                                             
+
 
 //the expont will add 1:
 //1. when signle frac_result[47] is 1,exponent will add 1
@@ -1254,13 +1254,13 @@ assign mult_ex2_mult_frac_round_result[11:0] = mult_ex2_mult_frac_round_op0[11:0
 assign mult_ex2_expnt_plus1             = mult_ex2_mult_frac_shift[21] && !mult_ex2_op_id
                                        || mult_ex2_mult_frac_result[11] && !mult_ex2_op_id
                                        || !mult_ex2_mult_frac_shift[21]
-                                          && !((|mult_ex2_mult_expnt_shift[6:0]) && !mult_ex2_op_id) 
+                                          && !((|mult_ex2_mult_expnt_shift[6:0]) && !mult_ex2_op_id)
                                           && mult_ex2_mult_frac_result[10]
                                           && !mult_ex2_mult_frac_result[11];
 
 assign mult_ex2_expnt_plus2             = mult_ex2_op_id
                                        && !mult_ex2_rshift_sel
-                                       && mult_ex2_mult_frac_result[11]; 
+                                       && mult_ex2_mult_frac_result[11];
 
 assign mult_ex2_expnt_plus1_result[6:0] = mult_ex2_mult_expnt_shift[6:0] + 7'b1;
 assign mult_ex2_expnt_plus2_result[6:0] = mult_ex2_mult_expnt_shift[6:0] + 7'b10;
@@ -1282,7 +1282,7 @@ assign mult_ex2_expnt_final_result[6:0] = (mult_ex2_expnt_plus2)
 //----------------------------------------------------------
 //               Normal Multiply Exception
 //----------------------------------------------------------
-assign mult_ex2_of = mult_ex2_potnt_of 
+assign mult_ex2_of = mult_ex2_potnt_of
                    && mult_ex2_mult_frac_result[11]
                    && !mult_ex2_result_abnorm
                    && !dp_xx_ex2_fma;
@@ -1291,17 +1291,17 @@ assign mult_ex2_uf =  (mult_ex2_mult_expnt_shift[6:0] == 7'b0)
                    && !(|mult_ex2_mult_frac_result[11:10])
                    && !mult_ex2_result_abnorm
                    && !dp_xx_ex2_fma
-                   && !mult_ex2_zero; 
+                   && !mult_ex2_zero;
 
-assign mult_ex2_nx = mult_ex2_of 
+assign mult_ex2_nx = mult_ex2_of
                   || mult_ex2_uf
                   || !mult_ex2_result_abnorm
                      && !mult_ex2_zero
                      && !dp_xx_ex2_fma;
 
-assign mult_ex2_mult_expt[4:3] = mult_ex2_expt[4:3];                      
+assign mult_ex2_mult_expt[4:3] = mult_ex2_expt[4:3];
 assign mult_ex2_mult_expt[2]   = mult_ex2_expt[2] | mult_ex2_of;
-assign mult_ex2_mult_expt[1]   = (mult_ex2_expt[1] | mult_ex2_uf); 
+assign mult_ex2_mult_expt[1]   = (mult_ex2_expt[1] | mult_ex2_uf);
 assign mult_ex2_mult_expt[0]   = mult_ex2_expt[0] | mult_ex2_nx;
 
 //----------------------------------------------------------
@@ -1398,7 +1398,7 @@ endcase
 // &CombEnd; @1035
 end
 
-assign mult2_ex2_addr0[38:0]              = {14'b0,mult_ex2_mult_frac[21:0],3'b0}; 
+assign mult2_ex2_addr0[38:0]              = {14'b0,mult_ex2_mult_frac[21:0],3'b0};
 assign mult2_ex2_addr1[38:0]              = (mult_ex2_sub_vld)
                                           ? ~{1'b0,mult_ex2_sa_op2[36:0],mult_ex2_sticky1}
                                           : {1'b0,mult_ex2_sa_op2[36:0],mult_ex2_sticky1};
@@ -1432,7 +1432,7 @@ begin
 end
 
 assign mult_ex2_expnt_diff_ge_neg2      = &mult_ex2_fma_expnt_diff[6:1]
-                                       || !mult_ex2_fma_expnt_diff[6];  
+                                       || !mult_ex2_fma_expnt_diff[6];
 assign mult_ex2_frac_shift_11           = mult_ex2_expnt_diff_ge_neg2;
 assign mult_ex2_frac_result_shift[37:0] = (mult_ex2_frac_shift_11)
                                         ? {mult_ex2_frac_result[26:0],11'b0}
@@ -1464,20 +1464,20 @@ ct_vfmau_lza_simd_half  x_ct_vfmau_lza_simd_half (
 //          .lza_result_zero   (mult_ex2_lza_result_zero  )); @1085
 
 //----------------------------------------------------------
-//                 FMA Data Preparation 
+//                 FMA Data Preparation
 //----------------------------------------------------------
 assign mult_ex2_fma_sign = mult_ex2_mult_result_sign
-                         ^ mult_ex2_frac_result_negate; 
+                         ^ mult_ex2_frac_result_negate;
 
-//expont prepare                          
+//expont prepare
 assign mult_ex2_op2_expnt_adjust[6:0] = (mult_ex2_op2_id)
                                       ? 7'b1
                                       : {2'b0,mult_ex2_op2_expnt[4:0]};
 assign mult_ex2_op2_expnt_bias[6:0]   = (mult_ex2_sa_result[6])
                                       ? 7'b0
-                                      : mult_ex2_sa_result[6:0];                                           
+                                      : mult_ex2_sa_result[6:0];
 assign mult_ex2_fma_op2_expnt[6:0]    = mult_ex2_op2_expnt_adjust[6:0]
-                                      + mult_ex2_op2_expnt_bias[6:0]; 
+                                      + mult_ex2_op2_expnt_bias[6:0];
 
 // &CombBeg; @1103
 always @( mult_ex2_op1_id
@@ -1487,7 +1487,7 @@ case({mult_ex2_op0_id,mult_ex2_op1_id})
   2'b11  : mult_ex2_mult_id_adjust[6:0] = 7'b10;
   2'b10  : mult_ex2_mult_id_adjust[6:0] = 7'b01;
   2'b01  : mult_ex2_mult_id_adjust[6:0] = 7'b01;
-  2'b00  : mult_ex2_mult_id_adjust[6:0] = 7'b00; 
+  2'b00  : mult_ex2_mult_id_adjust[6:0] = 7'b00;
   default: mult_ex2_mult_id_adjust[6:0] = {7{1'bx}};
 endcase
 // &CombEnd; @1111
@@ -1513,7 +1513,7 @@ assign mult_ex2_fma_abnorm_result[15:0] = (mult_ex2_result_mask)
 assign mult_ex2_fma_expt[4:0]           = mult_ex2_expt[4:0] & {5{~mult_ex2_result_mask}};
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 //  &Instance("gated_clk_cell", "x_simd_ex2_ex3_gated_clk"); @1135
 gated_clk_cell  x_simd_ex2_ex3_gated_clk (
@@ -1663,14 +1663,14 @@ assign mult_ex3_expnt_adder1[6:0]    = (mult_ex3_lza_result_zero)
                                      : {2'h0,mult_ex3_lza_result[4:0]};
 assign mult_ex3_expnt_lza_shift[6:0] = mult_ex3_expnt_adder0[6:0]
                                      - mult_ex3_expnt_adder1[6:0];
-                                       
+
 assign mult_ex3_expnt_is_0           = ~(|mult_ex3_expnt_result[6:0]);
 assign mult_ex3_expnt_is_1           = ~(|mult_ex3_expnt_result[6:1])
                                      && mult_ex3_expnt_result[0];
 assign mult_ex3_expnt_eq_lza_plus1   = ~(|mult_ex3_expnt_lza_shift[6:1])
                                      && mult_ex3_expnt_lza_shift[0];
 assign mult_ex3_expnt_le_lza         = mult_ex3_expnt_lza_shift[6]
-                                    || ~(|mult_ex3_expnt_lza_shift[6:0]); 
+                                    || ~(|mult_ex3_expnt_lza_shift[6:0]);
 
 // The following conditions will select exponent as shift index
 // 1. E <= lza
@@ -1689,7 +1689,7 @@ assign mult_ex3_fma_frac[37:0]       = (mult_ex3_exp_shift_sel)
 
 assign mult_ex3_rst_lsb   = mult_ex3_fma_frac[27];
 assign mult_ex3_rst_gbit  = mult_ex3_fma_frac[26];
-assign mult_ex3_rst_rsbit = (|mult_ex3_fma_frac[25:0]) 
+assign mult_ex3_rst_rsbit = (|mult_ex3_fma_frac[25:0])
                          || mult_ex3_sticky1
                          || (mult_ex3_expnt_is_0 && mult_ex3_frac_result[0] && !mult_ex3_exp_shift_sel);
 
@@ -1697,12 +1697,12 @@ assign mult_ex3_rst_gr   = mult_ex3_rst_gbit && mult_ex3_rst_rsbit;
 assign mult_ex3_rst_ge   = mult_ex3_rst_gbit;
 assign mult_ex3_grs_zero = !mult_ex3_rst_gbit && !mult_ex3_rst_rsbit;
 
-assign mult_ex3_rst_add1 = 
-    (dp_xx_ex3_rm[2:0] == 3'b000) & mult_ex3_rst_gr 
+assign mult_ex3_rst_add1 =
+    (dp_xx_ex3_rm[2:0] == 3'b000) & mult_ex3_rst_gr
   | (dp_xx_ex3_rm[2:0] == 3'b000) & (mult_ex3_rst_ge && mult_ex3_rst_lsb) //for timing
   | (dp_xx_ex3_rm[2:0] == 3'b010) & (!mult_ex3_grs_zero && mult_ex3_fma_sign)
   | (dp_xx_ex3_rm[2:0] == 3'b011) & (!mult_ex3_grs_zero && !mult_ex3_fma_sign)
-  | (dp_xx_ex3_rm[2:0] == 3'b100) & mult_ex3_rst_ge;  
+  | (dp_xx_ex3_rm[2:0] == 3'b100) & mult_ex3_rst_ge;
 
 
 assign mult_ex3_fma_frac_round_add[11:0]    = {1'b0,mult_ex3_fma_frac[37:27]} + 1'b1;
@@ -1744,11 +1744,11 @@ always @( mult_ex3_fma_expnt_m1
 begin
 case({mult_ex3_fma_expnt_m1,mult_ex3_fma_expnt_p1})
   2'b00  : mult_ex3_fma_expnt[6:0] = mult_ex3_fma_expnt_result[6:0];
-  2'b01  : mult_ex3_fma_expnt[6:0] = mult_ex3_fma_expnt_p1_result[6:0]; 
-  2'b10  : mult_ex3_fma_expnt[6:0] = mult_ex3_fma_expnt_m1_result[6:0]; 
+  2'b01  : mult_ex3_fma_expnt[6:0] = mult_ex3_fma_expnt_p1_result[6:0];
+  2'b10  : mult_ex3_fma_expnt[6:0] = mult_ex3_fma_expnt_m1_result[6:0];
   2'b11  : mult_ex3_fma_expnt[6:0] = mult_ex3_fma_expnt_result[6:0];
  default : mult_ex3_fma_expnt[6:0] = {7{1'bx}};
-endcase 
+endcase
 // &CombEnd;                                 @1345
 end
 
@@ -1760,33 +1760,33 @@ assign mult_ex3_expnt_of     = !mult_ex3_fma_expnt_result[6]
 assign mult_ex3_potnt_sub_of = (mult_ex3_fma_expnt_result[6:0] == 7'h1f)
                             && !mult_ex3_result_abnorm
                             && !mult_ex3_result_zero;
-                                
+
 assign mult_ex3_potnt_add_of = (mult_ex3_fma_expnt_result[6:0] == 7'h1e)
                             && !mult_ex3_result_abnorm
                             && !mult_ex3_result_zero;
-                                
+
 //1. Exp>=256
 //2. Exp == 255 && !exp_sub1
 //3. Exp == 254 && exp_plus1
 assign mult_ex3_fma_expnt_of = mult_ex3_expnt_of
-                            || mult_ex3_potnt_sub_of 
+                            || mult_ex3_potnt_sub_of
                                && (!mult_ex3_fma_expnt_m1
                                    || mult_ex3_fma_expnt_m1
                                       && mult_ex3_fma_expnt_p1)
-                            || mult_ex3_potnt_add_of 
-                               && !mult_ex3_fma_expnt_m1 
+                            || mult_ex3_potnt_add_of
+                               && !mult_ex3_fma_expnt_m1
                                && mult_ex3_fma_expnt_p1;
-                                   
+
 //UF exception
 assign mult_ex3_potnt_add_uf = ~(|mult_ex3_fma_expnt_result[6:0])
                                  && !mult_ex3_fma_expnt_p1
                               || ~(|mult_ex3_fma_expnt_result[6:1])
-                                 && mult_ex3_fma_expnt_result[0]                                
+                                 && mult_ex3_fma_expnt_result[0]
                                  && !mult_ex3_fma_expnt_p1
                                  && !mult_ex3_fma_frac_result[10];
 
 assign mult_ex3_potnt_sub_uf = ~(|mult_ex3_fma_expnt_result[6:1])
-                              && mult_ex3_fma_expnt_result[0] 
+                              && mult_ex3_fma_expnt_result[0]
                               && !mult_ex3_fma_expnt_p1
                               && mult_ex3_fma_expnt_m1;
 
@@ -1796,13 +1796,13 @@ assign mult_ex3_fma_expnt_uf = (mult_ex3_potnt_add_uf
                             && !mult_ex3_result_zero
                             && !mult_ex3_grs_zero;
 
-//NX exception                              
+//NX exception
 assign mult_ex3_frac_nx       = !mult_ex3_result_abnorm && !mult_ex3_grs_zero;
 assign mult_ex3_fma_expnt_nx  = mult_ex3_fma_expnt_of
                              || mult_ex3_fma_expnt_uf
                              || mult_ex3_frac_nx;
 
-assign mult_ex3_expt_result[4:0] = mult_ex3_expt[4:0] 
+assign mult_ex3_expt_result[4:0] = mult_ex3_expt[4:0]
                                 | {2'b0,mult_ex3_fma_expnt_of,mult_ex3_fma_expnt_uf,mult_ex3_fma_expnt_nx};
 
 //----------------------------------------------------------
@@ -1824,7 +1824,7 @@ begin
 // &CombEnd; @1413
 end
 
-//the inf/lfn result can merge to abnorm result ahead,the 
+//the inf/lfn result can merge to abnorm result ahead,the
 //contrl signal will decide wether choose it or not
 assign mult_ex3_fma_result_inf = !mult_ex3_result_abnorm
                               && !mult_ex3_result_zero
@@ -1864,7 +1864,7 @@ assign mult_ex3_ex4_fma_result[15:0] = (mult_ex3_ex4_result_abnorm)
 
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 // &Instance("gated_clk_cell", "x_simd_ex3_ex4_gated_clk"); @1457
 gated_clk_cell  x_simd_ex3_ex4_gated_clk (
@@ -1903,7 +1903,7 @@ end
 
 assign halfy_fma_expt[4:0]    = mult_ex4_fma_expt[4:0];
 assign halfy_fma_result[15:0] = mult_ex4_fma_result[15:0];
-  
+
 // &ModuleEnd; @1490
 endmodule
 

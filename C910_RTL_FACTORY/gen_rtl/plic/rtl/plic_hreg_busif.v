@@ -70,7 +70,7 @@ parameter          IE_ADDR     = 13; // each hart will have 8 bit space,32 hart
 parameter          ICT_ADDR    = 18; // each hart 2-4K space, 32 hart
 localparam         HART_CT_DIV_TMP = HART_NUM/4;
 localparam         CT_LEFT_NUM = HART_NUM - HART_CT_DIV_TMP * 4;
-localparam         HART_CT_DIV = CT_LEFT_NUM > 0 ? HART_CT_DIV_TMP + 1 
+localparam         HART_CT_DIV = CT_LEFT_NUM > 0 ? HART_CT_DIV_TMP + 1
                                                  : HART_CT_DIV_TMP;
   //input
 input                             plic_clk;
@@ -169,14 +169,14 @@ wire  [MAX_HART_NUM:0]            busif_hart_sclaim_wr_en_exp;
 wire  [HART_NUM-1:0]              busif_hart_sclaim_rd_en;
 wire  [MAX_HART_NUM:0]            busif_hart_sclaim_rd_en_exp;
 wire  [HART_NUM-1:0]              hart_ict_read_en;
-wire  [31:0]                      hart_ict_read_data[HART_NUM-1:0];    
+wire  [31:0]                      hart_ict_read_data[HART_NUM-1:0];
 wire  [(HART_NUM+1)*32-1:0]       hart_ict_read_data_tmp;
 wire  [HART_NUM-1:0]              hart_claim_read_en;
-wire  [31:0]                      hart_claim_read_data[HART_NUM-1:0];    
+wire  [31:0]                      hart_claim_read_data[HART_NUM-1:0];
 wire  [(HART_NUM+1)*32-1:0]       hart_claim_read_data_tmp;
 wire                              ict_ready_clk;
 wire                              ict_ready_clk_en;
-wire  [31:0]                      hart_ict_prdata_pre;       
+wire  [31:0]                      hart_ict_prdata_pre;
 wire                              ict_apb_slverr_pre;
 wire  [PRIO_BIT-1:0]              hart_mth_flop[HART_NUM-1:0];
 wire  [PRIO_BIT-1:0]              hart_sth_flop[HART_NUM-1:0];
@@ -301,21 +301,21 @@ assign  sie_lst_read_tmp[n][31:0] = {32{1'b0}};
 // mie write/read en, 2-d array,
 // each for 32bit ie
 //***************************
-assign     busif_we_kid_mie[n][m] = ie_apb_write_en[n] 
+assign     busif_we_kid_mie[n][m] = ie_apb_write_en[n]
                                      && !(hart_ie_paddr[7+IE_ADDR*n])
                                      && (hart_ie_paddr[(2+IE_ADDR*n)+:5] == m);
-assign     busif_rd_kid_mie[n][m] = ie_apb_read_en[n] 
+assign     busif_rd_kid_mie[n][m] = ie_apb_read_en[n]
                                      && !(hart_ie_paddr[7+IE_ADDR*n])
-                                     && (hart_ie_paddr[(2+IE_ADDR*n)+:5] == m); 
+                                     && (hart_ie_paddr[(2+IE_ADDR*n)+:5] == m);
 //***************************
 // mie write/read en, 2-d array,
 // each for 32bit ie
 //***************************
 
-assign     busif_we_kid_sie[n][m] = ie_apb_write_en[n] 
+assign     busif_we_kid_sie[n][m] = ie_apb_write_en[n]
                                      && (hart_ie_paddr[7+IE_ADDR*n])
                                      && (hart_ie_paddr[(2+IE_ADDR*n)+:5] == m);
-assign     busif_rd_kid_sie[n][m] = ie_apb_read_en[n] 
+assign     busif_rd_kid_sie[n][m] = ie_apb_read_en[n]
                                      && (hart_ie_paddr[7+IE_ADDR*n])
                                      && (hart_ie_paddr[(2+IE_ADDR*n)+:5] == m);
 //***************************
@@ -323,9 +323,9 @@ assign     busif_rd_kid_sie[n][m] = ie_apb_read_en[n]
 // hart-ie
 //***************************
 
-assign     busif_we_kid_mie_data[n][32*m+:32] 
+assign     busif_we_kid_mie_data[n][32*m+:32]
                                    = hart_ie_pwdata[32*n+:32] & hart_ie_sec_ctrl[n][32*m+:32];
-assign     busif_we_kid_sie_data[n][32*m+:32] 
+assign     busif_we_kid_sie_data[n][32*m+:32]
                                    = hart_ie_pwdata[32*n+:32] & hart_ie_sec_ctrl[n][32*m+:32];
 //***************************
 // read data 2-d array,
@@ -334,14 +334,14 @@ assign     busif_we_kid_sie_data[n][32*m+:32]
 
 assign     mie_lst_read_tmp[n][32*(m+1)+:32]
                                 = mie_lst_read_tmp[n][32*m+:32]
-                                  |({32{busif_rd_kid_mie[n][m]}} 
+                                  |({32{busif_rd_kid_mie[n][m]}}
                                     & hart_mie_flop_msk_zero[n][32*m+:32]);
 assign     sie_lst_read_tmp[n][32*(m+1)+:32]
                                       = sie_lst_read_tmp[n][32*m+:32]
-                                        |({32{busif_rd_kid_sie[n][m]}} 
+                                        |({32{busif_rd_kid_sie[n][m]}}
                                           & hart_sie_flop_msk_zero[n][32*m+:32]);
 
-    end //end of first for loop INT_NUM     
+    end //end of first for loop INT_NUM
   end //end of HART NUM
 endgenerate
 
@@ -350,8 +350,8 @@ genvar k;
 for(k=0;k<HART_NUM;k=k+1)
 begin:HART_IE_RW
   assign ie_apb_acc_en[k]              = hart_ie_psel[k]  && !hart_ie_penable[k];
-  assign ie_apb_write_en[k]            = ie_apb_acc_en[k] 
-                                         && hart_ie_pwrite[k] 
+  assign ie_apb_write_en[k]            = ie_apb_acc_en[k]
+                                         && hart_ie_pwrite[k]
                                          && !ie_apb_slverr_pre[k]
                                          && (hart_ie_psec[k] || !ctrl_xx_core_sec[k] || !ctrl_xx_amp_mode);
   assign ie_apb_read_en[k]             = ie_apb_acc_en[k] && !hart_ie_pwrite[k] && (hart_ie_psec[k] || !ctrl_xx_core_sec[k] || !ctrl_xx_amp_mode);
@@ -359,9 +359,9 @@ begin:HART_IE_RW
   assign hart_ie_sec_ctrl[k]           = (int_sec_infor[INT_NUM-1:0] ~^ {INT_NUM{ctrl_xx_core_sec[k]}}) | {INT_NUM{~ctrl_xx_amp_mode}};
 
 //merge the rdata
-  assign hart_ie_prdata_pre[k]        = ie_apb_slverr_pre[k] ? 32'b0: (mie_lst_read_tmp[k][INT_NUM+:32] 
+  assign hart_ie_prdata_pre[k]        = ie_apb_slverr_pre[k] ? 32'b0: (mie_lst_read_tmp[k][INT_NUM+:32]
                                         & {32{!(hart_ie_paddr[7+IE_ADDR*k])}})
-                                      | (sie_lst_read_tmp[k][INT_NUM+:32] 
+                                      | (sie_lst_read_tmp[k][INT_NUM+:32]
                                         & {32{(hart_ie_paddr[7+IE_ADDR*k])}});
 
 //*************************************
@@ -383,7 +383,7 @@ begin:HART_IE_RW
     .rst_b    (plicrst_b),
     .data_in  (hart_ie_prdata_pre[k]),
     .data_out (hart_ie_prdata_flop[k])
-  ); 
+  );
   assign hart_ie_prdata[k*32+:32]    = hart_ie_prdata_flop[k];
 //*************************************
 //  the ie slverr signal
@@ -395,10 +395,10 @@ begin:HART_IE_RW
     .data_in  (ie_apb_slverr_pre[k]),
     .data_out (hart_ie_pslverr[k])
   );
-  assign ie_apb_slverr_pre[k] =  (hart_ie_paddr[2+IE_ADDR*k+:5] >= $unsigned(INT_NUM/32)) 
+  assign ie_apb_slverr_pre[k] =  (hart_ie_paddr[2+IE_ADDR*k+:5] >= $unsigned(INT_NUM/32))
                                  || (hart_ie_pprot[2*k+1] == 1'b0)
                                  || (!hart_ie_psec[k] && ctrl_xx_core_sec[k]);
-                                 
+
   gated_clk_cell  x_hart_ie_ready_gateclk (
     .clk_in               (plic_clk            ),
     .clk_out              (hart_ie_ready_clk[k]),
@@ -412,7 +412,7 @@ begin:HART_IE_RW
 end
 endgenerate
 //****************************************************
-//  MIE/SIE flop instance  
+//  MIE/SIE flop instance
 //****************************************************
 generate
 genvar i;
@@ -427,7 +427,7 @@ begin:HART_IE
     .rst_b    (plicrst_b),
     .data_in  (busif_we_kid_mie_data[i][32*rd_idx+:32]),
     .data_out (hart_mie_flop[i][32*rd_idx+:32])
-  ); 
+  );
   instance_reg_flog #(.DATA(32)) x_hart_sie_ff(
     .clk      (ie_wr_clk[i][rd_idx]),
     .en       (busif_we_kid_sie[i][rd_idx]),
@@ -448,7 +448,7 @@ begin:HART_IE
   assign ie_wr_clk_en[i][rd_idx]   =  busif_we_kid_mie[i][rd_idx] ||
                                       busif_we_kid_sie[i][rd_idx];
   end
-//here we don't need the ie of int index 0 
+//here we don't need the ie of int index 0
   assign hart_sie_flop_msk_zero[i]           =  hart_sie_flop[i] & {{(INT_NUM-1){1'b1}},1'b0};
   assign hart_mie_flop_msk_zero[i]           =  hart_mie_flop[i] & {{(INT_NUM-1){1'b1}},1'b0};
   assign hart_sie_1d_bus[i*INT_NUM+:INT_NUM] = hart_sie_flop_msk_zero[i];
@@ -474,12 +474,12 @@ begin:ICT_RW
 //*************************************
   assign ict_psec_ctrl_en[ht_idx]      = (bus_mtx_ict_psec || !ctrl_xx_core_sec[ht_idx] || !ctrl_xx_amp_mode);
   assign icg_psec_nonsec_err_en[ht_idx]= !bus_mtx_ict_psec && ctrl_xx_core_sec[ht_idx] && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx);
-  assign busif_hart_mth_wr_en[ht_idx]  = ict_apb_write_en 
+  assign busif_hart_mth_wr_en[ht_idx]  = ict_apb_write_en
                                       && (bus_mtx_ict_pprot[1:0] == 2'b11)
                                       && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx)
                                       && !(bus_mtx_ict_paddr[12])
                                       && (bus_mtx_ict_paddr[11:0] == 12'b0) && ict_psec_ctrl_en[ht_idx];
-  assign busif_hart_mth_rd_en[ht_idx]  = ict_apb_read_en 
+  assign busif_hart_mth_rd_en[ht_idx]  = ict_apb_read_en
                                       && (bus_mtx_ict_pprot[1:0] == 2'b11)
                                       && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx)
                                       && !(bus_mtx_ict_paddr[12])
@@ -489,12 +489,12 @@ begin:ICT_RW
 //  the ie mclaim write read enable
 //*************************************
 
-  assign busif_hart_mclaim_wr_en[ht_idx]  = ict_apb_write_en 
+  assign busif_hart_mclaim_wr_en[ht_idx]  = ict_apb_write_en
                                       && (bus_mtx_ict_pprot[1:0] == 2'b11)
                                       && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx)
                                       && !(bus_mtx_ict_paddr[12])
                                       && (bus_mtx_ict_paddr[11:0] == 12'h4) && ict_psec_ctrl_en[ht_idx];
-  assign busif_hart_mclaim_rd_en[ht_idx]  = ict_apb_read_en 
+  assign busif_hart_mclaim_rd_en[ht_idx]  = ict_apb_read_en
                                       && (bus_mtx_ict_pprot[1:0] == 2'b11)
                                       && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx)
                                       && !(bus_mtx_ict_paddr[12])
@@ -503,12 +503,12 @@ begin:ICT_RW
 //  the ie sth write read enable
 //*************************************
 
-  assign busif_hart_sth_wr_en[ht_idx]  = ict_apb_write_en 
+  assign busif_hart_sth_wr_en[ht_idx]  = ict_apb_write_en
                                       && (bus_mtx_ict_pprot[0] == 1'b1)
                                       && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx)
                                       && (bus_mtx_ict_paddr[12])
                                       && (bus_mtx_ict_paddr[11:0] == 12'b0)&& ict_psec_ctrl_en[ht_idx];
-  assign busif_hart_sth_rd_en[ht_idx]  = ict_apb_read_en 
+  assign busif_hart_sth_rd_en[ht_idx]  = ict_apb_read_en
                                       && (bus_mtx_ict_pprot[0] == 1'b1)
                                       && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx)
                                       && (bus_mtx_ict_paddr[12])
@@ -516,12 +516,12 @@ begin:ICT_RW
 //*************************************
 //  the ie sclaim write read enable
 //*************************************
-  assign busif_hart_sclaim_wr_en[ht_idx]  = ict_apb_write_en 
+  assign busif_hart_sclaim_wr_en[ht_idx]  = ict_apb_write_en
                                       && (bus_mtx_ict_pprot[0] == 1'b1)
                                       && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx)
                                       && (bus_mtx_ict_paddr[12])
                                       && (bus_mtx_ict_paddr[11:0] == 12'h4)&& ict_psec_ctrl_en[ht_idx];
-  assign busif_hart_sclaim_rd_en[ht_idx]  = ict_apb_read_en 
+  assign busif_hart_sclaim_rd_en[ht_idx]  = ict_apb_read_en
                                       && (bus_mtx_ict_pprot[0] == 1'b1)
                                       && (bus_mtx_ict_paddr[ICT_ADDR-1:13] == ht_idx)
                                       && (bus_mtx_ict_paddr[12])
@@ -529,16 +529,16 @@ begin:ICT_RW
   assign hart_ict_read_en[ht_idx]    =    busif_hart_mth_rd_en[ht_idx]
                                        || busif_hart_sth_rd_en[ht_idx]
                                        || hart_claim_read_en[ht_idx];
-  assign hart_ict_read_data[ht_idx] =     ({32{busif_hart_mth_rd_en[ht_idx]}} 
+  assign hart_ict_read_data[ht_idx] =     ({32{busif_hart_mth_rd_en[ht_idx]}}
                                           & {{32-PRIO_BIT{1'b0}},hart_mth_flop[ht_idx]})
-                                       | ({32{busif_hart_sth_rd_en[ht_idx]}} 
+                                       | ({32{busif_hart_sth_rd_en[ht_idx]}}
                                           & {{32-PRIO_BIT{1'b0}},hart_sth_flop[ht_idx]})
                                        | hart_claim_read_data[ht_idx];
   assign hart_ict_read_data_tmp[(ht_idx+1)*32+:32]  =  hart_ict_read_data_tmp[ht_idx*32+:32]
                                                      | ({32{hart_ict_read_en[ht_idx]}}
                                                         & hart_ict_read_data[ht_idx]);
   assign hart_claim_read_en[ht_idx]   = busif_hart_mclaim_rd_en[ht_idx]
-                                       || busif_hart_sclaim_rd_en[ht_idx];                                                      
+                                       || busif_hart_sclaim_rd_en[ht_idx];
   assign hart_claim_read_data[ht_idx] = ({32{busif_hart_mclaim_rd_en[ht_idx]}}
                                           & {{32-ID_NUM{1'b0}},hart_mclaim_flop[ht_idx]})
                                        | ({32{busif_hart_sclaim_rd_en[ht_idx]}}
@@ -568,8 +568,8 @@ endgenerate
     .rst_b    (plicrst_b),
     .data_in  (hart_ict_prdata_pre),
     .data_out (ict_bus_mtx_prdata)
-  ); 
-  assign hart_ict_prdata_pre[31:0]    = ict_apb_slverr_pre ? 32'b0 
+  );
+  assign hart_ict_prdata_pre[31:0]    = ict_apb_slverr_pre ? 32'b0
                                                     : hart_ict_read_data_tmp[HART_NUM*32+:32];
 //*************************************
 //  the ict slverr signal
@@ -584,9 +584,9 @@ endgenerate
   assign ict_apb_slverr_pre = (bus_mtx_ict_paddr[ICT_ADDR-1:13]>=HART_NUM)
                             || ((bus_mtx_ict_paddr[11:2] > 10'b1 )
                                ||((bus_mtx_ict_pprot[1] == 1'b0)
-                                   && (bus_mtx_ict_paddr[12] == 1'b0) || 
+                                   && (bus_mtx_ict_paddr[12] == 1'b0) ||
                                   (bus_mtx_ict_pprot[0] == 1'b0)
-                                   && (bus_mtx_ict_paddr[12] == 1'b1))) 
+                                   && (bus_mtx_ict_paddr[12] == 1'b1)))
                             || |icg_psec_nonsec_err_en_rep;
 assign icg_psec_nonsec_err_en_rep[HART_NUM:0] = {1'b0,icg_psec_nonsec_err_en[HART_NUM-1:0]};
 gated_clk_cell  x_ict_ready_gateclk (
@@ -605,7 +605,7 @@ genvar ht_reg_idx;
 for(ht_reg_idx=0;ht_reg_idx<HART_NUM;ht_reg_idx=ht_reg_idx+1)
 begin:HART_ICT_REG
 //*************************************
-//  the threshold register 
+//  the threshold register
 //*************************************
 
   instance_reg_flog #(.DATA(PRIO_BIT)) x_hart_mth_ff(
@@ -624,28 +624,28 @@ begin:HART_ICT_REG
   );
   assign hart_sth_1d_bus[ht_reg_idx*PRIO_BIT+:PRIO_BIT] = hart_sth_flop[ht_reg_idx];
   assign hart_mth_1d_bus[ht_reg_idx*PRIO_BIT+:PRIO_BIT] = hart_mth_flop[ht_reg_idx];
-  assign hart_mclaim_set_id[ht_reg_idx*ID_NUM+:ID_NUM] = 
-                                         {ID_NUM{arbx_hreg_claim_mmode[ht_reg_idx]}} 
+  assign hart_mclaim_set_id[ht_reg_idx*ID_NUM+:ID_NUM] =
+                                         {ID_NUM{arbx_hreg_claim_mmode[ht_reg_idx]}}
                                        & arbx_hreg_claim_id[ID_NUM*ht_reg_idx+:ID_NUM];
-  assign hart_sclaim_set_id[ht_reg_idx*ID_NUM+:ID_NUM] = 
-                                          {ID_NUM{!arbx_hreg_claim_mmode[ht_reg_idx]}}  
+  assign hart_sclaim_set_id[ht_reg_idx*ID_NUM+:ID_NUM] =
+                                          {ID_NUM{!arbx_hreg_claim_mmode[ht_reg_idx]}}
                                         & arbx_hreg_claim_id[ID_NUM*ht_reg_idx+:ID_NUM];
-  assign hart_mclaim_clr[ht_reg_idx] = busif_hart_mclaim_rd_en[ht_reg_idx] 
-                                       || (|(mclaim_eq_vec_exp[ht_reg_idx][0+:(MAX_HART_NUM+1)] 
+  assign hart_mclaim_clr[ht_reg_idx] = busif_hart_mclaim_rd_en[ht_reg_idx]
+                                       || (|(mclaim_eq_vec_exp[ht_reg_idx][0+:(MAX_HART_NUM+1)]
                                             & {{(MAX_HART_NUM-HART_NUM+1){1'b0}},
                                               busif_hart_mclaim_rd_en[0+:HART_NUM]}))
                                        || (|(mclaim_eq_vec_exp[ht_reg_idx][(MAX_HART_NUM+1)+:(MAX_HART_NUM+1)]
                                             & {{MAX_HART_NUM-HART_NUM+1{1'b0}},
                                                 busif_hart_sclaim_rd_en[0+:HART_NUM]}));
-  assign hart_sclaim_clr[ht_reg_idx] = busif_hart_sclaim_rd_en[ht_reg_idx] 
-                                       || (|(sclaim_eq_vec_exp[ht_reg_idx][0+:(MAX_HART_NUM+1)] 
+  assign hart_sclaim_clr[ht_reg_idx] = busif_hart_sclaim_rd_en[ht_reg_idx]
+                                       || (|(sclaim_eq_vec_exp[ht_reg_idx][0+:(MAX_HART_NUM+1)]
                                             & {{(MAX_HART_NUM-HART_NUM+1){1'b0}},
                                                 busif_hart_mclaim_rd_en[0+:HART_NUM]}))
                                        || (|(sclaim_eq_vec_exp[ht_reg_idx][(MAX_HART_NUM+1)+:(MAX_HART_NUM+1)]
                                             & {{(MAX_HART_NUM-HART_NUM+1){1'b0}},
                                                busif_hart_sclaim_rd_en[0+:HART_NUM]}));
 //*************************************
-//  the claim register 
+//  the claim register
 //*************************************
 
   always @(posedge claim_clk[ht_reg_idx] or negedge plicrst_b)
@@ -669,7 +669,7 @@ begin:HART_ICT_REG
 end
 endgenerate
 // gate clk instance
-generate 
+generate
 genvar gk;
 for(gk=0;gk<HART_NUM;gk=gk+1)
 begin:HART_ICT_GATE_CLK
@@ -700,40 +700,40 @@ begin:HART_ICT_GATE_CLK
 end
 endgenerate
 assign conv_tmp_claim_clk_en[HART_NUM-1:0]   = ori_tmp_claim_clk_en[HART_NUM-1:0];
-assign ori_tmp_claim_clk_en[HART_NUM-1:0]    = arbx_hreg_claim_reg_ready[HART_NUM-1:0] 
+assign ori_tmp_claim_clk_en[HART_NUM-1:0]    = arbx_hreg_claim_reg_ready[HART_NUM-1:0]
                                               |hart_mclaim_clr[HART_NUM-1:0]
                                               |hart_sclaim_clr[HART_NUM-1:0];
 assign conv_tmp_th_wr_clk_en[HART_NUM-1:0]   = ori_tmp_th_wr_clk_en[HART_NUM-1:0];
-assign ori_tmp_th_wr_clk_en[HART_NUM-1:0]    = busif_hart_sth_wr_en[HART_NUM-1:0] 
+assign ori_tmp_th_wr_clk_en[HART_NUM-1:0]    = busif_hart_sth_wr_en[HART_NUM-1:0]
                                               |busif_hart_mth_wr_en[HART_NUM-1:0];
 //*************************************
 //  the claim register clear vector,
-//  which record the equality of each 
+//  which record the equality of each
 //  claim register
 //  here, there is another more efficient
 //  code
 //*************************************
-generate 
+generate
 genvar clm_idx;
 genvar hrt_clm_idx;
 for(clm_idx=0;clm_idx<HART_NUM;clm_idx=clm_idx+1)
 begin: CLAIM_CMPAR
   for(hrt_clm_idx=0;hrt_clm_idx<HART_NUM;hrt_clm_idx=hrt_clm_idx+1)
   begin:CLAIM_CMPARE_IN
-    assign mclaim_eq_vec[clm_idx][hrt_clm_idx]         = hart_mclaim_flop[clm_idx] 
+    assign mclaim_eq_vec[clm_idx][hrt_clm_idx]         = hart_mclaim_flop[clm_idx]
                                                           == hart_mclaim_flop[hrt_clm_idx];
-    assign mclaim_eq_vec[clm_idx][HART_NUM+hrt_clm_idx]= hart_mclaim_flop[clm_idx] 
+    assign mclaim_eq_vec[clm_idx][HART_NUM+hrt_clm_idx]= hart_mclaim_flop[clm_idx]
                                                           == hart_sclaim_flop[hrt_clm_idx];
-    assign sclaim_eq_vec[clm_idx][hrt_clm_idx]         = hart_sclaim_flop[clm_idx] 
+    assign sclaim_eq_vec[clm_idx][hrt_clm_idx]         = hart_sclaim_flop[clm_idx]
                                                           == hart_mclaim_flop[hrt_clm_idx];
-    assign sclaim_eq_vec[clm_idx][HART_NUM+hrt_clm_idx]= hart_sclaim_flop[clm_idx] 
+    assign sclaim_eq_vec[clm_idx][HART_NUM+hrt_clm_idx]= hart_sclaim_flop[clm_idx]
                                                           == hart_sclaim_flop[hrt_clm_idx];
   end
-                                                         
+
 end
 endgenerate
 
-generate 
+generate
 genvar exp_idx;
 for(exp_idx=0;exp_idx<HART_NUM;exp_idx=exp_idx+1)
 begin: EXP_SEL
@@ -752,7 +752,7 @@ endgenerate
 //    to arbitor  interface
 //
 //**********************************************************************
-assign hreg_arbx_mint_claim[HART_NUM-1:0]          = hart_mclaim_clr[HART_NUM-1:0]; 
+assign hreg_arbx_mint_claim[HART_NUM-1:0]          = hart_mclaim_clr[HART_NUM-1:0];
 assign hreg_arbx_sint_claim[HART_NUM-1:0]          = hart_sclaim_clr[HART_NUM-1:0];
 assign hreg_arbx_arb_flush[HART_NUM-1:0]          = {HART_NUM{hreg_claim_vld
                                                       || hreg_cmplt_vld}};
@@ -767,8 +767,8 @@ assign ie_apb_write_en_exp[MAX_HART_NUM:0]        = {{MAX_HART_NUM-HART_NUM+1{1'
 assign arbx_hreg_arb_start_ack_exp[MAX_HART_NUM:0]= {{MAX_HART_NUM-HART_NUM+1{1'b0}},
                                                       arbx_hreg_arb_start_ack[HART_NUM-1:0]};
 assign arbx_start_ack                             = |arbx_hreg_arb_start_ack_exp[MAX_HART_NUM:0];
-assign arb_start_en                               = hreg_claim_vld 
-                                                    || hreg_cmplt_vld 
+assign arb_start_en                               = hreg_claim_vld
+                                                    || hreg_cmplt_vld
                                                     || kid_hreg_new_int_pulse
                                                     || kid_hreg_ip_prio_reg_we
                                                     || |ie_apb_write_en_exp[MAX_HART_NUM:0]
@@ -781,7 +781,7 @@ begin
     arbx_arb_start_flop       <= 1'b0;
   else if(arb_start_en)
     arbx_arb_start_flop       <= 1'b1;
-  else if(arbx_start_ack)   
+  else if(arbx_start_ack)
     arbx_arb_start_flop       <= 1'b0;
 end
 //**********************************************************************
@@ -795,50 +795,50 @@ assign busif_hart_sclaim_rd_en_exp[MAX_HART_NUM:0] = {{MAX_HART_NUM-HART_NUM+1{1
 
 assign hreg_claim_vld               =   |busif_hart_mclaim_rd_en_exp[MAX_HART_NUM:0] ||
                                             |busif_hart_sclaim_rd_en_exp[MAX_HART_NUM:0];
-assign hreg_kid_claim_id[ID_NUM-1:0]    =   hart_claim_read_data_tmp[HART_NUM*32+:ID_NUM]; 
+assign hreg_kid_claim_id[ID_NUM-1:0]    =   hart_claim_read_data_tmp[HART_NUM*32+:ID_NUM];
 assign busif_hart_mclaim_wr_en_exp[MAX_HART_NUM:0]  = {{MAX_HART_NUM-HART_NUM+1{1'b0}},
                                                          busif_hart_mclaim_wr_en[HART_NUM-1:0]};
 assign busif_hart_sclaim_wr_en_exp[MAX_HART_NUM:0]  = {{MAX_HART_NUM-HART_NUM+1{1'b0}},
                                                          busif_hart_sclaim_wr_en[HART_NUM-1:0]};
-                                                       
+
 assign hreg_cmplt_vld                   =   |busif_hart_mclaim_wr_en_exp[MAX_HART_NUM:0] ||
                                             |busif_hart_sclaim_wr_en_exp[MAX_HART_NUM:0];
 assign hreg_kid_cmplt_id[ID_NUM-1:0]    =   bus_mtx_ict_pwdata[ID_NUM-1:0];
 
-generate 
+generate
 genvar hart_cmplt_idx;
   for(hart_cmplt_idx=0;hart_cmplt_idx<HART_NUM;hart_cmplt_idx=hart_cmplt_idx+1)
   begin:HART_CMPLT
-    assign busif_hart_cmplt_int_vld[hart_cmplt_idx][INT_NUM-1:0] = 
-                                          ({INT_NUM{busif_hart_mclaim_wr_en[hart_cmplt_idx]}} & 
+    assign busif_hart_cmplt_int_vld[hart_cmplt_idx][INT_NUM-1:0] =
+                                          ({INT_NUM{busif_hart_mclaim_wr_en[hart_cmplt_idx]}} &
                                           hart_mie_flop_msk_zero[hart_cmplt_idx]) |
-                                          ({INT_NUM{busif_hart_sclaim_wr_en[hart_cmplt_idx]}} & 
+                                          ({INT_NUM{busif_hart_sclaim_wr_en[hart_cmplt_idx]}} &
                                           hart_sie_flop_msk_zero[hart_cmplt_idx]);
-    assign hart_int_cmplt_vld_tmp[INT_NUM*(hart_cmplt_idx+1)+:INT_NUM] =  
-                                   hart_int_cmplt_vld_tmp[INT_NUM*(hart_cmplt_idx)+:INT_NUM] | 
+    assign hart_int_cmplt_vld_tmp[INT_NUM*(hart_cmplt_idx+1)+:INT_NUM] =
+                                   hart_int_cmplt_vld_tmp[INT_NUM*(hart_cmplt_idx)+:INT_NUM] |
                                    busif_hart_cmplt_int_vld[hart_cmplt_idx];
-    assign busif_hart_claim_int_vld[hart_cmplt_idx][INT_NUM-1:0] = 
-                                          ({INT_NUM{busif_hart_mclaim_rd_en[hart_cmplt_idx]}} & 
+    assign busif_hart_claim_int_vld[hart_cmplt_idx][INT_NUM-1:0] =
+                                          ({INT_NUM{busif_hart_mclaim_rd_en[hart_cmplt_idx]}} &
                                           hart_mie_flop_msk_zero[hart_cmplt_idx]) |
-                                          ({INT_NUM{busif_hart_sclaim_rd_en[hart_cmplt_idx]}} & 
+                                          ({INT_NUM{busif_hart_sclaim_rd_en[hart_cmplt_idx]}} &
                                           hart_sie_flop_msk_zero[hart_cmplt_idx]);
-    assign hart_int_claim_vld_tmp[INT_NUM*(hart_cmplt_idx+1)+:INT_NUM] =  
-                                   hart_int_claim_vld_tmp[INT_NUM*(hart_cmplt_idx)+:INT_NUM] | 
+    assign hart_int_claim_vld_tmp[INT_NUM*(hart_cmplt_idx+1)+:INT_NUM] =
+                                   hart_int_claim_vld_tmp[INT_NUM*(hart_cmplt_idx)+:INT_NUM] |
                                    busif_hart_claim_int_vld[hart_cmplt_idx];
   end
 endgenerate
 assign  hart_int_cmplt_vld_tmp[0+:INT_NUM] = {INT_NUM{1'b0}};
 assign  hart_int_claim_vld_tmp[0+:INT_NUM] = {INT_NUM{1'b0}};
-generate 
+generate
 genvar cmplt_idx;
   for(cmplt_idx=0;cmplt_idx<INT_NUM;cmplt_idx=cmplt_idx+1)
   begin:CMPLT
     assign hart_cmplt_id_expnd[cmplt_idx] = (hreg_kid_cmplt_id[ID_NUM-1:0] == cmplt_idx);
     assign hart_claim_id_expnd[cmplt_idx] = (hreg_kid_claim_id[ID_NUM-1:0] == cmplt_idx);
-  end 
+  end
 endgenerate
-assign hreg_kid_cmplt_vld[INT_NUM-1:0] = hart_cmplt_id_expnd[INT_NUM-1:0] & 
+assign hreg_kid_cmplt_vld[INT_NUM-1:0] = hart_cmplt_id_expnd[INT_NUM-1:0] &
                                          hart_int_cmplt_vld_tmp[INT_NUM*HART_NUM +: INT_NUM];
-assign hreg_kid_claim_vld[INT_NUM-1:0] = hart_claim_id_expnd[INT_NUM-1:0] & 
-                                         hart_int_claim_vld_tmp[INT_NUM*HART_NUM +: INT_NUM];                                         
+assign hreg_kid_claim_vld[INT_NUM-1:0] = hart_claim_id_expnd[INT_NUM-1:0] &
+                                         hart_int_claim_vld_tmp[INT_NUM*HART_NUM +: INT_NUM];
 endmodule

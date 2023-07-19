@@ -35,47 +35,47 @@ module ct_had_common_regs(
 
 
 // &Ports; @25
-input           core0_rst_b;           
-input           core1_rst_b;           
-input   [63:0]  dbgfifo2_data;         
-input           forever_cpuclk;        
-input           ir_xx_core0_sel;       
-input           ir_xx_core1_sel;       
-input           ir_xx_core2_sel;       
-input           ir_xx_core3_sel;       
-input           ir_xx_dbgfifo2_reg_sel; 
-input           ir_xx_dms_reg_sel;     
-input           ir_xx_id_reg_sel;      
-input           ir_xx_rsr_reg_sel;     
-input   [3 :0]  sysio_had_dbg_mask;    
-output  [63:0]  common_regs_data;      
-output          core0_had_dbg_mask;    
-output          core1_had_dbg_mask;    
+input           core0_rst_b;
+input           core1_rst_b;
+input   [63:0]  dbgfifo2_data;
+input           forever_cpuclk;
+input           ir_xx_core0_sel;
+input           ir_xx_core1_sel;
+input           ir_xx_core2_sel;
+input           ir_xx_core3_sel;
+input           ir_xx_dbgfifo2_reg_sel;
+input           ir_xx_dms_reg_sel;
+input           ir_xx_id_reg_sel;
+input           ir_xx_rsr_reg_sel;
+input   [3 :0]  sysio_had_dbg_mask;
+output  [63:0]  common_regs_data;
+output          core0_had_dbg_mask;
+output          core1_had_dbg_mask;
 
 // &Regs; @26
-reg             core_rst0;             
-reg             core_rst1;             
+reg             core_rst0;
+reg             core_rst1;
 
 // &Wires; @27
-wire    [63:0]  common_regs_data;      
-wire            core0_had_dbg_mask;    
-wire            core0_rst_b;           
-wire            core1_had_dbg_mask;    
-wire            core1_rst_b;           
-wire    [3 :0]  core_rst;              
-wire            core_rst2;             
-wire            core_rst3;             
-wire    [63:0]  dbgfifo2_data;         
-wire    [31:0]  dms_data;              
-wire            forever_cpuclk;        
-wire    [31:0]  id_reg;                
-wire            ir_xx_dbgfifo2_reg_sel; 
-wire            ir_xx_dms_reg_sel;     
-wire            ir_xx_id_reg_sel;      
-wire            ir_xx_rsr_reg_sel;     
-wire    [31:0]  rsr_data;              
-wire    [3 :0]  sysio_had_dbg_mask;    
-wire    [3 :0]  tee_mask;              
+wire    [63:0]  common_regs_data;
+wire            core0_had_dbg_mask;
+wire            core0_rst_b;
+wire            core1_had_dbg_mask;
+wire            core1_rst_b;
+wire    [3 :0]  core_rst;
+wire            core_rst2;
+wire            core_rst3;
+wire    [63:0]  dbgfifo2_data;
+wire    [31:0]  dms_data;
+wire            forever_cpuclk;
+wire    [31:0]  id_reg;
+wire            ir_xx_dbgfifo2_reg_sel;
+wire            ir_xx_dms_reg_sel;
+wire            ir_xx_id_reg_sel;
+wire            ir_xx_rsr_reg_sel;
+wire    [31:0]  rsr_data;
+wire    [3 :0]  sysio_had_dbg_mask;
+wire    [3 :0]  tee_mask;
 
 
 parameter DATAW = 64;
@@ -156,7 +156,7 @@ assign id_reg[15:12] = 4'd2;  // BKPT_NUM
 assign id_reg[11:8]  = 4'b1011;
 
 // HAD_VER as ISA version,0000:6xx, 0001:810p, 0010: 8xx, 0011:902, 0100: 960
-assign id_reg[7:4]   = 4'b0100; 
+assign id_reg[7:4]   = 4'b0100;
 
 assign id_reg[3:0]   = 4'b0011;
 

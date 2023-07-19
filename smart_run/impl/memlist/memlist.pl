@@ -17,9 +17,9 @@ use strict;
 
 my $fl_rd_path = "./work/memlist.verdi.log";
 my $fl_wr_path = "./impl/memlist/memlist.txt";
-open(FL_RD, "<", $fl_rd_path) 
+open(FL_RD, "<", $fl_rd_path)
   or die " Failed to touch $fl_rd_path ... Terminated ...";
-open(FL_WR, ">", $fl_wr_path) 
+open(FL_WR, ">", $fl_wr_path)
   or die " Failed to touch $fl_wr_path ... Terminated ...";
 
 my @a_memlist;

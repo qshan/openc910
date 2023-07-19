@@ -25,41 +25,41 @@ module ct_f_spsram_256x196(
 );
 
 // &Ports; @25
-input   [7  :0]  A;           
-input            CEN;         
-input            CLK;         
-input   [195:0]  D;           
-input            GWEN;        
-input   [195:0]  WEN;         
-output  [195:0]  Q;           
+input   [7  :0]  A;
+input            CEN;
+input            CLK;
+input   [195:0]  D;
+input            GWEN;
+input   [195:0]  WEN;
+output  [195:0]  Q;
 
 // &Regs; @26
-reg     [7  :0]  addr_holding; 
+reg     [7  :0]  addr_holding;
 
 // &Wires; @27
-wire    [7  :0]  A;           
-wire             CEN;         
-wire             CLK;         
-wire    [195:0]  D;           
-wire             GWEN;        
-wire    [195:0]  Q;           
-wire    [195:0]  WEN;         
-wire    [7  :0]  addr;        
-wire    [3  :0]  ram0_din;    
-wire    [3  :0]  ram0_dout;   
-wire             ram0_wen;    
-wire    [47 :0]  ram1_din;    
-wire    [47 :0]  ram1_dout;   
-wire             ram1_wen;    
-wire    [47 :0]  ram2_din;    
-wire    [47 :0]  ram2_dout;   
-wire             ram2_wen;    
-wire    [47 :0]  ram3_din;    
-wire    [47 :0]  ram3_dout;   
-wire             ram3_wen;    
-wire    [47 :0]  ram4_din;    
-wire    [47 :0]  ram4_dout;   
-wire             ram4_wen;    
+wire    [7  :0]  A;
+wire             CEN;
+wire             CLK;
+wire    [195:0]  D;
+wire             GWEN;
+wire    [195:0]  Q;
+wire    [195:0]  WEN;
+wire    [7  :0]  addr;
+wire    [3  :0]  ram0_din;
+wire    [3  :0]  ram0_dout;
+wire             ram0_wen;
+wire    [47 :0]  ram1_din;
+wire    [47 :0]  ram1_dout;
+wire             ram1_wen;
+wire    [47 :0]  ram2_din;
+wire    [47 :0]  ram2_dout;
+wire             ram2_wen;
+wire    [47 :0]  ram3_din;
+wire    [47 :0]  ram3_dout;
+wire             ram3_wen;
+wire    [47 :0]  ram4_din;
+wire    [47 :0]  ram4_dout;
+wire             ram4_wen;
 
 
 parameter ADDR_WIDTH   = 8;

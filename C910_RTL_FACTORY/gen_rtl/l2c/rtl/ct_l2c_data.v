@@ -59,130 +59,130 @@ module ct_l2c_data(
 );
 
 // &Ports; @22
-input   [3  :0]  ciu_l2c_data_acc_cycle; 
-input            ciu_l2c_data_setup;    
-input   [511:0]  cmp_data_din;          
-input   [12 :0]  cmp_data_index;        
-input            cmp_data_req;          
-input            cmp_data_req_gate;     
-input            cmp_data_wen;          
-input   [32 :0]  cmp_stage_addr;        
-input   [3  :0]  cmp_stage_cp;          
-input   [4  :0]  cmp_stage_resp;        
-input   [4  :0]  cmp_stage_sid;         
-input   [1  :0]  cmp_stage_src;         
-input            cmp_stage_write;       
-input            cpurst_b;              
-input            forever_cpuclk;        
-input   [4  :0]  icc_data_cen;          
-input            icc_data_flop;         
-input   [12 :0]  icc_data_index;        
-input            icc_data_req;          
-input            l2c_clk;               
-input   [511:0]  l2c_data_dout;         
-input            l2c_icg_en;            
-input            pad_yy_icg_scan_en;    
-output           data_ecc_ram_cen;      
-output           data_ecc_wen;          
-output           data_icc_grant;        
-output  [3  :0]  data_stage_cp;         
-output  [6  :0]  data_stage_index;      
-output  [4  :0]  data_stage_resp;       
-output  [4  :0]  data_stage_sid;        
-output           data_stage_vld;        
-output           data_xx_idle;          
-output           data_yy_flop_vld;      
-output           data_yy_ram_idle;      
-output  [511:0]  l2c_data_din;          
-output  [511:0]  l2c_data_dout_flop;    
-output  [12 :0]  l2c_data_index0;       
-output  [12 :0]  l2c_data_index1;       
-output  [12 :0]  l2c_data_index2;       
-output  [12 :0]  l2c_data_index3;       
-output  [3  :0]  l2c_data_ram_cen;      
-output           l2c_data_ram_clk_en_x; 
-output  [3  :0]  l2c_data_wen;          
+input   [3  :0]  ciu_l2c_data_acc_cycle;
+input            ciu_l2c_data_setup;
+input   [511:0]  cmp_data_din;
+input   [12 :0]  cmp_data_index;
+input            cmp_data_req;
+input            cmp_data_req_gate;
+input            cmp_data_wen;
+input   [32 :0]  cmp_stage_addr;
+input   [3  :0]  cmp_stage_cp;
+input   [4  :0]  cmp_stage_resp;
+input   [4  :0]  cmp_stage_sid;
+input   [1  :0]  cmp_stage_src;
+input            cmp_stage_write;
+input            cpurst_b;
+input            forever_cpuclk;
+input   [4  :0]  icc_data_cen;
+input            icc_data_flop;
+input   [12 :0]  icc_data_index;
+input            icc_data_req;
+input            l2c_clk;
+input   [511:0]  l2c_data_dout;
+input            l2c_icg_en;
+input            pad_yy_icg_scan_en;
+output           data_ecc_ram_cen;
+output           data_ecc_wen;
+output           data_icc_grant;
+output  [3  :0]  data_stage_cp;
+output  [6  :0]  data_stage_index;
+output  [4  :0]  data_stage_resp;
+output  [4  :0]  data_stage_sid;
+output           data_stage_vld;
+output           data_xx_idle;
+output           data_yy_flop_vld;
+output           data_yy_ram_idle;
+output  [511:0]  l2c_data_din;
+output  [511:0]  l2c_data_dout_flop;
+output  [12 :0]  l2c_data_index0;
+output  [12 :0]  l2c_data_index1;
+output  [12 :0]  l2c_data_index2;
+output  [12 :0]  l2c_data_index3;
+output  [3  :0]  l2c_data_ram_cen;
+output           l2c_data_ram_clk_en_x;
+output  [3  :0]  l2c_data_wen;
 
 // &Regs; @23
-reg     [3  :0]  data_acc_cnt;          
-reg     [4  :0]  data_ram_cen;          
-reg              data_ram_next_state;   
-reg              data_ram_state;        
-reg     [4  :0]  data_ram_wen;          
-reg     [3  :0]  data_stage_cp;         
-reg     [6  :0]  data_stage_index;      
-reg     [4  :0]  data_stage_resp;       
-reg     [4  :0]  data_stage_sid;        
-reg     [1  :0]  data_stage_src;        
-reg              data_stage_vld;        
-reg     [4  :0]  l2c_data_cen_flop;     
-reg     [511:0]  l2c_data_din;          
-reg     [511:0]  l2c_data_din_flop;     
-reg     [511:0]  l2c_data_dout_flop;    
-reg     [12 :0]  l2c_data_index0;       
-reg     [12 :0]  l2c_data_index0_flop;  
-reg     [12 :0]  l2c_data_index1;       
-reg     [12 :0]  l2c_data_index1_flop;  
-reg     [12 :0]  l2c_data_index2;       
-reg     [12 :0]  l2c_data_index2_flop;  
-reg     [12 :0]  l2c_data_index3;       
-reg     [12 :0]  l2c_data_index3_flop;  
-reg     [4  :0]  l2c_data_wen_flop;     
+reg     [3  :0]  data_acc_cnt;
+reg     [4  :0]  data_ram_cen;
+reg              data_ram_next_state;
+reg              data_ram_state;
+reg     [4  :0]  data_ram_wen;
+reg     [3  :0]  data_stage_cp;
+reg     [6  :0]  data_stage_index;
+reg     [4  :0]  data_stage_resp;
+reg     [4  :0]  data_stage_sid;
+reg     [1  :0]  data_stage_src;
+reg              data_stage_vld;
+reg     [4  :0]  l2c_data_cen_flop;
+reg     [511:0]  l2c_data_din;
+reg     [511:0]  l2c_data_din_flop;
+reg     [511:0]  l2c_data_dout_flop;
+reg     [12 :0]  l2c_data_index0;
+reg     [12 :0]  l2c_data_index0_flop;
+reg     [12 :0]  l2c_data_index1;
+reg     [12 :0]  l2c_data_index1_flop;
+reg     [12 :0]  l2c_data_index2;
+reg     [12 :0]  l2c_data_index2_flop;
+reg     [12 :0]  l2c_data_index3;
+reg     [12 :0]  l2c_data_index3_flop;
+reg     [4  :0]  l2c_data_wen_flop;
 
 // &Wires; @24
-wire    [3  :0]  ciu_l2c_data_acc_cycle; 
-wire             ciu_l2c_data_setup;    
-wire    [511:0]  cmp_data_din;          
-wire    [12 :0]  cmp_data_index;        
-wire             cmp_data_req;          
-wire             cmp_data_req_gate;     
-wire             cmp_data_wen;          
-wire    [32 :0]  cmp_stage_addr;        
-wire    [3  :0]  cmp_stage_cp;          
-wire    [4  :0]  cmp_stage_resp;        
-wire    [4  :0]  cmp_stage_sid;         
-wire    [1  :0]  cmp_stage_src;         
-wire             cmp_stage_write;       
-wire             cpurst_b;              
-wire             data_acc_cnt_en;       
-wire             data_acc_cnt_init;     
-wire             data_acc_cnt_zero;     
-wire             data_cen_clk;          
-wire             data_cen_clk_en;       
-wire             data_cnt_clk;          
-wire             data_cnt_clk_en;       
-wire             data_dout_clk;         
-wire             data_dp_clk;           
-wire             data_dp_clk_en;        
-wire             data_ecc_ram_cen;      
-wire             data_ecc_wen;          
-wire             data_flop_clk;         
-wire             data_flop_clk_en;      
-wire             data_flop_vld;         
-wire             data_icc_grant;        
-wire             data_ram_cen_gate;     
-wire             data_ram_idle;         
-wire             data_req_vld;          
-wire             data_req_vld_gate;     
-wire             data_xx_idle;          
-wire             data_yy_flop_vld;      
-wire             data_yy_ram_idle;      
-wire             forever_cpuclk;        
-wire    [4  :0]  icc_data_cen;          
-wire             icc_data_flop;         
-wire    [12 :0]  icc_data_index;        
-wire             icc_data_req;          
-wire             l2c_clk;               
-wire    [511:0]  l2c_data_din_pre;      
-wire    [511:0]  l2c_data_dout;         
-wire    [12 :0]  l2c_data_index_pre;    
-wire    [3  :0]  l2c_data_ram_cen;      
-wire    [4  :0]  l2c_data_ram_cen_pre;  
-wire             l2c_data_ram_clk_en_x; 
-wire    [3  :0]  l2c_data_wen;          
-wire             l2c_data_wen_pre;      
-wire             l2c_icg_en;            
-wire             pad_yy_icg_scan_en;    
+wire    [3  :0]  ciu_l2c_data_acc_cycle;
+wire             ciu_l2c_data_setup;
+wire    [511:0]  cmp_data_din;
+wire    [12 :0]  cmp_data_index;
+wire             cmp_data_req;
+wire             cmp_data_req_gate;
+wire             cmp_data_wen;
+wire    [32 :0]  cmp_stage_addr;
+wire    [3  :0]  cmp_stage_cp;
+wire    [4  :0]  cmp_stage_resp;
+wire    [4  :0]  cmp_stage_sid;
+wire    [1  :0]  cmp_stage_src;
+wire             cmp_stage_write;
+wire             cpurst_b;
+wire             data_acc_cnt_en;
+wire             data_acc_cnt_init;
+wire             data_acc_cnt_zero;
+wire             data_cen_clk;
+wire             data_cen_clk_en;
+wire             data_cnt_clk;
+wire             data_cnt_clk_en;
+wire             data_dout_clk;
+wire             data_dp_clk;
+wire             data_dp_clk_en;
+wire             data_ecc_ram_cen;
+wire             data_ecc_wen;
+wire             data_flop_clk;
+wire             data_flop_clk_en;
+wire             data_flop_vld;
+wire             data_icc_grant;
+wire             data_ram_cen_gate;
+wire             data_ram_idle;
+wire             data_req_vld;
+wire             data_req_vld_gate;
+wire             data_xx_idle;
+wire             data_yy_flop_vld;
+wire             data_yy_ram_idle;
+wire             forever_cpuclk;
+wire    [4  :0]  icc_data_cen;
+wire             icc_data_flop;
+wire    [12 :0]  icc_data_index;
+wire             icc_data_req;
+wire             l2c_clk;
+wire    [511:0]  l2c_data_din_pre;
+wire    [511:0]  l2c_data_dout;
+wire    [12 :0]  l2c_data_index_pre;
+wire    [3  :0]  l2c_data_ram_cen;
+wire    [4  :0]  l2c_data_ram_cen_pre;
+wire             l2c_data_ram_clk_en_x;
+wire    [3  :0]  l2c_data_wen;
+wire             l2c_data_wen_pre;
+wire             l2c_icg_en;
+wire             pad_yy_icg_scan_en;
 
 
 parameter DATA_INDEX_LENTH = `L2C_DATA_INDEX_WIDTH;
@@ -304,12 +304,12 @@ assign data_req_vld_gate = icc_data_req || cmp_data_req_gate;
 //      data ram pre
 //------------------------------------------------
 
-assign data_ram_cen_gate         = data_req_vld_gate & data_ram_idle; 
+assign data_ram_cen_gate         = data_req_vld_gate & data_ram_idle;
 assign l2c_data_ram_cen_pre[4:0] = (icc_data_cen[4:0] | {5{cmp_data_req}}) & {5{data_ram_idle}};
 
-assign l2c_data_index_pre[DATA_INDEX_LENTH-1:0] 
-                               = icc_data_req 
-                               ? icc_data_index[DATA_INDEX_LENTH-1:0] 
+assign l2c_data_index_pre[DATA_INDEX_LENTH-1:0]
+                               = icc_data_req
+                               ? icc_data_index[DATA_INDEX_LENTH-1:0]
                                : cmp_data_index[DATA_INDEX_LENTH-1:0];
 assign l2c_data_wen_pre        = cmp_data_wen;
 assign l2c_data_din_pre[511:0] = cmp_data_din[511:0];
@@ -324,7 +324,7 @@ begin
     l2c_data_cen_flop[4:0] <= 5'b0;
   else if(data_req_vld && data_ram_idle && ciu_l2c_data_setup)
     l2c_data_cen_flop[4:0] <= l2c_data_ram_cen_pre[4:0];
-  else 
+  else
     l2c_data_cen_flop[4:0] <= 5'b0;
 end
 
@@ -408,7 +408,7 @@ assign data_ecc_wen          = data_ram_wen[4];
 //==============================================================================
 //                    DATA STAGE
 //==============================================================================
-//from data stage, icc and cmp_rdl begin to update data_stage 
+//from data stage, icc and cmp_rdl begin to update data_stage
 // &Force("bus","cmp_stage_addr",L2C_ADDRW-1,0); @205
 
 always@(posedge l2c_clk or negedge cpurst_b)

@@ -84,186 +84,186 @@ module ct_ifu_l1_refill(
 );
 
 // &Ports; @23
-input            cp0_ifu_icg_en;                    
-input            cp0_yy_clk_en;                     
-input            cpurst_b;                          
-input            forever_cpuclk;                    
-input            ifctrl_l1_refill_ins_inv;          
-input            ifctrl_l1_refill_ins_inv_dn;       
-input            ifctrl_l1_refill_inv_busy;         
-input            ifctrl_l1_refill_inv_on;           
-input            ifdp_l1_refill_bufferable;         
-input            ifdp_l1_refill_cacheable;          
-input            ifdp_l1_refill_fifo;               
-input            ifdp_l1_refill_machine_mode;       
-input            ifdp_l1_refill_secure;             
-input            ifdp_l1_refill_supv_mode;          
-input            ifdp_l1_refill_tsize;              
-input            ipb_l1_refill_data_vld;            
-input            ipb_l1_refill_grnt;                
-input   [127:0]  ipb_l1_refill_rdata;               
-input            ipb_l1_refill_trans_err;           
-input            ipctrl_l1_refill_chk_err;          
-input            ipctrl_l1_refill_fifo;             
-input            ipctrl_l1_refill_miss_req;         
-input   [38 :0]  ipctrl_l1_refill_ppc;              
-input            ipctrl_l1_refill_req_for_gateclk;  
-input   [38 :0]  ipctrl_l1_refill_vpc;              
-input            pad_yy_icg_scan_en;                
-input            pcgen_l1_refill_chgflw;            
-output           ifu_hpcp_icache_miss_pre;          
-output  [3  :0]  l1_refill_debug_refill_st;         
-output           l1_refill_icache_if_fifo;          
-output           l1_refill_icache_if_first;         
-output  [38 :0]  l1_refill_icache_if_index;         
-output  [127:0]  l1_refill_icache_if_inst_data;     
-output           l1_refill_icache_if_last;          
-output  [31 :0]  l1_refill_icache_if_pre_code;      
-output  [27 :0]  l1_refill_icache_if_ptag;          
-output           l1_refill_icache_if_wr;            
-output           l1_refill_ifctrl_ctc;              
-output           l1_refill_ifctrl_idle;             
-output  [38 :0]  l1_refill_ifctrl_pc;               
-output           l1_refill_ifctrl_refill_on;        
-output           l1_refill_ifctrl_reissue;          
-output           l1_refill_ifctrl_start;            
-output           l1_refill_ifctrl_start_for_gateclk; 
-output           l1_refill_ifctrl_trans_cmplt;      
-output           l1_refill_ifdp_acc_err;            
-output  [127:0]  l1_refill_ifdp_inst_data;          
-output  [31 :0]  l1_refill_ifdp_precode;            
-output           l1_refill_ifdp_refill_on;          
-output  [28 :0]  l1_refill_ifdp_tag_data;           
-output           l1_refill_inv_wfd_back;            
-output           l1_refill_ipb_bufferable;          
-output           l1_refill_ipb_cacheable;           
-output           l1_refill_ipb_ctc_inv;             
-output           l1_refill_ipb_machine_mode;        
-output  [39 :0]  l1_refill_ipb_ppc;                 
-output           l1_refill_ipb_pre_cancel;          
-output           l1_refill_ipb_refill_on;           
-output           l1_refill_ipb_req;                 
-output           l1_refill_ipb_req_for_gateclk;     
-output           l1_refill_ipb_req_pre;             
-output           l1_refill_ipb_secure;              
-output           l1_refill_ipb_supv_mode;           
-output           l1_refill_ipb_tsize;               
-output  [39 :0]  l1_refill_ipb_vpc;                 
-output           l1_refill_ipctrl_busy;             
+input            cp0_ifu_icg_en;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            forever_cpuclk;
+input            ifctrl_l1_refill_ins_inv;
+input            ifctrl_l1_refill_ins_inv_dn;
+input            ifctrl_l1_refill_inv_busy;
+input            ifctrl_l1_refill_inv_on;
+input            ifdp_l1_refill_bufferable;
+input            ifdp_l1_refill_cacheable;
+input            ifdp_l1_refill_fifo;
+input            ifdp_l1_refill_machine_mode;
+input            ifdp_l1_refill_secure;
+input            ifdp_l1_refill_supv_mode;
+input            ifdp_l1_refill_tsize;
+input            ipb_l1_refill_data_vld;
+input            ipb_l1_refill_grnt;
+input   [127:0]  ipb_l1_refill_rdata;
+input            ipb_l1_refill_trans_err;
+input            ipctrl_l1_refill_chk_err;
+input            ipctrl_l1_refill_fifo;
+input            ipctrl_l1_refill_miss_req;
+input   [38 :0]  ipctrl_l1_refill_ppc;
+input            ipctrl_l1_refill_req_for_gateclk;
+input   [38 :0]  ipctrl_l1_refill_vpc;
+input            pad_yy_icg_scan_en;
+input            pcgen_l1_refill_chgflw;
+output           ifu_hpcp_icache_miss_pre;
+output  [3  :0]  l1_refill_debug_refill_st;
+output           l1_refill_icache_if_fifo;
+output           l1_refill_icache_if_first;
+output  [38 :0]  l1_refill_icache_if_index;
+output  [127:0]  l1_refill_icache_if_inst_data;
+output           l1_refill_icache_if_last;
+output  [31 :0]  l1_refill_icache_if_pre_code;
+output  [27 :0]  l1_refill_icache_if_ptag;
+output           l1_refill_icache_if_wr;
+output           l1_refill_ifctrl_ctc;
+output           l1_refill_ifctrl_idle;
+output  [38 :0]  l1_refill_ifctrl_pc;
+output           l1_refill_ifctrl_refill_on;
+output           l1_refill_ifctrl_reissue;
+output           l1_refill_ifctrl_start;
+output           l1_refill_ifctrl_start_for_gateclk;
+output           l1_refill_ifctrl_trans_cmplt;
+output           l1_refill_ifdp_acc_err;
+output  [127:0]  l1_refill_ifdp_inst_data;
+output  [31 :0]  l1_refill_ifdp_precode;
+output           l1_refill_ifdp_refill_on;
+output  [28 :0]  l1_refill_ifdp_tag_data;
+output           l1_refill_inv_wfd_back;
+output           l1_refill_ipb_bufferable;
+output           l1_refill_ipb_cacheable;
+output           l1_refill_ipb_ctc_inv;
+output           l1_refill_ipb_machine_mode;
+output  [39 :0]  l1_refill_ipb_ppc;
+output           l1_refill_ipb_pre_cancel;
+output           l1_refill_ipb_refill_on;
+output           l1_refill_ipb_req;
+output           l1_refill_ipb_req_for_gateclk;
+output           l1_refill_ipb_req_pre;
+output           l1_refill_ipb_secure;
+output           l1_refill_ipb_supv_mode;
+output           l1_refill_ipb_tsize;
+output  [39 :0]  l1_refill_ipb_vpc;
+output           l1_refill_ipctrl_busy;
 
 // &Regs; @24
-reg              bufferable;                        
-reg              cacheable;                         
-reg              inv_wfd_back;                      
-reg              l1_refill_icache_if_fifo;          
-reg              machine_mode;                      
-reg     [38 :0]  physical_pc;                       
-reg     [3  :0]  refill_cur_state;                  
-reg     [3  :0]  refill_next_state;                 
-reg              secure;                            
-reg              supv_mode;                         
-reg              tsize;                             
-reg     [38 :0]  virtual_pc;                        
+reg              bufferable;
+reg              cacheable;
+reg              inv_wfd_back;
+reg              l1_refill_icache_if_fifo;
+reg              machine_mode;
+reg     [38 :0]  physical_pc;
+reg     [3  :0]  refill_cur_state;
+reg     [3  :0]  refill_next_state;
+reg              secure;
+reg              supv_mode;
+reg              tsize;
+reg     [38 :0]  virtual_pc;
 
 // &Wires; @25
-wire    [7  :0]  byte0;                             
-wire    [7  :0]  byte1;                             
-wire    [7  :0]  byte10;                            
-wire    [7  :0]  byte11;                            
-wire    [7  :0]  byte12;                            
-wire    [7  :0]  byte13;                            
-wire    [7  :0]  byte14;                            
-wire    [7  :0]  byte15;                            
-wire    [7  :0]  byte2;                             
-wire    [7  :0]  byte3;                             
-wire    [7  :0]  byte4;                             
-wire    [7  :0]  byte5;                             
-wire    [7  :0]  byte6;                             
-wire    [7  :0]  byte7;                             
-wire    [7  :0]  byte8;                             
-wire    [7  :0]  byte9;                             
-wire             change_flow;                       
-wire             cp0_ifu_icg_en;                    
-wire             cp0_yy_clk_en;                     
-wire             cpurst_b;                          
-wire             forever_cpuclk;                    
-wire             icache_inv_busy;                   
-wire             ifctrl_l1_refill_ins_inv;          
-wire             ifctrl_l1_refill_ins_inv_dn;       
-wire             ifctrl_l1_refill_inv_busy;         
-wire             ifctrl_l1_refill_inv_on;           
-wire             ifdp_l1_refill_bufferable;         
-wire             ifdp_l1_refill_cacheable;          
-wire             ifdp_l1_refill_fifo;               
-wire             ifdp_l1_refill_machine_mode;       
-wire             ifdp_l1_refill_secure;             
-wire             ifdp_l1_refill_supv_mode;          
-wire             ifdp_l1_refill_tsize;              
-wire             ifdp_tag_valid;                    
-wire             ifu_hpcp_icache_miss_pre;          
-wire             index_inc_vld;                     
-wire             inv_wfd_back_clr;                  
-wire             inv_wfd_back_record;               
-wire    [127:0]  ipb_l1_refill_data_aft_v2trans;    
-wire             ipb_l1_refill_data_vld;            
-wire             ipb_l1_refill_grnt;                
-wire    [127:0]  ipb_l1_refill_rdata;               
-wire             ipb_l1_refill_trans_err;           
-wire             ipb_refill_data_vld;               
-wire             ipb_refill_trans_err;              
-wire             ipctrl_l1_refill_chk_err;          
-wire             ipctrl_l1_refill_fifo;             
-wire             ipctrl_l1_refill_miss_req;         
-wire    [38 :0]  ipctrl_l1_refill_ppc;              
-wire             ipctrl_l1_refill_req_for_gateclk;  
-wire    [38 :0]  ipctrl_l1_refill_vpc;              
-wire             l1_refill_clk;                     
-wire             l1_refill_clk_en;                  
-wire    [3  :0]  l1_refill_debug_refill_st;         
-wire             l1_refill_icache_if_first;         
-wire    [38 :0]  l1_refill_icache_if_index;         
-wire    [127:0]  l1_refill_icache_if_inst_data;     
-wire             l1_refill_icache_if_last;          
-wire    [31 :0]  l1_refill_icache_if_pre_code;      
-wire    [27 :0]  l1_refill_icache_if_ptag;          
-wire             l1_refill_icache_if_wr;            
-wire             l1_refill_ifctrl_ctc;              
-wire             l1_refill_ifctrl_idle;             
-wire    [38 :0]  l1_refill_ifctrl_pc;               
-wire             l1_refill_ifctrl_refill_on;        
-wire             l1_refill_ifctrl_reissue;          
-wire             l1_refill_ifctrl_start;            
-wire             l1_refill_ifctrl_start_for_gateclk; 
-wire             l1_refill_ifctrl_trans_cmplt;      
-wire             l1_refill_ifdp_acc_err;            
-wire    [127:0]  l1_refill_ifdp_inst_data;          
-wire    [31 :0]  l1_refill_ifdp_precode;            
-wire             l1_refill_ifdp_refill_on;          
-wire    [28 :0]  l1_refill_ifdp_tag_data;           
-wire             l1_refill_inv_wfd_back;            
-wire             l1_refill_ipb_bufferable;          
-wire             l1_refill_ipb_cacheable;           
-wire             l1_refill_ipb_ctc_inv;             
-wire             l1_refill_ipb_machine_mode;        
-wire    [39 :0]  l1_refill_ipb_ppc;                 
-wire             l1_refill_ipb_pre_cancel;          
-wire             l1_refill_ipb_refill_on;           
-wire             l1_refill_ipb_req;                 
-wire             l1_refill_ipb_req_for_gateclk;     
-wire             l1_refill_ipb_req_pre;             
-wire             l1_refill_ipb_secure;              
-wire             l1_refill_ipb_supv_mode;           
-wire             l1_refill_ipb_tsize;               
-wire    [39 :0]  l1_refill_ipb_vpc;                 
-wire             l1_refill_ipctrl_busy;             
-wire             pad_yy_icg_scan_en;                
-wire             pcgen_l1_refill_chgflw;            
-wire    [31 :0]  pre_code_info;                     
-wire             refill_grnt;                       
-wire             refill_sm_busy;                    
-wire             refill_sm_on;                      
-wire             refill_start;                      
-wire             refill_start_for_gateclk;          
+wire    [7  :0]  byte0;
+wire    [7  :0]  byte1;
+wire    [7  :0]  byte10;
+wire    [7  :0]  byte11;
+wire    [7  :0]  byte12;
+wire    [7  :0]  byte13;
+wire    [7  :0]  byte14;
+wire    [7  :0]  byte15;
+wire    [7  :0]  byte2;
+wire    [7  :0]  byte3;
+wire    [7  :0]  byte4;
+wire    [7  :0]  byte5;
+wire    [7  :0]  byte6;
+wire    [7  :0]  byte7;
+wire    [7  :0]  byte8;
+wire    [7  :0]  byte9;
+wire             change_flow;
+wire             cp0_ifu_icg_en;
+wire             cp0_yy_clk_en;
+wire             cpurst_b;
+wire             forever_cpuclk;
+wire             icache_inv_busy;
+wire             ifctrl_l1_refill_ins_inv;
+wire             ifctrl_l1_refill_ins_inv_dn;
+wire             ifctrl_l1_refill_inv_busy;
+wire             ifctrl_l1_refill_inv_on;
+wire             ifdp_l1_refill_bufferable;
+wire             ifdp_l1_refill_cacheable;
+wire             ifdp_l1_refill_fifo;
+wire             ifdp_l1_refill_machine_mode;
+wire             ifdp_l1_refill_secure;
+wire             ifdp_l1_refill_supv_mode;
+wire             ifdp_l1_refill_tsize;
+wire             ifdp_tag_valid;
+wire             ifu_hpcp_icache_miss_pre;
+wire             index_inc_vld;
+wire             inv_wfd_back_clr;
+wire             inv_wfd_back_record;
+wire    [127:0]  ipb_l1_refill_data_aft_v2trans;
+wire             ipb_l1_refill_data_vld;
+wire             ipb_l1_refill_grnt;
+wire    [127:0]  ipb_l1_refill_rdata;
+wire             ipb_l1_refill_trans_err;
+wire             ipb_refill_data_vld;
+wire             ipb_refill_trans_err;
+wire             ipctrl_l1_refill_chk_err;
+wire             ipctrl_l1_refill_fifo;
+wire             ipctrl_l1_refill_miss_req;
+wire    [38 :0]  ipctrl_l1_refill_ppc;
+wire             ipctrl_l1_refill_req_for_gateclk;
+wire    [38 :0]  ipctrl_l1_refill_vpc;
+wire             l1_refill_clk;
+wire             l1_refill_clk_en;
+wire    [3  :0]  l1_refill_debug_refill_st;
+wire             l1_refill_icache_if_first;
+wire    [38 :0]  l1_refill_icache_if_index;
+wire    [127:0]  l1_refill_icache_if_inst_data;
+wire             l1_refill_icache_if_last;
+wire    [31 :0]  l1_refill_icache_if_pre_code;
+wire    [27 :0]  l1_refill_icache_if_ptag;
+wire             l1_refill_icache_if_wr;
+wire             l1_refill_ifctrl_ctc;
+wire             l1_refill_ifctrl_idle;
+wire    [38 :0]  l1_refill_ifctrl_pc;
+wire             l1_refill_ifctrl_refill_on;
+wire             l1_refill_ifctrl_reissue;
+wire             l1_refill_ifctrl_start;
+wire             l1_refill_ifctrl_start_for_gateclk;
+wire             l1_refill_ifctrl_trans_cmplt;
+wire             l1_refill_ifdp_acc_err;
+wire    [127:0]  l1_refill_ifdp_inst_data;
+wire    [31 :0]  l1_refill_ifdp_precode;
+wire             l1_refill_ifdp_refill_on;
+wire    [28 :0]  l1_refill_ifdp_tag_data;
+wire             l1_refill_inv_wfd_back;
+wire             l1_refill_ipb_bufferable;
+wire             l1_refill_ipb_cacheable;
+wire             l1_refill_ipb_ctc_inv;
+wire             l1_refill_ipb_machine_mode;
+wire    [39 :0]  l1_refill_ipb_ppc;
+wire             l1_refill_ipb_pre_cancel;
+wire             l1_refill_ipb_refill_on;
+wire             l1_refill_ipb_req;
+wire             l1_refill_ipb_req_for_gateclk;
+wire             l1_refill_ipb_req_pre;
+wire             l1_refill_ipb_secure;
+wire             l1_refill_ipb_supv_mode;
+wire             l1_refill_ipb_tsize;
+wire    [39 :0]  l1_refill_ipb_vpc;
+wire             l1_refill_ipctrl_busy;
+wire             pad_yy_icg_scan_en;
+wire             pcgen_l1_refill_chgflw;
+wire    [31 :0]  pre_code_info;
+wire             refill_grnt;
+wire             refill_sm_busy;
+wire             refill_sm_on;
+wire             refill_start;
+wire             refill_start_for_gateclk;
 
 parameter PC_WIDTH = 40;
 parameter IDLE     = 4'b0000;
@@ -299,7 +299,7 @@ gated_clk_cell  x_l1_refill_clk (
 //           .local_en       (l1_refill_clk_en),//Local Condition @47
 //           .module_en      (cp0_ifu_icg_en) @48
 //         ); @49
-assign l1_refill_clk_en = refill_start_for_gateclk || 
+assign l1_refill_clk_en = refill_start_for_gateclk ||
                           (refill_cur_state[3:0] != IDLE);
 
 //------------------FSM of ICache Refill--------------------
@@ -370,7 +370,7 @@ INV_WFD1 : if(ipb_refill_data_vld || ipb_refill_trans_err)
              refill_next_state[3:0] = IDLE;
            end
            else if(ifctrl_l1_refill_ins_inv)
-           refill_next_state[3:0] = CTC_INV;           
+           refill_next_state[3:0] = CTC_INV;
            else
            refill_next_state[3:0] = INV_WFD1;
 INV_WFD2 : if(ipb_refill_data_vld || ipb_refill_trans_err)
@@ -435,14 +435,14 @@ endcase
 end
 
 //------------------Conditional Signal----------------------
-assign refill_start         = ipctrl_l1_refill_miss_req && 
+assign refill_start         = ipctrl_l1_refill_miss_req &&
                               !ifctrl_l1_refill_inv_on;
 assign refill_start_for_gateclk = ipctrl_l1_refill_req_for_gateclk &&
                                   !ifctrl_l1_refill_inv_on;
 
 assign change_flow          = pcgen_l1_refill_chgflw;
 assign refill_grnt          = ipb_l1_refill_grnt;
-assign ipb_refill_data_vld  = ipb_l1_refill_data_vld; 
+assign ipb_refill_data_vld  = ipb_l1_refill_data_vld;
 assign ipb_refill_trans_err = ipb_l1_refill_trans_err;
 
 always @(posedge l1_refill_clk or negedge cpurst_b)
@@ -456,9 +456,9 @@ begin
   else
     inv_wfd_back <= inv_wfd_back;
 end
-assign inv_wfd_back_clr    = refill_start && 
+assign inv_wfd_back_clr    = refill_start &&
                              (refill_cur_state[3:0] == IDLE);
-assign inv_wfd_back_record = ifctrl_l1_refill_ins_inv && 
+assign inv_wfd_back_record = ifctrl_l1_refill_ins_inv &&
                              (refill_cur_state[3:0] == INV_WFD1 ||
                               refill_cur_state[3:0] == WFD1);
 
@@ -471,31 +471,31 @@ assign l1_refill_icache_if_inst_data[127:0]  = ipb_l1_refill_data_aft_v2trans[12
 
 // &Force("output","l1_refill_icache_if_inst_data"); @223
 assign ipb_l1_refill_data_aft_v2trans[127:0] = {
-                                                 {byte1[7:0],  byte0[7:0]}, 
-                                                 {byte3[7:0],  byte2[7:0]}, 
-                                                 {byte5[7:0],  byte4[7:0]}, 
-                                                 {byte7[7:0],  byte6[7:0]}, 
-                                                 {byte9[7:0],  byte8[7:0]}, 
-                                                 {byte11[7:0], byte10[7:0]}, 
-                                                 {byte13[7:0], byte12[7:0]}, 
-                                                 {byte15[7:0], byte14[7:0]} 
-                                               };                                             
-assign byte15[7:0] = ipb_l1_refill_rdata[127:120];                                                           
-assign byte14[7:0] = ipb_l1_refill_rdata[119:112];                                                           
-assign byte13[7:0] = ipb_l1_refill_rdata[111:104];                                                           
-assign byte12[7:0] = ipb_l1_refill_rdata[103: 96];                                                           
-assign byte11[7:0] = ipb_l1_refill_rdata[ 95: 88];                                                           
-assign byte10[7:0] = ipb_l1_refill_rdata[ 87: 80];                                                           
-assign byte9[7:0]  = ipb_l1_refill_rdata[ 79: 72];                                                           
-assign byte8[7:0]  = ipb_l1_refill_rdata[ 71: 64];                                                           
-assign byte7[7:0]  = ipb_l1_refill_rdata[ 63: 56];                                                           
-assign byte6[7:0]  = ipb_l1_refill_rdata[ 55: 48];                                                           
-assign byte5[7:0]  = ipb_l1_refill_rdata[ 47: 40];                                                           
-assign byte4[7:0]  = ipb_l1_refill_rdata[ 39: 32];                                                           
-assign byte3[7:0]  = ipb_l1_refill_rdata[ 31: 24];                                                           
-assign byte2[7:0]  = ipb_l1_refill_rdata[ 23: 16];                                                           
-assign byte1[7:0]  = ipb_l1_refill_rdata[ 15:  8];                                                           
-assign byte0[7:0]  = ipb_l1_refill_rdata[  7:  0]; 
+                                                 {byte1[7:0],  byte0[7:0]},
+                                                 {byte3[7:0],  byte2[7:0]},
+                                                 {byte5[7:0],  byte4[7:0]},
+                                                 {byte7[7:0],  byte6[7:0]},
+                                                 {byte9[7:0],  byte8[7:0]},
+                                                 {byte11[7:0], byte10[7:0]},
+                                                 {byte13[7:0], byte12[7:0]},
+                                                 {byte15[7:0], byte14[7:0]}
+                                               };
+assign byte15[7:0] = ipb_l1_refill_rdata[127:120];
+assign byte14[7:0] = ipb_l1_refill_rdata[119:112];
+assign byte13[7:0] = ipb_l1_refill_rdata[111:104];
+assign byte12[7:0] = ipb_l1_refill_rdata[103: 96];
+assign byte11[7:0] = ipb_l1_refill_rdata[ 95: 88];
+assign byte10[7:0] = ipb_l1_refill_rdata[ 87: 80];
+assign byte9[7:0]  = ipb_l1_refill_rdata[ 79: 72];
+assign byte8[7:0]  = ipb_l1_refill_rdata[ 71: 64];
+assign byte7[7:0]  = ipb_l1_refill_rdata[ 63: 56];
+assign byte6[7:0]  = ipb_l1_refill_rdata[ 55: 48];
+assign byte5[7:0]  = ipb_l1_refill_rdata[ 47: 40];
+assign byte4[7:0]  = ipb_l1_refill_rdata[ 39: 32];
+assign byte3[7:0]  = ipb_l1_refill_rdata[ 31: 24];
+assign byte2[7:0]  = ipb_l1_refill_rdata[ 23: 16];
+assign byte1[7:0]  = ipb_l1_refill_rdata[ 15:  8];
+assign byte0[7:0]  = ipb_l1_refill_rdata[  7:  0];
 
 //refill tag data
 assign l1_refill_icache_if_ptag[27:0] = physical_pc[PC_WIDTH-2:11];
@@ -534,24 +534,24 @@ end
 //if ipb_refill_data_vld && tsize
 //when index_inc_vld , pc[ 4:3] + 1
 assign index_inc_vld = (
-                         (refill_cur_state[3:0] == WFD1) && 
-                         !icache_inv_busy && 
+                         (refill_cur_state[3:0] == WFD1) &&
+                         !icache_inv_busy &&
                          (ipb_l1_refill_trans_err ||
-                          ipb_l1_refill_data_vld) && 
+                          ipb_l1_refill_data_vld) &&
                          tsize
-                       ) || 
+                       ) ||
                        (
-                         (refill_cur_state[3:0] == WFD2) && 
-                         !icache_inv_busy && 
-                         (ipb_l1_refill_trans_err ||                         
-                          ipb_l1_refill_data_vld)
-                       ) || 
-                       (
-                         (refill_cur_state[3:0] == WFD3) && 
-                         !icache_inv_busy && 
+                         (refill_cur_state[3:0] == WFD2) &&
+                         !icache_inv_busy &&
                          (ipb_l1_refill_trans_err ||
                           ipb_l1_refill_data_vld)
-                       );                          
+                       ) ||
+                       (
+                         (refill_cur_state[3:0] == WFD3) &&
+                         !icache_inv_busy &&
+                         (ipb_l1_refill_trans_err ||
+                          ipb_l1_refill_data_vld)
+                       );
 assign icache_inv_busy = ifctrl_l1_refill_inv_busy;
 //l1_refill_icache_if_fifo
 always @(posedge l1_refill_clk or negedge cpurst_b)
@@ -572,14 +572,14 @@ end
 
 //l1_refill_icache_if_wr
 assign l1_refill_icache_if_wr = refill_cur_state[2] && //WFDn
-                                ipb_l1_refill_data_vld && 
+                                ipb_l1_refill_data_vld &&
                                 tsize;
 //l1_refill_icache_if_first
-assign l1_refill_icache_if_first = (refill_cur_state[3:0] == WFD1) && 
-                                   ipb_l1_refill_data_vld && 
+assign l1_refill_icache_if_first = (refill_cur_state[3:0] == WFD1) &&
+                                   ipb_l1_refill_data_vld &&
                                    tsize;
 //l1_refill_icache_if_last
-assign l1_refill_icache_if_last  = (refill_cur_state[3:0] == WFD4) && 
+assign l1_refill_icache_if_last  = (refill_cur_state[3:0] == WFD4) &&
                                    ipb_l1_refill_data_vld;
 
 //==========================================================
@@ -603,10 +603,10 @@ assign l1_refill_icache_if_pre_code[31:0] = pre_code_info[31:0];
 //refill sm on state means refill sm not accept chgflw signal
 //and ifctrl should stall PC
 //refill sm busy state means refill sm not allow icache refill request
-assign refill_sm_on   = (refill_cur_state[3:0] == REQ)     || 
-                        (refill_cur_state[3:0] == CTC_INV) || 
+assign refill_sm_on   = (refill_cur_state[3:0] == REQ)     ||
+                        (refill_cur_state[3:0] == CTC_INV) ||
                          refill_cur_state[2]; //WFDn
-assign refill_sm_busy = (refill_cur_state[3:0] != IDLE);                    
+assign refill_sm_busy = (refill_cur_state[3:0] != IDLE);
 
 //==========================================================
 //               L1 Refill to IF Ctrl
@@ -614,23 +614,23 @@ assign refill_sm_busy = (refill_cur_state[3:0] != IDLE);
 assign l1_refill_ifctrl_refill_on   = refill_sm_on;
 //ipb_l1_refill_trans_err should also be treated as trans_cmplt
 //It will set data valid of ifctrl and not let refill_on_stall set
-assign l1_refill_ifctrl_trans_cmplt = ipb_refill_data_vld || 
+assign l1_refill_ifctrl_trans_cmplt = ipb_refill_data_vld ||
                                       ipb_l1_refill_trans_err;
 assign l1_refill_ifctrl_pc[PC_WIDTH-2:0] = virtual_pc[PC_WIDTH-2:0];
 //L1 Refill Reissue will occur next cycle under two condition:
 //(ifctrl will flop L1_Refill_Reissue and send it to pcgen)
-//1.WFD4 state && ipb_refill_data_vld || 
+//1.WFD4 state && ipb_refill_data_vld ||
 //  WFD1 state && ipb_refill_data_vld && !tsize
-//  which means l1 refill finish normally. 
-//  And when l1 refill WFD4 && data_vld, 
+//  which means l1 refill finish normally.
+//  And when l1 refill WFD4 && data_vld,
 //  pcgen_pc = refill_next_pc and it <not access icache>
-//  Thus, next cycle, reissue refill_next_pc(if_pc at that time) 
+//  Thus, next cycle, reissue refill_next_pc(if_pc at that time)
 //  and let it access icache
-//2.WFDX state && ipb_l1_refill_trans_err 
+//2.WFDX state && ipb_l1_refill_trans_err
 //  a.if if_pc hit refill pc, if_data_vld = 1 and if_stall not set
-//    Expt infor will send to ip stage 
+//    Expt infor will send to ip stage
 //    Next cycle, reissue the next pc of hit pc
-//    Because it not access icache 
+//    Because it not access icache
 //    Even not reissue next pc of hit pc, it will not make mistake
 //    for expt will flush all following operation
 //  b.if if_pc not hit refill pc, if_data_vld = 0 and if_stall set
@@ -638,13 +638,13 @@ assign l1_refill_ifctrl_pc[PC_WIDTH-2:0] = virtual_pc[PC_WIDTH-2:0];
 //    and the if_pc is the same as previous if_pc because of stall
 //    Reissue it and let it access icache
 //3.INV_WFDX
-//  Inst fetch flow has changed already, 
+//  Inst fetch flow has changed already,
 //  and the expt infor will not send to if stage
 //  expt infor also has no sense to if stage
-assign l1_refill_ifctrl_reissue     = (refill_cur_state[3:0] == WFD1) && 
-                                      ipb_refill_data_vld && 
-                                      !tsize || 
-                                      (refill_cur_state[3:0] == WFD4) && 
+assign l1_refill_ifctrl_reissue     = (refill_cur_state[3:0] == WFD1) &&
+                                      ipb_refill_data_vld &&
+                                      !tsize ||
+                                      (refill_cur_state[3:0] == WFD4) &&
                                       ipb_refill_data_vld ||
                                       (refill_cur_state[2]) && //WFDn
                                       ipb_l1_refill_trans_err;
@@ -662,7 +662,7 @@ assign l1_refill_ifctrl_start_for_gateclk  = refill_start_for_gateclk;
 //l1_refill_ifdp_refill_on means inform if stage
 //Inst data from refill state machine not icache
 assign l1_refill_ifdp_refill_on        = refill_sm_on;
-assign l1_refill_ifdp_inst_data[127:0] = ipb_l1_refill_data_aft_v2trans[127:0]; 
+assign l1_refill_ifdp_inst_data[127:0] = ipb_l1_refill_data_aft_v2trans[127:0];
 assign l1_refill_ifdp_precode[31:0]    = pre_code_info[31:0];
 assign l1_refill_ifdp_tag_data[28:0]   = {ifdp_tag_valid, physical_pc[PC_WIDTH-2:11]};
 assign ifdp_tag_valid                  = refill_cur_state[2] && //WFDn
@@ -674,7 +674,7 @@ assign l1_refill_ifdp_acc_err          = refill_cur_state[2] && //WFDn
 //                L1 Refill to IP Stage
 //==========================================================
 assign l1_refill_ipctrl_busy = refill_sm_busy;
-                                       
+
 //==========================================================
 //              Record Transfer Size and prot
 //==========================================================
@@ -757,31 +757,31 @@ assign l1_refill_ipb_supv_mode    = supv_mode;
 assign l1_refill_ipb_machine_mode = machine_mode;
 assign l1_refill_ipb_secure       = secure;
 assign l1_refill_ipb_ppc[39:0]    = {physical_pc[PC_WIDTH-2:0], 1'b0};
-assign l1_refill_ipb_vpc[39:0]    = {virtual_pc[PC_WIDTH-2:0],1'b0}; 
+assign l1_refill_ipb_vpc[39:0]    = {virtual_pc[PC_WIDTH-2:0],1'b0};
 assign l1_refill_ipb_ctc_inv      = (refill_cur_state[3:0] == CTC_INV);
-assign l1_refill_ipb_pre_cancel   = pcgen_l1_refill_chgflw    || 
-                                    ifctrl_l1_refill_inv_busy; 
+assign l1_refill_ipb_pre_cancel   = pcgen_l1_refill_chgflw    ||
+                                    ifctrl_l1_refill_inv_busy;
 //                                    vector_l1_refill_busy;
 
 //==========================================================
 //                 Interface to ipb
 //==========================================================
 assign l1_refill_ipb_refill_on = (refill_cur_state[3:0] == REQ) &&
-                                 !change_flow;                               
+                                 !change_flow;
 assign l1_refill_ipb_req_pre   = (refill_cur_state[3:0] == IDLE) &&
-                                 refill_start_for_gateclk        || 
-                                 (refill_cur_state[3:0] == REQ)  && 
-                                 !change_flow && !refill_grnt    && 
+                                 refill_start_for_gateclk        ||
+                                 (refill_cur_state[3:0] == REQ)  &&
+                                 !change_flow && !refill_grnt    &&
                                  !ifctrl_l1_refill_ins_inv;
 assign l1_refill_ipb_req_for_gateclk = (refill_cur_state[3:0] == IDLE) &&
-                                       refill_start_for_gateclk        || 
-                                       (refill_cur_state[3:0] == REQ)  && 
+                                       refill_start_for_gateclk        ||
+                                       (refill_cur_state[3:0] == REQ)  &&
                                        !ifctrl_l1_refill_ins_inv;
 
 //==========================================================
 //                 Interface to PMU
 //==========================================================
-assign ifu_hpcp_icache_miss_pre = (refill_cur_state[3:0] == WFD1) && 
+assign ifu_hpcp_icache_miss_pre = (refill_cur_state[3:0] == WFD1) &&
                                   (ipb_refill_data_vld || ipb_refill_trans_err);
 
 //Debug Infor

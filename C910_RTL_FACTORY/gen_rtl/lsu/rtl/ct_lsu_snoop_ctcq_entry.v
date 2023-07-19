@@ -42,80 +42,80 @@ module ct_lsu_snoop_ctcq_entry(
 );
 
 // &Ports; @23
-input           cp0_lsu_icg_en;              
-input           cpurst_b;                    
-input           ctcq_create_2nd_trans;       
-input   [15:0]  ctcq_create_asid_va;         
-input           ctcq_create_en_x;            
-input   [5 :0]  ctcq_create_type;            
-input   [35:0]  ctcq_create_va_pa;           
-input           ctcq_inv_en_x;               
-input           ica_tlb_ctcq_inv_cmplt_x;    
-input           lsu_snoop_clk;               
-input           pad_yy_icg_scan_en;          
-output          ctcq_2_cmplt_x;              
-output          ctcq_cmplt_x;                
-output          ctcq_create_rdy_x;           
-output          ctcq_entryx_icache_all_inv;  
-output  [5 :0]  ctcq_entryx_icache_index;    
-output          ctcq_entryx_icache_line_inv; 
-output  [27:0]  ctcq_entryx_icache_ptag;     
-output          ctcq_entryx_pe_req;          
-output          ctcq_entryx_tlb_all_inv;     
-output  [15:0]  ctcq_entryx_tlb_asid;        
-output          ctcq_entryx_tlb_asid_all_inv; 
-output  [26:0]  ctcq_entryx_tlb_va;          
-output          ctcq_entryx_tlb_va_all_inv;  
-output          ctcq_entryx_tlb_va_asid_inv; 
-output          ctcq_vld_x;                  
+input           cp0_lsu_icg_en;
+input           cpurst_b;
+input           ctcq_create_2nd_trans;
+input   [15:0]  ctcq_create_asid_va;
+input           ctcq_create_en_x;
+input   [5 :0]  ctcq_create_type;
+input   [35:0]  ctcq_create_va_pa;
+input           ctcq_inv_en_x;
+input           ica_tlb_ctcq_inv_cmplt_x;
+input           lsu_snoop_clk;
+input           pad_yy_icg_scan_en;
+output          ctcq_2_cmplt_x;
+output          ctcq_cmplt_x;
+output          ctcq_create_rdy_x;
+output          ctcq_entryx_icache_all_inv;
+output  [5 :0]  ctcq_entryx_icache_index;
+output          ctcq_entryx_icache_line_inv;
+output  [27:0]  ctcq_entryx_icache_ptag;
+output          ctcq_entryx_pe_req;
+output          ctcq_entryx_tlb_all_inv;
+output  [15:0]  ctcq_entryx_tlb_asid;
+output          ctcq_entryx_tlb_asid_all_inv;
+output  [26:0]  ctcq_entryx_tlb_va;
+output          ctcq_entryx_tlb_va_all_inv;
+output          ctcq_entryx_tlb_va_asid_inv;
+output          ctcq_vld_x;
 
 // &Regs; @24
-reg             ctcq_2nd_trans;              
-reg             ctcq_2nd_trans_vld;          
-reg     [15:0]  ctcq_asid_va;                
-reg     [1 :0]  ctcq_cmplt;                  
-reg             ctcq_entry_vld;              
-reg     [5 :0]  ctcq_type;                   
-reg     [35:0]  ctcq_va_pa;                  
+reg             ctcq_2nd_trans;
+reg             ctcq_2nd_trans_vld;
+reg     [15:0]  ctcq_asid_va;
+reg     [1 :0]  ctcq_cmplt;
+reg             ctcq_entry_vld;
+reg     [5 :0]  ctcq_type;
+reg     [35:0]  ctcq_va_pa;
 
 // &Wires; @25
-wire            cp0_lsu_icg_en;              
-wire            cpurst_b;                    
-wire            ctcq1transclk;               
-wire            ctcq2transclk;               
-wire            ctcq_1trans_clk_en;          
-wire            ctcq_2_cmplt_x;              
-wire            ctcq_2trans_clk_en;          
-wire            ctcq_cmplt_x;                
-wire            ctcq_create_2nd_trans;       
-wire    [15:0]  ctcq_create_asid_va;         
-wire            ctcq_create_en;              
-wire            ctcq_create_en_x;            
-wire            ctcq_create_rdy_x;           
-wire    [5 :0]  ctcq_create_type;            
-wire    [35:0]  ctcq_create_va_pa;           
-wire            ctcq_ctrl_clk_en;            
-wire            ctcq_entryx_icache_all_inv;  
-wire    [5 :0]  ctcq_entryx_icache_index;    
-wire            ctcq_entryx_icache_line_inv; 
-wire    [27:0]  ctcq_entryx_icache_ptag;     
-wire            ctcq_entryx_pe_req;          
-wire            ctcq_entryx_tlb_all_inv;     
-wire    [15:0]  ctcq_entryx_tlb_asid;        
-wire            ctcq_entryx_tlb_asid_all_inv; 
-wire    [26:0]  ctcq_entryx_tlb_va;          
-wire            ctcq_entryx_tlb_va_all_inv;  
-wire            ctcq_entryx_tlb_va_asid_inv; 
-wire            ctcq_inv_en;                 
-wire            ctcq_inv_en_x;               
-wire    [3 :0]  ctcq_type_lite;              
-wire            ctcq_vld;                    
-wire            ctcq_vld_x;                  
-wire            ctcqctrlclk;                 
-wire            ica_tlb_ctcq_inv_cmplt;      
-wire            ica_tlb_ctcq_inv_cmplt_x;    
-wire            lsu_snoop_clk;               
-wire            pad_yy_icg_scan_en;          
+wire            cp0_lsu_icg_en;
+wire            cpurst_b;
+wire            ctcq1transclk;
+wire            ctcq2transclk;
+wire            ctcq_1trans_clk_en;
+wire            ctcq_2_cmplt_x;
+wire            ctcq_2trans_clk_en;
+wire            ctcq_cmplt_x;
+wire            ctcq_create_2nd_trans;
+wire    [15:0]  ctcq_create_asid_va;
+wire            ctcq_create_en;
+wire            ctcq_create_en_x;
+wire            ctcq_create_rdy_x;
+wire    [5 :0]  ctcq_create_type;
+wire    [35:0]  ctcq_create_va_pa;
+wire            ctcq_ctrl_clk_en;
+wire            ctcq_entryx_icache_all_inv;
+wire    [5 :0]  ctcq_entryx_icache_index;
+wire            ctcq_entryx_icache_line_inv;
+wire    [27:0]  ctcq_entryx_icache_ptag;
+wire            ctcq_entryx_pe_req;
+wire            ctcq_entryx_tlb_all_inv;
+wire    [15:0]  ctcq_entryx_tlb_asid;
+wire            ctcq_entryx_tlb_asid_all_inv;
+wire    [26:0]  ctcq_entryx_tlb_va;
+wire            ctcq_entryx_tlb_va_all_inv;
+wire            ctcq_entryx_tlb_va_asid_inv;
+wire            ctcq_inv_en;
+wire            ctcq_inv_en_x;
+wire    [3 :0]  ctcq_type_lite;
+wire            ctcq_vld;
+wire            ctcq_vld_x;
+wire            ctcqctrlclk;
+wire            ica_tlb_ctcq_inv_cmplt;
+wire            ica_tlb_ctcq_inv_cmplt_x;
+wire            lsu_snoop_clk;
+wire            pad_yy_icg_scan_en;
 
 
 //**************************************
@@ -123,10 +123,10 @@ wire            pad_yy_icg_scan_en;
 //entry content:
 //| entry_vld[1:0]               |
 //| req_type                     |
-//| asid(for tlbi)/VA(for icai)  | 
+//| asid(for tlbi)/VA(for icai)  |
 //| VA(for tlbi)/PA(for icai)    |
 //| cmplt                        |
-//note: 
+//note:
 //    VA:virtual addr
 //    PA:physical addr
 //    tlbi: tlb inv
@@ -164,7 +164,7 @@ always @(posedge ctcq1transclk or negedge cpurst_b)
 begin
   if(~cpurst_b)
   begin
-    ctcq_type[5:0]     <= 6'b0; 
+    ctcq_type[5:0]     <= 6'b0;
     ctcq_asid_va[15:0] <= 16'b0;
     ctcq_2nd_trans     <= 1'b0;
   end
@@ -205,7 +205,7 @@ end
 //==========================================================
 assign ctcq_ctrl_clk_en =  ctcq_create_en
                         || ctcq_cmplt_x
-                        || ica_tlb_ctcq_inv_cmplt; 
+                        || ica_tlb_ctcq_inv_cmplt;
 
 // &Instance("gated_clk_cell","x_ctcq_ctrl_gated_cell"); @116
 gated_clk_cell  x_ctcq_ctrl_gated_cell (
@@ -286,7 +286,7 @@ gated_clk_cell  x_ctcq_2trans_gated_cell (
 //  if(ICI_VA): VA = ADDR[31:16]
 //3.VA(for TLBI) or PA(for ICI):second transaction
 //(only exist when first transaction addr[0]==1)
-//   
+//
 //==========================================================
 assign ctcq_type_lite[3:0] = {ctcq_type[4],ctcq_type[2:0]};//for timing
 //input
@@ -298,14 +298,14 @@ assign ctcq_inv_en            = ctcq_inv_en_x;
 //assign ctcq_vld_x = ctcq_vld;
 assign ctcq_vld_x = ctcq_entry_vld;
 assign ctcq_create_rdy_x = !ctcq_vld;
-//icache inv 
+//icache inv
 //assign ctcq_entryx_icache_all_inv    = (ctcq_type[5:0] == 6'b010000) && ctcq_vld;
 //assign ctcq_entryx_icache_line_inv   = (ctcq_type[5:0] == 6'b010111) && ctcq_vld;
 assign ctcq_entryx_pe_req            = ctcq_vld && !(|ctcq_cmplt[1:0]);
 assign ctcq_entryx_icache_all_inv    = ctcq_type_lite[3:0] == 4'b1000;
 assign ctcq_entryx_icache_line_inv   = ctcq_type_lite[3:0] == 4'b1001;
 assign ctcq_entryx_icache_index[5:0] = ctcq_va_pa[7:2]  & {6{ctcq_vld}};
-assign ctcq_entryx_icache_ptag[`PA_WIDTH-13:0]  = 
+assign ctcq_entryx_icache_ptag[`PA_WIDTH-13:0]  =
                 ctcq_va_pa[`PA_WIDTH-5:8] & {`PA_WIDTH-12{ctcq_vld}};
 //tlb inv
 //assign ctcq_entryx_tlb_all_inv      = (ctcq_type[5:0] == 6'b000000) && ctcq_vld;

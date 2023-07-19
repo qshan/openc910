@@ -44,7 +44,7 @@ main:
 .set HnONE,  0xbc00
 .set Hp1p1,  0x3e00
 .set Hn1p1,  0xbe00
-.set HpDeNormMost, 0x03ff    
+.set HpDeNormMost, 0x03ff
 .set HnDeNormMost, 0x83ff
 
 
@@ -65,8 +65,8 @@ main:
 .set SnZero,   0x80000000 #//1_000'0000'0_000'0000'0000'0000'0000'0000
 .set SpLFN,    0x7f7fffff #//0_111'1111'0_111'1111'1111'1111'1111'1111
 .set SnLFN,    0xff7fffff #//1_111'1111'0_111'1111'1111'1111'1111'1111
-.set SpMIN,    0x00800000 #//0_000'0000'1_000'0000'0000'0000'0000'0000 
-.set SnMIN,    0x80800000 #//1_000'0000'1_000'0000'0000'0000'0000'0000 
+.set SpMIN,    0x00800000 #//0_000'0000'1_000'0000'0000'0000'0000'0000
+.set SnMIN,    0x80800000 #//1_000'0000'1_000'0000'0000'0000'0000'0000
 
 .set SpSPECIAL_1,  0x00000002
 .set SnSPECIAL_1,  0x80000002
@@ -122,9 +122,9 @@ main:
 .set DnZeroL,   0x00000000
 .set DpLFN,     0x7fefffffffffffff #//0_111'1111'1110'_1111'1...1'1111
 .set DpLFNH,    0x7fefffff
-.set DpLFNL,    0xffffffff 
+.set DpLFNL,    0xffffffff
 .set DnLFN,     0xffefffffffffffff #//1_111'1111'1110'_1111'1...1'1111
-.set DnLFNH,    0xffefffff 
+.set DnLFNH,    0xffefffff
 .set DnLFNL,    0xffffffff
 .set DpMIN,     0x0010000000000000 #//0_000'0000'0001'_0000'0...0'0000
 .set DpMINH,    0x00100000
@@ -285,7 +285,7 @@ main:
    csrrw x0, fxcr,x18
 .endm
 
-.macro  FPUQNANCH IMME2, IMM_REG0   ##//imm_reg0 is a tmp reg 
+.macro  FPUQNANCH IMME2, IMM_REG0   ##//imm_reg0 is a tmp reg
     csrrs  x18, fxcr,x0
     li   \IMM_REG0, 0xff7fffff
     and x18,\IMM_REG0,x18
@@ -3772,88 +3772,88 @@ EXCEPTION_FAIL:
       j FAIL
 .global FMULSFAIL
 FMULSFAIL:
-      j FAIL 
+      j FAIL
 .global FMADDSFAIL
 FMADDSFAIL:
-      j FAIL 
+      j FAIL
 .global FMSUBSFAIL
 FMSUBSFAIL:
-      j FAIL 
+      j FAIL
 .global FNMADDSFAIL
 FNMADDSFAIL:
-      j FAIL 
+      j FAIL
 .global FNMSUBSFAIL
 FNMSUBSFAIL:
-      j FAIL 
+      j FAIL
 .global FMULDFAIL
 FMULDFAIL:
-      j FAIL 
+      j FAIL
 .global FMADDDFAIL
 FMADDDFAIL:
-      j FAIL 
+      j FAIL
 .global FMSUBDFAIL
 FMSUBDFAIL:
-      j FAIL 
+      j FAIL
 .global FNMADDDFAIL
 FNMADDDFAIL:
-      j FAIL 
+      j FAIL
 .global FNMSUBDFAIL
 FNMSUBDFAIL:
-      j FAIL 
+      j FAIL
 .global RESULTFAIL
 RESULTFAIL:
-      j FAIL 
+      j FAIL
 .global FLAGCFAIL
 FLAGCFAIL:
-      j FAIL 
+      j FAIL
 .global FDIVSFAIL
 FDIVSFAIL:
-      j FAIL 
+      j FAIL
 .global FRECIPSFAIL
 FRECIPSFAIL:
-      j FAIL 
+      j FAIL
 .global FSQRTSFAIL
 FSQRTSFAIL:
-      j FAIL 
+      j FAIL
 .global FDIVDFAIL
 FDIVDFAIL:
-      j FAIL 
+      j FAIL
 .global FRECIPDFAIL
 FRECIPDFAIL:
-      j FAIL 
+      j FAIL
 .global FSQRTDFAIL
 FSQRTDFAIL:
-      j FAIL 
+      j FAIL
 .global FMAXSFAIL
 FMAXSFAIL:
-      j FAIL 
+      j FAIL
 .global FMINSFAIL
 FMINSFAIL:
-      j FAIL 
+      j FAIL
 .global FEQSFAIL
 FEQSFAIL:
-      j FAIL 
+      j FAIL
 .global FLESFAIL
 FLESFAIL:
-      j FAIL 
+      j FAIL
 .global FLTSFAIL
 FLTSFAIL:
-      j FAIL 
+      j FAIL
 .global FMAXDFAIL
 FMAXDFAIL:
-      j FAIL 
+      j FAIL
 .global FMINDFAIL
 FMINDFAIL:
-      j FAIL 
+      j FAIL
 .global FEQDFAIL
 FEQDFAIL:
-      j FAIL 
+      j FAIL
 .global FLEDFAIL
 FLEDFAIL:
-      j FAIL 
+      j FAIL
 .global FLTDFAIL
 FLTDFAIL:
-      j FAIL 
+      j FAIL
 
 
 .global EXIT

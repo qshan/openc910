@@ -28,36 +28,36 @@ module ct_ifu_btb_tag_array(
 );
 
 // &Ports; @23
-input   [9 :0]  btb_index;         
-input           btb_tag_cen_b;     
-input           btb_tag_clk_en;    
-input   [21:0]  btb_tag_din;       
-input   [3 :0]  btb_tag_wen;       
-input           cp0_ifu_icg_en;    
-input           cp0_yy_clk_en;     
-input           forever_cpuclk;    
-input           pad_yy_icg_scan_en; 
-output  [43:0]  btb_tag_dout;      
+input   [9 :0]  btb_index;
+input           btb_tag_cen_b;
+input           btb_tag_clk_en;
+input   [21:0]  btb_tag_din;
+input   [3 :0]  btb_tag_wen;
+input           cp0_ifu_icg_en;
+input           cp0_yy_clk_en;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+output  [43:0]  btb_tag_dout;
 
 // &Regs; @24
 
 // &Wires; @25
-wire    [9 :0]  btb_index;         
-wire    [21:0]  btb_tag_bwen_bank0; 
-wire    [21:0]  btb_tag_bwen_bank1; 
-wire            btb_tag_cen_b;     
-wire            btb_tag_clk;       
-wire            btb_tag_clk_en;    
-wire    [21:0]  btb_tag_din;       
-wire    [43:0]  btb_tag_dout;      
-wire            btb_tag_en;        
-wire            btb_tag_gwen_bank0; 
-wire            btb_tag_gwen_bank1; 
-wire    [3 :0]  btb_tag_wen;       
-wire            cp0_ifu_icg_en;    
-wire            cp0_yy_clk_en;     
-wire            forever_cpuclk;    
-wire            pad_yy_icg_scan_en; 
+wire    [9 :0]  btb_index;
+wire    [21:0]  btb_tag_bwen_bank0;
+wire    [21:0]  btb_tag_bwen_bank1;
+wire            btb_tag_cen_b;
+wire            btb_tag_clk;
+wire            btb_tag_clk_en;
+wire    [21:0]  btb_tag_din;
+wire    [43:0]  btb_tag_dout;
+wire            btb_tag_en;
+wire            btb_tag_gwen_bank0;
+wire            btb_tag_gwen_bank1;
+wire    [3 :0]  btb_tag_wen;
+wire            cp0_ifu_icg_en;
+wire            cp0_yy_clk_en;
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
 
 
 //Gate Clk

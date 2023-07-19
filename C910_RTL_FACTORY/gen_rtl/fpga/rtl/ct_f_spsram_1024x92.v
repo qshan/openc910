@@ -25,38 +25,38 @@ module ct_f_spsram_1024x92(
 );
 
 // &Ports; @4
-input   [9 :0]  A;           
-input           CEN;         
-input           CLK;         
-input   [91:0]  D;           
-input           GWEN;        
-input   [91:0]  WEN;         
-output  [91:0]  Q;           
+input   [9 :0]  A;
+input           CEN;
+input           CLK;
+input   [91:0]  D;
+input           GWEN;
+input   [91:0]  WEN;
+output  [91:0]  Q;
 
 // &Regs; @5
-reg     [9 :0]  addr_holding; 
+reg     [9 :0]  addr_holding;
 
 // &Wires; @6
-wire    [9 :0]  A;           
-wire            CEN;         
-wire            CLK;         
-wire    [91:0]  D;           
-wire            GWEN;        
-wire    [91:0]  Q;           
-wire    [91:0]  WEN;         
-wire    [9 :0]  addr;        
-wire    [22:0]  ram_din0;    
-wire    [22:0]  ram_din1;    
-wire    [22:0]  ram_din2;    
-wire    [22:0]  ram_din3;    
-wire    [22:0]  ram_dout0;   
-wire    [22:0]  ram_dout1;   
-wire    [22:0]  ram_dout2;   
-wire    [22:0]  ram_dout3;   
-wire            ram_wen0;    
-wire            ram_wen1;    
-wire            ram_wen2;    
-wire            ram_wen3;    
+wire    [9 :0]  A;
+wire            CEN;
+wire            CLK;
+wire    [91:0]  D;
+wire            GWEN;
+wire    [91:0]  Q;
+wire    [91:0]  WEN;
+wire    [9 :0]  addr;
+wire    [22:0]  ram_din0;
+wire    [22:0]  ram_din1;
+wire    [22:0]  ram_din2;
+wire    [22:0]  ram_din3;
+wire    [22:0]  ram_dout0;
+wire    [22:0]  ram_dout1;
+wire    [22:0]  ram_dout2;
+wire    [22:0]  ram_dout3;
+wire            ram_wen0;
+wire            ram_wen1;
+wire            ram_wen2;
+wire            ram_wen3;
 
 // &Force("bus","Q",91,0); @7
 

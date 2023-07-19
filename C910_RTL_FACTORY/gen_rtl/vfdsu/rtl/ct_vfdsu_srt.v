@@ -78,184 +78,184 @@ module ct_vfdsu_srt(
 );
 
 // &Ports; @23
-input           cp0_vfpu_icg_en;                       
-input           cp0_yy_clk_en;                         
-input           cpurst_b;                              
-input           ex1_div;                               
-input   [52:0]  ex1_divisor;                           
-input           ex1_pipedown;                          
-input   [59:0]  ex1_remainder;                         
-input           ex1_sqrt;                              
-input           ex2_pipedown;                          
-input           ex2_srt_first_round;                   
-input           forever_cpuclk;                        
-input           pad_yy_icg_scan_en;                    
-input           srt_secd_round;                        
-input           srt_sm_on;                             
-input           vfdsu_ex2_div;                         
-input           vfdsu_ex2_double;                      
-input           vfdsu_ex2_dz;                          
-input   [12:0]  vfdsu_ex2_expnt_add0;                  
-input   [12:0]  vfdsu_ex2_expnt_add1;                  
-input           vfdsu_ex2_nv;                          
-input           vfdsu_ex2_of_rm_lfn;                   
-input           vfdsu_ex2_op0_norm;                    
-input           vfdsu_ex2_op1_norm;                    
-input   [51:0]  vfdsu_ex2_qnan_f;                      
-input           vfdsu_ex2_qnan_sign;                   
-input           vfdsu_ex2_result_inf;                  
-input           vfdsu_ex2_result_qnan;                 
-input           vfdsu_ex2_result_sign;                 
-input           vfdsu_ex2_result_zero;                 
-input   [2 :0]  vfdsu_ex2_rm;                          
-input           vfdsu_ex2_single;                      
-input           vfdsu_ex2_sqrt;                        
-input           vfdsu_ex2_srt_skip;                    
-output          srt_ctrl_rem_zero;                     
-output          srt_ctrl_skip_srt;                     
-output  [57:0]  total_qt_rt_58;                        
-output  [12:0]  vfdsu_ex3_doub_expnt_rst;              
-output          vfdsu_ex3_double;                      
-output          vfdsu_ex3_dz;                          
-output  [12:0]  vfdsu_ex3_half_expnt_rst;              
-output          vfdsu_ex3_id_srt_skip;                 
-output          vfdsu_ex3_nv;                          
-output          vfdsu_ex3_of;                          
-output          vfdsu_ex3_potnt_of;                    
-output          vfdsu_ex3_potnt_uf;                    
-output  [51:0]  vfdsu_ex3_qnan_f;                      
-output          vfdsu_ex3_qnan_sign;                   
-output          vfdsu_ex3_rem_sign;                    
-output          vfdsu_ex3_rem_zero;                    
-output  [52:0]  vfdsu_ex3_result_denorm_round_add_num; 
-output          vfdsu_ex3_result_inf;                  
-output          vfdsu_ex3_result_lfn;                  
-output          vfdsu_ex3_result_qnan;                 
-output          vfdsu_ex3_result_sign;                 
-output          vfdsu_ex3_result_zero;                 
-output  [2 :0]  vfdsu_ex3_rm;                          
-output          vfdsu_ex3_rslt_denorm;                 
-output  [8 :0]  vfdsu_ex3_sing_expnt_rst;              
-output          vfdsu_ex3_single;                      
-output          vfdsu_ex3_uf;                          
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           ex1_div;
+input   [52:0]  ex1_divisor;
+input           ex1_pipedown;
+input   [59:0]  ex1_remainder;
+input           ex1_sqrt;
+input           ex2_pipedown;
+input           ex2_srt_first_round;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input           srt_secd_round;
+input           srt_sm_on;
+input           vfdsu_ex2_div;
+input           vfdsu_ex2_double;
+input           vfdsu_ex2_dz;
+input   [12:0]  vfdsu_ex2_expnt_add0;
+input   [12:0]  vfdsu_ex2_expnt_add1;
+input           vfdsu_ex2_nv;
+input           vfdsu_ex2_of_rm_lfn;
+input           vfdsu_ex2_op0_norm;
+input           vfdsu_ex2_op1_norm;
+input   [51:0]  vfdsu_ex2_qnan_f;
+input           vfdsu_ex2_qnan_sign;
+input           vfdsu_ex2_result_inf;
+input           vfdsu_ex2_result_qnan;
+input           vfdsu_ex2_result_sign;
+input           vfdsu_ex2_result_zero;
+input   [2 :0]  vfdsu_ex2_rm;
+input           vfdsu_ex2_single;
+input           vfdsu_ex2_sqrt;
+input           vfdsu_ex2_srt_skip;
+output          srt_ctrl_rem_zero;
+output          srt_ctrl_skip_srt;
+output  [57:0]  total_qt_rt_58;
+output  [12:0]  vfdsu_ex3_doub_expnt_rst;
+output          vfdsu_ex3_double;
+output          vfdsu_ex3_dz;
+output  [12:0]  vfdsu_ex3_half_expnt_rst;
+output          vfdsu_ex3_id_srt_skip;
+output          vfdsu_ex3_nv;
+output          vfdsu_ex3_of;
+output          vfdsu_ex3_potnt_of;
+output          vfdsu_ex3_potnt_uf;
+output  [51:0]  vfdsu_ex3_qnan_f;
+output          vfdsu_ex3_qnan_sign;
+output          vfdsu_ex3_rem_sign;
+output          vfdsu_ex3_rem_zero;
+output  [52:0]  vfdsu_ex3_result_denorm_round_add_num;
+output          vfdsu_ex3_result_inf;
+output          vfdsu_ex3_result_lfn;
+output          vfdsu_ex3_result_qnan;
+output          vfdsu_ex3_result_sign;
+output          vfdsu_ex3_result_zero;
+output  [2 :0]  vfdsu_ex3_rm;
+output          vfdsu_ex3_rslt_denorm;
+output  [8 :0]  vfdsu_ex3_sing_expnt_rst;
+output          vfdsu_ex3_single;
+output          vfdsu_ex3_uf;
 
 // &Regs; @24
-reg     [52:0]  ex2_result_double_denorm_round_add_num; 
-reg     [52:0]  ex2_result_half_denorm_round_add_num;  
-reg     [52:0]  ex2_result_single_denorm_round_add_num; 
-reg     [12:0]  vfdsu_ex3_doub_expnt_rst;              
-reg             vfdsu_ex3_double;                      
-reg             vfdsu_ex3_dz;                          
-reg     [12:0]  vfdsu_ex3_half_expnt_rst;              
-reg             vfdsu_ex3_id_srt_skip;                 
-reg             vfdsu_ex3_nv;                          
-reg             vfdsu_ex3_of;                          
-reg             vfdsu_ex3_potnt_of;                    
-reg             vfdsu_ex3_potnt_uf;                    
-reg     [51:0]  vfdsu_ex3_qnan_f;                      
-reg             vfdsu_ex3_qnan_sign;                   
-reg             vfdsu_ex3_rem_sign;                    
-reg     [52:0]  vfdsu_ex3_result_denorm_round_add_num; 
-reg             vfdsu_ex3_result_inf;                  
-reg             vfdsu_ex3_result_lfn;                  
-reg             vfdsu_ex3_result_qnan;                 
-reg             vfdsu_ex3_result_sign;                 
-reg             vfdsu_ex3_result_zero;                 
-reg     [2 :0]  vfdsu_ex3_rm;                          
-reg             vfdsu_ex3_rslt_denorm;                 
-reg     [8 :0]  vfdsu_ex3_sing_expnt_rst;              
-reg             vfdsu_ex3_single;                      
-reg             vfdsu_ex3_uf;                          
+reg     [52:0]  ex2_result_double_denorm_round_add_num;
+reg     [52:0]  ex2_result_half_denorm_round_add_num;
+reg     [52:0]  ex2_result_single_denorm_round_add_num;
+reg     [12:0]  vfdsu_ex3_doub_expnt_rst;
+reg             vfdsu_ex3_double;
+reg             vfdsu_ex3_dz;
+reg     [12:0]  vfdsu_ex3_half_expnt_rst;
+reg             vfdsu_ex3_id_srt_skip;
+reg             vfdsu_ex3_nv;
+reg             vfdsu_ex3_of;
+reg             vfdsu_ex3_potnt_of;
+reg             vfdsu_ex3_potnt_uf;
+reg     [51:0]  vfdsu_ex3_qnan_f;
+reg             vfdsu_ex3_qnan_sign;
+reg             vfdsu_ex3_rem_sign;
+reg     [52:0]  vfdsu_ex3_result_denorm_round_add_num;
+reg             vfdsu_ex3_result_inf;
+reg             vfdsu_ex3_result_lfn;
+reg             vfdsu_ex3_result_qnan;
+reg             vfdsu_ex3_result_sign;
+reg             vfdsu_ex3_result_zero;
+reg     [2 :0]  vfdsu_ex3_rm;
+reg             vfdsu_ex3_rslt_denorm;
+reg     [8 :0]  vfdsu_ex3_sing_expnt_rst;
+reg             vfdsu_ex3_single;
+reg             vfdsu_ex3_uf;
 
 // &Wires; @25
-wire            cp0_vfpu_icg_en;                       
-wire            cp0_yy_clk_en;                         
-wire            cpurst_b;                              
-wire            ex1_div;                               
-wire    [52:0]  ex1_divisor;                           
-wire            ex1_pipedown;                          
-wire    [59:0]  ex1_remainder;                         
-wire            ex1_sqrt;                              
-wire            ex2_div_of;                            
-wire            ex2_div_uf;                            
-wire            ex2_doub_expnt_of;                     
-wire            ex2_doub_expnt_uf;                     
-wire            ex2_doub_potnt_of;                     
-wire            ex2_doub_potnt_uf;                     
-wire            ex2_double_id_nor_srt_skip;            
-wire            ex2_expnt_of;                          
-wire    [12:0]  ex2_expnt_result;                      
-wire            ex2_expnt_uf;                          
-wire            ex2_half_expnt_of;                     
-wire            ex2_half_expnt_uf;                     
-wire            ex2_half_id_nor_srt_skip;              
-wire            ex2_half_potnt_of;                     
-wire            ex2_half_potnt_uf;                     
-wire            ex2_id_nor_srt_skip;                   
-wire            ex2_of;                                
-wire            ex2_of_plus;                           
-wire            ex2_pipe_clk;                          
-wire            ex2_pipe_clk_en;                       
-wire            ex2_pipedown;                          
-wire            ex2_potnt_of;                          
-wire            ex2_potnt_of_pre;                      
-wire            ex2_potnt_uf;                          
-wire            ex2_potnt_uf_pre;                      
-wire    [52:0]  ex2_result_denorm_round_add_num;       
-wire            ex2_result_inf;                        
-wire            ex2_result_lfn;                        
-wire            ex2_result_qnan;                       
-wire            ex2_result_zero;                       
-wire            ex2_rslt_denorm;                       
-wire            ex2_sing_expnt_of;                     
-wire            ex2_sing_expnt_uf;                     
-wire            ex2_sing_potnt_of;                     
-wire            ex2_sing_potnt_uf;                     
-wire            ex2_single_id_nor_srt_skip;            
-wire    [12:0]  ex2_sqrt_expnt_result;                 
-wire            ex2_srt_first_round;                   
-wire            ex2_uf;                                
-wire            ex2_uf_plus;                           
-wire            forever_cpuclk;                        
-wire    [6 :0]  initial_bound_sel_in;                  
-wire    [55:0]  initial_divisor_in;                    
-wire    [60:0]  initial_remainder_in;                  
-wire            initial_srt_en;                        
-wire            initial_srt_sel_div_in;                
-wire            initial_srt_sel_sqrt_in;               
-wire            pad_yy_icg_scan_en;                    
-wire            srt_ctrl_rem_zero;                     
-wire            srt_ctrl_skip_srt;                     
-wire            srt_first_round;                       
-wire    [60:0]  srt_remainder;                         
-wire    [59:0]  srt_remainder_out;                     
-wire            srt_remainder_sign;                    
-wire            srt_secd_round;                        
-wire            srt_sm_on;                             
-wire    [57:0]  total_qt_rt;                           
-wire    [57:0]  total_qt_rt_58;                        
-wire    [57:0]  vdiv_qt_rt;                            
-wire            vfdsu_ex2_div;                         
-wire            vfdsu_ex2_double;                      
-wire            vfdsu_ex2_dz;                          
-wire    [12:0]  vfdsu_ex2_expnt_add0;                  
-wire    [12:0]  vfdsu_ex2_expnt_add1;                  
-wire    [12:0]  vfdsu_ex2_expnt_rst;                   
-wire            vfdsu_ex2_nv;                          
-wire            vfdsu_ex2_of_rm_lfn;                   
-wire            vfdsu_ex2_op0_norm;                    
-wire            vfdsu_ex2_op1_norm;                    
-wire    [51:0]  vfdsu_ex2_qnan_f;                      
-wire            vfdsu_ex2_qnan_sign;                   
-wire            vfdsu_ex2_result_inf;                  
-wire            vfdsu_ex2_result_qnan;                 
-wire            vfdsu_ex2_result_sign;                 
-wire            vfdsu_ex2_result_zero;                 
-wire    [2 :0]  vfdsu_ex2_rm;                          
-wire            vfdsu_ex2_single;                      
-wire            vfdsu_ex2_sqrt;                        
-wire            vfdsu_ex2_srt_skip;                    
-wire            vfdsu_ex3_rem_zero;                    
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            ex1_div;
+wire    [52:0]  ex1_divisor;
+wire            ex1_pipedown;
+wire    [59:0]  ex1_remainder;
+wire            ex1_sqrt;
+wire            ex2_div_of;
+wire            ex2_div_uf;
+wire            ex2_doub_expnt_of;
+wire            ex2_doub_expnt_uf;
+wire            ex2_doub_potnt_of;
+wire            ex2_doub_potnt_uf;
+wire            ex2_double_id_nor_srt_skip;
+wire            ex2_expnt_of;
+wire    [12:0]  ex2_expnt_result;
+wire            ex2_expnt_uf;
+wire            ex2_half_expnt_of;
+wire            ex2_half_expnt_uf;
+wire            ex2_half_id_nor_srt_skip;
+wire            ex2_half_potnt_of;
+wire            ex2_half_potnt_uf;
+wire            ex2_id_nor_srt_skip;
+wire            ex2_of;
+wire            ex2_of_plus;
+wire            ex2_pipe_clk;
+wire            ex2_pipe_clk_en;
+wire            ex2_pipedown;
+wire            ex2_potnt_of;
+wire            ex2_potnt_of_pre;
+wire            ex2_potnt_uf;
+wire            ex2_potnt_uf_pre;
+wire    [52:0]  ex2_result_denorm_round_add_num;
+wire            ex2_result_inf;
+wire            ex2_result_lfn;
+wire            ex2_result_qnan;
+wire            ex2_result_zero;
+wire            ex2_rslt_denorm;
+wire            ex2_sing_expnt_of;
+wire            ex2_sing_expnt_uf;
+wire            ex2_sing_potnt_of;
+wire            ex2_sing_potnt_uf;
+wire            ex2_single_id_nor_srt_skip;
+wire    [12:0]  ex2_sqrt_expnt_result;
+wire            ex2_srt_first_round;
+wire            ex2_uf;
+wire            ex2_uf_plus;
+wire            forever_cpuclk;
+wire    [6 :0]  initial_bound_sel_in;
+wire    [55:0]  initial_divisor_in;
+wire    [60:0]  initial_remainder_in;
+wire            initial_srt_en;
+wire            initial_srt_sel_div_in;
+wire            initial_srt_sel_sqrt_in;
+wire            pad_yy_icg_scan_en;
+wire            srt_ctrl_rem_zero;
+wire            srt_ctrl_skip_srt;
+wire            srt_first_round;
+wire    [60:0]  srt_remainder;
+wire    [59:0]  srt_remainder_out;
+wire            srt_remainder_sign;
+wire            srt_secd_round;
+wire            srt_sm_on;
+wire    [57:0]  total_qt_rt;
+wire    [57:0]  total_qt_rt_58;
+wire    [57:0]  vdiv_qt_rt;
+wire            vfdsu_ex2_div;
+wire            vfdsu_ex2_double;
+wire            vfdsu_ex2_dz;
+wire    [12:0]  vfdsu_ex2_expnt_add0;
+wire    [12:0]  vfdsu_ex2_expnt_add1;
+wire    [12:0]  vfdsu_ex2_expnt_rst;
+wire            vfdsu_ex2_nv;
+wire            vfdsu_ex2_of_rm_lfn;
+wire            vfdsu_ex2_op0_norm;
+wire            vfdsu_ex2_op1_norm;
+wire    [51:0]  vfdsu_ex2_qnan_f;
+wire            vfdsu_ex2_qnan_sign;
+wire            vfdsu_ex2_result_inf;
+wire            vfdsu_ex2_result_qnan;
+wire            vfdsu_ex2_result_sign;
+wire            vfdsu_ex2_result_zero;
+wire    [2 :0]  vfdsu_ex2_rm;
+wire            vfdsu_ex2_single;
+wire            vfdsu_ex2_sqrt;
+wire            vfdsu_ex2_srt_skip;
+wire            vfdsu_ex3_rem_zero;
 
 
 //====================EX2 Expt info=========================
@@ -271,37 +271,37 @@ assign vfdsu_ex2_expnt_rst[12:0] =  (vfdsu_ex2_sqrt)
 assign ex2_sqrt_expnt_result[12:0] = {ex2_expnt_result[12],
                                       ex2_expnt_result[12:1]};
 assign ex2_expnt_result[12:0]  = vfdsu_ex2_expnt_add0[12:0] - vfdsu_ex2_expnt_add1[12:0];
-assign ex2_doub_expnt_of = ~vfdsu_ex2_expnt_rst[12] && (vfdsu_ex2_expnt_rst[11] 
+assign ex2_doub_expnt_of = ~vfdsu_ex2_expnt_rst[12] && (vfdsu_ex2_expnt_rst[11]
                                                         || (vfdsu_ex2_expnt_rst[10] &&
                                                             |vfdsu_ex2_expnt_rst[9:0]));
-assign ex2_sing_expnt_of = ~vfdsu_ex2_expnt_rst[9] && (vfdsu_ex2_expnt_rst[8] 
+assign ex2_sing_expnt_of = ~vfdsu_ex2_expnt_rst[9] && (vfdsu_ex2_expnt_rst[8]
                                                       || (vfdsu_ex2_expnt_rst[7]  &&
                                                           |vfdsu_ex2_expnt_rst[6:0]));
 
-assign ex2_half_expnt_of = ~vfdsu_ex2_expnt_rst[6] && (vfdsu_ex2_expnt_rst[5] 
+assign ex2_half_expnt_of = ~vfdsu_ex2_expnt_rst[6] && (vfdsu_ex2_expnt_rst[5]
                                                       || (vfdsu_ex2_expnt_rst[4]  &&
                                                           |vfdsu_ex2_expnt_rst[3:0]));
 assign ex2_expnt_of      = vfdsu_ex2_double ? ex2_doub_expnt_of :
                                               vfdsu_ex2_single  ? ex2_sing_expnt_of
                                                                 : ex2_half_expnt_of;
 assign ex2_potnt_of_pre  = vfdsu_ex2_double ? ex2_doub_potnt_of :
-                           vfdsu_ex2_single ? ex2_sing_potnt_of : ex2_half_potnt_of;   
-assign ex2_potnt_uf_pre  = vfdsu_ex2_double ? ex2_doub_potnt_uf : 
+                           vfdsu_ex2_single ? ex2_sing_potnt_of : ex2_half_potnt_of;
+assign ex2_potnt_uf_pre  = vfdsu_ex2_double ? ex2_doub_potnt_uf :
                            vfdsu_ex2_single ? ex2_sing_potnt_uf : ex2_half_potnt_uf;
 assign ex2_expnt_uf      = vfdsu_ex2_double ? ex2_doub_expnt_uf :
                            vfdsu_ex2_single ? ex2_sing_expnt_uf : ex2_half_expnt_uf;
 assign ex2_id_nor_srt_skip   = vfdsu_ex2_double ? ex2_double_id_nor_srt_skip :
                                vfdsu_ex2_single ? ex2_single_id_nor_srt_skip
-                                                : ex2_half_id_nor_srt_skip; 
-assign ex2_result_denorm_round_add_num[52:0] = vfdsu_ex2_double ? 
+                                                : ex2_half_id_nor_srt_skip;
+assign ex2_result_denorm_round_add_num[52:0] = vfdsu_ex2_double ?
                                                ex2_result_double_denorm_round_add_num[52:0] :
-                                               vfdsu_ex2_single ? 
+                                               vfdsu_ex2_single ?
                                                ex2_result_single_denorm_round_add_num[52:0] :
                                                ex2_result_half_denorm_round_add_num[52:0];
-                                             
-                                                      
+
+
 //potential overflow when E1-E2 = 128/1024
-assign ex2_doub_potnt_of = ~vfdsu_ex2_expnt_rst[12] && 
+assign ex2_doub_potnt_of = ~vfdsu_ex2_expnt_rst[12] &&
                            ~vfdsu_ex2_expnt_rst[11] &&
                             vfdsu_ex2_expnt_rst[10] &&
                           ~|vfdsu_ex2_expnt_rst[9:0];
@@ -312,10 +312,10 @@ assign ex2_sing_potnt_of = ~vfdsu_ex2_expnt_rst[9]  &&
 assign ex2_half_potnt_of = ~vfdsu_ex2_expnt_rst[6]  &&
                            ~vfdsu_ex2_expnt_rst[5]  &&
                             vfdsu_ex2_expnt_rst[4]  &&
-                          ~|vfdsu_ex2_expnt_rst[3:0];  
-assign ex2_potnt_of      = ex2_potnt_of_pre && 
-                           vfdsu_ex2_op0_norm && 
-                           vfdsu_ex2_op1_norm && 
+                          ~|vfdsu_ex2_expnt_rst[3:0];
+assign ex2_potnt_of      = ex2_potnt_of_pre &&
+                           vfdsu_ex2_op0_norm &&
+                           vfdsu_ex2_op1_norm &&
                            vfdsu_ex2_div;
 
 //When input is normal, underflow when E1-E2 <= -127/-1023/-15
@@ -331,45 +331,45 @@ assign ex2_half_potnt_uf = &vfdsu_ex2_expnt_rst[6:4]   &&
 //potential underflow when E1-E2 = -126/-1022
 assign ex2_doub_potnt_uf = &vfdsu_ex2_expnt_rst[12:10] &&
                           ~|vfdsu_ex2_expnt_rst[9:2]   &&
-                            vfdsu_ex2_expnt_rst[1]     && 
+                            vfdsu_ex2_expnt_rst[1]     &&
                            !vfdsu_ex2_expnt_rst[0];
 assign ex2_sing_potnt_uf = &vfdsu_ex2_expnt_rst[9:7]   &&
                           ~|vfdsu_ex2_expnt_rst[6:2]   &&
                             vfdsu_ex2_expnt_rst[1]     &&
                            !vfdsu_ex2_expnt_rst[0];
 
-assign ex2_potnt_uf      = (ex2_potnt_uf_pre && 
-                            vfdsu_ex2_op0_norm && 
+assign ex2_potnt_uf      = (ex2_potnt_uf_pre &&
+                            vfdsu_ex2_op0_norm &&
                             vfdsu_ex2_op1_norm &&
                             vfdsu_ex2_div)     ||
-                           (ex2_potnt_uf_pre   && 
+                           (ex2_potnt_uf_pre   &&
                             vfdsu_ex2_op0_norm);
 
 //========================EX2 Overflow======================
-//ex2 overflow when 
+//ex2 overflow when
 //  1.op0 & op1 both norm && expnt overflow
 //  2.ex1_id_of
 assign ex2_of      = ex2_of_plus;
-assign ex2_of_plus = ex2_div_of  && vfdsu_ex2_div; 
-assign ex2_div_of  = vfdsu_ex2_op0_norm && 
-                     vfdsu_ex2_op1_norm && 
+assign ex2_of_plus = ex2_div_of  && vfdsu_ex2_div;
+assign ex2_div_of  = vfdsu_ex2_op0_norm &&
+                     vfdsu_ex2_op1_norm &&
                      ex2_expnt_of;
 
 //=======================EX2 Underflow======================
-//ex2 underflow when 
+//ex2 underflow when
 //  1.op0 & op1 both norm && expnt underflow
 //  2.ex1_id_uf
 //  and detect when to skip the srt, here, we have further optmization
 assign ex2_uf      = ex2_uf_plus;
-assign ex2_uf_plus = ex2_div_uf  && vfdsu_ex2_div; 
-assign ex2_div_uf  = vfdsu_ex2_op0_norm && 
-                     vfdsu_ex2_op1_norm && 
+assign ex2_uf_plus = ex2_div_uf  && vfdsu_ex2_div;
+assign ex2_div_uf  = vfdsu_ex2_op0_norm &&
+                     vfdsu_ex2_op1_norm &&
                      ex2_expnt_uf;
-assign ex2_double_id_nor_srt_skip =  vfdsu_ex2_expnt_rst[12] 
+assign ex2_double_id_nor_srt_skip =  vfdsu_ex2_expnt_rst[12]
                                      && (vfdsu_ex2_expnt_rst[11:0]<12'hbcd);
-assign ex2_single_id_nor_srt_skip =  vfdsu_ex2_expnt_rst[12] 
+assign ex2_single_id_nor_srt_skip =  vfdsu_ex2_expnt_rst[12]
                                      && (vfdsu_ex2_expnt_rst[11:0]<12'hf6a);
-assign ex2_half_id_nor_srt_skip   =  vfdsu_ex2_expnt_rst[12] 
+assign ex2_half_id_nor_srt_skip   =  vfdsu_ex2_expnt_rst[12]
                                      && (vfdsu_ex2_expnt_rst[11:0]<12'hfe7);
 assign ex2_rslt_denorm            = ex2_uf;
 
@@ -395,7 +395,7 @@ case(vfdsu_ex2_expnt_rst[12:0])
   13'h1bf7:ex2_result_double_denorm_round_add_num[52:0] = 53'h800; //-1033 -10
   13'h1bf6:ex2_result_double_denorm_round_add_num[52:0] = 53'h1000; //-1034 -11
   13'h1bf5:ex2_result_double_denorm_round_add_num[52:0] = 53'h2000; //-1035 -12
-  13'h1bf4:ex2_result_double_denorm_round_add_num[52:0] = 53'h4000; //-1036 -13   
+  13'h1bf4:ex2_result_double_denorm_round_add_num[52:0] = 53'h4000; //-1036 -13
   13'h1bf3:ex2_result_double_denorm_round_add_num[52:0] = 53'h8000; // -1037
   13'h1bf2:ex2_result_double_denorm_round_add_num[52:0] = 53'h10000;//-1038
   13'h1bf1:ex2_result_double_denorm_round_add_num[52:0] = 53'h20000;//-1039
@@ -456,7 +456,7 @@ case(vfdsu_ex2_expnt_rst[12:0])
   13'h1f77:ex2_result_single_denorm_round_add_num[52:0] = 53'h10000000000; //-137 -10
   13'h1f76:ex2_result_single_denorm_round_add_num[52:0] = 53'h20000000000; //-138 -11
   13'h1f75:ex2_result_single_denorm_round_add_num[52:0] = 53'h40000000000; //-139 -12
-  13'h1f74:ex2_result_single_denorm_round_add_num[52:0] = 53'h80000000000; //-140 -13   
+  13'h1f74:ex2_result_single_denorm_round_add_num[52:0] = 53'h80000000000; //-140 -13
   13'h1f73:ex2_result_single_denorm_round_add_num[52:0] = 53'h100000000000; // -141 -14
   13'h1f72:ex2_result_single_denorm_round_add_num[52:0] = 53'h200000000000;//-142  -15
   13'h1f71:ex2_result_single_denorm_round_add_num[52:0] = 53'h400000000000;//-143 -16
@@ -493,9 +493,9 @@ end
 //===================special result========================
 assign ex2_result_zero = vfdsu_ex2_result_zero;
 assign ex2_result_qnan = vfdsu_ex2_result_qnan;
-assign ex2_result_inf  = vfdsu_ex2_result_inf || 
+assign ex2_result_inf  = vfdsu_ex2_result_inf ||
                          ex2_of_plus && !vfdsu_ex2_of_rm_lfn;
-assign ex2_result_lfn  =  
+assign ex2_result_lfn  =
                          ex2_of_plus &&  vfdsu_ex2_of_rm_lfn;
 
 
@@ -542,10 +542,10 @@ begin
     vfdsu_ex3_sing_expnt_rst[8:0] <= 9'b0;
     vfdsu_ex3_half_expnt_rst[12:0] <= 13'b0;
     vfdsu_ex3_result_sign     <= 1'b0;
-    vfdsu_ex3_qnan_sign       <= 1'b0;    
+    vfdsu_ex3_qnan_sign       <= 1'b0;
     vfdsu_ex3_qnan_f[51:0]    <= 52'b0;
     vfdsu_ex3_rm[2:0]         <= 3'b0;
-    vfdsu_ex3_result_denorm_round_add_num[52:0] 
+    vfdsu_ex3_result_denorm_round_add_num[52:0]
                               <= 53'b0;
     vfdsu_ex3_rslt_denorm     <= 1'b0;
     vfdsu_ex3_id_srt_skip     <= 1'b0;
@@ -554,10 +554,10 @@ begin
   end
   else if(ex2_pipedown)
   begin
-    vfdsu_ex3_result_zero     <= ex2_result_zero; 
+    vfdsu_ex3_result_zero     <= ex2_result_zero;
     vfdsu_ex3_result_qnan     <= ex2_result_qnan;
     vfdsu_ex3_result_inf      <= ex2_result_inf;
-    vfdsu_ex3_result_lfn      <= ex2_result_lfn; 
+    vfdsu_ex3_result_lfn      <= ex2_result_lfn;
     vfdsu_ex3_of              <= ex2_of;
     vfdsu_ex3_uf              <= ex2_uf;
     vfdsu_ex3_nv              <= vfdsu_ex2_nv;
@@ -570,10 +570,10 @@ begin
     vfdsu_ex3_sing_expnt_rst[8:0] <= vfdsu_ex2_expnt_rst[8:0];
     vfdsu_ex3_half_expnt_rst[12:0] <= vfdsu_ex2_expnt_rst[12:0];
     vfdsu_ex3_result_sign     <= vfdsu_ex2_result_sign;
-    vfdsu_ex3_qnan_sign       <= vfdsu_ex2_qnan_sign;    
+    vfdsu_ex3_qnan_sign       <= vfdsu_ex2_qnan_sign;
     vfdsu_ex3_qnan_f[51:0]    <= vfdsu_ex2_qnan_f[51:0];
     vfdsu_ex3_rm[2:0]         <= vfdsu_ex2_rm[2:0];
-    vfdsu_ex3_result_denorm_round_add_num[52:0] 
+    vfdsu_ex3_result_denorm_round_add_num[52:0]
                               <= ex2_result_denorm_round_add_num[52:0];
     vfdsu_ex3_rslt_denorm     <= ex2_rslt_denorm;
     vfdsu_ex3_id_srt_skip     <= ex2_id_nor_srt_skip;
@@ -582,7 +582,7 @@ begin
   end
   else
   begin
-    vfdsu_ex3_result_zero     <= vfdsu_ex3_result_zero; 
+    vfdsu_ex3_result_zero     <= vfdsu_ex3_result_zero;
     vfdsu_ex3_result_qnan     <= vfdsu_ex3_result_qnan;
     vfdsu_ex3_result_inf      <= vfdsu_ex3_result_inf;
     vfdsu_ex3_result_lfn      <= vfdsu_ex3_result_lfn;
@@ -598,10 +598,10 @@ begin
     vfdsu_ex3_sing_expnt_rst[8:0] <= vfdsu_ex3_sing_expnt_rst[8:0];
     vfdsu_ex3_half_expnt_rst[12:0] <= vfdsu_ex3_half_expnt_rst[12:0];
     vfdsu_ex3_result_sign     <= vfdsu_ex3_result_sign;
-    vfdsu_ex3_qnan_sign       <= vfdsu_ex3_qnan_sign;     
+    vfdsu_ex3_qnan_sign       <= vfdsu_ex3_qnan_sign;
     vfdsu_ex3_qnan_f[51:0]    <= vfdsu_ex3_qnan_f[51:0];
     vfdsu_ex3_rm[2:0]         <= vfdsu_ex3_rm[2:0];
-    vfdsu_ex3_result_denorm_round_add_num[52:0] 
+    vfdsu_ex3_result_denorm_round_add_num[52:0]
                               <= vfdsu_ex3_result_denorm_round_add_num[52:0];
     vfdsu_ex3_rslt_denorm     <=  vfdsu_ex3_rslt_denorm;
     vfdsu_ex3_id_srt_skip    <=  vfdsu_ex3_id_srt_skip;
@@ -645,7 +645,7 @@ assign srt_ctrl_rem_zero        =  vfdsu_ex3_rem_zero;
 // &Force("bus","srt_remainder_out",69,0); @415
 // &Force("nonport","srt_remainder_out"); @422
 // &Force("nonport","vdiv_qt_rt"); @423
-assign initial_divisor_in[55:0]   = {ex1_divisor[52:0],3'b000}; 
+assign initial_divisor_in[55:0]   = {ex1_divisor[52:0],3'b000};
 
 assign initial_remainder_in[60:0] = {2'b00,ex1_remainder[59:1]};
 

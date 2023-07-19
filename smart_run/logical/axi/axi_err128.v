@@ -73,103 +73,103 @@ module axi_err128(
 );
 
 
-input   [39 :0]  araddr_s1;      
-input   [1  :0]  arburst_s1;     
-input   [3  :0]  arcache_s1;     
-input   [7  :0]  arid_s1;        
-input   [7  :0]  arlen_s1;       
-input   [2  :0]  arprot_s1;      
-input   [2  :0]  arsize_s1;      
-input            arvalid_s1;     
-input   [39 :0]  awaddr_s1;      
-input   [1  :0]  awburst_s1;     
-input   [3  :0]  awcache_s1;     
-input   [7  :0]  awid_s1;        
-input   [7  :0]  awlen_s1;       
-input   [2  :0]  awprot_s1;      
-input   [2  :0]  awsize_s1;      
-input            awvalid_s1;     
-input            bready_s1;      
-input            pad_cpu_rst_b;  
-input            pll_core_cpuclk; 
-input            rready_s1;      
-input   [127:0]  wdata_s1;       
-input   [7  :0]  wid_s1;         
-input            wlast_s1;       
-input   [15 :0]  wstrb_s1;       
-input            wvalid_s1;      
-output           arready_s1;     
-output           awready_s1;     
-output  [7  :0]  bid_s1;         
-output  [1  :0]  bresp_s1;       
-output           bvalid_s1;      
-output  [127:0]  rdata_s1;       
-output  [7  :0]  rid_s1;         
-output           rlast_s1;       
-output  [1  :0]  rresp_s1;       
-output           rvalid_s1;      
-output           wready_s1;      
+input   [39 :0]  araddr_s1;
+input   [1  :0]  arburst_s1;
+input   [3  :0]  arcache_s1;
+input   [7  :0]  arid_s1;
+input   [7  :0]  arlen_s1;
+input   [2  :0]  arprot_s1;
+input   [2  :0]  arsize_s1;
+input            arvalid_s1;
+input   [39 :0]  awaddr_s1;
+input   [1  :0]  awburst_s1;
+input   [3  :0]  awcache_s1;
+input   [7  :0]  awid_s1;
+input   [7  :0]  awlen_s1;
+input   [2  :0]  awprot_s1;
+input   [2  :0]  awsize_s1;
+input            awvalid_s1;
+input            bready_s1;
+input            pad_cpu_rst_b;
+input            pll_core_cpuclk;
+input            rready_s1;
+input   [127:0]  wdata_s1;
+input   [7  :0]  wid_s1;
+input            wlast_s1;
+input   [15 :0]  wstrb_s1;
+input            wvalid_s1;
+output           arready_s1;
+output           awready_s1;
+output  [7  :0]  bid_s1;
+output  [1  :0]  bresp_s1;
+output           bvalid_s1;
+output  [127:0]  rdata_s1;
+output  [7  :0]  rid_s1;
+output           rlast_s1;
+output  [1  :0]  rresp_s1;
+output           rvalid_s1;
+output           wready_s1;
 
 
-reg     [7  :0]  arid;           
-reg     [7  :0]  arlen;          
-reg              arready;        
-reg     [7  :0]  awid;           
-reg     [7  :0]  awlen;          
-reg              awready;        
-reg     [7  :0]  bid;            
-reg     [1  :0]  cur_state;      
-reg     [39 :0]  mem_addr;       
-reg              mem_cen;        
-reg     [127:0]  mem_din;        
-reg     [15 :0]  mem_wen;        
-reg     [1  :0]  next_state;     
-reg              read_dly;       
-reg     [7  :0]  read_step;      
-reg              rvalid;         
-reg     [7  :0]  write_step;     
+reg     [7  :0]  arid;
+reg     [7  :0]  arlen;
+reg              arready;
+reg     [7  :0]  awid;
+reg     [7  :0]  awlen;
+reg              awready;
+reg     [7  :0]  bid;
+reg     [1  :0]  cur_state;
+reg     [39 :0]  mem_addr;
+reg              mem_cen;
+reg     [127:0]  mem_din;
+reg     [15 :0]  mem_wen;
+reg     [1  :0]  next_state;
+reg              read_dly;
+reg     [7  :0]  read_step;
+reg              rvalid;
+reg     [7  :0]  write_step;
 
 
-wire    [39 :0]  araddr_s1;      
-wire    [7  :0]  arid_s1;        
-wire    [7  :0]  arlen_s1;       
-wire             arready_s1;     
-wire             arvalid_s1;     
-wire    [39 :0]  awaddr_s1;      
-wire    [7  :0]  awid_s1;        
-wire    [7  :0]  awlen_s1;       
-wire             awready_s1;     
-wire             awvalid_s1;     
-wire    [7  :0]  bid_s1;         
-wire             bready_s1;      
-wire    [1  :0]  bresp_s1;       
-wire             bvalid;         
-wire             bvalid_s1;      
-wire    [127:0]  mem_dout;       
-wire             pad_cpu_rst_b;  
-wire             pll_core_cpuclk; 
-wire    [127:0]  rdata_s1;       
-wire             read_over;      
-wire    [7  :0]  rid_s1;         
-wire             rlast;          
-wire             rlast_s1;       
-wire             rready_s1;      
-wire    [1  :0]  rresp_s1;       
-wire             rvalid_s1;      
-wire    [127:0]  wdata_s1;       
-wire             wrap2_1;        
-wire             wrap2_read_en;  
-wire             wrap2_write_en; 
-wire             wrap4_1;        
-wire             wrap4_2;        
-wire             wrap4_3;        
-wire             wrap4_read_en;  
-wire             wrap4_write_en; 
-wire             wready;         
-wire             wready_s1;      
-wire             write_over;     
-wire    [15 :0]  wstrb_s1;       
-wire             wvalid_s1;      
+wire    [39 :0]  araddr_s1;
+wire    [7  :0]  arid_s1;
+wire    [7  :0]  arlen_s1;
+wire             arready_s1;
+wire             arvalid_s1;
+wire    [39 :0]  awaddr_s1;
+wire    [7  :0]  awid_s1;
+wire    [7  :0]  awlen_s1;
+wire             awready_s1;
+wire             awvalid_s1;
+wire    [7  :0]  bid_s1;
+wire             bready_s1;
+wire    [1  :0]  bresp_s1;
+wire             bvalid;
+wire             bvalid_s1;
+wire    [127:0]  mem_dout;
+wire             pad_cpu_rst_b;
+wire             pll_core_cpuclk;
+wire    [127:0]  rdata_s1;
+wire             read_over;
+wire    [7  :0]  rid_s1;
+wire             rlast;
+wire             rlast_s1;
+wire             rready_s1;
+wire    [1  :0]  rresp_s1;
+wire             rvalid_s1;
+wire    [127:0]  wdata_s1;
+wire             wrap2_1;
+wire             wrap2_read_en;
+wire             wrap2_write_en;
+wire             wrap4_1;
+wire             wrap4_2;
+wire             wrap4_3;
+wire             wrap4_read_en;
+wire             wrap4_write_en;
+wire             wready;
+wire             wready_s1;
+wire             write_over;
+wire    [15 :0]  wstrb_s1;
+wire             wvalid_s1;
 
 
 
@@ -312,7 +312,7 @@ begin
       read_step[7:0] <= 8'b0;
   else if((cur_state[1:0] == READ) && rready_s1 && rvalid)
       read_step[7:0] <= read_step[7:0] + 1'b1;
-  else 
+  else
       read_step[7:0] <= read_step[7:0];
 end
 
@@ -325,7 +325,7 @@ begin
       write_step[7:0] <= 8'b0;
   else if((cur_state[1:0] == WRITE) && wvalid_s1 && wready)
       write_step[7:0] <= write_step[7:0] + 1'b1;
-  else 
+  else
       write_step[7:0] <= write_step[7:0];
 end
 
@@ -365,7 +365,7 @@ begin
     begin
       mem_addr[39:0] <= awaddr_s1[39:0];
     end
-  else if((wrap4_1 || wrap4_2 || wrap4_3) && 
+  else if((wrap4_1 || wrap4_2 || wrap4_3) &&
           ((wvalid_s1 && wready) || (rready_s1 && rvalid)))
     begin
       mem_addr[39:0] <= mem_addr[39:0] - 6'h30;

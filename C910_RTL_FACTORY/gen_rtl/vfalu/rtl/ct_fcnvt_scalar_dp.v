@@ -58,117 +58,117 @@ module ct_fcnvt_scalar_dp(
 );
 
 // &Ports; @22
-input           cp0_vfpu_icg_en;          
-input           cp0_yy_clk_en;            
-input           cpurst_b;                 
-input   [19:0]  dp_vfalu_ex1_pipex_func;  
-input   [2 :0]  dp_vfalu_ex1_pipex_imm0;  
-input   [63:0]  dp_vfalu_ex1_pipex_srcf0; 
-input           ex1_pipedown;             
-input           ex3_pipedown;             
-input   [4 :0]  fcnvt_ex3_expt;           
-input   [63:0]  fcnvt_ex3_result;         
-input           forever_cpuclk;           
-input           pad_yy_icg_scan_en;       
-input   [2 :0]  vfpu_yy_xx_rm;            
-output  [63:0]  dp_ex1_src;               
-output          ex1_dest_double;          
-output          ex1_dest_float;           
-output          ex1_dest_single;          
-output          ex1_narrow;               
-output  [4 :0]  ex1_rm;                   
-output          ex1_sover;                
-output          ex1_src_double;           
-output          ex1_src_float;            
-output          ex1_src_l16;              
-output          ex1_src_l32;              
-output          ex1_src_l64;              
-output          ex1_src_si;               
-output          ex1_src_single;           
-output          ex1_widden;               
-output          ex2_dest_double;          
-output          ex2_dest_float;           
-output          ex2_dest_half;            
-output          ex2_dest_l16;             
-output          ex2_dest_l32;             
-output          ex2_dest_l64;             
-output          ex2_dest_l8;              
-output          ex2_dest_si;              
-output          ex2_dest_single;          
-output          ex2_src_float;            
-output          fcnvt_ereg_forward_r_vld; 
-output  [4 :0]  fcnvt_ereg_forward_result; 
-output          fcnvt_forward_r_vld;      
-output  [63:0]  fcnvt_forward_result;     
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input   [19:0]  dp_vfalu_ex1_pipex_func;
+input   [2 :0]  dp_vfalu_ex1_pipex_imm0;
+input   [63:0]  dp_vfalu_ex1_pipex_srcf0;
+input           ex1_pipedown;
+input           ex3_pipedown;
+input   [4 :0]  fcnvt_ex3_expt;
+input   [63:0]  fcnvt_ex3_result;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input   [2 :0]  vfpu_yy_xx_rm;
+output  [63:0]  dp_ex1_src;
+output          ex1_dest_double;
+output          ex1_dest_float;
+output          ex1_dest_single;
+output          ex1_narrow;
+output  [4 :0]  ex1_rm;
+output          ex1_sover;
+output          ex1_src_double;
+output          ex1_src_float;
+output          ex1_src_l16;
+output          ex1_src_l32;
+output          ex1_src_l64;
+output          ex1_src_si;
+output          ex1_src_single;
+output          ex1_widden;
+output          ex2_dest_double;
+output          ex2_dest_float;
+output          ex2_dest_half;
+output          ex2_dest_l16;
+output          ex2_dest_l32;
+output          ex2_dest_l64;
+output          ex2_dest_l8;
+output          ex2_dest_si;
+output          ex2_dest_single;
+output          ex2_src_float;
+output          fcnvt_ereg_forward_r_vld;
+output  [4 :0]  fcnvt_ereg_forward_result;
+output          fcnvt_forward_r_vld;
+output  [63:0]  fcnvt_forward_result;
 
 // &Regs; @23
-reg             ex2_dest_double;          
-reg             ex2_dest_float;           
-reg             ex2_dest_half;            
-reg             ex2_dest_l16;             
-reg             ex2_dest_l32;             
-reg             ex2_dest_l64;             
-reg             ex2_dest_si;              
-reg             ex2_dest_single;          
-reg             ex2_src_float;            
+reg             ex2_dest_double;
+reg             ex2_dest_float;
+reg             ex2_dest_half;
+reg             ex2_dest_l16;
+reg             ex2_dest_l32;
+reg             ex2_dest_l64;
+reg             ex2_dest_si;
+reg             ex2_dest_single;
+reg             ex2_src_float;
 
 // &Wires; @24
-wire            cp0_vfpu_icg_en;          
-wire            cp0_yy_clk_en;            
-wire            cpurst_b;                 
-wire    [63:0]  dp_ex1_src;               
-wire    [19:0]  dp_vfalu_ex1_pipex_func;  
-wire    [2 :0]  dp_vfalu_ex1_pipex_imm0;  
-wire    [63:0]  dp_vfalu_ex1_pipex_srcf0; 
-wire            ex1_dest_double;          
-wire            ex1_dest_float;           
-wire            ex1_dest_half;            
-wire            ex1_dest_l16;             
-wire            ex1_dest_l32;             
-wire            ex1_dest_l64;             
-wire            ex1_dest_si;              
-wire            ex1_dest_single;          
-wire            ex1_equal;                
-wire            ex1_narrow;               
-wire            ex1_pipe_clk;             
-wire            ex1_pipe_clk_en;          
-wire            ex1_pipedown;             
-wire    [4 :0]  ex1_rm;                   
-wire            ex1_rm_rdn;               
-wire            ex1_rm_rmm;               
-wire            ex1_rm_rne;               
-wire            ex1_rm_rtz;               
-wire            ex1_rm_rup;               
-wire            ex1_sover;                
-wire    [63:0]  ex1_src0;                 
-wire            ex1_src_double;           
-wire            ex1_src_float;            
-wire            ex1_src_l16;              
-wire            ex1_src_l32;              
-wire            ex1_src_l64;              
-wire            ex1_src_si;               
-wire            ex1_src_single;           
-wire            ex1_widden;               
-wire            ex2_dest_l8;              
-wire            ex3_pipedown;             
-wire            fcnvt_ereg_forward_r_vld; 
-wire    [4 :0]  fcnvt_ereg_forward_result; 
-wire    [4 :0]  fcnvt_ex3_expt;           
-wire    [63:0]  fcnvt_ex3_result;         
-wire            fcnvt_forward_r_vld;      
-wire    [63:0]  fcnvt_forward_result;     
-wire            forever_cpuclk;           
-wire    [19:0]  func;                     
-wire            pad_yy_icg_scan_en;       
-wire    [2 :0]  vfalu_rm;                 
-wire    [2 :0]  vfalu_static_rm;          
-wire    [2 :0]  vfpu_yy_xx_rm;            
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [63:0]  dp_ex1_src;
+wire    [19:0]  dp_vfalu_ex1_pipex_func;
+wire    [2 :0]  dp_vfalu_ex1_pipex_imm0;
+wire    [63:0]  dp_vfalu_ex1_pipex_srcf0;
+wire            ex1_dest_double;
+wire            ex1_dest_float;
+wire            ex1_dest_half;
+wire            ex1_dest_l16;
+wire            ex1_dest_l32;
+wire            ex1_dest_l64;
+wire            ex1_dest_si;
+wire            ex1_dest_single;
+wire            ex1_equal;
+wire            ex1_narrow;
+wire            ex1_pipe_clk;
+wire            ex1_pipe_clk_en;
+wire            ex1_pipedown;
+wire    [4 :0]  ex1_rm;
+wire            ex1_rm_rdn;
+wire            ex1_rm_rmm;
+wire            ex1_rm_rne;
+wire            ex1_rm_rtz;
+wire            ex1_rm_rup;
+wire            ex1_sover;
+wire    [63:0]  ex1_src0;
+wire            ex1_src_double;
+wire            ex1_src_float;
+wire            ex1_src_l16;
+wire            ex1_src_l32;
+wire            ex1_src_l64;
+wire            ex1_src_si;
+wire            ex1_src_single;
+wire            ex1_widden;
+wire            ex2_dest_l8;
+wire            ex3_pipedown;
+wire            fcnvt_ereg_forward_r_vld;
+wire    [4 :0]  fcnvt_ereg_forward_result;
+wire    [4 :0]  fcnvt_ex3_expt;
+wire    [63:0]  fcnvt_ex3_result;
+wire            fcnvt_forward_r_vld;
+wire    [63:0]  fcnvt_forward_result;
+wire            forever_cpuclk;
+wire    [19:0]  func;
+wire            pad_yy_icg_scan_en;
+wire    [2 :0]  vfalu_rm;
+wire    [2 :0]  vfalu_static_rm;
+wire    [2 :0]  vfpu_yy_xx_rm;
 
 
 //Round Mode Set
 assign vfalu_static_rm[2:0] = dp_vfalu_ex1_pipex_imm0[2:0];
 assign vfalu_rm[2:0]        = (vfalu_static_rm[2:0] == 3'b111)
-                            ? vfpu_yy_xx_rm[2:0]  
+                            ? vfpu_yy_xx_rm[2:0]
                             : vfalu_static_rm[2:0];
 assign ex1_rm_rne  = (vfalu_rm[2:0] == 3'b000);
 assign ex1_rm_rtz  = (vfalu_rm[2:0] == 3'b001);
@@ -179,7 +179,7 @@ assign ex1_rm[4:0] = {ex1_rm_rmm,
                       ex1_rm_rdn,
                       ex1_rm_rup,
                       ex1_rm_rtz,
-                      ex1_rm_rne}; 
+                      ex1_rm_rne};
 //======================Data Prepare========================
 // &Force("bus","dp_vfalu_ex1_pipe6_func",19,0); @42
 // &Force("bus","dp_vfalu_ex1_pipex_imm0", 2,0); @43
@@ -215,7 +215,7 @@ assign ex1_dest_l32    =  ex1_src_l32 && ex1_equal  ||
                           ex1_src_l64 && ex1_narrow;
 assign ex1_dest_l16    =  ex1_src_l32 && ex1_narrow ||
                           ex1_src_l16 && ex1_equal  ||
-                          ex1_src_l64 && ex1_sover;                        
+                          ex1_src_l64 && ex1_sover;
 assign ex1_dest_half      = ex1_dest_float && ex1_dest_l16;
 assign ex1_dest_single    = ex1_dest_float && ex1_dest_l32;
 assign ex1_dest_double    = ex1_dest_float && ex1_dest_l64;
@@ -280,14 +280,14 @@ begin
     ex2_dest_double               <= ex1_dest_double;
     ex2_dest_single               <= ex1_dest_single;
     ex2_dest_float                <= ex1_dest_float;
-    ex2_dest_l32                  <= ex1_dest_l32; 
-    ex2_dest_l64                  <= ex1_dest_l64; 
-    ex2_dest_l16                  <= ex1_dest_l16; 
+    ex2_dest_l32                  <= ex1_dest_l32;
+    ex2_dest_l64                  <= ex1_dest_l64;
+    ex2_dest_l16                  <= ex1_dest_l16;
     ex2_dest_half                 <= ex1_dest_half;
     ex2_dest_si                   <= ex1_dest_si;
     ex2_src_float                 <= ex1_src_float;
-  end 
-end    
+  end
+end
 // &Force("output","ex2_dest_float"); @139
 // &Force("output","ex2_dest_l32"); @140
 // &Force("output","ex2_dest_l64"); @141
@@ -322,7 +322,7 @@ assign ex2_dest_l8    = 1'b0;
 //                    EX3 Result Merge
 //==========================================================
 assign fcnvt_ereg_forward_result[4:0]   = fcnvt_ex3_expt[4:0];
-assign fcnvt_forward_result[63:0]       = fcnvt_ex3_result[63:0];                                                      
+assign fcnvt_forward_result[63:0]       = fcnvt_ex3_result[63:0];
 assign fcnvt_forward_r_vld              = ex3_pipedown;
 assign fcnvt_ereg_forward_r_vld         = ex3_pipedown;
 

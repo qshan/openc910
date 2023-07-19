@@ -45,943 +45,943 @@ module ct_idu_id_split_long(
 );
 
 // &Ports; @25
-input            cp0_idu_icg_en;                     
-input   [6  :0]  cp0_idu_vstart;                     
-input            cp0_yy_clk_en;                      
-input            cpurst_b;                           
-input            ctrl_split_long_id_inst_vld;        
-input            ctrl_split_long_id_stall;           
-input            dp_split_long_bkpta_inst;           
-input            dp_split_long_bkptb_inst;           
-input   [31 :0]  dp_split_long_inst;                 
-input            dp_split_long_no_spec;              
-input   [14 :0]  dp_split_long_pc;                   
-input   [9  :0]  dp_split_long_type;                 
-input   [7  :0]  dp_split_long_vl;                   
-input            dp_split_long_vl_pred;              
-input   [1  :0]  dp_split_long_vlmul;                
-input   [2  :0]  dp_split_long_vsew;                 
-input            forever_cpuclk;                     
-input            iu_yy_xx_cancel;                    
-input            pad_yy_icg_scan_en;                 
-input            rtu_idu_flush_fe;                   
-output           split_long_ctrl_id_stall;           
-output  [3  :0]  split_long_ctrl_inst_vld;           
-output  [16 :0]  split_long_dp_dep_info;             
-output  [177:0]  split_long_dp_inst0_data;           
-output  [177:0]  split_long_dp_inst1_data;           
-output  [177:0]  split_long_dp_inst2_data;           
-output  [177:0]  split_long_dp_inst3_data;           
+input            cp0_idu_icg_en;
+input   [6  :0]  cp0_idu_vstart;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            ctrl_split_long_id_inst_vld;
+input            ctrl_split_long_id_stall;
+input            dp_split_long_bkpta_inst;
+input            dp_split_long_bkptb_inst;
+input   [31 :0]  dp_split_long_inst;
+input            dp_split_long_no_spec;
+input   [14 :0]  dp_split_long_pc;
+input   [9  :0]  dp_split_long_type;
+input   [7  :0]  dp_split_long_vl;
+input            dp_split_long_vl_pred;
+input   [1  :0]  dp_split_long_vlmul;
+input   [2  :0]  dp_split_long_vsew;
+input            forever_cpuclk;
+input            iu_yy_xx_cancel;
+input            pad_yy_icg_scan_en;
+input            rtu_idu_flush_fe;
+output           split_long_ctrl_id_stall;
+output  [3  :0]  split_long_ctrl_inst_vld;
+output  [16 :0]  split_long_dp_dep_info;
+output  [177:0]  split_long_dp_inst0_data;
+output  [177:0]  split_long_dp_inst1_data;
+output  [177:0]  split_long_dp_inst2_data;
+output  [177:0]  split_long_dp_inst3_data;
 
 // &Regs; @26
-reg     [16 :0]  amo_012_dep_info;                   
-reg     [16 :0]  amo_123_dep_info;                   
-reg     [177:0]  amo_amoalu_inst_data;               
-reg     [177:0]  amo_amoload_inst_data;              
-reg     [177:0]  amo_amostore_inst_data;             
-reg              amo_cur_state;                      
-reg     [16 :0]  amo_dep_info;                       
-reg     [177:0]  amo_fence_aq_inst_data;             
-reg     [177:0]  amo_fence_rl_inst_data;             
-reg     [177:0]  amo_inst0_data;                     
-reg     [177:0]  amo_inst1_data;                     
-reg     [177:0]  amo_inst2_data;                     
-reg     [177:0]  amo_inst3_data;                     
-reg     [177:0]  amo_lr_inst_data;                   
-reg              amo_next_state;                     
-reg     [177:0]  amo_sc_inst_data;                   
-reg              fored_split_inst0_last;             
-reg     [5  :0]  fored_split_inst0_split_cnt;        
-reg              fored_split_inst1_last;             
-reg     [5  :0]  fored_split_inst1_split_cnt;        
-reg              fored_split_inst2_last;             
-reg     [5  :0]  fored_split_inst2_split_cnt;        
-reg              fored_split_inst3_last;             
-reg     [5  :0]  fored_split_inst3_split_cnt;        
-reg     [5  :0]  fored_w_split_inst0_split_cnt;      
-reg     [31 :0]  fored_w_split_inst0_split_inst;     
-reg              fored_w_split_inst1_last;           
-reg     [5  :0]  fored_w_split_inst1_split_cnt;      
-reg     [31 :0]  fored_w_split_inst1_split_inst;     
-reg     [5  :0]  fored_w_split_inst2_split_cnt;      
-reg     [31 :0]  fored_w_split_inst2_split_inst;     
-reg              fored_w_split_inst3_last;           
-reg     [5  :0]  fored_w_split_inst3_split_cnt;      
-reg     [31 :0]  fored_w_split_inst3_split_inst;     
-reg              funored_split_inst0_last;           
-reg     [5  :0]  funored_split_inst0_split_cnt;      
-reg              funored_split_inst1_last;           
-reg     [5  :0]  funored_split_inst1_split_cnt;      
-reg              funored_split_inst2_last;           
-reg              funored_split_inst2_round_end;      
-reg     [5  :0]  funored_split_inst2_split_cnt;      
-reg              funored_split_inst3_last;           
-reg     [5  :0]  funored_split_inst3_split_cnt;      
-reg     [31 :0]  funored_w_split_inst0;              
-reg              funored_w_split_inst0_last;         
-reg     [5  :0]  funored_w_split_inst0_split_cnt;    
-reg     [1  :0]  funored_w_split_inst0_vlmul;        
-reg     [2  :0]  funored_w_split_inst0_vsew;         
-reg     [31 :0]  funored_w_split_inst1;              
-reg              funored_w_split_inst1_last;         
-reg     [5  :0]  funored_w_split_inst1_split_cnt;    
-reg     [1  :0]  funored_w_split_inst1_vlmul;        
-reg     [2  :0]  funored_w_split_inst1_vsew;         
-reg     [31 :0]  funored_w_split_inst2;              
-reg              funored_w_split_inst2_last;         
-reg     [5  :0]  funored_w_split_inst2_split_cnt;    
-reg     [1  :0]  funored_w_split_inst2_vlmul;        
-reg     [2  :0]  funored_w_split_inst2_vsew;         
-reg     [31 :0]  funored_w_split_inst3;              
-reg              funored_w_split_inst3_last;         
-reg     [5  :0]  funored_w_split_inst3_split_cnt;    
-reg     [1  :0]  funored_w_split_inst3_vlmul;        
-reg     [2  :0]  funored_w_split_inst3_vsew;         
-reg     [5  :0]  index_nf_reg_offset0;               
-reg     [5  :0]  index_nf_reg_offset1;               
-reg     [177:0]  split_long_dp_inst0_data;           
-reg     [177:0]  split_long_dp_inst1_data;           
-reg     [177:0]  split_long_dp_inst2_data;           
-reg     [177:0]  split_long_dp_inst3_data;           
-reg     [5  :0]  stride_nf_reg_offset0;              
-reg     [5  :0]  stride_nf_reg_offset1;              
-reg     [5  :0]  unit_nf_reg_offset0;                
-reg     [5  :0]  unit_nf_reg_offset1;                
-reg     [6  :0]  vec_amo_cnt;                        
-reg     [1  :0]  vec_amo_cur_state;                  
-reg     [1  :0]  vec_amo_next_state;                 
-reg     [177:0]  vec_amo_split_inst0_data;           
-reg     [177:0]  vec_amo_split_inst1_data;           
-reg     [177:0]  vec_amo_split_inst2_data;           
-reg     [2  :0]  vec_amo_vreg_offset;                
-reg     [3  :0]  vec_fnorm_wf_cnt;                   
-reg              vec_fnorm_wf_cur_state;             
-reg              vec_fnorm_wf_next_state;            
-reg     [177:0]  vec_fnorm_wf_split_inst0_data;      
-reg     [177:0]  vec_fnorm_wf_split_inst1_data;      
-reg     [177:0]  vec_fnorm_wf_split_inst2_data;      
-reg     [177:0]  vec_fnorm_wf_split_inst3_data;      
-reg     [3  :0]  vec_fnorm_wv_cnt;                   
-reg              vec_fnorm_wv_cur_state;             
-reg              vec_fnorm_wv_next_state;            
-reg     [177:0]  vec_fnorm_wv_split_inst0_data;      
-reg     [177:0]  vec_fnorm_wv_split_inst1_data;      
-reg     [177:0]  vec_fnorm_wv_split_inst2_data;      
-reg     [177:0]  vec_fnorm_wv_split_inst3_data;      
-reg     [3  :0]  vec_fored_cnt;                      
-reg              vec_fored_cur_state;                
-reg              vec_fored_next_state;               
-reg     [177:0]  vec_fored_split_inst0_data;         
-reg     [177:0]  vec_fored_split_inst1_data;         
-reg     [177:0]  vec_fored_split_inst2_data;         
-reg     [177:0]  vec_fored_split_inst3_data;         
-reg     [4  :0]  vec_fored_w_cnt;                    
-reg              vec_fored_w_cur_state;              
-reg              vec_fored_w_next_state;             
-reg     [177:0]  vec_fored_w_split_inst0_data;       
-reg     [177:0]  vec_fored_w_split_inst1_data;       
-reg     [177:0]  vec_fored_w_split_inst2_data;       
-reg     [177:0]  vec_fored_w_split_inst3_data;       
-reg     [2  :0]  vec_funored_cnt;                    
-reg              vec_funored_cur_state;              
-reg              vec_funored_next_state;             
-reg     [177:0]  vec_funored_split_inst0_data;       
-reg     [177:0]  vec_funored_split_inst1_data;       
-reg     [177:0]  vec_funored_split_inst2_data;       
-reg     [177:0]  vec_funored_split_inst3_data;       
-reg     [3  :0]  vec_funored_w_cnt;                  
-reg              vec_funored_w_cur_state;            
-reg              vec_funored_w_next_state;           
-reg     [177:0]  vec_funored_w_split_inst0_data;     
-reg     [177:0]  vec_funored_w_split_inst1_data;     
-reg     [177:0]  vec_funored_w_split_inst2_data;     
-reg     [177:0]  vec_funored_w_split_inst3_data;     
-reg     [6  :0]  vec_index_cnt;                      
-reg              vec_index_cur_state;                
-reg              vec_index_next_state;               
-reg     [177:0]  vec_index_split_inst0_data;         
-reg     [177:0]  vec_index_split_inst1_data;         
-reg     [177:0]  vec_index_split_inst2_data;         
-reg     [177:0]  vec_index_split_inst3_data;         
-reg     [2  :0]  vec_index_vreg_offset;              
-reg     [2  :0]  vec_norm_cur_state;                 
-reg     [16 :0]  vec_norm_dep_info;                  
-reg     [177:0]  vec_norm_mtvr_data;                 
-reg     [2  :0]  vec_norm_next_state;                
-reg     [9  :0]  vec_norm_pipe;                      
-reg     [177:0]  vec_norm_split_inst0_data;          
-reg     [177:0]  vec_norm_split_inst1_data;          
-reg     [177:0]  vec_norm_split_inst2_data;          
-reg     [177:0]  vec_norm_split_inst3_data;          
-reg     [177:0]  vec_perm_inst0_data_tmp;            
-reg     [177:0]  vec_perm_inst1_data;                
-reg     [177:0]  vec_perm_inst2_data;                
-reg     [177:0]  vec_perm_inst3_data;                
-reg     [3  :0]  vec_perm_inst_vld_tmp;              
-reg     [177:0]  vec_perm_mtvr_data;                 
-reg     [3  :0]  vec_perm_mtvr_fwd_inst;             
-reg     [5  :0]  vec_stride_cnt;                     
-reg              vec_stride_cur_state;               
-reg              vec_stride_next_state;              
-reg     [177:0]  vec_stride_split_inst0_data;        
-reg     [177:0]  vec_stride_split_inst1_data;        
-reg     [177:0]  vec_stride_split_inst2_data;        
-reg     [177:0]  vec_stride_split_inst3_data;        
-reg     [2  :0]  vec_stride_vreg_offset;             
-reg     [1  :0]  vperm_cur_state;                    
-reg     [3  :0]  vperm_idle_mtvr_fwd_inst;           
-reg     [177:0]  vperm_inst0_data;                   
-reg     [177:0]  vperm_inst1_data;                   
-reg     [177:0]  vperm_inst2_data;                   
-reg     [177:0]  vperm_inst3_data;                   
-reg     [3  :0]  vperm_inst_vld;                     
-reg     [3  :0]  vperm_mtvr_fwd_inst;                
-reg     [1  :0]  vperm_next_state;                   
-reg     [7  :0]  vperm_srcv0_index;                  
-reg     [3  :0]  vpr_counter;                        
-reg     [2  :0]  vrgather_cur_state;                 
-reg     [177:0]  vrgather_inst0_data;                
-reg     [177:0]  vrgather_inst1_data;                
-reg     [177:0]  vrgather_inst2_data;                
-reg     [177:0]  vrgather_inst3_data;                
-reg     [3  :0]  vrgather_inst_split_last;           
-reg     [3  :0]  vrgather_inst_vld;                  
-reg     [3  :0]  vrgather_mtvr_fwd_inst;             
-reg     [2  :0]  vrgather_next_state;                
-reg     [2  :0]  vslide_cur_state;                   
-reg     [177:0]  vslide_inst0_data;                  
-reg     [177:0]  vslide_inst1_data;                  
-reg     [177:0]  vslide_inst2_data;                  
-reg     [177:0]  vslide_inst3_data;                  
-reg     [3  :0]  vslide_inst_split_last;             
-reg     [3  :0]  vslide_inst_vld;                    
-reg     [3  :0]  vslide_mtvr_fwd_inst;               
-reg     [2  :0]  vslide_next_state;                  
-reg     [6  :0]  zvlsseg_index_cnt;                  
-reg              zvlsseg_index_cur_state;            
-reg              zvlsseg_index_next_state;           
-reg     [1  :0]  zvlsseg_index_nf_cnt;               
-reg     [177:0]  zvlsseg_index_split_inst0_data;     
-reg     [177:0]  zvlsseg_index_split_inst1_data;     
-reg     [177:0]  zvlsseg_index_split_inst2_data;     
-reg     [177:0]  zvlsseg_index_split_inst3_data;     
-reg     [2  :0]  zvlsseg_index_vreg_offset;          
-reg     [6  :0]  zvlsseg_stride_cnt;                 
-reg              zvlsseg_stride_cur_state;           
-reg              zvlsseg_stride_next_state;          
-reg     [1  :0]  zvlsseg_stride_nf_cnt;              
-reg     [177:0]  zvlsseg_stride_split_inst0_data;    
-reg     [177:0]  zvlsseg_stride_split_inst1_data;    
-reg     [177:0]  zvlsseg_stride_split_inst2_data;    
-reg     [177:0]  zvlsseg_stride_split_inst3_data;    
-reg     [2  :0]  zvlsseg_stride_vreg_offset;         
-reg     [6  :0]  zvlsseg_unit_cnt;                   
-reg              zvlsseg_unit_cur_state;             
-reg              zvlsseg_unit_next_state;            
-reg     [1  :0]  zvlsseg_unit_nf_cnt;                
-reg     [6  :0]  zvlsseg_unit_nf_offset_cnt;         
-reg     [177:0]  zvlsseg_unit_split_inst0_data;      
-reg     [177:0]  zvlsseg_unit_split_inst1_data;      
-reg     [177:0]  zvlsseg_unit_split_inst2_data;      
-reg     [2  :0]  zvlsseg_unit_vreg_offset;           
+reg     [16 :0]  amo_012_dep_info;
+reg     [16 :0]  amo_123_dep_info;
+reg     [177:0]  amo_amoalu_inst_data;
+reg     [177:0]  amo_amoload_inst_data;
+reg     [177:0]  amo_amostore_inst_data;
+reg              amo_cur_state;
+reg     [16 :0]  amo_dep_info;
+reg     [177:0]  amo_fence_aq_inst_data;
+reg     [177:0]  amo_fence_rl_inst_data;
+reg     [177:0]  amo_inst0_data;
+reg     [177:0]  amo_inst1_data;
+reg     [177:0]  amo_inst2_data;
+reg     [177:0]  amo_inst3_data;
+reg     [177:0]  amo_lr_inst_data;
+reg              amo_next_state;
+reg     [177:0]  amo_sc_inst_data;
+reg              fored_split_inst0_last;
+reg     [5  :0]  fored_split_inst0_split_cnt;
+reg              fored_split_inst1_last;
+reg     [5  :0]  fored_split_inst1_split_cnt;
+reg              fored_split_inst2_last;
+reg     [5  :0]  fored_split_inst2_split_cnt;
+reg              fored_split_inst3_last;
+reg     [5  :0]  fored_split_inst3_split_cnt;
+reg     [5  :0]  fored_w_split_inst0_split_cnt;
+reg     [31 :0]  fored_w_split_inst0_split_inst;
+reg              fored_w_split_inst1_last;
+reg     [5  :0]  fored_w_split_inst1_split_cnt;
+reg     [31 :0]  fored_w_split_inst1_split_inst;
+reg     [5  :0]  fored_w_split_inst2_split_cnt;
+reg     [31 :0]  fored_w_split_inst2_split_inst;
+reg              fored_w_split_inst3_last;
+reg     [5  :0]  fored_w_split_inst3_split_cnt;
+reg     [31 :0]  fored_w_split_inst3_split_inst;
+reg              funored_split_inst0_last;
+reg     [5  :0]  funored_split_inst0_split_cnt;
+reg              funored_split_inst1_last;
+reg     [5  :0]  funored_split_inst1_split_cnt;
+reg              funored_split_inst2_last;
+reg              funored_split_inst2_round_end;
+reg     [5  :0]  funored_split_inst2_split_cnt;
+reg              funored_split_inst3_last;
+reg     [5  :0]  funored_split_inst3_split_cnt;
+reg     [31 :0]  funored_w_split_inst0;
+reg              funored_w_split_inst0_last;
+reg     [5  :0]  funored_w_split_inst0_split_cnt;
+reg     [1  :0]  funored_w_split_inst0_vlmul;
+reg     [2  :0]  funored_w_split_inst0_vsew;
+reg     [31 :0]  funored_w_split_inst1;
+reg              funored_w_split_inst1_last;
+reg     [5  :0]  funored_w_split_inst1_split_cnt;
+reg     [1  :0]  funored_w_split_inst1_vlmul;
+reg     [2  :0]  funored_w_split_inst1_vsew;
+reg     [31 :0]  funored_w_split_inst2;
+reg              funored_w_split_inst2_last;
+reg     [5  :0]  funored_w_split_inst2_split_cnt;
+reg     [1  :0]  funored_w_split_inst2_vlmul;
+reg     [2  :0]  funored_w_split_inst2_vsew;
+reg     [31 :0]  funored_w_split_inst3;
+reg              funored_w_split_inst3_last;
+reg     [5  :0]  funored_w_split_inst3_split_cnt;
+reg     [1  :0]  funored_w_split_inst3_vlmul;
+reg     [2  :0]  funored_w_split_inst3_vsew;
+reg     [5  :0]  index_nf_reg_offset0;
+reg     [5  :0]  index_nf_reg_offset1;
+reg     [177:0]  split_long_dp_inst0_data;
+reg     [177:0]  split_long_dp_inst1_data;
+reg     [177:0]  split_long_dp_inst2_data;
+reg     [177:0]  split_long_dp_inst3_data;
+reg     [5  :0]  stride_nf_reg_offset0;
+reg     [5  :0]  stride_nf_reg_offset1;
+reg     [5  :0]  unit_nf_reg_offset0;
+reg     [5  :0]  unit_nf_reg_offset1;
+reg     [6  :0]  vec_amo_cnt;
+reg     [1  :0]  vec_amo_cur_state;
+reg     [1  :0]  vec_amo_next_state;
+reg     [177:0]  vec_amo_split_inst0_data;
+reg     [177:0]  vec_amo_split_inst1_data;
+reg     [177:0]  vec_amo_split_inst2_data;
+reg     [2  :0]  vec_amo_vreg_offset;
+reg     [3  :0]  vec_fnorm_wf_cnt;
+reg              vec_fnorm_wf_cur_state;
+reg              vec_fnorm_wf_next_state;
+reg     [177:0]  vec_fnorm_wf_split_inst0_data;
+reg     [177:0]  vec_fnorm_wf_split_inst1_data;
+reg     [177:0]  vec_fnorm_wf_split_inst2_data;
+reg     [177:0]  vec_fnorm_wf_split_inst3_data;
+reg     [3  :0]  vec_fnorm_wv_cnt;
+reg              vec_fnorm_wv_cur_state;
+reg              vec_fnorm_wv_next_state;
+reg     [177:0]  vec_fnorm_wv_split_inst0_data;
+reg     [177:0]  vec_fnorm_wv_split_inst1_data;
+reg     [177:0]  vec_fnorm_wv_split_inst2_data;
+reg     [177:0]  vec_fnorm_wv_split_inst3_data;
+reg     [3  :0]  vec_fored_cnt;
+reg              vec_fored_cur_state;
+reg              vec_fored_next_state;
+reg     [177:0]  vec_fored_split_inst0_data;
+reg     [177:0]  vec_fored_split_inst1_data;
+reg     [177:0]  vec_fored_split_inst2_data;
+reg     [177:0]  vec_fored_split_inst3_data;
+reg     [4  :0]  vec_fored_w_cnt;
+reg              vec_fored_w_cur_state;
+reg              vec_fored_w_next_state;
+reg     [177:0]  vec_fored_w_split_inst0_data;
+reg     [177:0]  vec_fored_w_split_inst1_data;
+reg     [177:0]  vec_fored_w_split_inst2_data;
+reg     [177:0]  vec_fored_w_split_inst3_data;
+reg     [2  :0]  vec_funored_cnt;
+reg              vec_funored_cur_state;
+reg              vec_funored_next_state;
+reg     [177:0]  vec_funored_split_inst0_data;
+reg     [177:0]  vec_funored_split_inst1_data;
+reg     [177:0]  vec_funored_split_inst2_data;
+reg     [177:0]  vec_funored_split_inst3_data;
+reg     [3  :0]  vec_funored_w_cnt;
+reg              vec_funored_w_cur_state;
+reg              vec_funored_w_next_state;
+reg     [177:0]  vec_funored_w_split_inst0_data;
+reg     [177:0]  vec_funored_w_split_inst1_data;
+reg     [177:0]  vec_funored_w_split_inst2_data;
+reg     [177:0]  vec_funored_w_split_inst3_data;
+reg     [6  :0]  vec_index_cnt;
+reg              vec_index_cur_state;
+reg              vec_index_next_state;
+reg     [177:0]  vec_index_split_inst0_data;
+reg     [177:0]  vec_index_split_inst1_data;
+reg     [177:0]  vec_index_split_inst2_data;
+reg     [177:0]  vec_index_split_inst3_data;
+reg     [2  :0]  vec_index_vreg_offset;
+reg     [2  :0]  vec_norm_cur_state;
+reg     [16 :0]  vec_norm_dep_info;
+reg     [177:0]  vec_norm_mtvr_data;
+reg     [2  :0]  vec_norm_next_state;
+reg     [9  :0]  vec_norm_pipe;
+reg     [177:0]  vec_norm_split_inst0_data;
+reg     [177:0]  vec_norm_split_inst1_data;
+reg     [177:0]  vec_norm_split_inst2_data;
+reg     [177:0]  vec_norm_split_inst3_data;
+reg     [177:0]  vec_perm_inst0_data_tmp;
+reg     [177:0]  vec_perm_inst1_data;
+reg     [177:0]  vec_perm_inst2_data;
+reg     [177:0]  vec_perm_inst3_data;
+reg     [3  :0]  vec_perm_inst_vld_tmp;
+reg     [177:0]  vec_perm_mtvr_data;
+reg     [3  :0]  vec_perm_mtvr_fwd_inst;
+reg     [5  :0]  vec_stride_cnt;
+reg              vec_stride_cur_state;
+reg              vec_stride_next_state;
+reg     [177:0]  vec_stride_split_inst0_data;
+reg     [177:0]  vec_stride_split_inst1_data;
+reg     [177:0]  vec_stride_split_inst2_data;
+reg     [177:0]  vec_stride_split_inst3_data;
+reg     [2  :0]  vec_stride_vreg_offset;
+reg     [1  :0]  vperm_cur_state;
+reg     [3  :0]  vperm_idle_mtvr_fwd_inst;
+reg     [177:0]  vperm_inst0_data;
+reg     [177:0]  vperm_inst1_data;
+reg     [177:0]  vperm_inst2_data;
+reg     [177:0]  vperm_inst3_data;
+reg     [3  :0]  vperm_inst_vld;
+reg     [3  :0]  vperm_mtvr_fwd_inst;
+reg     [1  :0]  vperm_next_state;
+reg     [7  :0]  vperm_srcv0_index;
+reg     [3  :0]  vpr_counter;
+reg     [2  :0]  vrgather_cur_state;
+reg     [177:0]  vrgather_inst0_data;
+reg     [177:0]  vrgather_inst1_data;
+reg     [177:0]  vrgather_inst2_data;
+reg     [177:0]  vrgather_inst3_data;
+reg     [3  :0]  vrgather_inst_split_last;
+reg     [3  :0]  vrgather_inst_vld;
+reg     [3  :0]  vrgather_mtvr_fwd_inst;
+reg     [2  :0]  vrgather_next_state;
+reg     [2  :0]  vslide_cur_state;
+reg     [177:0]  vslide_inst0_data;
+reg     [177:0]  vslide_inst1_data;
+reg     [177:0]  vslide_inst2_data;
+reg     [177:0]  vslide_inst3_data;
+reg     [3  :0]  vslide_inst_split_last;
+reg     [3  :0]  vslide_inst_vld;
+reg     [3  :0]  vslide_mtvr_fwd_inst;
+reg     [2  :0]  vslide_next_state;
+reg     [6  :0]  zvlsseg_index_cnt;
+reg              zvlsseg_index_cur_state;
+reg              zvlsseg_index_next_state;
+reg     [1  :0]  zvlsseg_index_nf_cnt;
+reg     [177:0]  zvlsseg_index_split_inst0_data;
+reg     [177:0]  zvlsseg_index_split_inst1_data;
+reg     [177:0]  zvlsseg_index_split_inst2_data;
+reg     [177:0]  zvlsseg_index_split_inst3_data;
+reg     [2  :0]  zvlsseg_index_vreg_offset;
+reg     [6  :0]  zvlsseg_stride_cnt;
+reg              zvlsseg_stride_cur_state;
+reg              zvlsseg_stride_next_state;
+reg     [1  :0]  zvlsseg_stride_nf_cnt;
+reg     [177:0]  zvlsseg_stride_split_inst0_data;
+reg     [177:0]  zvlsseg_stride_split_inst1_data;
+reg     [177:0]  zvlsseg_stride_split_inst2_data;
+reg     [177:0]  zvlsseg_stride_split_inst3_data;
+reg     [2  :0]  zvlsseg_stride_vreg_offset;
+reg     [6  :0]  zvlsseg_unit_cnt;
+reg              zvlsseg_unit_cur_state;
+reg              zvlsseg_unit_next_state;
+reg     [1  :0]  zvlsseg_unit_nf_cnt;
+reg     [6  :0]  zvlsseg_unit_nf_offset_cnt;
+reg     [177:0]  zvlsseg_unit_split_inst0_data;
+reg     [177:0]  zvlsseg_unit_split_inst1_data;
+reg     [177:0]  zvlsseg_unit_split_inst2_data;
+reg     [2  :0]  zvlsseg_unit_vreg_offset;
 
 // &Wires; @27
-wire             amo_add;                            
-wire    [31 :0]  amo_amoalu_inst_op;                 
-wire             amo_and;                            
-wire             amo_aq;                             
-wire             amo_dep_info_bit;                   
-wire    [31 :0]  amo_fence_aq_inst_opcode;           
-wire    [31 :0]  amo_fence_rl_inst_opcode;           
-wire             amo_inst;                           
-wire    [3  :0]  amo_inst_vld;                       
-wire             amo_lr_or_sc;                       
-wire             amo_max;                            
-wire             amo_maxu;                           
-wire             amo_min;                            
-wire             amo_minu;                           
-wire             amo_more_than_4;                    
-wire             amo_or;                             
-wire    [4  :0]  amo_rd;                             
-wire             amo_rd_is_x0;                       
-wire             amo_rl;                             
-wire    [4  :0]  amo_rs1;                            
-wire    [4  :0]  amo_rs2;                            
-wire             amo_sm_start;                       
-wire             amo_split_inst;                     
-wire             amo_split_stall;                    
-wire             amo_swap;                           
-wire             amo_word;                           
-wire             amo_xor;                            
-wire             cp0_idu_icg_en;                     
-wire    [6  :0]  cp0_idu_vstart;                     
-wire             cp0_yy_clk_en;                      
-wire             cpurst_b;                           
-wire             ctrl_split_long_id_inst_vld;        
-wire             ctrl_split_long_id_stall;           
-wire             dp_split_fnorm_wf_vld;              
-wire             dp_split_fnorm_wv_vld;              
-wire             dp_split_fored_vld;                 
-wire             dp_split_fored_w_vld;               
-wire             dp_split_long_bkpta_inst;           
-wire             dp_split_long_bkptb_inst;           
-wire    [31 :0]  dp_split_long_inst;                 
-wire             dp_split_long_no_spec;              
-wire    [14 :0]  dp_split_long_pc;                   
-wire    [9  :0]  dp_split_long_type;                 
-wire    [7  :0]  dp_split_long_vl;                   
-wire             dp_split_long_vl_pred;              
-wire    [1  :0]  dp_split_long_vlmul;                
-wire    [2  :0]  dp_split_long_vsew;                 
-wire             dp_split_unfored_vld;               
-wire             dp_split_unfored_w_vld;             
-wire    [2  :0]  dp_split_w_vlmul;                   
-wire    [2  :0]  dp_split_w_vsew;                    
-wire    [31 :0]  fcvtw_inst;                         
-wire             fnorm_wf_cnt_en;                    
-wire             fnorm_wf_cnt_end;                   
-wire             fnorm_wf_fst_round;                 
-wire    [3  :0]  fnorm_wf_total_cnt_num;             
-wire             fnorm_wv_cnt_en;                    
-wire             fnorm_wv_cnt_end;                   
-wire    [3  :0]  fnorm_wv_total_cnt_num;             
-wire             fored_cnt_en;                       
-wire             fored_cnt_end;                      
-wire             fored_fst_round;                    
-wire    [31 :0]  fored_inst;                         
-wire    [2  :0]  fored_split_inst0_sew16_dy_lmul;    
-wire    [2  :0]  fored_split_inst0_sew16_dy_splcnt;  
-wire             fored_split_inst0_sew16_last;       
-wire    [2  :0]  fored_split_inst0_sew32_dy_lmul;    
-wire    [2  :0]  fored_split_inst0_sew32_dy_splcnt;  
-wire             fored_split_inst0_sew32_last;       
-wire    [2  :0]  fored_split_inst0_sew64_dy_lmul;    
-wire    [2  :0]  fored_split_inst0_sew64_dy_splcnt;  
-wire             fored_split_inst0_sew64_last;       
-wire    [2  :0]  fored_split_inst1_sew16_dy_lmul;    
-wire    [2  :0]  fored_split_inst1_sew16_dy_splcnt;  
-wire             fored_split_inst1_sew16_last;       
-wire    [2  :0]  fored_split_inst1_sew32_dy_lmul;    
-wire    [2  :0]  fored_split_inst1_sew32_dy_splcnt;  
-wire             fored_split_inst1_sew32_last;       
-wire    [2  :0]  fored_split_inst1_sew64_dy_lmul;    
-wire    [2  :0]  fored_split_inst1_sew64_dy_splcnt;  
-wire             fored_split_inst1_sew64_last;       
-wire    [2  :0]  fored_split_inst2_sew16_dy_lmul;    
-wire    [2  :0]  fored_split_inst2_sew16_dy_splcnt;  
-wire             fored_split_inst2_sew16_last;       
-wire    [2  :0]  fored_split_inst2_sew32_dy_lmul;    
-wire    [2  :0]  fored_split_inst2_sew32_dy_splcnt;  
-wire             fored_split_inst2_sew32_last;       
-wire    [2  :0]  fored_split_inst2_sew64_dy_lmul;    
-wire    [2  :0]  fored_split_inst2_sew64_dy_splcnt;  
-wire             fored_split_inst2_sew64_last;       
-wire    [2  :0]  fored_split_inst3_sew16_dy_lmul;    
-wire    [2  :0]  fored_split_inst3_sew16_dy_splcnt;  
-wire             fored_split_inst3_sew16_last;       
-wire    [2  :0]  fored_split_inst3_sew32_dy_lmul;    
-wire    [2  :0]  fored_split_inst3_sew32_dy_splcnt;  
-wire             fored_split_inst3_sew32_last;       
-wire    [2  :0]  fored_split_inst3_sew64_dy_lmul;    
-wire    [2  :0]  fored_split_inst3_sew64_dy_splcnt;  
-wire             fored_split_inst3_sew64_last;       
-wire    [5  :0]  fored_total_cnt_num;                
-wire             fored_w_cnt_en;                     
-wire             fored_w_cnt_end;                    
-wire             fored_w_fst_round;                  
-wire    [31 :0]  fored_w_split_inst0_sew16;          
-wire    [2  :0]  fored_w_split_inst0_sew16_dy_lmul;  
-wire    [2  :0]  fored_w_split_inst0_sew16_dy_splcnt; 
-wire    [31 :0]  fored_w_split_inst0_sew32;          
-wire    [2  :0]  fored_w_split_inst0_sew32_dy_lmul;  
-wire    [2  :0]  fored_w_split_inst0_sew32_dy_splcnt; 
-wire    [31 :0]  fored_w_split_inst1_sew16;          
-wire    [2  :0]  fored_w_split_inst1_sew16_dy_lmul;  
-wire    [2  :0]  fored_w_split_inst1_sew16_dy_splcnt; 
-wire             fored_w_split_inst1_sew16_last;     
-wire    [31 :0]  fored_w_split_inst1_sew32;          
-wire    [2  :0]  fored_w_split_inst1_sew32_dy_lmul;  
-wire    [2  :0]  fored_w_split_inst1_sew32_dy_splcnt; 
-wire             fored_w_split_inst1_sew32_last;     
-wire    [31 :0]  fored_w_split_inst2_sew16;          
-wire    [2  :0]  fored_w_split_inst2_sew16_dy_lmul;  
-wire    [2  :0]  fored_w_split_inst2_sew16_dy_splcnt; 
-wire    [31 :0]  fored_w_split_inst2_sew32;          
-wire    [2  :0]  fored_w_split_inst2_sew32_dy_lmul;  
-wire    [2  :0]  fored_w_split_inst2_sew32_dy_splcnt; 
-wire    [31 :0]  fored_w_split_inst3_sew16;          
-wire    [2  :0]  fored_w_split_inst3_sew16_dy_lmul;  
-wire    [2  :0]  fored_w_split_inst3_sew16_dy_splcnt; 
-wire             fored_w_split_inst3_sew16_last;     
-wire    [31 :0]  fored_w_split_inst3_sew32;          
-wire    [2  :0]  fored_w_split_inst3_sew32_dy_lmul;  
-wire    [2  :0]  fored_w_split_inst3_sew32_dy_splcnt; 
-wire             fored_w_split_inst3_sew32_last;     
-wire    [4  :0]  fored_w_total_cnt_num;              
-wire             forever_cpuclk;                     
-wire    [5  :0]  funct6;                             
-wire             funored_cnt_en;                     
-wire             funored_cnt_end;                    
-wire             funored_fst_round;                  
-wire    [2  :0]  funored_split_inst0_sew16_dy_lmul;  
-wire    [2  :0]  funored_split_inst0_sew16_dy_splcnt; 
-wire             funored_split_inst0_sew16_last;     
-wire    [2  :0]  funored_split_inst0_sew32_dy_lmul;  
-wire    [2  :0]  funored_split_inst0_sew32_dy_splcnt; 
-wire             funored_split_inst0_sew32_last;     
-wire    [2  :0]  funored_split_inst0_sew64_dy_lmul;  
-wire    [2  :0]  funored_split_inst0_sew64_dy_splcnt; 
-wire             funored_split_inst0_sew64_last;     
-wire    [2  :0]  funored_split_inst1_sew16_dy_lmul;  
-wire    [2  :0]  funored_split_inst1_sew16_dy_splcnt; 
-wire             funored_split_inst1_sew16_last;     
-wire    [2  :0]  funored_split_inst1_sew32_dy_lmul;  
-wire    [2  :0]  funored_split_inst1_sew32_dy_splcnt; 
-wire             funored_split_inst1_sew32_last;     
-wire    [2  :0]  funored_split_inst1_sew64_dy_lmul;  
-wire    [2  :0]  funored_split_inst1_sew64_dy_splcnt; 
-wire             funored_split_inst1_sew64_last;     
-wire    [2  :0]  funored_split_inst2_sew16_dy_lmul;  
-wire    [2  :0]  funored_split_inst2_sew16_dy_splcnt; 
-wire             funored_split_inst2_sew16_last;     
-wire             funored_split_inst2_sew16_round_end; 
-wire    [2  :0]  funored_split_inst2_sew32_dy_lmul;  
-wire    [2  :0]  funored_split_inst2_sew32_dy_splcnt; 
-wire             funored_split_inst2_sew32_last;     
-wire             funored_split_inst2_sew32_round_end; 
-wire    [2  :0]  funored_split_inst2_sew64_dy_lmul;  
-wire    [2  :0]  funored_split_inst2_sew64_dy_splcnt; 
-wire             funored_split_inst2_sew64_last;     
-wire             funored_split_inst2_sew64_round_end; 
-wire    [2  :0]  funored_split_inst3_sew16_dy_lmul;  
-wire    [2  :0]  funored_split_inst3_sew16_dy_splcnt; 
-wire             funored_split_inst3_sew16_last;     
-wire    [2  :0]  funored_split_inst3_sew32_dy_lmul;  
-wire    [2  :0]  funored_split_inst3_sew32_dy_splcnt; 
-wire             funored_split_inst3_sew32_last;     
-wire    [2  :0]  funored_split_inst3_sew64_dy_lmul;  
-wire    [2  :0]  funored_split_inst3_sew64_dy_splcnt; 
-wire             funored_split_inst3_sew64_last;     
-wire    [2  :0]  funored_total_cnt_num;              
-wire             funored_w_cnt_en;                   
-wire             funored_w_cnt_end;                  
-wire             funored_w_fst_round;                
-wire    [3  :0]  funored_w_total_cnt_num;            
-wire             iu_yy_xx_cancel;                    
-wire             lr_inst;                            
-wire             pad_yy_icg_scan_en;                 
-wire    [31 :0]  perm_mtvr_inst_op;                  
-wire             perm_split_clk;                     
-wire             rtu_idu_flush_fe;                   
-wire             sc_inst;                            
-wire             split_clk;                          
-wire             split_clk_en;                       
-wire             split_long_ctrl_id_stall;           
-wire    [3  :0]  split_long_ctrl_inst_vld;           
-wire    [16 :0]  split_long_dp_dep_info;             
-wire    [177:0]  split_long_inst0_data;              
-wire    [177:0]  split_long_inst1_data;              
-wire    [177:0]  split_long_inst2_data;              
-wire    [177:0]  split_long_inst3_data;              
-wire             vcompress;                          
-wire    [31 :0]  vec_amo_add_inst;                   
-wire    [16 :0]  vec_amo_dep_info;                   
-wire             vec_amo_dst_v0;                     
-wire    [31 :0]  vec_amo_ext_inst;                   
-wire    [177:0]  vec_amo_inst0_data;                 
-wire    [177:0]  vec_amo_inst1_data;                 
-wire    [177:0]  vec_amo_inst2_data;                 
-wire    [177:0]  vec_amo_inst3_data;                 
-wire    [3  :0]  vec_amo_inst_vld;                   
-wire             vec_amo_sm_start;                   
-wire             vec_amo_split_clk;                  
-wire             vec_amo_split_clk_en;               
-wire    [177:0]  vec_amo_split_inst3_data;           
-wire             vec_amo_split_last;                 
-wire             vec_amo_split_stall;                
-wire    [31 :0]  vec_amo_valu_inst;                  
-wire    [31 :0]  vec_amo_vmv_inst;                   
-wire             vec_amo_vreg_begin;                 
-wire             vec_amo_vreg_end;                   
-wire             vec_dstv_ovlp_vs2;                  
-wire    [2  :0]  vec_fnorm_wf_base_cnt;              
-wire    [16 :0]  vec_fnorm_wf_dep_info;              
-wire    [4  :0]  vec_fnorm_wf_dest_vreg_1;           
-wire    [4  :0]  vec_fnorm_wf_dest_vreg_3;           
-wire    [177:0]  vec_fnorm_wf_inst0_data;            
-wire    [177:0]  vec_fnorm_wf_inst1_data;            
-wire    [177:0]  vec_fnorm_wf_inst2_data;            
-wire    [177:0]  vec_fnorm_wf_inst3_data;            
-wire    [3  :0]  vec_fnorm_wf_inst_vld;              
-wire             vec_fnorm_wf_sm_start;              
-wire             vec_fnorm_wf_split_busy;            
-wire             vec_fnorm_wf_split_clk;             
-wire             vec_fnorm_wf_split_clk_en;          
-wire    [1  :0]  vec_fnorm_wf_split_inst0_lmul;      
-wire    [2  :0]  vec_fnorm_wf_split_inst0_sew;       
-wire    [1  :0]  vec_fnorm_wf_split_inst1_lmul;      
-wire    [2  :0]  vec_fnorm_wf_split_inst1_sew;       
-wire    [1  :0]  vec_fnorm_wf_split_inst2_lmul;      
-wire    [2  :0]  vec_fnorm_wf_split_inst2_sew;       
-wire    [1  :0]  vec_fnorm_wf_split_inst3_lmul;      
-wire    [2  :0]  vec_fnorm_wf_split_inst3_sew;       
-wire             vec_fnorm_wf_split_stall;           
-wire    [4  :0]  vec_fnorm_wf_srcv0_vreg_1;          
-wire    [4  :0]  vec_fnorm_wf_srcv0_vreg_3;          
-wire    [4  :0]  vec_fnorm_wf_srcv1_vreg;            
-wire    [16 :0]  vec_fnorm_wv_dep_info;              
-wire    [4  :0]  vec_fnorm_wv_dest_vreg_1;           
-wire    [4  :0]  vec_fnorm_wv_dest_vreg_3;           
-wire    [177:0]  vec_fnorm_wv_inst0_data;            
-wire    [177:0]  vec_fnorm_wv_inst1_data;            
-wire    [177:0]  vec_fnorm_wv_inst2_data;            
-wire    [177:0]  vec_fnorm_wv_inst3_data;            
-wire    [3  :0]  vec_fnorm_wv_inst_vld;              
-wire             vec_fnorm_wv_sm_start;              
-wire             vec_fnorm_wv_split_busy;            
-wire             vec_fnorm_wv_split_clk;             
-wire             vec_fnorm_wv_split_clk_en;          
-wire    [1  :0]  vec_fnorm_wv_split_inst0_lmul;      
-wire    [2  :0]  vec_fnorm_wv_split_inst0_sew;       
-wire    [1  :0]  vec_fnorm_wv_split_inst1_lmul;      
-wire    [2  :0]  vec_fnorm_wv_split_inst1_sew;       
-wire    [1  :0]  vec_fnorm_wv_split_inst2_lmul;      
-wire    [2  :0]  vec_fnorm_wv_split_inst2_sew;       
-wire    [1  :0]  vec_fnorm_wv_split_inst3_lmul;      
-wire    [2  :0]  vec_fnorm_wv_split_inst3_sew;       
-wire             vec_fnorm_wv_split_stall;           
-wire    [4  :0]  vec_fnorm_wv_srcv0_vreg_1;          
-wire    [4  :0]  vec_fnorm_wv_srcv0_vreg_3;          
-wire    [4  :0]  vec_fnorm_wv_srcv1_vreg;            
-wire    [16 :0]  vec_fored_dep_info;                 
-wire    [4  :0]  vec_fored_destv_vreg;               
-wire    [177:0]  vec_fored_inst0_data;               
-wire    [177:0]  vec_fored_inst1_data;               
-wire    [177:0]  vec_fored_inst2_data;               
-wire    [177:0]  vec_fored_inst3_data;               
-wire    [3  :0]  vec_fored_inst_vld;                 
-wire             vec_fored_sm_start;                 
-wire             vec_fored_split_busy;               
-wire             vec_fored_split_clk;                
-wire             vec_fored_split_clk_en;             
-wire    [5  :0]  vec_fored_split_inst0_src0;         
-wire    [5  :0]  vec_fored_split_inst0_src1;         
-wire    [5  :0]  vec_fored_split_inst1_src0;         
-wire    [5  :0]  vec_fored_split_inst1_src1;         
-wire    [5  :0]  vec_fored_split_inst2_src0;         
-wire    [5  :0]  vec_fored_split_inst2_src1;         
-wire    [5  :0]  vec_fored_split_inst3_src0;         
-wire    [5  :0]  vec_fored_split_inst3_src1;         
-wire             vec_fored_split_stall;              
-wire    [4  :0]  vec_fored_srcv0_vreg_0;             
-wire    [4  :0]  vec_fored_srcv0_vreg_1;             
-wire    [4  :0]  vec_fored_srcv0_vreg_2;             
-wire    [4  :0]  vec_fored_srcv0_vreg_3;             
-wire    [4  :0]  vec_fored_srcv1_vreg;               
-wire             vec_fored_w_cnt_h;                  
-wire    [2  :0]  vec_fored_w_cnt_l;                  
-wire    [16 :0]  vec_fored_w_dep_info;               
-wire    [4  :0]  vec_fored_w_destv_vreg;             
-wire    [177:0]  vec_fored_w_inst0_data;             
-wire             vec_fored_w_inst0_mul8;             
-wire    [177:0]  vec_fored_w_inst1_data;             
-wire    [177:0]  vec_fored_w_inst2_data;             
-wire    [177:0]  vec_fored_w_inst3_data;             
-wire    [3  :0]  vec_fored_w_inst_vld;               
-wire             vec_fored_w_sm_start;               
-wire             vec_fored_w_split_busy;             
-wire             vec_fored_w_split_clk;              
-wire             vec_fored_w_split_clk_en;           
-wire    [1  :0]  vec_fored_w_split_inst0_lmul;       
-wire    [2  :0]  vec_fored_w_split_inst0_sew;        
-wire    [5  :0]  vec_fored_w_split_inst0_src0;       
-wire    [5  :0]  vec_fored_w_split_inst0_src1;       
-wire    [5  :0]  vec_fored_w_split_inst1_dest;       
-wire    [1  :0]  vec_fored_w_split_inst1_lmul;       
-wire    [2  :0]  vec_fored_w_split_inst1_sew;        
-wire    [5  :0]  vec_fored_w_split_inst1_src0;       
-wire    [5  :0]  vec_fored_w_split_inst1_src1;       
-wire    [1  :0]  vec_fored_w_split_inst2_lmul;       
-wire    [2  :0]  vec_fored_w_split_inst2_sew;        
-wire    [1  :0]  vec_fored_w_split_inst3_lmul;       
-wire    [2  :0]  vec_fored_w_split_inst3_sew;        
-wire    [5  :0]  vec_fored_w_split_inst3_src0;       
-wire    [5  :0]  vec_fored_w_split_inst3_src1;       
-wire             vec_fored_w_split_stall;            
-wire    [4  :0]  vec_fored_w_srcv0_vreg_0;           
-wire    [4  :0]  vec_fored_w_srcv1_vreg;             
-wire    [16 :0]  vec_fred_dep_info;                  
-wire    [177:0]  vec_fred_inst0_data;                
-wire    [177:0]  vec_fred_inst1_data;                
-wire    [177:0]  vec_fred_inst2_data;                
-wire    [177:0]  vec_fred_inst3_data;                
-wire    [3  :0]  vec_fred_inst_vld;                  
-wire             vec_fred_split_stall;               
-wire             vec_fred_w_mul8;                    
-wire    [16 :0]  vec_funored_dep_info;               
-wire    [4  :0]  vec_funored_destv_vreg;             
-wire    [177:0]  vec_funored_inst0_data;             
-wire    [177:0]  vec_funored_inst1_data;             
-wire    [177:0]  vec_funored_inst2_data;             
-wire    [177:0]  vec_funored_inst3_data;             
-wire    [3  :0]  vec_funored_inst_vld;               
-wire             vec_funored_sm_start;               
-wire             vec_funored_split_busy;             
-wire             vec_funored_split_clk;              
-wire             vec_funored_split_clk_en;           
-wire    [5  :0]  vec_funored_split_inst1_dest;       
-wire             vec_funored_split_stall;            
-wire    [4  :0]  vec_funored_srcv0_vreg_0;           
-wire    [4  :0]  vec_funored_srcv0_vreg_2;           
-wire    [4  :0]  vec_funored_srcv1_vreg;             
-wire             vec_funored_w_cnt_h;                
-wire    [2  :0]  vec_funored_w_cnt_l;                
-wire    [16 :0]  vec_funored_w_dep_info;             
-wire    [4  :0]  vec_funored_w_destv_vreg;           
-wire    [177:0]  vec_funored_w_inst0_data;           
-wire    [177:0]  vec_funored_w_inst1_data;           
-wire    [177:0]  vec_funored_w_inst2_data;           
-wire    [177:0]  vec_funored_w_inst3_data;           
-wire    [3  :0]  vec_funored_w_inst_vld;             
-wire             vec_funored_w_sm_start;             
-wire             vec_funored_w_split_busy;           
-wire             vec_funored_w_split_clk;            
-wire             vec_funored_w_split_clk_en;         
-wire    [1  :0]  vec_funored_w_split_inst0_lmul;     
-wire    [2  :0]  vec_funored_w_split_inst0_sew;      
-wire    [1  :0]  vec_funored_w_split_inst1_lmul;     
-wire    [2  :0]  vec_funored_w_split_inst1_sew;      
-wire    [1  :0]  vec_funored_w_split_inst2_lmul;     
-wire    [2  :0]  vec_funored_w_split_inst2_sew;      
-wire    [1  :0]  vec_funored_w_split_inst3_lmul;     
-wire    [2  :0]  vec_funored_w_split_inst3_sew;      
-wire             vec_funored_w_split_stall;          
-wire    [4  :0]  vec_funored_w_srcv0_vreg_0;         
-wire    [4  :0]  vec_funored_w_srcv1_vreg;           
-wire             vec_gpr_vld;                        
-wire             vec_imm_vld;                        
-wire    [31 :0]  vec_index_add_inst;                 
-wire    [16 :0]  vec_index_dep_info;                 
-wire    [31 :0]  vec_index_ext_inst;                 
-wire    [177:0]  vec_index_inst0_data;               
-wire    [177:0]  vec_index_inst1_data;               
-wire    [177:0]  vec_index_inst2_data;               
-wire    [177:0]  vec_index_inst3_data;               
-wire    [3  :0]  vec_index_inst_vld;                 
-wire             vec_index_sm_start;                 
-wire             vec_index_split_clk;                
-wire             vec_index_split_clk_en;             
-wire             vec_index_split_last;               
-wire             vec_index_split_stall;              
-wire    [31 :0]  vec_index_vmv_inst;                 
-wire             vec_index_vreg_begin;               
-wire             vec_index_vreg_end;                 
-wire    [31 :0]  vec_inst;                           
-wire             vec_inst_adc;                       
-wire             vec_inst_cmp;                       
-wire             vec_inst_div;                       
-wire             vec_inst_ereg;                      
-wire             vec_inst_fmv;                       
-wire             vec_inst_mac;                       
-wire             vec_inst_madd;                      
-wire             vec_inst_red;                       
-wire             vec_inst_sat;                       
-wire             vec_inst_sht;                       
-wire             vec_ld;                             
-wire             vec_ld_srcv2_vld;                   
-wire             vec_ldst;                           
-wire    [1  :0]  vec_lmul;                           
-wire    [31 :0]  vec_mtvr_inst_op;                   
-wire    [4  :0]  vec_mvvf_inst_cnt;                  
-wire             vec_narr_sat;                       
-wire             vec_narr_sht;                       
-wire             vec_norm_cur_1st;                   
-wire             vec_norm_cur_2nd;                   
-wire             vec_norm_cur_mtvr;                  
-wire    [11 :0]  vec_norm_destv_offset;              
-wire    [11 :0]  vec_norm_destv_offset_tmp;          
-wire    [4  :0]  vec_norm_destv_vreg_0;              
-wire    [4  :0]  vec_norm_destv_vreg_1;              
-wire    [4  :0]  vec_norm_destv_vreg_2;              
-wire    [4  :0]  vec_norm_destv_vreg_3;              
-wire             vec_norm_div;                       
-wire    [177:0]  vec_norm_inst0_data;                
-wire    [177:0]  vec_norm_inst1_data;                
-wire    [177:0]  vec_norm_inst2_data;                
-wire    [177:0]  vec_norm_inst3_data;                
-wire             vec_norm_inst_0_finish;             
-wire             vec_norm_inst_1_finish;             
-wire             vec_norm_inst_3_finish;             
-wire    [3  :0]  vec_norm_inst_vld;                  
-wire             vec_norm_inst_vmla;                 
-wire             vec_norm_mac;                       
-wire             vec_norm_mul;                       
-wire    [3  :0]  vec_norm_pipe_sel;                  
-wire             vec_norm_require_2nd;               
-wire             vec_norm_sat;                       
-wire             vec_norm_sht;                       
-wire             vec_norm_sm_start;                  
-wire             vec_norm_split_clk;                 
-wire             vec_norm_split_clk_en;              
-wire    [3  :0]  vec_norm_split_num;                 
-wire             vec_norm_split_slow_0;              
-wire             vec_norm_split_slow_1;              
-wire             vec_norm_split_stall;               
-wire    [11 :0]  vec_norm_srcv0_offset;              
-wire    [11 :0]  vec_norm_srcv0_offset_tmp;          
-wire             vec_norm_srcv0_tmp;                 
-wire             vec_norm_srcv0_vld;                 
-wire    [4  :0]  vec_norm_srcv0_vreg_0;              
-wire    [4  :0]  vec_norm_srcv0_vreg_0_tmp;          
-wire    [4  :0]  vec_norm_srcv0_vreg_1;              
-wire    [4  :0]  vec_norm_srcv0_vreg_1_tmp;          
-wire    [4  :0]  vec_norm_srcv0_vreg_2;              
-wire    [4  :0]  vec_norm_srcv0_vreg_2_tmp;          
-wire    [4  :0]  vec_norm_srcv0_vreg_3;              
-wire    [4  :0]  vec_norm_srcv0_vreg_3_tmp;          
-wire    [11 :0]  vec_norm_srcv1_offset;              
-wire             vec_norm_srcv1_tmp;                 
-wire             vec_norm_srcv1_vld;                 
-wire    [4  :0]  vec_norm_srcv1_vreg_0;              
-wire    [4  :0]  vec_norm_srcv1_vreg_0_tmp;          
-wire    [4  :0]  vec_norm_srcv1_vreg_1;              
-wire    [4  :0]  vec_norm_srcv1_vreg_1_tmp;          
-wire    [4  :0]  vec_norm_srcv1_vreg_2;              
-wire    [4  :0]  vec_norm_srcv1_vreg_2_tmp;          
-wire    [4  :0]  vec_norm_srcv1_vreg_3;              
-wire    [4  :0]  vec_norm_srcv1_vreg_3_tmp;          
-wire             vec_norm_srcv2_vld;                 
-wire             vec_norm_srcvm_vld;                 
-wire             vec_opfvf;                          
-wire             vec_opfvv;                          
-wire             vec_opivi;                          
-wire             vec_opivv;                          
-wire             vec_opivx;                          
-wire             vec_opmvv;                          
-wire             vec_opmvx;                          
-wire    [16 :0]  vec_perm_dep_info;                  
-wire    [177:0]  vec_perm_inst0_data;                
-wire    [3  :0]  vec_perm_inst_vld;                  
-wire             vec_perm_mtvr_sel;                  
-wire             vec_perm_split_stall;               
-wire    [1  :0]  vec_sew;                            
-wire             vec_src_switch;                     
-wire             vec_st;                             
-wire    [31 :0]  vec_stride_add_inst;                
-wire    [16 :0]  vec_stride_dep_info;                
-wire             vec_stride_dst_v0;                  
-wire             vec_stride_dstv0_ovlp;              
-wire    [177:0]  vec_stride_inst0_data;              
-wire    [177:0]  vec_stride_inst1_data;              
-wire    [177:0]  vec_stride_inst2_data;              
-wire    [177:0]  vec_stride_inst3_data;              
-wire    [3  :0]  vec_stride_inst_vld;                
-wire             vec_stride_sm_start;                
-wire             vec_stride_split_clk;               
-wire             vec_stride_split_clk_en;            
-wire             vec_stride_split_last;              
-wire             vec_stride_split_last_normal;       
-wire             vec_stride_split_secd_to_last;      
-wire             vec_stride_split_stall;             
-wire             vec_stride_v0_begin;                
-wire             vec_stride_v0_split_last;           
-wire             vec_stride_vreg_begin;              
-wire             vec_stride_vreg_end;                
-wire             vec_type_cmp;                       
-wire             vec_type_fcvt;                      
-wire             vec_type_fcvt_narr;                 
-wire             vec_type_fcvt_norm;                 
-wire             vec_type_fcvt_wide;                 
-wire             vec_type_fdiv;                      
-wire             vec_type_fmac;                      
-wire             vec_type_narr;                      
-wire             vec_type_narr_0;                    
-wire             vec_type_narr_1;                    
-wire             vec_type_narr_2;                    
-wire             vec_type_norm_0_2;                  
-wire             vec_type_norm_0_3;                  
-wire             vec_type_norm_0_4;                  
-wire             vec_type_norm_0_5;                  
-wire             vec_type_norm_0_7;                  
-wire             vec_type_norm_0_9;                  
-wire             vec_type_norm_0_a;                  
-wire             vec_type_norm_0_b;                  
-wire             vec_type_norm_1_0;                  
-wire             vec_type_norm_1_1;                  
-wire             vec_type_norm_1_2;                  
-wire             vec_type_norm_1_3;                  
-wire             vec_type_norm_2_1;                  
-wire             vec_type_norm_2_2;                  
-wire             vec_type_norm_2_3;                  
-wire             vec_type_norm_2_4;                  
-wire             vec_type_norm_2_5;                  
-wire             vec_type_norm_2_6;                  
-wire             vec_type_norm_2_7;                  
-wire             vec_type_norm_2_9;                  
-wire             vec_type_norm_2_a;                  
-wire             vec_type_norm_2_b;                  
-wire             vec_type_norm_2_c;                  
-wire             vec_type_redu;                      
-wire             vec_type_wide;                      
-wire             vec_type_wide_0;                    
-wire             vec_type_wide_1;                    
-wire             vec_type_wide_2;                    
-wire             vec_type_wide_3;                    
-wire             vec_type_wide_4;                    
-wire             vec_type_wide_5;                    
-wire             vec_type_wide_6;                    
-wire             vec_type_wide_7;                    
-wire             vec_type_wide_8;                    
-wire             vec_type_wide_9;                    
-wire             vec_type_wide_narr;                 
-wire             vec_wide_mac;                       
-wire             vec_wide_mul;                       
-wire             vec_wide_sat;                       
-wire    [31 :0]  vfmvvf_inst;                        
-wire             vperm_cur_idle;                     
-wire             vperm_cur_mtvr;                     
-wire    [6  :0]  vperm_inst1_not_vld;                
-wire    [6  :0]  vperm_inst2_not_vld;                
-wire    [4  :0]  vperm_inst3_not_vld;                
-wire    [3  :0]  vperm_inst_split_last;              
-wire    [1  :0]  vperm_require_mtvr;                 
-wire             vperm_sm_start;                     
-wire             vperm_split_clk_en;                 
-wire             vperm_split_mtvr_vld;               
-wire             vperm_split_stall;                  
-wire    [2  :0]  vperm_srcv0_inc;                    
-wire    [2  :0]  vperm_srcv0_inst0_count;            
-wire    [2  :0]  vperm_srcv0_inst1_count;            
-wire    [2  :0]  vperm_srcv0_inst2_count;            
-wire    [2  :0]  vperm_srcv0_inst3_count;            
-wire    [4  :0]  vperm_srcv1_reg;                    
-wire             vpr_cnt_over;                       
-wire             vpr_idle_inc;                       
-wire    [3  :0]  vpr_inc_1;                          
-wire    [3  :0]  vpr_inc_2;                          
-wire             vrgather;                           
-wire             vrgather_clk_en;                    
-wire             vrgather_cur_idle;                  
-wire    [31 :0]  vrgather_inst;                      
-wire    [3  :0]  vrgather_inst0_fwd_inst;            
-wire    [5  :0]  vrgather_inst0_split_num;           
-wire    [4  :0]  vrgather_inst0_srcv0_reg;           
-wire    [4  :0]  vrgather_inst0_vdst_offset;         
-wire    [4  :0]  vrgather_inst0_vdst_reg;            
-wire    [3  :0]  vrgather_inst1_fwd_inst;            
-wire    [5  :0]  vrgather_inst1_split_num;           
-wire    [4  :0]  vrgather_inst1_srcv0_reg;           
-wire    [4  :0]  vrgather_inst1_vdst_offset;         
-wire    [4  :0]  vrgather_inst1_vdst_reg;            
-wire    [3  :0]  vrgather_inst2_fwd_inst;            
-wire    [5  :0]  vrgather_inst2_split_num;           
-wire    [4  :0]  vrgather_inst2_srcv0_reg;           
-wire    [4  :0]  vrgather_inst2_vdst_offset;         
-wire    [4  :0]  vrgather_inst2_vdst_reg;            
-wire    [3  :0]  vrgather_inst3_fwd_inst;            
-wire    [5  :0]  vrgather_inst3_split_num;           
-wire    [4  :0]  vrgather_inst3_srcv0_reg;           
-wire    [4  :0]  vrgather_inst3_vdst_offset;         
-wire    [4  :0]  vrgather_inst3_vdst_reg;            
-wire    [31 :0]  vrgather_inst_0;                    
-wire    [31 :0]  vrgather_inst_1;                    
-wire    [4  :0]  vrgather_inst_srcv1_reg;            
-wire    [3  :0]  vrgather_inst_srcv1_tmp;            
-wire    [3  :0]  vrgather_inst_vdst_tmp;             
-wire             vrgather_split_clk;                 
-wire             vrgather_split_stall;               
-wire    [4  :0]  vrgather_srcv0_base;                
-wire    [19 :0]  vrgather_srcv0_offset;              
-wire             vrgather_start;                     
-wire    [19 :0]  vrgather_vdst_offset;               
-wire             vrgather_xi;                        
-wire             vslide1_stride;                     
-wire             vslide_clk_en;                      
-wire             vslide_cur_idle;                    
-wire    [3  :0]  vslide_inst0_srcv1_tmp;             
-wire    [1  :0]  vslide_inst1_srcv1_tmp;             
-wire             vslide_inst2_srcv1_tmp;             
-wire    [1  :0]  vslide_inst3_srcv1_tmp;             
-wire             vslide_one_start;                   
-wire             vslide_split_clk;                   
-wire             vslide_split_stall;                 
-wire    [4  :0]  vslide_srcv0_base;                  
-wire    [11 :0]  vslide_srcv0_offset;                
-wire    [11 :0]  vslide_srcv1_offset;                
-wire    [11 :0]  vslide_srcv1_slidedown_offset;      
-wire    [11 :0]  vslide_srcv1_slideup_offset;        
-wire             vslidedown;                         
-wire             vslideup;                           
-wire    [1  :0]  widden_split_inst0_vlmul;           
-wire    [2  :0]  widden_split_inst0_vsew;            
-wire    [1  :0]  widden_split_inst1_vlmul;           
-wire    [2  :0]  widden_split_inst1_vsew;            
-wire    [1  :0]  widden_split_inst2_vlmul;           
-wire    [2  :0]  widden_split_inst2_vsew;            
-wire    [1  :0]  widden_split_inst3_vlmul;           
-wire    [2  :0]  widden_split_inst3_vsew;            
-wire             widden_split_inst_vld;              
-wire             x_vfunary0_vld_narr;                
-wire             x_vfunary0_vld_norm;                
-wire             x_vfunary0_vld_wide;                
-wire    [3  :0]  zvlsseg_index_add_iid_plus;         
-wire    [31 :0]  zvlsseg_index_add_inst;             
-wire    [16 :0]  zvlsseg_index_dep_info;             
-wire    [31 :0]  zvlsseg_index_ext_inst;             
-wire    [177:0]  zvlsseg_index_inst0_data;           
-wire    [177:0]  zvlsseg_index_inst1_data;           
-wire    [177:0]  zvlsseg_index_inst2_data;           
-wire    [177:0]  zvlsseg_index_inst3_data;           
-wire    [3  :0]  zvlsseg_index_inst_vld;             
-wire             zvlsseg_index_nf_first;             
-wire             zvlsseg_index_nf_last;              
-wire             zvlsseg_index_sm_start;             
-wire             zvlsseg_index_split_clk;            
-wire             zvlsseg_index_split_clk_en;         
-wire    [5  :0]  zvlsseg_index_split_dstv_reg0;      
-wire    [5  :0]  zvlsseg_index_split_dstv_reg1;      
-wire             zvlsseg_index_split_last;           
-wire             zvlsseg_index_split_stall;          
-wire             zvlsseg_index_vreg_end;             
-wire    [31 :0]  zvlsseg_stride_add_inst;            
-wire    [3  :0]  zvlsseg_stride_add_interval;        
-wire    [16 :0]  zvlsseg_stride_dep_info;            
-wire    [177:0]  zvlsseg_stride_inst0_data;          
-wire    [177:0]  zvlsseg_stride_inst1_data;          
-wire    [177:0]  zvlsseg_stride_inst2_data;          
-wire    [177:0]  zvlsseg_stride_inst3_data;          
-wire    [3  :0]  zvlsseg_stride_inst_vld;            
-wire    [1  :0]  zvlsseg_stride_nf_cycle;            
-wire             zvlsseg_stride_nf_last;             
-wire             zvlsseg_stride_sm_start;            
-wire             zvlsseg_stride_split_clk;           
-wire             zvlsseg_stride_split_clk_en;        
-wire    [5  :0]  zvlsseg_stride_split_dstv_reg0;     
-wire    [5  :0]  zvlsseg_stride_split_dstv_reg1;     
-wire             zvlsseg_stride_split_last;          
-wire             zvlsseg_stride_split_secd_to_last;  
-wire             zvlsseg_stride_split_stall;         
-wire    [31 :0]  zvlsseg_stride_vmv_inst;            
-wire             zvlsseg_stride_vreg_end;            
-wire             zvlsseg_stride_vreg_secd_to_end;    
-wire    [16 :0]  zvlsseg_unit_dep_info;              
-wire    [177:0]  zvlsseg_unit_inst0_data;            
-wire    [177:0]  zvlsseg_unit_inst1_data;            
-wire    [177:0]  zvlsseg_unit_inst2_data;            
-wire    [177:0]  zvlsseg_unit_inst3_data;            
-wire    [3  :0]  zvlsseg_unit_inst_vld;              
-wire             zvlsseg_unit_nf_last;               
-wire    [6  :0]  zvlsseg_unit_nf_offset_cnt1;        
-wire             zvlsseg_unit_sm_start;              
-wire             zvlsseg_unit_split_clk;             
-wire             zvlsseg_unit_split_clk_en;          
-wire    [5  :0]  zvlsseg_unit_split_dstv_reg0;       
-wire    [5  :0]  zvlsseg_unit_split_dstv_reg1;       
-wire    [177:0]  zvlsseg_unit_split_inst3_data;      
-wire             zvlsseg_unit_split_last;            
-wire             zvlsseg_unit_split_stall;           
-wire    [31 :0]  zvlsseg_unit_vmv_inst;              
-wire             zvlsseg_unit_vreg_end;              
+wire             amo_add;
+wire    [31 :0]  amo_amoalu_inst_op;
+wire             amo_and;
+wire             amo_aq;
+wire             amo_dep_info_bit;
+wire    [31 :0]  amo_fence_aq_inst_opcode;
+wire    [31 :0]  amo_fence_rl_inst_opcode;
+wire             amo_inst;
+wire    [3  :0]  amo_inst_vld;
+wire             amo_lr_or_sc;
+wire             amo_max;
+wire             amo_maxu;
+wire             amo_min;
+wire             amo_minu;
+wire             amo_more_than_4;
+wire             amo_or;
+wire    [4  :0]  amo_rd;
+wire             amo_rd_is_x0;
+wire             amo_rl;
+wire    [4  :0]  amo_rs1;
+wire    [4  :0]  amo_rs2;
+wire             amo_sm_start;
+wire             amo_split_inst;
+wire             amo_split_stall;
+wire             amo_swap;
+wire             amo_word;
+wire             amo_xor;
+wire             cp0_idu_icg_en;
+wire    [6  :0]  cp0_idu_vstart;
+wire             cp0_yy_clk_en;
+wire             cpurst_b;
+wire             ctrl_split_long_id_inst_vld;
+wire             ctrl_split_long_id_stall;
+wire             dp_split_fnorm_wf_vld;
+wire             dp_split_fnorm_wv_vld;
+wire             dp_split_fored_vld;
+wire             dp_split_fored_w_vld;
+wire             dp_split_long_bkpta_inst;
+wire             dp_split_long_bkptb_inst;
+wire    [31 :0]  dp_split_long_inst;
+wire             dp_split_long_no_spec;
+wire    [14 :0]  dp_split_long_pc;
+wire    [9  :0]  dp_split_long_type;
+wire    [7  :0]  dp_split_long_vl;
+wire             dp_split_long_vl_pred;
+wire    [1  :0]  dp_split_long_vlmul;
+wire    [2  :0]  dp_split_long_vsew;
+wire             dp_split_unfored_vld;
+wire             dp_split_unfored_w_vld;
+wire    [2  :0]  dp_split_w_vlmul;
+wire    [2  :0]  dp_split_w_vsew;
+wire    [31 :0]  fcvtw_inst;
+wire             fnorm_wf_cnt_en;
+wire             fnorm_wf_cnt_end;
+wire             fnorm_wf_fst_round;
+wire    [3  :0]  fnorm_wf_total_cnt_num;
+wire             fnorm_wv_cnt_en;
+wire             fnorm_wv_cnt_end;
+wire    [3  :0]  fnorm_wv_total_cnt_num;
+wire             fored_cnt_en;
+wire             fored_cnt_end;
+wire             fored_fst_round;
+wire    [31 :0]  fored_inst;
+wire    [2  :0]  fored_split_inst0_sew16_dy_lmul;
+wire    [2  :0]  fored_split_inst0_sew16_dy_splcnt;
+wire             fored_split_inst0_sew16_last;
+wire    [2  :0]  fored_split_inst0_sew32_dy_lmul;
+wire    [2  :0]  fored_split_inst0_sew32_dy_splcnt;
+wire             fored_split_inst0_sew32_last;
+wire    [2  :0]  fored_split_inst0_sew64_dy_lmul;
+wire    [2  :0]  fored_split_inst0_sew64_dy_splcnt;
+wire             fored_split_inst0_sew64_last;
+wire    [2  :0]  fored_split_inst1_sew16_dy_lmul;
+wire    [2  :0]  fored_split_inst1_sew16_dy_splcnt;
+wire             fored_split_inst1_sew16_last;
+wire    [2  :0]  fored_split_inst1_sew32_dy_lmul;
+wire    [2  :0]  fored_split_inst1_sew32_dy_splcnt;
+wire             fored_split_inst1_sew32_last;
+wire    [2  :0]  fored_split_inst1_sew64_dy_lmul;
+wire    [2  :0]  fored_split_inst1_sew64_dy_splcnt;
+wire             fored_split_inst1_sew64_last;
+wire    [2  :0]  fored_split_inst2_sew16_dy_lmul;
+wire    [2  :0]  fored_split_inst2_sew16_dy_splcnt;
+wire             fored_split_inst2_sew16_last;
+wire    [2  :0]  fored_split_inst2_sew32_dy_lmul;
+wire    [2  :0]  fored_split_inst2_sew32_dy_splcnt;
+wire             fored_split_inst2_sew32_last;
+wire    [2  :0]  fored_split_inst2_sew64_dy_lmul;
+wire    [2  :0]  fored_split_inst2_sew64_dy_splcnt;
+wire             fored_split_inst2_sew64_last;
+wire    [2  :0]  fored_split_inst3_sew16_dy_lmul;
+wire    [2  :0]  fored_split_inst3_sew16_dy_splcnt;
+wire             fored_split_inst3_sew16_last;
+wire    [2  :0]  fored_split_inst3_sew32_dy_lmul;
+wire    [2  :0]  fored_split_inst3_sew32_dy_splcnt;
+wire             fored_split_inst3_sew32_last;
+wire    [2  :0]  fored_split_inst3_sew64_dy_lmul;
+wire    [2  :0]  fored_split_inst3_sew64_dy_splcnt;
+wire             fored_split_inst3_sew64_last;
+wire    [5  :0]  fored_total_cnt_num;
+wire             fored_w_cnt_en;
+wire             fored_w_cnt_end;
+wire             fored_w_fst_round;
+wire    [31 :0]  fored_w_split_inst0_sew16;
+wire    [2  :0]  fored_w_split_inst0_sew16_dy_lmul;
+wire    [2  :0]  fored_w_split_inst0_sew16_dy_splcnt;
+wire    [31 :0]  fored_w_split_inst0_sew32;
+wire    [2  :0]  fored_w_split_inst0_sew32_dy_lmul;
+wire    [2  :0]  fored_w_split_inst0_sew32_dy_splcnt;
+wire    [31 :0]  fored_w_split_inst1_sew16;
+wire    [2  :0]  fored_w_split_inst1_sew16_dy_lmul;
+wire    [2  :0]  fored_w_split_inst1_sew16_dy_splcnt;
+wire             fored_w_split_inst1_sew16_last;
+wire    [31 :0]  fored_w_split_inst1_sew32;
+wire    [2  :0]  fored_w_split_inst1_sew32_dy_lmul;
+wire    [2  :0]  fored_w_split_inst1_sew32_dy_splcnt;
+wire             fored_w_split_inst1_sew32_last;
+wire    [31 :0]  fored_w_split_inst2_sew16;
+wire    [2  :0]  fored_w_split_inst2_sew16_dy_lmul;
+wire    [2  :0]  fored_w_split_inst2_sew16_dy_splcnt;
+wire    [31 :0]  fored_w_split_inst2_sew32;
+wire    [2  :0]  fored_w_split_inst2_sew32_dy_lmul;
+wire    [2  :0]  fored_w_split_inst2_sew32_dy_splcnt;
+wire    [31 :0]  fored_w_split_inst3_sew16;
+wire    [2  :0]  fored_w_split_inst3_sew16_dy_lmul;
+wire    [2  :0]  fored_w_split_inst3_sew16_dy_splcnt;
+wire             fored_w_split_inst3_sew16_last;
+wire    [31 :0]  fored_w_split_inst3_sew32;
+wire    [2  :0]  fored_w_split_inst3_sew32_dy_lmul;
+wire    [2  :0]  fored_w_split_inst3_sew32_dy_splcnt;
+wire             fored_w_split_inst3_sew32_last;
+wire    [4  :0]  fored_w_total_cnt_num;
+wire             forever_cpuclk;
+wire    [5  :0]  funct6;
+wire             funored_cnt_en;
+wire             funored_cnt_end;
+wire             funored_fst_round;
+wire    [2  :0]  funored_split_inst0_sew16_dy_lmul;
+wire    [2  :0]  funored_split_inst0_sew16_dy_splcnt;
+wire             funored_split_inst0_sew16_last;
+wire    [2  :0]  funored_split_inst0_sew32_dy_lmul;
+wire    [2  :0]  funored_split_inst0_sew32_dy_splcnt;
+wire             funored_split_inst0_sew32_last;
+wire    [2  :0]  funored_split_inst0_sew64_dy_lmul;
+wire    [2  :0]  funored_split_inst0_sew64_dy_splcnt;
+wire             funored_split_inst0_sew64_last;
+wire    [2  :0]  funored_split_inst1_sew16_dy_lmul;
+wire    [2  :0]  funored_split_inst1_sew16_dy_splcnt;
+wire             funored_split_inst1_sew16_last;
+wire    [2  :0]  funored_split_inst1_sew32_dy_lmul;
+wire    [2  :0]  funored_split_inst1_sew32_dy_splcnt;
+wire             funored_split_inst1_sew32_last;
+wire    [2  :0]  funored_split_inst1_sew64_dy_lmul;
+wire    [2  :0]  funored_split_inst1_sew64_dy_splcnt;
+wire             funored_split_inst1_sew64_last;
+wire    [2  :0]  funored_split_inst2_sew16_dy_lmul;
+wire    [2  :0]  funored_split_inst2_sew16_dy_splcnt;
+wire             funored_split_inst2_sew16_last;
+wire             funored_split_inst2_sew16_round_end;
+wire    [2  :0]  funored_split_inst2_sew32_dy_lmul;
+wire    [2  :0]  funored_split_inst2_sew32_dy_splcnt;
+wire             funored_split_inst2_sew32_last;
+wire             funored_split_inst2_sew32_round_end;
+wire    [2  :0]  funored_split_inst2_sew64_dy_lmul;
+wire    [2  :0]  funored_split_inst2_sew64_dy_splcnt;
+wire             funored_split_inst2_sew64_last;
+wire             funored_split_inst2_sew64_round_end;
+wire    [2  :0]  funored_split_inst3_sew16_dy_lmul;
+wire    [2  :0]  funored_split_inst3_sew16_dy_splcnt;
+wire             funored_split_inst3_sew16_last;
+wire    [2  :0]  funored_split_inst3_sew32_dy_lmul;
+wire    [2  :0]  funored_split_inst3_sew32_dy_splcnt;
+wire             funored_split_inst3_sew32_last;
+wire    [2  :0]  funored_split_inst3_sew64_dy_lmul;
+wire    [2  :0]  funored_split_inst3_sew64_dy_splcnt;
+wire             funored_split_inst3_sew64_last;
+wire    [2  :0]  funored_total_cnt_num;
+wire             funored_w_cnt_en;
+wire             funored_w_cnt_end;
+wire             funored_w_fst_round;
+wire    [3  :0]  funored_w_total_cnt_num;
+wire             iu_yy_xx_cancel;
+wire             lr_inst;
+wire             pad_yy_icg_scan_en;
+wire    [31 :0]  perm_mtvr_inst_op;
+wire             perm_split_clk;
+wire             rtu_idu_flush_fe;
+wire             sc_inst;
+wire             split_clk;
+wire             split_clk_en;
+wire             split_long_ctrl_id_stall;
+wire    [3  :0]  split_long_ctrl_inst_vld;
+wire    [16 :0]  split_long_dp_dep_info;
+wire    [177:0]  split_long_inst0_data;
+wire    [177:0]  split_long_inst1_data;
+wire    [177:0]  split_long_inst2_data;
+wire    [177:0]  split_long_inst3_data;
+wire             vcompress;
+wire    [31 :0]  vec_amo_add_inst;
+wire    [16 :0]  vec_amo_dep_info;
+wire             vec_amo_dst_v0;
+wire    [31 :0]  vec_amo_ext_inst;
+wire    [177:0]  vec_amo_inst0_data;
+wire    [177:0]  vec_amo_inst1_data;
+wire    [177:0]  vec_amo_inst2_data;
+wire    [177:0]  vec_amo_inst3_data;
+wire    [3  :0]  vec_amo_inst_vld;
+wire             vec_amo_sm_start;
+wire             vec_amo_split_clk;
+wire             vec_amo_split_clk_en;
+wire    [177:0]  vec_amo_split_inst3_data;
+wire             vec_amo_split_last;
+wire             vec_amo_split_stall;
+wire    [31 :0]  vec_amo_valu_inst;
+wire    [31 :0]  vec_amo_vmv_inst;
+wire             vec_amo_vreg_begin;
+wire             vec_amo_vreg_end;
+wire             vec_dstv_ovlp_vs2;
+wire    [2  :0]  vec_fnorm_wf_base_cnt;
+wire    [16 :0]  vec_fnorm_wf_dep_info;
+wire    [4  :0]  vec_fnorm_wf_dest_vreg_1;
+wire    [4  :0]  vec_fnorm_wf_dest_vreg_3;
+wire    [177:0]  vec_fnorm_wf_inst0_data;
+wire    [177:0]  vec_fnorm_wf_inst1_data;
+wire    [177:0]  vec_fnorm_wf_inst2_data;
+wire    [177:0]  vec_fnorm_wf_inst3_data;
+wire    [3  :0]  vec_fnorm_wf_inst_vld;
+wire             vec_fnorm_wf_sm_start;
+wire             vec_fnorm_wf_split_busy;
+wire             vec_fnorm_wf_split_clk;
+wire             vec_fnorm_wf_split_clk_en;
+wire    [1  :0]  vec_fnorm_wf_split_inst0_lmul;
+wire    [2  :0]  vec_fnorm_wf_split_inst0_sew;
+wire    [1  :0]  vec_fnorm_wf_split_inst1_lmul;
+wire    [2  :0]  vec_fnorm_wf_split_inst1_sew;
+wire    [1  :0]  vec_fnorm_wf_split_inst2_lmul;
+wire    [2  :0]  vec_fnorm_wf_split_inst2_sew;
+wire    [1  :0]  vec_fnorm_wf_split_inst3_lmul;
+wire    [2  :0]  vec_fnorm_wf_split_inst3_sew;
+wire             vec_fnorm_wf_split_stall;
+wire    [4  :0]  vec_fnorm_wf_srcv0_vreg_1;
+wire    [4  :0]  vec_fnorm_wf_srcv0_vreg_3;
+wire    [4  :0]  vec_fnorm_wf_srcv1_vreg;
+wire    [16 :0]  vec_fnorm_wv_dep_info;
+wire    [4  :0]  vec_fnorm_wv_dest_vreg_1;
+wire    [4  :0]  vec_fnorm_wv_dest_vreg_3;
+wire    [177:0]  vec_fnorm_wv_inst0_data;
+wire    [177:0]  vec_fnorm_wv_inst1_data;
+wire    [177:0]  vec_fnorm_wv_inst2_data;
+wire    [177:0]  vec_fnorm_wv_inst3_data;
+wire    [3  :0]  vec_fnorm_wv_inst_vld;
+wire             vec_fnorm_wv_sm_start;
+wire             vec_fnorm_wv_split_busy;
+wire             vec_fnorm_wv_split_clk;
+wire             vec_fnorm_wv_split_clk_en;
+wire    [1  :0]  vec_fnorm_wv_split_inst0_lmul;
+wire    [2  :0]  vec_fnorm_wv_split_inst0_sew;
+wire    [1  :0]  vec_fnorm_wv_split_inst1_lmul;
+wire    [2  :0]  vec_fnorm_wv_split_inst1_sew;
+wire    [1  :0]  vec_fnorm_wv_split_inst2_lmul;
+wire    [2  :0]  vec_fnorm_wv_split_inst2_sew;
+wire    [1  :0]  vec_fnorm_wv_split_inst3_lmul;
+wire    [2  :0]  vec_fnorm_wv_split_inst3_sew;
+wire             vec_fnorm_wv_split_stall;
+wire    [4  :0]  vec_fnorm_wv_srcv0_vreg_1;
+wire    [4  :0]  vec_fnorm_wv_srcv0_vreg_3;
+wire    [4  :0]  vec_fnorm_wv_srcv1_vreg;
+wire    [16 :0]  vec_fored_dep_info;
+wire    [4  :0]  vec_fored_destv_vreg;
+wire    [177:0]  vec_fored_inst0_data;
+wire    [177:0]  vec_fored_inst1_data;
+wire    [177:0]  vec_fored_inst2_data;
+wire    [177:0]  vec_fored_inst3_data;
+wire    [3  :0]  vec_fored_inst_vld;
+wire             vec_fored_sm_start;
+wire             vec_fored_split_busy;
+wire             vec_fored_split_clk;
+wire             vec_fored_split_clk_en;
+wire    [5  :0]  vec_fored_split_inst0_src0;
+wire    [5  :0]  vec_fored_split_inst0_src1;
+wire    [5  :0]  vec_fored_split_inst1_src0;
+wire    [5  :0]  vec_fored_split_inst1_src1;
+wire    [5  :0]  vec_fored_split_inst2_src0;
+wire    [5  :0]  vec_fored_split_inst2_src1;
+wire    [5  :0]  vec_fored_split_inst3_src0;
+wire    [5  :0]  vec_fored_split_inst3_src1;
+wire             vec_fored_split_stall;
+wire    [4  :0]  vec_fored_srcv0_vreg_0;
+wire    [4  :0]  vec_fored_srcv0_vreg_1;
+wire    [4  :0]  vec_fored_srcv0_vreg_2;
+wire    [4  :0]  vec_fored_srcv0_vreg_3;
+wire    [4  :0]  vec_fored_srcv1_vreg;
+wire             vec_fored_w_cnt_h;
+wire    [2  :0]  vec_fored_w_cnt_l;
+wire    [16 :0]  vec_fored_w_dep_info;
+wire    [4  :0]  vec_fored_w_destv_vreg;
+wire    [177:0]  vec_fored_w_inst0_data;
+wire             vec_fored_w_inst0_mul8;
+wire    [177:0]  vec_fored_w_inst1_data;
+wire    [177:0]  vec_fored_w_inst2_data;
+wire    [177:0]  vec_fored_w_inst3_data;
+wire    [3  :0]  vec_fored_w_inst_vld;
+wire             vec_fored_w_sm_start;
+wire             vec_fored_w_split_busy;
+wire             vec_fored_w_split_clk;
+wire             vec_fored_w_split_clk_en;
+wire    [1  :0]  vec_fored_w_split_inst0_lmul;
+wire    [2  :0]  vec_fored_w_split_inst0_sew;
+wire    [5  :0]  vec_fored_w_split_inst0_src0;
+wire    [5  :0]  vec_fored_w_split_inst0_src1;
+wire    [5  :0]  vec_fored_w_split_inst1_dest;
+wire    [1  :0]  vec_fored_w_split_inst1_lmul;
+wire    [2  :0]  vec_fored_w_split_inst1_sew;
+wire    [5  :0]  vec_fored_w_split_inst1_src0;
+wire    [5  :0]  vec_fored_w_split_inst1_src1;
+wire    [1  :0]  vec_fored_w_split_inst2_lmul;
+wire    [2  :0]  vec_fored_w_split_inst2_sew;
+wire    [1  :0]  vec_fored_w_split_inst3_lmul;
+wire    [2  :0]  vec_fored_w_split_inst3_sew;
+wire    [5  :0]  vec_fored_w_split_inst3_src0;
+wire    [5  :0]  vec_fored_w_split_inst3_src1;
+wire             vec_fored_w_split_stall;
+wire    [4  :0]  vec_fored_w_srcv0_vreg_0;
+wire    [4  :0]  vec_fored_w_srcv1_vreg;
+wire    [16 :0]  vec_fred_dep_info;
+wire    [177:0]  vec_fred_inst0_data;
+wire    [177:0]  vec_fred_inst1_data;
+wire    [177:0]  vec_fred_inst2_data;
+wire    [177:0]  vec_fred_inst3_data;
+wire    [3  :0]  vec_fred_inst_vld;
+wire             vec_fred_split_stall;
+wire             vec_fred_w_mul8;
+wire    [16 :0]  vec_funored_dep_info;
+wire    [4  :0]  vec_funored_destv_vreg;
+wire    [177:0]  vec_funored_inst0_data;
+wire    [177:0]  vec_funored_inst1_data;
+wire    [177:0]  vec_funored_inst2_data;
+wire    [177:0]  vec_funored_inst3_data;
+wire    [3  :0]  vec_funored_inst_vld;
+wire             vec_funored_sm_start;
+wire             vec_funored_split_busy;
+wire             vec_funored_split_clk;
+wire             vec_funored_split_clk_en;
+wire    [5  :0]  vec_funored_split_inst1_dest;
+wire             vec_funored_split_stall;
+wire    [4  :0]  vec_funored_srcv0_vreg_0;
+wire    [4  :0]  vec_funored_srcv0_vreg_2;
+wire    [4  :0]  vec_funored_srcv1_vreg;
+wire             vec_funored_w_cnt_h;
+wire    [2  :0]  vec_funored_w_cnt_l;
+wire    [16 :0]  vec_funored_w_dep_info;
+wire    [4  :0]  vec_funored_w_destv_vreg;
+wire    [177:0]  vec_funored_w_inst0_data;
+wire    [177:0]  vec_funored_w_inst1_data;
+wire    [177:0]  vec_funored_w_inst2_data;
+wire    [177:0]  vec_funored_w_inst3_data;
+wire    [3  :0]  vec_funored_w_inst_vld;
+wire             vec_funored_w_sm_start;
+wire             vec_funored_w_split_busy;
+wire             vec_funored_w_split_clk;
+wire             vec_funored_w_split_clk_en;
+wire    [1  :0]  vec_funored_w_split_inst0_lmul;
+wire    [2  :0]  vec_funored_w_split_inst0_sew;
+wire    [1  :0]  vec_funored_w_split_inst1_lmul;
+wire    [2  :0]  vec_funored_w_split_inst1_sew;
+wire    [1  :0]  vec_funored_w_split_inst2_lmul;
+wire    [2  :0]  vec_funored_w_split_inst2_sew;
+wire    [1  :0]  vec_funored_w_split_inst3_lmul;
+wire    [2  :0]  vec_funored_w_split_inst3_sew;
+wire             vec_funored_w_split_stall;
+wire    [4  :0]  vec_funored_w_srcv0_vreg_0;
+wire    [4  :0]  vec_funored_w_srcv1_vreg;
+wire             vec_gpr_vld;
+wire             vec_imm_vld;
+wire    [31 :0]  vec_index_add_inst;
+wire    [16 :0]  vec_index_dep_info;
+wire    [31 :0]  vec_index_ext_inst;
+wire    [177:0]  vec_index_inst0_data;
+wire    [177:0]  vec_index_inst1_data;
+wire    [177:0]  vec_index_inst2_data;
+wire    [177:0]  vec_index_inst3_data;
+wire    [3  :0]  vec_index_inst_vld;
+wire             vec_index_sm_start;
+wire             vec_index_split_clk;
+wire             vec_index_split_clk_en;
+wire             vec_index_split_last;
+wire             vec_index_split_stall;
+wire    [31 :0]  vec_index_vmv_inst;
+wire             vec_index_vreg_begin;
+wire             vec_index_vreg_end;
+wire    [31 :0]  vec_inst;
+wire             vec_inst_adc;
+wire             vec_inst_cmp;
+wire             vec_inst_div;
+wire             vec_inst_ereg;
+wire             vec_inst_fmv;
+wire             vec_inst_mac;
+wire             vec_inst_madd;
+wire             vec_inst_red;
+wire             vec_inst_sat;
+wire             vec_inst_sht;
+wire             vec_ld;
+wire             vec_ld_srcv2_vld;
+wire             vec_ldst;
+wire    [1  :0]  vec_lmul;
+wire    [31 :0]  vec_mtvr_inst_op;
+wire    [4  :0]  vec_mvvf_inst_cnt;
+wire             vec_narr_sat;
+wire             vec_narr_sht;
+wire             vec_norm_cur_1st;
+wire             vec_norm_cur_2nd;
+wire             vec_norm_cur_mtvr;
+wire    [11 :0]  vec_norm_destv_offset;
+wire    [11 :0]  vec_norm_destv_offset_tmp;
+wire    [4  :0]  vec_norm_destv_vreg_0;
+wire    [4  :0]  vec_norm_destv_vreg_1;
+wire    [4  :0]  vec_norm_destv_vreg_2;
+wire    [4  :0]  vec_norm_destv_vreg_3;
+wire             vec_norm_div;
+wire    [177:0]  vec_norm_inst0_data;
+wire    [177:0]  vec_norm_inst1_data;
+wire    [177:0]  vec_norm_inst2_data;
+wire    [177:0]  vec_norm_inst3_data;
+wire             vec_norm_inst_0_finish;
+wire             vec_norm_inst_1_finish;
+wire             vec_norm_inst_3_finish;
+wire    [3  :0]  vec_norm_inst_vld;
+wire             vec_norm_inst_vmla;
+wire             vec_norm_mac;
+wire             vec_norm_mul;
+wire    [3  :0]  vec_norm_pipe_sel;
+wire             vec_norm_require_2nd;
+wire             vec_norm_sat;
+wire             vec_norm_sht;
+wire             vec_norm_sm_start;
+wire             vec_norm_split_clk;
+wire             vec_norm_split_clk_en;
+wire    [3  :0]  vec_norm_split_num;
+wire             vec_norm_split_slow_0;
+wire             vec_norm_split_slow_1;
+wire             vec_norm_split_stall;
+wire    [11 :0]  vec_norm_srcv0_offset;
+wire    [11 :0]  vec_norm_srcv0_offset_tmp;
+wire             vec_norm_srcv0_tmp;
+wire             vec_norm_srcv0_vld;
+wire    [4  :0]  vec_norm_srcv0_vreg_0;
+wire    [4  :0]  vec_norm_srcv0_vreg_0_tmp;
+wire    [4  :0]  vec_norm_srcv0_vreg_1;
+wire    [4  :0]  vec_norm_srcv0_vreg_1_tmp;
+wire    [4  :0]  vec_norm_srcv0_vreg_2;
+wire    [4  :0]  vec_norm_srcv0_vreg_2_tmp;
+wire    [4  :0]  vec_norm_srcv0_vreg_3;
+wire    [4  :0]  vec_norm_srcv0_vreg_3_tmp;
+wire    [11 :0]  vec_norm_srcv1_offset;
+wire             vec_norm_srcv1_tmp;
+wire             vec_norm_srcv1_vld;
+wire    [4  :0]  vec_norm_srcv1_vreg_0;
+wire    [4  :0]  vec_norm_srcv1_vreg_0_tmp;
+wire    [4  :0]  vec_norm_srcv1_vreg_1;
+wire    [4  :0]  vec_norm_srcv1_vreg_1_tmp;
+wire    [4  :0]  vec_norm_srcv1_vreg_2;
+wire    [4  :0]  vec_norm_srcv1_vreg_2_tmp;
+wire    [4  :0]  vec_norm_srcv1_vreg_3;
+wire    [4  :0]  vec_norm_srcv1_vreg_3_tmp;
+wire             vec_norm_srcv2_vld;
+wire             vec_norm_srcvm_vld;
+wire             vec_opfvf;
+wire             vec_opfvv;
+wire             vec_opivi;
+wire             vec_opivv;
+wire             vec_opivx;
+wire             vec_opmvv;
+wire             vec_opmvx;
+wire    [16 :0]  vec_perm_dep_info;
+wire    [177:0]  vec_perm_inst0_data;
+wire    [3  :0]  vec_perm_inst_vld;
+wire             vec_perm_mtvr_sel;
+wire             vec_perm_split_stall;
+wire    [1  :0]  vec_sew;
+wire             vec_src_switch;
+wire             vec_st;
+wire    [31 :0]  vec_stride_add_inst;
+wire    [16 :0]  vec_stride_dep_info;
+wire             vec_stride_dst_v0;
+wire             vec_stride_dstv0_ovlp;
+wire    [177:0]  vec_stride_inst0_data;
+wire    [177:0]  vec_stride_inst1_data;
+wire    [177:0]  vec_stride_inst2_data;
+wire    [177:0]  vec_stride_inst3_data;
+wire    [3  :0]  vec_stride_inst_vld;
+wire             vec_stride_sm_start;
+wire             vec_stride_split_clk;
+wire             vec_stride_split_clk_en;
+wire             vec_stride_split_last;
+wire             vec_stride_split_last_normal;
+wire             vec_stride_split_secd_to_last;
+wire             vec_stride_split_stall;
+wire             vec_stride_v0_begin;
+wire             vec_stride_v0_split_last;
+wire             vec_stride_vreg_begin;
+wire             vec_stride_vreg_end;
+wire             vec_type_cmp;
+wire             vec_type_fcvt;
+wire             vec_type_fcvt_narr;
+wire             vec_type_fcvt_norm;
+wire             vec_type_fcvt_wide;
+wire             vec_type_fdiv;
+wire             vec_type_fmac;
+wire             vec_type_narr;
+wire             vec_type_narr_0;
+wire             vec_type_narr_1;
+wire             vec_type_narr_2;
+wire             vec_type_norm_0_2;
+wire             vec_type_norm_0_3;
+wire             vec_type_norm_0_4;
+wire             vec_type_norm_0_5;
+wire             vec_type_norm_0_7;
+wire             vec_type_norm_0_9;
+wire             vec_type_norm_0_a;
+wire             vec_type_norm_0_b;
+wire             vec_type_norm_1_0;
+wire             vec_type_norm_1_1;
+wire             vec_type_norm_1_2;
+wire             vec_type_norm_1_3;
+wire             vec_type_norm_2_1;
+wire             vec_type_norm_2_2;
+wire             vec_type_norm_2_3;
+wire             vec_type_norm_2_4;
+wire             vec_type_norm_2_5;
+wire             vec_type_norm_2_6;
+wire             vec_type_norm_2_7;
+wire             vec_type_norm_2_9;
+wire             vec_type_norm_2_a;
+wire             vec_type_norm_2_b;
+wire             vec_type_norm_2_c;
+wire             vec_type_redu;
+wire             vec_type_wide;
+wire             vec_type_wide_0;
+wire             vec_type_wide_1;
+wire             vec_type_wide_2;
+wire             vec_type_wide_3;
+wire             vec_type_wide_4;
+wire             vec_type_wide_5;
+wire             vec_type_wide_6;
+wire             vec_type_wide_7;
+wire             vec_type_wide_8;
+wire             vec_type_wide_9;
+wire             vec_type_wide_narr;
+wire             vec_wide_mac;
+wire             vec_wide_mul;
+wire             vec_wide_sat;
+wire    [31 :0]  vfmvvf_inst;
+wire             vperm_cur_idle;
+wire             vperm_cur_mtvr;
+wire    [6  :0]  vperm_inst1_not_vld;
+wire    [6  :0]  vperm_inst2_not_vld;
+wire    [4  :0]  vperm_inst3_not_vld;
+wire    [3  :0]  vperm_inst_split_last;
+wire    [1  :0]  vperm_require_mtvr;
+wire             vperm_sm_start;
+wire             vperm_split_clk_en;
+wire             vperm_split_mtvr_vld;
+wire             vperm_split_stall;
+wire    [2  :0]  vperm_srcv0_inc;
+wire    [2  :0]  vperm_srcv0_inst0_count;
+wire    [2  :0]  vperm_srcv0_inst1_count;
+wire    [2  :0]  vperm_srcv0_inst2_count;
+wire    [2  :0]  vperm_srcv0_inst3_count;
+wire    [4  :0]  vperm_srcv1_reg;
+wire             vpr_cnt_over;
+wire             vpr_idle_inc;
+wire    [3  :0]  vpr_inc_1;
+wire    [3  :0]  vpr_inc_2;
+wire             vrgather;
+wire             vrgather_clk_en;
+wire             vrgather_cur_idle;
+wire    [31 :0]  vrgather_inst;
+wire    [3  :0]  vrgather_inst0_fwd_inst;
+wire    [5  :0]  vrgather_inst0_split_num;
+wire    [4  :0]  vrgather_inst0_srcv0_reg;
+wire    [4  :0]  vrgather_inst0_vdst_offset;
+wire    [4  :0]  vrgather_inst0_vdst_reg;
+wire    [3  :0]  vrgather_inst1_fwd_inst;
+wire    [5  :0]  vrgather_inst1_split_num;
+wire    [4  :0]  vrgather_inst1_srcv0_reg;
+wire    [4  :0]  vrgather_inst1_vdst_offset;
+wire    [4  :0]  vrgather_inst1_vdst_reg;
+wire    [3  :0]  vrgather_inst2_fwd_inst;
+wire    [5  :0]  vrgather_inst2_split_num;
+wire    [4  :0]  vrgather_inst2_srcv0_reg;
+wire    [4  :0]  vrgather_inst2_vdst_offset;
+wire    [4  :0]  vrgather_inst2_vdst_reg;
+wire    [3  :0]  vrgather_inst3_fwd_inst;
+wire    [5  :0]  vrgather_inst3_split_num;
+wire    [4  :0]  vrgather_inst3_srcv0_reg;
+wire    [4  :0]  vrgather_inst3_vdst_offset;
+wire    [4  :0]  vrgather_inst3_vdst_reg;
+wire    [31 :0]  vrgather_inst_0;
+wire    [31 :0]  vrgather_inst_1;
+wire    [4  :0]  vrgather_inst_srcv1_reg;
+wire    [3  :0]  vrgather_inst_srcv1_tmp;
+wire    [3  :0]  vrgather_inst_vdst_tmp;
+wire             vrgather_split_clk;
+wire             vrgather_split_stall;
+wire    [4  :0]  vrgather_srcv0_base;
+wire    [19 :0]  vrgather_srcv0_offset;
+wire             vrgather_start;
+wire    [19 :0]  vrgather_vdst_offset;
+wire             vrgather_xi;
+wire             vslide1_stride;
+wire             vslide_clk_en;
+wire             vslide_cur_idle;
+wire    [3  :0]  vslide_inst0_srcv1_tmp;
+wire    [1  :0]  vslide_inst1_srcv1_tmp;
+wire             vslide_inst2_srcv1_tmp;
+wire    [1  :0]  vslide_inst3_srcv1_tmp;
+wire             vslide_one_start;
+wire             vslide_split_clk;
+wire             vslide_split_stall;
+wire    [4  :0]  vslide_srcv0_base;
+wire    [11 :0]  vslide_srcv0_offset;
+wire    [11 :0]  vslide_srcv1_offset;
+wire    [11 :0]  vslide_srcv1_slidedown_offset;
+wire    [11 :0]  vslide_srcv1_slideup_offset;
+wire             vslidedown;
+wire             vslideup;
+wire    [1  :0]  widden_split_inst0_vlmul;
+wire    [2  :0]  widden_split_inst0_vsew;
+wire    [1  :0]  widden_split_inst1_vlmul;
+wire    [2  :0]  widden_split_inst1_vsew;
+wire    [1  :0]  widden_split_inst2_vlmul;
+wire    [2  :0]  widden_split_inst2_vsew;
+wire    [1  :0]  widden_split_inst3_vlmul;
+wire    [2  :0]  widden_split_inst3_vsew;
+wire             widden_split_inst_vld;
+wire             x_vfunary0_vld_narr;
+wire             x_vfunary0_vld_norm;
+wire             x_vfunary0_vld_wide;
+wire    [3  :0]  zvlsseg_index_add_iid_plus;
+wire    [31 :0]  zvlsseg_index_add_inst;
+wire    [16 :0]  zvlsseg_index_dep_info;
+wire    [31 :0]  zvlsseg_index_ext_inst;
+wire    [177:0]  zvlsseg_index_inst0_data;
+wire    [177:0]  zvlsseg_index_inst1_data;
+wire    [177:0]  zvlsseg_index_inst2_data;
+wire    [177:0]  zvlsseg_index_inst3_data;
+wire    [3  :0]  zvlsseg_index_inst_vld;
+wire             zvlsseg_index_nf_first;
+wire             zvlsseg_index_nf_last;
+wire             zvlsseg_index_sm_start;
+wire             zvlsseg_index_split_clk;
+wire             zvlsseg_index_split_clk_en;
+wire    [5  :0]  zvlsseg_index_split_dstv_reg0;
+wire    [5  :0]  zvlsseg_index_split_dstv_reg1;
+wire             zvlsseg_index_split_last;
+wire             zvlsseg_index_split_stall;
+wire             zvlsseg_index_vreg_end;
+wire    [31 :0]  zvlsseg_stride_add_inst;
+wire    [3  :0]  zvlsseg_stride_add_interval;
+wire    [16 :0]  zvlsseg_stride_dep_info;
+wire    [177:0]  zvlsseg_stride_inst0_data;
+wire    [177:0]  zvlsseg_stride_inst1_data;
+wire    [177:0]  zvlsseg_stride_inst2_data;
+wire    [177:0]  zvlsseg_stride_inst3_data;
+wire    [3  :0]  zvlsseg_stride_inst_vld;
+wire    [1  :0]  zvlsseg_stride_nf_cycle;
+wire             zvlsseg_stride_nf_last;
+wire             zvlsseg_stride_sm_start;
+wire             zvlsseg_stride_split_clk;
+wire             zvlsseg_stride_split_clk_en;
+wire    [5  :0]  zvlsseg_stride_split_dstv_reg0;
+wire    [5  :0]  zvlsseg_stride_split_dstv_reg1;
+wire             zvlsseg_stride_split_last;
+wire             zvlsseg_stride_split_secd_to_last;
+wire             zvlsseg_stride_split_stall;
+wire    [31 :0]  zvlsseg_stride_vmv_inst;
+wire             zvlsseg_stride_vreg_end;
+wire             zvlsseg_stride_vreg_secd_to_end;
+wire    [16 :0]  zvlsseg_unit_dep_info;
+wire    [177:0]  zvlsseg_unit_inst0_data;
+wire    [177:0]  zvlsseg_unit_inst1_data;
+wire    [177:0]  zvlsseg_unit_inst2_data;
+wire    [177:0]  zvlsseg_unit_inst3_data;
+wire    [3  :0]  zvlsseg_unit_inst_vld;
+wire             zvlsseg_unit_nf_last;
+wire    [6  :0]  zvlsseg_unit_nf_offset_cnt1;
+wire             zvlsseg_unit_sm_start;
+wire             zvlsseg_unit_split_clk;
+wire             zvlsseg_unit_split_clk_en;
+wire    [5  :0]  zvlsseg_unit_split_dstv_reg0;
+wire    [5  :0]  zvlsseg_unit_split_dstv_reg1;
+wire    [177:0]  zvlsseg_unit_split_inst3_data;
+wire             zvlsseg_unit_split_last;
+wire             zvlsseg_unit_split_stall;
+wire    [31 :0]  zvlsseg_unit_vmv_inst;
+wire             zvlsseg_unit_vreg_end;
 
 
 
@@ -1692,7 +1692,7 @@ end
 
 assign vperm_split_mtvr_vld = dp_split_long_type[2] && vec_perm_mtvr_sel;
 
-assign vec_perm_inst0_data[IR_WIDTH-1:0] = vec_perm_mtvr_sel 
+assign vec_perm_inst0_data[IR_WIDTH-1:0] = vec_perm_mtvr_sel
                                          ? vec_perm_mtvr_data[IR_WIDTH-1:0]
                                          : vec_perm_inst0_data_tmp[IR_WIDTH-1:0];
 // &CombBeg; @635
@@ -1745,15 +1745,15 @@ assign vec_perm_split_stall = vslide_split_stall || vrgather_split_stall || vper
 //================================================================
 //  SPLIT FSM FOR VRGATHER.VV VSLIDEUP/VSLIDEDOWN VCOMPRESS
 //================================================================
-parameter VPERM_IDLE = 2'b00; 
+parameter VPERM_IDLE = 2'b00;
 parameter VPERM_GMV  = 2'b01;
 parameter VPERM_VPR  = 2'b10;
 
-assign vperm_split_clk_en = ctrl_split_long_id_inst_vld 
+assign vperm_split_clk_en = ctrl_split_long_id_inst_vld
                          && (dp_split_long_type[2]) && !vslide1_stride && !vrgather_xi
                          || (vperm_cur_state[1:0]!=VPERM_IDLE);
 
-assign vperm_sm_start = ctrl_split_long_id_inst_vld 
+assign vperm_sm_start = ctrl_split_long_id_inst_vld
                      && (dp_split_long_type[2]) && !vslide1_stride && !vrgather_xi;
 
 // &Instance("gated_clk_cell", "x_vperm_split_clk_cell"); @675
@@ -1792,7 +1792,7 @@ assign vperm_cur_mtvr = (vperm_cur_state[1:0]==VPERM_GMV);
 assign vperm_split_stall = vperm_sm_start && (vperm_cur_state[1:0]==VPERM_IDLE)
                         && (vec_gpr_vld || |vec_lmul[1:0])
                         || (vperm_cur_state[1:0]==VPERM_GMV)
-                        || (vperm_cur_state[1:0]==VPERM_VPR) && !vpr_cnt_over;  
+                        || (vperm_cur_state[1:0]==VPERM_VPR) && !vpr_cnt_over;
 //=================================
 //  SPLIT FSM CONTROL
 //=================================
@@ -1828,46 +1828,46 @@ endcase
 // &CombEnd; @727
 end
 
-assign vperm_require_mtvr[0] = vslideup && 
+assign vperm_require_mtvr[0] = vslideup &&
                              ((vpr_counter[3:0]==4'b0110) || (vpr_counter[3:0]==4'b1011));
 
-assign vperm_require_mtvr[1] = vslidedown && 
+assign vperm_require_mtvr[1] = vslidedown &&
                              ((vpr_counter[3:0]==4'b0011) || (vpr_counter[3:0]==4'b0111));
 
 //=================================
 //  VPR COUNTER MANAGE
 //=================================
-assign vpr_idle_inc = (vperm_cur_state[1:0]==VPERM_IDLE) 
+assign vpr_idle_inc = (vperm_cur_state[1:0]==VPERM_IDLE)
                     && vperm_sm_start && !vec_gpr_vld && |(vec_lmul[1:0]);
 
 assign vpr_inc_1[0] =  vpr_idle_inc && (vec_lmul[1:0]==2'b11) && !vslideup;
 
-assign vpr_inc_1[1] = (vperm_cur_state[1:0]==VPERM_VPR) 
+assign vpr_inc_1[1] = (vperm_cur_state[1:0]==VPERM_VPR)
                    &&  vrgather && (vec_lmul[1:0]==2'b11);
 
-assign vpr_inc_1[2] = (vperm_cur_state[1:0]==VPERM_VPR) 
+assign vpr_inc_1[2] = (vperm_cur_state[1:0]==VPERM_VPR)
                    && (vslidedown || vcompress) && (vec_lmul[1:0]==2'b11)
                    && !vpr_counter[3] && !(vpr_counter[3:0]==4'b0111);
 
-assign vpr_inc_1[3] = (vperm_cur_state[1:0]==VPERM_VPR) 
+assign vpr_inc_1[3] = (vperm_cur_state[1:0]==VPERM_VPR)
                    &&  vslideup && (vec_lmul[1:0]==2'b11)
                    &&  vpr_counter[3];
 
 assign vpr_inc_2[0] =  vpr_idle_inc && ((vec_lmul[1:0]!=2'b11) || vslideup);
 
-assign vpr_inc_2[1] = (vperm_cur_state[1:0]==VPERM_VPR) 
+assign vpr_inc_2[1] = (vperm_cur_state[1:0]==VPERM_VPR)
                    && (vec_lmul[1:0]!=2'b11);
 
-assign vpr_inc_2[2] = (vperm_cur_state[1:0]==VPERM_VPR) 
+assign vpr_inc_2[2] = (vperm_cur_state[1:0]==VPERM_VPR)
                    && (vslidedown || vcompress) && (vec_lmul[1:0]==2'b11)
                    && (vpr_counter[3] ||(vpr_counter[3:0]==4'b0111));
 
-assign vpr_inc_2[3] = (vperm_cur_state[1:0]==VPERM_VPR) 
+assign vpr_inc_2[3] = (vperm_cur_state[1:0]==VPERM_VPR)
                    &&  vslideup && (vec_lmul[1:0]==2'b11)
                    && !vpr_counter[3];
 
 
-assign vpr_cnt_over = (vperm_cur_state[1:0]==VPERM_VPR) && 
+assign vpr_cnt_over = (vperm_cur_state[1:0]==VPERM_VPR) &&
                      ((vpr_counter[3:0]==4'b0000) && (vec_lmul[1:0]==2'b00)
                     ||(vpr_counter[3:0]==4'b0010) && (vec_lmul[1:0]==2'b01)
                     ||(vpr_counter[3:0]==4'b0110) && (vec_lmul[1:0]==2'b10)
@@ -1922,11 +1922,11 @@ always @( vperm_inst2_not_vld[6:0]
        or vperm_inst3_not_vld[4:0])
 begin
 case({|vperm_inst3_not_vld[4:0],|vperm_inst2_not_vld[6:0],|vperm_inst1_not_vld[6:0]})
-  3'b001:vperm_inst_vld[3:0] =4'b0001;  
-  3'b010:vperm_inst_vld[3:0] =4'b0011;  
-  3'b100:vperm_inst_vld[3:0] =4'b0111; 
+  3'b001:vperm_inst_vld[3:0] =4'b0001;
+  3'b010:vperm_inst_vld[3:0] =4'b0011;
+  3'b100:vperm_inst_vld[3:0] =4'b0111;
  default:vperm_inst_vld[3:0] =4'b1111;
-endcase  
+endcase
 // &CombEnd; @824
 end
 
@@ -1951,12 +1951,12 @@ always @( vslidedown
        or vec_lmul[1:0])
 begin
 case(vec_lmul[1:0])
-  2'b00:vperm_idle_mtvr_fwd_inst[3:0] = 4'b0001;  
-  2'b01:vperm_idle_mtvr_fwd_inst[3:0] = 4'b0011;  
-  2'b10:vperm_idle_mtvr_fwd_inst[3:0] = 4'b1010;  
+  2'b00:vperm_idle_mtvr_fwd_inst[3:0] = 4'b0001;
+  2'b01:vperm_idle_mtvr_fwd_inst[3:0] = 4'b0011;
+  2'b10:vperm_idle_mtvr_fwd_inst[3:0] = 4'b1010;
   2'b11:vperm_idle_mtvr_fwd_inst[3:0] = vslidedown ? 4'b1111:4'b1010;
 default:vperm_idle_mtvr_fwd_inst[3:0] = {4{{1{1'bx}}}};
-endcase  
+endcase
 // &CombEnd; @850
 end
 
@@ -1990,11 +1990,11 @@ assign vperm_srcv0_inc[2] = (vslidedown|| vcompress) && ((vpr_counter[3:0]==4'b0
 always @( vperm_srcv0_inc[2:0])
 begin
 case(vperm_srcv0_inc[2:0])
-  3'b001:vperm_srcv0_index[7:0] ={2'b11,2'b11,2'b10,2'b01};  
-  3'b010:vperm_srcv0_index[7:0] ={2'b11,2'b11,2'b11,2'b10};  
-  3'b100:vperm_srcv0_index[7:0] ={2'b11,2'b11,2'b11,2'b11}; 
+  3'b001:vperm_srcv0_index[7:0] ={2'b11,2'b11,2'b10,2'b01};
+  3'b010:vperm_srcv0_index[7:0] ={2'b11,2'b11,2'b11,2'b10};
+  3'b100:vperm_srcv0_index[7:0] ={2'b11,2'b11,2'b11,2'b11};
  default:vperm_srcv0_index[7:0] ={2'b11,2'b10,2'b01,2'b00};
-endcase  
+endcase
 // &CombEnd; @881
 end
 
@@ -2026,8 +2026,8 @@ begin
   vperm_inst0_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vec_inst[24:20] | {2'b0,vperm_srcv0_inst0_count[2:0]} };
   vperm_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   ={vec_gpr_vld, vperm_srcv1_reg[4:0]};
   vperm_inst0_data[IR_DSTV_REG:IR_DSTV_REG-5]     ={1'b0,vec_inst[11: 7] | {2'b0,vpr_counter[3:1]} };
-  vperm_inst0_data[IR_VMLA]                       = 1'b1; 
-  vperm_inst0_data[IR_INTMASK]                    = !vperm_inst_split_last[0]; 
+  vperm_inst0_data[IR_VMLA]                       = 1'b1;
+  vperm_inst0_data[IR_INTMASK]                    = !vperm_inst_split_last[0];
   vperm_inst0_data[IR_SPLIT]                      = !vperm_inst_split_last[0];
   vperm_inst0_data[IR_LENGTH]                     = 1'b1;
   end
@@ -2056,8 +2056,8 @@ begin
   vperm_inst1_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vec_inst[24:20] | {2'b0,vperm_srcv0_inst1_count[2:0]} };
   vperm_inst1_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   ={vec_gpr_vld, vperm_srcv1_reg[4:0]};
   vperm_inst1_data[IR_DSTV_REG:IR_DSTV_REG-5]     ={1'b0,vec_inst[11: 7] | {2'b0,vpr_counter[3:1]} };
-  vperm_inst1_data[IR_VMLA]                       = 1'b1; 
-  vperm_inst1_data[IR_INTMASK]                    = !vperm_inst_split_last[1]; 
+  vperm_inst1_data[IR_VMLA]                       = 1'b1;
+  vperm_inst1_data[IR_INTMASK]                    = !vperm_inst_split_last[1];
   vperm_inst1_data[IR_SPLIT]                      = !vperm_inst_split_last[1];
   vperm_inst1_data[IR_LENGTH]                     = 1'b1;
   end
@@ -2086,8 +2086,8 @@ begin
   vperm_inst2_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vec_inst[24:20] | {2'b0,vperm_srcv0_inst2_count[2:0]} };
   vperm_inst2_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   ={vec_gpr_vld, vperm_srcv1_reg[4:0]};
   vperm_inst2_data[IR_DSTV_REG:IR_DSTV_REG-5]     ={1'b0,vec_inst[11: 7] | {2'b0,vpr_counter[3:1]} };
-  vperm_inst2_data[IR_VMLA]                       = 1'b1; 
-  vperm_inst2_data[IR_INTMASK]                    = !vperm_inst_split_last[2]; 
+  vperm_inst2_data[IR_VMLA]                       = 1'b1;
+  vperm_inst2_data[IR_INTMASK]                    = !vperm_inst_split_last[2];
   vperm_inst2_data[IR_SPLIT]                      = !vperm_inst_split_last[2];
   vperm_inst2_data[IR_LENGTH]                     = 1'b1;
   end
@@ -2116,8 +2116,8 @@ begin
   vperm_inst3_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vec_inst[24:20] | {2'b0,vperm_srcv0_inst3_count[2:0]} };
   vperm_inst3_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   ={vec_gpr_vld, vperm_srcv1_reg[4:0]};
   vperm_inst3_data[IR_DSTV_REG:IR_DSTV_REG-5]     ={1'b0,vec_inst[11: 7] | {2'b0,vpr_counter[3:1]} };
-  vperm_inst3_data[IR_VMLA]                       = 1'b1; 
-  vperm_inst3_data[IR_INTMASK]                    = !vperm_inst_split_last[3]; 
+  vperm_inst3_data[IR_VMLA]                       = 1'b1;
+  vperm_inst3_data[IR_INTMASK]                    = !vperm_inst_split_last[3];
   vperm_inst3_data[IR_SPLIT]                      = !vperm_inst_split_last[3];
   vperm_inst3_data[IR_LENGTH]                     = 1'b1;
   end
@@ -2131,7 +2131,7 @@ parameter VSLIDE_FOUR  = 3'b111;
 
 
 assign vslide_clk_en = ctrl_split_long_id_inst_vld
-                      && (dp_split_long_type[2]) && vslide1_stride 
+                      && (dp_split_long_type[2]) && vslide1_stride
                       || (vslide_cur_state[2:0] != VSLIDE_IDLE);
 
 assign vslide_one_start = ctrl_split_long_id_inst_vld
@@ -2159,7 +2159,7 @@ gated_clk_cell  x_vslide_split_clk_cell (
 always @(posedge vslide_split_clk or negedge cpurst_b) begin
   if(!cpurst_b)
     vslide_cur_state[2:0] <= 3'b0;
-  else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)  
+  else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     vslide_cur_state[2:0] <= 3'b0;
   else if(!ctrl_split_long_id_stall)
     vslide_cur_state[2:0] <= vslide_next_state[2:0];
@@ -2172,7 +2172,7 @@ assign vslide_cur_idle =  (vslide_cur_state[2:0]==VSLIDE_IDLE);
 assign vslide_split_stall = vslide_one_start && (vslide_cur_state[2:0]==VSLIDE_IDLE)
                          ||(vslide_cur_state[2:0]==VSLIDE_ONE) && (& vec_lmul[1:0] ||vslidedown && |vec_lmul[1:0])
                          ||(vslide_cur_state[2:0]==VSLIDE_TWO) && vslidedown
-                         ||(vslide_cur_state[2:0]==VSLIDE_THREE) && & vec_lmul[1:0];   
+                         ||(vslide_cur_state[2:0]==VSLIDE_THREE) && & vec_lmul[1:0];
 //-------------------
 //THIS COMBINATIONAL BLOCK IS MAINLY FOR VSLIDE_ONE UP/DOWN INSTRUCTION
 //-------------------
@@ -2193,7 +2193,7 @@ case(vslide_cur_state[2:0])
   VSLIDE_ONE: begin
     if(vec_lmul[1:0] == 2'b11)
       vslide_next_state[2:0] = VSLIDE_TWO;
-    else if(vslidedown && |vec_lmul[1:0]) 
+    else if(vslidedown && |vec_lmul[1:0])
       vslide_next_state[2:0] = VSLIDE_THREE;
     else
       vslide_next_state[2:0] = VSLIDE_IDLE;
@@ -2225,8 +2225,8 @@ always @( vslidedown
        or vec_lmul[1:0])
 begin
 case(vec_lmul[1:0])
-  2'b00:vslide_mtvr_fwd_inst[3:0] = 4'b0001; 
-  2'b01:vslide_mtvr_fwd_inst[3:0] = vslidedown ? 4'b0011: 4'b0001; 
+  2'b00:vslide_mtvr_fwd_inst[3:0] = 4'b0001;
+  2'b01:vslide_mtvr_fwd_inst[3:0] = vslidedown ? 4'b0011: 4'b0001;
   2'b10:vslide_mtvr_fwd_inst[3:0] = vslidedown ? 4'b0111: 4'b0001;
   2'b11:vslide_mtvr_fwd_inst[3:0] = vslidedown ? 4'b1111: 4'b0001;
 default:vslide_mtvr_fwd_inst[3:0] = {4{{1{1'bx}}}};
@@ -2240,9 +2240,9 @@ always @( vslide_cur_state[1:0]
        or vec_lmul[1:0])
 begin
 case(vec_lmul[1:0])
-  2'b00:vslide_inst_vld[3:0] = 4'b0001; 
-  2'b01:vslide_inst_vld[3:0] =( vslide_cur_state[1]  &&vslidedown)?4'b0001:4'b0011; 
-  2'b10:vslide_inst_vld[3:0] =( vslide_cur_state[1]  &&vslidedown)?4'b0111:4'b1111; 
+  2'b00:vslide_inst_vld[3:0] = 4'b0001;
+  2'b01:vslide_inst_vld[3:0] =( vslide_cur_state[1]  &&vslidedown)?4'b0001:4'b0011;
+  2'b10:vslide_inst_vld[3:0] =( vslide_cur_state[1]  &&vslidedown)?4'b0111:4'b1111;
   2'b11:vslide_inst_vld[3:0] =(&vslide_cur_state[1:0]&&vslidedown)?4'b0111:4'b1111;
 default:vslide_inst_vld[3:0] = {4{{1{1'bx}}}};
 endcase
@@ -2255,8 +2255,8 @@ always @( vslide_cur_state[1:0]
        or vec_lmul[1:0])
 begin
 case(vec_lmul[1:0])
-  2'b00:vslide_inst_split_last[3:0] = 4'b0001; 
-  2'b01:vslide_inst_split_last[3:0] = vslideup ? 4'b0010: {3'b0, vslide_cur_state[1]};  
+  2'b00:vslide_inst_split_last[3:0] = 4'b0001;
+  2'b01:vslide_inst_split_last[3:0] = vslideup ? 4'b0010: {3'b0, vslide_cur_state[1]};
   2'b10:vslide_inst_split_last[3:0] = vslideup ? 4'b1000: {1'b0, vslide_cur_state[1]  ,2'b0};
   2'b11:vslide_inst_split_last[3:0] = vslideup ?{vslide_cur_state[0],3'b000}: {1'b0,&vslide_cur_state[1:0],2'b0};
 default:vslide_inst_split_last[3:0] = {4{{1{1'bx}}}};
@@ -2278,7 +2278,7 @@ assign vslide_inst3_srcv1_tmp[0] = vslidedown && (vec_lmul[1:0]==2'b10);
 assign vslide_inst3_srcv1_tmp[1] = vslidedown && (vec_lmul[1:0]==2'b11) && !(vslide_cur_state[2:0]==VSLIDE_ONE);
 
 assign vslide_srcv0_base[4:0] = vslide_cur_state[1] ? vec_inst[11: 7]: vec_inst[24:20];
-assign vslide_srcv0_offset[11:0] = vslide_cur_state[0] 
+assign vslide_srcv0_offset[11:0] = vslide_cur_state[0]
                                ? {3'b111,3'b110,3'b101,3'b100} : {3'b011,3'b010,3'b001,3'b000};
 
 assign vslide_srcv1_slideup_offset[11:0] = vslide_cur_state[0]
@@ -2286,7 +2286,7 @@ assign vslide_srcv1_slideup_offset[11:0] = vslide_cur_state[0]
 assign vslide_srcv1_slidedown_offset[11:0] = vslide_cur_state[0]
                                         ? {3'b000,3'b111,3'b110,3'b101} : {3'b100,3'b011,3'b010,3'b001};
 
-assign vslide_srcv1_offset[11:0] = vslideup ? vslide_srcv1_slideup_offset[11:0] 
+assign vslide_srcv1_offset[11:0] = vslideup ? vslide_srcv1_slideup_offset[11:0]
                                             : vslide_srcv1_slidedown_offset[11:0];
 
 // &CombBeg; @1108
@@ -2311,8 +2311,8 @@ begin
   vslide_inst0_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vslide_srcv0_base[4:0] | {2'b0,vslide_srcv0_offset[2:0]} };
   vslide_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   =|vslide_inst0_srcv1_tmp[3:0] ? 6'b100000:{1'b0,vec_inst[24:20]|{2'b0,vslide_srcv1_offset[2:0]} };
   vslide_inst0_data[IR_DSTV_REG:IR_DSTV_REG-5]     ={1'b0,vec_inst[11: 7] | {2'b0,vslide_srcv0_offset[2:0]} };
-  vslide_inst0_data[IR_VMLA]                       = 1'b1; 
-  vslide_inst0_data[IR_INTMASK]                    = !vslide_inst_split_last[0]; 
+  vslide_inst0_data[IR_VMLA]                       = 1'b1;
+  vslide_inst0_data[IR_INTMASK]                    = !vslide_inst_split_last[0];
   vslide_inst0_data[IR_SPLIT]                      = !vslide_inst_split_last[0];
   vslide_inst0_data[IR_LENGTH]                     = 1'b1;
   end
@@ -2341,8 +2341,8 @@ begin
   vslide_inst1_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vslide_srcv0_base[4:0] | {2'b0,vslide_srcv0_offset[5:3]} };
   vslide_inst1_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   =|vslide_inst1_srcv1_tmp[1:0]? 6'b100000:{1'b0,vec_inst[24:20]|{2'b0,vslide_srcv1_offset[5:3]} };
   vslide_inst1_data[IR_DSTV_REG:IR_DSTV_REG-5]     ={1'b0, vec_inst[11: 7] | {2'b0,vslide_srcv0_offset[5:3]} };
-  vslide_inst1_data[IR_VMLA]                       = 1'b1; 
-  vslide_inst1_data[IR_INTMASK]                    = !vslide_inst_split_last[1]; 
+  vslide_inst1_data[IR_VMLA]                       = 1'b1;
+  vslide_inst1_data[IR_INTMASK]                    = !vslide_inst_split_last[1];
   vslide_inst1_data[IR_SPLIT]                      = !vslide_inst_split_last[1];
   vslide_inst1_data[IR_LENGTH]                     = 1'b1;
   end
@@ -2371,8 +2371,8 @@ begin
   vslide_inst2_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0, vslide_srcv0_base[4:0] | {2'b0,vslide_srcv0_offset[8:6]} };
   vslide_inst2_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vslide_inst2_srcv1_tmp ? 6'b100000:{1'b0,vec_inst[24:20]|{2'b0,vslide_srcv1_offset[8:6]} };
   vslide_inst2_data[IR_DSTV_REG:IR_DSTV_REG-5]     ={1'b0, vec_inst[11: 7] | {2'b0,vslide_srcv0_offset[8:6]} };
-  vslide_inst2_data[IR_VMLA]                       = 1'b1; 
-  vslide_inst2_data[IR_INTMASK]                    = !vslide_inst_split_last[2]; 
+  vslide_inst2_data[IR_VMLA]                       = 1'b1;
+  vslide_inst2_data[IR_INTMASK]                    = !vslide_inst_split_last[2];
   vslide_inst2_data[IR_SPLIT]                      = !vslide_inst_split_last[2];
   vslide_inst2_data[IR_LENGTH]                     = 1'b1;
   end
@@ -2401,8 +2401,8 @@ begin
   vslide_inst3_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0, vslide_srcv0_base[4:0] | {2'b0,vslide_srcv0_offset[11:9]} };
   vslide_inst3_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   =|vslide_inst3_srcv1_tmp[1:0] ? 6'b100000:{1'b0, vec_inst[24:20]|{2'b0,vslide_srcv1_offset[11:9]} };
   vslide_inst3_data[IR_DSTV_REG:IR_DSTV_REG-5]     ={1'b0, vec_inst[11: 7] | {2'b0,vslide_srcv0_offset[11:9]} };
-  vslide_inst3_data[IR_VMLA]                       = 1'b1; 
-  vslide_inst3_data[IR_INTMASK]                    = !vslide_inst_split_last[3]; 
+  vslide_inst3_data[IR_VMLA]                       = 1'b1;
+  vslide_inst3_data[IR_INTMASK]                    = !vslide_inst_split_last[3];
   vslide_inst3_data[IR_SPLIT]                      = !vslide_inst_split_last[3];
   vslide_inst3_data[IR_LENGTH]                     = 1'b1;
   end
@@ -2415,7 +2415,7 @@ parameter VRGATHER_THREE = 3'b110;
 parameter VRGATHER_FOUR  = 3'b111;
 
 assign vrgather_clk_en = ctrl_split_long_id_inst_vld
-                      && (dp_split_long_type[2]) && vrgather_xi 
+                      && (dp_split_long_type[2]) && vrgather_xi
                       || (vrgather_cur_state[2:0] != VRGATHER_IDLE);
 
 assign vrgather_start = ctrl_split_long_id_inst_vld
@@ -2443,7 +2443,7 @@ gated_clk_cell  x_vrgather_split_clk_cell (
 always @(posedge vrgather_split_clk or negedge cpurst_b) begin
   if(!cpurst_b)
     vrgather_cur_state[2:0] <= 3'b0;
-  else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)  
+  else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     vrgather_cur_state[2:0] <= 3'b0;
   else if(!ctrl_split_long_id_stall)
     vrgather_cur_state[2:0] <= vrgather_next_state[2:0];
@@ -2454,10 +2454,10 @@ end
 assign vrgather_cur_idle = (vrgather_cur_state[2:0]==VRGATHER_IDLE);
 
 assign vrgather_split_stall = vrgather_start && (vrgather_cur_state[2:0]==VRGATHER_IDLE)
-                           && (|vec_lmul[1:0] || vec_gpr_vld) 
+                           && (|vec_lmul[1:0] || vec_gpr_vld)
                            || (vrgather_cur_state[2:0]== VRGATHER_ONE) && |vec_lmul[1:0]
                            || (vrgather_cur_state[2:0]== VRGATHER_TWO)
-                           || (vrgather_cur_state[2:0]== VRGATHER_THREE) && &vec_lmul[1:0]; 
+                           || (vrgather_cur_state[2:0]== VRGATHER_THREE) && &vec_lmul[1:0];
 //-------------------
 //THIS COMBINATIONAL BLOCK IS MAINLY FOR VRGATHER_ONE UP/DOWN INSTRUCTION
 //-------------------
@@ -2481,7 +2481,7 @@ case(vrgather_cur_state[2:0])
   VRGATHER_ONE: begin
     if(vec_lmul[1:0] == 2'b11)
       vrgather_next_state[2:0] = VRGATHER_TWO;
-    else if(|vec_lmul[1:0]) 
+    else if(|vec_lmul[1:0])
       vrgather_next_state[2:0] = VRGATHER_THREE;
     else
       vrgather_next_state[2:0] = VRGATHER_IDLE;
@@ -2509,8 +2509,8 @@ end
 always @( vec_lmul[1:0])
 begin
 case(vec_lmul[1:0])
-  2'b00:vrgather_mtvr_fwd_inst[3:0] = 4'b0001; 
-  2'b01:vrgather_mtvr_fwd_inst[3:0] = 4'b0100; 
+  2'b00:vrgather_mtvr_fwd_inst[3:0] = 4'b0001;
+  2'b01:vrgather_mtvr_fwd_inst[3:0] = 4'b0100;
   2'b10:vrgather_mtvr_fwd_inst[3:0] = 4'b0100;
   2'b11:vrgather_mtvr_fwd_inst[3:0] = 4'b1000;
 default:vrgather_mtvr_fwd_inst[3:0] = {4{{1{1'bx}}}};
@@ -2522,9 +2522,9 @@ end
 always @( vec_lmul[1:0])
 begin
 case(vec_lmul[1:0])
-  2'b00:vrgather_inst_vld[3:0] = 4'b0001; 
-  2'b01:vrgather_inst_vld[3:0] = 4'b0011; 
-  2'b10:vrgather_inst_vld[3:0] = 4'b1111; 
+  2'b00:vrgather_inst_vld[3:0] = 4'b0001;
+  2'b01:vrgather_inst_vld[3:0] = 4'b0011;
+  2'b10:vrgather_inst_vld[3:0] = 4'b1111;
   2'b11:vrgather_inst_vld[3:0] = 4'b1111;
 default:vrgather_inst_vld[3:0] = {4{{1{1'bx}}}};
 endcase
@@ -2536,8 +2536,8 @@ always @( vrgather_cur_state[1:0]
        or vec_lmul[1:0])
 begin
 case(vec_lmul[1:0])
-  2'b00:vrgather_inst_split_last[3:0] = 4'b0001; 
-  2'b01:vrgather_inst_split_last[3:0] ={2'b0,vrgather_cur_state[1],1'b0};  
+  2'b00:vrgather_inst_split_last[3:0] = 4'b0001;
+  2'b01:vrgather_inst_split_last[3:0] ={2'b0,vrgather_cur_state[1],1'b0};
   2'b10:vrgather_inst_split_last[3:0] ={ vrgather_cur_state[1]  ,3'b0};
   2'b11:vrgather_inst_split_last[3:0] ={&vrgather_cur_state[1:0],3'b0};
 default:vrgather_inst_split_last[3:0] = {4{{1{1'bx}}}};
@@ -2577,16 +2577,16 @@ assign vrgather_inst_vdst_tmp[1]     = !vrgather_cur_state[1];
 assign vrgather_inst_vdst_tmp[2]     = !vrgather_cur_state[1];
 assign vrgather_inst_vdst_tmp[3]     = !vrgather_cur_state[1];
 
-assign vrgather_inst0_split_num[5:0] = {vrgather_srcv0_offset[2 : 0] & {3{!vrgather_cur_state[1]}}, 
+assign vrgather_inst0_split_num[5:0] = {vrgather_srcv0_offset[2 : 0] & {3{!vrgather_cur_state[1]}},
                                         vrgather_inst0_vdst_offset[2:0]};
 
-assign vrgather_inst1_split_num[5:0] = {vrgather_srcv0_offset[7 : 5] & {3{!vrgather_cur_state[1]}}, 
+assign vrgather_inst1_split_num[5:0] = {vrgather_srcv0_offset[7 : 5] & {3{!vrgather_cur_state[1]}},
                                         vrgather_inst1_vdst_offset[2:0]};
 
-assign vrgather_inst2_split_num[5:0] = {vrgather_srcv0_offset[12:10] & {3{!vrgather_cur_state[1]}}, 
+assign vrgather_inst2_split_num[5:0] = {vrgather_srcv0_offset[12:10] & {3{!vrgather_cur_state[1]}},
                                         vrgather_inst2_vdst_offset[2:0]};
 
-assign vrgather_inst3_split_num[5:0] = {vrgather_srcv0_offset[17:15] & {3{!vrgather_cur_state[1]}}, 
+assign vrgather_inst3_split_num[5:0] = {vrgather_srcv0_offset[17:15] & {3{!vrgather_cur_state[1]}},
                                         vrgather_inst3_vdst_offset[2:0]};
 
 assign vrgather_inst0_fwd_inst[3:0] = {3'b0,|vec_lmul[1:0] && !vrgather_cur_state[1]};
@@ -2598,8 +2598,8 @@ assign vrgather_inst2_fwd_inst[3:0] = {3'b0,|vec_lmul[1:0] && !vrgather_cur_stat
 assign vrgather_inst3_fwd_inst[3:0] = { (vec_lmul[1:0]==2'b11) && !vrgather_cur_state[1] && vrgather_cur_state[0],
                                         (vec_lmul[1:0]==2'b10) && !vrgather_cur_state[1],
                                          1'b0,
-                                        (vec_lmul[1:0]==2'b11) && !vrgather_cur_state[1] &&!vrgather_cur_state[0]};  
-  
+                                        (vec_lmul[1:0]==2'b11) && !vrgather_cur_state[1] &&!vrgather_cur_state[0]};
+
 // &CombBeg; @1356
 always @( vrgather_inst0_vdst_reg[4:0]
        or vec_gpr_vld
@@ -2627,8 +2627,8 @@ begin
   vrgather_inst0_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   = {1'b0,vrgather_inst0_srcv0_reg[4:0]};
   vrgather_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = {vrgather_inst_srcv1_tmp[0],vrgather_inst_srcv1_reg[4:0]};
   vrgather_inst0_data[IR_DSTV_REG:IR_DSTV_REG-5]     =  vrgather_inst_vdst_tmp[0] ? 6'b100001: {1'b0,vrgather_inst0_vdst_reg[4:0]};
-  vrgather_inst0_data[IR_VMLA]                       = 1'b1; 
-  vrgather_inst0_data[IR_INTMASK]                    = !vrgather_inst_split_last[0]; 
+  vrgather_inst0_data[IR_VMLA]                       = 1'b1;
+  vrgather_inst0_data[IR_INTMASK]                    = !vrgather_inst_split_last[0];
   vrgather_inst0_data[IR_SPLIT]                      = !vrgather_inst_split_last[0];
   vrgather_inst0_data[IR_IID_PLUS:IR_IID_PLUS-3]     = vrgather_inst0_fwd_inst[3:0];
   vrgather_inst0_data[IR_LENGTH]                     = 1'b1;
@@ -2663,8 +2663,8 @@ begin
   vrgather_inst1_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vrgather_inst1_srcv0_reg[4:0]};
   vrgather_inst1_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   ={vrgather_inst_srcv1_tmp[1],vrgather_inst_srcv1_reg[4:0]};
   vrgather_inst1_data[IR_DSTV_REG:IR_DSTV_REG-5]     = vrgather_inst_vdst_tmp[1]? 6'b100001:{1'b0,vrgather_inst1_vdst_reg[4:0]};
-  vrgather_inst1_data[IR_VMLA]                       = 1'b1; 
-  vrgather_inst1_data[IR_INTMASK]                    = !vrgather_inst_split_last[1]; 
+  vrgather_inst1_data[IR_VMLA]                       = 1'b1;
+  vrgather_inst1_data[IR_INTMASK]                    = !vrgather_inst_split_last[1];
   vrgather_inst1_data[IR_SPLIT]                      = !vrgather_inst_split_last[1];
   vrgather_inst1_data[IR_IID_PLUS:IR_IID_PLUS-3]     = vrgather_inst1_fwd_inst[3:0];
   vrgather_inst1_data[IR_LENGTH]                     = 1'b1;
@@ -2699,8 +2699,8 @@ begin
   vrgather_inst2_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vrgather_inst2_srcv0_reg[4:0]};
   vrgather_inst2_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   ={vrgather_inst_srcv1_tmp[2],vrgather_inst_srcv1_reg[4:0]};
   vrgather_inst2_data[IR_DSTV_REG:IR_DSTV_REG-5]     = vrgather_inst_vdst_tmp[2]?6'b100001: {1'b0,vrgather_inst2_vdst_reg[4:0]};
-  vrgather_inst2_data[IR_VMLA]                       = 1'b1; 
-  vrgather_inst2_data[IR_INTMASK]                    = !vrgather_inst_split_last[2]; 
+  vrgather_inst2_data[IR_VMLA]                       = 1'b1;
+  vrgather_inst2_data[IR_INTMASK]                    = !vrgather_inst_split_last[2];
   vrgather_inst2_data[IR_SPLIT]                      = !vrgather_inst_split_last[2];
   vrgather_inst2_data[IR_IID_PLUS:IR_IID_PLUS-3]     = vrgather_inst2_fwd_inst[3:0];
   vrgather_inst2_data[IR_LENGTH]                     = 1'b1;
@@ -2735,8 +2735,8 @@ begin
   vrgather_inst3_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   ={1'b0,vrgather_inst3_srcv0_reg[4:0]};
   vrgather_inst3_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   ={vrgather_inst_srcv1_tmp[3],vrgather_inst_srcv1_reg[4:0]};
   vrgather_inst3_data[IR_DSTV_REG:IR_DSTV_REG-5]     = vrgather_inst_vdst_tmp[3] ? 6'b100001: {1'b0,vrgather_inst3_vdst_reg[4:0]};
-  vrgather_inst3_data[IR_VMLA]                       = 1'b1; 
-  vrgather_inst3_data[IR_INTMASK]                    = !vrgather_inst_split_last[3]; 
+  vrgather_inst3_data[IR_VMLA]                       = 1'b1;
+  vrgather_inst3_data[IR_INTMASK]                    = !vrgather_inst_split_last[3];
   vrgather_inst3_data[IR_SPLIT]                      = !vrgather_inst_split_last[3];
   vrgather_inst3_data[IR_IID_PLUS:IR_IID_PLUS-3]     = vrgather_inst3_fwd_inst[3:0];
   vrgather_inst3_data[IR_LENGTH]                     = 1'b1;
@@ -2794,7 +2794,7 @@ assign vec_norm_sm_start       = ctrl_split_long_id_inst_vld
                               && !ctrl_split_long_id_stall;
 
 assign vec_norm_split_slow_0 = (vec_opivx || vec_opmvx || vec_opfvf && !vec_inst_fmv);
-assign vec_norm_split_slow_1 = vec_norm_require_2nd; 
+assign vec_norm_split_slow_1 = vec_norm_require_2nd;
 
 assign vec_norm_split_stall =  vec_norm_sm_start &&
                               (vec_norm_cur_state[2:0]==VEC_NORM_IDLE) &&
@@ -2831,8 +2831,8 @@ begin
 // &CombEnd; @1512
 end
 
-assign vec_norm_cur_mtvr = (vec_norm_cur_state[2:0]==VEC_NORM_IDLE) && vec_norm_split_slow_0; 
-assign vec_norm_cur_1st  = (vec_norm_cur_state[2:0]==VEC_NORM_IDLE) &&!vec_norm_split_slow_0 
+assign vec_norm_cur_mtvr = (vec_norm_cur_state[2:0]==VEC_NORM_IDLE) && vec_norm_split_slow_0;
+assign vec_norm_cur_1st  = (vec_norm_cur_state[2:0]==VEC_NORM_IDLE) &&!vec_norm_split_slow_0
                          ||(vec_norm_cur_state[2:0]==VEC_NORM_1ST);
 assign vec_norm_cur_2nd  = (vec_norm_cur_state[2:0]==VEC_NORM_2ND);
 //----------------------------------------------------------
@@ -2861,7 +2861,7 @@ assign vec_ld_srcv2_vld   = !vec_inst[25] || |cp0_idu_vstart[6:0] || (dp_split_l
 assign vec_type_narr_0    = (vec_inst[31:27] == 5'b10110) && (vec_opivv || vec_opivx || vec_opivi);//narrow shift
 assign vec_type_narr_1    = (vec_inst[31:27] == 5'b10111) && (vec_opivv || vec_opivx || vec_opivi);//sat narrow shift
 assign vec_type_narr_2    = (vec_inst[31:26] == 6'b100010) && (x_vfunary0_vld_narr) && (vec_opfvv);//narrow fcvt
-assign vec_type_narr      = (vec_type_narr_0 || vec_type_narr_1 || vec_type_narr_2); 
+assign vec_type_narr      = (vec_type_narr_0 || vec_type_narr_1 || vec_type_narr_2);
 assign vec_narr_sat       =  vec_type_narr_1;
 assign vec_narr_sht       =  vec_type_narr_0 || vec_type_narr_1;
 //fcvt
@@ -2886,10 +2886,10 @@ assign vec_type_wide_7    = (vec_inst[31:26] == 6'b111000)&& (vec_opfvv || vec_o
 assign vec_type_wide_8    = (vec_inst[31:28] == 4'b1111)  && (vec_opfvv || vec_opfvf);  //wide mac
 assign vec_type_wide_9    = (vec_inst[31:26] == 6'b100010)&& (x_vfunary0_vld_wide) && (vec_opfvv);//widening fcvt
 
-assign vec_type_wide      = (vec_type_wide_0 || vec_type_wide_1 || 
+assign vec_type_wide      = (vec_type_wide_0 || vec_type_wide_1 ||
                              vec_type_wide_2 || vec_type_wide_3 ||
                              vec_type_wide_4 || vec_type_wide_5 ||
-                             vec_type_wide_6 || vec_type_wide_7 || 
+                             vec_type_wide_6 || vec_type_wide_7 ||
                              vec_type_wide_8 || vec_type_wide_9);
 
 assign vec_wide_sat       =  vec_type_wide_0;
@@ -2903,7 +2903,7 @@ assign x_vfunary0_vld_wide = (vec_inst[19:15] == 5'b01000) //vfwcvt.xu.f.v
                            ||(vec_inst[19:15] == 5'b01100);//vfwcvt.f.f.v
 
 assign vec_type_fcvt_wide = vec_type_wide_9;
- 
+
 //----------------------------------------------------------
 //                  normal inst
 //----------------------------------------------------------
@@ -2919,7 +2919,7 @@ assign vec_type_norm_0_7  = (vec_opivv || vec_opivx || vec_opivi) && (vec_inst[3
 assign vec_type_norm_0_9  = (vec_opivv || vec_opivx || vec_opivi) && (vec_inst[31:26]== 6'b100111); //smul
 assign vec_type_norm_0_a  = (vec_opivv || vec_opivx || vec_opivi) && (vec_inst[31:27]== 5'b10100); //shift
 assign vec_type_norm_0_b  = (vec_opivv || vec_opivx || vec_opivi) && (vec_inst[31:27]== 5'b10101); //sat shift
-//assign vec_type_norm_0    = (vec_type_norm_0_0 || vec_type_norm_0_1 || 
+//assign vec_type_norm_0    = (vec_type_norm_0_0 || vec_type_norm_0_1 ||
 //                             vec_type_norm_0_2 || vec_type_norm_0_3 ||
 //                             vec_type_norm_0_4 || vec_type_norm_0_5 ||
 //                             vec_type_norm_0_6 || vec_type_norm_0_7 ||
@@ -2929,7 +2929,7 @@ assign vec_type_norm_0_b  = (vec_opivv || vec_opivx || vec_opivi) && (vec_inst[3
 assign vec_type_norm_1_0  = (vec_opmvv || vec_opmvx) && (vec_inst[31:28]== 4'b1000);//div
 assign vec_type_norm_1_1  = (vec_opmvv || vec_opmvx) && (vec_inst[31:28]== 4'b1001);//mult
 assign vec_type_norm_1_2  = (vec_opmvv || vec_opmvx) && (vec_inst[31:29]== 3'b101);//mac
-assign vec_type_norm_1_3  = (vec_opmvv             ) && (vec_inst[31:26]== 6'b010110) 
+assign vec_type_norm_1_3  = (vec_opmvv             ) && (vec_inst[31:26]== 6'b010110)
                                                      && (vec_inst[19:16]== 4'b1000); //viota vid
 
 //assign vec_type_norm_1    = (vec_type_norm_1_0 || vec_type_norm_1_1 ||
@@ -2956,14 +2956,14 @@ assign vec_type_norm_2_c  = (vec_opfvv || vec_opfvf) && (vec_inst[31:28]== 4'b10
 
 assign vec_type_fcvt_norm = vec_type_norm_2_b;
 
-//assign vec_type_norm_2    = (vec_type_norm_2_0 || vec_type_norm_2_1 || 
+//assign vec_type_norm_2    = (vec_type_norm_2_0 || vec_type_norm_2_1 ||
 //                             vec_type_norm_2_2 || vec_type_norm_2_3 ||
 //                             vec_type_norm_2_4 || vec_type_norm_2_5 ||
 //                             vec_type_norm_2_6 || vec_type_norm_2_7 ||
 //                             vec_type_norm_2_8 || vec_type_norm_2_9 ||
 //                             vec_type_norm_2_a || vec_type_norm_2_b);
 //
-//assign vec_type_norm      =  vec_type_norm_0 ||vec_type_norm_1 || vec_type_norm_2; 
+//assign vec_type_norm      =  vec_type_norm_0 ||vec_type_norm_1 || vec_type_norm_2;
 
 assign vec_norm_mul       =  vec_type_norm_0_9 || vec_type_norm_1_1 || vec_type_norm_1_2;
 assign vec_norm_sht       =  vec_type_norm_0_7 || vec_type_norm_0_a || vec_type_norm_0_b;
@@ -2991,7 +2991,7 @@ assign vec_inst_mac       = vec_wide_mac || vec_norm_mac;
 
 assign vec_inst_sht       = vec_narr_sht || vec_norm_sht;
 
-assign vec_inst_div       = vec_norm_div || vec_type_fdiv; 
+assign vec_inst_div       = vec_norm_div || vec_type_fdiv;
 
 assign vec_inst_adc       = vec_type_norm_0_2;
 
@@ -3001,10 +3001,10 @@ assign vec_inst_cmp       = vec_type_norm_0_2 && vec_inst[26] || vec_type_norm_0
 
 assign vec_inst_madd      =  vec_type_norm_2_c;
 
-assign vec_norm_inst_vmla = vec_inst_mac || vec_narr_sht || vec_inst_red 
+assign vec_norm_inst_vmla = vec_inst_mac || vec_narr_sht || vec_inst_red
                           ||vec_inst_cmp || vec_type_fmac || vec_type_fcvt;
 
-assign vec_inst_ereg      =(vec_opfvv || vec_opfvf) 
+assign vec_inst_ereg      =(vec_opfvv || vec_opfvf)
                         && !vec_type_norm_2_1    //fsgnj
                         && !vec_type_norm_2_7;   //fclass
 
@@ -3027,7 +3027,7 @@ endcase
 // &CombEnd; @1705
 end
 
-assign vec_norm_split_num[3:0] = (vec_type_narr || vec_type_wide) 
+assign vec_norm_split_num[3:0] = (vec_type_narr || vec_type_wide)
                                ? (4'b0010 << vec_lmul[1:0])
                                : (4'b0001 << vec_lmul[1:0]);
 
@@ -3050,31 +3050,31 @@ assign vec_norm_srcv0_vld = !(vec_type_norm_0_3 && vec_inst[25]) && //vmv
 
 assign vec_norm_srcv1_vld = !vec_type_norm_1_3 && !vec_opivi  //viota,vid or V-I inst
              //            && !vec_type_fcvt     //fcvt
-                         && !vec_type_norm_2_6  //fsqrt 
-                         && !vec_type_norm_2_7 //fclass 
-                         && !vec_inst_fmv 
+                         && !vec_type_norm_2_6  //fsqrt
+                         && !vec_type_norm_2_7 //fclass
+                         && !vec_inst_fmv
                          && !vec_ldst;
 
 assign vec_norm_srcv2_vld = (!vec_inst[25] && !vec_inst_red) || vec_norm_mac || vec_wide_mac || vec_type_fmac ||vec_st || vec_inst_madd || vec_ld && vec_ld_srcv2_vld;
-assign vec_norm_srcvm_vld = !vec_inst[25] || vec_inst_adc;  
+assign vec_norm_srcvm_vld = !vec_inst[25] || vec_inst_adc;
 
 assign vec_type_cmp       = vec_inst_cmp || vec_type_norm_2_3;
 
-assign vec_norm_srcv0_offset_tmp[11:0] =(vec_type_wide_0 || vec_type_wide_1 
-                                      || vec_type_wide_3 || vec_type_wide_4 
+assign vec_norm_srcv0_offset_tmp[11:0] =(vec_type_wide_0 || vec_type_wide_1
+                                      || vec_type_wide_3 || vec_type_wide_4
                                       || vec_type_wide_5 || vec_type_wide_7 || vec_type_wide_8 ||
                                       vec_type_wide_9)
-                                      ? {3'b001,3'b001,3'b000,3'b000}|{4{1'b0,vec_norm_cur_2nd,1'b0}} 
+                                      ? {3'b001,3'b001,3'b000,3'b000}|{4{1'b0,vec_norm_cur_2nd,1'b0}}
                                       : {3'b011,3'b010,3'b001,3'b000}|{4{     vec_norm_cur_2nd,2'b0}};
 
 assign  vec_norm_srcv0_offset[11:0] = vec_type_norm_1_3 ? 12'b0 : vec_norm_srcv0_offset_tmp[11:0];
 
 assign vec_norm_srcv1_offset[11:0] =(vec_type_wide || vec_type_narr)
-                                   ? {3'b001,3'b001,3'b000,3'b000}|{4{1'b0,vec_norm_cur_2nd,1'b0}} 
+                                   ? {3'b001,3'b001,3'b000,3'b000}|{4{1'b0,vec_norm_cur_2nd,1'b0}}
                                    : {3'b011,3'b010,3'b001,3'b000}|{4{     vec_norm_cur_2nd,2'b0}};
 
 assign vec_norm_destv_offset_tmp[11:0] =(vec_type_narr)
-                                      ? {3'b001,3'b001,3'b000,3'b000}|{4{1'b0,vec_norm_cur_2nd,1'b0}} 
+                                      ? {3'b001,3'b001,3'b000,3'b000}|{4{1'b0,vec_norm_cur_2nd,1'b0}}
                                       : {3'b011,3'b010,3'b001,3'b000}|{4{     vec_norm_cur_2nd,2'b0}};
 
 assign vec_norm_destv_offset[11:0] = (vec_type_cmp || vec_type_redu)
@@ -3090,15 +3090,15 @@ assign vec_norm_srcv1_vreg_1_tmp[4:0] = (vec_opivx || vec_opmvx || vec_opfvf) ? 
 assign vec_norm_srcv1_vreg_2_tmp[4:0] = (vec_opivx || vec_opmvx || vec_opfvf) ? 5'b0:(vec_inst[19:15] | {2'b0,vec_norm_srcv1_offset[8 :6]});
 assign vec_norm_srcv1_vreg_3_tmp[4:0] = (vec_opivx || vec_opmvx || vec_opfvf) ? 5'b0:(vec_inst[19:15] | {2'b0,vec_norm_srcv1_offset[11:9]});
 
-assign vec_norm_srcv0_vreg_0[4:0] = vec_src_switch ?vec_norm_srcv1_vreg_0_tmp[4:0]:vec_norm_srcv0_vreg_0_tmp[4:0]; 
-assign vec_norm_srcv0_vreg_1[4:0] = vec_src_switch ?vec_norm_srcv1_vreg_1_tmp[4:0]:vec_norm_srcv0_vreg_1_tmp[4:0]; 
-assign vec_norm_srcv0_vreg_2[4:0] = vec_src_switch ?vec_norm_srcv1_vreg_2_tmp[4:0]:vec_norm_srcv0_vreg_2_tmp[4:0]; 
-assign vec_norm_srcv0_vreg_3[4:0] = vec_src_switch ?vec_norm_srcv1_vreg_3_tmp[4:0]:vec_norm_srcv0_vreg_3_tmp[4:0]; 
+assign vec_norm_srcv0_vreg_0[4:0] = vec_src_switch ?vec_norm_srcv1_vreg_0_tmp[4:0]:vec_norm_srcv0_vreg_0_tmp[4:0];
+assign vec_norm_srcv0_vreg_1[4:0] = vec_src_switch ?vec_norm_srcv1_vreg_1_tmp[4:0]:vec_norm_srcv0_vreg_1_tmp[4:0];
+assign vec_norm_srcv0_vreg_2[4:0] = vec_src_switch ?vec_norm_srcv1_vreg_2_tmp[4:0]:vec_norm_srcv0_vreg_2_tmp[4:0];
+assign vec_norm_srcv0_vreg_3[4:0] = vec_src_switch ?vec_norm_srcv1_vreg_3_tmp[4:0]:vec_norm_srcv0_vreg_3_tmp[4:0];
 
-assign vec_norm_srcv1_vreg_0[4:0] = vec_type_fcvt ? vec_norm_destv_vreg_0[4:0] : vec_src_switch ? vec_norm_srcv0_vreg_0_tmp[4:0]:vec_norm_srcv1_vreg_0_tmp[4:0]; 
-assign vec_norm_srcv1_vreg_1[4:0] = vec_type_fcvt ? vec_norm_destv_vreg_1[4:0] : vec_src_switch ? vec_norm_srcv0_vreg_1_tmp[4:0]:vec_norm_srcv1_vreg_1_tmp[4:0]; 
-assign vec_norm_srcv1_vreg_2[4:0] = vec_type_fcvt ? vec_norm_destv_vreg_2[4:0] : vec_src_switch ? vec_norm_srcv0_vreg_2_tmp[4:0]:vec_norm_srcv1_vreg_2_tmp[4:0]; 
-assign vec_norm_srcv1_vreg_3[4:0] = vec_type_fcvt ? vec_norm_destv_vreg_3[4:0] : vec_src_switch ? vec_norm_srcv0_vreg_3_tmp[4:0]:vec_norm_srcv1_vreg_3_tmp[4:0]; 
+assign vec_norm_srcv1_vreg_0[4:0] = vec_type_fcvt ? vec_norm_destv_vreg_0[4:0] : vec_src_switch ? vec_norm_srcv0_vreg_0_tmp[4:0]:vec_norm_srcv1_vreg_0_tmp[4:0];
+assign vec_norm_srcv1_vreg_1[4:0] = vec_type_fcvt ? vec_norm_destv_vreg_1[4:0] : vec_src_switch ? vec_norm_srcv0_vreg_1_tmp[4:0]:vec_norm_srcv1_vreg_1_tmp[4:0];
+assign vec_norm_srcv1_vreg_2[4:0] = vec_type_fcvt ? vec_norm_destv_vreg_2[4:0] : vec_src_switch ? vec_norm_srcv0_vreg_2_tmp[4:0]:vec_norm_srcv1_vreg_2_tmp[4:0];
+assign vec_norm_srcv1_vreg_3[4:0] = vec_type_fcvt ? vec_norm_destv_vreg_3[4:0] : vec_src_switch ? vec_norm_srcv0_vreg_3_tmp[4:0]:vec_norm_srcv1_vreg_3_tmp[4:0];
 
 assign vec_norm_destv_vreg_0[4:0] = vec_inst[11:7] | {2'b0,vec_norm_destv_offset[2 :0]};
 assign vec_norm_destv_vreg_1[4:0] = vec_inst[11:7] | {2'b0,vec_norm_destv_offset[5 :3]};
@@ -3126,7 +3126,7 @@ assign vec_src_switch = ((vec_inst[31:26]==6'b000010)    //vsub
                       && (vec_opfvf)
                       ||((vec_inst[31:29]==3'b101   )    //vfmacc
                       || (vec_inst[31:28]==4'b1111  ))   //vfwmacc
-                      && (vec_opfvf || vec_opfvv)        
+                      && (vec_opfvf || vec_opfvv)
                       ||  vec_type_norm_2_5              //frdiv
                       ||  vec_type_norm_2_9;             //frsub
 
@@ -3490,8 +3490,8 @@ begin
     vec_fnorm_wf_cnt[3:0] <= vec_fnorm_wf_cnt[3:0] + 4'd1;
 end
 assign fnorm_wf_total_cnt_num[3:0] = (4'b1 << {dp_split_long_vlmul[1:0]});
-                                                                      
-assign fnorm_wf_cnt_end      = (vec_fnorm_wf_cnt[3:0] == fnorm_wf_total_cnt_num[3:0]) 
+
+assign fnorm_wf_cnt_end      = (vec_fnorm_wf_cnt[3:0] == fnorm_wf_total_cnt_num[3:0])
                                && !ctrl_split_long_id_stall;
 assign fnorm_wf_fst_round    = vec_fnorm_wf_cnt[3:0] == 4'b0;
 
@@ -3501,7 +3501,7 @@ assign vec_fnorm_wf_sm_start    = ctrl_split_long_id_inst_vld
 
 
 assign vec_fnorm_wf_split_busy  = vec_fnorm_wf_sm_start &&
-                               (vec_fnorm_wf_cur_state ==VEC_FNORM_WF_IDLE) || 
+                               (vec_fnorm_wf_cur_state ==VEC_FNORM_WF_IDLE) ||
                                (vec_fnorm_wf_cur_state ==VEC_FNORM_WF_BUSY);
 assign vec_fnorm_wf_split_stall = vec_fnorm_wf_split_busy && !fnorm_wf_cnt_end;
 assign fnorm_wf_cnt_en          = !ctrl_split_long_id_stall && vec_fnorm_wf_split_busy;
@@ -3521,7 +3521,7 @@ begin
                      vec_fnorm_wf_next_state = VEC_FNORM_WF_IDLE;
   VEC_FNORM_WF_BUSY  : if(!ctrl_split_long_id_stall && fnorm_wf_cnt_end)
                      vec_fnorm_wf_next_state = VEC_FNORM_WF_IDLE;
-                   else 
+                   else
                      vec_fnorm_wf_next_state = VEC_FNORM_WF_BUSY;
   default        :   vec_fnorm_wf_next_state = VEC_FNORM_WF_IDLE;
   endcase
@@ -3747,8 +3747,8 @@ begin
     vec_fnorm_wv_cnt[3:0] <= vec_fnorm_wv_cnt[3:0] + 4'd1;
 end
 assign fnorm_wv_total_cnt_num[3:0] = (4'b1 << dp_split_long_vlmul[1:0]) - 4'b1;
-                                                                      
-assign fnorm_wv_cnt_end      = (vec_fnorm_wv_cnt[3:0] == fnorm_wv_total_cnt_num[3:0]) 
+
+assign fnorm_wv_cnt_end      = (vec_fnorm_wv_cnt[3:0] == fnorm_wv_total_cnt_num[3:0])
                                 && !ctrl_split_long_id_stall;
 
 assign vec_fnorm_wv_sm_start    = ctrl_split_long_id_inst_vld
@@ -3757,7 +3757,7 @@ assign vec_fnorm_wv_sm_start    = ctrl_split_long_id_inst_vld
 
 
 assign vec_fnorm_wv_split_busy  = vec_fnorm_wv_sm_start &&
-                               (vec_fnorm_wv_cur_state ==VEC_FNORM_WV_IDLE) || 
+                               (vec_fnorm_wv_cur_state ==VEC_FNORM_WV_IDLE) ||
                                (vec_fnorm_wv_cur_state  ==VEC_FNORM_WV_BUSY);
 assign vec_fnorm_wv_split_stall = vec_fnorm_wv_split_busy && !fnorm_wv_cnt_end;
 assign fnorm_wv_cnt_en          = !ctrl_split_long_id_stall && vec_fnorm_wv_split_busy;
@@ -3777,7 +3777,7 @@ begin
                      vec_fnorm_wv_next_state = VEC_FNORM_WV_IDLE;
   VEC_FNORM_WV_BUSY  : if(!ctrl_split_long_id_stall && fnorm_wv_cnt_end)
                      vec_fnorm_wv_next_state = VEC_FNORM_WV_IDLE;
-                   else 
+                   else
                      vec_fnorm_wv_next_state = VEC_FNORM_WV_BUSY;
   default        :   vec_fnorm_wv_next_state = VEC_FNORM_WV_IDLE;
   endcase
@@ -3947,10 +3947,10 @@ assign vec_fnorm_wv_inst_vld[3] = vec_fnorm_wv_split_busy;
 //==========================================================
 //               VECTOR FLOATING POINT REDUCTION INST
 //==========================================================
-assign vec_fred_inst_vld[3:0]            = vec_fored_inst_vld[3:0]     | vec_funored_inst_vld[3:0] 
-                                         | vec_funored_w_inst_vld[3:0] | vec_fored_w_inst_vld[3:0] 
+assign vec_fred_inst_vld[3:0]            = vec_fored_inst_vld[3:0]     | vec_funored_inst_vld[3:0]
+                                         | vec_funored_w_inst_vld[3:0] | vec_fored_w_inst_vld[3:0]
                                          | vec_fnorm_wv_inst_vld[3:0]  | vec_fnorm_wf_inst_vld[3:0];
-assign vec_fred_split_stall              = vec_fored_split_stall      || vec_funored_split_stall 
+assign vec_fred_split_stall              = vec_fored_split_stall      || vec_funored_split_stall
                                          || vec_funored_w_split_stall || vec_fored_w_split_stall
                                          || vec_fnorm_wv_split_stall  || vec_fnorm_wf_split_stall;
 assign vec_fred_dep_info[DEP_WIDTH-1:0]  = {DEP_WIDTH{dp_split_fored_vld}}        & vec_fored_dep_info[DEP_WIDTH-1:0]     |
@@ -3960,48 +3960,48 @@ assign vec_fred_dep_info[DEP_WIDTH-1:0]  = {DEP_WIDTH{dp_split_fored_vld}}      
                                            {DEP_WIDTH{dp_split_fnorm_wv_vld}}     & vec_fnorm_wv_dep_info[DEP_WIDTH-1:0] |
                                            {DEP_WIDTH{dp_split_fnorm_wf_vld}}     & vec_fnorm_wf_dep_info[DEP_WIDTH-1:0];
 
-assign vec_fred_inst0_data[IR_WIDTH-1:0] = {IR_WIDTH{vec_fored_inst_vld[0]}}      & vec_fored_inst0_data[IR_WIDTH-1:0]     | 
+assign vec_fred_inst0_data[IR_WIDTH-1:0] = {IR_WIDTH{vec_fored_inst_vld[0]}}      & vec_fored_inst0_data[IR_WIDTH-1:0]     |
                                            {IR_WIDTH{vec_funored_inst_vld[0]}}    & vec_funored_inst0_data[IR_WIDTH-1:0]   |
                                            {IR_WIDTH{vec_funored_w_inst_vld[0]}}  & vec_funored_w_inst0_data[IR_WIDTH-1:0] |
                                            {IR_WIDTH{vec_fored_w_inst_vld[0]}}    & vec_fored_w_inst0_data[IR_WIDTH-1:0]   |
                                            {IR_WIDTH{vec_fnorm_wv_inst_vld[0]}}   & vec_fnorm_wv_inst0_data[IR_WIDTH-1:0]  |
                                            {IR_WIDTH{vec_fnorm_wf_inst_vld[0]}}   & vec_fnorm_wf_inst0_data[IR_WIDTH-1:0];
 
-assign vec_fred_inst1_data[IR_WIDTH-1:0] = {IR_WIDTH{vec_fored_inst_vld[1]}}      & vec_fored_inst1_data[IR_WIDTH-1:0]     | 
+assign vec_fred_inst1_data[IR_WIDTH-1:0] = {IR_WIDTH{vec_fored_inst_vld[1]}}      & vec_fored_inst1_data[IR_WIDTH-1:0]     |
                                            {IR_WIDTH{vec_funored_inst_vld[1]}}    & vec_funored_inst1_data[IR_WIDTH-1:0]   |
                                            {IR_WIDTH{vec_funored_w_inst_vld[1]}}  & vec_funored_w_inst1_data[IR_WIDTH-1:0] |
                                            {IR_WIDTH{vec_fored_w_inst_vld[1]}}    & vec_fored_w_inst1_data[IR_WIDTH-1:0]   |
                                            {IR_WIDTH{vec_fnorm_wv_inst_vld[1]}}   & vec_fnorm_wv_inst1_data[IR_WIDTH-1:0]  |
                                            {IR_WIDTH{vec_fnorm_wf_inst_vld[1]}}   & vec_fnorm_wf_inst1_data[IR_WIDTH-1:0];
 
-assign vec_fred_inst2_data[IR_WIDTH-1:0] = {IR_WIDTH{vec_fored_inst_vld[2]}}      & vec_fored_inst2_data[IR_WIDTH-1:0]     | 
+assign vec_fred_inst2_data[IR_WIDTH-1:0] = {IR_WIDTH{vec_fored_inst_vld[2]}}      & vec_fored_inst2_data[IR_WIDTH-1:0]     |
                                            {IR_WIDTH{vec_funored_inst_vld[2]}}    & vec_funored_inst2_data[IR_WIDTH-1:0]   |
                                            {IR_WIDTH{vec_funored_w_inst_vld[2]}}  & vec_funored_w_inst2_data[IR_WIDTH-1:0] |
                                            {IR_WIDTH{vec_fored_w_inst_vld[2]}}    & vec_fored_w_inst2_data[IR_WIDTH-1:0]   |
                                            {IR_WIDTH{vec_fnorm_wv_inst_vld[2]}}    & vec_fnorm_wv_inst2_data[IR_WIDTH-1:0] |
                                            {IR_WIDTH{vec_fnorm_wf_inst_vld[2]}}    & vec_fnorm_wf_inst2_data[IR_WIDTH-1:0];
 
-assign vec_fred_inst3_data[IR_WIDTH-1:0] = {IR_WIDTH{vec_fored_inst_vld[3]}}      & vec_fored_inst3_data[IR_WIDTH-1:0]     | 
+assign vec_fred_inst3_data[IR_WIDTH-1:0] = {IR_WIDTH{vec_fored_inst_vld[3]}}      & vec_fored_inst3_data[IR_WIDTH-1:0]     |
                                            {IR_WIDTH{vec_funored_inst_vld[3]}}    & vec_funored_inst3_data[IR_WIDTH-1:0]   |
                                            {IR_WIDTH{vec_funored_w_inst_vld[3]}}  & vec_funored_w_inst3_data[IR_WIDTH-1:0] |
                                            {IR_WIDTH{vec_fored_w_inst_vld[3]}}    & vec_fored_w_inst3_data[IR_WIDTH-1:0]   |
                                            {IR_WIDTH{vec_fnorm_wv_inst_vld[3]}}   & vec_fnorm_wv_inst3_data[IR_WIDTH-1:0]  |
                                            {IR_WIDTH{vec_fnorm_wf_inst_vld[3]}}   & vec_fnorm_wf_inst3_data[IR_WIDTH-1:0];
 
-assign dp_split_fored_vld                = dp_split_long_type[VEC_FRED_TYPE] 
+assign dp_split_fored_vld                = dp_split_long_type[VEC_FRED_TYPE]
                                            && ((vec_inst[31:26] == 6'b000011) ||
-                                             ((vec_inst[31:30] == 2'b00) && (vec_inst[28:26]==3'b001 
-                                                                                   || vec_inst[28:26]==3'b101 
-                                                                                   || vec_inst[28:26]==3'b111) 
+                                             ((vec_inst[31:30] == 2'b00) && (vec_inst[28:26]==3'b001
+                                                                                   || vec_inst[28:26]==3'b101
+                                                                                   || vec_inst[28:26]==3'b111)
                                                                                    && (dp_split_long_vsew[2:0] == 3'b011) ));
-assign dp_split_fored_w_vld              = dp_split_long_type[VEC_FRED_TYPE] 
-                                          && ((vec_inst[31:26] == 6'b110011) || (vec_inst[31:26] == 6'b110001) 
-                                                                                && (dp_split_long_vsew[2:0] == 3'b010))  ;                                         
-assign dp_split_unfored_vld              = dp_split_long_type[VEC_FRED_TYPE] 
-                                           && (vec_inst[31:30] == 2'b00) && (vec_inst[28:26]==3'b001 
-                                                                            || vec_inst[28:26]==3'b101 
+assign dp_split_fored_w_vld              = dp_split_long_type[VEC_FRED_TYPE]
+                                          && ((vec_inst[31:26] == 6'b110011) || (vec_inst[31:26] == 6'b110001)
+                                                                                && (dp_split_long_vsew[2:0] == 3'b010))  ;
+assign dp_split_unfored_vld              = dp_split_long_type[VEC_FRED_TYPE]
+                                           && (vec_inst[31:30] == 2'b00) && (vec_inst[28:26]==3'b001
+                                                                            || vec_inst[28:26]==3'b101
                                                                             || vec_inst[28:26]==3'b111) && (dp_split_long_vsew[2:0] != 3'b011);
-assign dp_split_unfored_w_vld             = dp_split_long_type[VEC_FRED_TYPE] 
+assign dp_split_unfored_w_vld             = dp_split_long_type[VEC_FRED_TYPE]
                                            && (vec_inst[31:26] == 6'b110001) && (dp_split_long_vsew[2:0] != 3'b010) ;
 assign dp_split_fnorm_wv_vld              = dp_split_long_type[VEC_FRED_TYPE]
                                            && (vec_inst[31:28] == 4'b1101) && vec_opfvv;
@@ -4011,45 +4011,45 @@ assign dp_split_fnorm_wf_vld              = dp_split_long_type[VEC_FRED_TYPE]
 assign dp_split_w_vsew[2:0]               = dp_split_long_vsew[2:0] + 3'b1;
 
 
-assign widden_split_inst0_vsew[2:0]       = {3{vec_funored_w_inst_vld[0]}}& vec_funored_w_split_inst0_sew[2:0] | 
-                                            {3{vec_fored_w_inst_vld[0]}}  & vec_fored_w_split_inst0_sew[2:0]   | 
-                                            {3{vec_fnorm_wv_inst_vld[0]}} & vec_fnorm_wv_split_inst0_sew[2:0]  | 
+assign widden_split_inst0_vsew[2:0]       = {3{vec_funored_w_inst_vld[0]}}& vec_funored_w_split_inst0_sew[2:0] |
+                                            {3{vec_fored_w_inst_vld[0]}}  & vec_fored_w_split_inst0_sew[2:0]   |
+                                            {3{vec_fnorm_wv_inst_vld[0]}} & vec_fnorm_wv_split_inst0_sew[2:0]  |
                                             {3{vec_fnorm_wf_inst_vld[0]}} & vec_fnorm_wf_split_inst0_sew[2:0];
-assign widden_split_inst1_vsew[2:0]       = {3{vec_funored_w_inst_vld[1]}}& vec_funored_w_split_inst1_sew[2:0] | 
-                                            {3{vec_fored_w_inst_vld[1]}}  & vec_fored_w_split_inst1_sew[2:0]   | 
-                                            {3{vec_fnorm_wv_inst_vld[1]}} & vec_fnorm_wv_split_inst1_sew[2:0]  | 
+assign widden_split_inst1_vsew[2:0]       = {3{vec_funored_w_inst_vld[1]}}& vec_funored_w_split_inst1_sew[2:0] |
+                                            {3{vec_fored_w_inst_vld[1]}}  & vec_fored_w_split_inst1_sew[2:0]   |
+                                            {3{vec_fnorm_wv_inst_vld[1]}} & vec_fnorm_wv_split_inst1_sew[2:0]  |
                                             {3{vec_fnorm_wf_inst_vld[1]}} & vec_fnorm_wf_split_inst1_sew[2:0];
-assign widden_split_inst2_vsew[2:0]       = {3{vec_funored_w_inst_vld[2]}}& vec_funored_w_split_inst2_sew[2:0] | 
-                                            {3{vec_fored_w_inst_vld[2]}}  & vec_fored_w_split_inst2_sew[2:0]   | 
-                                            {3{vec_fnorm_wv_inst_vld[2]}} & vec_fnorm_wv_split_inst2_sew[2:0]  | 
+assign widden_split_inst2_vsew[2:0]       = {3{vec_funored_w_inst_vld[2]}}& vec_funored_w_split_inst2_sew[2:0] |
+                                            {3{vec_fored_w_inst_vld[2]}}  & vec_fored_w_split_inst2_sew[2:0]   |
+                                            {3{vec_fnorm_wv_inst_vld[2]}} & vec_fnorm_wv_split_inst2_sew[2:0]  |
                                             {3{vec_fnorm_wf_inst_vld[2]}} & vec_fnorm_wf_split_inst2_sew[2:0];
-assign widden_split_inst3_vsew[2:0]       = {3{vec_funored_w_inst_vld[3]}}& vec_funored_w_split_inst3_sew[2:0] | 
-                                            {3{vec_fored_w_inst_vld[3]}}  & vec_fored_w_split_inst3_sew[2:0]   | 
-                                            {3{vec_fnorm_wv_inst_vld[3]}} & vec_fnorm_wv_split_inst3_sew[2:0]  | 
+assign widden_split_inst3_vsew[2:0]       = {3{vec_funored_w_inst_vld[3]}}& vec_funored_w_split_inst3_sew[2:0] |
+                                            {3{vec_fored_w_inst_vld[3]}}  & vec_fored_w_split_inst3_sew[2:0]   |
+                                            {3{vec_fnorm_wv_inst_vld[3]}} & vec_fnorm_wv_split_inst3_sew[2:0]  |
                                             {3{vec_fnorm_wf_inst_vld[3]}} & vec_fnorm_wf_split_inst3_sew[2:0];
 
 assign dp_split_w_vlmul[2:0]              = {1'b0,dp_split_long_vlmul[1:0]} + 3'b1;
 
-assign widden_split_inst0_vlmul[1:0]       = {2{vec_funored_w_inst_vld[0]}}& vec_funored_w_split_inst0_lmul[1:0] | 
-                                            {2{vec_fored_w_inst_vld[0]}}  & vec_fored_w_split_inst0_lmul[1:0]   | 
-                                            {2{vec_fnorm_wv_inst_vld[0]}} & vec_fnorm_wv_split_inst0_lmul[1:0]  | 
+assign widden_split_inst0_vlmul[1:0]       = {2{vec_funored_w_inst_vld[0]}}& vec_funored_w_split_inst0_lmul[1:0] |
+                                            {2{vec_fored_w_inst_vld[0]}}  & vec_fored_w_split_inst0_lmul[1:0]   |
+                                            {2{vec_fnorm_wv_inst_vld[0]}} & vec_fnorm_wv_split_inst0_lmul[1:0]  |
                                             {2{vec_fnorm_wf_inst_vld[0]}} & vec_fnorm_wf_split_inst0_lmul[1:0];
-assign widden_split_inst1_vlmul[1:0]       = {2{vec_funored_w_inst_vld[1]}}& vec_funored_w_split_inst1_lmul[1:0] | 
-                                            {2{vec_fored_w_inst_vld[1]}}  & vec_fored_w_split_inst1_lmul[1:0]   | 
-                                            {2{vec_fnorm_wv_inst_vld[1]}} & vec_fnorm_wv_split_inst1_lmul[1:0]  | 
+assign widden_split_inst1_vlmul[1:0]       = {2{vec_funored_w_inst_vld[1]}}& vec_funored_w_split_inst1_lmul[1:0] |
+                                            {2{vec_fored_w_inst_vld[1]}}  & vec_fored_w_split_inst1_lmul[1:0]   |
+                                            {2{vec_fnorm_wv_inst_vld[1]}} & vec_fnorm_wv_split_inst1_lmul[1:0]  |
                                             {2{vec_fnorm_wf_inst_vld[1]}} & vec_fnorm_wf_split_inst1_lmul[1:0];
-assign widden_split_inst2_vlmul[1:0]       = {2{vec_funored_w_inst_vld[2]}}& vec_funored_w_split_inst2_lmul[1:0] | 
-                                            {2{vec_fored_w_inst_vld[2]}}  & vec_fored_w_split_inst2_lmul[1:0]   | 
-                                            {2{vec_fnorm_wv_inst_vld[2]}} & vec_fnorm_wv_split_inst2_lmul[1:0]  | 
+assign widden_split_inst2_vlmul[1:0]       = {2{vec_funored_w_inst_vld[2]}}& vec_funored_w_split_inst2_lmul[1:0] |
+                                            {2{vec_fored_w_inst_vld[2]}}  & vec_fored_w_split_inst2_lmul[1:0]   |
+                                            {2{vec_fnorm_wv_inst_vld[2]}} & vec_fnorm_wv_split_inst2_lmul[1:0]  |
                                             {2{vec_fnorm_wf_inst_vld[2]}} & vec_fnorm_wf_split_inst2_lmul[1:0];
-assign widden_split_inst3_vlmul[1:0]       = {2{vec_funored_w_inst_vld[3]}}& vec_funored_w_split_inst3_lmul[1:0] | 
-                                            {2{vec_fored_w_inst_vld[3]}}  & vec_fored_w_split_inst3_lmul[1:0]   | 
-                                            {2{vec_fnorm_wv_inst_vld[3]}} & vec_fnorm_wv_split_inst3_lmul[1:0]  | 
+assign widden_split_inst3_vlmul[1:0]       = {2{vec_funored_w_inst_vld[3]}}& vec_funored_w_split_inst3_lmul[1:0] |
+                                            {2{vec_fored_w_inst_vld[3]}}  & vec_fored_w_split_inst3_lmul[1:0]   |
+                                            {2{vec_fnorm_wv_inst_vld[3]}} & vec_fnorm_wv_split_inst3_lmul[1:0]  |
                                             {2{vec_fnorm_wf_inst_vld[3]}} & vec_fnorm_wf_split_inst3_lmul[1:0];
 
-assign widden_split_inst_vld              = dp_split_unfored_w_vld || dp_split_fored_w_vld 
+assign widden_split_inst_vld              = dp_split_unfored_w_vld || dp_split_fored_w_vld
                                             || dp_split_fnorm_wv_vld  || dp_split_fnorm_wf_vld;
-                                            
+
 //==========================================================
 //                  vector instruction
 //==========================================================
@@ -4103,7 +4103,7 @@ begin
     vec_fored_cnt[3:0] <= vec_fored_cnt[3:0] + 4'd1;
 end
 assign fored_total_cnt_num[5:0] = ((6'b1 << (3'b100-dp_split_long_vsew[2:0])) << dp_split_long_vlmul[1:0]) - 6'b1;
-assign fored_cnt_end      = (vec_fored_cnt[3:0] == fored_total_cnt_num[5:2]) 
+assign fored_cnt_end      = (vec_fored_cnt[3:0] == fored_total_cnt_num[5:2])
                                 && !ctrl_split_long_id_stall;
 assign fored_fst_round    = vec_fored_cnt[3:0] == 4'b0;
 
@@ -4113,7 +4113,7 @@ assign vec_fored_sm_start       = ctrl_split_long_id_inst_vld
 
 
 assign vec_fored_split_busy  = vec_fored_sm_start &&
-                               (vec_fored_cur_state ==VEC_FORED_IDLE) || 
+                               (vec_fored_cur_state ==VEC_FORED_IDLE) ||
                                (vec_fored_cur_state  ==VEC_FORED_BUSY);
 assign vec_fored_split_stall = vec_fored_split_busy && !fored_cnt_end;
 assign fored_cnt_en          = !ctrl_split_long_id_stall && vec_fored_split_busy;
@@ -4133,7 +4133,7 @@ begin
                      vec_fored_next_state = VEC_FORED_IDLE;
   VEC_FORED_BUSY  : if(!ctrl_split_long_id_stall && fored_cnt_end)
                      vec_fored_next_state = VEC_FORED_IDLE;
-                   else 
+                   else
                      vec_fored_next_state = VEC_FORED_BUSY;
   default        :   vec_fored_next_state = VEC_FORED_IDLE;
   endcase
@@ -4219,42 +4219,42 @@ always @( fored_split_inst2_sew16_dy_lmul[2:0]
        or fored_split_inst1_sew16_last)
 begin
 case(dp_split_long_vsew[1:0])
-  2'b01: 
+  2'b01:
   begin
     fored_split_inst0_split_cnt[5:0]   = {fored_split_inst0_sew16_dy_splcnt[2:0],fored_split_inst0_sew16_dy_lmul[2:0]};
-    fored_split_inst0_last             = fored_split_inst0_sew16_last; 
+    fored_split_inst0_last             = fored_split_inst0_sew16_last;
     fored_split_inst1_split_cnt[5:0]   = {fored_split_inst1_sew16_dy_splcnt[2:0],fored_split_inst1_sew16_dy_lmul[2:0]};
-    fored_split_inst1_last             = fored_split_inst1_sew16_last; 
+    fored_split_inst1_last             = fored_split_inst1_sew16_last;
     fored_split_inst2_split_cnt[5:0]   = {fored_split_inst2_sew16_dy_splcnt[2:0],fored_split_inst2_sew16_dy_lmul[2:0]};
-    fored_split_inst2_last             = fored_split_inst2_sew16_last; 
+    fored_split_inst2_last             = fored_split_inst2_sew16_last;
     fored_split_inst3_split_cnt[5:0]   = {fored_split_inst3_sew16_dy_splcnt[2:0],fored_split_inst3_sew16_dy_lmul[2:0]};
-    fored_split_inst3_last             = fored_split_inst3_sew16_last; 
+    fored_split_inst3_last             = fored_split_inst3_sew16_last;
   end
   2'b10:
   begin
     fored_split_inst0_split_cnt[5:0]   = {fored_split_inst0_sew32_dy_splcnt[2:0],fored_split_inst0_sew32_dy_lmul[2:0]};
-    fored_split_inst0_last             = fored_split_inst0_sew32_last; 
+    fored_split_inst0_last             = fored_split_inst0_sew32_last;
     fored_split_inst1_split_cnt[5:0]   = {fored_split_inst1_sew32_dy_splcnt[2:0],fored_split_inst1_sew32_dy_lmul[2:0]};
-    fored_split_inst1_last             = fored_split_inst1_sew32_last; 
+    fored_split_inst1_last             = fored_split_inst1_sew32_last;
     fored_split_inst2_split_cnt[5:0]   = {fored_split_inst2_sew32_dy_splcnt[2:0],fored_split_inst2_sew32_dy_lmul[2:0]};
-    fored_split_inst2_last             = fored_split_inst2_sew32_last; 
+    fored_split_inst2_last             = fored_split_inst2_sew32_last;
     fored_split_inst3_split_cnt[5:0]   = {fored_split_inst3_sew32_dy_splcnt[2:0],fored_split_inst3_sew32_dy_lmul[2:0]};
-    fored_split_inst3_last             = fored_split_inst3_sew32_last; 
+    fored_split_inst3_last             = fored_split_inst3_sew32_last;
   end
   2'b11:
   begin
     fored_split_inst0_split_cnt[5:0]   = {fored_split_inst0_sew64_dy_splcnt[2:0],fored_split_inst0_sew64_dy_lmul[2:0]};
-    fored_split_inst0_last             = fored_split_inst0_sew64_last; 
+    fored_split_inst0_last             = fored_split_inst0_sew64_last;
     fored_split_inst1_split_cnt[5:0]   = {fored_split_inst1_sew64_dy_splcnt[2:0],fored_split_inst1_sew64_dy_lmul[2:0]};
-    fored_split_inst1_last             = fored_split_inst1_sew64_last; 
+    fored_split_inst1_last             = fored_split_inst1_sew64_last;
     fored_split_inst2_split_cnt[5:0]   = {fored_split_inst2_sew64_dy_splcnt[2:0],fored_split_inst2_sew64_dy_lmul[2:0]};
-    fored_split_inst2_last             = fored_split_inst2_sew64_last; 
+    fored_split_inst2_last             = fored_split_inst2_sew64_last;
     fored_split_inst3_split_cnt[5:0]   = {fored_split_inst3_sew64_dy_splcnt[2:0],fored_split_inst3_sew64_dy_lmul[2:0]};
-    fored_split_inst3_last             = fored_split_inst3_sew64_last; 
+    fored_split_inst3_last             = fored_split_inst3_sew64_last;
   end
   default:
   begin
-    fored_split_inst0_split_cnt[5:0]   = {6{1'b0}}; 
+    fored_split_inst0_split_cnt[5:0]   = {6{1'b0}};
     fored_split_inst0_last             = {1{1'b0}};
     fored_split_inst1_split_cnt[5:0]   = {6{1'b0}};
     fored_split_inst1_last             = {1{1'b0}};
@@ -4484,8 +4484,8 @@ begin
     vec_fored_w_cnt[4:0] <= vec_fored_w_cnt[4:0] + 5'd1;
 end
 assign fored_w_total_cnt_num[4:0] = (5'b00100<<dp_split_long_vlmul[1:0]) - 5'b1;
-                                                                      
-assign fored_w_cnt_end      = (vec_fored_w_cnt[4:0] == fored_w_total_cnt_num[4:0]) 
+
+assign fored_w_cnt_end      = (vec_fored_w_cnt[4:0] == fored_w_total_cnt_num[4:0])
                                 && !ctrl_split_long_id_stall;
 assign fored_w_fst_round    = vec_fored_w_cnt[4:1] == 4'b0;
 
@@ -4495,7 +4495,7 @@ assign vec_fored_w_sm_start       = ctrl_split_long_id_inst_vld
 
 
 assign vec_fored_w_split_busy  = vec_fored_w_sm_start &&
-                               (vec_fored_w_cur_state ==VEC_FORED_W_IDLE) || 
+                               (vec_fored_w_cur_state ==VEC_FORED_W_IDLE) ||
                                (vec_fored_w_cur_state  ==VEC_FORED_W_BUSY);
 assign vec_fored_w_split_stall = vec_fored_w_split_busy && !fored_w_cnt_end;
 assign fored_w_cnt_en          = !ctrl_split_long_id_stall && vec_fored_w_split_busy;
@@ -4515,7 +4515,7 @@ begin
                      vec_fored_w_next_state = VEC_FORED_W_IDLE;
   VEC_FORED_W_BUSY  : if(!ctrl_split_long_id_stall && fored_w_cnt_end)
                      vec_fored_w_next_state = VEC_FORED_W_IDLE;
-                   else 
+                   else
                      vec_fored_w_next_state = VEC_FORED_W_BUSY;
   default        :   vec_fored_w_next_state = VEC_FORED_W_IDLE;
   endcase
@@ -4598,18 +4598,18 @@ always @( fored_w_split_inst3_sew32_dy_lmul[2:0]
        or fored_w_split_inst3_sew32_last)
 begin
 case(dp_split_long_vsew[1:0])
-  2'b01: 
+  2'b01:
   begin
     fored_w_split_inst0_split_cnt[5:0]   = {fored_w_split_inst0_sew16_dy_splcnt[2:0],fored_w_split_inst0_sew16_dy_lmul[2:0]};
     fored_w_split_inst0_split_inst[31:0] = fored_w_split_inst0_sew16[31:0];
     fored_w_split_inst1_split_cnt[5:0]   = {fored_w_split_inst1_sew16_dy_splcnt[2:0],fored_w_split_inst1_sew16_dy_lmul[2:0]};
-    fored_w_split_inst1_last             = fored_w_split_inst1_sew16_last; 
+    fored_w_split_inst1_last             = fored_w_split_inst1_sew16_last;
     fored_w_split_inst1_split_inst[31:0] = fored_w_split_inst1_sew16[31:0];
     fored_w_split_inst2_split_cnt[5:0]   = {fored_w_split_inst2_sew16_dy_splcnt[2:0],fored_w_split_inst2_sew16_dy_lmul[2:0]};
-//    fored_w_split_inst2_last             = fored_w_split_inst2_sew16_last; 
+//    fored_w_split_inst2_last             = fored_w_split_inst2_sew16_last;
     fored_w_split_inst2_split_inst[31:0] = fored_w_split_inst2_sew16[31:0];
     fored_w_split_inst3_split_cnt[5:0]   = {fored_w_split_inst3_sew16_dy_splcnt[2:0],fored_w_split_inst3_sew16_dy_lmul[2:0]};
-    fored_w_split_inst3_last             = fored_w_split_inst3_sew16_last; 
+    fored_w_split_inst3_last             = fored_w_split_inst3_sew16_last;
     fored_w_split_inst3_split_inst[31:0] = fored_w_split_inst3_sew16[31:0];
   end
   2'b10:
@@ -4617,19 +4617,19 @@ case(dp_split_long_vsew[1:0])
     fored_w_split_inst0_split_cnt[5:0]   = {fored_w_split_inst0_sew32_dy_splcnt[2:0],fored_w_split_inst0_sew32_dy_lmul[2:0]};
     fored_w_split_inst0_split_inst[31:0] = fored_w_split_inst0_sew32[31:0];
     fored_w_split_inst1_split_cnt[5:0]   = {fored_w_split_inst1_sew32_dy_splcnt[2:0],fored_w_split_inst1_sew32_dy_lmul[2:0]};
-    fored_w_split_inst1_last             = fored_w_split_inst1_sew32_last; 
+    fored_w_split_inst1_last             = fored_w_split_inst1_sew32_last;
     fored_w_split_inst1_split_inst[31:0] = fored_w_split_inst1_sew32[31:0];
     fored_w_split_inst2_split_cnt[5:0]   = {fored_w_split_inst2_sew32_dy_splcnt[2:0],fored_w_split_inst2_sew32_dy_lmul[2:0]};
- //   fored_w_split_inst2_last             = fored_w_split_inst2_sew32_last; 
+ //   fored_w_split_inst2_last             = fored_w_split_inst2_sew32_last;
     fored_w_split_inst2_split_inst[31:0] = fored_w_split_inst2_sew32[31:0];
     fored_w_split_inst3_split_cnt[5:0]   = {fored_w_split_inst3_sew32_dy_splcnt[2:0],fored_w_split_inst3_sew32_dy_lmul[2:0]};
-    fored_w_split_inst3_last             = fored_w_split_inst3_sew32_last; 
+    fored_w_split_inst3_last             = fored_w_split_inst3_sew32_last;
     fored_w_split_inst3_split_inst[31:0] = fored_w_split_inst3_sew32[31:0];
   end
   default:
   begin
     fored_w_split_inst0_split_inst[31:0] = {32{1'b0}};
-    fored_w_split_inst0_split_cnt[5:0]   = {6{1'b0}}; 
+    fored_w_split_inst0_split_cnt[5:0]   = {6{1'b0}};
     fored_w_split_inst1_split_inst[31:0] = {32{1'b0}};
     fored_w_split_inst1_split_cnt[5:0]   = {6{1'b0}};
     fored_w_split_inst1_last             = {1{1'b0}};
@@ -4655,7 +4655,7 @@ assign vec_fored_w_split_inst0_src0[5:0]                      = vec_fored_w_cnt[
 assign vec_fored_w_split_inst0_src1[5:0]                      = fored_w_fst_round ? vec_fored_w_cnt[0] ? {1'b0,vec_fored_w_srcv1_vreg[4:0]}
                                                                                                        : {1'b0,vec_fored_w_srcv0_vreg_0[4:0]}
                                                                                   : 6'b100001;
-                                                                                 
+
 assign vec_fored_w_inst0_mul8                                 = vec_fored_w_cnt[0] ? vec_fred_w_mul8 : 1'b0;
 // &CombBeg; @2996
 always @( fored_w_split_inst0_split_cnt[5:0]
@@ -4694,7 +4694,7 @@ end
 //----------------------------------------------------------
 assign vec_fored_w_split_inst1_src0[5:0]                      = 6'b100000; //using tmp0
 assign vec_fored_w_split_inst1_src1[5:0]                      = 6'b100001; //last round tmp
-assign vec_fored_w_split_inst1_dest[5:0]                      = (dp_split_long_vsew[1:0] == 2'b10) ? 
+assign vec_fored_w_split_inst1_dest[5:0]                      = (dp_split_long_vsew[1:0] == 2'b10) ?
                                                                                         fored_w_split_inst1_last ? {1'b0,vec_fored_w_destv_vreg[4:0]}
                                                                                                                  : 6'b100001  //next cycle
                                                                                         : 6'b100001;
@@ -4881,10 +4881,10 @@ begin
     vec_funored_cnt[2:0] <= vec_funored_cnt[2:0] + 3'd1;
 end
 assign funored_total_cnt_num[2:0] = (dp_split_long_vsew[2:0] == 3'b11) ?
-                                                     (dp_split_long_vlmul[1:0]==2'b00) ? 3'b0 
+                                                     (dp_split_long_vlmul[1:0]==2'b00) ? 3'b0
                                                                     : ((3'b1 << dp_split_long_vlmul[1:0])>>1) - 3'b1
                                                   :  (3'b1<< dp_split_long_vlmul[1:0]) - 3'b1;
-assign funored_cnt_end      = (vec_funored_cnt[2:0] == funored_total_cnt_num[2:0]) 
+assign funored_cnt_end      = (vec_funored_cnt[2:0] == funored_total_cnt_num[2:0])
                                 && !ctrl_split_long_id_stall;
 assign funored_fst_round    =  vec_funored_cnt[2:0] == 3'b0;
 
@@ -4893,7 +4893,7 @@ assign vec_funored_sm_start       = ctrl_split_long_id_inst_vld
                               && !ctrl_split_long_id_stall;
 
 assign vec_funored_split_busy  = vec_funored_sm_start &&
-                               (vec_funored_cur_state ==VEC_FUNORED_IDLE) || 
+                               (vec_funored_cur_state ==VEC_FUNORED_IDLE) ||
                                (vec_funored_cur_state  ==VEC_FUNORED_BUSY);
 assign vec_funored_split_stall = vec_funored_split_busy && !funored_cnt_end;
 assign funored_cnt_en          = !ctrl_split_long_id_stall && vec_funored_split_busy;
@@ -4913,7 +4913,7 @@ begin
                      vec_funored_next_state = VEC_FORED_IDLE;
   VEC_FUNORED_BUSY  : if(!ctrl_split_long_id_stall && funored_cnt_end)
                      vec_funored_next_state = VEC_FORED_IDLE;
-                   else 
+                   else
                      vec_funored_next_state = VEC_FORED_BUSY;
   default        :   vec_funored_next_state = VEC_FORED_IDLE;
   endcase
@@ -5013,45 +5013,45 @@ always @( funored_split_inst1_sew16_dy_splcnt[2:0]
        or funored_split_inst1_sew32_dy_splcnt[2:0])
 begin
 case(dp_split_long_vsew[1:0])
-  2'b01: 
+  2'b01:
   begin
     funored_split_inst0_split_cnt[5:0]   = {funored_split_inst0_sew16_dy_splcnt[2:0],funored_split_inst0_sew16_dy_lmul[2:0]};
-    funored_split_inst0_last             = funored_split_inst0_sew16_last; 
+    funored_split_inst0_last             = funored_split_inst0_sew16_last;
     funored_split_inst1_split_cnt[5:0]   = {funored_split_inst1_sew16_dy_splcnt[2:0],funored_split_inst1_sew16_dy_lmul[2:0]};
-    funored_split_inst1_last             = funored_split_inst1_sew16_last; 
+    funored_split_inst1_last             = funored_split_inst1_sew16_last;
     funored_split_inst2_split_cnt[5:0]   = {funored_split_inst2_sew16_dy_splcnt[2:0],funored_split_inst2_sew16_dy_lmul[2:0]};
-    funored_split_inst2_last             = funored_split_inst2_sew16_last; 
+    funored_split_inst2_last             = funored_split_inst2_sew16_last;
     funored_split_inst2_round_end        = funored_split_inst2_sew16_round_end;
     funored_split_inst3_split_cnt[5:0]   = {funored_split_inst3_sew16_dy_splcnt[2:0],funored_split_inst3_sew16_dy_lmul[2:0]};
-    funored_split_inst3_last             = funored_split_inst3_sew16_last; 
+    funored_split_inst3_last             = funored_split_inst3_sew16_last;
   end
   2'b10:
   begin
     funored_split_inst0_split_cnt[5:0]   = {funored_split_inst0_sew32_dy_splcnt[2:0],funored_split_inst0_sew32_dy_lmul[2:0]};
-    funored_split_inst0_last             = funored_split_inst0_sew32_last; 
+    funored_split_inst0_last             = funored_split_inst0_sew32_last;
     funored_split_inst1_split_cnt[5:0]   = {funored_split_inst1_sew32_dy_splcnt[2:0],funored_split_inst1_sew32_dy_lmul[2:0]};
-    funored_split_inst1_last             = funored_split_inst1_sew32_last; 
+    funored_split_inst1_last             = funored_split_inst1_sew32_last;
     funored_split_inst2_split_cnt[5:0]   = {funored_split_inst2_sew32_dy_splcnt[2:0],funored_split_inst2_sew32_dy_lmul[2:0]};
-    funored_split_inst2_last             = funored_split_inst2_sew32_last; 
+    funored_split_inst2_last             = funored_split_inst2_sew32_last;
     funored_split_inst2_round_end        = funored_split_inst2_sew32_round_end;
     funored_split_inst3_split_cnt[5:0]   = {funored_split_inst3_sew32_dy_splcnt[2:0],funored_split_inst3_sew32_dy_lmul[2:0]};
-    funored_split_inst3_last             = funored_split_inst3_sew32_last; 
+    funored_split_inst3_last             = funored_split_inst3_sew32_last;
   end
   2'b11:
   begin
     funored_split_inst0_split_cnt[5:0]   = {funored_split_inst0_sew64_dy_splcnt[2:0],funored_split_inst0_sew64_dy_lmul[2:0]};
-    funored_split_inst0_last             = funored_split_inst0_sew64_last; 
+    funored_split_inst0_last             = funored_split_inst0_sew64_last;
     funored_split_inst1_split_cnt[5:0]   = {funored_split_inst1_sew64_dy_splcnt[2:0],funored_split_inst1_sew64_dy_lmul[2:0]};
-    funored_split_inst1_last             = funored_split_inst1_sew64_last; 
+    funored_split_inst1_last             = funored_split_inst1_sew64_last;
     funored_split_inst2_split_cnt[5:0]   = {funored_split_inst2_sew64_dy_splcnt[2:0],funored_split_inst2_sew64_dy_lmul[2:0]};
-    funored_split_inst2_last             = funored_split_inst2_sew64_last; 
+    funored_split_inst2_last             = funored_split_inst2_sew64_last;
     funored_split_inst2_round_end        = funored_split_inst2_sew64_round_end;
     funored_split_inst3_split_cnt[5:0]   = {funored_split_inst3_sew64_dy_splcnt[2:0],funored_split_inst3_sew64_dy_lmul[2:0]};
-    funored_split_inst3_last             = funored_split_inst3_sew64_last; 
+    funored_split_inst3_last             = funored_split_inst3_sew64_last;
   end
   default:
   begin
-    funored_split_inst0_split_cnt[5:0]   = {6{1'b0}}; 
+    funored_split_inst0_split_cnt[5:0]   = {6{1'b0}};
     funored_split_inst0_last             = {1{1'b0}};
     funored_split_inst1_split_cnt[5:0]   = {6{1'b0}};
     funored_split_inst1_last             = {1{1'b0}};
@@ -5083,7 +5083,7 @@ begin
   vec_funored_split_inst0_data[IR_WIDTH-1:0]                  = {IR_WIDTH{1'b0}};
   if(1'b1) begin
   vec_funored_split_inst0_data[IR_INST_TYPE:IR_INST_TYPE-9]   = PIPE67;
-  vec_funored_split_inst0_data[IR_SPLIT_NUM:IR_SPLIT_NUM-6]   = {1'b0,funored_split_inst0_split_cnt[5:0]}; 
+  vec_funored_split_inst0_data[IR_SPLIT_NUM:IR_SPLIT_NUM-6]   = {1'b0,funored_split_inst0_split_cnt[5:0]};
   vec_funored_split_inst0_data[IR_OPCODE:IR_OPCODE-31]        = vec_inst[31:0];
   vec_funored_split_inst0_data[IR_SRCV0_VLD]                  = 1'b1;
   vec_funored_split_inst0_data[IR_SRCV1_VLD]                  = 1'b1;
@@ -5106,7 +5106,7 @@ end
 //----------------------------------------------------------
 //                  funoredal inst 1/5
 //----------------------------------------------------------
-assign vec_funored_split_inst1_dest[5:0]                      = dp_split_long_vsew[1:0] == 2'b11 ? 
+assign vec_funored_split_inst1_dest[5:0]                      = dp_split_long_vsew[1:0] == 2'b11 ?
                                                                       funored_split_inst1_last ? {1'b0,vec_funored_destv_vreg[4:0]} : 6'b100001
                                                                      : 6'b100000;
 // &CombBeg; @3347
@@ -5166,7 +5166,7 @@ begin
   vec_funored_split_inst2_data[IR_DSTV_VLD]                   = 1'b1;
   vec_funored_split_inst2_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   = dp_split_long_vsew[1:0] == 2'b11 ? {1'b0,vec_funored_srcv0_vreg_2[4:0]} : 6'b100000;
   vec_funored_split_inst2_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = funored_fst_round && (dp_split_long_vsew[1:0] != 2'b11) ? {1'b0,vec_funored_srcv1_vreg[4:0]} : 6'b100001;
-  vec_funored_split_inst2_data[IR_DSTV_REG:IR_DSTV_REG-5]     = funored_split_inst2_last ? {1'b0,vec_funored_destv_vreg[4:0]} : 
+  vec_funored_split_inst2_data[IR_DSTV_REG:IR_DSTV_REG-5]     = funored_split_inst2_last ? {1'b0,vec_funored_destv_vreg[4:0]} :
                                                                 funored_split_inst2_round_end ? 6'b100001 : 6'b100000;
   vec_funored_split_inst2_data[IR_DSTE_VLD]                   = 1'b1;
   vec_funored_split_inst2_data[IR_VMLA]                       = 1'b0;
@@ -5280,8 +5280,8 @@ begin
     vec_funored_w_cnt[3:0] <= vec_funored_w_cnt[3:0] + 4'd1;
 end
 assign funored_w_total_cnt_num[3:0]     = (4'b0010 << dp_split_long_vlmul[1:0]) - 4'b1;
-                                                                 
-assign funored_w_cnt_end      = (vec_funored_w_cnt[3:0] == funored_w_total_cnt_num[3:0]) 
+
+assign funored_w_cnt_end      = (vec_funored_w_cnt[3:0] == funored_w_total_cnt_num[3:0])
                                 && !ctrl_split_long_id_stall;
 assign funored_w_fst_round    = vec_funored_w_cnt[3:0] == 4'b0;
 
@@ -5290,7 +5290,7 @@ assign vec_funored_w_sm_start    = ctrl_split_long_id_inst_vld
                                    && !ctrl_split_long_id_stall;
 
 assign vec_funored_w_split_busy  = vec_funored_w_sm_start &&
-                                   (vec_funored_w_cur_state == VEC_FUNORED_W_IDLE) || 
+                                   (vec_funored_w_cur_state == VEC_FUNORED_W_IDLE) ||
                                    (vec_funored_w_cur_state  != VEC_FUNORED_W_IDLE);
 assign vec_funored_w_split_stall = vec_funored_w_split_busy && !funored_w_cnt_end;
 assign funored_w_cnt_en          = !ctrl_split_long_id_stall && vec_funored_w_split_busy;
@@ -5310,7 +5310,7 @@ begin
                      vec_funored_w_next_state = VEC_FORED_IDLE;
   VEC_FUNORED_W_BUSY  : if(!ctrl_split_long_id_stall && funored_w_cnt_end)
                      vec_funored_w_next_state = VEC_FORED_IDLE;
-                   else 
+                   else
                      vec_funored_w_next_state = VEC_FORED_BUSY;
   default        :   vec_funored_w_next_state = VEC_FORED_IDLE;
   endcase
@@ -5333,7 +5333,7 @@ always @( vec_funored_w_cnt_h
        or dp_split_long_vsew[1:0])
 begin
 case(dp_split_long_vsew[1:0])
-  2'b01: 
+  2'b01:
   begin
     funored_w_split_inst0[31:0]            = fcvtw_inst[31:0];
     funored_w_split_inst0_split_cnt[5:0]   = {1'b1,vec_funored_w_cnt_h,vec_fred_w_mul8,vec_funored_w_cnt_l[2:0]};
@@ -5382,7 +5382,7 @@ case(dp_split_long_vsew[1:0])
     default:
   begin
     funored_w_split_inst0[31:0]            = {32{1'bx}};
-    funored_w_split_inst0_split_cnt[5:0]   = {6{1'bx}}; 
+    funored_w_split_inst0_split_cnt[5:0]   = {6{1'bx}};
     funored_w_split_inst0_last             = {1{1'bx}};
     funored_w_split_inst0_vsew[2:0]        = {3{1'bx}};
     funored_w_split_inst0_vlmul[1:0]        = {2{1'bx}};
@@ -5506,9 +5506,9 @@ begin
   vec_funored_w_split_inst2_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   vec_funored_w_split_inst2_data[IR_DSTV_VLD]                   = 1'b1;
   vec_funored_w_split_inst2_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   = 6'b100000;
-  vec_funored_w_split_inst2_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = funored_w_fst_round  
+  vec_funored_w_split_inst2_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = funored_w_fst_round
                                                                   ? {1'b0,vec_funored_w_srcv1_vreg[4:0]} : 6'b100001;
-  vec_funored_w_split_inst2_data[IR_DSTV_REG:IR_DSTV_REG-5]     = dp_split_long_vsew[1] ? 
+  vec_funored_w_split_inst2_data[IR_DSTV_REG:IR_DSTV_REG-5]     = dp_split_long_vsew[1] ?
                                                                   funored_w_split_inst2_last ? {1'b0,vec_funored_w_destv_vreg[4:0]}
                                                                                              : 6'b100001
                                                                                         :  6'b100000;
@@ -5545,7 +5545,7 @@ begin
   vec_funored_w_split_inst3_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   vec_funored_w_split_inst3_data[IR_DSTV_VLD]                   = 1'b1;
   vec_funored_w_split_inst3_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   = 6'b100000;
-  vec_funored_w_split_inst3_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = funored_w_fst_round  
+  vec_funored_w_split_inst3_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = funored_w_fst_round
                                                                   ? {1'b0,vec_funored_w_srcv1_vreg[4:0]} : 6'b100001;
   vec_funored_w_split_inst3_data[IR_DSTV_REG:IR_DSTV_REG-5]     = funored_w_split_inst3_last ? {1'b0,vec_funored_w_destv_vreg[4:0]} : 6'b100001;
   vec_funored_w_split_inst3_data[IR_DSTE_VLD]                   = 1'b1;
@@ -5581,7 +5581,7 @@ assign vec_funored_w_inst_vld[2] = vec_funored_w_split_busy;
 assign vec_funored_w_inst_vld[3] = vec_funored_w_split_busy && dp_split_long_vsew[0];
 
 //==========================================================
-//              vector stride ld/st split 
+//              vector stride ld/st split
 //==========================================================
 parameter VEC_STRIDE_IDLE  = 1'b0;
 parameter VEC_STRIDE_SPLIT = 1'b1;
@@ -5654,7 +5654,7 @@ begin
     vec_stride_cnt[5:0]  <= {6{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     vec_stride_cnt[5:0] <= {6{1'b0}};
-  else if(vec_stride_sm_start || vec_stride_cur_state &&!ctrl_split_long_id_stall)  
+  else if(vec_stride_sm_start || vec_stride_cur_state &&!ctrl_split_long_id_stall)
     vec_stride_cnt[5:0] <= vec_stride_split_last ? {6{1'b0}}: (vec_stride_cnt[5:0] + 1'b1);
 end
 
@@ -5664,11 +5664,11 @@ begin
     vec_stride_vreg_offset[2:0]  <= {3{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     vec_stride_vreg_offset[2:0]  <= {3{1'b0}};
-  else if(vec_stride_sm_start || vec_stride_cur_state &&!ctrl_split_long_id_stall)  
+  else if(vec_stride_sm_start || vec_stride_cur_state &&!ctrl_split_long_id_stall)
     vec_stride_vreg_offset[2:0] <= vec_stride_split_last ? {3{1'b0}}: (vec_stride_vreg_offset[2:0] + {2'b00,vec_stride_vreg_end});
 end
 
-assign vec_stride_vreg_begin = (vec_sew[1:0]==2'b00) && (vec_stride_cnt[2:0]==3'b000) 
+assign vec_stride_vreg_begin = (vec_sew[1:0]==2'b00) && (vec_stride_cnt[2:0]==3'b000)
                             || (vec_sew[1:0]==2'b01) && (vec_stride_cnt[1:0]==2'b00)
                             || (vec_sew[1:0]==2'b10) && (vec_stride_cnt[0]  ==1'b0)
                             || (vec_sew[1:0]==2'b11);
@@ -5678,26 +5678,26 @@ assign vec_stride_vreg_end   = (vec_sew[1:0]==2'b00) && (vec_stride_cnt[2:0]==3'
                             || (vec_sew[1:0]==2'b10) && (vec_stride_cnt[0]  ==1'b1)
                             || (vec_sew[1:0]==2'b11);
 
-assign vec_stride_split_last_normal = (vec_lmul[1:0]==2'b00) && vec_stride_vreg_end 
-                                   || (vec_lmul[1:0]==2'b01) && vec_stride_vreg_end &&  vec_stride_vreg_offset[0] 
-                                   || (vec_lmul[1:0]==2'b10) && vec_stride_vreg_end && &vec_stride_vreg_offset[1:0] 
+assign vec_stride_split_last_normal = (vec_lmul[1:0]==2'b00) && vec_stride_vreg_end
+                                   || (vec_lmul[1:0]==2'b01) && vec_stride_vreg_end &&  vec_stride_vreg_offset[0]
+                                   || (vec_lmul[1:0]==2'b10) && vec_stride_vreg_end && &vec_stride_vreg_offset[1:0]
                                    || (vec_lmul[1:0]==2'b11) && vec_stride_vreg_end && &vec_stride_vreg_offset[2:0];
 
 //for dstv0 overlap
 assign vec_stride_dstv0_ovlp = vec_ld && (vec_inst[11:7] == 5'b0) && !vec_inst[25];
-assign vec_stride_v0_begin   = !vec_stride_cur_state; 
+assign vec_stride_v0_begin   = !vec_stride_cur_state;
 
-assign vec_stride_v0_split_last = (vec_sew[1:0]==2'b00)    && (vec_stride_cnt[3:0]==4'b1111) 
+assign vec_stride_v0_split_last = (vec_sew[1:0]==2'b00)    && (vec_stride_cnt[3:0]==4'b1111)
                                   || (vec_sew[1:0]==2'b01) && (vec_stride_cnt[2:0]==3'b111)
                                   || (vec_sew[1:0]==2'b10) && (vec_stride_cnt[1:0]==2'b11)
-                                  || (vec_sew[1:0]==2'b11) && vec_stride_cnt[0]; 
-                                        
-assign vec_stride_split_secd_to_last = (vec_sew[1:0]==2'b00)    && (vec_stride_cnt[3:0]==4'b1110) 
+                                  || (vec_sew[1:0]==2'b11) && vec_stride_cnt[0];
+
+assign vec_stride_split_secd_to_last = (vec_sew[1:0]==2'b00)    && (vec_stride_cnt[3:0]==4'b1110)
                                        || (vec_sew[1:0]==2'b01) && (vec_stride_cnt[2:0]==3'b110)
                                        || (vec_sew[1:0]==2'b10) && (vec_stride_cnt[1:0]==2'b10)
                                        || (vec_sew[1:0]==2'b11);
 
-assign vec_stride_split_last = vec_stride_dstv0_ovlp ? vec_stride_v0_split_last : vec_stride_split_last_normal; 
+assign vec_stride_split_last = vec_stride_dstv0_ovlp ? vec_stride_v0_split_last : vec_stride_split_last_normal;
 
 assign vec_stride_add_inst[31:7] = {25{1'b0}};
 assign vec_stride_add_inst[6 :0] = 7'b0110011;
@@ -5719,7 +5719,7 @@ begin
   vec_stride_split_inst0_data[IR_INST_TYPE:IR_INST_TYPE-9]   = PIPE67;
   vec_stride_split_inst0_data[IR_OPCODE:IR_OPCODE-31]        = vec_index_vmv_inst[31:0];  //vmv.vv
   vec_stride_split_inst0_data[IR_SRCV1_VLD]                  = 1'b1;
-  vec_stride_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_stride_v0_begin 
+  vec_stride_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_stride_v0_begin
                                                                ? 6'b000_000
                                                                : 6'b100_000;
   vec_stride_split_inst0_data[IR_DSTV_VLD]                   = 1'b1;
@@ -5742,7 +5742,7 @@ begin
   vec_stride_split_inst0_data[IR_INTMASK]                    = 1'b1;
   vec_stride_split_inst0_data[IR_SPLIT]                      = 1'b1;
   vec_stride_split_inst0_data[IR_LENGTH]                     = 1'b1;
-  vec_stride_split_inst0_data[IR_VMB]                        = !vec_inst[5] && vec_stride_vreg_begin; 
+  vec_stride_split_inst0_data[IR_VMB]                        = !vec_inst[5] && vec_stride_vreg_begin;
   end
 // &CombEnd; @3864
 end
@@ -5878,7 +5878,7 @@ assign vec_stride_inst_vld[3] = !vec_stride_split_last && !vec_stride_dstv0_ovlp
 
 assign vec_stride_dep_info[DEP_WIDTH-1:0] = {DEP_WIDTH{1'b0}};
 //==========================================================
-//              vector index ld/st split 
+//              vector index ld/st split
 //==========================================================
 parameter VEC_INDEX_IDLE  = 1'b0;
 parameter VEC_INDEX_SPLIT = 1'b1;
@@ -5952,7 +5952,7 @@ begin
     vec_index_cnt[6:0] <= {7{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     vec_index_cnt[6:0] <= {7{1'b0}};
-  else if(vec_index_sm_start || vec_index_cur_state &&!ctrl_split_long_id_stall)  
+  else if(vec_index_sm_start || vec_index_cur_state &&!ctrl_split_long_id_stall)
     vec_index_cnt[6:0] <= vec_index_split_last ? {7{1'b0}}: (vec_index_cnt[6:0] + 1'b1);
 end
 
@@ -5962,23 +5962,23 @@ begin
     vec_index_vreg_offset[2:0]  <= {3{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     vec_index_vreg_offset[2:0]  <= {3{1'b0}};
-  else if(vec_index_cur_state &&!ctrl_split_long_id_stall)  
+  else if(vec_index_cur_state &&!ctrl_split_long_id_stall)
     vec_index_vreg_offset[2:0] <= vec_index_split_last ? {3{1'b0}}: (vec_index_vreg_offset[2:0] + {2'b00,vec_index_vreg_end});
 end
 
-assign vec_index_vreg_begin  = (vec_sew[1:0]==2'b00) && (vec_index_cnt[3:0]==4'b0000) 
+assign vec_index_vreg_begin  = (vec_sew[1:0]==2'b00) && (vec_index_cnt[3:0]==4'b0000)
                             || (vec_sew[1:0]==2'b01) && (vec_index_cnt[2:0]==3'b000)
                             || (vec_sew[1:0]==2'b10) && (vec_index_cnt[1:0]==2'b00)
                             || (vec_sew[1:0]==2'b11) && (vec_index_cnt[0]  ==1'b0);
 
-assign vec_index_vreg_end    = (vec_sew[1:0]==2'b00) && (vec_index_cnt[3:0]==4'b1111) 
+assign vec_index_vreg_end    = (vec_sew[1:0]==2'b00) && (vec_index_cnt[3:0]==4'b1111)
                             || (vec_sew[1:0]==2'b01) && (vec_index_cnt[2:0]==3'b111)
                             || (vec_sew[1:0]==2'b10) && (vec_index_cnt[1:0]==2'b11)
                             || (vec_sew[1:0]==2'b11) && (vec_index_cnt[0]  ==1'b1);
 
-assign vec_index_split_last  = (vec_lmul[1:0]==2'b00) && vec_index_vreg_end 
-                            || (vec_lmul[1:0]==2'b01) && vec_index_vreg_end &&  vec_index_vreg_offset[0] 
-                            || (vec_lmul[1:0]==2'b10) && vec_index_vreg_end && &vec_index_vreg_offset[1:0] 
+assign vec_index_split_last  = (vec_lmul[1:0]==2'b00) && vec_index_vreg_end
+                            || (vec_lmul[1:0]==2'b01) && vec_index_vreg_end &&  vec_index_vreg_offset[0]
+                            || (vec_lmul[1:0]==2'b10) && vec_index_vreg_end && &vec_index_vreg_offset[1:0]
                             || (vec_lmul[1:0]==2'b11) && vec_index_vreg_end && &vec_index_vreg_offset[2:0];
 
 assign vec_index_vmv_inst[31:26]= 6'b010111;
@@ -6018,7 +6018,7 @@ begin
   vec_index_split_inst0_data[IR_INST_TYPE:IR_INST_TYPE-9]   = PIPE67;
   vec_index_split_inst0_data[IR_OPCODE:IR_OPCODE-31]        = vec_index_vmv_inst[31:0];  //vmv.vv
   vec_index_split_inst0_data[IR_SRCV1_VLD]                  = 1'b1;
-  vec_index_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_index_vreg_begin 
+  vec_index_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_index_vreg_begin
                                                               ? {1'b0,vec_inst[11:7]} | {3'b0,vec_index_vreg_offset[2:0]}
                                                               : 6'b100_000;
   vec_index_split_inst0_data[IR_DSTV_VLD]                   = 1'b1;
@@ -6047,7 +6047,7 @@ begin
   vec_index_split_inst1_data[IR_SRCV0_VLD]                  = 1'b1;
   vec_index_split_inst1_data[IR_SRCV0_REG:IR_SRCV0_REG-5]   = vec_dstv_ovlp_vs2
                                                               ? 6'b100_000
-                                                              : {1'b0,vec_inst[24:20]} | {3'b0,vec_index_vreg_offset[2:0]}; 
+                                                              : {1'b0,vec_inst[24:20]} | {3'b0,vec_index_vreg_offset[2:0]};
   vec_index_split_inst1_data[IR_DST_VLD]                    = 1'b1;
   vec_index_split_inst1_data[IR_DST_REG:IR_DST_REG-5]       = 6'b100_001;
   vec_index_split_inst1_data[IR_INTMASK]                    = 1'b1;
@@ -6102,7 +6102,7 @@ begin
   vec_index_split_inst3_data[IR_SRC0_VLD]                   = 1'b1;
   vec_index_split_inst3_data[IR_SRC0_REG:IR_SRC0_REG-5]     = 6'b100_000;
   vec_index_split_inst3_data[IR_SRCV2_VLD]                  = vec_index_vreg_begin || vec_inst[5];
-//  vec_index_split_inst3_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+//  vec_index_split_inst3_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   vec_index_split_inst3_data[IR_SRCV1_VLD]                  = !vec_inst[25];   //for lsu,use v1 renaming for vm
   vec_index_split_inst3_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_stride_dst_v0 ? 6'b100_000 : 6'b000_000;
   vec_index_split_inst3_data[IR_DSTV_VLD]                   = !vec_inst[5] && vec_index_vreg_begin;
@@ -6130,7 +6130,7 @@ assign vec_index_inst_vld[3] = 1'b1;
 
 assign vec_index_dep_info[DEP_WIDTH-1:0] = {DEP_WIDTH{1'b0}};
 //==========================================================
-//              vector amo split 
+//              vector amo split
 //==========================================================
 parameter VEC_AMO_IDLE  = 2'b00;
 parameter VEC_AMO_INDEX = 2'b01;
@@ -6199,7 +6199,7 @@ begin
                      vec_amo_next_state[1:0] = VEC_AMO_IDLE;
                   else if(!ctrl_split_long_id_stall)
                      vec_amo_next_state[1:0] = VEC_AMO_INDEX;
-                  else 
+                  else
                      vec_amo_next_state[1:0] = VEC_AMO_SPLIT;
   default        :   vec_amo_next_state[1:0] = VEC_AMO_IDLE;
   endcase
@@ -6212,7 +6212,7 @@ begin
     vec_amo_cnt[6:0] <= {7{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     vec_amo_cnt[6:0] <= {7{1'b0}};
-  else if(vec_amo_cur_state[1] &&!ctrl_split_long_id_stall)  
+  else if(vec_amo_cur_state[1] &&!ctrl_split_long_id_stall)
     vec_amo_cnt[6:0] <= vec_amo_split_last ? {7{1'b0}}: (vec_amo_cnt[6:0] + 1'b1);
 end
 
@@ -6222,23 +6222,23 @@ begin
     vec_amo_vreg_offset[2:0]  <= {3{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     vec_amo_vreg_offset[2:0]  <= {3{1'b0}};
-  else if(vec_amo_cur_state[1] &&!ctrl_split_long_id_stall)  
+  else if(vec_amo_cur_state[1] &&!ctrl_split_long_id_stall)
     vec_amo_vreg_offset[2:0] <= vec_amo_split_last ? {3{1'b0}}: (vec_amo_vreg_offset[2:0] + {2'b00,vec_amo_vreg_end});
 end
 
-assign vec_amo_vreg_begin  = (vec_sew[1:0]==2'b00) && (vec_amo_cnt[3:0]==4'b0000) 
+assign vec_amo_vreg_begin  = (vec_sew[1:0]==2'b00) && (vec_amo_cnt[3:0]==4'b0000)
                             || (vec_sew[1:0]==2'b01) && (vec_amo_cnt[2:0]==3'b000)
                             || (vec_sew[1:0]==2'b10) && (vec_amo_cnt[1:0]==2'b00)
                             || (vec_sew[1:0]==2'b11) && (vec_amo_cnt[0]  ==1'b0);
 
-assign vec_amo_vreg_end    = (vec_sew[1:0]==2'b00) && (vec_amo_cnt[3:0]==4'b1111) 
+assign vec_amo_vreg_end    = (vec_sew[1:0]==2'b00) && (vec_amo_cnt[3:0]==4'b1111)
                             || (vec_sew[1:0]==2'b01) && (vec_amo_cnt[2:0]==3'b111)
                             || (vec_sew[1:0]==2'b10) && (vec_amo_cnt[1:0]==2'b11)
                             || (vec_sew[1:0]==2'b11) && (vec_amo_cnt[0]  ==1'b1);
 
-assign vec_amo_split_last  = (vec_lmul[1:0]==2'b00) && vec_amo_vreg_end 
-                            || (vec_lmul[1:0]==2'b01) && vec_amo_vreg_end &&  vec_amo_vreg_offset[0] 
-                            || (vec_lmul[1:0]==2'b10) && vec_amo_vreg_end && &vec_amo_vreg_offset[1:0] 
+assign vec_amo_split_last  = (vec_lmul[1:0]==2'b00) && vec_amo_vreg_end
+                            || (vec_lmul[1:0]==2'b01) && vec_amo_vreg_end &&  vec_amo_vreg_offset[0]
+                            || (vec_lmul[1:0]==2'b10) && vec_amo_vreg_end && &vec_amo_vreg_offset[1:0]
                             || (vec_lmul[1:0]==2'b11) && vec_amo_vreg_end && &vec_amo_vreg_offset[2:0];
 
 assign vec_amo_vmv_inst[31:26]= 6'b010111;
@@ -6312,7 +6312,7 @@ begin
   vec_amo_split_inst0_data[IR_INST_TYPE:IR_INST_TYPE-9]   = PIPE67;
   vec_amo_split_inst0_data[IR_OPCODE:IR_OPCODE-31]        = vec_amo_vmv_inst[31:0];  //vmv.vv
   vec_amo_split_inst0_data[IR_SRCV1_VLD]                  = 1'b1;
-  vec_amo_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_amo_vreg_begin 
+  vec_amo_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_amo_vreg_begin
                                                             ? {1'b0,vec_inst[11:7]} | {3'b0,vec_amo_vreg_offset[2:0]}
                                                             : 6'b100_000;
   vec_amo_split_inst0_data[IR_DSTV_VLD]                   = 1'b1;
@@ -6432,7 +6432,7 @@ assign vec_amo_inst_vld[3] = 1'b0;
 
 assign vec_amo_dep_info[DEP_WIDTH-1:0] = {DEP_WIDTH{1'b0}};
 //==========================================================
-//              zvlsseg unit stride ld/st split 
+//              zvlsseg unit stride ld/st split
 //==========================================================
 parameter ZVLSSEG_UNIT_IDLE  = 1'b0;
 parameter ZVLSSEG_UNIT_SPLIT = 1'b1;
@@ -6507,7 +6507,7 @@ begin
     zvlsseg_unit_cnt[6:0] <= {7{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_unit_cnt[6:0] <= {7{1'b0}};
-  else if((zvlsseg_unit_sm_start || zvlsseg_unit_cur_state) && zvlsseg_unit_nf_last && !ctrl_split_long_id_stall)  
+  else if((zvlsseg_unit_sm_start || zvlsseg_unit_cur_state) && zvlsseg_unit_nf_last && !ctrl_split_long_id_stall)
     zvlsseg_unit_cnt[6:0] <= zvlsseg_unit_split_last ? {7{1'b0}}: (zvlsseg_unit_cnt[6:0] + 1'b1);
 end
 
@@ -6517,23 +6517,23 @@ begin
     zvlsseg_unit_vreg_offset[2:0]  <= {3{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_unit_vreg_offset[2:0]  <= {3{1'b0}};
-  else if(zvlsseg_unit_cur_state && zvlsseg_unit_nf_last && !ctrl_split_long_id_stall)  
+  else if(zvlsseg_unit_cur_state && zvlsseg_unit_nf_last && !ctrl_split_long_id_stall)
     zvlsseg_unit_vreg_offset[2:0] <= zvlsseg_unit_split_last ? {3{1'b0}}: (zvlsseg_unit_vreg_offset[2:0] + {2'b00,zvlsseg_unit_vreg_end});
 end
 
-//assign zvlsseg_unit_vreg_begin  = (vec_sew[1:0]==2'b00) && (zvlsseg_unit_cnt[3:0]==4'b0000) 
+//assign zvlsseg_unit_vreg_begin  = (vec_sew[1:0]==2'b00) && (zvlsseg_unit_cnt[3:0]==4'b0000)
 //                                  || (vec_sew[1:0]==2'b01) && (zvlsseg_unit_cnt[2:0]==3'b000)
 //                                  || (vec_sew[1:0]==2'b10) && (zvlsseg_unit_cnt[1:0]==2'b00)
 //                                  || (vec_sew[1:0]==2'b11) && (zvlsseg_unit_cnt[0]  ==1'b0);
 
-assign zvlsseg_unit_vreg_end    = (vec_sew[1:0]==2'b00) && (zvlsseg_unit_cnt[3:0]==4'b1111) 
+assign zvlsseg_unit_vreg_end    = (vec_sew[1:0]==2'b00) && (zvlsseg_unit_cnt[3:0]==4'b1111)
                                   || (vec_sew[1:0]==2'b01) && (zvlsseg_unit_cnt[2:0]==3'b111)
                                   || (vec_sew[1:0]==2'b10) && (zvlsseg_unit_cnt[1:0]==2'b11)
                                   || (vec_sew[1:0]==2'b11) && (zvlsseg_unit_cnt[0]  ==1'b1);
 
-assign zvlsseg_unit_split_last  = (vec_lmul[1:0]==2'b00) && zvlsseg_unit_vreg_end 
-                                  || (vec_lmul[1:0]==2'b01) && zvlsseg_unit_vreg_end &&  zvlsseg_unit_vreg_offset[0] 
-                                  || (vec_lmul[1:0]==2'b10) && zvlsseg_unit_vreg_end && &zvlsseg_unit_vreg_offset[1:0] 
+assign zvlsseg_unit_split_last  = (vec_lmul[1:0]==2'b00) && zvlsseg_unit_vreg_end
+                                  || (vec_lmul[1:0]==2'b01) && zvlsseg_unit_vreg_end &&  zvlsseg_unit_vreg_offset[0]
+                                  || (vec_lmul[1:0]==2'b10) && zvlsseg_unit_vreg_end && &zvlsseg_unit_vreg_offset[1:0]
                                   || (vec_lmul[1:0]==2'b11) && zvlsseg_unit_vreg_end && &zvlsseg_unit_vreg_offset[2:0];
 
 always @(posedge zvlsseg_unit_split_clk or negedge cpurst_b)
@@ -6542,7 +6542,7 @@ begin
     zvlsseg_unit_nf_cnt[1:0] <= {2{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_unit_nf_cnt[1:0] <= {2{1'b0}};
-  else if(zvlsseg_unit_sm_start || zvlsseg_unit_cur_state && !ctrl_split_long_id_stall)  
+  else if(zvlsseg_unit_sm_start || zvlsseg_unit_cur_state && !ctrl_split_long_id_stall)
     zvlsseg_unit_nf_cnt[1:0] <= zvlsseg_unit_nf_last ? {2{1'b0}}: (zvlsseg_unit_nf_cnt[1:0] + 1'b1);
 end
 
@@ -6555,13 +6555,13 @@ begin
     zvlsseg_unit_nf_offset_cnt[6:0] <= {7{1'b0}};
   else if(zvlsseg_unit_cur_state && zvlsseg_unit_split_last && zvlsseg_unit_nf_last && !ctrl_split_long_id_stall)
     zvlsseg_unit_nf_offset_cnt[6:0] <= {7{1'b0}};
-  else if(zvlsseg_unit_sm_start || zvlsseg_unit_cur_state && !ctrl_split_long_id_stall)  
+  else if(zvlsseg_unit_sm_start || zvlsseg_unit_cur_state && !ctrl_split_long_id_stall)
     zvlsseg_unit_nf_offset_cnt[6:0] <= zvlsseg_unit_inst_vld[2] ? zvlsseg_unit_nf_offset_cnt[6:0] + 7'd2 : zvlsseg_unit_nf_offset_cnt[6:0] + 7'd1;
 end
 
 assign zvlsseg_unit_nf_offset_cnt1[6:0] = zvlsseg_unit_nf_offset_cnt[6:0] + 7'd1;
 
-assign zvlsseg_unit_nf_last = (zvlsseg_unit_nf_cnt[1:0] == vec_inst[31:30]); 
+assign zvlsseg_unit_nf_last = (zvlsseg_unit_nf_cnt[1:0] == vec_inst[31:30]);
 
 assign zvlsseg_unit_vmv_inst[31:26]= 6'b010111;
 assign zvlsseg_unit_vmv_inst[25]   = 1'b1;   //vmerge no mask means vmv
@@ -6576,10 +6576,10 @@ always @( zvlsseg_unit_nf_cnt[1:0]
        or vec_lmul[1:0])
 begin
   case(vec_lmul[1:0])
-  2'b00:   unit_nf_reg_offset0[5:0] = {3'b0,zvlsseg_unit_nf_cnt[1:0],1'b0}; 
-  2'b01:   unit_nf_reg_offset0[5:0] = {2'b0,zvlsseg_unit_nf_cnt[1:0],2'b0}; 
-  2'b10:   unit_nf_reg_offset0[5:0] = {1'b0,zvlsseg_unit_nf_cnt[1:0],3'b0}; 
-//  2'b11:   unit_nf_reg_offset[5:0] = {zvlsseg_unit_nf_cnt[1:0],4'b0}; 
+  2'b00:   unit_nf_reg_offset0[5:0] = {3'b0,zvlsseg_unit_nf_cnt[1:0],1'b0};
+  2'b01:   unit_nf_reg_offset0[5:0] = {2'b0,zvlsseg_unit_nf_cnt[1:0],2'b0};
+  2'b10:   unit_nf_reg_offset0[5:0] = {1'b0,zvlsseg_unit_nf_cnt[1:0],3'b0};
+//  2'b11:   unit_nf_reg_offset[5:0] = {zvlsseg_unit_nf_cnt[1:0],4'b0};
   default: unit_nf_reg_offset0[5:0] = 6'b0;
   endcase
 // &CombEnd; @4574
@@ -6590,10 +6590,10 @@ always @( zvlsseg_unit_nf_cnt[1:0]
        or vec_lmul[1:0])
 begin
   case(vec_lmul[1:0])
-  2'b00:   unit_nf_reg_offset1[5:0] = {3'b0,zvlsseg_unit_nf_cnt[1:0],1'b1}; 
-  2'b01:   unit_nf_reg_offset1[5:0] = {2'b0,zvlsseg_unit_nf_cnt[1:0],2'b10}; 
-  2'b10:   unit_nf_reg_offset1[5:0] = {1'b0,zvlsseg_unit_nf_cnt[1:0],3'b100}; 
-//  2'b11:   unit_nf_reg_offset[5:0] = {zvlsseg_unit_nf_cnt[1:0],4'b0}; 
+  2'b00:   unit_nf_reg_offset1[5:0] = {3'b0,zvlsseg_unit_nf_cnt[1:0],1'b1};
+  2'b01:   unit_nf_reg_offset1[5:0] = {2'b0,zvlsseg_unit_nf_cnt[1:0],2'b10};
+  2'b10:   unit_nf_reg_offset1[5:0] = {1'b0,zvlsseg_unit_nf_cnt[1:0],3'b100};
+//  2'b11:   unit_nf_reg_offset[5:0] = {zvlsseg_unit_nf_cnt[1:0],4'b0};
   default: unit_nf_reg_offset1[5:0] = 6'b0;
   endcase
 // &CombEnd; @4584
@@ -6613,7 +6613,7 @@ begin
   zvlsseg_unit_split_inst0_data[IR_INST_TYPE:IR_INST_TYPE-9]   = PIPE67;
   zvlsseg_unit_split_inst0_data[IR_OPCODE:IR_OPCODE-31]        = zvlsseg_unit_vmv_inst[31:0];  //vmv.vv
   zvlsseg_unit_split_inst0_data[IR_SRCV1_VLD]                  = 1'b1;
-  zvlsseg_unit_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = !zvlsseg_unit_cur_state 
+  zvlsseg_unit_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = !zvlsseg_unit_cur_state
                                                                  ? 6'b000_000
                                                                  : 6'b100_000;
   zvlsseg_unit_split_inst0_data[IR_DSTV_VLD]                   = 1'b1;
@@ -6647,7 +6647,7 @@ begin
   zvlsseg_unit_split_inst1_data[IR_SRC0_VLD]                   = 1'b1;
   zvlsseg_unit_split_inst1_data[IR_SRC0_REG:IR_SRC0_REG-5]     = {1'b0,vec_inst[19:15]};
   zvlsseg_unit_split_inst1_data[IR_SRCV2_VLD]                  = 1'b1;
-//  zvlsseg_unit_split_inst1_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+//  zvlsseg_unit_split_inst1_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   zvlsseg_unit_split_inst1_data[IR_SRCV1_VLD]                  = !vec_inst[25];   //for lsu,use v1 renaming for vm
   zvlsseg_unit_split_inst1_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_stride_dst_v0 ? 6'b100_000 : 6'b000_000;
   zvlsseg_unit_split_inst1_data[IR_DSTV_VLD]                   = !vec_inst[5];
@@ -6682,7 +6682,7 @@ begin
   zvlsseg_unit_split_inst2_data[IR_SRC0_VLD]                   = 1'b1;
   zvlsseg_unit_split_inst2_data[IR_SRC0_REG:IR_SRC0_REG-5]     = {1'b0,vec_inst[19:15]};
   zvlsseg_unit_split_inst2_data[IR_SRCV2_VLD]                  = 1'b1;
-//  zvlsseg_unit_split_inst2_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+//  zvlsseg_unit_split_inst2_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   zvlsseg_unit_split_inst2_data[IR_SRCV1_VLD]                  = !vec_inst[25];   //for lsu,use v1 renaming for vm
   zvlsseg_unit_split_inst2_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_stride_dst_v0 ? 6'b100_000 : 6'b000_000;
   zvlsseg_unit_split_inst2_data[IR_DSTV_VLD]                   = !vec_inst[5];
@@ -6715,7 +6715,7 @@ assign zvlsseg_unit_inst_vld[3] = 1'b0;
 
 assign zvlsseg_unit_dep_info[DEP_WIDTH-1:0] = {DEP_WIDTH{1'b0}};
 //==========================================================
-//              zvlsseg stride ld/st split 
+//              zvlsseg stride ld/st split
 //==========================================================
 parameter ZVLSSEG_STRIDE_IDLE  = 1'b0;
 parameter ZVLSSEG_STRIDE_SPLIT = 1'b1;
@@ -6790,7 +6790,7 @@ begin
     zvlsseg_stride_cnt[6:0] <= {7{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_stride_cnt[6:0] <= {7{1'b0}};
-  else if((zvlsseg_stride_sm_start || zvlsseg_stride_cur_state) && zvlsseg_stride_nf_last && !ctrl_split_long_id_stall)  
+  else if((zvlsseg_stride_sm_start || zvlsseg_stride_cur_state) && zvlsseg_stride_nf_last && !ctrl_split_long_id_stall)
     zvlsseg_stride_cnt[6:0] <= zvlsseg_stride_split_last ? {7{1'b0}}: (zvlsseg_stride_cnt[6:0] + 1'b1);
 end
 
@@ -6800,33 +6800,33 @@ begin
     zvlsseg_stride_vreg_offset[2:0]  <= {3{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_stride_vreg_offset[2:0]  <= {3{1'b0}};
-  else if(zvlsseg_stride_cur_state && zvlsseg_stride_nf_last && !ctrl_split_long_id_stall)  
+  else if(zvlsseg_stride_cur_state && zvlsseg_stride_nf_last && !ctrl_split_long_id_stall)
     zvlsseg_stride_vreg_offset[2:0] <= zvlsseg_stride_split_last ? {3{1'b0}}: (zvlsseg_stride_vreg_offset[2:0] + {2'b00,zvlsseg_stride_vreg_end});
 end
 
-//assign zvlsseg_stride_vreg_begin  = (vec_sew[1:0]==2'b00) && (zvlsseg_stride_cnt[3:0]==4'b0000) 
+//assign zvlsseg_stride_vreg_begin  = (vec_sew[1:0]==2'b00) && (zvlsseg_stride_cnt[3:0]==4'b0000)
 //                                  || (vec_sew[1:0]==2'b01) && (zvlsseg_stride_cnt[2:0]==3'b000)
 //                                  || (vec_sew[1:0]==2'b10) && (zvlsseg_stride_cnt[1:0]==2'b00)
 //                                  || (vec_sew[1:0]==2'b11) && (zvlsseg_stride_cnt[0]  ==1'b0);
 
-assign zvlsseg_stride_vreg_end    = (vec_sew[1:0]==2'b00) && (zvlsseg_stride_cnt[3:0]==4'b1111) 
+assign zvlsseg_stride_vreg_end    = (vec_sew[1:0]==2'b00) && (zvlsseg_stride_cnt[3:0]==4'b1111)
                                   || (vec_sew[1:0]==2'b01) && (zvlsseg_stride_cnt[2:0]==3'b111)
                                   || (vec_sew[1:0]==2'b10) && (zvlsseg_stride_cnt[1:0]==2'b11)
                                   || (vec_sew[1:0]==2'b11) && (zvlsseg_stride_cnt[0]  ==1'b1);
 
-assign zvlsseg_stride_split_last  = (vec_lmul[1:0]==2'b00) && zvlsseg_stride_vreg_end 
-                                  || (vec_lmul[1:0]==2'b01) && zvlsseg_stride_vreg_end &&  zvlsseg_stride_vreg_offset[0] 
-                                  || (vec_lmul[1:0]==2'b10) && zvlsseg_stride_vreg_end && &zvlsseg_stride_vreg_offset[1:0] 
+assign zvlsseg_stride_split_last  = (vec_lmul[1:0]==2'b00) && zvlsseg_stride_vreg_end
+                                  || (vec_lmul[1:0]==2'b01) && zvlsseg_stride_vreg_end &&  zvlsseg_stride_vreg_offset[0]
+                                  || (vec_lmul[1:0]==2'b10) && zvlsseg_stride_vreg_end && &zvlsseg_stride_vreg_offset[1:0]
                                   || (vec_lmul[1:0]==2'b11) && zvlsseg_stride_vreg_end && &zvlsseg_stride_vreg_offset[2:0];
 
-assign zvlsseg_stride_vreg_secd_to_end    = (vec_sew[1:0]==2'b00) && (zvlsseg_stride_cnt[3:0]==4'b1110) 
+assign zvlsseg_stride_vreg_secd_to_end    = (vec_sew[1:0]==2'b00) && (zvlsseg_stride_cnt[3:0]==4'b1110)
                                             || (vec_sew[1:0]==2'b01) && (zvlsseg_stride_cnt[2:0]==3'b110)
                                             || (vec_sew[1:0]==2'b10) && (zvlsseg_stride_cnt[1:0]==2'b10)
                                             || (vec_sew[1:0]==2'b11) && (zvlsseg_stride_cnt[0]  ==1'b0);
 
-assign zvlsseg_stride_split_secd_to_last  = (vec_lmul[1:0]==2'b00) && zvlsseg_stride_vreg_secd_to_end 
-                                            || (vec_lmul[1:0]==2'b01) && zvlsseg_stride_vreg_secd_to_end &&  zvlsseg_stride_vreg_offset[0] 
-                                            || (vec_lmul[1:0]==2'b10) && zvlsseg_stride_vreg_secd_to_end && &zvlsseg_stride_vreg_offset[1:0] 
+assign zvlsseg_stride_split_secd_to_last  = (vec_lmul[1:0]==2'b00) && zvlsseg_stride_vreg_secd_to_end
+                                            || (vec_lmul[1:0]==2'b01) && zvlsseg_stride_vreg_secd_to_end &&  zvlsseg_stride_vreg_offset[0]
+                                            || (vec_lmul[1:0]==2'b10) && zvlsseg_stride_vreg_secd_to_end && &zvlsseg_stride_vreg_offset[1:0]
                                             || (vec_lmul[1:0]==2'b11) && zvlsseg_stride_vreg_secd_to_end && &zvlsseg_stride_vreg_offset[2:0];
 
 always @(posedge zvlsseg_stride_split_clk or negedge cpurst_b)
@@ -6835,18 +6835,18 @@ begin
     zvlsseg_stride_nf_cnt[1:0] <= {2{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_stride_nf_cnt[1:0] <= {2{1'b0}};
-  else if(zvlsseg_stride_sm_start || zvlsseg_stride_cur_state && !ctrl_split_long_id_stall)  
+  else if(zvlsseg_stride_sm_start || zvlsseg_stride_cur_state && !ctrl_split_long_id_stall)
     zvlsseg_stride_nf_cnt[1:0] <= zvlsseg_stride_nf_last ? {2{1'b0}}: (zvlsseg_stride_nf_cnt[1:0] + 1'b1);
 end
 
 
-assign zvlsseg_stride_nf_last = (zvlsseg_stride_nf_cnt[1:0] == vec_inst[31:30]); 
+assign zvlsseg_stride_nf_last = (zvlsseg_stride_nf_cnt[1:0] == vec_inst[31:30]);
 
 //used for iid_plus
 //cycles for a single structure
 assign zvlsseg_stride_nf_cycle[1:0]     = vec_inst[31:30];  //0~3 means 1~4 cycles
 // 3 is the least interval
-assign zvlsseg_stride_add_interval[3:0] = {1'b0,vec_inst[31:29]} + {2'b0,zvlsseg_stride_nf_cycle[1:0]} + 4'd3;                     
+assign zvlsseg_stride_add_interval[3:0] = {1'b0,vec_inst[31:29]} + {2'b0,zvlsseg_stride_nf_cycle[1:0]} + 4'd3;
 
 assign zvlsseg_stride_vmv_inst[31:26]= 6'b010111;
 assign zvlsseg_stride_vmv_inst[25]   = 1'b1;   //vmerge no mask means vmv
@@ -6864,10 +6864,10 @@ always @( vec_lmul[1:0]
        or zvlsseg_stride_nf_cnt[1:0])
 begin
   case(vec_lmul[1:0])
-  2'b00:   stride_nf_reg_offset0[5:0] = {3'b0,zvlsseg_stride_nf_cnt[1:0],1'b0}; 
-  2'b01:   stride_nf_reg_offset0[5:0] = {2'b0,zvlsseg_stride_nf_cnt[1:0],2'b0}; 
-  2'b10:   stride_nf_reg_offset0[5:0] = {1'b0,zvlsseg_stride_nf_cnt[1:0],3'b0}; 
-//  2'b11:   stride_nf_reg_offset[5:0] = {zvlsseg_stride_nf_cnt[1:0],4'b0}; 
+  2'b00:   stride_nf_reg_offset0[5:0] = {3'b0,zvlsseg_stride_nf_cnt[1:0],1'b0};
+  2'b01:   stride_nf_reg_offset0[5:0] = {2'b0,zvlsseg_stride_nf_cnt[1:0],2'b0};
+  2'b10:   stride_nf_reg_offset0[5:0] = {1'b0,zvlsseg_stride_nf_cnt[1:0],3'b0};
+//  2'b11:   stride_nf_reg_offset[5:0] = {zvlsseg_stride_nf_cnt[1:0],4'b0};
   default: stride_nf_reg_offset0[5:0] = 6'b0;
   endcase
 // &CombEnd; @4811
@@ -6878,10 +6878,10 @@ always @( vec_lmul[1:0]
        or zvlsseg_stride_nf_cnt[1:0])
 begin
   case(vec_lmul[1:0])
-  2'b00:   stride_nf_reg_offset1[5:0] = {3'b0,zvlsseg_stride_nf_cnt[1:0],1'b1}; 
-  2'b01:   stride_nf_reg_offset1[5:0] = {2'b0,zvlsseg_stride_nf_cnt[1:0],2'b10}; 
-  2'b10:   stride_nf_reg_offset1[5:0] = {1'b0,zvlsseg_stride_nf_cnt[1:0],3'b100}; 
-//  2'b11:   stride_nf_reg_offset[5:0] = {zvlsseg_stride_nf_cnt[1:0],4'b0}; 
+  2'b00:   stride_nf_reg_offset1[5:0] = {3'b0,zvlsseg_stride_nf_cnt[1:0],1'b1};
+  2'b01:   stride_nf_reg_offset1[5:0] = {2'b0,zvlsseg_stride_nf_cnt[1:0],2'b10};
+  2'b10:   stride_nf_reg_offset1[5:0] = {1'b0,zvlsseg_stride_nf_cnt[1:0],3'b100};
+//  2'b11:   stride_nf_reg_offset[5:0] = {zvlsseg_stride_nf_cnt[1:0],4'b0};
   default: stride_nf_reg_offset1[5:0] = 6'b0;
   endcase
 // &CombEnd; @4821
@@ -6902,7 +6902,7 @@ begin
   zvlsseg_stride_split_inst0_data[IR_INST_TYPE:IR_INST_TYPE-9]   = PIPE67;
   zvlsseg_stride_split_inst0_data[IR_OPCODE:IR_OPCODE-31]        = zvlsseg_stride_vmv_inst[31:0];  //vmv.vv
   zvlsseg_stride_split_inst0_data[IR_SRCV1_VLD]                  = 1'b1;
-  zvlsseg_stride_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = !zvlsseg_stride_cur_state 
+  zvlsseg_stride_split_inst0_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = !zvlsseg_stride_cur_state
                                                                  ? 6'b000_000
                                                                  : 6'b100_000;
   zvlsseg_stride_split_inst0_data[IR_DSTV_VLD]                   = 1'b1;
@@ -6935,7 +6935,7 @@ begin
   zvlsseg_stride_split_inst1_data[IR_SRC0_VLD]                   = 1'b1;
   zvlsseg_stride_split_inst1_data[IR_SRC0_REG:IR_SRC0_REG-5]     = |zvlsseg_stride_cnt[6:0] ? 6'b100_000 : {1'b0,vec_inst[19:15]};
   zvlsseg_stride_split_inst1_data[IR_SRCV2_VLD]                  = 1'b1;
-//  zvlsseg_stride_split_inst1_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+//  zvlsseg_stride_split_inst1_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   zvlsseg_stride_split_inst1_data[IR_SRCV1_VLD]                  = !vec_inst[25];   //for lsu,use v1 renaming for vm
   zvlsseg_stride_split_inst1_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_stride_dst_v0 ? 6'b100_000 : 6'b000_000;
   zvlsseg_stride_split_inst1_data[IR_DSTV_VLD]                   = !vec_inst[5];
@@ -6986,7 +6986,7 @@ begin
   zvlsseg_stride_split_inst2_data[IR_SRC0_VLD]                   = 1'b1;
   zvlsseg_stride_split_inst2_data[IR_SRC0_REG:IR_SRC0_REG-5]     = |zvlsseg_stride_cnt[6:0] ? 6'b100_000 : {1'b0,vec_inst[19:15]};
   zvlsseg_stride_split_inst2_data[IR_SRCV2_VLD]                  = 1'b1;
-//  zvlsseg_stride_split_inst2_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+//  zvlsseg_stride_split_inst2_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   zvlsseg_stride_split_inst2_data[IR_SRCV1_VLD]                  = !vec_inst[25];   //for lsu,use v1 renaming for vm
   zvlsseg_stride_split_inst2_data[IR_SRCV1_REG:IR_SRCV1_REG-5]   = vec_stride_dst_v0 ? 6'b100_000 : 6'b000_000;
   zvlsseg_stride_split_inst2_data[IR_DSTV_VLD]                   = !vec_inst[5];
@@ -7042,7 +7042,7 @@ assign zvlsseg_stride_inst_vld[3] = zvlsseg_stride_nf_last && !zvlsseg_stride_sp
 
 assign zvlsseg_stride_dep_info[DEP_WIDTH-1:0] = {DEP_WIDTH{1'b0}};
 //==========================================================
-//              zvlsseg index ld/st split 
+//              zvlsseg index ld/st split
 //==========================================================
 parameter ZVLSSEG_INDEX_IDLE  = 1'b0;
 parameter ZVLSSEG_INDEX_SPLIT = 1'b1;
@@ -7117,7 +7117,7 @@ begin
     zvlsseg_index_cnt[6:0] <= {7{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_index_cnt[6:0] <= {7{1'b0}};
-  else if((zvlsseg_index_sm_start || zvlsseg_index_cur_state) && zvlsseg_index_nf_last && !ctrl_split_long_id_stall)  
+  else if((zvlsseg_index_sm_start || zvlsseg_index_cur_state) && zvlsseg_index_nf_last && !ctrl_split_long_id_stall)
     zvlsseg_index_cnt[6:0] <= zvlsseg_index_split_last ? {7{1'b0}}: (zvlsseg_index_cnt[6:0] + 1'b1);
 end
 
@@ -7127,23 +7127,23 @@ begin
     zvlsseg_index_vreg_offset[2:0]  <= {3{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_index_vreg_offset[2:0]  <= {3{1'b0}};
-  else if(zvlsseg_index_cur_state && zvlsseg_index_nf_last && !ctrl_split_long_id_stall)  
+  else if(zvlsseg_index_cur_state && zvlsseg_index_nf_last && !ctrl_split_long_id_stall)
     zvlsseg_index_vreg_offset[2:0] <= zvlsseg_index_split_last ? {3{1'b0}}: (zvlsseg_index_vreg_offset[2:0] + {2'b00,zvlsseg_index_vreg_end});
 end
 
-//assign zvlsseg_index_vreg_begin  = (vec_sew[1:0]==2'b00) && (zvlsseg_index_cnt[3:0]==4'b0000) 
+//assign zvlsseg_index_vreg_begin  = (vec_sew[1:0]==2'b00) && (zvlsseg_index_cnt[3:0]==4'b0000)
 //                                  || (vec_sew[1:0]==2'b01) && (zvlsseg_index_cnt[2:0]==3'b000)
 //                                  || (vec_sew[1:0]==2'b10) && (zvlsseg_index_cnt[1:0]==2'b00)
 //                                  || (vec_sew[1:0]==2'b11) && (zvlsseg_index_cnt[0]  ==1'b0);
 
-assign zvlsseg_index_vreg_end    = (vec_sew[1:0]==2'b00) && (zvlsseg_index_cnt[3:0]==4'b1111) 
+assign zvlsseg_index_vreg_end    = (vec_sew[1:0]==2'b00) && (zvlsseg_index_cnt[3:0]==4'b1111)
                                   || (vec_sew[1:0]==2'b01) && (zvlsseg_index_cnt[2:0]==3'b111)
                                   || (vec_sew[1:0]==2'b10) && (zvlsseg_index_cnt[1:0]==2'b11)
                                   || (vec_sew[1:0]==2'b11) && (zvlsseg_index_cnt[0]  ==1'b1);
 
-assign zvlsseg_index_split_last  = (vec_lmul[1:0]==2'b00) && zvlsseg_index_vreg_end 
-                                  || (vec_lmul[1:0]==2'b01) && zvlsseg_index_vreg_end &&  zvlsseg_index_vreg_offset[0] 
-                                  || (vec_lmul[1:0]==2'b10) && zvlsseg_index_vreg_end && &zvlsseg_index_vreg_offset[1:0] 
+assign zvlsseg_index_split_last  = (vec_lmul[1:0]==2'b00) && zvlsseg_index_vreg_end
+                                  || (vec_lmul[1:0]==2'b01) && zvlsseg_index_vreg_end &&  zvlsseg_index_vreg_offset[0]
+                                  || (vec_lmul[1:0]==2'b10) && zvlsseg_index_vreg_end && &zvlsseg_index_vreg_offset[1:0]
                                   || (vec_lmul[1:0]==2'b11) && zvlsseg_index_vreg_end && &zvlsseg_index_vreg_offset[2:0];
 
 always @(posedge zvlsseg_index_split_clk or negedge cpurst_b)
@@ -7152,17 +7152,17 @@ begin
     zvlsseg_index_nf_cnt[1:0] <= {2{1'b0}};
   else if(rtu_idu_flush_fe  ||  iu_yy_xx_cancel)
     zvlsseg_index_nf_cnt[1:0] <= {2{1'b0}};
-  else if(zvlsseg_index_sm_start || zvlsseg_index_cur_state && !ctrl_split_long_id_stall)  
+  else if(zvlsseg_index_sm_start || zvlsseg_index_cur_state && !ctrl_split_long_id_stall)
     zvlsseg_index_nf_cnt[1:0] <= zvlsseg_index_nf_last ? {2{1'b0}}: (zvlsseg_index_nf_cnt[1:0] + 1'b1);
 end
 
 
-assign zvlsseg_index_nf_last  = (zvlsseg_index_nf_cnt[1:0] == vec_inst[31:30]); 
-assign zvlsseg_index_nf_first = (zvlsseg_index_nf_cnt[1:0] == 2'b0); 
+assign zvlsseg_index_nf_last  = (zvlsseg_index_nf_cnt[1:0] == vec_inst[31:30]);
+assign zvlsseg_index_nf_first = (zvlsseg_index_nf_cnt[1:0] == 2'b0);
 
 //used for iid_plus
 // 2 is the least interval
-assign zvlsseg_index_add_iid_plus[3:0] = {1'b0,vec_inst[31:29]} + 4'd2;                     
+assign zvlsseg_index_add_iid_plus[3:0] = {1'b0,vec_inst[31:29]} + 4'd2;
 
 assign zvlsseg_index_add_inst[31:7] = {25{1'b0}};
 assign zvlsseg_index_add_inst[6 :0] = 7'b0110011;
@@ -7181,10 +7181,10 @@ always @( vec_lmul[1:0]
        or zvlsseg_index_nf_cnt[1:0])
 begin
   case(vec_lmul[1:0])
-  2'b00:   index_nf_reg_offset0[5:0] = {3'b0,zvlsseg_index_nf_cnt[1:0],1'b0}; 
-  2'b01:   index_nf_reg_offset0[5:0] = {2'b0,zvlsseg_index_nf_cnt[1:0],2'b0}; 
-  2'b10:   index_nf_reg_offset0[5:0] = {1'b0,zvlsseg_index_nf_cnt[1:0],3'b0}; 
-//  2'b11:   index_nf_reg_offset[5:0] = {zvlsseg_index_nf_cnt[1:0],4'b0}; 
+  2'b00:   index_nf_reg_offset0[5:0] = {3'b0,zvlsseg_index_nf_cnt[1:0],1'b0};
+  2'b01:   index_nf_reg_offset0[5:0] = {2'b0,zvlsseg_index_nf_cnt[1:0],2'b0};
+  2'b10:   index_nf_reg_offset0[5:0] = {1'b0,zvlsseg_index_nf_cnt[1:0],3'b0};
+//  2'b11:   index_nf_reg_offset[5:0] = {zvlsseg_index_nf_cnt[1:0],4'b0};
   default: index_nf_reg_offset0[5:0] = 6'b0;
   endcase
 // &CombEnd; @5068
@@ -7195,10 +7195,10 @@ always @( vec_lmul[1:0]
        or zvlsseg_index_nf_cnt[1:0])
 begin
   case(vec_lmul[1:0])
-  2'b00:   index_nf_reg_offset1[5:0] = {3'b0,zvlsseg_index_nf_cnt[1:0],1'b1}; 
-  2'b01:   index_nf_reg_offset1[5:0] = {2'b0,zvlsseg_index_nf_cnt[1:0],2'b10}; 
-  2'b10:   index_nf_reg_offset1[5:0] = {1'b0,zvlsseg_index_nf_cnt[1:0],3'b100}; 
-//  2'b11:   index_nf_reg_offset[5:0] = {zvlsseg_index_nf_cnt[1:0],4'b0}; 
+  2'b00:   index_nf_reg_offset1[5:0] = {3'b0,zvlsseg_index_nf_cnt[1:0],1'b1};
+  2'b01:   index_nf_reg_offset1[5:0] = {2'b0,zvlsseg_index_nf_cnt[1:0],2'b10};
+  2'b10:   index_nf_reg_offset1[5:0] = {1'b0,zvlsseg_index_nf_cnt[1:0],3'b100};
+//  2'b11:   index_nf_reg_offset[5:0] = {zvlsseg_index_nf_cnt[1:0],4'b0};
   default: index_nf_reg_offset1[5:0] = 6'b0;
   endcase
 // &CombEnd; @5078
@@ -7242,13 +7242,13 @@ begin
   zvlsseg_index_split_inst0_data[IR_SRC0_VLD]                   = 1'b1;
   zvlsseg_index_split_inst0_data[IR_SRC0_REG:IR_SRC0_REG-5]     = 6'b100_000;
   zvlsseg_index_split_inst0_data[IR_SRCV2_VLD]                  = 1'b1;
-  zvlsseg_index_split_inst0_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+  zvlsseg_index_split_inst0_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   zvlsseg_index_split_inst0_data[IR_DSTV_VLD]                   = !vec_inst[5];
   zvlsseg_index_split_inst0_data[IR_DSTV_REG:IR_DSTV_REG-5]     = zvlsseg_index_split_dstv_reg0[5:0];
   zvlsseg_index_split_inst0_data[IR_INTMASK]                    = !(zvlsseg_index_split_last && zvlsseg_index_nf_last && !vec_inst[29]);
   zvlsseg_index_split_inst0_data[IR_SPLIT]                      = !(zvlsseg_index_split_last && zvlsseg_index_nf_last && !vec_inst[29]);
   zvlsseg_index_split_inst0_data[IR_LENGTH]                     = 1'b1;
-  zvlsseg_index_split_inst0_data[IR_VMB]                        = !vec_inst[5]; 
+  zvlsseg_index_split_inst0_data[IR_VMB]                        = !vec_inst[5];
   end
 // &CombEnd; @5115
 end
@@ -7289,7 +7289,7 @@ begin
   zvlsseg_index_split_inst1_data[IR_SRC0_VLD]                   = 1'b1;
   zvlsseg_index_split_inst1_data[IR_SRC0_REG:IR_SRC0_REG-5]     = 6'b100_000;
   zvlsseg_index_split_inst1_data[IR_SRCV2_VLD]                  = 1'b1;
-  zvlsseg_index_split_inst1_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+  zvlsseg_index_split_inst1_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   zvlsseg_index_split_inst1_data[IR_DSTV_VLD]                   = !vec_inst[5];
   zvlsseg_index_split_inst1_data[IR_DSTV_REG:IR_DSTV_REG-5]     = zvlsseg_index_split_dstv_reg1[5:0];
   zvlsseg_index_split_inst1_data[IR_INTMASK]                    = !(zvlsseg_index_split_last && zvlsseg_index_nf_last);
@@ -7318,13 +7318,13 @@ begin
   zvlsseg_index_split_inst2_data[IR_SRC0_VLD]                   = 1'b1;
   zvlsseg_index_split_inst2_data[IR_SRC0_REG:IR_SRC0_REG-5]     = 6'b100_000;
   zvlsseg_index_split_inst2_data[IR_SRCV2_VLD]                  = 1'b1;
-  zvlsseg_index_split_inst2_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+  zvlsseg_index_split_inst2_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   zvlsseg_index_split_inst2_data[IR_DSTV_VLD]                   = !vec_inst[5];
   zvlsseg_index_split_inst2_data[IR_DSTV_REG:IR_DSTV_REG-5]     = zvlsseg_index_split_dstv_reg0[5:0];
   zvlsseg_index_split_inst2_data[IR_INTMASK]                    = 1'b1;
   zvlsseg_index_split_inst2_data[IR_SPLIT]                      = 1'b1;
   zvlsseg_index_split_inst2_data[IR_LENGTH]                     = 1'b1;
-  zvlsseg_index_split_inst2_data[IR_VMB]                        = !vec_inst[5]; 
+  zvlsseg_index_split_inst2_data[IR_VMB]                        = !vec_inst[5];
   end
 // &CombEnd; @5172
 end
@@ -7349,7 +7349,7 @@ begin
   zvlsseg_index_split_inst3_data[IR_SRC0_VLD]                   = 1'b1;
   zvlsseg_index_split_inst3_data[IR_SRC0_REG:IR_SRC0_REG-5]     = 6'b100_000;
   zvlsseg_index_split_inst3_data[IR_SRCV2_VLD]                  = 1'b1;
-  zvlsseg_index_split_inst3_data[IR_SRCVM_VLD]                  = !vec_inst[25];   
+  zvlsseg_index_split_inst3_data[IR_SRCVM_VLD]                  = !vec_inst[25];
   zvlsseg_index_split_inst3_data[IR_DSTV_VLD]                   = !vec_inst[5];
   zvlsseg_index_split_inst3_data[IR_DSTV_REG:IR_DSTV_REG-5]     = zvlsseg_index_split_dstv_reg1[5:0];
   zvlsseg_index_split_inst3_data[IR_INTMASK]                    = !(zvlsseg_index_split_last && zvlsseg_index_nf_last);
@@ -7382,21 +7382,21 @@ assign zvlsseg_index_dep_info[DEP_WIDTH-1:0] = {DEP_WIDTH{1'b0}};
 //              MUX between split instructions
 //----------------------------------------------------------
 assign split_long_ctrl_inst_vld[3:0] =
-         {4{dp_split_long_type[0]}}  & amo_inst_vld[3:0] 
+         {4{dp_split_long_type[0]}}  & amo_inst_vld[3:0]
         |{4{dp_split_long_type[1]}}  & vec_norm_inst_vld[3:0]
-        |{4{dp_split_long_type[2]}}  & vec_perm_inst_vld[3:0]  
-        |{4{dp_split_long_type[3]}}  & vec_fred_inst_vld[3:0]  
-        |{4{dp_split_long_type[4]}}  & vec_stride_inst_vld[3:0]  
-        |{4{dp_split_long_type[5]}}  & vec_index_inst_vld[3:0] 
-        |{4{dp_split_long_type[6]}}  & vec_amo_inst_vld[3:0] 
-        |{4{dp_split_long_type[7]}}  & zvlsseg_unit_inst_vld[3:0] 
+        |{4{dp_split_long_type[2]}}  & vec_perm_inst_vld[3:0]
+        |{4{dp_split_long_type[3]}}  & vec_fred_inst_vld[3:0]
+        |{4{dp_split_long_type[4]}}  & vec_stride_inst_vld[3:0]
+        |{4{dp_split_long_type[5]}}  & vec_index_inst_vld[3:0]
+        |{4{dp_split_long_type[6]}}  & vec_amo_inst_vld[3:0]
+        |{4{dp_split_long_type[7]}}  & zvlsseg_unit_inst_vld[3:0]
         |{4{dp_split_long_type[8]}}  & zvlsseg_stride_inst_vld[3:0]
-        |{4{dp_split_long_type[9]}}  & zvlsseg_index_inst_vld[3:0]; 
+        |{4{dp_split_long_type[9]}}  & zvlsseg_index_inst_vld[3:0];
 
 assign split_long_ctrl_id_stall =
             dp_split_long_type[0]  &&  amo_split_stall
           ||dp_split_long_type[1]  &&  vec_norm_split_stall
-          ||dp_split_long_type[2]  &&  vec_perm_split_stall 
+          ||dp_split_long_type[2]  &&  vec_perm_split_stall
           ||dp_split_long_type[3]  &&  vec_fred_split_stall
           ||dp_split_long_type[4]  &&  vec_stride_split_stall
           ||dp_split_long_type[5]  &&  vec_index_split_stall
@@ -7407,10 +7407,10 @@ assign split_long_ctrl_id_stall =
 
 assign split_long_dp_dep_info[DEP_WIDTH-1:0] =
          {DEP_WIDTH{dp_split_long_type[0]}}  &      amo_dep_info[DEP_WIDTH-1:0]
-        |{DEP_WIDTH{dp_split_long_type[1]}}  &      vec_norm_dep_info[DEP_WIDTH-1:0] 
-        |{DEP_WIDTH{dp_split_long_type[2]}}  &      vec_perm_dep_info[DEP_WIDTH-1:0] 
-        |{DEP_WIDTH{dp_split_long_type[3]}}  &      vec_fred_dep_info[DEP_WIDTH-1:0] 
-        |{DEP_WIDTH{dp_split_long_type[4]}}  &      vec_stride_dep_info[DEP_WIDTH-1:0] 
+        |{DEP_WIDTH{dp_split_long_type[1]}}  &      vec_norm_dep_info[DEP_WIDTH-1:0]
+        |{DEP_WIDTH{dp_split_long_type[2]}}  &      vec_perm_dep_info[DEP_WIDTH-1:0]
+        |{DEP_WIDTH{dp_split_long_type[3]}}  &      vec_fred_dep_info[DEP_WIDTH-1:0]
+        |{DEP_WIDTH{dp_split_long_type[4]}}  &      vec_stride_dep_info[DEP_WIDTH-1:0]
         |{DEP_WIDTH{dp_split_long_type[5]}}  &      vec_index_dep_info[DEP_WIDTH-1:0]
         |{DEP_WIDTH{dp_split_long_type[6]}}  &      vec_amo_dep_info[DEP_WIDTH-1:0]
         |{DEP_WIDTH{dp_split_long_type[7]}}  &      zvlsseg_unit_dep_info[DEP_WIDTH-1:0]
@@ -7420,7 +7420,7 @@ assign split_long_dp_dep_info[DEP_WIDTH-1:0] =
 assign split_long_inst0_data[IR_WIDTH-1:0] =
          {IR_WIDTH{dp_split_long_type[0]}}  &      amo_inst0_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[1]}}  &      vec_norm_inst0_data[IR_WIDTH-1:0]
-        |{IR_WIDTH{dp_split_long_type[2]}}  &      vec_perm_inst0_data[IR_WIDTH-1:0] 
+        |{IR_WIDTH{dp_split_long_type[2]}}  &      vec_perm_inst0_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[3]}}  &      vec_fred_inst0_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[4]}}  &      vec_stride_inst0_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[5]}}  &      vec_index_inst0_data[IR_WIDTH-1:0]
@@ -7430,9 +7430,9 @@ assign split_long_inst0_data[IR_WIDTH-1:0] =
         |{IR_WIDTH{dp_split_long_type[9]}}  &      zvlsseg_index_inst0_data[IR_WIDTH-1:0];
 
 assign split_long_inst1_data[IR_WIDTH-1:0] =
-         {IR_WIDTH{dp_split_long_type[0]}}  &      amo_inst1_data[IR_WIDTH-1:0] 
-        |{IR_WIDTH{dp_split_long_type[1]}}  &      vec_norm_inst1_data[IR_WIDTH-1:0] 
-        |{IR_WIDTH{dp_split_long_type[2]}}  &      vec_perm_inst1_data[IR_WIDTH-1:0] 
+         {IR_WIDTH{dp_split_long_type[0]}}  &      amo_inst1_data[IR_WIDTH-1:0]
+        |{IR_WIDTH{dp_split_long_type[1]}}  &      vec_norm_inst1_data[IR_WIDTH-1:0]
+        |{IR_WIDTH{dp_split_long_type[2]}}  &      vec_perm_inst1_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[3]}}  &      vec_fred_inst1_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[4]}}  &      vec_stride_inst1_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[5]}}  &      vec_index_inst1_data[IR_WIDTH-1:0]
@@ -7442,9 +7442,9 @@ assign split_long_inst1_data[IR_WIDTH-1:0] =
         |{IR_WIDTH{dp_split_long_type[9]}}  &      zvlsseg_index_inst1_data[IR_WIDTH-1:0];
 
 assign split_long_inst2_data[IR_WIDTH-1:0] =
-         {IR_WIDTH{dp_split_long_type[0]}}  &      amo_inst2_data[IR_WIDTH-1:0] 
-        |{IR_WIDTH{dp_split_long_type[1]}}  &      vec_norm_inst2_data[IR_WIDTH-1:0] 
-        |{IR_WIDTH{dp_split_long_type[2]}}  &      vec_perm_inst2_data[IR_WIDTH-1:0] 
+         {IR_WIDTH{dp_split_long_type[0]}}  &      amo_inst2_data[IR_WIDTH-1:0]
+        |{IR_WIDTH{dp_split_long_type[1]}}  &      vec_norm_inst2_data[IR_WIDTH-1:0]
+        |{IR_WIDTH{dp_split_long_type[2]}}  &      vec_perm_inst2_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[3]}}  &      vec_fred_inst2_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[4]}}  &      vec_stride_inst2_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[5]}}  &      vec_index_inst2_data[IR_WIDTH-1:0]
@@ -7454,9 +7454,9 @@ assign split_long_inst2_data[IR_WIDTH-1:0] =
         |{IR_WIDTH{dp_split_long_type[9]}}  &      zvlsseg_index_inst2_data[IR_WIDTH-1:0];
 
 assign split_long_inst3_data[IR_WIDTH-1:0] =
-         {IR_WIDTH{dp_split_long_type[0]}}  &      amo_inst3_data[IR_WIDTH-1:0] 
-        |{IR_WIDTH{dp_split_long_type[1]}}  &      vec_norm_inst3_data[IR_WIDTH-1:0] 
-        |{IR_WIDTH{dp_split_long_type[2]}}  &      vec_perm_inst3_data[IR_WIDTH-1:0] 
+         {IR_WIDTH{dp_split_long_type[0]}}  &      amo_inst3_data[IR_WIDTH-1:0]
+        |{IR_WIDTH{dp_split_long_type[1]}}  &      vec_norm_inst3_data[IR_WIDTH-1:0]
+        |{IR_WIDTH{dp_split_long_type[2]}}  &      vec_perm_inst3_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[3]}}  &      vec_fred_inst3_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[4]}}  &      vec_stride_inst3_data[IR_WIDTH-1:0]
         |{IR_WIDTH{dp_split_long_type[5]}}  &      vec_index_inst3_data[IR_WIDTH-1:0]

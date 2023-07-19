@@ -26,29 +26,29 @@ module ct_hpcp_event(
 );
 
 // &Ports; @23
-input           cp0_hpcp_icg_en;   
-input           cpurst_b;          
-input           eventx_clk_en;     
-input           eventx_wen;        
-input           forever_cpuclk;    
-input   [63:0]  hpcp_wdata;        
-input           pad_yy_icg_scan_en; 
-output  [63:0]  eventx_value;      
+input           cp0_hpcp_icg_en;
+input           cpurst_b;
+input           eventx_clk_en;
+input           eventx_wen;
+input           forever_cpuclk;
+input   [63:0]  hpcp_wdata;
+input           pad_yy_icg_scan_en;
+output  [63:0]  eventx_value;
 
 // &Regs; @24
-reg     [5 :0]  value;             
+reg     [5 :0]  value;
 
 // &Wires @25
-wire            cp0_hpcp_icg_en;   
-wire            cpurst_b;          
-wire            eventx_clk;        
-wire            eventx_clk_en;     
-wire    [63:0]  eventx_value;      
-wire            eventx_wen;        
-wire            forever_cpuclk;    
-wire    [63:0]  hpcp_wdata;        
-wire            pad_yy_icg_scan_en; 
-wire            value_mask;        
+wire            cp0_hpcp_icg_en;
+wire            cpurst_b;
+wire            eventx_clk;
+wire            eventx_clk_en;
+wire    [63:0]  eventx_value;
+wire            eventx_wen;
+wire            forever_cpuclk;
+wire    [63:0]  hpcp_wdata;
+wire            pad_yy_icg_scan_en;
+wire            value_mask;
 
 
 //define total counter num
@@ -57,8 +57,8 @@ parameter HPMEVT_WIDTH = 6;
 
 // &Force("bus","hpcp_wdata",63,0); @31
 //==========================================================
-//                 Instance of Gated Cell  
-//========================================================== 
+//                 Instance of Gated Cell
+//==========================================================
 // &Instance("gated_clk_cell", "x_gated_clk"); @35
 gated_clk_cell  x_gated_clk (
   .clk_in             (forever_cpuclk    ),
@@ -78,7 +78,7 @@ gated_clk_cell  x_gated_clk (
 //          .clk_out     (eventx_clk)); @41
 
 //==========================================================
-//                 Implementation of counter  
+//                 Implementation of counter
 //==========================================================
 always @(posedge eventx_clk or negedge cpurst_b)
 begin
@@ -90,7 +90,7 @@ begin
     value[HPMEVT_WIDTH-1:0] <= value[HPMEVT_WIDTH-1:0];
 end
 
-assign value_mask = (!(|hpcp_wdata[63:HPMEVT_WIDTH])) 
+assign value_mask = (!(|hpcp_wdata[63:HPMEVT_WIDTH]))
                  && (hpcp_wdata[HPMEVT_WIDTH-1:0] <= HPMCNT_NUM);
 
 //output

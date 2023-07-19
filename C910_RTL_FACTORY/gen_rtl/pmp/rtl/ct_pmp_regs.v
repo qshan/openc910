@@ -32,106 +32,106 @@ module ct_pmp_regs(
 );
 
 // &Ports; @24
-input   [63:0]  cp0_pmp_wdata;      
-input           cpuclk;             
-input           cpurst_b;           
-input   [17:0]  pmp_csr_sel;        
-input   [17:0]  pmp_csr_wen;        
-output  [63:0]  pmp_cp0_data;       
-output  [28:0]  pmpaddr0_value;     
-output  [28:0]  pmpaddr1_value;     
-output  [28:0]  pmpaddr2_value;     
-output  [28:0]  pmpaddr3_value;     
-output  [28:0]  pmpaddr4_value;     
-output  [28:0]  pmpaddr5_value;     
-output  [28:0]  pmpaddr6_value;     
-output  [28:0]  pmpaddr7_value;     
-output  [63:0]  pmpcfg0_value;      
-output  [63:0]  pmpcfg2_value;      
+input   [63:0]  cp0_pmp_wdata;
+input           cpuclk;
+input           cpurst_b;
+input   [17:0]  pmp_csr_sel;
+input   [17:0]  pmp_csr_wen;
+output  [63:0]  pmp_cp0_data;
+output  [28:0]  pmpaddr0_value;
+output  [28:0]  pmpaddr1_value;
+output  [28:0]  pmpaddr2_value;
+output  [28:0]  pmpaddr3_value;
+output  [28:0]  pmpaddr4_value;
+output  [28:0]  pmpaddr5_value;
+output  [28:0]  pmpaddr6_value;
+output  [28:0]  pmpaddr7_value;
+output  [63:0]  pmpcfg0_value;
+output  [63:0]  pmpcfg2_value;
 
 // &Regs; @25
-reg     [1 :0]  pmp0cfg_addr_mode;  
-reg             pmp0cfg_executeable; 
-reg             pmp0cfg_lock;       
-reg             pmp0cfg_readable;   
-reg             pmp0cfg_writable;   
-reg     [1 :0]  pmp1cfg_addr_mode;  
-reg             pmp1cfg_executeable; 
-reg             pmp1cfg_lock;       
-reg             pmp1cfg_readable;   
-reg             pmp1cfg_writable;   
-reg     [1 :0]  pmp2cfg_addr_mode;  
-reg             pmp2cfg_executeable; 
-reg             pmp2cfg_lock;       
-reg             pmp2cfg_readable;   
-reg             pmp2cfg_writable;   
-reg     [1 :0]  pmp3cfg_addr_mode;  
-reg             pmp3cfg_executeable; 
-reg             pmp3cfg_lock;       
-reg             pmp3cfg_readable;   
-reg             pmp3cfg_writable;   
-reg     [1 :0]  pmp4cfg_addr_mode;  
-reg             pmp4cfg_executeable; 
-reg             pmp4cfg_lock;       
-reg             pmp4cfg_readable;   
-reg             pmp4cfg_writable;   
-reg     [1 :0]  pmp5cfg_addr_mode;  
-reg             pmp5cfg_executeable; 
-reg             pmp5cfg_lock;       
-reg             pmp5cfg_readable;   
-reg             pmp5cfg_writable;   
-reg     [1 :0]  pmp6cfg_addr_mode;  
-reg             pmp6cfg_executeable; 
-reg             pmp6cfg_lock;       
-reg             pmp6cfg_readable;   
-reg             pmp6cfg_writable;   
-reg     [1 :0]  pmp7cfg_addr_mode;  
-reg             pmp7cfg_executeable; 
-reg             pmp7cfg_lock;       
-reg             pmp7cfg_readable;   
-reg             pmp7cfg_writable;   
-reg     [28:0]  pmpaddr0_value;     
-reg     [28:0]  pmpaddr1_value;     
-reg     [28:0]  pmpaddr2_value;     
-reg     [28:0]  pmpaddr3_value;     
-reg     [28:0]  pmpaddr4_value;     
-reg     [28:0]  pmpaddr5_value;     
-reg     [28:0]  pmpaddr6_value;     
-reg     [28:0]  pmpaddr7_value;     
+reg     [1 :0]  pmp0cfg_addr_mode;
+reg             pmp0cfg_executeable;
+reg             pmp0cfg_lock;
+reg             pmp0cfg_readable;
+reg             pmp0cfg_writable;
+reg     [1 :0]  pmp1cfg_addr_mode;
+reg             pmp1cfg_executeable;
+reg             pmp1cfg_lock;
+reg             pmp1cfg_readable;
+reg             pmp1cfg_writable;
+reg     [1 :0]  pmp2cfg_addr_mode;
+reg             pmp2cfg_executeable;
+reg             pmp2cfg_lock;
+reg             pmp2cfg_readable;
+reg             pmp2cfg_writable;
+reg     [1 :0]  pmp3cfg_addr_mode;
+reg             pmp3cfg_executeable;
+reg             pmp3cfg_lock;
+reg             pmp3cfg_readable;
+reg             pmp3cfg_writable;
+reg     [1 :0]  pmp4cfg_addr_mode;
+reg             pmp4cfg_executeable;
+reg             pmp4cfg_lock;
+reg             pmp4cfg_readable;
+reg             pmp4cfg_writable;
+reg     [1 :0]  pmp5cfg_addr_mode;
+reg             pmp5cfg_executeable;
+reg             pmp5cfg_lock;
+reg             pmp5cfg_readable;
+reg             pmp5cfg_writable;
+reg     [1 :0]  pmp6cfg_addr_mode;
+reg             pmp6cfg_executeable;
+reg             pmp6cfg_lock;
+reg             pmp6cfg_readable;
+reg             pmp6cfg_writable;
+reg     [1 :0]  pmp7cfg_addr_mode;
+reg             pmp7cfg_executeable;
+reg             pmp7cfg_lock;
+reg             pmp7cfg_readable;
+reg             pmp7cfg_writable;
+reg     [28:0]  pmpaddr0_value;
+reg     [28:0]  pmpaddr1_value;
+reg     [28:0]  pmpaddr2_value;
+reg     [28:0]  pmpaddr3_value;
+reg     [28:0]  pmpaddr4_value;
+reg     [28:0]  pmpaddr5_value;
+reg     [28:0]  pmpaddr6_value;
+reg     [28:0]  pmpaddr7_value;
 
 // &Wires; @26
-wire    [63:0]  cp0_pmp_wdata;      
-wire            cpuclk;             
-wire            cpurst_b;           
-wire    [63:0]  pmp_cp0_data;       
-wire    [17:0]  pmp_csr_sel;        
-wire    [17:0]  pmp_csr_wen;        
-wire            pmp_updt_pmp0cfg;   
-wire            pmp_updt_pmp1cfg;   
-wire            pmp_updt_pmp2cfg;   
-wire            pmp_updt_pmp3cfg;   
-wire            pmp_updt_pmp4cfg;   
-wire            pmp_updt_pmp5cfg;   
-wire            pmp_updt_pmp6cfg;   
-wire            pmp_updt_pmp7cfg;   
-wire            pmp_updt_pmpaddr0;  
-wire            pmp_updt_pmpaddr1;  
-wire            pmp_updt_pmpaddr2;  
-wire            pmp_updt_pmpaddr3;  
-wire            pmp_updt_pmpaddr4;  
-wire            pmp_updt_pmpaddr5;  
-wire            pmp_updt_pmpaddr6;  
-wire            pmp_updt_pmpaddr7;  
-wire    [28:0]  pmpaddr10_value;    
-wire    [28:0]  pmpaddr11_value;    
-wire    [28:0]  pmpaddr12_value;    
-wire    [28:0]  pmpaddr13_value;    
-wire    [28:0]  pmpaddr14_value;    
-wire    [28:0]  pmpaddr15_value;    
-wire    [28:0]  pmpaddr8_value;     
-wire    [28:0]  pmpaddr9_value;     
-wire    [63:0]  pmpcfg0_value;      
-wire    [63:0]  pmpcfg2_value;      
+wire    [63:0]  cp0_pmp_wdata;
+wire            cpuclk;
+wire            cpurst_b;
+wire    [63:0]  pmp_cp0_data;
+wire    [17:0]  pmp_csr_sel;
+wire    [17:0]  pmp_csr_wen;
+wire            pmp_updt_pmp0cfg;
+wire            pmp_updt_pmp1cfg;
+wire            pmp_updt_pmp2cfg;
+wire            pmp_updt_pmp3cfg;
+wire            pmp_updt_pmp4cfg;
+wire            pmp_updt_pmp5cfg;
+wire            pmp_updt_pmp6cfg;
+wire            pmp_updt_pmp7cfg;
+wire            pmp_updt_pmpaddr0;
+wire            pmp_updt_pmpaddr1;
+wire            pmp_updt_pmpaddr2;
+wire            pmp_updt_pmpaddr3;
+wire            pmp_updt_pmpaddr4;
+wire            pmp_updt_pmpaddr5;
+wire            pmp_updt_pmpaddr6;
+wire            pmp_updt_pmpaddr7;
+wire    [28:0]  pmpaddr10_value;
+wire    [28:0]  pmpaddr11_value;
+wire    [28:0]  pmpaddr12_value;
+wire    [28:0]  pmpaddr13_value;
+wire    [28:0]  pmpaddr14_value;
+wire    [28:0]  pmpaddr15_value;
+wire    [28:0]  pmpaddr8_value;
+wire    [28:0]  pmpaddr9_value;
+wire    [63:0]  pmpcfg0_value;
+wire    [63:0]  pmpcfg2_value;
 
 
 parameter ADDR_WIDTH = 28+1;
@@ -164,11 +164,11 @@ begin
   end
   else
   begin
-    pmp0cfg_readable       <= pmp0cfg_readable;     
-    pmp0cfg_writable       <= pmp0cfg_writable;     
-    pmp0cfg_executeable    <= pmp0cfg_executeable;     
+    pmp0cfg_readable       <= pmp0cfg_readable;
+    pmp0cfg_writable       <= pmp0cfg_writable;
+    pmp0cfg_executeable    <= pmp0cfg_executeable;
     pmp0cfg_addr_mode[1:0] <= pmp0cfg_addr_mode[1:0];
-    pmp0cfg_lock           <= pmp0cfg_lock;     
+    pmp0cfg_lock           <= pmp0cfg_lock;
   end
 end
 
@@ -193,11 +193,11 @@ begin
   end
   else
   begin
-    pmp1cfg_readable       <= pmp1cfg_readable;     
-    pmp1cfg_writable       <= pmp1cfg_writable;     
-    pmp1cfg_executeable    <= pmp1cfg_executeable;     
+    pmp1cfg_readable       <= pmp1cfg_readable;
+    pmp1cfg_writable       <= pmp1cfg_writable;
+    pmp1cfg_executeable    <= pmp1cfg_executeable;
     pmp1cfg_addr_mode[1:0] <= pmp1cfg_addr_mode[1:0];
-    pmp1cfg_lock           <= pmp1cfg_lock;     
+    pmp1cfg_lock           <= pmp1cfg_lock;
   end
 end
 
@@ -222,11 +222,11 @@ begin
   end
   else
   begin
-    pmp2cfg_readable       <= pmp2cfg_readable;     
-    pmp2cfg_writable       <= pmp2cfg_writable;     
-    pmp2cfg_executeable    <= pmp2cfg_executeable;     
+    pmp2cfg_readable       <= pmp2cfg_readable;
+    pmp2cfg_writable       <= pmp2cfg_writable;
+    pmp2cfg_executeable    <= pmp2cfg_executeable;
     pmp2cfg_addr_mode[1:0] <= pmp2cfg_addr_mode[1:0];
-    pmp2cfg_lock           <= pmp2cfg_lock;     
+    pmp2cfg_lock           <= pmp2cfg_lock;
   end
 end
 
@@ -251,11 +251,11 @@ begin
   end
   else
   begin
-    pmp3cfg_readable       <= pmp3cfg_readable;     
-    pmp3cfg_writable       <= pmp3cfg_writable;     
-    pmp3cfg_executeable    <= pmp3cfg_executeable;     
+    pmp3cfg_readable       <= pmp3cfg_readable;
+    pmp3cfg_writable       <= pmp3cfg_writable;
+    pmp3cfg_executeable    <= pmp3cfg_executeable;
     pmp3cfg_addr_mode[1:0] <= pmp3cfg_addr_mode[1:0];
-    pmp3cfg_lock           <= pmp3cfg_lock;     
+    pmp3cfg_lock           <= pmp3cfg_lock;
   end
 end
 
@@ -280,11 +280,11 @@ begin
   end
   else
   begin
-    pmp4cfg_readable       <= pmp4cfg_readable;     
-    pmp4cfg_writable       <= pmp4cfg_writable;     
-    pmp4cfg_executeable    <= pmp4cfg_executeable;     
+    pmp4cfg_readable       <= pmp4cfg_readable;
+    pmp4cfg_writable       <= pmp4cfg_writable;
+    pmp4cfg_executeable    <= pmp4cfg_executeable;
     pmp4cfg_addr_mode[1:0] <= pmp4cfg_addr_mode[1:0];
-    pmp4cfg_lock           <= pmp4cfg_lock;     
+    pmp4cfg_lock           <= pmp4cfg_lock;
   end
 end
 
@@ -309,11 +309,11 @@ begin
   end
   else
   begin
-    pmp5cfg_readable       <= pmp5cfg_readable;     
-    pmp5cfg_writable       <= pmp5cfg_writable;     
-    pmp5cfg_executeable    <= pmp5cfg_executeable;     
+    pmp5cfg_readable       <= pmp5cfg_readable;
+    pmp5cfg_writable       <= pmp5cfg_writable;
+    pmp5cfg_executeable    <= pmp5cfg_executeable;
     pmp5cfg_addr_mode[1:0] <= pmp5cfg_addr_mode[1:0];
-    pmp5cfg_lock           <= pmp5cfg_lock;     
+    pmp5cfg_lock           <= pmp5cfg_lock;
   end
 end
 
@@ -338,11 +338,11 @@ begin
   end
   else
   begin
-    pmp6cfg_readable       <= pmp6cfg_readable;     
-    pmp6cfg_writable       <= pmp6cfg_writable;     
-    pmp6cfg_executeable    <= pmp6cfg_executeable;     
+    pmp6cfg_readable       <= pmp6cfg_readable;
+    pmp6cfg_writable       <= pmp6cfg_writable;
+    pmp6cfg_executeable    <= pmp6cfg_executeable;
     pmp6cfg_addr_mode[1:0] <= pmp6cfg_addr_mode[1:0];
-    pmp6cfg_lock           <= pmp6cfg_lock;     
+    pmp6cfg_lock           <= pmp6cfg_lock;
   end
 end
 
@@ -367,11 +367,11 @@ begin
   end
   else
   begin
-    pmp7cfg_readable       <= pmp7cfg_readable;     
-    pmp7cfg_writable       <= pmp7cfg_writable;     
-    pmp7cfg_executeable    <= pmp7cfg_executeable;     
+    pmp7cfg_readable       <= pmp7cfg_readable;
+    pmp7cfg_writable       <= pmp7cfg_writable;
+    pmp7cfg_executeable    <= pmp7cfg_executeable;
     pmp7cfg_addr_mode[1:0] <= pmp7cfg_addr_mode[1:0];
-    pmp7cfg_lock           <= pmp7cfg_lock;     
+    pmp7cfg_lock           <= pmp7cfg_lock;
   end
 end
 
@@ -517,7 +517,7 @@ assign pmpaddr15_value[ADDR_WIDTH-1:0] = {ADDR_WIDTH{1'b0}};
 //----------------------------------------------------------
 //  Interface to CP0
 //----------------------------------------------------------
-assign pmp_cp0_data[63:0]  = {64{pmp_csr_sel[0]}}  & pmpcfg0_value[63:0] 
+assign pmp_cp0_data[63:0]  = {64{pmp_csr_sel[0]}}  & pmpcfg0_value[63:0]
                            | {64{pmp_csr_sel[1]}}  & pmpcfg2_value[63:0]
                            | {64{pmp_csr_sel[2]}}  & {{(64-ADDR_WIDTH-9){1'b0}}, pmpaddr0_value[ADDR_WIDTH-1:0],  9'b0}
                            | {64{pmp_csr_sel[3]}}  & {{(64-ADDR_WIDTH-9){1'b0}}, pmpaddr1_value[ADDR_WIDTH-1:0],  9'b0}

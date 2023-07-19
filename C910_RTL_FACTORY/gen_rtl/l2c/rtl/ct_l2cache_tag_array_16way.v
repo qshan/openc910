@@ -37,21 +37,21 @@ parameter TAG_DATA_WIDTH_8WAY  = 8*`L2C_TAG_DATA_WIDTH;
 parameter TAG_DATA_WIDTH_4WAY  = 4*`L2C_TAG_DATA_WIDTH;
 parameter TAG_INDEX_WIDTH      = `L2C_TAG_INDEX_WIDTH;
 
-input                               tag_cen;             
-input                               tag_clk;          
-input                               tag_gwen;            
-input   [TAG_INDEX_WIDTH-1     :0]  tag_idx;             
-input   [TAG_DATA_WIDTH_16WAY-1:0]  tag_din;             
-input   [TAG_DATA_WIDTH_16WAY-1:0]  tag_wen;             
-output  [TAG_DATA_WIDTH_16WAY-1:0]  tag_dout;            
+input                               tag_cen;
+input                               tag_clk;
+input                               tag_gwen;
+input   [TAG_INDEX_WIDTH-1     :0]  tag_idx;
+input   [TAG_DATA_WIDTH_16WAY-1:0]  tag_din;
+input   [TAG_DATA_WIDTH_16WAY-1:0]  tag_wen;
+output  [TAG_DATA_WIDTH_16WAY-1:0]  tag_dout;
 
-wire                                tag_cen;             
-wire                                tag_clk;          
-wire                                tag_gwen;            
-wire    [TAG_DATA_WIDTH_16WAY-1:0]  tag_din;             
-wire    [TAG_DATA_WIDTH_16WAY-1:0]  tag_dout;            
-wire    [TAG_DATA_WIDTH_16WAY-1:0]  tag_wen;             
-wire    [TAG_INDEX_WIDTH-1     :0]  tag_idx;             
+wire                                tag_cen;
+wire                                tag_clk;
+wire                                tag_gwen;
+wire    [TAG_DATA_WIDTH_16WAY-1:0]  tag_din;
+wire    [TAG_DATA_WIDTH_16WAY-1:0]  tag_dout;
+wire    [TAG_DATA_WIDTH_16WAY-1:0]  tag_wen;
+wire    [TAG_INDEX_WIDTH-1     :0]  tag_idx;
 
 
 //csky vperl_off
@@ -158,7 +158,7 @@ ct_spsram_4096x84  x_ct_spsram_4096x84_2 (
 );
 
 `ifdef L2_CACHE_128K
-ct_spsram_64x108  x_ct_spsram_64x108_3 ( 
+ct_spsram_64x108  x_ct_spsram_64x108_3 (
 `endif
 `ifdef L2_CACHE_256K
 ct_spsram_128x104  x_ct_spsram_128x104_3 (
@@ -167,7 +167,7 @@ ct_spsram_128x104  x_ct_spsram_128x104_3 (
 ct_spsram_256x100  x_ct_spsram_256x100_3 (
 `endif
 `ifdef L2_CACHE_1M
-ct_spsram_512x96  x_ct_spsram_512x96_3 ( 
+ct_spsram_512x96  x_ct_spsram_512x96_3 (
 `endif
 `ifdef L2_CACHE_2M
 ct_spsram_1024x92  x_ct_spsram_1024x92_3 (

@@ -43,9 +43,9 @@ foreach $filename (@file_list){
 		}else{
 			next;
 		}
-	}		
+	}
  	foreach my $file_line (@text){
-    		if ($file_line =~/NOT RUN/){  
+    		if ($file_line =~/NOT RUN/){
      			$result="=>NOT RUN";
 			$not_run=$not_run+1;
 		}
@@ -117,7 +117,7 @@ $Block    $Pattern      $Result
 #.
 #format STDOUT2=
 #@<<<<<<<<<@<<<<<<<<<<<<<<<@>>>>>>>>>>>>
-#$not_run1    $pass1     $fail1      $total1 
+#$not_run1    $pass1     $fail1      $total1
 #.
 $header="---------------------------------------------\n";
 $header1=" Not run   Pass   Fail   Total\n";

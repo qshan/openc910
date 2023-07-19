@@ -30,70 +30,70 @@ module ct_had_pcfifo(
 );
 
 // &Ports; @24
-input           cpuclk;                         
-input           cpurst_b;                       
-input           ctrl_pcfifo_ren;                
-input           ctrl_pcfifo_wen;                
-input           mmu_xx_mmu_en;                  
-input           rtu_had_xx_pcfifo_inst0_chgflow; 
-input   [38:0]  rtu_had_xx_pcfifo_inst0_next_pc; 
-input           rtu_had_xx_pcfifo_inst1_chgflow; 
-input   [38:0]  rtu_had_xx_pcfifo_inst1_next_pc; 
-input           rtu_had_xx_pcfifo_inst2_chgflow; 
-input   [38:0]  rtu_had_xx_pcfifo_inst2_next_pc; 
-output  [63:0]  pcfifo_regs_data;               
+input           cpuclk;
+input           cpurst_b;
+input           ctrl_pcfifo_ren;
+input           ctrl_pcfifo_wen;
+input           mmu_xx_mmu_en;
+input           rtu_had_xx_pcfifo_inst0_chgflow;
+input   [38:0]  rtu_had_xx_pcfifo_inst0_next_pc;
+input           rtu_had_xx_pcfifo_inst1_chgflow;
+input   [38:0]  rtu_had_xx_pcfifo_inst1_next_pc;
+input           rtu_had_xx_pcfifo_inst2_chgflow;
+input   [38:0]  rtu_had_xx_pcfifo_inst2_next_pc;
+output  [63:0]  pcfifo_regs_data;
 
 // &Regs; @25
-reg     [2 :0]  chgflow_valid;                  
-reg             ctrl_pcfifo_wen_flop;           
-reg     [39:0]  pcfifo_din_0;                   
-reg     [39:0]  pcfifo_din_1;                   
-reg     [39:0]  pcfifo_din_2;                   
-reg     [39:0]  pcfifo_dout;                    
-reg     [4 :0]  rptr;                           
-reg     [4 :0]  wptr;                           
+reg     [2 :0]  chgflow_valid;
+reg             ctrl_pcfifo_wen_flop;
+reg     [39:0]  pcfifo_din_0;
+reg     [39:0]  pcfifo_din_1;
+reg     [39:0]  pcfifo_din_2;
+reg     [39:0]  pcfifo_dout;
+reg     [4 :0]  rptr;
+reg     [4 :0]  wptr;
 
 // &Wires; @26
-wire    [2 :0]  chgflow_valid_pre;              
-wire            cpuclk;                         
-wire            cpurst_b;                       
-wire            create_one;                     
-wire            create_three;                   
-wire            create_two;                     
-wire            create_vld;                     
-wire            ctrl_pcfifo_ren;                
-wire            ctrl_pcfifo_wen;                
-wire            inst0_chgflow_vld;              
-wire            inst1_chgflow_vld;              
-wire            inst2_chgflow_vld;              
-wire            mmu_xx_mmu_en;                  
-wire            one_entry_left;                 
-wire            pcfifo_empty;                   
-wire            pcfifo_full;                    
-wire    [63:0]  pcfifo_regs_data;               
-wire    [4 :0]  rptr_inc;                       
-wire            rptr_inc_1;                     
-wire            rptr_inc_2;                     
-wire            rptr_inc_3;                     
-wire            rtu_had_xx_pcfifo_inst0_chgflow; 
-wire    [38:0]  rtu_had_xx_pcfifo_inst0_next_pc; 
-wire            rtu_had_xx_pcfifo_inst1_chgflow; 
-wire    [38:0]  rtu_had_xx_pcfifo_inst1_next_pc; 
-wire            rtu_had_xx_pcfifo_inst2_chgflow; 
-wire    [38:0]  rtu_had_xx_pcfifo_inst2_next_pc; 
-wire            two_entry_left;                 
-wire    [4 :0]  wptr_0;                         
-wire    [4 :0]  wptr_1;                         
-wire    [4 :0]  wptr_2;                         
-wire    [4 :0]  wptr_inc;                       
-wire    [15:0]  wptr_sel_0;                     
-wire    [15:0]  wptr_sel_1;                     
-wire    [15:0]  wptr_sel_1_for_create_two;      
-wire    [15:0]  wptr_sel_2;                     
+wire    [2 :0]  chgflow_valid_pre;
+wire            cpuclk;
+wire            cpurst_b;
+wire            create_one;
+wire            create_three;
+wire            create_two;
+wire            create_vld;
+wire            ctrl_pcfifo_ren;
+wire            ctrl_pcfifo_wen;
+wire            inst0_chgflow_vld;
+wire            inst1_chgflow_vld;
+wire            inst2_chgflow_vld;
+wire            mmu_xx_mmu_en;
+wire            one_entry_left;
+wire            pcfifo_empty;
+wire            pcfifo_full;
+wire    [63:0]  pcfifo_regs_data;
+wire    [4 :0]  rptr_inc;
+wire            rptr_inc_1;
+wire            rptr_inc_2;
+wire            rptr_inc_3;
+wire            rtu_had_xx_pcfifo_inst0_chgflow;
+wire    [38:0]  rtu_had_xx_pcfifo_inst0_next_pc;
+wire            rtu_had_xx_pcfifo_inst1_chgflow;
+wire    [38:0]  rtu_had_xx_pcfifo_inst1_next_pc;
+wire            rtu_had_xx_pcfifo_inst2_chgflow;
+wire    [38:0]  rtu_had_xx_pcfifo_inst2_next_pc;
+wire            two_entry_left;
+wire    [4 :0]  wptr_0;
+wire    [4 :0]  wptr_1;
+wire    [4 :0]  wptr_2;
+wire    [4 :0]  wptr_inc;
+wire    [15:0]  wptr_sel_0;
+wire    [15:0]  wptr_sel_1;
+wire    [15:0]  wptr_sel_1_for_create_two;
+wire    [15:0]  wptr_sel_2;
 
 
 //==============================================================================
-//                               HAD PCFIFO 
+//                               HAD PCFIFO
 //==============================================================================
 
 parameter WIDTH         = `PA_WIDTH;
@@ -160,7 +160,7 @@ assign inst1_chgflow_vld  = chgflow_valid[1] && ctrl_pcfifo_wen_flop;
 assign inst2_chgflow_vld  = chgflow_valid[2] && ctrl_pcfifo_wen_flop;
 
 assign create_vld   = |chgflow_valid[2:0] && ctrl_pcfifo_wen_flop;
-                      
+
 assign create_three = &chgflow_valid[2:0];
 
 assign create_two   = (chgflow_valid[2:0] == 3'b110) ||
@@ -192,7 +192,7 @@ begin
     pcfifo_reg[i][WIDTH-1:0] <= pcfifo_din_1[WIDTH-1:0];
   else if (inst2_chgflow_vld && (create_three && wptr_sel_2[i] || create_two && wptr_sel_1[i] || create_one && wptr_sel_0[i]))
     pcfifo_reg[i][WIDTH-1:0] <= pcfifo_din_2[WIDTH-1:0];
-  else 
+  else
     pcfifo_reg[i][WIDTH-1:0] <= pcfifo_reg[i][WIDTH-1:0];
 end
 end
@@ -215,7 +215,7 @@ begin
     pcfifo_dout[WIDTH-1:0] <= pcfifo_dout[WIDTH-1:0];
 end
 
-assign pcfifo_regs_data[DATAW-1:0] = mmu_xx_mmu_en ? {{(DATAW-WIDTH){pcfifo_dout[WIDTH-1]}},pcfifo_dout[WIDTH-1:0]} 
+assign pcfifo_regs_data[DATAW-1:0] = mmu_xx_mmu_en ? {{(DATAW-WIDTH){pcfifo_dout[WIDTH-1]}},pcfifo_dout[WIDTH-1:0]}
                                                    : {{(DATAW-WIDTH){1'b0}},pcfifo_dout[WIDTH-1:0]};
 
 //==========================================================
@@ -251,9 +251,9 @@ begin
     wptr[PTR_WIDTH-1:0] <= wptr[PTR_WIDTH-1:0];
 end
 
-assign wptr_inc[PTR_WIDTH-1:0] = create_three 
+assign wptr_inc[PTR_WIDTH-1:0] = create_three
                                ? {{(PTR_WIDTH-2){1'b0}},2'b11}
-                               : create_two ? {{(PTR_WIDTH-2){1'b0}},2'b10} 
+                               : create_two ? {{(PTR_WIDTH-2){1'b0}},2'b10}
                                             : {{(PTR_WIDTH-2){1'b0}},2'b01};
 
 assign wptr_0[PTR_WIDTH-1:0] = wptr[PTR_WIDTH-1:0];
@@ -263,18 +263,18 @@ assign wptr_2[PTR_WIDTH-1:0] = wptr[PTR_WIDTH-1:0] + {{(PTR_WIDTH-2){1'b0}},2'b1
 //==========================================================
 //                 PCFIFO rptr maintenance
 //==========================================================
-assign rptr_inc_3 = create_vld && 
+assign rptr_inc_3 = create_vld &&
                     pcfifo_full && create_three;
 assign rptr_inc_2 = create_vld &&
-                    (one_entry_left && create_three || 
+                    (one_entry_left && create_three ||
                      pcfifo_full && create_two);
-assign rptr_inc_1 = create_vld && 
+assign rptr_inc_1 = create_vld &&
                     (two_entry_left && create_three ||
                      one_entry_left && create_two ||
                      pcfifo_full && create_one) ||
                     ctrl_pcfifo_ren;
 
-assign rptr_inc[PTR_WIDTH-1:0] = rptr_inc_3 
+assign rptr_inc[PTR_WIDTH-1:0] = rptr_inc_3
                                ? {{(PTR_WIDTH-2){1'b0}},2'b11}
                                : rptr_inc_2 ? {{(PTR_WIDTH-2){1'b0}},2'b10}
                                             : rptr_inc_1 ? {{(PTR_WIDTH-2){1'b0}},2'b01}

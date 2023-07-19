@@ -33,257 +33,257 @@ module ct_vfmau_mult_compressor(
 );
 
 // &Ports; @32
-input            cp0_vfpu_icg_en;               
-input            cp0_yy_clk_en;                 
-input            dp_xx_ex1_double;              
-input            dp_xx_ex1_half;                
-input            dp_xx_ex1_single;              
-input            forever_cpuclk;                
-input            mult1_ex1_op0_half0_hidden_bit; 
-input            mult1_ex1_op0_hidden_bit;      
-input            mult1_ex1_op1_half0_hidden_bit; 
-input            mult1_ex1_op1_hidden_bit;      
-input   [51 :0]  op0_frac;                      
-input   [51 :0]  op1_frac;                      
-input            pad_yy_icg_scan_en;            
-input            pipe_down;                     
-output  [105:0]  carry;                         
-output  [21 :0]  simd_half0_product;            
-output  [105:0]  sum;                           
+input            cp0_vfpu_icg_en;
+input            cp0_yy_clk_en;
+input            dp_xx_ex1_double;
+input            dp_xx_ex1_half;
+input            dp_xx_ex1_single;
+input            forever_cpuclk;
+input            mult1_ex1_op0_half0_hidden_bit;
+input            mult1_ex1_op0_hidden_bit;
+input            mult1_ex1_op1_half0_hidden_bit;
+input            mult1_ex1_op1_hidden_bit;
+input   [51 :0]  op0_frac;
+input   [51 :0]  op1_frac;
+input            pad_yy_icg_scan_en;
+input            pipe_down;
+output  [105:0]  carry;
+output  [21 :0]  simd_half0_product;
+output  [105:0]  sum;
 
 // &Regs; @33
-reg     [79 :0]  c0_reg;                        
-reg     [81 :0]  c1_reg;                        
-reg     [67 :0]  c2_reg;                        
-reg     [79 :0]  s0_reg;                        
-reg     [81 :0]  s1_reg;                        
-reg     [67 :0]  s2_reg;                        
+reg     [79 :0]  c0_reg;
+reg     [81 :0]  c1_reg;
+reg     [67 :0]  c2_reg;
+reg     [79 :0]  s0_reg;
+reg     [81 :0]  s1_reg;
+reg     [67 :0]  s2_reg;
 
 // &Wires; @34
-wire    [61 :0]  c0_0;                          
-wire    [63 :0]  c0_1;                          
-wire    [63 :0]  c0_2;                          
-wire    [63 :0]  c0_3;                          
-wire    [63 :0]  c0_4;                          
-wire    [63 :0]  c0_5;                          
-wire    [59 :0]  c0_6;                          
-wire    [15 :0]  c0_7;                          
-wire    [69 :0]  c1_0;                          
-wire    [71 :0]  c1_1;                          
-wire    [71 :0]  c1_2;                          
-wire    [71 :0]  c1_3;                          
-wire    [59 :0]  c1_4;                          
-wire    [21 :0]  c1_5;                          
-wire    [79 :0]  c2_0;                          
-wire    [81 :0]  c2_1;                          
-wire    [67 :0]  c2_2;                          
-wire    [103:0]  c3_0;                          
-wire    [67 :0]  c3_1;                          
-wire    [105:0]  c4_0;                          
-wire    [105:0]  carry;                         
-wire             compresor_ex1_ex2_pipe_clk;    
-wire             compressor_ex1_ex2_pipedown;   
-wire    [61 :0]  cout0_0;                       
-wire    [63 :0]  cout0_1;                       
-wire    [63 :0]  cout0_2;                       
-wire    [63 :0]  cout0_3;                       
-wire    [63 :0]  cout0_4;                       
-wire    [63 :0]  cout0_5;                       
-wire    [15 :0]  cout0_7;                       
-wire    [59 :0]  cout1_4;                       
-wire    [21 :0]  cout1_5;                       
-wire    [79 :0]  cout2_0;                       
-wire    [81 :0]  cout2_1;                       
-wire    [105:0]  cout4_0;                       
-wire             cp0_vfpu_icg_en;               
-wire             cp0_yy_clk_en;                 
-wire             dp_xx_ex1_double;              
-wire             dp_xx_ex1_half;                
-wire             dp_xx_ex1_single;              
-wire             forever_cpuclk;                
-wire    [1  :0]  h0;                            
-wire    [1  :0]  h1;                            
-wire    [1  :0]  h10;                           
-wire    [1  :0]  h11;                           
-wire    [1  :0]  h12;                           
-wire    [1  :0]  h13;                           
-wire    [1  :0]  h14;                           
-wire    [1  :0]  h15;                           
-wire    [1  :0]  h16;                           
-wire    [1  :0]  h17;                           
-wire    [1  :0]  h18;                           
-wire    [1  :0]  h19;                           
-wire    [1  :0]  h2;                            
-wire    [1  :0]  h20;                           
-wire    [1  :0]  h21;                           
-wire    [1  :0]  h22;                           
-wire    [1  :0]  h23;                           
-wire    [1  :0]  h24;                           
-wire    [1  :0]  h25;                           
-wire    [1  :0]  h26;                           
-wire    [1  :0]  h26_data;                      
-wire    [1  :0]  h3;                            
-wire    [1  :0]  h4;                            
-wire    [1  :0]  h5;                            
-wire    [1  :0]  h6;                            
-wire    [1  :0]  h7;                            
-wire    [1  :0]  h8;                            
-wire    [1  :0]  h9;                            
-wire             mult1_ex1_op0_half0_hidden_bit; 
-wire             mult1_ex1_op0_hidden_bit;      
-wire             mult1_ex1_op1_half0_hidden_bit; 
-wire             mult1_ex1_op1_hidden_bit;      
-wire    [53 :0]  multiplicand;                  
-wire    [53 :0]  multiplier;                    
-wire    [2  :0]  multiplier_code0;              
-wire    [51 :0]  op0_frac;                      
-wire             op0_frac_half0_hidden;         
-wire             op0_frac_hidden;               
-wire    [51 :0]  op1_frac;                      
-wire             op1_frac_half0_hidden;         
-wire             op1_frac_hidden;               
-wire             oper_doub;                     
-wire             oper_half;                     
-wire             oper_half0_norm;               
-wire             oper_norm;                     
-wire             oper_sing;                     
-wire    [61 :0]  p0_0;                          
-wire    [61 :0]  p0_1;                          
-wire    [61 :0]  p0_2;                          
-wire    [61 :0]  p0_3;                          
-wire    [61 :0]  p0_cin;                        
-wire    [63 :0]  p1_0;                          
-wire    [63 :0]  p1_1;                          
-wire    [63 :0]  p1_2;                          
-wire    [63 :0]  p1_3;                          
-wire    [63 :0]  p1_cin;                        
-wire    [63 :0]  p2_0;                          
-wire    [63 :0]  p2_1;                          
-wire    [63 :0]  p2_2;                          
-wire    [63 :0]  p2_3;                          
-wire    [63 :0]  p2_cin;                        
-wire    [63 :0]  p3_0;                          
-wire    [63 :0]  p3_1;                          
-wire    [63 :0]  p3_2;                          
-wire    [63 :0]  p3_3;                          
-wire    [63 :0]  p3_cin;                        
-wire    [63 :0]  p4_0;                          
-wire    [63 :0]  p4_1;                          
-wire    [63 :0]  p4_2;                          
-wire    [63 :0]  p4_3;                          
-wire    [63 :0]  p4_cin;                        
-wire    [63 :0]  p5_0;                          
-wire    [63 :0]  p5_1;                          
-wire    [63 :0]  p5_2;                          
-wire    [63 :0]  p5_3;                          
-wire    [63 :0]  p5_cin;                        
-wire    [59 :0]  p6_0;                          
-wire    [59 :0]  p6_1;                          
-wire    [59 :0]  p6_2;                          
-wire    [15 :0]  p7_0;                          
-wire    [15 :0]  p7_1;                          
-wire    [15 :0]  p7_2;                          
-wire    [15 :0]  p7_3;                          
-wire    [15 :0]  p7_cin;                        
-wire             pad_yy_icg_scan_en;            
-wire    [53 :0]  part_product0;                 
-wire    [53 :0]  part_product1;                 
-wire    [53 :0]  part_product10;                
-wire    [53 :0]  part_product11;                
-wire    [53 :0]  part_product12;                
-wire    [53 :0]  part_product13;                
-wire    [53 :0]  part_product14;                
-wire    [53 :0]  part_product15;                
-wire    [53 :0]  part_product16;                
-wire    [53 :0]  part_product17;                
-wire    [53 :0]  part_product18;                
-wire    [53 :0]  part_product19;                
-wire    [53 :0]  part_product2;                 
-wire    [53 :0]  part_product20;                
-wire    [53 :0]  part_product21;                
-wire    [53 :0]  part_product22;                
-wire    [53 :0]  part_product23;                
-wire    [53 :0]  part_product24;                
-wire    [53 :0]  part_product25;                
-wire    [53 :0]  part_product26;                
-wire    [53 :0]  part_product3;                 
-wire    [51 :0]  part_product30;                
-wire    [51 :0]  part_product31;                
-wire    [9  :0]  part_product38;                
-wire    [9  :0]  part_product39;                
-wire    [53 :0]  part_product4;                 
-wire    [53 :0]  part_product5;                 
-wire    [53 :0]  part_product6;                 
-wire    [53 :0]  part_product7;                 
-wire    [53 :0]  part_product8;                 
-wire    [53 :0]  part_product9;                 
-wire             pipe_down;                     
-wire    [69 :0]  q0_0;                          
-wire    [69 :0]  q0_1;                          
-wire    [69 :0]  q0_2;                          
-wire    [71 :0]  q1_0;                          
-wire    [71 :0]  q1_1;                          
-wire    [71 :0]  q1_2;                          
-wire    [71 :0]  q2_0;                          
-wire    [71 :0]  q2_1;                          
-wire    [71 :0]  q2_2;                          
-wire    [71 :0]  q3_0;                          
-wire    [71 :0]  q3_1;                          
-wire    [71 :0]  q3_2;                          
-wire    [59 :0]  q4_0;                          
-wire    [59 :0]  q4_1;                          
-wire    [59 :0]  q4_2;                          
-wire    [59 :0]  q4_3;                          
-wire    [59 :0]  q4_cin;                        
-wire    [21 :0]  q5_0;                          
-wire    [21 :0]  q5_1;                          
-wire    [21 :0]  q5_2;                          
-wire    [21 :0]  q5_3;                          
-wire    [21 :0]  q5_cin;                        
-wire    [79 :0]  r0_0;                          
-wire    [79 :0]  r0_1;                          
-wire    [79 :0]  r0_2;                          
-wire    [79 :0]  r0_3;                          
-wire    [79 :0]  r0_cin;                        
-wire    [81 :0]  r1_0;                          
-wire    [81 :0]  r1_1;                          
-wire    [81 :0]  r1_2;                          
-wire    [81 :0]  r1_3;                          
-wire    [81 :0]  r1_cin;                        
-wire    [61 :0]  s0_0;                          
-wire    [63 :0]  s0_1;                          
-wire    [63 :0]  s0_2;                          
-wire    [63 :0]  s0_3;                          
-wire    [63 :0]  s0_4;                          
-wire    [63 :0]  s0_5;                          
-wire    [59 :0]  s0_6;                          
-wire    [15 :0]  s0_7;                          
-wire    [69 :0]  s1_0;                          
-wire    [71 :0]  s1_1;                          
-wire    [71 :0]  s1_2;                          
-wire    [71 :0]  s1_3;                          
-wire    [59 :0]  s1_4;                          
-wire    [21 :0]  s1_5;                          
-wire    [79 :0]  s2_0;                          
-wire    [81 :0]  s2_1;                          
-wire    [67 :0]  s2_2;                          
-wire    [103:0]  s3_0;                          
-wire    [67 :0]  s3_1;                          
-wire    [105:0]  s4_0;                          
-wire    [26 :0]  sign_not;                      
-wire    [21 :0]  simd_half0_product;            
-wire    [105:0]  sum;                           
-wire    [103:0]  v0_0;                          
-wire    [103:0]  v0_1;                          
-wire    [103:0]  v0_2;                          
-wire    [67 :0]  v1_0;                          
-wire    [67 :0]  v1_1;                          
-wire    [67 :0]  v1_2;                          
-wire    [105:0]  w0_0;                          
-wire    [105:0]  w0_1;                          
-wire    [105:0]  w0_2;                          
-wire    [105:0]  w0_3;                          
-wire    [105:0]  w0_cin;                        
+wire    [61 :0]  c0_0;
+wire    [63 :0]  c0_1;
+wire    [63 :0]  c0_2;
+wire    [63 :0]  c0_3;
+wire    [63 :0]  c0_4;
+wire    [63 :0]  c0_5;
+wire    [59 :0]  c0_6;
+wire    [15 :0]  c0_7;
+wire    [69 :0]  c1_0;
+wire    [71 :0]  c1_1;
+wire    [71 :0]  c1_2;
+wire    [71 :0]  c1_3;
+wire    [59 :0]  c1_4;
+wire    [21 :0]  c1_5;
+wire    [79 :0]  c2_0;
+wire    [81 :0]  c2_1;
+wire    [67 :0]  c2_2;
+wire    [103:0]  c3_0;
+wire    [67 :0]  c3_1;
+wire    [105:0]  c4_0;
+wire    [105:0]  carry;
+wire             compresor_ex1_ex2_pipe_clk;
+wire             compressor_ex1_ex2_pipedown;
+wire    [61 :0]  cout0_0;
+wire    [63 :0]  cout0_1;
+wire    [63 :0]  cout0_2;
+wire    [63 :0]  cout0_3;
+wire    [63 :0]  cout0_4;
+wire    [63 :0]  cout0_5;
+wire    [15 :0]  cout0_7;
+wire    [59 :0]  cout1_4;
+wire    [21 :0]  cout1_5;
+wire    [79 :0]  cout2_0;
+wire    [81 :0]  cout2_1;
+wire    [105:0]  cout4_0;
+wire             cp0_vfpu_icg_en;
+wire             cp0_yy_clk_en;
+wire             dp_xx_ex1_double;
+wire             dp_xx_ex1_half;
+wire             dp_xx_ex1_single;
+wire             forever_cpuclk;
+wire    [1  :0]  h0;
+wire    [1  :0]  h1;
+wire    [1  :0]  h10;
+wire    [1  :0]  h11;
+wire    [1  :0]  h12;
+wire    [1  :0]  h13;
+wire    [1  :0]  h14;
+wire    [1  :0]  h15;
+wire    [1  :0]  h16;
+wire    [1  :0]  h17;
+wire    [1  :0]  h18;
+wire    [1  :0]  h19;
+wire    [1  :0]  h2;
+wire    [1  :0]  h20;
+wire    [1  :0]  h21;
+wire    [1  :0]  h22;
+wire    [1  :0]  h23;
+wire    [1  :0]  h24;
+wire    [1  :0]  h25;
+wire    [1  :0]  h26;
+wire    [1  :0]  h26_data;
+wire    [1  :0]  h3;
+wire    [1  :0]  h4;
+wire    [1  :0]  h5;
+wire    [1  :0]  h6;
+wire    [1  :0]  h7;
+wire    [1  :0]  h8;
+wire    [1  :0]  h9;
+wire             mult1_ex1_op0_half0_hidden_bit;
+wire             mult1_ex1_op0_hidden_bit;
+wire             mult1_ex1_op1_half0_hidden_bit;
+wire             mult1_ex1_op1_hidden_bit;
+wire    [53 :0]  multiplicand;
+wire    [53 :0]  multiplier;
+wire    [2  :0]  multiplier_code0;
+wire    [51 :0]  op0_frac;
+wire             op0_frac_half0_hidden;
+wire             op0_frac_hidden;
+wire    [51 :0]  op1_frac;
+wire             op1_frac_half0_hidden;
+wire             op1_frac_hidden;
+wire             oper_doub;
+wire             oper_half;
+wire             oper_half0_norm;
+wire             oper_norm;
+wire             oper_sing;
+wire    [61 :0]  p0_0;
+wire    [61 :0]  p0_1;
+wire    [61 :0]  p0_2;
+wire    [61 :0]  p0_3;
+wire    [61 :0]  p0_cin;
+wire    [63 :0]  p1_0;
+wire    [63 :0]  p1_1;
+wire    [63 :0]  p1_2;
+wire    [63 :0]  p1_3;
+wire    [63 :0]  p1_cin;
+wire    [63 :0]  p2_0;
+wire    [63 :0]  p2_1;
+wire    [63 :0]  p2_2;
+wire    [63 :0]  p2_3;
+wire    [63 :0]  p2_cin;
+wire    [63 :0]  p3_0;
+wire    [63 :0]  p3_1;
+wire    [63 :0]  p3_2;
+wire    [63 :0]  p3_3;
+wire    [63 :0]  p3_cin;
+wire    [63 :0]  p4_0;
+wire    [63 :0]  p4_1;
+wire    [63 :0]  p4_2;
+wire    [63 :0]  p4_3;
+wire    [63 :0]  p4_cin;
+wire    [63 :0]  p5_0;
+wire    [63 :0]  p5_1;
+wire    [63 :0]  p5_2;
+wire    [63 :0]  p5_3;
+wire    [63 :0]  p5_cin;
+wire    [59 :0]  p6_0;
+wire    [59 :0]  p6_1;
+wire    [59 :0]  p6_2;
+wire    [15 :0]  p7_0;
+wire    [15 :0]  p7_1;
+wire    [15 :0]  p7_2;
+wire    [15 :0]  p7_3;
+wire    [15 :0]  p7_cin;
+wire             pad_yy_icg_scan_en;
+wire    [53 :0]  part_product0;
+wire    [53 :0]  part_product1;
+wire    [53 :0]  part_product10;
+wire    [53 :0]  part_product11;
+wire    [53 :0]  part_product12;
+wire    [53 :0]  part_product13;
+wire    [53 :0]  part_product14;
+wire    [53 :0]  part_product15;
+wire    [53 :0]  part_product16;
+wire    [53 :0]  part_product17;
+wire    [53 :0]  part_product18;
+wire    [53 :0]  part_product19;
+wire    [53 :0]  part_product2;
+wire    [53 :0]  part_product20;
+wire    [53 :0]  part_product21;
+wire    [53 :0]  part_product22;
+wire    [53 :0]  part_product23;
+wire    [53 :0]  part_product24;
+wire    [53 :0]  part_product25;
+wire    [53 :0]  part_product26;
+wire    [53 :0]  part_product3;
+wire    [51 :0]  part_product30;
+wire    [51 :0]  part_product31;
+wire    [9  :0]  part_product38;
+wire    [9  :0]  part_product39;
+wire    [53 :0]  part_product4;
+wire    [53 :0]  part_product5;
+wire    [53 :0]  part_product6;
+wire    [53 :0]  part_product7;
+wire    [53 :0]  part_product8;
+wire    [53 :0]  part_product9;
+wire             pipe_down;
+wire    [69 :0]  q0_0;
+wire    [69 :0]  q0_1;
+wire    [69 :0]  q0_2;
+wire    [71 :0]  q1_0;
+wire    [71 :0]  q1_1;
+wire    [71 :0]  q1_2;
+wire    [71 :0]  q2_0;
+wire    [71 :0]  q2_1;
+wire    [71 :0]  q2_2;
+wire    [71 :0]  q3_0;
+wire    [71 :0]  q3_1;
+wire    [71 :0]  q3_2;
+wire    [59 :0]  q4_0;
+wire    [59 :0]  q4_1;
+wire    [59 :0]  q4_2;
+wire    [59 :0]  q4_3;
+wire    [59 :0]  q4_cin;
+wire    [21 :0]  q5_0;
+wire    [21 :0]  q5_1;
+wire    [21 :0]  q5_2;
+wire    [21 :0]  q5_3;
+wire    [21 :0]  q5_cin;
+wire    [79 :0]  r0_0;
+wire    [79 :0]  r0_1;
+wire    [79 :0]  r0_2;
+wire    [79 :0]  r0_3;
+wire    [79 :0]  r0_cin;
+wire    [81 :0]  r1_0;
+wire    [81 :0]  r1_1;
+wire    [81 :0]  r1_2;
+wire    [81 :0]  r1_3;
+wire    [81 :0]  r1_cin;
+wire    [61 :0]  s0_0;
+wire    [63 :0]  s0_1;
+wire    [63 :0]  s0_2;
+wire    [63 :0]  s0_3;
+wire    [63 :0]  s0_4;
+wire    [63 :0]  s0_5;
+wire    [59 :0]  s0_6;
+wire    [15 :0]  s0_7;
+wire    [69 :0]  s1_0;
+wire    [71 :0]  s1_1;
+wire    [71 :0]  s1_2;
+wire    [71 :0]  s1_3;
+wire    [59 :0]  s1_4;
+wire    [21 :0]  s1_5;
+wire    [79 :0]  s2_0;
+wire    [81 :0]  s2_1;
+wire    [67 :0]  s2_2;
+wire    [103:0]  s3_0;
+wire    [67 :0]  s3_1;
+wire    [105:0]  s4_0;
+wire    [26 :0]  sign_not;
+wire    [21 :0]  simd_half0_product;
+wire    [105:0]  sum;
+wire    [103:0]  v0_0;
+wire    [103:0]  v0_1;
+wire    [103:0]  v0_2;
+wire    [67 :0]  v1_0;
+wire    [67 :0]  v1_1;
+wire    [67 :0]  v1_2;
+wire    [105:0]  w0_0;
+wire    [105:0]  w0_1;
+wire    [105:0]  w0_2;
+wire    [105:0]  w0_3;
+wire    [105:0]  w0_cin;
 
 // &Depend("compressor_32.v"); @35
 // &Depend("compressor_42.v"); @36
@@ -309,198 +309,198 @@ assign multiplier[53:0]   = {2'b0,op1_frac[51:0]};
 
 assign multiplier_code0[2:0] = {multiplier[1:0],1'b0};
 //==========================================================
-//                     EX1 stage 
+//                     EX1 stage
 //==========================================================
 //----------------------------------------------------------
 //                    booth code
 //----------------------------------------------------------
 //use booth code to generate 27 partial products
-//&Instance('#53',"booth_code","x_booth_code0");  
+//&Instance('#53',"booth_code","x_booth_code0");
 booth_code_v1 #(53) x_booth_code0(
-         .A         (multiplicand[52:0]   ),   
-         .code      (multiplier_code0[2:0]),   
-         .product   (part_product0[53:0]  ), 
-         .h         (h0                   ), 
-         .sn        (sign_not[0]         )); 
+         .A         (multiplicand[52:0]   ),
+         .code      (multiplier_code0[2:0]),
+         .product   (part_product0[53:0]  ),
+         .h         (h0                   ),
+         .sn        (sign_not[0]         ));
 
 booth_code_v1 #(53) x_booth_code1(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[ 3: 1]   ),  
-         .product   (part_product1[53:0] ), 
-         .h         (h1                  ), 
+         .code      (multiplier[ 3: 1]   ),
+         .product   (part_product1[53:0] ),
+         .h         (h1                  ),
          .sn        (sign_not[1]         ));
-       
+
 booth_code_v1 #(53) x_booth_code2(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[ 5: 3]   ),  
-         .product   (part_product2[53:0] ), 
-         .h         (h2                  ),    
+         .code      (multiplier[ 5: 3]   ),
+         .product   (part_product2[53:0] ),
+         .h         (h2                  ),
          .sn        (sign_not[2])        );
 
 booth_code_v1 #(53) x_booth_code3(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[ 7: 5]   ),  
-         .product   (part_product3[53:0] ), 
-         .h         (h3                  ),    
+         .code      (multiplier[ 7: 5]   ),
+         .product   (part_product3[53:0] ),
+         .h         (h3                  ),
          .sn        (sign_not[3])        );
 
 booth_code_v1 #(53) x_booth_code4(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[9: 7]    ),  
-         .product   (part_product4[53:0] ), 
-         .h         (h4                  ),    
+         .code      (multiplier[9: 7]    ),
+         .product   (part_product4[53:0] ),
+         .h         (h4                  ),
          .sn        (sign_not[4])        );
 
 booth_code_v1 #(53) x_booth_code5(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[11: 9]   ),  
-         .product   (part_product5[53:0] ), 
-         .h         (h5                  ),    
+         .code      (multiplier[11: 9]   ),
+         .product   (part_product5[53:0] ),
+         .h         (h5                  ),
          .sn        (sign_not[5]         ));
 
 booth_code_v1 #(53) x_booth_code6(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[13: 11]  ),  
-         .product   (part_product6[53:0] ), 
-         .h         (h6                  ),    
+         .code      (multiplier[13: 11]  ),
+         .product   (part_product6[53:0] ),
+         .h         (h6                  ),
          .sn        (sign_not[6])        );
 
 booth_code_v1 #(53) x_booth_code7(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[15: 13]  ),  
-         .product   (part_product7[53:0] ), 
-         .h         (h7                  ),    
+         .code      (multiplier[15: 13]  ),
+         .product   (part_product7[53:0] ),
+         .h         (h7                  ),
          .sn        (sign_not[7])        );
 
 booth_code_v1 #(53) x_booth_code8(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[17: 15]  ),  
-         .product   (part_product8[53:0] ), 
-         .h         (h8                  ),    
+         .code      (multiplier[17: 15]  ),
+         .product   (part_product8[53:0] ),
+         .h         (h8                  ),
          .sn        (sign_not[8])        );
 
 booth_code_v1 #(53) x_booth_code9(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[19: 17]  ),  
-         .product   (part_product9[53:0] ), 
-         .h         (h9                  ),    
+         .code      (multiplier[19: 17]  ),
+         .product   (part_product9[53:0] ),
+         .h         (h9                  ),
          .sn        (sign_not[9])        );
 
 booth_code_v1 #(53) x_booth_code10(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[21: 19]  ),  
-         .product   (part_product10[53:0]), 
-         .h         (h10                 ),    
+         .code      (multiplier[21: 19]  ),
+         .product   (part_product10[53:0]),
+         .h         (h10                 ),
          .sn        (sign_not[10])       );
 
 booth_code_v1 #(53) x_booth_code11(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[23: 21]  ),  
-         .product   (part_product11[53:0]), 
-         .h         (h11                 ),    
+         .code      (multiplier[23: 21]  ),
+         .product   (part_product11[53:0]),
+         .h         (h11                 ),
          .sn        (sign_not[11])       );
 
 booth_code_v1 #(53) x_booth_code12(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[25: 23]  ),  
-         .product   (part_product12[53:0]), 
-         .h         (h12                 ),    
+         .code      (multiplier[25: 23]  ),
+         .product   (part_product12[53:0]),
+         .h         (h12                 ),
          .sn        (sign_not[12])       );
 
 booth_code_v1 #(53) x_booth_code13(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[27: 25]  ),  
-         .product   (part_product13[53:0]), 
-         .h         (h13                 ),    
+         .code      (multiplier[27: 25]  ),
+         .product   (part_product13[53:0]),
+         .h         (h13                 ),
          .sn        (sign_not[13])       );
 
 booth_code_v1 #(53) x_booth_code14(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[29: 27]  ),  
-         .product   (part_product14[53:0]), 
-         .h         (h14                 ),    
+         .code      (multiplier[29: 27]  ),
+         .product   (part_product14[53:0]),
+         .h         (h14                 ),
          .sn        (sign_not[14])       );
 
 booth_code_v1 #(53) x_booth_code15(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[31: 29]  ),  
-         .product   (part_product15[53:0]), 
-         .h         (h15                 ),    
+         .code      (multiplier[31: 29]  ),
+         .product   (part_product15[53:0]),
+         .h         (h15                 ),
          .sn        (sign_not[15])       );
 
 booth_code_v1 #(53) x_booth_code16(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[33: 31]  ),  
-         .product   (part_product16[53:0]), 
-         .h         (h16                 ),    
+         .code      (multiplier[33: 31]  ),
+         .product   (part_product16[53:0]),
+         .h         (h16                 ),
          .sn        (sign_not[16])       );
 
 booth_code_v1 #(53) x_booth_code17(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[35: 33]  ),  
-         .product   (part_product17[53:0]), 
-         .h         (h17                 ),    
+         .code      (multiplier[35: 33]  ),
+         .product   (part_product17[53:0]),
+         .h         (h17                 ),
          .sn        (sign_not[17])       );
 booth_code_v1 #(53) x_booth_code18(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[37: 35]  ),  
-         .product   (part_product18[53:0]), 
-         .h         (h18                 ),    
+         .code      (multiplier[37: 35]  ),
+         .product   (part_product18[53:0]),
+         .h         (h18                 ),
          .sn        (sign_not[18])       );
 booth_code_v1 #(53) x_booth_code19(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[39: 37]  ),  
-         .product   (part_product19[53:0]), 
-         .h         (h19                 ),    
+         .code      (multiplier[39: 37]  ),
+         .product   (part_product19[53:0]),
+         .h         (h19                 ),
          .sn        (sign_not[19])       );
 
 booth_code_v1 #(53) x_booth_code20(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[41: 39]  ),  
-         .product   (part_product20[53:0]), 
-         .h         (h20                 ),    
+         .code      (multiplier[41: 39]  ),
+         .product   (part_product20[53:0]),
+         .h         (h20                 ),
          .sn        (sign_not[20])       );
 
 booth_code_v1 #(53) x_booth_code21(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[43: 41]  ),  
-         .product   (part_product21[53:0]), 
-         .h         (h21                 ),    
+         .code      (multiplier[43: 41]  ),
+         .product   (part_product21[53:0]),
+         .h         (h21                 ),
          .sn        (sign_not[21])       );
 
 booth_code_v1 #(53) x_booth_code22(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[45: 43]  ),  
-         .product   (part_product22[53:0]), 
-         .h         (h22                 ),    
+         .code      (multiplier[45: 43]  ),
+         .product   (part_product22[53:0]),
+         .h         (h22                 ),
          .sn        (sign_not[22])       );
 
 booth_code_v1 #(53) x_booth_code23(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[47: 45]  ),  
-         .product   (part_product23[53:0]), 
-         .h         (h23                 ),    
+         .code      (multiplier[47: 45]  ),
+         .product   (part_product23[53:0]),
+         .h         (h23                 ),
          .sn        (sign_not[23])       );
 
 booth_code_v1 #(53) x_booth_code24(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[49: 47]  ),  
-         .product   (part_product24[53:0]), 
-         .h         (h24                 ),    
+         .code      (multiplier[49: 47]  ),
+         .product   (part_product24[53:0]),
+         .h         (h24                 ),
          .sn        (sign_not[24])       );
 
 booth_code_v1 #(53) x_booth_code25(
          .A         (multiplicand[52:0]  ),
-         .code      (multiplier[51: 49]  ),  
-         .product   (part_product25[53:0]), 
-         .h         (h25                 ),    
+         .code      (multiplier[51: 49]  ),
+         .product   (part_product25[53:0]),
+         .h         (h25                 ),
          .sn        (sign_not[25])       );
 
 booth_code_v1 #(53) x_booth_code26(
          .A         (multiplicand[52:0]     ),
-         .code      (multiplier[53: 51]     ),  
-         .product   (part_product26[53:0]   ), 
-         .h         (h26                    ),    
+         .code      (multiplier[53: 51]     ),
+         .product   (part_product26[53:0]   ),
+         .h         (h26                    ),
          .sn        (sign_not[26])          );
 
 assign h26_data[1:0] = h26[1:0];
@@ -583,7 +583,7 @@ assign oper_half0_norm      = op0_frac_half0_hidden && op1_frac_half0_hidden;
 //3. scalar half:
 //   EX1 : 4:2 compressor -> 4:2 compressor
 //   EX2 : add
-  
+
 //----------------------------------------------------------
 //                    L1 compressor
 //----------------------------------------------------------
@@ -681,7 +681,7 @@ assign p2_cin[63:0] = {cout0_2[62:0],1'b0};
 //------------------------- P3 ---------------------------------------
 assign p3_0[26:0]  = {part_product12[24:0],h11[1:0]};
 assign p3_0[28:27] = (oper_sing) ? {1'b1,sign_not[12]} : part_product12[26:25];
-assign p3_0[30:29] = {2{!oper_sing}}  & part_product12[28:27]; 
+assign p3_0[30:29] = {2{!oper_sing}}  & part_product12[28:27];
 assign p3_0[55:31] = {25{oper_doub}}  & part_product12[53:29];
 assign p3_0[57:56] = {2{oper_doub}}   & {1'b1,sign_not[12]};
 assign p3_0[63:58] = 6'b0;
@@ -698,7 +698,7 @@ assign p3_cin[63:0]= {cout0_3[62:0],1'b0};
 
 //------------------------- P4 ---------------------------------------
 assign p4_0[63:0]  = {6'b0,1'b1,sign_not[16],part_product16[53:0],h15[1:0]};
-assign p4_1[63:0]  = {4'b0,1'b1,sign_not[17],part_product17[53:0],h16[1:0],2'b0}; 
+assign p4_1[63:0]  = {4'b0,1'b1,sign_not[17],part_product17[53:0],h16[1:0],2'b0};
 assign p4_2[63:0]  = {2'b0,1'b1,sign_not[18],part_product18[53:0],h17[1:0],4'b0};
 assign p4_3[63:0]  = {     1'b1,sign_not[19],part_product19[53:0],h18[1:0],6'b0};
 assign p4_cin[63:0]= {cout0_4[62:0],1'b0};
@@ -723,72 +723,72 @@ assign p7_2[15:0]   = {1'b0,oper_half0_norm,part_product38[9:0],4'b0};
 assign p7_3[15:0]   = {2'b0,part_product39[9:0],4'b0};
 assign p7_cin[15:0] = {cout0_7[14:0],1'b0};
 
-compressor_42 #(62) x_comp0_0(.p0   (p0_0[61:0]), 
+compressor_42 #(62) x_comp0_0(.p0   (p0_0[61:0]),
                             .p1   (p0_1[61:0]),
-                            .p2   (p0_2[61:0]), 
+                            .p2   (p0_2[61:0]),
                             .p3   (p0_3[61:0]),
                             .cin  (p0_cin[61:0]),
-                            .s    (s0_0[61:0]), 
+                            .s    (s0_0[61:0]),
                             .ca   (c0_0[61:0]),
                             .cout (cout0_0[61:0]));
 
-compressor_42 #(64) x_comp0_1(.p0   (p1_0[63:0]), 
+compressor_42 #(64) x_comp0_1(.p0   (p1_0[63:0]),
                             .p1   (p1_1[63:0]),
-                            .p2   (p1_2[63:0]), 
+                            .p2   (p1_2[63:0]),
                             .p3   (p1_3[63:0]),
                             .cin  (p1_cin[63:0]),
-                            .s    (s0_1[63:0]), 
+                            .s    (s0_1[63:0]),
                             .ca   (c0_1[63:0]),
                             .cout (cout0_1[63:0]));
 
-compressor_42 #(64) x_comp0_2(.p0   (p2_0[63:0]), 
+compressor_42 #(64) x_comp0_2(.p0   (p2_0[63:0]),
                             .p1   (p2_1[63:0]),
-                            .p2   (p2_2[63:0]), 
+                            .p2   (p2_2[63:0]),
                             .p3   (p2_3[63:0]),
                             .cin  (p2_cin[63:0]),
-                            .s    (s0_2[63:0]), 
+                            .s    (s0_2[63:0]),
                             .ca   (c0_2[63:0]),
                             .cout (cout0_2[63:0]));
 
-compressor_42 #(64) x_comp0_3(.p0   (p3_0[63:0]), 
+compressor_42 #(64) x_comp0_3(.p0   (p3_0[63:0]),
                             .p1   (p3_1[63:0]),
-                            .p2   (p3_2[63:0]), 
+                            .p2   (p3_2[63:0]),
                             .p3   (p3_3[63:0]),
                             .cin  (p3_cin[63:0]),
-                            .s    (s0_3[63:0]), 
+                            .s    (s0_3[63:0]),
                             .ca   (c0_3[63:0]),
                             .cout (cout0_3[63:0]));
 
-compressor_42 #(64) x_comp0_4(.p0   (p4_0[63:0]), 
+compressor_42 #(64) x_comp0_4(.p0   (p4_0[63:0]),
                             .p1   (p4_1[63:0]),
-                            .p2   (p4_2[63:0]), 
+                            .p2   (p4_2[63:0]),
                             .p3   (p4_3[63:0]),
                             .cin  (p4_cin[63:0]),
-                            .s    (s0_4[63:0]), 
+                            .s    (s0_4[63:0]),
                             .ca   (c0_4[63:0]),
                             .cout (cout0_4[63:0]));
 
-compressor_42 #(64) x_comp0_5(.p0   (p5_0[63:0]), 
+compressor_42 #(64) x_comp0_5(.p0   (p5_0[63:0]),
                             .p1   (p5_1[63:0]),
-                            .p2   (p5_2[63:0]), 
+                            .p2   (p5_2[63:0]),
                             .p3   (p5_3[63:0]),
                             .cin  (p5_cin[63:0]),
-                            .s    (s0_5[63:0]), 
+                            .s    (s0_5[63:0]),
                             .ca   (c0_5[63:0]),
                             .cout (cout0_5[63:0]));
 
-compressor_32 #(60) x_comp0_6(.a    (p6_0[59:0]), 
+compressor_32 #(60) x_comp0_6(.a    (p6_0[59:0]),
                             .b    (p6_1[59:0]),
-                            .c    (p6_2[59:0]), 
-                            .s    (s0_6[59:0]), 
+                            .c    (p6_2[59:0]),
+                            .s    (s0_6[59:0]),
                             .ca   (c0_6[59:0]));
 
-compressor_42 #(16) x_comp0_7(.p0   (p7_0[15:0]), 
+compressor_42 #(16) x_comp0_7(.p0   (p7_0[15:0]),
                             .p1   (p7_1[15:0]),
-                            .p2   (p7_2[15:0]), 
+                            .p2   (p7_2[15:0]),
                             .p3   (p7_3[15:0]),
                             .cin  (p7_cin[15:0]),
-                            .s    (s0_7[15:0]), 
+                            .s    (s0_7[15:0]),
                             .ca   (c0_7[15:0]),
                             .cout (cout0_7[15:0]));
 
@@ -835,24 +835,24 @@ assign q5_cin[21:0] = {cout1_5[20:0],1'b0};
 
 compressor_32 #(70) x_comp1_0(.a (q0_0[69:0]), .b (q0_1[69:0]), .c (q0_2[69:0]), .s (s1_0[69:0]), .ca (c1_0[69:0]));
 compressor_32 #(72) x_comp1_1(.a (q1_0[71:0]), .b (q1_1[71:0]), .c (q1_2[71:0]), .s (s1_1[71:0]), .ca (c1_1[71:0]));
-compressor_32 #(72) x_comp1_2(.a (q2_0[71:0]), .b (q2_1[71:0]), .c (q2_2[71:0]), .s (s1_2[71:0]), .ca (c1_2[71:0])); 
-compressor_32 #(72) x_comp1_3(.a (q3_0[71:0]), .b (q3_1[71:0]), .c (q3_2[71:0]), .s (s1_3[71:0]), .ca (c1_3[71:0])); 
+compressor_32 #(72) x_comp1_2(.a (q2_0[71:0]), .b (q2_1[71:0]), .c (q2_2[71:0]), .s (s1_2[71:0]), .ca (c1_2[71:0]));
+compressor_32 #(72) x_comp1_3(.a (q3_0[71:0]), .b (q3_1[71:0]), .c (q3_2[71:0]), .s (s1_3[71:0]), .ca (c1_3[71:0]));
 
-compressor_42 #(60) x_comp1_4(.p0   (q4_0[59:0]), 
+compressor_42 #(60) x_comp1_4(.p0   (q4_0[59:0]),
                             .p1   (q4_1[59:0]),
-                            .p2   (q4_2[59:0]), 
+                            .p2   (q4_2[59:0]),
                             .p3   (q4_3[59:0]),
                             .cin  (q4_cin[59:0]),
-                            .s    (s1_4[59:0]), 
+                            .s    (s1_4[59:0]),
                             .ca   (c1_4[59:0]),
                             .cout (cout1_4[59:0]));
 
-compressor_42 #(22) x_comp1_5(.p0   (q5_0[21:0]), 
+compressor_42 #(22) x_comp1_5(.p0   (q5_0[21:0]),
                             .p1   (q5_1[21:0]),
-                            .p2   (q5_2[21:0]), 
+                            .p2   (q5_2[21:0]),
                             .p3   (q5_3[21:0]),
                             .cin  (q5_cin[21:0]),
-                            .s    (s1_5[21:0]), 
+                            .s    (s1_5[21:0]),
                             .ca   (c1_5[21:0]),
                             .cout (cout1_5[21:0]));
 
@@ -878,21 +878,21 @@ assign r1_3[8:1]    = (oper_sing) ? part_product31[7:0] : 8'b0;
 assign r1_3[81:9]   = {c1_3[71:0],1'b0};
 assign r1_cin[81:0] = {cout2_1[80:0],1'b0};
 
-compressor_42 #(80) x_comp2_0(.p0   (r0_0[79:0]), 
+compressor_42 #(80) x_comp2_0(.p0   (r0_0[79:0]),
                             .p1   (r0_1[79:0]),
-                            .p2   (r0_2[79:0]), 
+                            .p2   (r0_2[79:0]),
                             .p3   (r0_3[79:0]),
                             .cin  (r0_cin[79:0]),
-                            .s    (s2_0[79:0]), 
+                            .s    (s2_0[79:0]),
                             .ca   (c2_0[79:0]),
                             .cout (cout2_0[79:0]));
 
-compressor_42 #(82) x_comp2_1(.p0   (r1_0[81:0]), 
+compressor_42 #(82) x_comp2_1(.p0   (r1_0[81:0]),
                             .p1   (r1_1[81:0]),
-                            .p2   (r1_2[81:0]), 
+                            .p2   (r1_2[81:0]),
                             .p3   (r1_3[81:0]),
                             .cin  (r1_cin[81:0]),
-                            .s    (s2_1[81:0]), 
+                            .s    (s2_1[81:0]),
                             .ca   (c2_1[81:0]),
                             .cout (cout2_1[81:0]));
 
@@ -909,7 +909,7 @@ assign simd_half0_product[21:0] = s1_5[21:0] + {c1_5[20:0],1'b0};
 // &Force("output","simd_half0_product"); @656
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 // &Instance("gated_clk_cell", "x_compressor_ex1_ex2_gated_clk"); @661
 gated_clk_cell  x_compressor_ex1_ex2_gated_clk (
@@ -952,7 +952,7 @@ begin
 end
 
 //==========================================================
-//                     EX2 stage 
+//                     EX2 stage
 //==========================================================
 //----------------------------------------------------------
 //                    L4 compressor
@@ -967,16 +967,16 @@ assign v1_0[67:0]  = {1'b0,c1_reg[81:15]};
 assign v1_1[67:0]  = s2_reg[67:0];
 assign v1_2[67:0]  = c2_reg[67:0];
 
-compressor_32 #(104) x_comp3_0(.a  (v0_0[103:0]), 
-                             .b  (v0_1[103:0]), 
-                             .c  (v0_2[103:0]), 
-                             .s  (s3_0[103:0]), 
+compressor_32 #(104) x_comp3_0(.a  (v0_0[103:0]),
+                             .b  (v0_1[103:0]),
+                             .c  (v0_2[103:0]),
+                             .s  (s3_0[103:0]),
                              .ca (c3_0[103:0]));
 
-compressor_32 #(68)  x_comp3_1(.a  (v1_0[67:0]), 
-                             .b  (v1_1[67:0]), 
-                             .c  (v1_2[67:0]), 
-                             .s  (s3_1[67:0]), 
+compressor_32 #(68)  x_comp3_1(.a  (v1_0[67:0]),
+                             .b  (v1_1[67:0]),
+                             .c  (v1_2[67:0]),
+                             .s  (s3_1[67:0]),
                              .ca (c3_1[67:0]));
 
 //----------------------------------------------------------
@@ -990,12 +990,12 @@ assign w0_2[105:0]   = {s3_1[67:0],c1_reg[14:0],23'b0};
 assign w0_3[105:0]   = {c3_1[66:0],39'b0};
 assign w0_cin[105:0] = {cout4_0[104:0],1'b0};
 
-compressor_42 #(106) x_comp4_0(.p0   (w0_0[105:0]), 
+compressor_42 #(106) x_comp4_0(.p0   (w0_0[105:0]),
                              .p1   (w0_1[105:0]),
-                             .p2   (w0_2[105:0]), 
+                             .p2   (w0_2[105:0]),
                              .p3   (w0_3[105:0]),
                              .cin  (w0_cin[105:0]),
-                             .s    (s4_0[105:0]), 
+                             .s    (s4_0[105:0]),
                              .ca   (c4_0[105:0]),
                              .cout (cout4_0[105:0]));
 

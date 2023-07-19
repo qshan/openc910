@@ -82,109 +82,109 @@ module uart_ctrl(
 );
 
 
-input           receive_ctrl_busy;         
-input           receive_ctrl_fe;           
-input           receive_ctrl_pe;           
-input   [7 :0]  receive_ctrl_rdata;        
-input           receive_ctrl_redata_over;  
-input   [15:0]  reg_ctrl_dllh_data;        
-input   [2 :0]  reg_ctrl_ier_enable;       
-input   [1 :0]  reg_ctrl_lcr_dls;          
-input           reg_ctrl_lcr_eps;          
-input           reg_ctrl_lcr_pen;          
-input           reg_ctrl_lcr_stop;         
-input           reg_ctrl_lcr_wen;          
-input           reg_ctrl_rbr_vld;          
-input           reg_ctrl_set_dllh_vld;     
-input   [7 :0]  reg_ctrl_thr_data;         
-input           reg_ctrl_thr_vld;          
-input           reg_ctrl_threint_en;       
-input           rst_b;                     
-input           sys_clk;                   
-input           trans_ctrl_busy;           
-input           trans_ctrl_thr_read;       
-input           trans_ctrl_thsr_empty;     
-output  [15:0]  ctrl_baud_gen_divisor;     
-output          ctrl_baud_gen_set_dllh_vld; 
-output  [1 :0]  ctrl_receive_data_length;  
-output          ctrl_receive_parity_bit;   
-output          ctrl_receive_parity_en;    
-output          ctrl_receive_stop_length;  
-output          ctrl_reg_busy;             
-output          ctrl_reg_fe;               
-output  [3 :0]  ctrl_reg_iid;              
-output          ctrl_reg_iid_vld;          
-output          ctrl_reg_oe;               
-output          ctrl_reg_pe;               
-output  [7 :0]  ctrl_reg_rbr_wdata;        
-output          ctrl_reg_rbr_write_en;     
-output          ctrl_reg_thr_read;         
-output          ctrl_reg_thsr_empty;       
-output  [1 :0]  ctrl_trans_data_length;    
-output          ctrl_trans_parity_bit;     
-output          ctrl_trans_parity_en;      
-output  [7 :0]  ctrl_trans_shift_data;     
-output          ctrl_trans_stop_length;    
-output          ctrl_trans_thr_vld;        
+input           receive_ctrl_busy;
+input           receive_ctrl_fe;
+input           receive_ctrl_pe;
+input   [7 :0]  receive_ctrl_rdata;
+input           receive_ctrl_redata_over;
+input   [15:0]  reg_ctrl_dllh_data;
+input   [2 :0]  reg_ctrl_ier_enable;
+input   [1 :0]  reg_ctrl_lcr_dls;
+input           reg_ctrl_lcr_eps;
+input           reg_ctrl_lcr_pen;
+input           reg_ctrl_lcr_stop;
+input           reg_ctrl_lcr_wen;
+input           reg_ctrl_rbr_vld;
+input           reg_ctrl_set_dllh_vld;
+input   [7 :0]  reg_ctrl_thr_data;
+input           reg_ctrl_thr_vld;
+input           reg_ctrl_threint_en;
+input           rst_b;
+input           sys_clk;
+input           trans_ctrl_busy;
+input           trans_ctrl_thr_read;
+input           trans_ctrl_thsr_empty;
+output  [15:0]  ctrl_baud_gen_divisor;
+output          ctrl_baud_gen_set_dllh_vld;
+output  [1 :0]  ctrl_receive_data_length;
+output          ctrl_receive_parity_bit;
+output          ctrl_receive_parity_en;
+output          ctrl_receive_stop_length;
+output          ctrl_reg_busy;
+output          ctrl_reg_fe;
+output  [3 :0]  ctrl_reg_iid;
+output          ctrl_reg_iid_vld;
+output          ctrl_reg_oe;
+output          ctrl_reg_pe;
+output  [7 :0]  ctrl_reg_rbr_wdata;
+output          ctrl_reg_rbr_write_en;
+output          ctrl_reg_thr_read;
+output          ctrl_reg_thsr_empty;
+output  [1 :0]  ctrl_trans_data_length;
+output          ctrl_trans_parity_bit;
+output          ctrl_trans_parity_en;
+output  [7 :0]  ctrl_trans_shift_data;
+output          ctrl_trans_stop_length;
+output          ctrl_trans_thr_vld;
 
 
-reg             ctrl_rbr_write_en_sample;  
-reg     [3 :0]  ctrl_reg_iid;              
-reg     [7 :0]  ctrl_reg_rbr_wdata;        
-reg             receive_ctrl_fe_sample;    
-reg             receive_ctrl_pe_sample;    
-reg             thr_read_sample;           
+reg             ctrl_rbr_write_en_sample;
+reg     [3 :0]  ctrl_reg_iid;
+reg     [7 :0]  ctrl_reg_rbr_wdata;
+reg             receive_ctrl_fe_sample;
+reg             receive_ctrl_pe_sample;
+reg             thr_read_sample;
 
 
-wire    [15:0]  ctrl_baud_gen_divisor;     
-wire            ctrl_baud_gen_set_dllh_vld; 
-wire    [1 :0]  ctrl_receive_data_length;  
-wire            ctrl_receive_parity_bit;   
-wire            ctrl_receive_parity_en;    
-wire            ctrl_receive_stop_length;  
-wire            ctrl_reg_busy;             
-wire            ctrl_reg_fe;               
-wire            ctrl_reg_iid_vld;          
-wire            ctrl_reg_oe;               
-wire            ctrl_reg_pe;               
-wire            ctrl_reg_rbr_write_en;     
-wire            ctrl_reg_thr_read;         
-wire            ctrl_reg_thsr_empty;       
-wire    [1 :0]  ctrl_trans_data_length;    
-wire            ctrl_trans_parity_bit;     
-wire            ctrl_trans_parity_en;      
-wire    [7 :0]  ctrl_trans_shift_data;     
-wire            ctrl_trans_stop_length;    
-wire            ctrl_trans_thr_vld;        
-wire            high_pri;                  
-wire            int_vld;                   
-wire            line_status_int;           
-wire            receive_ctrl_busy;         
-wire            receive_ctrl_fe;           
-wire            receive_ctrl_pe;           
-wire    [7 :0]  receive_ctrl_rdata;        
-wire            receive_ctrl_redata_over;  
-wire            receive_data_int;          
-wire    [15:0]  reg_ctrl_dllh_data;        
-wire    [2 :0]  reg_ctrl_ier_enable;       
-wire    [1 :0]  reg_ctrl_lcr_dls;          
-wire            reg_ctrl_lcr_eps;          
-wire            reg_ctrl_lcr_pen;          
-wire            reg_ctrl_lcr_stop;         
-wire            reg_ctrl_lcr_wen;          
-wire            reg_ctrl_rbr_vld;          
-wire            reg_ctrl_set_dllh_vld;     
-wire    [7 :0]  reg_ctrl_thr_data;         
-wire            reg_ctrl_thr_vld;          
-wire            reg_ctrl_threint_en;       
-wire            rst_b;                     
-wire            sys_clk;                   
-wire            thre_int_init;             
-wire            trans_ctrl_busy;           
-wire            trans_ctrl_thr_read;       
-wire            trans_ctrl_thsr_empty;     
-wire            trans_hold_empty_int;      
-wire            uart_busy_int;             
+wire    [15:0]  ctrl_baud_gen_divisor;
+wire            ctrl_baud_gen_set_dllh_vld;
+wire    [1 :0]  ctrl_receive_data_length;
+wire            ctrl_receive_parity_bit;
+wire            ctrl_receive_parity_en;
+wire            ctrl_receive_stop_length;
+wire            ctrl_reg_busy;
+wire            ctrl_reg_fe;
+wire            ctrl_reg_iid_vld;
+wire            ctrl_reg_oe;
+wire            ctrl_reg_pe;
+wire            ctrl_reg_rbr_write_en;
+wire            ctrl_reg_thr_read;
+wire            ctrl_reg_thsr_empty;
+wire    [1 :0]  ctrl_trans_data_length;
+wire            ctrl_trans_parity_bit;
+wire            ctrl_trans_parity_en;
+wire    [7 :0]  ctrl_trans_shift_data;
+wire            ctrl_trans_stop_length;
+wire            ctrl_trans_thr_vld;
+wire            high_pri;
+wire            int_vld;
+wire            line_status_int;
+wire            receive_ctrl_busy;
+wire            receive_ctrl_fe;
+wire            receive_ctrl_pe;
+wire    [7 :0]  receive_ctrl_rdata;
+wire            receive_ctrl_redata_over;
+wire            receive_data_int;
+wire    [15:0]  reg_ctrl_dllh_data;
+wire    [2 :0]  reg_ctrl_ier_enable;
+wire    [1 :0]  reg_ctrl_lcr_dls;
+wire            reg_ctrl_lcr_eps;
+wire            reg_ctrl_lcr_pen;
+wire            reg_ctrl_lcr_stop;
+wire            reg_ctrl_lcr_wen;
+wire            reg_ctrl_rbr_vld;
+wire            reg_ctrl_set_dllh_vld;
+wire    [7 :0]  reg_ctrl_thr_data;
+wire            reg_ctrl_thr_vld;
+wire            reg_ctrl_threint_en;
+wire            rst_b;
+wire            sys_clk;
+wire            thre_int_init;
+wire            trans_ctrl_busy;
+wire            trans_ctrl_thr_read;
+wire            trans_ctrl_thsr_empty;
+wire            trans_hold_empty_int;
+wire            uart_busy_int;
 
 
 
@@ -225,7 +225,7 @@ always @(posedge sys_clk or negedge rst_b )
 begin
   if(!rst_b)
     ctrl_rbr_write_en_sample <= 1'b0;
-  else 
+  else
     ctrl_rbr_write_en_sample <= !receive_ctrl_redata_over;
 end
 
@@ -256,7 +256,7 @@ always @(posedge sys_clk or negedge rst_b )
 begin
   if(!rst_b)
     receive_ctrl_fe_sample <= 1'b0;
-  else 
+  else
   receive_ctrl_fe_sample <= !receive_ctrl_fe;
 end
 
@@ -267,7 +267,7 @@ always @(posedge sys_clk or negedge rst_b )
 begin
   if(!rst_b)
     receive_ctrl_pe_sample <= 1'b0;
-  else 
+  else
     receive_ctrl_pe_sample <= !receive_ctrl_pe;
 end
 
@@ -285,10 +285,10 @@ assign ctrl_reg_oe   = reg_ctrl_rbr_vld && ctrl_reg_rbr_write_en;
 
 
 
-assign int_vld =    high_pri 
+assign int_vld =    high_pri
                  || receive_data_int
                  || trans_hold_empty_int
-                 || uart_busy_int ; 
+                 || uart_busy_int ;
 
 assign ctrl_reg_iid_vld = int_vld;
 

@@ -26,28 +26,28 @@ module ct_lsu_dcache_dirty_array(
   cp0_lsu_icg_en
 );
 input   [6:0]  dirty_din;
-input          dirty_gateclk_en;    
-input          dirty_gwen_b;        
-input   [8:0]  dirty_idx;           
+input          dirty_gateclk_en;
+input          dirty_gwen_b;
+input   [8:0]  dirty_idx;
 input          dirty_sel_b;
 input   [6:0]  dirty_wen_b;
-input          forever_cpuclk;      
+input          forever_cpuclk;
 input          pad_yy_icg_scan_en;
 input          cp0_lsu_icg_en;
 output  [6:0]  dirty_dout;
 
-wire           dirty_clk;           
+wire           dirty_clk;
 wire           dirty_clk_en;
-wire    [6:0]  dirty_din;           
+wire    [6:0]  dirty_din;
 wire    [6:0]  dirty_dout;
-wire           dirty_gateclk_en;    
-wire           dirty_gwen_b;        
-wire    [8:0]  dirty_idx;           
+wire           dirty_gateclk_en;
+wire           dirty_gwen_b;
+wire    [8:0]  dirty_idx;
 wire           dirty_sel_b;
 wire    [6:0]  dirty_wen_b;
-wire           forever_cpuclk;      
-wire           pad_yy_icg_scan_en; 
-wire           cp0_lsu_icg_en;  
+wire           forever_cpuclk;
+wire           pad_yy_icg_scan_en;
+wire           cp0_lsu_icg_en;
 
 //==========================================================
 //                 Instance of Gated Cell

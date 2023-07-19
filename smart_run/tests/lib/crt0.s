@@ -16,8 +16,8 @@ limitations under the License.
 #(1)initialize all registers
 #(2)initialize supervisor mode stack pointer
 #(3)set VBR register
-#(4)construct PMP 
-#(5)construct MMU 
+#(4)construct PMP
+#(5)construct MMU
 #(6)enable control reg such as EE and MMU
 #(9)jump to the main procedure using jmp to main
  .include "core_init.h"
@@ -45,7 +45,7 @@ __start:
 # mxstatus
   li   x3, 0x638000
   csrs mxstatus,x3
-  
+
 # msmpr
   csrsi msmpr, 0x1
 
@@ -87,11 +87,11 @@ __start:
   li x4,1
 
 
-  .global cpu_0_sp	
+  .global cpu_0_sp
 cpu_0_sp:
   la x2, __kernel_stack
 
-# PART 3:initialize mtvec value  
+# PART 3:initialize mtvec value
   la    x3,__trap_handler
   csrw  mtvec,x3
 
@@ -102,14 +102,14 @@ cpu_0_sp:
   # invalid all memory for IBP,BTB,BHT,DCACHE,ICACHE
   li x3, 0x70013
   csrs 0x7c2,x3  #mcor
- 
+
   # enable ICACHE,DCACHE,BHT,BTB,IBP,RAS,WA
   # li x3, 0x10f7
   # csrs 0x7c1,x3  #mhcr
   li x3, 0x11ff
   csrs mhcr,x3  #mhcr
-  
-  .global after_l2en 
+
+  .global after_l2en
 after_l2en:
   # enable write allocate
   # li x3, 0x4
@@ -125,7 +125,7 @@ after_l2en:
 
   # mccr2
   li x3, 0xe0000009
-  csrs mccr2,x3 
+  csrs mccr2,x3
 
   jal	main
 
@@ -221,8 +221,8 @@ __asychronous_int:
   .endr
 
   .global __dummy
-__dummy:  
-  
+__dummy:
+
   .data
   nop
   nop

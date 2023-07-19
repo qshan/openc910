@@ -21,7 +21,7 @@ int main (void)
   printf("\nHello Friend!\n");
   printf("Welcome to T-HEAD World!\n");
 
-//Section 2: Embeded ASM in C 
+//Section 2: Embeded ASM in C
   int a;
   int b;
   int c;

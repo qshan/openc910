@@ -49,89 +49,89 @@ module ct_ciu_vb_aw_entry(
 );
 
 // &Ports; @24
-input            ciu_icg_en;            
-input            cpurst_b;              
-input   [7  :0]  ebiuif_vb_index;       
-input            forever_cpuclk;        
-input   [534:0]  l2c0_vb_wbus;          
-input            l2c0_wvalid_x;         
-input   [534:0]  l2c1_vb_wbus;          
-input            l2c1_wvalid_x;         
-input            pad_yy_icg_scan_en;    
-input   [534:0]  snb0_vb_wbus;          
-input            snb0_wvalid_x;         
-input   [7  :0]  snb0_yy_snpext_index;  
-input   [534:0]  snb1_vb_wbus;          
-input            snb1_wvalid_x;         
-input   [7  :0]  snb1_yy_snpext_index;  
-input   [67 :0]  vb_aw_create_bus;      
-input   [2  :0]  vb_aw_create_mid;      
-input            vb_aw_create_sel_x;    
-input            vb_aw_req_sel_x;       
-input            vb_ctrl_clk;           
-input            vb_w_pop_sel_x;        
-output           snb0_snpext_addr_hit_x; 
-output           snb1_snpext_addr_hit_x; 
-output           vb_aw_en_x;            
-output           vb_aw_vld_x;           
-output  [67 :0]  vb_entryx_awbus;       
-output  [2  :0]  vb_entryx_mid;         
-output  [1  :0]  vb_entryx_offset;      
-output  [534:0]  vb_entryx_wbus;        
-output           vb_snb_addr_hit_x;     
-output           vb_w_vld_x;            
+input            ciu_icg_en;
+input            cpurst_b;
+input   [7  :0]  ebiuif_vb_index;
+input            forever_cpuclk;
+input   [534:0]  l2c0_vb_wbus;
+input            l2c0_wvalid_x;
+input   [534:0]  l2c1_vb_wbus;
+input            l2c1_wvalid_x;
+input            pad_yy_icg_scan_en;
+input   [534:0]  snb0_vb_wbus;
+input            snb0_wvalid_x;
+input   [7  :0]  snb0_yy_snpext_index;
+input   [534:0]  snb1_vb_wbus;
+input            snb1_wvalid_x;
+input   [7  :0]  snb1_yy_snpext_index;
+input   [67 :0]  vb_aw_create_bus;
+input   [2  :0]  vb_aw_create_mid;
+input            vb_aw_create_sel_x;
+input            vb_aw_req_sel_x;
+input            vb_ctrl_clk;
+input            vb_w_pop_sel_x;
+output           snb0_snpext_addr_hit_x;
+output           snb1_snpext_addr_hit_x;
+output           vb_aw_en_x;
+output           vb_aw_vld_x;
+output  [67 :0]  vb_entryx_awbus;
+output  [2  :0]  vb_entryx_mid;
+output  [1  :0]  vb_entryx_offset;
+output  [534:0]  vb_entryx_wbus;
+output           vb_snb_addr_hit_x;
+output           vb_w_vld_x;
 
 // &Regs; @25
-reg     [67 :0]  vb_aw_bus;             
-reg              vb_aw_en;              
-reg     [2  :0]  vb_aw_mid;             
-reg              vb_aw_vld;             
-reg     [534:0]  vb_w_bus;              
-reg              vb_w_vld;              
+reg     [67 :0]  vb_aw_bus;
+reg              vb_aw_en;
+reg     [2  :0]  vb_aw_mid;
+reg              vb_aw_vld;
+reg     [534:0]  vb_w_bus;
+reg              vb_w_vld;
 
 // &Wires; @26
-wire             ciu_icg_en;            
-wire             cpurst_b;              
-wire    [7  :0]  ebiuif_vb_index;       
-wire             forever_cpuclk;        
-wire    [534:0]  l2c0_vb_wbus;          
-wire             l2c0_wvalid_x;         
-wire    [534:0]  l2c1_vb_wbus;          
-wire             l2c1_wvalid_x;         
-wire             pad_yy_icg_scan_en;    
-wire             snb0_snpext_addr_hit_x; 
-wire    [534:0]  snb0_vb_wbus;          
-wire             snb0_wvalid_x;         
-wire    [7  :0]  snb0_yy_snpext_index;  
-wire             snb1_snpext_addr_hit_x; 
-wire    [534:0]  snb1_vb_wbus;          
-wire             snb1_wvalid_x;         
-wire    [7  :0]  snb1_yy_snpext_index;  
-wire    [67 :0]  vb_aw_create_bus;      
-wire    [2  :0]  vb_aw_create_mid;      
-wire             vb_aw_create_sel_x;    
-wire             vb_aw_en_x;            
-wire             vb_aw_req_sel_x;       
-wire             vb_aw_vld_x;           
-wire             vb_ctrl_clk;           
-wire             vb_entry_awclk;        
-wire             vb_entry_wclk;         
-wire    [67 :0]  vb_entryx_awbus;       
-wire    [2  :0]  vb_entryx_mid;         
-wire    [1  :0]  vb_entryx_offset;      
-wire    [534:0]  vb_entryx_wbus;        
-wire             vb_snb_addr_hit_x;     
-wire    [534:0]  vb_w_create_bus;       
-wire             vb_w_create_sel;       
-wire             vb_w_pop_sel_x;        
-wire             vb_w_vld_x;            
+wire             ciu_icg_en;
+wire             cpurst_b;
+wire    [7  :0]  ebiuif_vb_index;
+wire             forever_cpuclk;
+wire    [534:0]  l2c0_vb_wbus;
+wire             l2c0_wvalid_x;
+wire    [534:0]  l2c1_vb_wbus;
+wire             l2c1_wvalid_x;
+wire             pad_yy_icg_scan_en;
+wire             snb0_snpext_addr_hit_x;
+wire    [534:0]  snb0_vb_wbus;
+wire             snb0_wvalid_x;
+wire    [7  :0]  snb0_yy_snpext_index;
+wire             snb1_snpext_addr_hit_x;
+wire    [534:0]  snb1_vb_wbus;
+wire             snb1_wvalid_x;
+wire    [7  :0]  snb1_yy_snpext_index;
+wire    [67 :0]  vb_aw_create_bus;
+wire    [2  :0]  vb_aw_create_mid;
+wire             vb_aw_create_sel_x;
+wire             vb_aw_en_x;
+wire             vb_aw_req_sel_x;
+wire             vb_aw_vld_x;
+wire             vb_ctrl_clk;
+wire             vb_entry_awclk;
+wire             vb_entry_wclk;
+wire    [67 :0]  vb_entryx_awbus;
+wire    [2  :0]  vb_entryx_mid;
+wire    [1  :0]  vb_entryx_offset;
+wire    [534:0]  vb_entryx_wbus;
+wire             vb_snb_addr_hit_x;
+wire    [534:0]  vb_w_create_bus;
+wire             vb_w_create_sel;
+wire             vb_w_pop_sel_x;
+wire             vb_w_vld_x;
 
 
 //======================================
 //     CA Write Table CA_WT(WT)
 //1. CA_WT : non-cacheable write
 //entry content:
-//| vld | addr 
+//| vld | addr
 //======================================
 //CA_WT vld
 parameter ADDR_4  = 4;
@@ -182,9 +182,9 @@ begin
 end
 
 
-assign vb_w_create_sel = l2c0_wvalid_x | 
-                         l2c1_wvalid_x | 
-                         snb0_wvalid_x | 
+assign vb_w_create_sel = l2c0_wvalid_x |
+                         l2c1_wvalid_x |
+                         snb0_wvalid_x |
                          snb1_wvalid_x;
 
 always @(posedge vb_ctrl_clk or negedge cpurst_b)

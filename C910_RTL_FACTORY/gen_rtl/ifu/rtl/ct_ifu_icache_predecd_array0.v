@@ -27,32 +27,32 @@ module ct_ifu_icache_predecd_array0(
   pad_yy_icg_scan_en
 );
 
-input           cp0_ifu_icg_en;                  
-input           cp0_yy_clk_en;                   
-input           forever_cpuclk;                  
-input           ifu_icache_data_array0_wen_b;    
-input   [15:0]  ifu_icache_index;                
-input           ifu_icache_predecd_array0_cen_b; 
+input           cp0_ifu_icg_en;
+input           cp0_yy_clk_en;
+input           forever_cpuclk;
+input           ifu_icache_data_array0_wen_b;
+input   [15:0]  ifu_icache_index;
+input           ifu_icache_predecd_array0_cen_b;
 input           ifu_icache_predecd_array0_clk_en;
 input   [31:0]  ifu_icache_predecd_array0_din;
-input           ifu_icache_predecd_array0_wen_b; 
-input           pad_yy_icg_scan_en;            
-output  [31:0]  icache_ifu_predecd_array0_dout;  
+input           ifu_icache_predecd_array0_wen_b;
+input           pad_yy_icg_scan_en;
+output  [31:0]  icache_ifu_predecd_array0_dout;
 
-wire            cp0_ifu_icg_en;                  
-wire            cp0_yy_clk_en;                   
-wire            forever_cpuclk;    
-wire    [31:0]  icache_ifu_predecd_array0_dout;  
-wire            ifu_icache_data_array0_wen_b;    
-wire    [15:0]  ifu_icache_index;                
-wire    [31:0]  ifu_icache_predecd_array0_bwen;  
-wire            ifu_icache_predecd_array0_cen_b; 
-wire            ifu_icache_predecd_array0_clk_en; 
-wire    [31:0]  ifu_icache_predecd_array0_din;   
-wire            ifu_icache_predecd_array0_wen_b; 
-wire            pad_yy_icg_scan_en;            
-wire            predecd_clk;                     
-wire            predecd_local_en;                
+wire            cp0_ifu_icg_en;
+wire            cp0_yy_clk_en;
+wire            forever_cpuclk;
+wire    [31:0]  icache_ifu_predecd_array0_dout;
+wire            ifu_icache_data_array0_wen_b;
+wire    [15:0]  ifu_icache_index;
+wire    [31:0]  ifu_icache_predecd_array0_bwen;
+wire            ifu_icache_predecd_array0_cen_b;
+wire            ifu_icache_predecd_array0_clk_en;
+wire    [31:0]  ifu_icache_predecd_array0_din;
+wire            ifu_icache_predecd_array0_wen_b;
+wire            pad_yy_icg_scan_en;
+wire            predecd_clk;
+wire            predecd_local_en;
 
 
 gated_clk_cell  x_predecd_clk (
@@ -89,7 +89,7 @@ parameter WIDTH = 12;
 ct_spsram_2048x33  x_ct_spsram_2048x33 (
 `else  //ICACHE_64K
 ct_spsram_1024x33  x_ct_spsram_1024x33 (
-`endif //ICACHE_64K  
+`endif //ICACHE_64K
   `ifdef MEM_CFG_IN
   .mem_cfg_in                      (mem_cfg_in                     ),
   `endif //MEM_CFG_IN
@@ -113,7 +113,7 @@ ct_spsram_2048x32_split  x_ct_spsram_2048x32_split (
 `endif
 `ifdef ICACHE_32K
 ct_spsram_1024x32  x_ct_spsram_1024x32 (
-`endif //ICACHE_64K  
+`endif //ICACHE_64K
   `ifdef MEM_CFG_IN
   .mem_cfg_in                      (mem_cfg_in                     ),
   `endif //MEM_CFG_IN

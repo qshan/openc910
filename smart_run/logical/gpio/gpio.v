@@ -49,50 +49,50 @@ module gpio(
 );
 
 
-input   [6 :2]  paddr;             
-input           pclk;              
-input           pclk_intr;         
-input           penable;           
-input           presetn;           
-input           psel;              
-input   [31:0]  pwdata;            
-input           pwrite;            
-output  [7 :0]  gpio_intr;         
-output  [31:0]  prdata;            
-inout   [7 :0]  b_pad_gpio_porta;  
+input   [6 :2]  paddr;
+input           pclk;
+input           pclk_intr;
+input           penable;
+input           presetn;
+input           psel;
+input   [31:0]  pwdata;
+input           pwrite;
+output  [7 :0]  gpio_intr;
+output  [31:0]  prdata;
+inout   [7 :0]  b_pad_gpio_porta;
 
 
 
 
-wire    [7 :0]  b_pad_gpio_porta;  
-wire    [7 :0]  gpio_ext_porta;    
-wire    [7 :0]  gpio_ext_porta_rb; 
-wire    [7 :0]  gpio_int_polarity; 
-wire    [7 :0]  gpio_inten;        
-wire    [7 :0]  gpio_intmask;      
-wire    [7 :0]  gpio_intr;         
-wire            gpio_intr_flag_int; 
-wire            gpio_intrclk_en;   
-wire    [7 :0]  gpio_intstatus;    
-wire    [7 :0]  gpio_inttype_level; 
-wire            gpio_ls_sync;      
-wire    [7 :0]  gpio_porta_ddr;    
-wire    [7 :0]  gpio_porta_dr;     
-wire    [7 :0]  gpio_porta_eoi;    
-wire    [7 :0]  gpio_porta_oe;     
-wire    [7 :0]  gpio_raw_intstatus; 
-wire    [7 :0]  gpio_swporta_ctl;  
-wire    [7 :0]  gpio_swporta_ddr;  
-wire    [7 :0]  gpio_swporta_dr;   
-wire    [6 :2]  paddr;             
-wire            pclk;              
-wire            pclk_intr;         
-wire            penable;           
-wire    [31:0]  prdata;            
-wire            presetn;           
-wire            psel;              
-wire    [31:0]  pwdata;            
-wire            pwrite;            
+wire    [7 :0]  b_pad_gpio_porta;
+wire    [7 :0]  gpio_ext_porta;
+wire    [7 :0]  gpio_ext_porta_rb;
+wire    [7 :0]  gpio_int_polarity;
+wire    [7 :0]  gpio_inten;
+wire    [7 :0]  gpio_intmask;
+wire    [7 :0]  gpio_intr;
+wire            gpio_intr_flag_int;
+wire            gpio_intrclk_en;
+wire    [7 :0]  gpio_intstatus;
+wire    [7 :0]  gpio_inttype_level;
+wire            gpio_ls_sync;
+wire    [7 :0]  gpio_porta_ddr;
+wire    [7 :0]  gpio_porta_dr;
+wire    [7 :0]  gpio_porta_eoi;
+wire    [7 :0]  gpio_porta_oe;
+wire    [7 :0]  gpio_raw_intstatus;
+wire    [7 :0]  gpio_swporta_ctl;
+wire    [7 :0]  gpio_swporta_ddr;
+wire    [7 :0]  gpio_swporta_dr;
+wire    [6 :2]  paddr;
+wire            pclk;
+wire            pclk_intr;
+wire            penable;
+wire    [31:0]  prdata;
+wire            presetn;
+wire            psel;
+wire    [31:0]  pwdata;
+wire            pwrite;
 
 
 

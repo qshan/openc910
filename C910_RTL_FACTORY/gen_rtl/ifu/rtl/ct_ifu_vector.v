@@ -39,69 +39,69 @@ module ct_ifu_vector(
 );
 
 // &Ports; @23
-input           cp0_ifu_icg_en;         
-input           cp0_ifu_rst_inv_done;   
-input   [39:0]  cp0_ifu_rvbr;           
-input   [39:0]  cp0_ifu_vbr;            
-input           cp0_yy_clk_en;          
-input           cpurst_b;               
-input           forever_cpuclk;         
-input           pad_yy_icg_scan_en;     
-input           rtu_ifu_xx_dbgon;       
-input   [5 :0]  rtu_ifu_xx_expt_vec;    
-input           rtu_ifu_xx_expt_vld;    
-output          ifu_cp0_rst_inv_req;    
-output          ifu_xx_sync_reset;      
-output  [9 :0]  vector_debug_cur_st;    
-output          vector_debug_reset_on;  
-output          vector_ifctrl_reset_on; 
-output          vector_ifctrl_sm_on;    
-output          vector_ifctrl_sm_start; 
-output  [38:0]  vector_pcgen_pc;        
-output          vector_pcgen_pcload;    
-output          vector_pcgen_reset_on;  
+input           cp0_ifu_icg_en;
+input           cp0_ifu_rst_inv_done;
+input   [39:0]  cp0_ifu_rvbr;
+input   [39:0]  cp0_ifu_vbr;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input           rtu_ifu_xx_dbgon;
+input   [5 :0]  rtu_ifu_xx_expt_vec;
+input           rtu_ifu_xx_expt_vld;
+output          ifu_cp0_rst_inv_req;
+output          ifu_xx_sync_reset;
+output  [9 :0]  vector_debug_cur_st;
+output          vector_debug_reset_on;
+output          vector_ifctrl_reset_on;
+output          vector_ifctrl_sm_on;
+output          vector_ifctrl_sm_start;
+output  [38:0]  vector_pcgen_pc;
+output          vector_pcgen_pcload;
+output          vector_pcgen_reset_on;
 
 // &Regs; @24
-reg     [38:0]  nonvec_pc;              
-reg     [9 :0]  vec_cur_state;          
-reg     [9 :0]  vec_next_state;         
-reg             vector_rst_inv_ff;      
+reg     [38:0]  nonvec_pc;
+reg     [9 :0]  vec_cur_state;
+reg     [9 :0]  vec_next_state;
+reg             vector_rst_inv_ff;
 
 // &Wires; @25
-wire            cp0_ifu_icg_en;         
-wire            cp0_ifu_rst_inv_done;   
-wire    [39:0]  cp0_ifu_rvbr;           
-wire    [39:0]  cp0_ifu_vbr;            
-wire            cp0_yy_clk_en;          
-wire            cpurst_b;               
-wire    [1 :0]  expt_mode;              
-wire    [38:0]  expt_virtual_pc;        
-wire            forever_cpuclk;         
-wire            ifu_cp0_rst_inv_req;    
-wire            ifu_xx_sync_reset;      
-wire            int_vld;                
-wire            pad_yy_icg_scan_en;     
-wire            pc_load;                
-wire            reset_expt;             
-wire    [38:0]  reset_virtual_pc;       
-wire            rtu_ifu_xx_dbgon;       
-wire    [5 :0]  rtu_ifu_xx_expt_vec;    
-wire            rtu_ifu_xx_expt_vld;    
-wire            vec_sm_clk;             
-wire            vec_sm_clk_en;          
-wire    [9 :0]  vector_debug_cur_st;    
-wire            vector_debug_reset_on;  
-wire            vector_ifctrl_reset_on; 
-wire            vector_ifctrl_sm_on;    
-wire            vector_ifctrl_sm_start; 
-wire            vector_pc_update_clk;   
-wire            vector_pc_update_clk_en; 
-wire    [38:0]  vector_pcgen_pc;        
-wire            vector_pcgen_pcload;    
-wire            vector_pcgen_reset_on;  
-wire            vector_reset_on;        
-wire            vector_sm_on;           
-wire    [38:0]  virtual_pc;             
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_rst_inv_done;
+wire    [39:0]  cp0_ifu_rvbr;
+wire    [39:0]  cp0_ifu_vbr;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [1 :0]  expt_mode;
+wire    [38:0]  expt_virtual_pc;
+wire            forever_cpuclk;
+wire            ifu_cp0_rst_inv_req;
+wire            ifu_xx_sync_reset;
+wire            int_vld;
+wire            pad_yy_icg_scan_en;
+wire            pc_load;
+wire            reset_expt;
+wire    [38:0]  reset_virtual_pc;
+wire            rtu_ifu_xx_dbgon;
+wire    [5 :0]  rtu_ifu_xx_expt_vec;
+wire            rtu_ifu_xx_expt_vld;
+wire            vec_sm_clk;
+wire            vec_sm_clk_en;
+wire    [9 :0]  vector_debug_cur_st;
+wire            vector_debug_reset_on;
+wire            vector_ifctrl_reset_on;
+wire            vector_ifctrl_sm_on;
+wire            vector_ifctrl_sm_start;
+wire            vector_pc_update_clk;
+wire            vector_pc_update_clk_en;
+wire    [38:0]  vector_pcgen_pc;
+wire            vector_pcgen_pcload;
+wire            vector_pcgen_reset_on;
+wire            vector_reset_on;
+wire            vector_sm_on;
+wire    [38:0]  virtual_pc;
 
 
 parameter PC_WIDTH = 40;
@@ -141,7 +141,7 @@ gated_clk_cell  x_vec_sm_clk (
 //           .local_en       (vec_sm_clk_en),//Local Condition @51
 //           .module_en      (cp0_ifu_icg_en) @52
 //         ); @53
-assign vec_sm_clk_en = rtu_ifu_xx_expt_vld || 
+assign vec_sm_clk_en = rtu_ifu_xx_expt_vld ||
                        (vec_cur_state[9:0] != IDLE);
 
 //---------------------FSM of Vector------------------------
@@ -190,7 +190,7 @@ case(vec_cur_state[9:0])
 endcase
 // &CombEnd; @97
 end
-          
+
 //-------------------Control Signal-------------------------
 always @(posedge vec_sm_clk or negedge cpurst_b)
 begin
@@ -222,8 +222,8 @@ assign pc_load                   = (!rtu_ifu_xx_dbgon) &&
 assign reset_expt             = (rtu_ifu_xx_expt_vec[4:0] == 5'b0);
 assign expt_mode[1:0]         = cp0_ifu_vbr[1:0];
 assign int_vld                = rtu_ifu_xx_expt_vec[5];
-assign expt_virtual_pc[PC_WIDTH-2:0]  = (expt_mode[0] && int_vld) 
-                                      ? ( {cp0_ifu_vbr[PC_WIDTH-1:2],1'b0} 
+assign expt_virtual_pc[PC_WIDTH-2:0]  = (expt_mode[0] && int_vld)
+                                      ? ( {cp0_ifu_vbr[PC_WIDTH-1:2],1'b0}
                                         + {33'b0,rtu_ifu_xx_expt_vec[4:0],1'b0})
                                       : {cp0_ifu_vbr[PC_WIDTH-1:2],1'b0};
 assign reset_virtual_pc[PC_WIDTH-2:0] = cp0_ifu_rvbr[PC_WIDTH-1:1];
@@ -231,7 +231,7 @@ assign virtual_pc[PC_WIDTH-2:0]       = (reset_expt)
                                       ? reset_virtual_pc[PC_WIDTH-2:0]
                                       : expt_virtual_pc[PC_WIDTH-2:0];
 
-                              
+
 always @(posedge vector_pc_update_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -261,7 +261,7 @@ gated_clk_cell  x_vector_pc_update_clk (
 //           .local_en       (vector_pc_update_clk_en),//Local Condition @156
 //           .module_en      (cp0_ifu_icg_en) @157
 //         ); @158
-assign vector_pc_update_clk_en = rtu_ifu_xx_expt_vld 
+assign vector_pc_update_clk_en = rtu_ifu_xx_expt_vld
                               || reset_expt && vec_cur_state[8];
 
 
@@ -281,7 +281,7 @@ assign vector_ifctrl_reset_on = vector_reset_on;
 //when vector is on RESET mode,we can not stop icache inv operation,
 //or it will cause deadlock for vector state is waiting invalid complete
 //but vector state stop icache invalid operation
-assign vector_ifctrl_sm_start = vector_sm_on && !vec_cur_state[8] || 
+assign vector_ifctrl_sm_start = vector_sm_on && !vec_cur_state[8] ||
                                 rtu_ifu_xx_expt_vld;
 
 //Debug Infor

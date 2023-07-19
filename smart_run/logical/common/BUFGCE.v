@@ -15,7 +15,7 @@ limitations under the License.
 module BUFGCE(
   I,
   CE,
-  O 
+  O
 );
 
 input  I;

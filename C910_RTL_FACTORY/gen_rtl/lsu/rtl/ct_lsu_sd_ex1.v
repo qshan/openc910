@@ -44,85 +44,85 @@ module ct_lsu_sd_ex1(
 );
 
 // &Ports; @26
-input            cp0_lsu_icg_en;               
-input            cp0_yy_clk_en;                
-input            cpurst_b;                     
-input            ctrl_st_clk;                  
-input            forever_cpuclk;               
-input            idu_lsu_rf_pipe5_gateclk_sel; 
-input   [11 :0]  idu_lsu_rf_pipe5_sdiq_entry;  
-input            idu_lsu_rf_pipe5_sel;         
-input   [63 :0]  idu_lsu_rf_pipe5_src0;        
-input   [63 :0]  idu_lsu_rf_pipe5_srcv0_fr;    
-input            idu_lsu_rf_pipe5_srcv0_fr_vld; 
-input            idu_lsu_rf_pipe5_srcv0_vld;   
-input   [63 :0]  idu_lsu_rf_pipe5_srcv0_vr0;   
-input   [63 :0]  idu_lsu_rf_pipe5_srcv0_vr1;   
-input            idu_lsu_rf_pipe5_stdata1_vld; 
-input            idu_lsu_rf_pipe5_unalign;     
-input            pad_yy_icg_scan_en;           
-input            rtu_yy_xx_flush;              
-output  [11 :0]  lsu_idu_ex1_sdiq_entry;       
-output           lsu_idu_ex1_sdiq_frz_clr;     
-output           lsu_idu_ex1_sdiq_pop_vld;     
-output  [63 :0]  sd_ex1_data;                  
-output  [127:0]  sd_ex1_data_bypass;           
-output           sd_ex1_inst_vld;              
-output  [3  :0]  sd_rf_ex1_sdid;               
-output           sd_rf_inst_vld_short;         
+input            cp0_lsu_icg_en;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            ctrl_st_clk;
+input            forever_cpuclk;
+input            idu_lsu_rf_pipe5_gateclk_sel;
+input   [11 :0]  idu_lsu_rf_pipe5_sdiq_entry;
+input            idu_lsu_rf_pipe5_sel;
+input   [63 :0]  idu_lsu_rf_pipe5_src0;
+input   [63 :0]  idu_lsu_rf_pipe5_srcv0_fr;
+input            idu_lsu_rf_pipe5_srcv0_fr_vld;
+input            idu_lsu_rf_pipe5_srcv0_vld;
+input   [63 :0]  idu_lsu_rf_pipe5_srcv0_vr0;
+input   [63 :0]  idu_lsu_rf_pipe5_srcv0_vr1;
+input            idu_lsu_rf_pipe5_stdata1_vld;
+input            idu_lsu_rf_pipe5_unalign;
+input            pad_yy_icg_scan_en;
+input            rtu_yy_xx_flush;
+output  [11 :0]  lsu_idu_ex1_sdiq_entry;
+output           lsu_idu_ex1_sdiq_frz_clr;
+output           lsu_idu_ex1_sdiq_pop_vld;
+output  [63 :0]  sd_ex1_data;
+output  [127:0]  sd_ex1_data_bypass;
+output           sd_ex1_inst_vld;
+output  [3  :0]  sd_rf_ex1_sdid;
+output           sd_rf_inst_vld_short;
 
 // &Regs; @27
-reg              sd_ex1_boundary;              
-reg              sd_ex1_inst_vld;              
-reg     [11 :0]  sd_ex1_sdid_oh;               
-reg              sd_ex1_secd;                  
-reg     [63 :0]  sd_ex1_src0_data;             
-reg     [63 :0]  sd_ex1_srcv0_fr_data;         
-reg              sd_ex1_srcv0_fr_vld;          
-reg              sd_ex1_srcv0_vld;             
-reg     [63 :0]  sd_ex1_srcv0_vr0_data;        
-reg     [63 :0]  sd_ex1_srcv0_vr1_data;        
+reg              sd_ex1_boundary;
+reg              sd_ex1_inst_vld;
+reg     [11 :0]  sd_ex1_sdid_oh;
+reg              sd_ex1_secd;
+reg     [63 :0]  sd_ex1_src0_data;
+reg     [63 :0]  sd_ex1_srcv0_fr_data;
+reg              sd_ex1_srcv0_fr_vld;
+reg              sd_ex1_srcv0_vld;
+reg     [63 :0]  sd_ex1_srcv0_vr0_data;
+reg     [63 :0]  sd_ex1_srcv0_vr1_data;
 
 // &Wires; @28
-wire             cp0_lsu_icg_en;               
-wire             cp0_yy_clk_en;                
-wire             cpurst_b;                     
-wire             ctrl_st_clk;                  
-wire             forever_cpuclk;               
-wire             idu_lsu_rf_pipe5_gateclk_sel; 
-wire    [11 :0]  idu_lsu_rf_pipe5_sdiq_entry;  
-wire             idu_lsu_rf_pipe5_sel;         
-wire    [63 :0]  idu_lsu_rf_pipe5_src0;        
-wire    [63 :0]  idu_lsu_rf_pipe5_srcv0_fr;    
-wire             idu_lsu_rf_pipe5_srcv0_fr_vld; 
-wire             idu_lsu_rf_pipe5_srcv0_vld;   
-wire    [63 :0]  idu_lsu_rf_pipe5_srcv0_vr0;   
-wire    [63 :0]  idu_lsu_rf_pipe5_srcv0_vr1;   
-wire             idu_lsu_rf_pipe5_stdata1_vld; 
-wire             idu_lsu_rf_pipe5_unalign;     
-wire    [11 :0]  lsu_idu_ex1_sdiq_entry;       
-wire             lsu_idu_ex1_sdiq_frz_clr;     
-wire             lsu_idu_ex1_sdiq_pop_vld;     
-wire             pad_yy_icg_scan_en;           
-wire             rtu_yy_xx_flush;              
-wire             sd_ex1_clk;                   
-wire             sd_ex1_clk_en;                
-wire    [63 :0]  sd_ex1_data;                  
-wire    [63 :0]  sd_ex1_data_64;               
-wire    [127:0]  sd_ex1_data_bypass;           
-wire             sd_ex1_data_clk;              
-wire             sd_ex1_data_clk_en;           
-wire             sd_ex1_vdata_clk;             
-wire             sd_ex1_vdata_clk_en;          
-wire             sd_rf_ex1_inst_vld;           
-wire    [3  :0]  sd_rf_ex1_sdid;               
-wire             sd_rf_inst_vld_short;         
+wire             cp0_lsu_icg_en;
+wire             cp0_yy_clk_en;
+wire             cpurst_b;
+wire             ctrl_st_clk;
+wire             forever_cpuclk;
+wire             idu_lsu_rf_pipe5_gateclk_sel;
+wire    [11 :0]  idu_lsu_rf_pipe5_sdiq_entry;
+wire             idu_lsu_rf_pipe5_sel;
+wire    [63 :0]  idu_lsu_rf_pipe5_src0;
+wire    [63 :0]  idu_lsu_rf_pipe5_srcv0_fr;
+wire             idu_lsu_rf_pipe5_srcv0_fr_vld;
+wire             idu_lsu_rf_pipe5_srcv0_vld;
+wire    [63 :0]  idu_lsu_rf_pipe5_srcv0_vr0;
+wire    [63 :0]  idu_lsu_rf_pipe5_srcv0_vr1;
+wire             idu_lsu_rf_pipe5_stdata1_vld;
+wire             idu_lsu_rf_pipe5_unalign;
+wire    [11 :0]  lsu_idu_ex1_sdiq_entry;
+wire             lsu_idu_ex1_sdiq_frz_clr;
+wire             lsu_idu_ex1_sdiq_pop_vld;
+wire             pad_yy_icg_scan_en;
+wire             rtu_yy_xx_flush;
+wire             sd_ex1_clk;
+wire             sd_ex1_clk_en;
+wire    [63 :0]  sd_ex1_data;
+wire    [63 :0]  sd_ex1_data_64;
+wire    [127:0]  sd_ex1_data_bypass;
+wire             sd_ex1_data_clk;
+wire             sd_ex1_data_clk_en;
+wire             sd_ex1_vdata_clk;
+wire             sd_ex1_vdata_clk_en;
+wire             sd_rf_ex1_inst_vld;
+wire    [3  :0]  sd_rf_ex1_sdid;
+wire             sd_rf_inst_vld_short;
 
 
 parameter LSIQ_ENTRY  = 12;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign sd_ex1_clk_en = idu_lsu_rf_pipe5_gateclk_sel;
 // &Instance("gated_clk_cell", "x_lsu_sd_ex1_gated_clk"); @36
@@ -143,7 +143,7 @@ gated_clk_cell  x_lsu_sd_ex1_gated_clk (
 //          .local_en      (sd_ex1_clk_en      ), @41
 //          .clk_out       (sd_ex1_clk         )); @42
 
-assign sd_ex1_data_clk_en = idu_lsu_rf_pipe5_gateclk_sel 
+assign sd_ex1_data_clk_en = idu_lsu_rf_pipe5_gateclk_sel
                             && !idu_lsu_rf_pipe5_srcv0_vld;
 // &Instance("gated_clk_cell", "x_lsu_sd_ex1_data_gated_clk"); @46
 gated_clk_cell  x_lsu_sd_ex1_data_gated_clk (
@@ -266,13 +266,13 @@ end
 //==========================================================
 //        data select
 //==========================================================
-assign sd_ex1_data_64[63:0]  = sd_ex1_srcv0_vld  
+assign sd_ex1_data_64[63:0]  = sd_ex1_srcv0_vld
                                ? (sd_ex1_srcv0_fr_vld
                                   ? sd_ex1_srcv0_fr_data[63:0]
                                   : sd_ex1_srcv0_vr0_data[63:0])
                                : sd_ex1_src0_data[63:0];
 
-//sd_ex1_data used for sq data rot,sd_ex1_data_bypass used for ld_da data bypass 
+//sd_ex1_data used for sq data rot,sd_ex1_data_bypass used for ld_da data bypass
 // &Force("nonport","sd_ex1_srcv0_vr1_data"); @158
 assign sd_ex1_data[63:0]         = sd_ex1_data_64[63:0];
 assign sd_ex1_data_bypass[127:0] = {64'b0,sd_ex1_data_64[63:0]};

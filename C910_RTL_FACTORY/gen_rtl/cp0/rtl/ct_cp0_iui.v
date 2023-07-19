@@ -106,281 +106,281 @@ module ct_cp0_iui(
 );
 
 // &Ports; @26
-input            biu_cp0_cmplt;          
-input   [127:0]  biu_cp0_rdata;          
-input            cp0_yy_clk_en;          
-input            cpurst_b;               
-input            forever_cpuclk;         
-input            hpcp_cp0_cmplt;         
-input   [63 :0]  hpcp_cp0_data;          
-input   [4  :0]  idu_cp0_rf_func;        
-input            idu_cp0_rf_gateclk_sel; 
-input   [6  :0]  idu_cp0_rf_iid;         
-input   [31 :0]  idu_cp0_rf_opcode;      
-input   [6  :0]  idu_cp0_rf_preg;        
-input            idu_cp0_rf_sel;         
-input   [63 :0]  idu_cp0_rf_src0;        
-input            ifu_cp0_icache_inv_done; 
-input            ifu_cp0_rst_inv_req;    
-input            lpmd_cmplt;             
-input            lsu_cp0_dcache_done;    
-input            mmu_cp0_cmplt;          
-input            mmu_cp0_tlb_done;       
-input            pad_yy_icg_scan_en;     
-input            regs_iui_cfr_no_op;     
-input            regs_iui_chk_vld;       
-input            regs_iui_cindex_l2;     
-input            regs_iui_cins_no_op;    
-input            regs_iui_cskyee;        
-input   [63 :0]  regs_iui_data_out;      
-input            regs_iui_dca_sel;       
-input            regs_iui_fs_off;        
-input            regs_iui_hpcp_regs_sel; 
-input            regs_iui_hpcp_scr_inv;  
-input   [14 :0]  regs_iui_int_sel;       
-input            regs_iui_l2_regs_sel;   
-input   [1  :0]  regs_iui_pm;            
-input   [3  :0]  regs_iui_reg_idx;       
-input            regs_iui_scnt_inv;      
-input            regs_iui_tee_ff;        
-input            regs_iui_tee_vld;       
-input            regs_iui_tsr;           
-input            regs_iui_tvm;           
-input            regs_iui_tw;            
-input            regs_iui_ucnt_inv;      
-input            regs_iui_v;             
-input            regs_iui_vs_off;        
-input   [63 :0]  regs_iui_wdata;         
-input            regs_xx_icg_en;         
-input            rtu_yy_xx_commit0;      
-input   [6  :0]  rtu_yy_xx_commit0_iid;  
-input            rtu_yy_xx_dbgon;        
-input            rtu_yy_xx_flush;        
-output  [15 :0]  cp0_biu_op;             
-output           cp0_biu_sel;            
-output  [63 :0]  cp0_biu_wdata;          
-output  [3  :0]  cp0_hpcp_op;            
-output           cp0_hpcp_sel;           
-output  [63 :0]  cp0_hpcp_src0;          
-output           cp0_ifu_rst_inv_done;   
-output           cp0_iu_ex3_abnormal;    
-output  [4  :0]  cp0_iu_ex3_expt_vec;    
-output           cp0_iu_ex3_expt_vld;    
-output           cp0_iu_ex3_flush;       
-output  [6  :0]  cp0_iu_ex3_iid;         
-output           cp0_iu_ex3_inst_vld;    
-output  [31 :0]  cp0_iu_ex3_mtval;       
-output  [63 :0]  cp0_iu_ex3_rslt_data;   
-output  [6  :0]  cp0_iu_ex3_rslt_preg;   
-output           cp0_iu_ex3_rslt_vld;    
-output           cp0_mmu_tlb_all_inv;    
-output           cp0_mret;               
-output           cp0_rtu_xx_int_b;       
-output  [4  :0]  cp0_rtu_xx_vec;         
-output           cp0_sret;               
-output           inst_lpmd_ex1_ex2;      
-output  [11 :0]  iui_regs_addr;          
-output           iui_regs_csr_wr;        
-output           iui_regs_csrw;          
-output           iui_regs_ex3_inst_csr;  
-output           iui_regs_inst_mret;     
-output           iui_regs_inst_sret;     
-output           iui_regs_inv_expt;      
-output  [31 :0]  iui_regs_opcode;        
-output  [63 :0]  iui_regs_ori_src0;      
-output           iui_regs_rst_inv_d;     
-output           iui_regs_rst_inv_i;     
-output           iui_regs_sel;           
-output  [63 :0]  iui_regs_src0;          
-output  [1  :0]  iui_top_cur_state;      
+input            biu_cp0_cmplt;
+input   [127:0]  biu_cp0_rdata;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            forever_cpuclk;
+input            hpcp_cp0_cmplt;
+input   [63 :0]  hpcp_cp0_data;
+input   [4  :0]  idu_cp0_rf_func;
+input            idu_cp0_rf_gateclk_sel;
+input   [6  :0]  idu_cp0_rf_iid;
+input   [31 :0]  idu_cp0_rf_opcode;
+input   [6  :0]  idu_cp0_rf_preg;
+input            idu_cp0_rf_sel;
+input   [63 :0]  idu_cp0_rf_src0;
+input            ifu_cp0_icache_inv_done;
+input            ifu_cp0_rst_inv_req;
+input            lpmd_cmplt;
+input            lsu_cp0_dcache_done;
+input            mmu_cp0_cmplt;
+input            mmu_cp0_tlb_done;
+input            pad_yy_icg_scan_en;
+input            regs_iui_cfr_no_op;
+input            regs_iui_chk_vld;
+input            regs_iui_cindex_l2;
+input            regs_iui_cins_no_op;
+input            regs_iui_cskyee;
+input   [63 :0]  regs_iui_data_out;
+input            regs_iui_dca_sel;
+input            regs_iui_fs_off;
+input            regs_iui_hpcp_regs_sel;
+input            regs_iui_hpcp_scr_inv;
+input   [14 :0]  regs_iui_int_sel;
+input            regs_iui_l2_regs_sel;
+input   [1  :0]  regs_iui_pm;
+input   [3  :0]  regs_iui_reg_idx;
+input            regs_iui_scnt_inv;
+input            regs_iui_tee_ff;
+input            regs_iui_tee_vld;
+input            regs_iui_tsr;
+input            regs_iui_tvm;
+input            regs_iui_tw;
+input            regs_iui_ucnt_inv;
+input            regs_iui_v;
+input            regs_iui_vs_off;
+input   [63 :0]  regs_iui_wdata;
+input            regs_xx_icg_en;
+input            rtu_yy_xx_commit0;
+input   [6  :0]  rtu_yy_xx_commit0_iid;
+input            rtu_yy_xx_dbgon;
+input            rtu_yy_xx_flush;
+output  [15 :0]  cp0_biu_op;
+output           cp0_biu_sel;
+output  [63 :0]  cp0_biu_wdata;
+output  [3  :0]  cp0_hpcp_op;
+output           cp0_hpcp_sel;
+output  [63 :0]  cp0_hpcp_src0;
+output           cp0_ifu_rst_inv_done;
+output           cp0_iu_ex3_abnormal;
+output  [4  :0]  cp0_iu_ex3_expt_vec;
+output           cp0_iu_ex3_expt_vld;
+output           cp0_iu_ex3_flush;
+output  [6  :0]  cp0_iu_ex3_iid;
+output           cp0_iu_ex3_inst_vld;
+output  [31 :0]  cp0_iu_ex3_mtval;
+output  [63 :0]  cp0_iu_ex3_rslt_data;
+output  [6  :0]  cp0_iu_ex3_rslt_preg;
+output           cp0_iu_ex3_rslt_vld;
+output           cp0_mmu_tlb_all_inv;
+output           cp0_mret;
+output           cp0_rtu_xx_int_b;
+output  [4  :0]  cp0_rtu_xx_vec;
+output           cp0_sret;
+output           inst_lpmd_ex1_ex2;
+output  [11 :0]  iui_regs_addr;
+output           iui_regs_csr_wr;
+output           iui_regs_csrw;
+output           iui_regs_ex3_inst_csr;
+output           iui_regs_inst_mret;
+output           iui_regs_inst_sret;
+output           iui_regs_inv_expt;
+output  [31 :0]  iui_regs_opcode;
+output  [63 :0]  iui_regs_ori_src0;
+output           iui_regs_rst_inv_d;
+output           iui_regs_rst_inv_i;
+output           iui_regs_sel;
+output  [63 :0]  iui_regs_src0;
+output  [1  :0]  iui_top_cur_state;
 
 // &Regs; @27
-reg              addr_inv;               
-reg              cp0_expt_vld;           
-reg              cp0_flush;              
-reg     [63 :0]  cp0_rslt_reg;           
-reg     [1  :0]  cur_state;              
-reg              inst_csr_ex2;           
-reg     [6  :0]  iui_ex1_iid;            
-reg              iui_ex1_inst_csrrc;     
-reg              iui_ex1_inst_csrrci;    
-reg              iui_ex1_inst_csrrs;     
-reg              iui_ex1_inst_csrrsi;    
-reg              iui_ex1_inst_csrrw;     
-reg              iui_ex1_inst_csrrwi;    
-reg              iui_ex1_inst_mret;      
-reg              iui_ex1_inst_sret;      
-reg              iui_ex1_inst_wfi;       
-reg     [31 :0]  iui_ex1_opcode;         
-reg     [6  :0]  iui_ex1_preg;           
-reg     [63 :0]  iui_ex1_src0;           
-reg              iui_flop_commit;        
-reg     [4  :0]  iui_int_vec;            
-reg              iui_int_vld_b;          
-reg     [1  :0]  next_state;             
-reg              rst_cache_inv;          
-reg              rst_cache_inv_nxt;      
-reg              rst_dcache_inv;         
-reg              rst_dcache_inv_nxt;     
-reg              rst_icache_inv;         
-reg              rst_icache_inv_nxt;     
-reg              rst_tlb_inv;            
-reg              rst_tlb_inv_nxt;        
-reg     [4  :0]  valid_int_vec;          
+reg              addr_inv;
+reg              cp0_expt_vld;
+reg              cp0_flush;
+reg     [63 :0]  cp0_rslt_reg;
+reg     [1  :0]  cur_state;
+reg              inst_csr_ex2;
+reg     [6  :0]  iui_ex1_iid;
+reg              iui_ex1_inst_csrrc;
+reg              iui_ex1_inst_csrrci;
+reg              iui_ex1_inst_csrrs;
+reg              iui_ex1_inst_csrrsi;
+reg              iui_ex1_inst_csrrw;
+reg              iui_ex1_inst_csrrwi;
+reg              iui_ex1_inst_mret;
+reg              iui_ex1_inst_sret;
+reg              iui_ex1_inst_wfi;
+reg     [31 :0]  iui_ex1_opcode;
+reg     [6  :0]  iui_ex1_preg;
+reg     [63 :0]  iui_ex1_src0;
+reg              iui_flop_commit;
+reg     [4  :0]  iui_int_vec;
+reg              iui_int_vld_b;
+reg     [1  :0]  next_state;
+reg              rst_cache_inv;
+reg              rst_cache_inv_nxt;
+reg              rst_dcache_inv;
+reg              rst_dcache_inv_nxt;
+reg              rst_icache_inv;
+reg              rst_icache_inv_nxt;
+reg              rst_tlb_inv;
+reg              rst_tlb_inv_nxt;
+reg     [4  :0]  valid_int_vec;
 
 // &Wires; @28
-wire             biu_cp0_cmplt;          
-wire    [127:0]  biu_cp0_rdata;          
-wire    [15 :0]  cp0_biu_op;             
-wire             cp0_biu_sel;            
-wire    [63 :0]  cp0_biu_wdata;          
-wire             cp0_ex1_select;         
-wire             cp0_ex2_expt_vld;       
-wire             cp0_ex2_select;         
-wire             cp0_ex3_select;         
-wire    [3  :0]  cp0_hpcp_op;            
-wire             cp0_hpcp_sel;           
-wire    [63 :0]  cp0_hpcp_src0;          
-wire             cp0_ifu_rst_inv_done;   
-wire             cp0_inst_cmplt;         
-wire             cp0_iu_ex3_abnormal;    
-wire    [4  :0]  cp0_iu_ex3_expt_vec;    
-wire             cp0_iu_ex3_expt_vld;    
-wire             cp0_iu_ex3_flush;       
-wire    [6  :0]  cp0_iu_ex3_iid;         
-wire             cp0_iu_ex3_inst_vld;    
-wire    [31 :0]  cp0_iu_ex3_mtval;       
-wire    [63 :0]  cp0_iu_ex3_rslt_data;   
-wire    [6  :0]  cp0_iu_ex3_rslt_preg;   
-wire             cp0_iu_ex3_rslt_vld;    
-wire             cp0_mmu_tlb_all_inv;    
-wire             cp0_mret;               
-wire             cp0_rtu_xx_int_b;       
-wire    [4  :0]  cp0_rtu_xx_vec;         
-wire             cp0_select;             
-wire             cp0_sret;               
-wire             cp0_yy_clk_en;          
-wire             cpuclk;                 
-wire             cpurst_b;               
-wire             csr_addr_inv;           
-wire    [63 :0]  csrrc_src0;             
-wire    [63 :0]  csrrci_src0;            
-wire    [63 :0]  csrrs_src0;             
-wire    [63 :0]  csrrsi_src0;            
-wire    [63 :0]  csrrw_src0;             
-wire    [63 :0]  csrrwi_src0;            
-wire             forever_cpuclk;         
-wire             hpcp_cp0_cmplt;         
-wire    [63 :0]  hpcp_cp0_data;          
-wire    [4  :0]  idu_cp0_rf_func;        
-wire             idu_cp0_rf_gateclk_sel; 
-wire    [6  :0]  idu_cp0_rf_iid;         
-wire    [31 :0]  idu_cp0_rf_opcode;      
-wire    [6  :0]  idu_cp0_rf_preg;        
-wire             idu_cp0_rf_sel;         
-wire    [63 :0]  idu_cp0_rf_src0;        
-wire             ifu_cp0_icache_inv_done; 
-wire             ifu_cp0_rst_inv_req;    
-wire             inst_csr_ex1;           
-wire             inst_csr_wr;            
-wire             inst_lpmd;              
-wire             inst_lpmd_ex1_ex2;      
-wire             inst_mret_ex2;          
-wire             inst_sret_ex2;          
-wire             int_vld;                
-wire    [11 :0]  iui_addr;               
-wire             iui_clk_en;             
-wire             iui_csr_hpcp;           
-wire             iui_csr_inst_imm;       
-wire             iui_csr_l2regs;         
-wire             iui_csr_mcir;           
-wire             iui_ex2_commit;         
-wire             iui_flush;              
-wire             iui_fs_inv;             
-wire             iui_hs_inv;             
-wire             iui_inst_csr;           
-wire             iui_inst_csrrc;         
-wire             iui_inst_csrrci;        
-wire             iui_inst_csrrs;         
-wire             iui_inst_csrrsi;        
-wire             iui_inst_csrrw;         
-wire             iui_inst_csrrwi;        
-wire             iui_inst_mret;          
-wire             iui_inst_ro;            
-wire             iui_inst_sret;          
-wire             iui_inst_wfi;           
-wire             iui_m_mode;             
-wire    [31 :0]  iui_opcode;             
-wire    [6  :0]  iui_preg;               
-wire             iui_privilege;          
-wire    [11 :0]  iui_regs_addr;          
-wire             iui_regs_csr_wr;        
-wire             iui_regs_csrw;          
-wire             iui_regs_ex3_inst_csr;  
-wire             iui_regs_inst_mret;     
-wire             iui_regs_inst_sret;     
-wire             iui_regs_inv_expt;      
-wire    [31 :0]  iui_regs_opcode;        
-wire    [63 :0]  iui_regs_ori_src0;      
-wire             iui_regs_rst_inv_d;     
-wire             iui_regs_rst_inv_i;     
-wire             iui_regs_sel;           
-wire    [63 :0]  iui_regs_src0;          
-wire             iui_s_inv;              
-wire             iui_s_mode;             
-wire    [63 :0]  iui_src0;               
-wire             iui_tee_inv;            
-wire    [1  :0]  iui_top_cur_state;      
-wire             iui_u_inv;              
-wire             iui_u_mode;             
-wire    [63 :0]  iui_uimm;               
-wire             iui_v_mode;             
-wire             iui_vs_inv;             
-wire             iui_w_inv;              
-wire             lpmd_cmplt;             
-wire             lsu_cp0_dcache_done;    
-wire             mmu_cp0_cmplt;          
-wire             mmu_cp0_tlb_done;       
-wire             pad_yy_icg_scan_en;     
-wire             regs_iui_cfr_no_op;     
-wire             regs_iui_chk_vld;       
-wire             regs_iui_cindex_l2;     
-wire             regs_iui_cins_no_op;    
-wire             regs_iui_cskyee;        
-wire    [63 :0]  regs_iui_data_out;      
-wire             regs_iui_dca_sel;       
-wire             regs_iui_fs_off;        
-wire             regs_iui_hpcp_regs_sel; 
-wire             regs_iui_hpcp_scr_inv;  
-wire    [14 :0]  regs_iui_int_sel;       
-wire             regs_iui_l2_regs_sel;   
-wire    [1  :0]  regs_iui_pm;            
-wire    [3  :0]  regs_iui_reg_idx;       
-wire             regs_iui_scnt_inv;      
-wire             regs_iui_tee_ff;        
-wire             regs_iui_tee_vld;       
-wire             regs_iui_tsr;           
-wire             regs_iui_tvm;           
-wire             regs_iui_tw;            
-wire             regs_iui_ucnt_inv;      
-wire             regs_iui_v;             
-wire             regs_iui_vs_off;        
-wire    [63 :0]  regs_iui_wdata;         
-wire             regs_xx_icg_en;         
-wire             rf_inst_csrrc;          
-wire             rf_inst_csrrci;         
-wire             rf_inst_csrrs;          
-wire             rf_inst_csrrsi;         
-wire             rf_inst_csrrw;          
-wire             rf_inst_csrrwi;         
-wire             rf_inst_mret;           
-wire             rf_inst_sret;           
-wire             rf_inst_wfi;            
-wire             rst_inv_done;           
-wire             rtu_yy_xx_commit0;      
-wire    [6  :0]  rtu_yy_xx_commit0_iid;  
-wire             rtu_yy_xx_dbgon;        
-wire             rtu_yy_xx_flush;        
+wire             biu_cp0_cmplt;
+wire    [127:0]  biu_cp0_rdata;
+wire    [15 :0]  cp0_biu_op;
+wire             cp0_biu_sel;
+wire    [63 :0]  cp0_biu_wdata;
+wire             cp0_ex1_select;
+wire             cp0_ex2_expt_vld;
+wire             cp0_ex2_select;
+wire             cp0_ex3_select;
+wire    [3  :0]  cp0_hpcp_op;
+wire             cp0_hpcp_sel;
+wire    [63 :0]  cp0_hpcp_src0;
+wire             cp0_ifu_rst_inv_done;
+wire             cp0_inst_cmplt;
+wire             cp0_iu_ex3_abnormal;
+wire    [4  :0]  cp0_iu_ex3_expt_vec;
+wire             cp0_iu_ex3_expt_vld;
+wire             cp0_iu_ex3_flush;
+wire    [6  :0]  cp0_iu_ex3_iid;
+wire             cp0_iu_ex3_inst_vld;
+wire    [31 :0]  cp0_iu_ex3_mtval;
+wire    [63 :0]  cp0_iu_ex3_rslt_data;
+wire    [6  :0]  cp0_iu_ex3_rslt_preg;
+wire             cp0_iu_ex3_rslt_vld;
+wire             cp0_mmu_tlb_all_inv;
+wire             cp0_mret;
+wire             cp0_rtu_xx_int_b;
+wire    [4  :0]  cp0_rtu_xx_vec;
+wire             cp0_select;
+wire             cp0_sret;
+wire             cp0_yy_clk_en;
+wire             cpuclk;
+wire             cpurst_b;
+wire             csr_addr_inv;
+wire    [63 :0]  csrrc_src0;
+wire    [63 :0]  csrrci_src0;
+wire    [63 :0]  csrrs_src0;
+wire    [63 :0]  csrrsi_src0;
+wire    [63 :0]  csrrw_src0;
+wire    [63 :0]  csrrwi_src0;
+wire             forever_cpuclk;
+wire             hpcp_cp0_cmplt;
+wire    [63 :0]  hpcp_cp0_data;
+wire    [4  :0]  idu_cp0_rf_func;
+wire             idu_cp0_rf_gateclk_sel;
+wire    [6  :0]  idu_cp0_rf_iid;
+wire    [31 :0]  idu_cp0_rf_opcode;
+wire    [6  :0]  idu_cp0_rf_preg;
+wire             idu_cp0_rf_sel;
+wire    [63 :0]  idu_cp0_rf_src0;
+wire             ifu_cp0_icache_inv_done;
+wire             ifu_cp0_rst_inv_req;
+wire             inst_csr_ex1;
+wire             inst_csr_wr;
+wire             inst_lpmd;
+wire             inst_lpmd_ex1_ex2;
+wire             inst_mret_ex2;
+wire             inst_sret_ex2;
+wire             int_vld;
+wire    [11 :0]  iui_addr;
+wire             iui_clk_en;
+wire             iui_csr_hpcp;
+wire             iui_csr_inst_imm;
+wire             iui_csr_l2regs;
+wire             iui_csr_mcir;
+wire             iui_ex2_commit;
+wire             iui_flush;
+wire             iui_fs_inv;
+wire             iui_hs_inv;
+wire             iui_inst_csr;
+wire             iui_inst_csrrc;
+wire             iui_inst_csrrci;
+wire             iui_inst_csrrs;
+wire             iui_inst_csrrsi;
+wire             iui_inst_csrrw;
+wire             iui_inst_csrrwi;
+wire             iui_inst_mret;
+wire             iui_inst_ro;
+wire             iui_inst_sret;
+wire             iui_inst_wfi;
+wire             iui_m_mode;
+wire    [31 :0]  iui_opcode;
+wire    [6  :0]  iui_preg;
+wire             iui_privilege;
+wire    [11 :0]  iui_regs_addr;
+wire             iui_regs_csr_wr;
+wire             iui_regs_csrw;
+wire             iui_regs_ex3_inst_csr;
+wire             iui_regs_inst_mret;
+wire             iui_regs_inst_sret;
+wire             iui_regs_inv_expt;
+wire    [31 :0]  iui_regs_opcode;
+wire    [63 :0]  iui_regs_ori_src0;
+wire             iui_regs_rst_inv_d;
+wire             iui_regs_rst_inv_i;
+wire             iui_regs_sel;
+wire    [63 :0]  iui_regs_src0;
+wire             iui_s_inv;
+wire             iui_s_mode;
+wire    [63 :0]  iui_src0;
+wire             iui_tee_inv;
+wire    [1  :0]  iui_top_cur_state;
+wire             iui_u_inv;
+wire             iui_u_mode;
+wire    [63 :0]  iui_uimm;
+wire             iui_v_mode;
+wire             iui_vs_inv;
+wire             iui_w_inv;
+wire             lpmd_cmplt;
+wire             lsu_cp0_dcache_done;
+wire             mmu_cp0_cmplt;
+wire             mmu_cp0_tlb_done;
+wire             pad_yy_icg_scan_en;
+wire             regs_iui_cfr_no_op;
+wire             regs_iui_chk_vld;
+wire             regs_iui_cindex_l2;
+wire             regs_iui_cins_no_op;
+wire             regs_iui_cskyee;
+wire    [63 :0]  regs_iui_data_out;
+wire             regs_iui_dca_sel;
+wire             regs_iui_fs_off;
+wire             regs_iui_hpcp_regs_sel;
+wire             regs_iui_hpcp_scr_inv;
+wire    [14 :0]  regs_iui_int_sel;
+wire             regs_iui_l2_regs_sel;
+wire    [1  :0]  regs_iui_pm;
+wire    [3  :0]  regs_iui_reg_idx;
+wire             regs_iui_scnt_inv;
+wire             regs_iui_tee_ff;
+wire             regs_iui_tee_vld;
+wire             regs_iui_tsr;
+wire             regs_iui_tvm;
+wire             regs_iui_tw;
+wire             regs_iui_ucnt_inv;
+wire             regs_iui_v;
+wire             regs_iui_vs_off;
+wire    [63 :0]  regs_iui_wdata;
+wire             regs_xx_icg_en;
+wire             rf_inst_csrrc;
+wire             rf_inst_csrrci;
+wire             rf_inst_csrrs;
+wire             rf_inst_csrrsi;
+wire             rf_inst_csrrw;
+wire             rf_inst_csrrwi;
+wire             rf_inst_mret;
+wire             rf_inst_sret;
+wire             rf_inst_wfi;
+wire             rst_inv_done;
+wire             rtu_yy_xx_commit0;
+wire    [6  :0]  rtu_yy_xx_commit0_iid;
+wire             rtu_yy_xx_dbgon;
+wire             rtu_yy_xx_flush;
 
 
 parameter IDLE     = 2'b00;
@@ -392,16 +392,16 @@ parameter RST_IDLE = 1'b0;
 parameter RST_WFC  = 1'b1;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
-assign iui_clk_en = idu_cp0_rf_gateclk_sel 
-                 || (cur_state[1:0] == EX1) 
+assign iui_clk_en = idu_cp0_rf_gateclk_sel
+                 || (cur_state[1:0] == EX1)
                  || (cur_state[1:0] == EX2)
-                 || (cur_state[1:0] == EX3) 
+                 || (cur_state[1:0] == EX3)
                  || inst_csr_ex2
-                 || rtu_yy_xx_flush && (cp0_expt_vld || cp0_flush 
+                 || rtu_yy_xx_flush && (cp0_expt_vld || cp0_flush
                                      || cur_state[1:0] != IDLE)
-                 || ifu_cp0_rst_inv_req 
+                 || ifu_cp0_rst_inv_req
                  || ifu_cp0_icache_inv_done
                  || lsu_cp0_dcache_done
                  || mmu_cp0_tlb_done
@@ -735,70 +735,70 @@ assign rf_inst_csrrci = idu_cp0_rf_func[4] &&  idu_cp0_rf_func[2:0] == 3'b101;
 always @(posedge cpuclk or negedge cpurst_b)
 begin
   if(!cpurst_b) begin
-    iui_ex1_inst_wfi      <= 1'b0; 
-    iui_ex1_inst_sret     <= 1'b0; 
-    iui_ex1_inst_mret     <= 1'b0; 
-    iui_ex1_inst_csrrw    <= 1'b0; 
-    iui_ex1_inst_csrrs    <= 1'b0; 
-    iui_ex1_inst_csrrc    <= 1'b0; 
-    iui_ex1_inst_csrrwi   <= 1'b0; 
-    iui_ex1_inst_csrrsi   <= 1'b0; 
-    iui_ex1_inst_csrrci   <= 1'b0; 
-    iui_ex1_iid[6:0]      <= 7'b0; 
-    iui_ex1_opcode[31:0]  <= 32'b0; 
+    iui_ex1_inst_wfi      <= 1'b0;
+    iui_ex1_inst_sret     <= 1'b0;
+    iui_ex1_inst_mret     <= 1'b0;
+    iui_ex1_inst_csrrw    <= 1'b0;
+    iui_ex1_inst_csrrs    <= 1'b0;
+    iui_ex1_inst_csrrc    <= 1'b0;
+    iui_ex1_inst_csrrwi   <= 1'b0;
+    iui_ex1_inst_csrrsi   <= 1'b0;
+    iui_ex1_inst_csrrci   <= 1'b0;
+    iui_ex1_iid[6:0]      <= 7'b0;
+    iui_ex1_opcode[31:0]  <= 32'b0;
     iui_ex1_src0[63:0]    <= 64'b0;
-    iui_ex1_preg[6:0]     <= 7'b0; 
+    iui_ex1_preg[6:0]     <= 7'b0;
   end
   else if(idu_cp0_rf_gateclk_sel) begin
-    iui_ex1_inst_wfi      <= rf_inst_wfi; 
-    iui_ex1_inst_sret     <= rf_inst_sret; 
-    iui_ex1_inst_mret     <= rf_inst_mret; 
-    iui_ex1_inst_csrrw    <= rf_inst_csrrw; 
-    iui_ex1_inst_csrrs    <= rf_inst_csrrs; 
-    iui_ex1_inst_csrrc    <= rf_inst_csrrc; 
-    iui_ex1_inst_csrrwi   <= rf_inst_csrrwi; 
-    iui_ex1_inst_csrrsi   <= rf_inst_csrrsi; 
-    iui_ex1_inst_csrrci   <= rf_inst_csrrci; 
-    iui_ex1_iid[6:0]      <= idu_cp0_rf_iid[6:0]; 
-    iui_ex1_opcode[31:0]  <= idu_cp0_rf_opcode[31:0]; 
+    iui_ex1_inst_wfi      <= rf_inst_wfi;
+    iui_ex1_inst_sret     <= rf_inst_sret;
+    iui_ex1_inst_mret     <= rf_inst_mret;
+    iui_ex1_inst_csrrw    <= rf_inst_csrrw;
+    iui_ex1_inst_csrrs    <= rf_inst_csrrs;
+    iui_ex1_inst_csrrc    <= rf_inst_csrrc;
+    iui_ex1_inst_csrrwi   <= rf_inst_csrrwi;
+    iui_ex1_inst_csrrsi   <= rf_inst_csrrsi;
+    iui_ex1_inst_csrrci   <= rf_inst_csrrci;
+    iui_ex1_iid[6:0]      <= idu_cp0_rf_iid[6:0];
+    iui_ex1_opcode[31:0]  <= idu_cp0_rf_opcode[31:0];
     iui_ex1_src0[63:0]    <= idu_cp0_rf_src0[63:0];
-    iui_ex1_preg[6:0]     <= idu_cp0_rf_preg[6:0]; 
+    iui_ex1_preg[6:0]     <= idu_cp0_rf_preg[6:0];
   end
   else begin
-    iui_ex1_inst_wfi      <= iui_ex1_inst_wfi; 
-    iui_ex1_inst_sret     <= iui_ex1_inst_sret; 
-    iui_ex1_inst_mret     <= iui_ex1_inst_mret; 
-    iui_ex1_inst_csrrw    <= iui_ex1_inst_csrrw; 
-    iui_ex1_inst_csrrs    <= iui_ex1_inst_csrrs; 
-    iui_ex1_inst_csrrc    <= iui_ex1_inst_csrrc; 
-    iui_ex1_inst_csrrwi   <= iui_ex1_inst_csrrwi; 
-    iui_ex1_inst_csrrsi   <= iui_ex1_inst_csrrsi; 
-    iui_ex1_inst_csrrci   <= iui_ex1_inst_csrrci; 
-    iui_ex1_iid[6:0]      <= iui_ex1_iid[6:0]; 
-    iui_ex1_opcode[31:0]  <= iui_ex1_opcode[31:0]; 
+    iui_ex1_inst_wfi      <= iui_ex1_inst_wfi;
+    iui_ex1_inst_sret     <= iui_ex1_inst_sret;
+    iui_ex1_inst_mret     <= iui_ex1_inst_mret;
+    iui_ex1_inst_csrrw    <= iui_ex1_inst_csrrw;
+    iui_ex1_inst_csrrs    <= iui_ex1_inst_csrrs;
+    iui_ex1_inst_csrrc    <= iui_ex1_inst_csrrc;
+    iui_ex1_inst_csrrwi   <= iui_ex1_inst_csrrwi;
+    iui_ex1_inst_csrrsi   <= iui_ex1_inst_csrrsi;
+    iui_ex1_inst_csrrci   <= iui_ex1_inst_csrrci;
+    iui_ex1_iid[6:0]      <= iui_ex1_iid[6:0];
+    iui_ex1_opcode[31:0]  <= iui_ex1_opcode[31:0];
     iui_ex1_src0[63:0]    <= iui_ex1_src0[63:0];
-    iui_ex1_preg[6:0]     <= iui_ex1_preg[6:0]; 
+    iui_ex1_preg[6:0]     <= iui_ex1_preg[6:0];
   end
 end
 
-assign iui_inst_wfi     = iui_ex1_inst_wfi; 
-assign iui_inst_sret    = iui_ex1_inst_sret; 
-assign iui_inst_mret    = iui_ex1_inst_mret; 
-assign iui_inst_csrrw   = iui_ex1_inst_csrrw; 
-assign iui_inst_csrrs   = iui_ex1_inst_csrrs; 
-assign iui_inst_csrrc   = iui_ex1_inst_csrrc; 
-assign iui_inst_csrrwi  = iui_ex1_inst_csrrwi; 
-assign iui_inst_csrrsi  = iui_ex1_inst_csrrsi; 
-assign iui_inst_csrrci  = iui_ex1_inst_csrrci; 
-assign iui_opcode[31:0] = iui_ex1_opcode[31:0]; 
-assign iui_preg[6:0]    = iui_ex1_preg[6:0]; 
+assign iui_inst_wfi     = iui_ex1_inst_wfi;
+assign iui_inst_sret    = iui_ex1_inst_sret;
+assign iui_inst_mret    = iui_ex1_inst_mret;
+assign iui_inst_csrrw   = iui_ex1_inst_csrrw;
+assign iui_inst_csrrs   = iui_ex1_inst_csrrs;
+assign iui_inst_csrrc   = iui_ex1_inst_csrrc;
+assign iui_inst_csrrwi  = iui_ex1_inst_csrrwi;
+assign iui_inst_csrrsi  = iui_ex1_inst_csrrsi;
+assign iui_inst_csrrci  = iui_ex1_inst_csrrci;
+assign iui_opcode[31:0] = iui_ex1_opcode[31:0];
+assign iui_preg[6:0]    = iui_ex1_preg[6:0];
 assign iui_src0[63:0]   = iui_ex1_src0[63:0];
 assign iui_addr[11:0]   = iui_ex1_opcode[31:20];
 assign iui_uimm[63:0]   = {59'b0, iui_ex1_opcode[19:15]};
 
 assign iui_inst_csr     = iui_inst_csrrw  || iui_inst_csrrs  || iui_inst_csrrc
                        || iui_inst_csrrwi || iui_inst_csrrsi || iui_inst_csrrci;
-assign iui_inst_ro      = (iui_inst_csrrs  || iui_inst_csrrc 
+assign iui_inst_ro      = (iui_inst_csrrs  || iui_inst_csrrc
                         || iui_inst_csrrsi || iui_inst_csrrci)
                         && iui_uimm[4:0] == 5'b0;
 
@@ -808,26 +808,26 @@ assign iui_inst_ro      = (iui_inst_csrrs  || iui_inst_csrrc
 // &CombBeg; @442
 always @( iui_addr[11:0])
 begin
-  addr_inv = 1'b1; 
+  addr_inv = 1'b1;
   casez(iui_addr[11:0])
-    MVENDORID : addr_inv = 1'b0; 
-    MARCHID   : addr_inv = 1'b0; 
-    MIMPID    : addr_inv = 1'b0; 
+    MVENDORID : addr_inv = 1'b0;
+    MARCHID   : addr_inv = 1'b0;
+    MIMPID    : addr_inv = 1'b0;
     MHARTID   : addr_inv = 1'b0;
 
-    MSTATUS   : addr_inv = 1'b0; 
-    MISA      : addr_inv = 1'b0; 
-    MEDELEG   : addr_inv = 1'b0; 
-    MIDELEG   : addr_inv = 1'b0; 
-    MIE       : addr_inv = 1'b0; 
-    MTVEC     : addr_inv = 1'b0; 
-    MCNTEN    : addr_inv = 1'b0; 
+    MSTATUS   : addr_inv = 1'b0;
+    MISA      : addr_inv = 1'b0;
+    MEDELEG   : addr_inv = 1'b0;
+    MIDELEG   : addr_inv = 1'b0;
+    MIE       : addr_inv = 1'b0;
+    MTVEC     : addr_inv = 1'b0;
+    MCNTEN    : addr_inv = 1'b0;
 
-    MSCRATCH  : addr_inv = 1'b0; 
-    MEPC      : addr_inv = 1'b0; 
-    MCAUSE    : addr_inv = 1'b0; 
-    MTVAL     : addr_inv = 1'b0; 
-    MIP       : addr_inv = 1'b0; 
+    MSCRATCH  : addr_inv = 1'b0;
+    MEPC      : addr_inv = 1'b0;
+    MCAUSE    : addr_inv = 1'b0;
+    MTVAL     : addr_inv = 1'b0;
+    MIP       : addr_inv = 1'b0;
 
     PMPCFG0   : addr_inv = 1'b0;
     PMPADDR0  : addr_inv = 1'b0;
@@ -1056,7 +1056,7 @@ begin
     //SCNTOF    : addr_inv = 1'b0;
     //SHINT     : addr_inv = 1'b0;
     //SHINT2    : addr_inv = 1'b0;
-          
+
     //SCNTIHBT  : addr_inv = 1'b0;
     //SHPMCR    : addr_inv = 1'b0;
     //SHPMSP    : addr_inv = 1'b0;
@@ -1069,7 +1069,7 @@ begin
 
     //FXCR      : addr_inv = 1'b0;
 
-    default   : addr_inv = 1'b1; 
+    default   : addr_inv = 1'b1;
   endcase
 // &CombEnd; @728
 end
@@ -1085,7 +1085,7 @@ assign iui_ex2_commit = rtu_yy_xx_commit0
 always @(posedge cpuclk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    iui_flop_commit <= 1'b0; 
+    iui_flop_commit <= 1'b0;
   else if(cur_state[1:0] == EX2)
     iui_flop_commit <= iui_ex2_commit;
   else
@@ -1302,7 +1302,7 @@ end
 
 assign rst_inv_done = rst_icache_inv == RST_IDLE && rst_dcache_inv == RST_IDLE
                    && rst_tlb_inv == RST_IDLE;
-assign iui_regs_rst_inv_i = rst_icache_inv == RST_WFC 
+assign iui_regs_rst_inv_i = rst_icache_inv == RST_WFC
                          && !ifu_cp0_icache_inv_done;
 assign iui_regs_rst_inv_d = rst_dcache_inv == RST_WFC;
 assign cp0_mmu_tlb_all_inv = rst_tlb_inv == RST_IDLE && ifu_cp0_rst_inv_req;
@@ -1320,7 +1320,7 @@ assign iui_v_mode = regs_iui_v       == 1'b1;
 assign iui_hs_inv = 1'b0;
 
 // s-mode access m-mode csr or inst
-assign iui_s_inv  = iui_s_mode  
+assign iui_s_inv  = iui_s_mode
                 && (iui_inst_csr && iui_addr[9:8] == 2'b11
                     || iui_inst_mret
                     || iui_inst_sret && regs_iui_tsr
@@ -1331,7 +1331,7 @@ assign iui_s_inv  = iui_s_mode
                     );
 
 // u-mode access m/s-mode csr or inst
-assign iui_u_inv  = iui_u_mode  
+assign iui_u_inv  = iui_u_mode
                 && (iui_inst_csr && iui_addr[9:8] != 2'b00
                     || iui_inst_mret
                     || iui_inst_sret
@@ -1340,9 +1340,9 @@ assign iui_u_inv  = iui_u_mode
                     );
 
 // write read-only csr
-assign iui_w_inv   = iui_inst_csr && iui_addr[11:10] == 2'b11 && !iui_inst_ro; 
+assign iui_w_inv   = iui_inst_csr && iui_addr[11:10] == 2'b11 && !iui_inst_ro;
 
-// fs illegal 
+// fs illegal
 //according to riscv-v-spec pull 135:
 assign iui_fs_inv  = iui_inst_csr && regs_iui_fs_off
                      && ((iui_addr[11:0] == FXCR)
@@ -1395,7 +1395,7 @@ assign iui_regs_ex3_inst_csr = cp0_ex3_select && iui_flop_commit
                             && iui_privilege && iui_inst_csr;
 
 //csr write insctuction
-assign inst_csr_wr = cp0_select && iui_privilege && iui_inst_csr 
+assign inst_csr_wr = cp0_select && iui_privilege && iui_inst_csr
                   && !iui_inst_ro;
 
 //low power insctuction
@@ -1450,7 +1450,7 @@ assign iui_regs_src0[63:0] = {64{iui_inst_csrrw}}  & csrrw_src0[63:0]
 // for cut off cp0 - l2 write data path
 assign iui_csr_inst_imm = iui_inst_csrrwi || iui_inst_csrrsi || iui_inst_csrrci;
 
-assign cp0_biu_sel         = (cp0_ex1_select || cp0_ex2_select) 
+assign cp0_biu_sel         = (cp0_ex1_select || cp0_ex2_select)
                           && iui_inst_csr && regs_iui_l2_regs_sel && iui_privilege;
 assign cp0_biu_wdata[63:0] = regs_iui_dca_sel ? regs_iui_wdata[63:0]
                              : iui_csr_inst_imm ? iui_uimm[63:0] : iui_src0[63:0];
@@ -1470,7 +1470,7 @@ assign cp0_biu_op[0]       = iui_inst_csrrc || iui_inst_csrrci;
 //assign cp0_biu_l2_wr_vld     = inst_csr_ex2 && (cur_state[1:0] == EX2) && regs_iui_l2_regs_sel;
 //
 // cp0-hpcp req-cmplt
-assign cp0_hpcp_sel         = (cp0_ex1_select || cp0_ex2_select) 
+assign cp0_hpcp_sel         = (cp0_ex1_select || cp0_ex2_select)
                           && iui_inst_csr && regs_iui_hpcp_regs_sel && iui_privilege;
 assign cp0_hpcp_op[3]       = !iui_inst_ro && cp0_ex2_select;
 assign cp0_hpcp_op[2]       = iui_inst_csrrw || iui_inst_csrrwi;
@@ -1501,9 +1501,9 @@ assign cp0_inst_cmplt = ( !(inst_lpmd || iui_csr_mcir || iui_csr_l2regs || iui_c
                         && regs_iui_cins_no_op;
 
 //==========================================================
-//           Generate data valid signal to IU 
+//           Generate data valid signal to IU
 //==========================================================
-//if there is a mfcr insctuction, data valid 
+//if there is a mfcr insctuction, data valid
 assign cp0_iu_ex3_rslt_vld        = iui_inst_csr
                                     && iui_privilege
                                     && cp0_ex3_select
@@ -1527,7 +1527,7 @@ end
 assign cp0_iu_ex3_rslt_data[63:0] = cp0_rslt_reg[63:0];
 
 //==========================================================
-//            Special insctuction result 
+//            Special insctuction result
 //==========================================================
 assign cp0_iu_ex3_iid[6:0]  = iui_ex1_iid[6:0];
 assign cp0_iu_ex3_abnormal  = 1'b1;
@@ -1537,13 +1537,13 @@ assign cp0_iu_ex3_abnormal  = 1'b1;
 //assign cp0_iu_ex3_idly_clr  = 1'b0;
 
 //==========================================================
-//             Generate Exception to IU 
+//             Generate Exception to IU
 //==========================================================
 
 //----------------------------------------------------------
 //          Generate CP0 Exception Valid
 //----------------------------------------------------------
-// Generate privilege exception when the CP0 is selected 
+// Generate privilege exception when the CP0 is selected
 // at EX1 stage in user mode.
 assign cp0_ex2_expt_vld = !iui_privilege && cp0_ex2_select;
 
@@ -1561,14 +1561,14 @@ end
 
 assign cp0_iu_ex3_expt_vld = cp0_expt_vld;
 assign cp0_iu_ex3_mtval[31:0] = iui_opcode[31:0];
-    
+
 //----------------------------------------------------------
-//         Generate CP0 Exception Vector 
+//         Generate CP0 Exception Vector
 //----------------------------------------------------------
 assign cp0_iu_ex3_expt_vec[4:0] = 5'h2;
 
 //==========================================================
-//             Generate Interrupt to RTU 
+//             Generate Interrupt to RTU
 //==========================================================
 //----------------------------------------------------------
 //          Generate iui int valid
@@ -1581,7 +1581,7 @@ begin
     iui_int_vld_b <= 1'b1;
   else if(int_vld)
     iui_int_vld_b <= 1'b0;
-  else 
+  else
     iui_int_vld_b <= 1'b1;
 end
 
@@ -1618,7 +1618,7 @@ begin
     iui_int_vec[4:0] <= 5'b0;
   else if(int_vld)
     iui_int_vec[4:0] <= valid_int_vec[4:0];
-  else 
+  else
     iui_int_vec[4:0] <= iui_int_vec[4:0];
 end
 
@@ -1627,7 +1627,7 @@ assign cp0_rtu_xx_vec[4:0] = iui_int_vec[4:0];
 
 
 //==========================================================
-//                 generate cp0 flush                   
+//                 generate cp0 flush
 //==========================================================
 //cp0 will generate flush if
 //1.mret/sret

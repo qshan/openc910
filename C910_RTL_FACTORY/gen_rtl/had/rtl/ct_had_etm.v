@@ -27,58 +27,58 @@ module ct_had_etm(
 );
 
 // &Ports; @2
-input        core0_enter_dbg_req_o;   
-input        core0_exit_dbg_req_o;    
-input        core1_enter_dbg_req_o;   
-input        core1_exit_dbg_req_o;    
-input        cpurst_b;                
-input        forever_cpuclk;          
-input        pad_yy_icg_scan_en;      
-output       core0_enter_dbg_req_i;   
-output       core0_exit_dbg_req_i;    
-output       core1_enter_dbg_req_i;   
-output       core1_exit_dbg_req_i;    
+input        core0_enter_dbg_req_o;
+input        core0_exit_dbg_req_o;
+input        core1_enter_dbg_req_o;
+input        core1_exit_dbg_req_o;
+input        cpurst_b;
+input        forever_cpuclk;
+input        pad_yy_icg_scan_en;
+output       core0_enter_dbg_req_i;
+output       core0_exit_dbg_req_i;
+output       core1_enter_dbg_req_i;
+output       core1_exit_dbg_req_i;
 
 // &Regs;  @3
 
 // &Wires; @4
-wire         core0_enter_dbg_req;     
-wire         core0_enter_dbg_req_i;   
-wire         core0_enter_dbg_req_o;   
-wire         core0_enter_dbg_req_o_ff; 
-wire         core0_event_clk_en;      
-wire         core0_exit_dbg_req;      
-wire         core0_exit_dbg_req_i;    
-wire         core0_exit_dbg_req_o;    
-wire         core0_exit_dbg_req_o_ff; 
-wire         core0_tee;               
-wire         core1_enter_dbg_req;     
-wire         core1_enter_dbg_req_i;   
-wire         core1_enter_dbg_req_o;   
-wire         core1_enter_dbg_req_o_ff; 
-wire         core1_event_clk_en;      
-wire         core1_exit_dbg_req;      
-wire         core1_exit_dbg_req_i;    
-wire         core1_exit_dbg_req_o;    
-wire         core1_exit_dbg_req_o_ff; 
-wire         core1_tee;               
-wire         core2_enter_dbg_req;     
-wire         core2_enter_dbg_req_o_ff; 
-wire         core2_event_clk_en;      
-wire         core2_exit_dbg_req;      
-wire         core2_exit_dbg_req_o_ff; 
-wire         core2_tee;               
-wire         core3_enter_dbg_req;     
-wire         core3_enter_dbg_req_o_ff; 
-wire         core3_event_clk_en;      
-wire         core3_exit_dbg_req;      
-wire         core3_exit_dbg_req_o_ff; 
-wire         core3_tee;               
-wire         cpurst_b;                
-wire         event_clk;               
-wire         event_clk_en;            
-wire         forever_cpuclk;          
-wire         pad_yy_icg_scan_en;      
+wire         core0_enter_dbg_req;
+wire         core0_enter_dbg_req_i;
+wire         core0_enter_dbg_req_o;
+wire         core0_enter_dbg_req_o_ff;
+wire         core0_event_clk_en;
+wire         core0_exit_dbg_req;
+wire         core0_exit_dbg_req_i;
+wire         core0_exit_dbg_req_o;
+wire         core0_exit_dbg_req_o_ff;
+wire         core0_tee;
+wire         core1_enter_dbg_req;
+wire         core1_enter_dbg_req_i;
+wire         core1_enter_dbg_req_o;
+wire         core1_enter_dbg_req_o_ff;
+wire         core1_event_clk_en;
+wire         core1_exit_dbg_req;
+wire         core1_exit_dbg_req_i;
+wire         core1_exit_dbg_req_o;
+wire         core1_exit_dbg_req_o_ff;
+wire         core1_tee;
+wire         core2_enter_dbg_req;
+wire         core2_enter_dbg_req_o_ff;
+wire         core2_event_clk_en;
+wire         core2_exit_dbg_req;
+wire         core2_exit_dbg_req_o_ff;
+wire         core2_tee;
+wire         core3_enter_dbg_req;
+wire         core3_enter_dbg_req_o_ff;
+wire         core3_event_clk_en;
+wire         core3_exit_dbg_req;
+wire         core3_exit_dbg_req_o_ff;
+wire         core3_tee;
+wire         cpurst_b;
+wire         event_clk;
+wire         event_clk_en;
+wire         forever_cpuclk;
+wire         pad_yy_icg_scan_en;
 
 
 // &ConnRule(s/^x_/core0_/); @6
@@ -148,12 +148,12 @@ assign core1_tee = 1'b0;
 assign core2_tee = 1'b0;
 assign core3_tee = 1'b0;
 
-assign core0_enter_dbg_req = 
+assign core0_enter_dbg_req =
                             (core1_enter_dbg_req_o_ff && (core0_tee == core1_tee) ||
                              core2_enter_dbg_req_o_ff && (core0_tee == core2_tee) ||
                              core3_enter_dbg_req_o_ff && (core0_tee == core3_tee));
 
-assign core1_enter_dbg_req = 
+assign core1_enter_dbg_req =
                             (core0_enter_dbg_req_o_ff && (core1_tee == core0_tee) ||
                              core2_enter_dbg_req_o_ff && (core1_tee == core2_tee) ||
                              core3_enter_dbg_req_o_ff && (core1_tee == core3_tee));
@@ -163,30 +163,30 @@ assign core2_enter_dbg_req =
                              core1_enter_dbg_req_o_ff && (core2_tee == core1_tee) ||
                              core3_enter_dbg_req_o_ff && (core2_tee == core3_tee));
 
-assign core3_enter_dbg_req = 
+assign core3_enter_dbg_req =
                             (core0_enter_dbg_req_o_ff && (core3_tee == core0_tee) ||
                              core1_enter_dbg_req_o_ff && (core3_tee == core1_tee) ||
                              core2_enter_dbg_req_o_ff && (core3_tee == core2_tee));
 
 
-assign core0_exit_dbg_req = 
+assign core0_exit_dbg_req =
                            (core1_exit_dbg_req_o_ff && (core0_tee == core1_tee) ||
-                            core2_exit_dbg_req_o_ff && (core0_tee == core2_tee) || 
+                            core2_exit_dbg_req_o_ff && (core0_tee == core2_tee) ||
                             core3_exit_dbg_req_o_ff && (core0_tee == core3_tee));
 
-assign core1_exit_dbg_req = 
-                           (core0_exit_dbg_req_o_ff && (core1_tee == core0_tee) || 
-                            core2_exit_dbg_req_o_ff && (core1_tee == core2_tee) || 
+assign core1_exit_dbg_req =
+                           (core0_exit_dbg_req_o_ff && (core1_tee == core0_tee) ||
+                            core2_exit_dbg_req_o_ff && (core1_tee == core2_tee) ||
                             core3_exit_dbg_req_o_ff && (core1_tee == core3_tee));
 
-assign core2_exit_dbg_req = 
-                           (core0_exit_dbg_req_o_ff && (core2_tee == core0_tee) || 
-                            core1_exit_dbg_req_o_ff && (core2_tee == core1_tee) || 
+assign core2_exit_dbg_req =
+                           (core0_exit_dbg_req_o_ff && (core2_tee == core0_tee) ||
+                            core1_exit_dbg_req_o_ff && (core2_tee == core1_tee) ||
                             core3_exit_dbg_req_o_ff && (core2_tee == core3_tee));
 
 assign core3_exit_dbg_req =
                            (core0_exit_dbg_req_o_ff && (core3_tee == core0_tee) ||
-                            core1_exit_dbg_req_o_ff && (core3_tee == core1_tee) || 
+                            core1_exit_dbg_req_o_ff && (core3_tee == core1_tee) ||
                             core2_exit_dbg_req_o_ff && (core3_tee == core2_tee));
 
 assign event_clk_en = core0_event_clk_en

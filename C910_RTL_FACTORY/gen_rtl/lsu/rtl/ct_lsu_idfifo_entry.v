@@ -23,22 +23,22 @@ module ct_lsu_idfifo_entry(
 );
 
 // &Ports; @24
-input          cpurst_b;                 
-input          idfifo_clk;               
-input   [2:0]  idfifo_create_id;         
-input          idfifo_entry_create_vld_x; 
-output  [2:0]  idfifo_entry_id_v;        
+input          cpurst_b;
+input          idfifo_clk;
+input   [2:0]  idfifo_create_id;
+input          idfifo_entry_create_vld_x;
+output  [2:0]  idfifo_entry_id_v;
 
 // &Regs; @25
-reg     [2:0]  idfifo_entry_id;          
+reg     [2:0]  idfifo_entry_id;
 
 // &Wires; @26
-wire           cpurst_b;                 
-wire           idfifo_clk;               
-wire    [2:0]  idfifo_create_id;         
-wire           idfifo_entry_create_vld;  
-wire           idfifo_entry_create_vld_x; 
-wire    [2:0]  idfifo_entry_id_v;        
+wire           cpurst_b;
+wire           idfifo_clk;
+wire    [2:0]  idfifo_create_id;
+wire           idfifo_entry_create_vld;
+wire           idfifo_entry_create_vld_x;
+wire    [2:0]  idfifo_entry_id_v;
 
 
 //==========================================================

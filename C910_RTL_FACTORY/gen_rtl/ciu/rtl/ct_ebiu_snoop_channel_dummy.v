@@ -30,32 +30,32 @@ module ct_ebiu_snoop_channel_dummy(
 );
 
 // &Ports; @2
-input            ebiuif_ebiu_ac_grant;    
-input   [127:0]  ebiuif_ebiu_cddata;      
-input            ebiuif_ebiu_cdlast;      
-input            ebiuif_ebiu_cdvalid;     
-input   [4  :0]  ebiuif_ebiu_crresp;      
-input            ebiuif_ebiu_crvalid;     
-output  [39 :0]  ebiu_ebiuif_acaddr;      
-output  [4  :0]  ebiu_ebiuif_acid;        
-output  [2  :0]  ebiu_ebiuif_acprot;      
-output  [3  :0]  ebiu_ebiuif_acsnoop;     
-output           ebiu_ebiuif_acvalid;     
-output           ebiu_ebiuif_cd_grant;    
-output           ebiu_ebiuif_cr_grant;    
-output           ebiu_snoop_channel_no_op; 
+input            ebiuif_ebiu_ac_grant;
+input   [127:0]  ebiuif_ebiu_cddata;
+input            ebiuif_ebiu_cdlast;
+input            ebiuif_ebiu_cdvalid;
+input   [4  :0]  ebiuif_ebiu_crresp;
+input            ebiuif_ebiu_crvalid;
+output  [39 :0]  ebiu_ebiuif_acaddr;
+output  [4  :0]  ebiu_ebiuif_acid;
+output  [2  :0]  ebiu_ebiuif_acprot;
+output  [3  :0]  ebiu_ebiuif_acsnoop;
+output           ebiu_ebiuif_acvalid;
+output           ebiu_ebiuif_cd_grant;
+output           ebiu_ebiuif_cr_grant;
+output           ebiu_snoop_channel_no_op;
 
 // &Regs; @3
 
 // &Wires; @4
-wire    [39 :0]  ebiu_ebiuif_acaddr;      
-wire    [4  :0]  ebiu_ebiuif_acid;        
-wire    [2  :0]  ebiu_ebiuif_acprot;      
-wire    [3  :0]  ebiu_ebiuif_acsnoop;     
-wire             ebiu_ebiuif_acvalid;     
-wire             ebiu_ebiuif_cd_grant;    
-wire             ebiu_ebiuif_cr_grant;    
-wire             ebiu_snoop_channel_no_op; 
+wire    [39 :0]  ebiu_ebiuif_acaddr;
+wire    [4  :0]  ebiu_ebiuif_acid;
+wire    [2  :0]  ebiu_ebiuif_acprot;
+wire    [3  :0]  ebiu_ebiuif_acsnoop;
+wire             ebiu_ebiuif_acvalid;
+wire             ebiu_ebiuif_cd_grant;
+wire             ebiu_ebiuif_cr_grant;
+wire             ebiu_snoop_channel_no_op;
 
 
 parameter ADDRW = `PA_WIDTH;

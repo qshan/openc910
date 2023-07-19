@@ -25,7 +25,7 @@ limitations under the License.
 .global main
 main:
       csrr	x10, mhartid
-      bnez	x10, WFI 
+      bnez	x10, WFI
       nop
 .global ID_SYNC
 ID_SYNC:
@@ -120,7 +120,7 @@ icache_ins_all:
 .global icache_ins_index
 icache_ins_index:
       li x10,0x3fc0
-#inv va,pa 
+#inv va,pa
       icache.iva x10
       icache.ipa x10
 .global dcache_ins
@@ -146,15 +146,15 @@ dcache_ins_index:
       dcache.iva x10
 #virtural addr  clr dcache & l2 cache
       dcache.cva x10
-#virtural addr  clr dcache  
+#virtural addr  clr dcache
       dcache.cval1 x10
-#virtural addr clr/inv dcache & l2 cache 
+#virtural addr clr/inv dcache & l2 cache
       dcache.civa x10
-#physical addr  inv 
+#physical addr  inv
       dcache.ipa x10
 #physical addr  clr dcache &l2 cache
       dcache.cpa x10
-#physical addr  clr dcache  
+#physical addr  clr dcache
       dcache.cpal1 x10
 #physical addr  clr/inv dcache & l2 cache
       dcache.cipa x10
@@ -166,7 +166,7 @@ EXIT:
      jr   x1
 .global FAIL
 FAIL:
-    la   x1, __fail 
+    la   x1, __fail
     jr   x1
 .global WFI
 WFI:

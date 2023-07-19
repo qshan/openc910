@@ -30,58 +30,58 @@ module ct_lsu_idfifo_8(
 );
 
 // &Ports; @26
-input          cp0_lsu_icg_en;              
-input          cp0_yy_clk_en;               
-input          cpurst_b;                    
-input          forever_cpuclk;              
-input          idfifo_clk_en;               
-input   [2:0]  idfifo_create_id;            
-input   [7:0]  idfifo_create_id_oh;         
-input          idfifo_create_vld;           
-input          idfifo_pop_vld;              
-input          pad_yy_icg_scan_en;          
-output         idfifo_empty;                
-output  [7:0]  idfifo_pop_id_oh;            
+input          cp0_lsu_icg_en;
+input          cp0_yy_clk_en;
+input          cpurst_b;
+input          forever_cpuclk;
+input          idfifo_clk_en;
+input   [2:0]  idfifo_create_id;
+input   [7:0]  idfifo_create_id_oh;
+input          idfifo_create_vld;
+input          idfifo_pop_vld;
+input          pad_yy_icg_scan_en;
+output         idfifo_empty;
+output  [7:0]  idfifo_pop_id_oh;
 
 // &Regs; @27
-reg     [3:0]  idfifo_create_ptr;           
-reg     [7:0]  idfifo_pop_id_oh;            
-reg     [3:0]  idfifo_pop_ptr;              
-reg     [3:0]  idfifo_pop_ptr_next;         
+reg     [3:0]  idfifo_create_ptr;
+reg     [7:0]  idfifo_pop_id_oh;
+reg     [3:0]  idfifo_pop_ptr;
+reg     [3:0]  idfifo_pop_ptr_next;
 
 // &Wires; @28
-wire           cp0_lsu_icg_en;              
-wire           cp0_yy_clk_en;               
-wire           cpurst_b;                    
-wire           forever_cpuclk;              
-wire           idfifo_1vld;                 
-wire           idfifo_clk;                  
-wire           idfifo_clk_en;               
-wire    [2:0]  idfifo_create_id;            
-wire    [7:0]  idfifo_create_id_oh;         
-wire    [7:0]  idfifo_create_ptr_oh;        
-wire           idfifo_create_vld;           
-wire           idfifo_empty;                
-wire    [7:0]  idfifo_entry_create_vld;     
-wire    [2:0]  idfifo_entry_id_0;           
-wire    [2:0]  idfifo_entry_id_1;           
-wire    [2:0]  idfifo_entry_id_2;           
-wire    [2:0]  idfifo_entry_id_3;           
-wire    [2:0]  idfifo_entry_id_4;           
-wire    [2:0]  idfifo_entry_id_5;           
-wire    [2:0]  idfifo_entry_id_6;           
-wire    [2:0]  idfifo_entry_id_7;           
-wire           idfifo_pe_clr_vld;           
-wire           idfifo_pe_sel_create_ptr_vld; 
-wire    [2:0]  idfifo_pop_id_next;          
-wire    [7:0]  idfifo_pop_id_next_oh;       
-wire    [7:0]  idfifo_pop_ptr_next_oh;      
-wire           idfifo_pop_vld;              
-wire           pad_yy_icg_scan_en;          
+wire           cp0_lsu_icg_en;
+wire           cp0_yy_clk_en;
+wire           cpurst_b;
+wire           forever_cpuclk;
+wire           idfifo_1vld;
+wire           idfifo_clk;
+wire           idfifo_clk_en;
+wire    [2:0]  idfifo_create_id;
+wire    [7:0]  idfifo_create_id_oh;
+wire    [7:0]  idfifo_create_ptr_oh;
+wire           idfifo_create_vld;
+wire           idfifo_empty;
+wire    [7:0]  idfifo_entry_create_vld;
+wire    [2:0]  idfifo_entry_id_0;
+wire    [2:0]  idfifo_entry_id_1;
+wire    [2:0]  idfifo_entry_id_2;
+wire    [2:0]  idfifo_entry_id_3;
+wire    [2:0]  idfifo_entry_id_4;
+wire    [2:0]  idfifo_entry_id_5;
+wire    [2:0]  idfifo_entry_id_6;
+wire    [2:0]  idfifo_entry_id_7;
+wire           idfifo_pe_clr_vld;
+wire           idfifo_pe_sel_create_ptr_vld;
+wire    [2:0]  idfifo_pop_id_next;
+wire    [7:0]  idfifo_pop_id_next_oh;
+wire    [7:0]  idfifo_pop_ptr_next_oh;
+wire           idfifo_pop_vld;
+wire           pad_yy_icg_scan_en;
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 // &Instance("gated_clk_cell", "x_lsu_idfifo_gated_clk"); @33
 gated_clk_cell  x_lsu_idfifo_gated_clk (

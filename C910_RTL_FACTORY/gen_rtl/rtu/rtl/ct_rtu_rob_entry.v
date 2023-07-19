@@ -48,114 +48,114 @@ module ct_rtu_rob_entry(
 );
 
 // &Ports; @28
-input           cp0_rtu_icg_en;                  
-input           cp0_yy_clk_en;                   
-input           cpurst_b;                        
-input           forever_cpuclk;                  
-input   [39:0]  idu_rtu_rob_create0_data;        
-input   [39:0]  idu_rtu_rob_create1_data;        
-input   [39:0]  idu_rtu_rob_create2_data;        
-input   [39:0]  idu_rtu_rob_create3_data;        
-input           lsu_misc_cmplt_gateclk_en;       
-input           lsu_rtu_wb_pipe3_bkpta_data;     
-input           lsu_rtu_wb_pipe3_bkptb_data;     
-input           lsu_rtu_wb_pipe3_no_spec_hit;    
-input           lsu_rtu_wb_pipe3_no_spec_mispred; 
-input           lsu_rtu_wb_pipe3_no_spec_miss;   
-input           lsu_rtu_wb_pipe4_bkpta_data;     
-input           lsu_rtu_wb_pipe4_bkptb_data;     
-input           lsu_rtu_wb_pipe4_no_spec_hit;    
-input           lsu_rtu_wb_pipe4_no_spec_mispred; 
-input           lsu_rtu_wb_pipe4_no_spec_miss;   
-input           pad_yy_icg_scan_en;              
-input           retire_rob_flush;                
-input           retire_rob_flush_gateclk;        
-input           x_cmplt_gateclk_vld;             
-input   [6 :0]  x_cmplt_vld;                     
-input           x_create_dp_en;                  
-input           x_create_en;                     
-input           x_create_gateclk_en;             
-input   [3 :0]  x_create_sel;                    
-input           x_pop_en;                        
-output  [39:0]  x_read_data;                     
+input           cp0_rtu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input   [39:0]  idu_rtu_rob_create0_data;
+input   [39:0]  idu_rtu_rob_create1_data;
+input   [39:0]  idu_rtu_rob_create2_data;
+input   [39:0]  idu_rtu_rob_create3_data;
+input           lsu_misc_cmplt_gateclk_en;
+input           lsu_rtu_wb_pipe3_bkpta_data;
+input           lsu_rtu_wb_pipe3_bkptb_data;
+input           lsu_rtu_wb_pipe3_no_spec_hit;
+input           lsu_rtu_wb_pipe3_no_spec_mispred;
+input           lsu_rtu_wb_pipe3_no_spec_miss;
+input           lsu_rtu_wb_pipe4_bkpta_data;
+input           lsu_rtu_wb_pipe4_bkptb_data;
+input           lsu_rtu_wb_pipe4_no_spec_hit;
+input           lsu_rtu_wb_pipe4_no_spec_mispred;
+input           lsu_rtu_wb_pipe4_no_spec_miss;
+input           pad_yy_icg_scan_en;
+input           retire_rob_flush;
+input           retire_rob_flush_gateclk;
+input           x_cmplt_gateclk_vld;
+input   [6 :0]  x_cmplt_vld;
+input           x_create_dp_en;
+input           x_create_en;
+input           x_create_gateclk_en;
+input   [3 :0]  x_create_sel;
+input           x_pop_en;
+output  [39:0]  x_read_data;
 
 // &Regs; @29
-reg             bju;                             
-reg             bkpta_data;                      
-reg             bkpta_inst;                      
-reg             bkptb_data;                      
-reg             bkptb_inst;                      
-reg             cmplt;                           
-reg     [1 :0]  cmplt_cnt;                       
-reg             fp_dirty;                        
-reg     [1 :0]  inst_num;                        
-reg             intmask;                         
-reg             load;                            
-reg             no_spec_hit;                     
-reg             no_spec_mispred;                 
-reg             no_spec_miss;                    
-reg     [2 :0]  pc_offset;                       
-reg             pcfifo;                          
-reg             ras;                             
-reg             split;                           
-reg             store;                           
-reg             vec_dirty;                       
-reg     [7 :0]  vl;                              
-reg             vl_pred;                         
-reg             vld;                             
-reg     [1 :0]  vlmul;                           
-reg             vsetvli;                         
-reg     [2 :0]  vsew;                            
-reg     [39:0]  x_create_data;                   
+reg             bju;
+reg             bkpta_data;
+reg             bkpta_inst;
+reg             bkptb_data;
+reg             bkptb_inst;
+reg             cmplt;
+reg     [1 :0]  cmplt_cnt;
+reg             fp_dirty;
+reg     [1 :0]  inst_num;
+reg             intmask;
+reg             load;
+reg             no_spec_hit;
+reg             no_spec_mispred;
+reg             no_spec_miss;
+reg     [2 :0]  pc_offset;
+reg             pcfifo;
+reg             ras;
+reg             split;
+reg             store;
+reg             vec_dirty;
+reg     [7 :0]  vl;
+reg             vl_pred;
+reg             vld;
+reg     [1 :0]  vlmul;
+reg             vsetvli;
+reg     [2 :0]  vsew;
+reg     [39:0]  x_create_data;
 
 // &Wires; @30
-wire            bkpta_data_updt_val;             
-wire            bkptb_data_updt_val;             
-wire            cmplt_1_fold_inst;               
-wire            cmplt_2_fold_inst;               
-wire            cmplt_3_fold_inst;               
-wire    [1 :0]  cmplt_cnt_cmplt_exist;           
-wire    [1 :0]  cmplt_cnt_with_create;           
-wire            cmplt_updt_val;                  
-wire            cp0_rtu_icg_en;                  
-wire            cp0_yy_clk_en;                   
-wire            cpurst_b;                        
-wire            create_clk;                      
-wire            create_clk_en;                   
-wire            entry_clk;                       
-wire            entry_clk_en;                    
-wire            forever_cpuclk;                  
-wire    [39:0]  idu_rtu_rob_create0_data;        
-wire    [39:0]  idu_rtu_rob_create1_data;        
-wire    [39:0]  idu_rtu_rob_create2_data;        
-wire    [39:0]  idu_rtu_rob_create3_data;        
-wire            lsu_cmplt_clk;                   
-wire            lsu_cmplt_clk_en;                
-wire            lsu_misc_cmplt_gateclk_en;       
-wire            lsu_rtu_wb_pipe3_bkpta_data;     
-wire            lsu_rtu_wb_pipe3_bkptb_data;     
-wire            lsu_rtu_wb_pipe3_no_spec_hit;    
-wire            lsu_rtu_wb_pipe3_no_spec_mispred; 
-wire            lsu_rtu_wb_pipe3_no_spec_miss;   
-wire            lsu_rtu_wb_pipe4_bkpta_data;     
-wire            lsu_rtu_wb_pipe4_bkptb_data;     
-wire            lsu_rtu_wb_pipe4_no_spec_hit;    
-wire            lsu_rtu_wb_pipe4_no_spec_mispred; 
-wire            lsu_rtu_wb_pipe4_no_spec_miss;   
-wire            no_spec_hit_updt_val;            
-wire            no_spec_mispred_updt_val;        
-wire            no_spec_miss_updt_val;           
-wire            pad_yy_icg_scan_en;              
-wire            retire_rob_flush;                
-wire            retire_rob_flush_gateclk;        
-wire            x_cmplt_gateclk_vld;             
-wire    [6 :0]  x_cmplt_vld;                     
-wire            x_create_dp_en;                  
-wire            x_create_en;                     
-wire            x_create_gateclk_en;             
-wire    [3 :0]  x_create_sel;                    
-wire            x_pop_en;                        
-wire    [39:0]  x_read_data;                     
+wire            bkpta_data_updt_val;
+wire            bkptb_data_updt_val;
+wire            cmplt_1_fold_inst;
+wire            cmplt_2_fold_inst;
+wire            cmplt_3_fold_inst;
+wire    [1 :0]  cmplt_cnt_cmplt_exist;
+wire    [1 :0]  cmplt_cnt_with_create;
+wire            cmplt_updt_val;
+wire            cp0_rtu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            create_clk;
+wire            create_clk_en;
+wire            entry_clk;
+wire            entry_clk_en;
+wire            forever_cpuclk;
+wire    [39:0]  idu_rtu_rob_create0_data;
+wire    [39:0]  idu_rtu_rob_create1_data;
+wire    [39:0]  idu_rtu_rob_create2_data;
+wire    [39:0]  idu_rtu_rob_create3_data;
+wire            lsu_cmplt_clk;
+wire            lsu_cmplt_clk_en;
+wire            lsu_misc_cmplt_gateclk_en;
+wire            lsu_rtu_wb_pipe3_bkpta_data;
+wire            lsu_rtu_wb_pipe3_bkptb_data;
+wire            lsu_rtu_wb_pipe3_no_spec_hit;
+wire            lsu_rtu_wb_pipe3_no_spec_mispred;
+wire            lsu_rtu_wb_pipe3_no_spec_miss;
+wire            lsu_rtu_wb_pipe4_bkpta_data;
+wire            lsu_rtu_wb_pipe4_bkptb_data;
+wire            lsu_rtu_wb_pipe4_no_spec_hit;
+wire            lsu_rtu_wb_pipe4_no_spec_mispred;
+wire            lsu_rtu_wb_pipe4_no_spec_miss;
+wire            no_spec_hit_updt_val;
+wire            no_spec_mispred_updt_val;
+wire            no_spec_miss_updt_val;
+wire            pad_yy_icg_scan_en;
+wire            retire_rob_flush;
+wire            retire_rob_flush_gateclk;
+wire            x_cmplt_gateclk_vld;
+wire    [6 :0]  x_cmplt_vld;
+wire            x_create_dp_en;
+wire            x_create_en;
+wire            x_create_gateclk_en;
+wire    [3 :0]  x_create_sel;
+wire            x_pop_en;
+wire    [39:0]  x_read_data;
 
 
 
@@ -195,7 +195,7 @@ parameter ROB_CMPLT           = 1;
 parameter ROB_VLD             = 0;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign entry_clk_en = retire_rob_flush_gateclk
                       || x_create_gateclk_en
@@ -371,7 +371,7 @@ assign cmplt_updt_val =
   || (|x_cmplt_vld[4:2]);
 
 //----------------------------------------------------------
-//                         cmplt 
+//                         cmplt
 //----------------------------------------------------------
 always @(posedge entry_clk or negedge cpurst_b)
 begin

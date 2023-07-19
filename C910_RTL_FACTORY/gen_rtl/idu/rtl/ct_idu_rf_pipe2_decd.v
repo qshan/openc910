@@ -22,22 +22,22 @@ module ct_idu_rf_pipe2_decd(
 );
 
 // &Ports; @28
-input   [31:0]  pipe2_decd_opcode;  
-output  [7 :0]  pipe2_decd_func;    
-output  [20:0]  pipe2_decd_offset;  
-output  [63:0]  pipe2_decd_src1_imm; 
+input   [31:0]  pipe2_decd_opcode;
+output  [7 :0]  pipe2_decd_func;
+output  [20:0]  pipe2_decd_offset;
+output  [63:0]  pipe2_decd_src1_imm;
 
 // &Regs; @29
-reg     [7 :0]  decd_16_func;       
-reg     [7 :0]  decd_32_func;       
-reg     [20:0]  pipe2_decd_offset;  
+reg     [7 :0]  decd_16_func;
+reg     [7 :0]  decd_32_func;
+reg     [20:0]  pipe2_decd_offset;
 
 // &Wires; @30
-wire    [5 :0]  decd_imm_sel;       
-wire    [31:0]  decd_op;            
-wire    [7 :0]  pipe2_decd_func;    
-wire    [31:0]  pipe2_decd_opcode;  
-wire    [63:0]  pipe2_decd_src1_imm; 
+wire    [5 :0]  decd_imm_sel;
+wire    [31:0]  decd_op;
+wire    [7 :0]  pipe2_decd_func;
+wire    [31:0]  pipe2_decd_opcode;
+wire    [63:0]  pipe2_decd_src1_imm;
 
 
 

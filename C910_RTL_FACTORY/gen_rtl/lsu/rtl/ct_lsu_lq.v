@@ -56,110 +56,110 @@ module ct_lsu_lq(
 );
 
 // &Ports; @26
-input           cp0_lsu_corr_dis;           
-input           cp0_lsu_icg_en;             
-input           cp0_yy_clk_en;              
-input           cpurst_b;                   
-input           forever_cpuclk;             
-input   [39:0]  ld_dc_addr0;                
-input   [39:0]  ld_dc_addr1;                
-input   [15:0]  ld_dc_bytes_vld;            
-input   [15:0]  ld_dc_bytes_vld1;           
-input           ld_dc_chk_ld_addr1_vld;     
-input   [6 :0]  ld_dc_iid;                  
-input           ld_dc_inst_chk_vld;         
-input           ld_dc_lq_create1_dp_vld;    
-input           ld_dc_lq_create1_gateclk_en; 
-input           ld_dc_lq_create1_vld;       
-input           ld_dc_lq_create_dp_vld;     
-input           ld_dc_lq_create_gateclk_en; 
-input           ld_dc_lq_create_vld;        
-input           ld_dc_secd;                 
-input           pad_yy_icg_scan_en;         
-input           rtu_yy_xx_commit0;          
-input   [6 :0]  rtu_yy_xx_commit0_iid;      
-input           rtu_yy_xx_commit1;          
-input   [6 :0]  rtu_yy_xx_commit1_iid;      
-input           rtu_yy_xx_commit2;          
-input   [6 :0]  rtu_yy_xx_commit2_iid;      
-input           rtu_yy_xx_flush;            
-input   [39:0]  st_dc_addr0;                
-input   [15:0]  st_dc_bytes_vld;            
-input           st_dc_chk_st_inst_vld;      
-input           st_dc_chk_statomic_inst_vld; 
-input   [6 :0]  st_dc_iid;                  
-output          lq_ld_dc_full;              
-output          lq_ld_dc_inst_hit;          
-output          lq_ld_dc_less2;             
-output          lq_ld_dc_spec_fail;         
-output          lq_st_dc_spec_fail;         
-output          lsu_idu_lq_not_full;        
+input           cp0_lsu_corr_dis;
+input           cp0_lsu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input   [39:0]  ld_dc_addr0;
+input   [39:0]  ld_dc_addr1;
+input   [15:0]  ld_dc_bytes_vld;
+input   [15:0]  ld_dc_bytes_vld1;
+input           ld_dc_chk_ld_addr1_vld;
+input   [6 :0]  ld_dc_iid;
+input           ld_dc_inst_chk_vld;
+input           ld_dc_lq_create1_dp_vld;
+input           ld_dc_lq_create1_gateclk_en;
+input           ld_dc_lq_create1_vld;
+input           ld_dc_lq_create_dp_vld;
+input           ld_dc_lq_create_gateclk_en;
+input           ld_dc_lq_create_vld;
+input           ld_dc_secd;
+input           pad_yy_icg_scan_en;
+input           rtu_yy_xx_commit0;
+input   [6 :0]  rtu_yy_xx_commit0_iid;
+input           rtu_yy_xx_commit1;
+input   [6 :0]  rtu_yy_xx_commit1_iid;
+input           rtu_yy_xx_commit2;
+input   [6 :0]  rtu_yy_xx_commit2_iid;
+input           rtu_yy_xx_flush;
+input   [39:0]  st_dc_addr0;
+input   [15:0]  st_dc_bytes_vld;
+input           st_dc_chk_st_inst_vld;
+input           st_dc_chk_statomic_inst_vld;
+input   [6 :0]  st_dc_iid;
+output          lq_ld_dc_full;
+output          lq_ld_dc_inst_hit;
+output          lq_ld_dc_less2;
+output          lq_ld_dc_spec_fail;
+output          lq_st_dc_spec_fail;
+output          lsu_idu_lq_not_full;
 
 // &Regs; @27
-reg     [15:0]  lq_create_ptr0;             
-reg     [15:0]  lq_create_ptr1;             
+reg     [15:0]  lq_create_ptr0;
+reg     [15:0]  lq_create_ptr1;
 
 // &Wires; @28
-wire            cp0_lsu_corr_dis;           
-wire            cp0_lsu_icg_en;             
-wire            cp0_yy_clk_en;              
-wire            cpurst_b;                   
-wire            forever_cpuclk;             
-wire    [39:0]  ld_dc_addr0;                
-wire    [39:0]  ld_dc_addr1;                
-wire    [15:0]  ld_dc_bytes_vld;            
-wire    [15:0]  ld_dc_bytes_vld1;           
-wire            ld_dc_chk_ld_addr1_vld;     
-wire    [6 :0]  ld_dc_iid;                  
-wire            ld_dc_inst_chk_vld;         
-wire            ld_dc_lq_create1_dp_vld;    
-wire            ld_dc_lq_create1_gateclk_en; 
-wire            ld_dc_lq_create1_vld;       
-wire            ld_dc_lq_create_dp_vld;     
-wire            ld_dc_lq_create_gateclk_en; 
-wire            ld_dc_lq_create_vld;        
-wire            ld_dc_secd;                 
-wire            lq_clk;                     
-wire            lq_clk_en;                  
-wire            lq_create1_success;         
-wire            lq_create_success;          
-wire            lq_empty;                   
-wire    [15:0]  lq_entry_create0_dp_vld;    
-wire    [15:0]  lq_entry_create0_vld;       
-wire    [15:0]  lq_entry_create1_dp_vld;    
-wire    [15:0]  lq_entry_create1_gateclk_en; 
-wire    [15:0]  lq_entry_create1_vld;       
-wire    [15:0]  lq_entry_create_gateclk_en; 
-wire    [15:0]  lq_entry_inst_hit;          
-wire    [15:0]  lq_entry_rar_spec_fail;     
-wire    [15:0]  lq_entry_raw_spec_fail;     
-wire    [15:0]  lq_entry_vld;               
-wire            lq_full;                    
-wire            lq_ld_dc_full;              
-wire            lq_ld_dc_inst_hit;          
-wire            lq_ld_dc_less2;             
-wire            lq_ld_dc_spec_fail;         
-wire            lq_st_dc_spec_fail;         
-wire            lsu_idu_lq_not_full;        
-wire            pad_yy_icg_scan_en;         
-wire            rtu_yy_xx_commit0;          
-wire    [6 :0]  rtu_yy_xx_commit0_iid;      
-wire            rtu_yy_xx_commit1;          
-wire    [6 :0]  rtu_yy_xx_commit1_iid;      
-wire            rtu_yy_xx_commit2;          
-wire    [6 :0]  rtu_yy_xx_commit2_iid;      
-wire            rtu_yy_xx_flush;            
-wire    [39:0]  st_dc_addr0;                
-wire    [15:0]  st_dc_bytes_vld;            
-wire            st_dc_chk_st_inst_vld;      
-wire            st_dc_chk_statomic_inst_vld; 
-wire    [6 :0]  st_dc_iid;                  
+wire            cp0_lsu_corr_dis;
+wire            cp0_lsu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            forever_cpuclk;
+wire    [39:0]  ld_dc_addr0;
+wire    [39:0]  ld_dc_addr1;
+wire    [15:0]  ld_dc_bytes_vld;
+wire    [15:0]  ld_dc_bytes_vld1;
+wire            ld_dc_chk_ld_addr1_vld;
+wire    [6 :0]  ld_dc_iid;
+wire            ld_dc_inst_chk_vld;
+wire            ld_dc_lq_create1_dp_vld;
+wire            ld_dc_lq_create1_gateclk_en;
+wire            ld_dc_lq_create1_vld;
+wire            ld_dc_lq_create_dp_vld;
+wire            ld_dc_lq_create_gateclk_en;
+wire            ld_dc_lq_create_vld;
+wire            ld_dc_secd;
+wire            lq_clk;
+wire            lq_clk_en;
+wire            lq_create1_success;
+wire            lq_create_success;
+wire            lq_empty;
+wire    [15:0]  lq_entry_create0_dp_vld;
+wire    [15:0]  lq_entry_create0_vld;
+wire    [15:0]  lq_entry_create1_dp_vld;
+wire    [15:0]  lq_entry_create1_gateclk_en;
+wire    [15:0]  lq_entry_create1_vld;
+wire    [15:0]  lq_entry_create_gateclk_en;
+wire    [15:0]  lq_entry_inst_hit;
+wire    [15:0]  lq_entry_rar_spec_fail;
+wire    [15:0]  lq_entry_raw_spec_fail;
+wire    [15:0]  lq_entry_vld;
+wire            lq_full;
+wire            lq_ld_dc_full;
+wire            lq_ld_dc_inst_hit;
+wire            lq_ld_dc_less2;
+wire            lq_ld_dc_spec_fail;
+wire            lq_st_dc_spec_fail;
+wire            lsu_idu_lq_not_full;
+wire            pad_yy_icg_scan_en;
+wire            rtu_yy_xx_commit0;
+wire    [6 :0]  rtu_yy_xx_commit0_iid;
+wire            rtu_yy_xx_commit1;
+wire    [6 :0]  rtu_yy_xx_commit1_iid;
+wire            rtu_yy_xx_commit2;
+wire    [6 :0]  rtu_yy_xx_commit2_iid;
+wire            rtu_yy_xx_flush;
+wire    [39:0]  st_dc_addr0;
+wire    [15:0]  st_dc_bytes_vld;
+wire            st_dc_chk_st_inst_vld;
+wire            st_dc_chk_statomic_inst_vld;
+wire    [6 :0]  st_dc_iid;
 
 
 parameter LQ_ENTRY  = 16;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 //if lq has entry or create lq, then this gateclk is on
 //lq_clk is used for entry_vld
@@ -937,7 +937,7 @@ assign lq_full  = &lq_entry_vld[LQ_ENTRY-1:0];
 //==========================================================
 assign lq_create_success  = ld_dc_lq_create_vld
                             &&  !rtu_yy_xx_flush
-                            &&  (!lq_ld_dc_less2 
+                            &&  (!lq_ld_dc_less2
                                  || !lq_ld_dc_full && !ld_dc_lq_create1_vld);
 
 assign lq_create1_success = lq_create_success

@@ -27,29 +27,29 @@ module ct_f_spsram_2048x128(
 );
 
 // &Ports; @26
-input   [10 :0]  A;           
-input            CEN;         
-input            CLK;         
-input   [127:0]  D;           
-input            GWEN;        
-input   [127:0]  WEN;         
-output  [127:0]  Q;           
+input   [10 :0]  A;
+input            CEN;
+input            CLK;
+input   [127:0]  D;
+input            GWEN;
+input   [127:0]  WEN;
+output  [127:0]  Q;
 
 // &Regs; @27
-reg     [10 :0]  addr_holding; 
+reg     [10 :0]  addr_holding;
 
 // &Wires; @28
-wire    [10 :0]  A;           
-wire             CEN;         
-wire             CLK;         
-wire    [127:0]  D;           
-wire             GWEN;        
-wire    [127:0]  Q;           
-wire    [127:0]  WEN;         
-wire    [10 :0]  addr;        
-wire    [127:0]  ram_din;     
-wire    [127:0]  ram_dout;    
-wire             ram_wen;     
+wire    [10 :0]  A;
+wire             CEN;
+wire             CLK;
+wire    [127:0]  D;
+wire             GWEN;
+wire    [127:0]  Q;
+wire    [127:0]  WEN;
+wire    [10 :0]  addr;
+wire    [127:0]  ram_din;
+wire    [127:0]  ram_dout;
+wire             ram_wen;
 
 
 parameter ADDR_WIDTH = 11;

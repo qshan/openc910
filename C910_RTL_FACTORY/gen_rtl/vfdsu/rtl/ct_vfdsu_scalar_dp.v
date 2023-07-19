@@ -54,93 +54,93 @@ module ct_vfdsu_scalar_dp(
 );
 
 // &Ports; @24
-input           cp0_vfpu_icg_en;              
-input           cp0_yy_clk_en;                
-input           cpurst_b;                     
-input   [4 :0]  dp_vfdsu_ex1_pipex_dst_ereg;  
-input   [6 :0]  dp_vfdsu_ex1_pipex_dst_vreg;  
-input   [6 :0]  dp_vfdsu_ex1_pipex_iid;       
-input   [2 :0]  dp_vfdsu_ex1_pipex_imm0;      
-input   [63:0]  dp_vfdsu_ex1_pipex_srcf0;     
-input   [63:0]  dp_vfdsu_ex1_pipex_srcf1;     
-input           ex1_data_clk;                 
-input           ex1_pipedown;                 
-input           ex2_data_clk;                 
-input           ex2_pipedown;                 
-input           ex3_data_clk;                 
-input           ex3_pipedown;                 
-input   [4 :0]  ex4_out_expt;                 
-input   [63:0]  ex4_out_result;               
-input           forever_cpuclk;               
-input   [19:0]  idu_vfpu_rf_pipex_func;       
-input           idu_vfpu_rf_pipex_gateclk_sel; 
-input           pad_yy_icg_scan_en;           
-output          ex1_div;                      
-output          ex1_double;                   
-output          ex1_scalar;                   
-output          ex1_single;                   
-output          ex1_sqrt;                     
-output  [63:0]  ex1_src0;                     
-output  [63:0]  ex1_src1;                     
-output  [2 :0]  ex1_static_rm;                
-output  [4 :0]  pipex_dp_vfdsu_ereg;          
-output  [4 :0]  pipex_dp_vfdsu_ereg_data;     
-output  [63:0]  pipex_dp_vfdsu_freg_data;     
-output  [6 :0]  pipex_dp_vfdsu_vreg;          
-output          vfdsu_ex2_double;             
-output          vfdsu_ex2_single;             
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input   [4 :0]  dp_vfdsu_ex1_pipex_dst_ereg;
+input   [6 :0]  dp_vfdsu_ex1_pipex_dst_vreg;
+input   [6 :0]  dp_vfdsu_ex1_pipex_iid;
+input   [2 :0]  dp_vfdsu_ex1_pipex_imm0;
+input   [63:0]  dp_vfdsu_ex1_pipex_srcf0;
+input   [63:0]  dp_vfdsu_ex1_pipex_srcf1;
+input           ex1_data_clk;
+input           ex1_pipedown;
+input           ex2_data_clk;
+input           ex2_pipedown;
+input           ex3_data_clk;
+input           ex3_pipedown;
+input   [4 :0]  ex4_out_expt;
+input   [63:0]  ex4_out_result;
+input           forever_cpuclk;
+input   [19:0]  idu_vfpu_rf_pipex_func;
+input           idu_vfpu_rf_pipex_gateclk_sel;
+input           pad_yy_icg_scan_en;
+output          ex1_div;
+output          ex1_double;
+output          ex1_scalar;
+output          ex1_single;
+output          ex1_sqrt;
+output  [63:0]  ex1_src0;
+output  [63:0]  ex1_src1;
+output  [2 :0]  ex1_static_rm;
+output  [4 :0]  pipex_dp_vfdsu_ereg;
+output  [4 :0]  pipex_dp_vfdsu_ereg_data;
+output  [63:0]  pipex_dp_vfdsu_freg_data;
+output  [6 :0]  pipex_dp_vfdsu_vreg;
+output          vfdsu_ex2_double;
+output          vfdsu_ex2_single;
 
 // &Regs; @25
-reg             ex1_div;                      
-reg             ex1_double;                   
-reg             ex1_single;                   
-reg             ex1_sqrt;                     
-reg             vfdsu_ex2_div;                
-reg             vfdsu_ex2_double;             
-reg     [4 :0]  vfdsu_ex2_dst_ereg;           
-reg     [6 :0]  vfdsu_ex2_dst_vreg;           
-reg     [6 :0]  vfdsu_ex2_iid;                
-reg             vfdsu_ex2_single;             
-reg             vfdsu_ex2_sqrt;               
-reg     [4 :0]  vfdsu_ex3_dst_ereg;           
-reg     [6 :0]  vfdsu_ex3_dst_vreg;           
-reg     [6 :0]  vfdsu_ex3_iid;                
-reg     [4 :0]  vfdsu_ex4_dst_ereg;           
-reg     [6 :0]  vfdsu_ex4_dst_vreg;           
-reg     [6 :0]  vfdsu_ex4_iid;                
+reg             ex1_div;
+reg             ex1_double;
+reg             ex1_single;
+reg             ex1_sqrt;
+reg             vfdsu_ex2_div;
+reg             vfdsu_ex2_double;
+reg     [4 :0]  vfdsu_ex2_dst_ereg;
+reg     [6 :0]  vfdsu_ex2_dst_vreg;
+reg     [6 :0]  vfdsu_ex2_iid;
+reg             vfdsu_ex2_single;
+reg             vfdsu_ex2_sqrt;
+reg     [4 :0]  vfdsu_ex3_dst_ereg;
+reg     [6 :0]  vfdsu_ex3_dst_vreg;
+reg     [6 :0]  vfdsu_ex3_iid;
+reg     [4 :0]  vfdsu_ex4_dst_ereg;
+reg     [6 :0]  vfdsu_ex4_dst_vreg;
+reg     [6 :0]  vfdsu_ex4_iid;
 
 // &Wires; @26
-wire            cp0_vfpu_icg_en;              
-wire            cp0_yy_clk_en;                
-wire            cpurst_b;                     
-wire    [4 :0]  dp_vfdsu_ex1_pipex_dst_ereg;  
-wire    [6 :0]  dp_vfdsu_ex1_pipex_dst_vreg;  
-wire    [6 :0]  dp_vfdsu_ex1_pipex_iid;       
-wire    [2 :0]  dp_vfdsu_ex1_pipex_imm0;      
-wire    [63:0]  dp_vfdsu_ex1_pipex_srcf0;     
-wire    [63:0]  dp_vfdsu_ex1_pipex_srcf1;     
-wire            ex1_data_clk;                 
-wire            ex1_pipedown;                 
-wire            ex1_scalar;                   
-wire    [63:0]  ex1_src0;                     
-wire    [63:0]  ex1_src1;                     
-wire    [2 :0]  ex1_static_rm;                
-wire            ex2_data_clk;                 
-wire            ex2_pipedown;                 
-wire            ex3_data_clk;                 
-wire            ex3_pipedown;                 
-wire    [4 :0]  ex4_out_expt;                 
-wire    [63:0]  ex4_out_result;               
-wire            forever_cpuclk;               
-wire    [19:0]  idu_vfpu_rf_pipex_func;       
-wire            idu_vfpu_rf_pipex_gateclk_sel; 
-wire            pad_yy_icg_scan_en;           
-wire    [4 :0]  pipex_dp_vfdsu_ereg;          
-wire    [4 :0]  pipex_dp_vfdsu_ereg_data;     
-wire    [63:0]  pipex_dp_vfdsu_freg_data;     
-wire    [6 :0]  pipex_dp_vfdsu_vreg;          
-wire            vfdsu_sew_clk;                
-wire            vfdsu_sew_clk_en;             
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [4 :0]  dp_vfdsu_ex1_pipex_dst_ereg;
+wire    [6 :0]  dp_vfdsu_ex1_pipex_dst_vreg;
+wire    [6 :0]  dp_vfdsu_ex1_pipex_iid;
+wire    [2 :0]  dp_vfdsu_ex1_pipex_imm0;
+wire    [63:0]  dp_vfdsu_ex1_pipex_srcf0;
+wire    [63:0]  dp_vfdsu_ex1_pipex_srcf1;
+wire            ex1_data_clk;
+wire            ex1_pipedown;
+wire            ex1_scalar;
+wire    [63:0]  ex1_src0;
+wire    [63:0]  ex1_src1;
+wire    [2 :0]  ex1_static_rm;
+wire            ex2_data_clk;
+wire            ex2_pipedown;
+wire            ex3_data_clk;
+wire            ex3_pipedown;
+wire    [4 :0]  ex4_out_expt;
+wire    [63:0]  ex4_out_result;
+wire            forever_cpuclk;
+wire    [19:0]  idu_vfpu_rf_pipex_func;
+wire            idu_vfpu_rf_pipex_gateclk_sel;
+wire            pad_yy_icg_scan_en;
+wire    [4 :0]  pipex_dp_vfdsu_ereg;
+wire    [4 :0]  pipex_dp_vfdsu_ereg_data;
+wire    [63:0]  pipex_dp_vfdsu_freg_data;
+wire    [6 :0]  pipex_dp_vfdsu_vreg;
+wire            vfdsu_sew_clk;
+wire            vfdsu_sew_clk_en;
 
 
 //==========================================================
@@ -166,7 +166,7 @@ gated_clk_cell  x_vfdsu_sew_clk (
 //           .local_en       (vfdsu_sew_clk_en),//Local Condition @38
 //           .module_en      (cp0_vfpu_icg_en) @39
 //         ); @40
-assign  vfdsu_sew_clk_en = idu_vfpu_rf_pipex_gateclk_sel;       
+assign  vfdsu_sew_clk_en = idu_vfpu_rf_pipex_gateclk_sel;
 always @(posedge vfdsu_sew_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -185,7 +185,7 @@ begin
   end
 end
 assign ex1_scalar         = 1'b1;
-assign ex1_static_rm[2:0] = dp_vfdsu_ex1_pipex_imm0[2:0]; 
+assign ex1_static_rm[2:0] = dp_vfdsu_ex1_pipex_imm0[2:0];
 // &Force("output","ex1_div"); @61
 // &Force("output","ex1_sqrt"); @62
 // &Force("output","ex1_double"); @63
@@ -242,7 +242,7 @@ begin
     vfdsu_ex3_dst_vreg[6:0] <= 7'b0;
     vfdsu_ex3_iid[6:0]      <= 7'b0;
 //    vfdsu_ex3_double        <= 1'b0;
-//    vfdsu_ex3_single        <= 1'b0;    
+//    vfdsu_ex3_single        <= 1'b0;
 //    vfdsu_ex3_div           <= 1'b0;
 //    vfdsu_ex3_sqrt          <= 1'b0;
   end

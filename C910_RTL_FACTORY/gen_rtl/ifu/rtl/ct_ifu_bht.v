@@ -67,257 +67,257 @@ module ct_ifu_bht(
 );
 
 // &Ports; @23
-input           cp0_ifu_bht_en;                 
-input           cp0_ifu_icg_en;                 
-input           cp0_yy_clk_en;                  
-input           cpurst_b;                       
-input           forever_cpuclk;                 
-input           ifctrl_bht_inv;                 
-input           ifctrl_bht_pipedown;            
-input           ifctrl_bht_stall;               
-input           ipctrl_bht_con_br_gateclk_en;   
-input           ipctrl_bht_con_br_taken;        
-input           ipctrl_bht_con_br_vld;          
-input           ipctrl_bht_more_br;             
-input           ipctrl_bht_vld;                 
-input           ipdp_bht_h0_con_br;             
-input   [38:0]  ipdp_bht_vpc;                   
-input           iu_ifu_bht_check_vld;           
-input           iu_ifu_bht_condbr_taken;        
-input           iu_ifu_bht_pred;                
-input           iu_ifu_chgflw_vld;              
-input   [24:0]  iu_ifu_chk_idx;                 
-input   [38:0]  iu_ifu_cur_pc;                  
-input           lbuf_bht_active_state;          
-input           lbuf_bht_con_br_taken;          
-input           lbuf_bht_con_br_vld;            
-input           pad_yy_icg_scan_en;             
-input           pcgen_bht_chgflw;               
-input           pcgen_bht_chgflw_short;         
-input   [6 :0]  pcgen_bht_ifpc;                 
-input   [9 :0]  pcgen_bht_pcindex;              
-input           pcgen_bht_seq_read;             
-input           rtu_ifu_flush;                  
-input           rtu_ifu_retire0_condbr;         
-input           rtu_ifu_retire0_condbr_taken;   
-input           rtu_ifu_retire1_condbr;         
-input           rtu_ifu_retire1_condbr_taken;   
-input           rtu_ifu_retire2_condbr;         
-input           rtu_ifu_retire2_condbr_taken;   
-output          bht_ifctrl_inv_done;            
-output          bht_ifctrl_inv_on;              
-output  [7 :0]  bht_ind_btb_rtu_ghr;            
-output  [7 :0]  bht_ind_btb_vghr;               
-output  [31:0]  bht_ipdp_pre_array_data_ntake;  
-output  [31:0]  bht_ipdp_pre_array_data_taken;  
-output  [15:0]  bht_ipdp_pre_offset_onehot;     
-output  [1 :0]  bht_ipdp_sel_array_result;      
-output  [21:0]  bht_ipdp_vghr;                  
-output  [31:0]  bht_lbuf_pre_ntaken_result;     
-output  [31:0]  bht_lbuf_pre_taken_result;      
-output  [21:0]  bht_lbuf_vghr;                  
+input           cp0_ifu_bht_en;
+input           cp0_ifu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           ifctrl_bht_inv;
+input           ifctrl_bht_pipedown;
+input           ifctrl_bht_stall;
+input           ipctrl_bht_con_br_gateclk_en;
+input           ipctrl_bht_con_br_taken;
+input           ipctrl_bht_con_br_vld;
+input           ipctrl_bht_more_br;
+input           ipctrl_bht_vld;
+input           ipdp_bht_h0_con_br;
+input   [38:0]  ipdp_bht_vpc;
+input           iu_ifu_bht_check_vld;
+input           iu_ifu_bht_condbr_taken;
+input           iu_ifu_bht_pred;
+input           iu_ifu_chgflw_vld;
+input   [24:0]  iu_ifu_chk_idx;
+input   [38:0]  iu_ifu_cur_pc;
+input           lbuf_bht_active_state;
+input           lbuf_bht_con_br_taken;
+input           lbuf_bht_con_br_vld;
+input           pad_yy_icg_scan_en;
+input           pcgen_bht_chgflw;
+input           pcgen_bht_chgflw_short;
+input   [6 :0]  pcgen_bht_ifpc;
+input   [9 :0]  pcgen_bht_pcindex;
+input           pcgen_bht_seq_read;
+input           rtu_ifu_flush;
+input           rtu_ifu_retire0_condbr;
+input           rtu_ifu_retire0_condbr_taken;
+input           rtu_ifu_retire1_condbr;
+input           rtu_ifu_retire1_condbr_taken;
+input           rtu_ifu_retire2_condbr;
+input           rtu_ifu_retire2_condbr_taken;
+output          bht_ifctrl_inv_done;
+output          bht_ifctrl_inv_on;
+output  [7 :0]  bht_ind_btb_rtu_ghr;
+output  [7 :0]  bht_ind_btb_vghr;
+output  [31:0]  bht_ipdp_pre_array_data_ntake;
+output  [31:0]  bht_ipdp_pre_array_data_taken;
+output  [15:0]  bht_ipdp_pre_offset_onehot;
+output  [1 :0]  bht_ipdp_sel_array_result;
+output  [21:0]  bht_ipdp_vghr;
+output  [31:0]  bht_lbuf_pre_ntaken_result;
+output  [31:0]  bht_lbuf_pre_taken_result;
+output  [21:0]  bht_lbuf_vghr;
 
 // &Regs; @24
-reg             after_bju_mispred;              
-reg             after_rtu_ifu_flush;            
-reg             bht_inv_on_reg;                 
-reg             bht_inv_on_reg_ff;              
-reg     [9 :0]  bht_inval_cnt_pre;              
-reg     [31:0]  bht_ipdp_pre_array_data_ntake;  
-reg     [31:0]  bht_ipdp_pre_array_data_taken;  
-reg     [15:0]  bht_ipdp_pre_offset_onehot;     
-reg     [1 :0]  bht_ipdp_sel_array_result;      
-reg     [21:0]  bht_ipdp_vghr;                  
-reg     [9 :0]  bht_pred_array_index;           
-reg     [9 :0]  bht_pred_array_index_flop;      
-reg     [9 :0]  bht_pred_array_rd_index;        
-reg     [6 :0]  bht_sel_array_index;            
-reg     [9 :0]  bht_sel_array_index_flop;       
-reg     [15:0]  bht_sel_data_reg;               
-reg     [31:0]  bht_wr_buf_pred_updt_sel_b;     
-reg     [7 :0]  bht_wr_buf_sel_updt_sel_b;      
-reg             buf_full;                       
-reg     [3 :0]  create_ptr;                     
-reg             cur_condbr_taken;               
-reg     [9 :0]  cur_cur_pc;                     
-reg     [21:0]  cur_ghr;                        
-reg     [1 :0]  cur_pred_rst;                   
-reg     [1 :0]  cur_sel_rst;                    
-reg     [36:0]  entry0_data;                    
-reg     [1 :0]  entry0_sel_updt_data;           
-reg             entry0_vld;                     
-reg     [36:0]  entry1_data;                    
-reg     [1 :0]  entry1_sel_updt_data;           
-reg             entry1_vld;                     
-reg     [36:0]  entry2_data;                    
-reg     [1 :0]  entry2_sel_updt_data;           
-reg             entry2_vld;                     
-reg     [36:0]  entry3_data;                    
-reg     [1 :0]  entry3_sel_updt_data;           
-reg             entry3_vld;                     
-reg     [36:0]  entry_data;                     
-reg             entry_vld;                      
-reg     [7 :0]  if_pc_onehot;                   
-reg     [31:0]  lbuf_pre_ntaken_reg;            
-reg     [31:0]  lbuf_pre_taken_reg;             
-reg     [31:0]  pre_array_pipe_ntaken_data;     
-reg     [31:0]  pre_array_pipe_taken_data;      
-reg     [31:0]  pre_ntaken_reg;                 
-reg     [15:0]  pre_offset_onehot_if_0;         
-reg     [15:0]  pre_offset_onehot_if_1;         
-reg     [15:0]  pre_offset_onehot_ip_0;         
-reg     [15:0]  pre_offset_onehot_ip_1;         
-reg             pre_rd_flop;                    
-reg     [31:0]  pre_taken_reg;                  
-reg     [3 :0]  pre_vghr_offset_0;              
-reg     [3 :0]  pre_vghr_offset_1;              
-reg     [1 :0]  pred_array_updt_data;           
-reg     [3 :0]  retire_ptr;                     
-reg     [21:0]  rtughr_pre;                     
-reg     [21:0]  rtughr_reg;                     
-reg     [1 :0]  sel_array_updt_data;            
-reg     [1 :0]  sel_array_val_flop;             
-reg             sel_rd_flop;                    
-reg     [21:0]  vghr_reg;                       
-reg     [21:0]  vghr_value;                     
-reg     [1 :0]  wr_buf_sel_array_result;        
+reg             after_bju_mispred;
+reg             after_rtu_ifu_flush;
+reg             bht_inv_on_reg;
+reg             bht_inv_on_reg_ff;
+reg     [9 :0]  bht_inval_cnt_pre;
+reg     [31:0]  bht_ipdp_pre_array_data_ntake;
+reg     [31:0]  bht_ipdp_pre_array_data_taken;
+reg     [15:0]  bht_ipdp_pre_offset_onehot;
+reg     [1 :0]  bht_ipdp_sel_array_result;
+reg     [21:0]  bht_ipdp_vghr;
+reg     [9 :0]  bht_pred_array_index;
+reg     [9 :0]  bht_pred_array_index_flop;
+reg     [9 :0]  bht_pred_array_rd_index;
+reg     [6 :0]  bht_sel_array_index;
+reg     [9 :0]  bht_sel_array_index_flop;
+reg     [15:0]  bht_sel_data_reg;
+reg     [31:0]  bht_wr_buf_pred_updt_sel_b;
+reg     [7 :0]  bht_wr_buf_sel_updt_sel_b;
+reg             buf_full;
+reg     [3 :0]  create_ptr;
+reg             cur_condbr_taken;
+reg     [9 :0]  cur_cur_pc;
+reg     [21:0]  cur_ghr;
+reg     [1 :0]  cur_pred_rst;
+reg     [1 :0]  cur_sel_rst;
+reg     [36:0]  entry0_data;
+reg     [1 :0]  entry0_sel_updt_data;
+reg             entry0_vld;
+reg     [36:0]  entry1_data;
+reg     [1 :0]  entry1_sel_updt_data;
+reg             entry1_vld;
+reg     [36:0]  entry2_data;
+reg     [1 :0]  entry2_sel_updt_data;
+reg             entry2_vld;
+reg     [36:0]  entry3_data;
+reg     [1 :0]  entry3_sel_updt_data;
+reg             entry3_vld;
+reg     [36:0]  entry_data;
+reg             entry_vld;
+reg     [7 :0]  if_pc_onehot;
+reg     [31:0]  lbuf_pre_ntaken_reg;
+reg     [31:0]  lbuf_pre_taken_reg;
+reg     [31:0]  pre_array_pipe_ntaken_data;
+reg     [31:0]  pre_array_pipe_taken_data;
+reg     [31:0]  pre_ntaken_reg;
+reg     [15:0]  pre_offset_onehot_if_0;
+reg     [15:0]  pre_offset_onehot_if_1;
+reg     [15:0]  pre_offset_onehot_ip_0;
+reg     [15:0]  pre_offset_onehot_ip_1;
+reg             pre_rd_flop;
+reg     [31:0]  pre_taken_reg;
+reg     [3 :0]  pre_vghr_offset_0;
+reg     [3 :0]  pre_vghr_offset_1;
+reg     [1 :0]  pred_array_updt_data;
+reg     [3 :0]  retire_ptr;
+reg     [21:0]  rtughr_pre;
+reg     [21:0]  rtughr_reg;
+reg     [1 :0]  sel_array_updt_data;
+reg     [1 :0]  sel_array_val_flop;
+reg             sel_rd_flop;
+reg     [21:0]  vghr_reg;
+reg     [21:0]  vghr_value;
+reg     [1 :0]  wr_buf_sel_array_result;
 
 // &Wires; @25
-wire            after_inv_reg;                  
-wire            bht_flop_clk;                   
-wire            bht_flop_clk_en;                
-wire            bht_ghr_updt_clk;               
-wire            bht_ghr_updt_clk_en;            
-wire            bht_ifctrl_inv_done;            
-wire            bht_ifctrl_inv_on;              
-wire    [7 :0]  bht_ind_btb_rtu_ghr;            
-wire    [7 :0]  bht_ind_btb_vghr;               
-wire            bht_inv_cnt_clk;                
-wire            bht_inv_cnt_clk_en;             
-wire    [9 :0]  bht_inval_cnt;                  
-wire    [31:0]  bht_lbuf_pre_ntaken_result;     
-wire    [31:0]  bht_lbuf_pre_taken_result;      
-wire    [21:0]  bht_lbuf_vghr;                  
-wire            bht_pipe_clk;                   
-wire            bht_pipe_clk_en;                
-wire            bht_pre_array_clk_en;           
-wire    [63:0]  bht_pre_data_out;               
-wire    [31:0]  bht_pre_ntaken_data;            
-wire    [31:0]  bht_pre_taken_data;             
-wire            bht_pred_array_cen_b;           
-wire    [63:0]  bht_pred_array_din;             
-wire            bht_pred_array_gwen;            
-wire            bht_pred_array_rd;              
-wire    [31:0]  bht_pred_array_wen_b;           
-wire            bht_pred_array_wr;              
-wire    [63:0]  bht_pred_bwen;                  
-wire            bht_sel_array_cen_b;            
-wire            bht_sel_array_clk_en;           
-wire    [15:0]  bht_sel_array_din;              
-wire            bht_sel_array_gwen;             
-wire            bht_sel_array_rd;               
-wire    [7 :0]  bht_sel_array_wen_b;            
-wire            bht_sel_array_wr;               
-wire    [15:0]  bht_sel_bwen;                   
-wire    [15:0]  bht_sel_data;                   
-wire    [15:0]  bht_sel_data_out;               
-wire            bht_wr_buf_create_vld;          
-wire            bht_wr_buf_not_empty;           
-wire    [9 :0]  bht_wr_buf_pred_updt_index;     
-wire    [63:0]  bht_wr_buf_pred_updt_val;       
-wire            bht_wr_buf_retire_vld;          
-wire    [6 :0]  bht_wr_buf_sel_updt_index;      
-wire    [15:0]  bht_wr_buf_sel_updt_val;        
-wire            bht_wr_buf_updt_vld;            
-wire            bht_wr_buf_updt_vld_for_gateclk; 
-wire            bju_check_updt_vld;             
-wire    [21:0]  bju_ghr;                        
-wire            bju_mispred;                    
-wire    [1 :0]  bju_pred_rst;                   
-wire    [1 :0]  bju_sel_rst;                    
-wire            buf_condbr_taken;               
-wire    [9 :0]  buf_cur_pc;                     
-wire    [21:0]  buf_ghr;                        
-wire    [1 :0]  buf_pred_rst;                   
-wire    [1 :0]  buf_sel_rst;                    
-wire            cp0_ifu_bht_en;                 
-wire            cp0_ifu_icg_en;                 
-wire            cp0_yy_clk_en;                  
-wire            cpurst_b;                       
-wire    [3 :0]  entry_create;                   
-wire    [3 :0]  entry_retire;                   
-wire    [36:0]  entry_updt_data;                
-wire            forever_cpuclk;                 
-wire            ghr_updt_vld;                   
-wire            ifctrl_bht_inv;                 
-wire            ifctrl_bht_pipedown;            
-wire            ifctrl_bht_stall;               
-wire            ip_vld;                         
-wire            ipctrl_bht_con_br_gateclk_en;   
-wire            ipctrl_bht_con_br_taken;        
-wire            ipctrl_bht_con_br_vld;          
-wire            ipctrl_bht_more_br;             
-wire            ipctrl_bht_vld;                 
-wire            ipdp_bht_h0_con_br;             
-wire    [38:0]  ipdp_bht_vpc;                   
-wire            iu_ifu_bht_check_vld;           
-wire            iu_ifu_bht_condbr_taken;        
-wire            iu_ifu_bht_pred;                
-wire            iu_ifu_chgflw_vld;              
-wire    [24:0]  iu_ifu_chk_idx;                 
-wire    [38:0]  iu_ifu_cur_pc;                  
-wire            lbuf_bht_active_state;          
-wire            lbuf_bht_con_br_taken;          
-wire            lbuf_bht_con_br_vld;            
-wire    [1 :0]  memory_sel_array_result;        
-wire            pad_yy_icg_scan_en;             
-wire            pcgen_bht_chgflw;               
-wire            pcgen_bht_chgflw_short;         
-wire    [6 :0]  pcgen_bht_ifpc;                 
-wire    [9 :0]  pcgen_bht_pcindex;              
-wire            pcgen_bht_seq_read;             
-wire    [3 :0]  pre_offset_if_0;                
-wire    [3 :0]  pre_offset_if_1;                
-wire    [3 :0]  pre_offset_ip_0;                
-wire    [3 :0]  pre_offset_ip_1;                
-wire    [15:0]  pre_offset_onehot;              
-wire    [15:0]  pre_offset_onehot_if;           
-wire    [15:0]  pre_offset_onehot_ip;           
-wire            pre_reg_clk;                    
-wire            pre_reg_clk_en;                 
-wire            pred_array_check_updt_vld;      
-wire            rtu_con_br_vld;                 
-wire            rtu_ifu_flush;                  
-wire            rtu_ifu_retire0_condbr;         
-wire            rtu_ifu_retire0_condbr_taken;   
-wire            rtu_ifu_retire1_condbr;         
-wire            rtu_ifu_retire1_condbr_taken;   
-wire            rtu_ifu_retire2_condbr;         
-wire            rtu_ifu_retire2_condbr_taken;   
-wire            rtughr_updt_vld;                
-wire            sel_array_check_updt_vld;       
-wire    [1 :0]  sel_array_val;                  
-wire    [1 :0]  sel_array_val_cur;              
-wire            sel_reg_clk;                    
-wire            sel_reg_clk_en;                 
-wire            vghr_ip_updt_vld;               
-wire            vghr_lbuf_updt_vld;             
-wire            wr_buf_clk;                     
-wire            wr_buf_clk_en;                  
-wire            wr_buf_hit;                     
-wire            wr_buf_hit_0;                   
-wire            wr_buf_hit_1;                   
-wire            wr_buf_hit_2;                   
-wire            wr_buf_hit_3;                   
-wire            wr_buf_pre_hit_0;               
-wire            wr_buf_pre_hit_1;               
-wire            wr_buf_pre_hit_2;               
-wire            wr_buf_pre_hit_3;               
-wire            wr_buf_rd;                      
-wire            wr_buf_sel_hit_0;               
-wire            wr_buf_sel_hit_1;               
-wire            wr_buf_sel_hit_2;               
-wire            wr_buf_sel_hit_3;               
+wire            after_inv_reg;
+wire            bht_flop_clk;
+wire            bht_flop_clk_en;
+wire            bht_ghr_updt_clk;
+wire            bht_ghr_updt_clk_en;
+wire            bht_ifctrl_inv_done;
+wire            bht_ifctrl_inv_on;
+wire    [7 :0]  bht_ind_btb_rtu_ghr;
+wire    [7 :0]  bht_ind_btb_vghr;
+wire            bht_inv_cnt_clk;
+wire            bht_inv_cnt_clk_en;
+wire    [9 :0]  bht_inval_cnt;
+wire    [31:0]  bht_lbuf_pre_ntaken_result;
+wire    [31:0]  bht_lbuf_pre_taken_result;
+wire    [21:0]  bht_lbuf_vghr;
+wire            bht_pipe_clk;
+wire            bht_pipe_clk_en;
+wire            bht_pre_array_clk_en;
+wire    [63:0]  bht_pre_data_out;
+wire    [31:0]  bht_pre_ntaken_data;
+wire    [31:0]  bht_pre_taken_data;
+wire            bht_pred_array_cen_b;
+wire    [63:0]  bht_pred_array_din;
+wire            bht_pred_array_gwen;
+wire            bht_pred_array_rd;
+wire    [31:0]  bht_pred_array_wen_b;
+wire            bht_pred_array_wr;
+wire    [63:0]  bht_pred_bwen;
+wire            bht_sel_array_cen_b;
+wire            bht_sel_array_clk_en;
+wire    [15:0]  bht_sel_array_din;
+wire            bht_sel_array_gwen;
+wire            bht_sel_array_rd;
+wire    [7 :0]  bht_sel_array_wen_b;
+wire            bht_sel_array_wr;
+wire    [15:0]  bht_sel_bwen;
+wire    [15:0]  bht_sel_data;
+wire    [15:0]  bht_sel_data_out;
+wire            bht_wr_buf_create_vld;
+wire            bht_wr_buf_not_empty;
+wire    [9 :0]  bht_wr_buf_pred_updt_index;
+wire    [63:0]  bht_wr_buf_pred_updt_val;
+wire            bht_wr_buf_retire_vld;
+wire    [6 :0]  bht_wr_buf_sel_updt_index;
+wire    [15:0]  bht_wr_buf_sel_updt_val;
+wire            bht_wr_buf_updt_vld;
+wire            bht_wr_buf_updt_vld_for_gateclk;
+wire            bju_check_updt_vld;
+wire    [21:0]  bju_ghr;
+wire            bju_mispred;
+wire    [1 :0]  bju_pred_rst;
+wire    [1 :0]  bju_sel_rst;
+wire            buf_condbr_taken;
+wire    [9 :0]  buf_cur_pc;
+wire    [21:0]  buf_ghr;
+wire    [1 :0]  buf_pred_rst;
+wire    [1 :0]  buf_sel_rst;
+wire            cp0_ifu_bht_en;
+wire            cp0_ifu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [3 :0]  entry_create;
+wire    [3 :0]  entry_retire;
+wire    [36:0]  entry_updt_data;
+wire            forever_cpuclk;
+wire            ghr_updt_vld;
+wire            ifctrl_bht_inv;
+wire            ifctrl_bht_pipedown;
+wire            ifctrl_bht_stall;
+wire            ip_vld;
+wire            ipctrl_bht_con_br_gateclk_en;
+wire            ipctrl_bht_con_br_taken;
+wire            ipctrl_bht_con_br_vld;
+wire            ipctrl_bht_more_br;
+wire            ipctrl_bht_vld;
+wire            ipdp_bht_h0_con_br;
+wire    [38:0]  ipdp_bht_vpc;
+wire            iu_ifu_bht_check_vld;
+wire            iu_ifu_bht_condbr_taken;
+wire            iu_ifu_bht_pred;
+wire            iu_ifu_chgflw_vld;
+wire    [24:0]  iu_ifu_chk_idx;
+wire    [38:0]  iu_ifu_cur_pc;
+wire            lbuf_bht_active_state;
+wire            lbuf_bht_con_br_taken;
+wire            lbuf_bht_con_br_vld;
+wire    [1 :0]  memory_sel_array_result;
+wire            pad_yy_icg_scan_en;
+wire            pcgen_bht_chgflw;
+wire            pcgen_bht_chgflw_short;
+wire    [6 :0]  pcgen_bht_ifpc;
+wire    [9 :0]  pcgen_bht_pcindex;
+wire            pcgen_bht_seq_read;
+wire    [3 :0]  pre_offset_if_0;
+wire    [3 :0]  pre_offset_if_1;
+wire    [3 :0]  pre_offset_ip_0;
+wire    [3 :0]  pre_offset_ip_1;
+wire    [15:0]  pre_offset_onehot;
+wire    [15:0]  pre_offset_onehot_if;
+wire    [15:0]  pre_offset_onehot_ip;
+wire            pre_reg_clk;
+wire            pre_reg_clk_en;
+wire            pred_array_check_updt_vld;
+wire            rtu_con_br_vld;
+wire            rtu_ifu_flush;
+wire            rtu_ifu_retire0_condbr;
+wire            rtu_ifu_retire0_condbr_taken;
+wire            rtu_ifu_retire1_condbr;
+wire            rtu_ifu_retire1_condbr_taken;
+wire            rtu_ifu_retire2_condbr;
+wire            rtu_ifu_retire2_condbr_taken;
+wire            rtughr_updt_vld;
+wire            sel_array_check_updt_vld;
+wire    [1 :0]  sel_array_val;
+wire    [1 :0]  sel_array_val_cur;
+wire            sel_reg_clk;
+wire            sel_reg_clk_en;
+wire            vghr_ip_updt_vld;
+wire            vghr_lbuf_updt_vld;
+wire            wr_buf_clk;
+wire            wr_buf_clk_en;
+wire            wr_buf_hit;
+wire            wr_buf_hit_0;
+wire            wr_buf_hit_1;
+wire            wr_buf_hit_2;
+wire            wr_buf_hit_3;
+wire            wr_buf_pre_hit_0;
+wire            wr_buf_pre_hit_1;
+wire            wr_buf_pre_hit_2;
+wire            wr_buf_pre_hit_3;
+wire            wr_buf_rd;
+wire            wr_buf_sel_hit_0;
+wire            wr_buf_sel_hit_1;
+wire            wr_buf_sel_hit_2;
+wire            wr_buf_sel_hit_3;
 
 
 parameter PC_WIDTH = 40;
@@ -351,78 +351,78 @@ parameter PC_WIDTH = 40;
 //  e.the cycle RTU flush
 //  f.the cycle after RTU flush
 
-assign bht_pred_array_wr     = bht_inv_on_reg || 
+assign bht_pred_array_wr     = bht_inv_on_reg ||
                                bht_wr_buf_updt_vld;
 assign bht_pred_array_rd     = after_inv_reg ||
-                               ipctrl_bht_con_br_vld && !lbuf_bht_active_state || 
-                               lbuf_bht_con_br_vld && lbuf_bht_active_state || 
-                               bju_mispred || 
-                               after_bju_mispred || 
-                               rtu_ifu_flush || 
+                               ipctrl_bht_con_br_vld && !lbuf_bht_active_state ||
+                               lbuf_bht_con_br_vld && lbuf_bht_active_state ||
+                               bju_mispred ||
+                               after_bju_mispred ||
+                               rtu_ifu_flush ||
                                after_rtu_ifu_flush;
 assign bht_pred_array_cen_b  = !(
-                                  bht_inv_on_reg || 
-                                  after_inv_reg  || 
-                                  (bht_wr_buf_updt_vld || 
-                                   ipctrl_bht_con_br_vld && !lbuf_bht_active_state || 
-                                   lbuf_bht_con_br_vld && lbuf_bht_active_state || 
-                                   bju_mispred || 
-                                   after_bju_mispred || 
-                                   rtu_ifu_flush || 
-                                   after_rtu_ifu_flush) && 
+                                  bht_inv_on_reg ||
+                                  after_inv_reg  ||
+                                  (bht_wr_buf_updt_vld ||
+                                   ipctrl_bht_con_br_vld && !lbuf_bht_active_state ||
+                                   lbuf_bht_con_br_vld && lbuf_bht_active_state ||
+                                   bju_mispred ||
+                                   after_bju_mispred ||
+                                   rtu_ifu_flush ||
+                                   after_rtu_ifu_flush) &&
                                   cp0_ifu_bht_en
                                 );
 //Memory Gate Clock Enable
-assign bht_pre_array_clk_en  = bht_inv_on_reg || 
-                               bht_wr_buf_updt_vld_for_gateclk ||  
+assign bht_pre_array_clk_en  = bht_inv_on_reg ||
+                               bht_wr_buf_updt_vld_for_gateclk ||
                                bht_pred_array_rd;
-                              
+
 //-------------------Write Enable---------------------------
 assign bht_pred_array_gwen   =  !bht_pred_array_wr;
 
 //-------------------Write Bit Enable-----------------------
-assign bht_pred_array_wen_b[31:0] = bht_inv_on_reg 
-                                    ? 32'b0 
+assign bht_pred_array_wen_b[31:0] = bht_inv_on_reg
+                                    ? 32'b0
                                     : (bht_wr_buf_pred_updt_sel_b[31:0] |
                                        {32{!bht_wr_buf_updt_vld}});
-assign bht_pred_bwen[63:0] = {{2{bht_pred_array_wen_b[31]}}, 
-                              {2{bht_pred_array_wen_b[30]}}, 
-                              {2{bht_pred_array_wen_b[29]}}, 
-                              {2{bht_pred_array_wen_b[28]}}, 
-                              {2{bht_pred_array_wen_b[27]}}, 
-                              {2{bht_pred_array_wen_b[26]}}, 
-                              {2{bht_pred_array_wen_b[25]}}, 
-                              {2{bht_pred_array_wen_b[24]}}, 
-                              {2{bht_pred_array_wen_b[23]}}, 
-                              {2{bht_pred_array_wen_b[22]}}, 
-                              {2{bht_pred_array_wen_b[21]}}, 
-                              {2{bht_pred_array_wen_b[20]}}, 
-                              {2{bht_pred_array_wen_b[19]}}, 
-                              {2{bht_pred_array_wen_b[18]}}, 
-                              {2{bht_pred_array_wen_b[17]}}, 
-                              {2{bht_pred_array_wen_b[16]}}, 
-                              {2{bht_pred_array_wen_b[15]}}, 
-                              {2{bht_pred_array_wen_b[14]}}, 
-                              {2{bht_pred_array_wen_b[13]}}, 
-                              {2{bht_pred_array_wen_b[12]}}, 
-                              {2{bht_pred_array_wen_b[11]}}, 
-                              {2{bht_pred_array_wen_b[10]}}, 
-                              {2{bht_pred_array_wen_b[ 9]}}, 
-                              {2{bht_pred_array_wen_b[ 8]}}, 
-                              {2{bht_pred_array_wen_b[ 7]}}, 
-                              {2{bht_pred_array_wen_b[ 6]}}, 
-                              {2{bht_pred_array_wen_b[ 5]}}, 
-                              {2{bht_pred_array_wen_b[ 4]}}, 
-                              {2{bht_pred_array_wen_b[ 3]}}, 
-                              {2{bht_pred_array_wen_b[ 2]}}, 
-                              {2{bht_pred_array_wen_b[ 1]}}, 
+assign bht_pred_bwen[63:0] = {{2{bht_pred_array_wen_b[31]}},
+                              {2{bht_pred_array_wen_b[30]}},
+                              {2{bht_pred_array_wen_b[29]}},
+                              {2{bht_pred_array_wen_b[28]}},
+                              {2{bht_pred_array_wen_b[27]}},
+                              {2{bht_pred_array_wen_b[26]}},
+                              {2{bht_pred_array_wen_b[25]}},
+                              {2{bht_pred_array_wen_b[24]}},
+                              {2{bht_pred_array_wen_b[23]}},
+                              {2{bht_pred_array_wen_b[22]}},
+                              {2{bht_pred_array_wen_b[21]}},
+                              {2{bht_pred_array_wen_b[20]}},
+                              {2{bht_pred_array_wen_b[19]}},
+                              {2{bht_pred_array_wen_b[18]}},
+                              {2{bht_pred_array_wen_b[17]}},
+                              {2{bht_pred_array_wen_b[16]}},
+                              {2{bht_pred_array_wen_b[15]}},
+                              {2{bht_pred_array_wen_b[14]}},
+                              {2{bht_pred_array_wen_b[13]}},
+                              {2{bht_pred_array_wen_b[12]}},
+                              {2{bht_pred_array_wen_b[11]}},
+                              {2{bht_pred_array_wen_b[10]}},
+                              {2{bht_pred_array_wen_b[ 9]}},
+                              {2{bht_pred_array_wen_b[ 8]}},
+                              {2{bht_pred_array_wen_b[ 7]}},
+                              {2{bht_pred_array_wen_b[ 6]}},
+                              {2{bht_pred_array_wen_b[ 5]}},
+                              {2{bht_pred_array_wen_b[ 4]}},
+                              {2{bht_pred_array_wen_b[ 3]}},
+                              {2{bht_pred_array_wen_b[ 2]}},
+                              {2{bht_pred_array_wen_b[ 1]}},
                               {2{bht_pred_array_wen_b[ 0]}}};
 
 //==========================================================
 //              Predict Array Data Input
 //==========================================================
-assign bht_pred_array_din[63:0] = bht_inv_on_reg 
-                                ? 64'h3333_3333_3333_3333 
+assign bht_pred_array_din[63:0] = bht_inv_on_reg
+                                ? 64'h3333_3333_3333_3333
                                 : bht_wr_buf_pred_updt_val[63:0];
 
 //==========================================================
@@ -490,23 +490,23 @@ end
 //  a.after invalidated
 //  b.change flow read
 //  c.sequence read
-assign bht_sel_array_wr    = bht_inv_on_reg || 
+assign bht_sel_array_wr    = bht_inv_on_reg ||
                              bht_wr_buf_updt_vld;
-assign bht_sel_array_rd    = after_inv_reg || 
-                             pcgen_bht_chgflw || 
+assign bht_sel_array_rd    = after_inv_reg ||
+                             pcgen_bht_chgflw ||
                              pcgen_bht_seq_read;
 assign bht_sel_array_cen_b = !(
-                                bht_inv_on_reg || 
-                                after_inv_reg  || 
-                                (bht_wr_buf_updt_vld || 
-                                 pcgen_bht_chgflw || 
-                                 pcgen_bht_seq_read) && 
+                                bht_inv_on_reg ||
+                                after_inv_reg  ||
+                                (bht_wr_buf_updt_vld ||
+                                 pcgen_bht_chgflw ||
+                                 pcgen_bht_seq_read) &&
                                 cp0_ifu_bht_en
                               );
 
 //Memory Gate Clock Enable
-assign bht_sel_array_clk_en = bht_inv_on_reg || 
-                              bht_wr_buf_updt_vld_for_gateclk || 
+assign bht_sel_array_clk_en = bht_inv_on_reg ||
+                              bht_wr_buf_updt_vld_for_gateclk ||
                               after_inv_reg  ||
                               pcgen_bht_seq_read ||
                               pcgen_bht_chgflw_short;
@@ -514,14 +514,14 @@ assign bht_sel_array_clk_en = bht_inv_on_reg ||
 //-------------------Write Enable---------------------------
 assign bht_sel_array_gwen   = !bht_sel_array_wr;
 //-------------------Write Bit Enable-----------------------
-assign bht_sel_array_wen_b[7:0] = bht_inv_on_reg 
-                                ? 8'b0 
-                                : (bht_wr_buf_sel_updt_sel_b[7:0] | 
+assign bht_sel_array_wen_b[7:0] = bht_inv_on_reg
+                                ? 8'b0
+                                : (bht_wr_buf_sel_updt_sel_b[7:0] |
                                   {8{!bht_wr_buf_updt_vld}});
 assign bht_sel_bwen[15:0] = {{2{bht_sel_array_wen_b[7]}},
                              {2{bht_sel_array_wen_b[6]}},
                              {2{bht_sel_array_wen_b[5]}},
-                             {2{bht_sel_array_wen_b[4]}}, 
+                             {2{bht_sel_array_wen_b[4]}},
                              {2{bht_sel_array_wen_b[3]}},
                              {2{bht_sel_array_wen_b[2]}},
                              {2{bht_sel_array_wen_b[1]}},
@@ -530,8 +530,8 @@ assign bht_sel_bwen[15:0] = {{2{bht_sel_array_wen_b[7]}},
 //==========================================================
 //              Select Array Data Input
 //==========================================================
-assign bht_sel_array_din[15:0] = bht_inv_on_reg 
-                               ? 16'b0 
+assign bht_sel_array_din[15:0] = bht_inv_on_reg
+                               ? 16'b0
                                : bht_wr_buf_sel_updt_val[15:0];
 
 //==========================================================
@@ -579,12 +579,12 @@ gated_clk_cell  x_bht_ghr_updt_clk (
 //           .local_en       (bht_ghr_updt_clk_en),//Local Condition @244
 //           .module_en      (cp0_ifu_icg_en) @245
 //         ); @246
-assign bht_ghr_updt_clk_en = bht_inv_on_reg || 
-                             cp0_ifu_bht_en && 
-                             (rtu_ifu_flush || 
-                              rtu_con_br_vld || 
-                              iu_ifu_chgflw_vld || 
-                              ipctrl_bht_con_br_gateclk_en || 
+assign bht_ghr_updt_clk_en = bht_inv_on_reg ||
+                             cp0_ifu_bht_en &&
+                             (rtu_ifu_flush ||
+                              rtu_con_br_vld ||
+                              iu_ifu_chgflw_vld ||
+                              ipctrl_bht_con_br_gateclk_en ||
                               lbuf_bht_con_br_vld);
 
 //==========================================================
@@ -594,8 +594,8 @@ assign bht_ghr_updt_clk_en = bht_inv_on_reg ||
 //1.BHT INV
 //2.RTU Update
 assign rtughr_updt_vld = cp0_ifu_bht_en && rtu_con_br_vld;
-assign rtu_con_br_vld  = rtu_ifu_retire0_condbr || 
-                         rtu_ifu_retire1_condbr || 
+assign rtu_con_br_vld  = rtu_ifu_retire0_condbr ||
+                         rtu_ifu_retire1_condbr ||
                          rtu_ifu_retire2_condbr;
 
 always @(posedge bht_ghr_updt_clk or negedge cpurst_b)
@@ -624,13 +624,13 @@ case({rtu_ifu_retire0_condbr, rtu_ifu_retire1_condbr, rtu_ifu_retire2_condbr})
   3'b001  : rtughr_pre[21:0] = {rtughr_reg[20:0], rtu_ifu_retire2_condbr_taken};
   3'b010  : rtughr_pre[21:0] = {rtughr_reg[20:0], rtu_ifu_retire1_condbr_taken};
   3'b100  : rtughr_pre[21:0] = {rtughr_reg[20:0], rtu_ifu_retire0_condbr_taken};
-  3'b101  : rtughr_pre[21:0] = {rtughr_reg[19:0], rtu_ifu_retire0_condbr_taken, 
+  3'b101  : rtughr_pre[21:0] = {rtughr_reg[19:0], rtu_ifu_retire0_condbr_taken,
                                                   rtu_ifu_retire2_condbr_taken};
-  3'b110  : rtughr_pre[21:0] = {rtughr_reg[19:0], rtu_ifu_retire0_condbr_taken, 
+  3'b110  : rtughr_pre[21:0] = {rtughr_reg[19:0], rtu_ifu_retire0_condbr_taken,
                                                   rtu_ifu_retire1_condbr_taken};
-  3'b011  : rtughr_pre[21:0] = {rtughr_reg[19:0], rtu_ifu_retire1_condbr_taken, 
+  3'b011  : rtughr_pre[21:0] = {rtughr_reg[19:0], rtu_ifu_retire1_condbr_taken,
                                                   rtu_ifu_retire2_condbr_taken};
-  3'b111  : rtughr_pre[21:0] = {rtughr_reg[18:0], rtu_ifu_retire0_condbr_taken, 
+  3'b111  : rtughr_pre[21:0] = {rtughr_reg[18:0], rtu_ifu_retire0_condbr_taken,
                                                   rtu_ifu_retire1_condbr_taken,
                                                   rtu_ifu_retire2_condbr_taken};
   default : rtughr_pre[21:0] =  rtughr_reg[21:0];
@@ -668,13 +668,13 @@ begin
     vghr_reg[21:0] <= {vghr_reg[20:0], ipctrl_bht_con_br_taken};
   else
     vghr_reg[21:0] <= vghr_reg[21:0];
-end 
+end
 
 //==========================================================
 //              Select Array Final Result
 //==========================================================
 //----------------Memory Data Out Reg-----------------------
-//store memory dout value to reg 
+//store memory dout value to reg
 //in case of memory writing changes the value of dout
 // &Instance("gated_clk_cell","x_sel_reg_clk"); @335
 gated_clk_cell  x_sel_reg_clk (
@@ -722,26 +722,26 @@ begin
 end
 
 //select sel data from memory dout or memory flop reg
-assign bht_sel_data[15:0]     = (sel_rd_flop) 
-                              ? bht_sel_data_out[15:0] 
+assign bht_sel_data[15:0]     = (sel_rd_flop)
+                              ? bht_sel_data_out[15:0]
                               : bht_sel_data_reg[15:0];
 // &CombBeg; @374
 always @( pcgen_bht_ifpc[5:3])
 begin
 case(pcgen_bht_ifpc[5:3])
-  3'b000  : if_pc_onehot[7:0] = 8'b0000_0001; 
-  3'b001  : if_pc_onehot[7:0] = 8'b0000_0010; 
-  3'b010  : if_pc_onehot[7:0] = 8'b0000_0100; 
-  3'b011  : if_pc_onehot[7:0] = 8'b0000_1000; 
-  3'b100  : if_pc_onehot[7:0] = 8'b0001_0000; 
-  3'b101  : if_pc_onehot[7:0] = 8'b0010_0000; 
-  3'b110  : if_pc_onehot[7:0] = 8'b0100_0000; 
-  3'b111  : if_pc_onehot[7:0] = 8'b1000_0000; 
+  3'b000  : if_pc_onehot[7:0] = 8'b0000_0001;
+  3'b001  : if_pc_onehot[7:0] = 8'b0000_0010;
+  3'b010  : if_pc_onehot[7:0] = 8'b0000_0100;
+  3'b011  : if_pc_onehot[7:0] = 8'b0000_1000;
+  3'b100  : if_pc_onehot[7:0] = 8'b0001_0000;
+  3'b101  : if_pc_onehot[7:0] = 8'b0010_0000;
+  3'b110  : if_pc_onehot[7:0] = 8'b0100_0000;
+  3'b111  : if_pc_onehot[7:0] = 8'b1000_0000;
   default : if_pc_onehot[7:0] = 8'b0000_0001;
 endcase
 // &CombEnd; @386
 end
-assign sel_array_val_cur[1:0] = ({2{if_pc_onehot[ 0]}} & bht_sel_data[ 1: 0]) | 
+assign sel_array_val_cur[1:0] = ({2{if_pc_onehot[ 0]}} & bht_sel_data[ 1: 0]) |
                                 ({2{if_pc_onehot[ 1]}} & bht_sel_data[ 3: 2]) |
                                 ({2{if_pc_onehot[ 2]}} & bht_sel_data[ 5: 4]) |
                                 ({2{if_pc_onehot[ 3]}} & bht_sel_data[ 7: 6]) |
@@ -789,7 +789,7 @@ assign bht_pre_taken_data[31:0]  = {bht_pre_data_out[61:60],
                                     bht_pre_data_out[ 9: 8],
                                     bht_pre_data_out[ 5: 4],
                                     bht_pre_data_out[ 1: 0]};
-                                  
+
 assign bht_pre_ntaken_data[31:0] = {bht_pre_data_out[63:62],
                                     bht_pre_data_out[59:58],
                                     bht_pre_data_out[55:54],
@@ -808,7 +808,7 @@ assign bht_pre_ntaken_data[31:0] = {bht_pre_data_out[63:62],
                                     bht_pre_data_out[ 3: 2]};
 
 //----------------Memory Data Out Reg-----------------------
-//store memory dout value to reg 
+//store memory dout value to reg
 //in case of memory writing changes the value of dout
 // &Instance("gated_clk_cell","x_pre_reg_clk"); @456
 gated_clk_cell  x_pre_reg_clk (
@@ -909,59 +909,59 @@ end
 //                  BHT Wirte Buffer
 //==========================================================
 //wr_buf update BHT should under following condition:
-//1.one conditional branch instruction checked in bju || 
+//1.one conditional branch instruction checked in bju ||
 //2.any valid entry in write buffer &&
 //3.no read request(include select array and predictarra y)
-assign bht_wr_buf_updt_vld_for_gateclk = (bju_check_updt_vld || bht_wr_buf_not_empty); 
-assign bht_wr_buf_updt_vld       = (bju_check_updt_vld || 
-                                    bht_wr_buf_not_empty) && 
+assign bht_wr_buf_updt_vld_for_gateclk = (bju_check_updt_vld || bht_wr_buf_not_empty);
+assign bht_wr_buf_updt_vld       = (bju_check_updt_vld ||
+                                    bht_wr_buf_not_empty) &&
                                    !(
-                                      after_inv_reg || 
-                                      ipctrl_bht_con_br_vld || 
-                                      after_bju_mispred || 
-                                      rtu_ifu_flush || 
-                                      after_rtu_ifu_flush || 
+                                      after_inv_reg ||
+                                      ipctrl_bht_con_br_vld ||
+                                      after_bju_mispred ||
+                                      rtu_ifu_flush ||
+                                      after_rtu_ifu_flush ||
                                       pcgen_bht_chgflw && !lbuf_bht_active_state ||
                                       pcgen_bht_seq_read
                                     );
 
-assign bju_check_updt_vld        = (pred_array_check_updt_vld || 
-                                   sel_array_check_updt_vld) && 
+assign bju_check_updt_vld        = (pred_array_check_updt_vld ||
+                                   sel_array_check_updt_vld) &&
                                    iu_ifu_bht_check_vld;
 
 assign pred_array_check_updt_vld = !( ( (bju_pred_rst[1:0] == 2'b00) && //saturated
-                                        !iu_ifu_bht_condbr_taken 
-                                      ) || 
+                                        !iu_ifu_bht_condbr_taken
+                                      ) ||
                                       ( (bju_pred_rst[1:0] == 2'b11) && //saturated
                                         iu_ifu_bht_condbr_taken
-                                      ) 
+                                      )
                                     );
 
 assign sel_array_check_updt_vld  = !( ( (bju_sel_rst[1:0] == 2'b00) && //saturated
                                         !iu_ifu_bht_condbr_taken
-                                      ) || 
+                                      ) ||
                                       ( (bju_sel_rst[1:0] == 2'b11) && //saturated
                                         iu_ifu_bht_condbr_taken
-                                      ) ||  
+                                      ) ||
                                       ( (bju_sel_rst[1] == 1'b0) && //bi-mode logic
-                                        iu_ifu_bht_condbr_taken && 
+                                        iu_ifu_bht_condbr_taken &&
                                         !iu_ifu_chgflw_vld
-                                      ) || 
+                                      ) ||
                                       ( (bju_sel_rst[1] == 1'b1) && //bi-mode logic
-                                        !iu_ifu_bht_condbr_taken && 
+                                        !iu_ifu_bht_condbr_taken &&
                                         !iu_ifu_chgflw_vld
                                       )
                                     );
 
-assign bht_wr_buf_create_vld     = bju_check_updt_vld && 
-                                   (bht_pred_array_rd || 
-                                    bht_sel_array_rd || 
-                                    bht_wr_buf_not_empty) && 
+assign bht_wr_buf_create_vld     = bju_check_updt_vld &&
+                                   (bht_pred_array_rd ||
+                                    bht_sel_array_rd ||
+                                    bht_wr_buf_not_empty) &&
                                    cp0_ifu_bht_en;
-                                        
-assign bht_wr_buf_retire_vld     = bht_wr_buf_not_empty && 
-                                   !(bht_pred_array_rd || 
-                                     bht_sel_array_rd) && 
+
+assign bht_wr_buf_retire_vld     = bht_wr_buf_not_empty &&
+                                   !(bht_pred_array_rd ||
+                                     bht_sel_array_rd) &&
                                    cp0_ifu_bht_en;
 
 assign bht_wr_buf_not_empty      = entry_vld;
@@ -987,9 +987,9 @@ gated_clk_cell  x_wr_buf_clk (
 //           .local_en       (wr_buf_clk_en),//Local Condition @594
 //           .module_en      (cp0_ifu_icg_en) @595
 //         ); @596
-assign wr_buf_clk_en = bju_check_updt_vld || 
-                       bht_wr_buf_not_empty || 
-                       bht_inv_on_reg || 
+assign wr_buf_clk_en = bju_check_updt_vld ||
+                       bht_wr_buf_not_empty ||
+                       bht_inv_on_reg ||
                        ifctrl_bht_inv;
 
 //Write Buffer has 4 Entry
@@ -1018,9 +1018,9 @@ begin
     retire_ptr[3:0] <= retire_ptr[3:0];
 end
 
-assign entry_create[3:0] = {4{bht_wr_buf_create_vld && !buf_full}} & 
+assign entry_create[3:0] = {4{bht_wr_buf_create_vld && !buf_full}} &
                            create_ptr[3:0];
-assign entry_retire[3:0] = {4{bht_wr_buf_retire_vld}} & 
+assign entry_retire[3:0] = {4{bht_wr_buf_retire_vld}} &
                            retire_ptr[3:0];
 
 //==========================================================
@@ -1326,7 +1326,7 @@ case({(cur_cur_pc[3:0] ^ cur_ghr[3:0]), !cur_sel_rst[1]})
   5'b0110_1 : bht_wr_buf_pred_updt_sel_b[31:0] = 32'b1111_1111_1111_1111_1101_1111_1111_1111;
   5'b0111_0 : bht_wr_buf_pred_updt_sel_b[31:0] = 32'b1111_1111_1111_1111_1011_1111_1111_1111;
   5'b0111_1 : bht_wr_buf_pred_updt_sel_b[31:0] = 32'b1111_1111_1111_1111_0111_1111_1111_1111;
-  
+
   5'b1000_0 : bht_wr_buf_pred_updt_sel_b[31:0] = 32'b1111_1111_1111_1110_1111_1111_1111_1111;
   5'b1000_1 : bht_wr_buf_pred_updt_sel_b[31:0] = 32'b1111_1111_1111_1101_1111_1111_1111_1111;
   5'b1001_0 : bht_wr_buf_pred_updt_sel_b[31:0] = 32'b1111_1111_1111_1011_1111_1111_1111_1111;
@@ -1404,8 +1404,8 @@ end
 
 // &Force("output","bht_ipdp_pre_array_data_ntake"); @955
 // &Force("output","bht_ipdp_pre_array_data_taken"); @956
-assign ip_vld = ipctrl_bht_vld || 
-                after_rtu_ifu_flush || 
+assign ip_vld = ipctrl_bht_vld ||
+                after_rtu_ifu_flush ||
                 after_bju_mispred;
 //-------------Pre Array offset One-hot---------------------
 //Predict Array offset = vghr[3:0] ^ pc[7:4]
@@ -1458,7 +1458,7 @@ else if(bju_mispred && iu_ifu_bht_check_vld)
   pre_vghr_offset_1[3:0] = {bju_ghr[2:0], iu_ifu_bht_condbr_taken};
 else if(after_bju_mispred || after_rtu_ifu_flush)
   pre_vghr_offset_1[3:0] = vghr_reg[3:0];
-else 
+else
   pre_vghr_offset_1[3:0] = {vghr_reg[2:0],ipctrl_bht_con_br_taken};
 // &CombEnd; @993
 end
@@ -1667,11 +1667,11 @@ gated_clk_cell  x_bht_flop_clk (
 //           .local_en       (bht_flop_clk_en),//Local Condition @1160
 //           .module_en      (cp0_ifu_icg_en) @1161
 //         ); @1162
-assign bht_flop_clk_en = bht_inv_on_reg || 
-                         bht_inv_on_reg_ff || 
-                         bju_mispred || 
-                         after_bju_mispred || 
-                         rtu_ifu_flush || 
+assign bht_flop_clk_en = bht_inv_on_reg ||
+                         bht_inv_on_reg_ff ||
+                         bju_mispred ||
+                         after_bju_mispred ||
+                         rtu_ifu_flush ||
                          after_rtu_ifu_flush;
 //-----------------after_inv_reg----------------------------
 always @(posedge bht_flop_clk or negedge cpurst_b)
@@ -1795,14 +1795,14 @@ assign wr_buf_hit_1   = wr_buf_pre_hit_1 && wr_buf_sel_hit_1 && entry1_vld;
 assign wr_buf_hit_2   = wr_buf_pre_hit_2 && wr_buf_sel_hit_2 && entry2_vld;
 assign wr_buf_hit_3   = wr_buf_pre_hit_3 && wr_buf_sel_hit_3 && entry3_vld;
 assign wr_buf_hit     = (
-                          wr_buf_hit_0 || 
-                          wr_buf_hit_1 || 
-                          wr_buf_hit_2 || 
+                          wr_buf_hit_0 ||
+                          wr_buf_hit_1 ||
+                          wr_buf_hit_2 ||
                           wr_buf_hit_3
-                        ) && 
+                        ) &&
                         wr_buf_rd;
 assign wr_buf_rd      = sel_rd_flop && pre_rd_flop;
-  
+
 // &CombBeg; @1289
 always @( entry3_sel_updt_data[1:0]
        or entry1_sel_updt_data[1:0]
@@ -1818,7 +1818,7 @@ else if(wr_buf_hit_1)
   wr_buf_sel_array_result[1:0]  = entry1_sel_updt_data[1:0];
 else if(wr_buf_hit_2)
   wr_buf_sel_array_result[1:0]  = entry2_sel_updt_data[1:0];
-else 
+else
   wr_buf_sel_array_result[1:0]  = entry3_sel_updt_data[1:0];
 // &CombEnd; @1298
 end

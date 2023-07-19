@@ -27,38 +27,38 @@ module ct_idu_rf_prf_gated_preg(
 );
 
 // &Ports; @28
-input           cp0_idu_icg_en;               
-input           cp0_yy_clk_en;                
-input           forever_cpuclk;               
-input   [63:0]  iu_idu_ex2_pipe0_wb_preg_data; 
-input   [63:0]  iu_idu_ex2_pipe1_wb_preg_data; 
-input   [63:0]  lsu_idu_wb_pipe3_wb_preg_data; 
-input           pad_yy_icg_scan_en;           
-input   [2 :0]  x_wb_vld;                     
-output  [63:0]  x_reg_dout;                   
+input           cp0_idu_icg_en;
+input           cp0_yy_clk_en;
+input           forever_cpuclk;
+input   [63:0]  iu_idu_ex2_pipe0_wb_preg_data;
+input   [63:0]  iu_idu_ex2_pipe1_wb_preg_data;
+input   [63:0]  lsu_idu_wb_pipe3_wb_preg_data;
+input           pad_yy_icg_scan_en;
+input   [2 :0]  x_wb_vld;
+output  [63:0]  x_reg_dout;
 
 // &Regs; @29
-reg     [63:0]  reg_dout;                     
-reg     [63:0]  write_data;                   
+reg     [63:0]  reg_dout;
+reg     [63:0]  write_data;
 
 // &Wires; @30
-wire            cp0_idu_icg_en;               
-wire            cp0_yy_clk_en;                
-wire            forever_cpuclk;               
-wire    [63:0]  iu_idu_ex2_pipe0_wb_preg_data; 
-wire    [63:0]  iu_idu_ex2_pipe1_wb_preg_data; 
-wire    [63:0]  lsu_idu_wb_pipe3_wb_preg_data; 
-wire            pad_yy_icg_scan_en;           
-wire            preg_clk;                     
-wire            preg_clk_en;                  
-wire            write_en;                     
-wire    [63:0]  x_reg_dout;                   
-wire    [2 :0]  x_wb_vld;                     
+wire            cp0_idu_icg_en;
+wire            cp0_yy_clk_en;
+wire            forever_cpuclk;
+wire    [63:0]  iu_idu_ex2_pipe0_wb_preg_data;
+wire    [63:0]  iu_idu_ex2_pipe1_wb_preg_data;
+wire    [63:0]  lsu_idu_wb_pipe3_wb_preg_data;
+wire            pad_yy_icg_scan_en;
+wire            preg_clk;
+wire            preg_clk_en;
+wire            write_en;
+wire    [63:0]  x_reg_dout;
+wire    [2 :0]  x_wb_vld;
 
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign preg_clk_en = write_en;
 // &Instance("gated_clk_cell", "x_preg_gated_clk"); @37

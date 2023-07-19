@@ -75,216 +75,216 @@ module ct_lsu_snoop_snq_entry(
 );
 
 // &Ports; @26
-input           arb_snq_entry_oldest_index_x;        
-input           biu_snq_cr_resp_acept_x;             
-input           cp0_lsu_icg_en;                      
-input           cpurst_b;                            
-input           dcache_snq_snoop_tag_grnt;           
-input           dcache_snq_snpdt_grnt;               
-input           dcache_snq_tag_resp_dirty;           
-input           dcache_snq_tag_resp_share;           
-input           dcache_snq_tag_resp_valid;           
-input           dcache_snq_tag_resp_way;             
-input           lfb_bypass_vld_x;                    
-input   [1 :0]  lfb_snq_bypass_data_id;              
-input           lfb_snq_bypass_share;                
-input   [33:0]  lfb_vb_addr_tto6;                    
-input           lsu_snoop_clk;                       
-input           pad_yy_icg_scan_en;                  
-input           snpdt_snq_cmplt_x;                   
-input   [39:0]  snq_create_addr;                     
-input   [9 :0]  snq_create_depd;                     
-input           snq_create_en_x;                     
-input   [3 :0]  snq_create_type;                     
-input   [9 :0]  snq_depd_remove;                     
-input           snq_resp_create_en_x;                
-input           snq_snoop_tag_start_x;               
-input           st_da_snq_ecc_err;                   
-input           vb_bypass_vld_x;                     
-input   [2 :0]  vb_snq_bypass_db_id;                 
-input           vb_snq_start_wait_x;                 
-input   [1 :0]  vb_snq_wait_remove;                  
-input   [1 :0]  vb_snq_wait_vb_id;                   
-input   [39:0]  wmb_read_req_addr;                   
-input   [7 :0]  wmb_write_ptr;                       
-input   [39:0]  wmb_write_req_addr;                  
-output          snpt_snpdt_start_x;                  
-output          snq_cr_resp_valid_x;                 
-output  [2 :0]  snq_entry_bypass_db_id_v;            
-output  [1 :0]  snq_entry_depd_vb_id_v;              
-output          snq_entry_lfb_bypass_chg_tag_data0_x; 
-output          snq_entry_lfb_bypass_chg_tag_data1_x; 
-output          snq_entry_lfb_bypass_invalid_data0_x; 
-output          snq_entry_lfb_bypass_invalid_data1_x; 
-output          snq_entry_lfb_vb_req_hit_idx_x;      
-output          snq_entry_vb_bypass_invalid_x;       
-output          snq_entry_vb_bypass_readonce_x;      
-output          snq_entry_vb_bypass_start_x;         
-output          snq_entry_wmb_read_req_hit_idx_x;    
-output          snq_entry_wmb_write_req_hit_idx_x;   
-output  [35:0]  snq_entryx_addr;                     
-output  [4 :0]  snq_entryx_cr_resp;                  
-output          snq_issued_x;                        
-output          snq_need_chg_tag_i_x;                
-output          snq_need_chg_tag_s_x;                
-output          snq_need_chg_tag_x;                  
-output          snq_need_read_data_x;                
-output          snq_rd_tag_rdy_x;                    
-output          snq_snoop_tag_req_x;                 
-output          snq_tag_req_for_inv_x;               
-output          snq_vld_x;                           
-output          snq_way_x;                           
+input           arb_snq_entry_oldest_index_x;
+input           biu_snq_cr_resp_acept_x;
+input           cp0_lsu_icg_en;
+input           cpurst_b;
+input           dcache_snq_snoop_tag_grnt;
+input           dcache_snq_snpdt_grnt;
+input           dcache_snq_tag_resp_dirty;
+input           dcache_snq_tag_resp_share;
+input           dcache_snq_tag_resp_valid;
+input           dcache_snq_tag_resp_way;
+input           lfb_bypass_vld_x;
+input   [1 :0]  lfb_snq_bypass_data_id;
+input           lfb_snq_bypass_share;
+input   [33:0]  lfb_vb_addr_tto6;
+input           lsu_snoop_clk;
+input           pad_yy_icg_scan_en;
+input           snpdt_snq_cmplt_x;
+input   [39:0]  snq_create_addr;
+input   [9 :0]  snq_create_depd;
+input           snq_create_en_x;
+input   [3 :0]  snq_create_type;
+input   [9 :0]  snq_depd_remove;
+input           snq_resp_create_en_x;
+input           snq_snoop_tag_start_x;
+input           st_da_snq_ecc_err;
+input           vb_bypass_vld_x;
+input   [2 :0]  vb_snq_bypass_db_id;
+input           vb_snq_start_wait_x;
+input   [1 :0]  vb_snq_wait_remove;
+input   [1 :0]  vb_snq_wait_vb_id;
+input   [39:0]  wmb_read_req_addr;
+input   [7 :0]  wmb_write_ptr;
+input   [39:0]  wmb_write_req_addr;
+output          snpt_snpdt_start_x;
+output          snq_cr_resp_valid_x;
+output  [2 :0]  snq_entry_bypass_db_id_v;
+output  [1 :0]  snq_entry_depd_vb_id_v;
+output          snq_entry_lfb_bypass_chg_tag_data0_x;
+output          snq_entry_lfb_bypass_chg_tag_data1_x;
+output          snq_entry_lfb_bypass_invalid_data0_x;
+output          snq_entry_lfb_bypass_invalid_data1_x;
+output          snq_entry_lfb_vb_req_hit_idx_x;
+output          snq_entry_vb_bypass_invalid_x;
+output          snq_entry_vb_bypass_readonce_x;
+output          snq_entry_vb_bypass_start_x;
+output          snq_entry_wmb_read_req_hit_idx_x;
+output          snq_entry_wmb_write_req_hit_idx_x;
+output  [35:0]  snq_entryx_addr;
+output  [4 :0]  snq_entryx_cr_resp;
+output          snq_issued_x;
+output          snq_need_chg_tag_i_x;
+output          snq_need_chg_tag_s_x;
+output          snq_need_chg_tag_x;
+output          snq_need_read_data_x;
+output          snq_rd_tag_rdy_x;
+output          snq_snoop_tag_req_x;
+output          snq_tag_req_for_inv_x;
+output          snq_vld_x;
+output          snq_way_x;
 
 // &Regs; @27
-reg             lfb_bypass_mode;                     
-reg     [4 :0]  snpt_cur_state;                      
-reg     [4 :0]  snpt_next_state;                     
-reg     [35:0]  snq_addr;                            
-reg     [9 :0]  snq_depd;                            
-reg     [2 :0]  snq_entry_bypass_db_id;              
-reg             snq_entry_bypass_dcache_share;       
-reg     [1 :0]  snq_entry_bypass_lfb_data_id;        
-reg             snq_issued;                          
-reg             snq_need_chg_tag_ff;                 
-reg             snq_need_chg_tag_i_ff;               
-reg             snq_need_chg_tag_s_ff;               
-reg             snq_need_read_data_ff;               
-reg     [1 :0]  snq_need_wait_vb;                    
-reg     [4 :0]  snq_resp;                            
-reg     [3 :0]  snq_type;                            
-reg             snq_vld;                             
-reg             snq_way;                             
-reg             vb_bypass_mode;                      
-reg             vb_bypass_with_clean_ff;             
+reg             lfb_bypass_mode;
+reg     [4 :0]  snpt_cur_state;
+reg     [4 :0]  snpt_next_state;
+reg     [35:0]  snq_addr;
+reg     [9 :0]  snq_depd;
+reg     [2 :0]  snq_entry_bypass_db_id;
+reg             snq_entry_bypass_dcache_share;
+reg     [1 :0]  snq_entry_bypass_lfb_data_id;
+reg             snq_issued;
+reg             snq_need_chg_tag_ff;
+reg             snq_need_chg_tag_i_ff;
+reg             snq_need_chg_tag_s_ff;
+reg             snq_need_read_data_ff;
+reg     [1 :0]  snq_need_wait_vb;
+reg     [4 :0]  snq_resp;
+reg     [3 :0]  snq_type;
+reg             snq_vld;
+reg             snq_way;
+reg             vb_bypass_mode;
+reg             vb_bypass_with_clean_ff;
 
 // &Wires; @28
-wire            arb_snq_entry_oldest_index;          
-wire            arb_snq_entry_oldest_index_x;        
-wire            biu_snq_cr_resp_acept;               
-wire            biu_snq_cr_resp_acept_x;             
-wire            cp0_lsu_icg_en;                      
-wire            cpurst_b;                            
-wire            data_transfer;                       
-wire    [4 :0]  dcache_snq_resp;                     
-wire            dcache_snq_snoop_tag_grnt;           
-wire            dcache_snq_snpdt_grnt;               
-wire            dcache_snq_tag_resp_dirty;           
-wire            dcache_snq_tag_resp_dirty_final;     
-wire            dcache_snq_tag_resp_share;           
-wire            dcache_snq_tag_resp_share_final;     
-wire            dcache_snq_tag_resp_valid;           
-wire            dcache_snq_tag_resp_valid_final;     
-wire            dcache_snq_tag_resp_way;             
-wire            error;                               
-wire            is_shared;                           
-wire            lfb_bypass_chg_tag;                  
-wire            lfb_bypass_chg_tag_data0;            
-wire            lfb_bypass_chg_tag_data1;            
-wire            lfb_bypass_invalid;                  
-wire            lfb_bypass_invalid_data0;            
-wire            lfb_bypass_invalid_data1;            
-wire            lfb_bypass_vld;                      
-wire            lfb_bypass_vld_x;                    
-wire    [1 :0]  lfb_snq_bypass_data_id;              
-wire            lfb_snq_bypass_share;                
-wire    [33:0]  lfb_vb_addr_tto6;                    
-wire            lsu_snoop_clk;                       
-wire            make_invalid_req;                    
-wire            pad_yy_icg_scan_en;                  
-wire            pass_dirty;                          
-wire            save_tag_resp;                       
-wire            snpdt_snq_cmplt;                     
-wire            snpdt_snq_cmplt_x;                   
-wire            snpt_snpdt_start;                    
-wire            snpt_snpdt_start_x;                  
-wire            snpt_state_idle;                     
-wire            snq_cr_resp_valid_x;                 
-wire    [39:0]  snq_create_addr;                     
-wire    [9 :0]  snq_create_depd;                     
-wire            snq_create_en;                       
-wire            snq_create_en_x;                     
-wire    [3 :0]  snq_create_type;                     
-wire            snq_ctl_clk_en;                      
-wire            snq_depd_clk_en;                     
-wire    [9 :0]  snq_depd_remove;                     
-wire            snq_depd_remove_vld;                 
-wire    [2 :0]  snq_entry_bypass_db_id_v;            
-wire            snq_entry_clk_en;                    
-wire    [33:0]  snq_entry_cmp_lfb_vb_addr_tto6;      
-wire    [39:0]  snq_entry_cmp_wmb_read_req_addr;     
-wire    [39:0]  snq_entry_cmp_wmb_write_req_addr;    
-wire    [1 :0]  snq_entry_depd_vb_id;                
-wire    [1 :0]  snq_entry_depd_vb_id_v;              
-wire    [39:0]  snq_entry_from_snq_create_addr;      
-wire            snq_entry_lfb_bypass_chg_tag_data0_x; 
-wire            snq_entry_lfb_bypass_chg_tag_data1_x; 
-wire            snq_entry_lfb_bypass_invalid_data0_x; 
-wire            snq_entry_lfb_bypass_invalid_data1_x; 
-wire            snq_entry_lfb_vb_req_hit_idx;        
-wire            snq_entry_lfb_vb_req_hit_idx_x;      
-wire            snq_entry_vb_bypass_invalid_x;       
-wire            snq_entry_vb_bypass_readonce_x;      
-wire            snq_entry_vb_bypass_start_x;         
-wire            snq_entry_wmb_read_req_hit_idx;      
-wire            snq_entry_wmb_read_req_hit_idx_x;    
-wire            snq_entry_wmb_write_req_hit_idx;     
-wire            snq_entry_wmb_write_req_hit_idx_x;   
-wire    [35:0]  snq_entryx_addr;                     
-wire    [4 :0]  snq_entryx_cr_resp;                  
-wire            snq_inv_en;                          
-wire            snq_issued_x;                        
-wire            snq_need_chg_tag_i;                  
-wire            snq_need_chg_tag_i_x;                
-wire            snq_need_chg_tag_m;                  
-wire            snq_need_chg_tag_s;                  
-wire            snq_need_chg_tag_s_x;                
-wire            snq_need_chg_tag_x;                  
-wire            snq_need_read_data;                  
-wire            snq_need_read_data_x;                
-wire            snq_need_snpdt;                      
-wire            snq_rd_tag_rdy;                      
-wire            snq_rd_tag_rdy_x;                    
-wire            snq_resp_clk_en;                     
-wire            snq_resp_create_en;                  
-wire            snq_resp_create_en_x;                
-wire    [4 :0]  snq_return_snoop_resp;               
-wire            snq_return_snoop_resp_vld;           
-wire            snq_snoop_tag_req;                   
-wire            snq_snoop_tag_req_x;                 
-wire            snq_snoop_tag_start;                 
-wire            snq_snoop_tag_start_x;               
-wire            snq_tag_reissue;                     
-wire            snq_tag_req_for_inv;                 
-wire            snq_tag_req_for_inv_x;               
-wire            snq_tag_req_issued;                  
-wire            snq_vld_x;                           
-wire            snq_wait_remove_vld;                 
-wire            snq_wait_vb_vld;                     
-wire            snq_way_x;                           
-wire            snqctrlclk;                          
-wire            snqdepdclk;                          
-wire            snqentyclk;                          
-wire            snqrespclk;                          
-wire            st_da_snq_ecc_err;                   
-wire            vb_bypass_invalid;                   
-wire            vb_bypass_need_chg_tag;              
-wire            vb_bypass_ready;                     
-wire            vb_bypass_start;                     
-wire            vb_bypass_vld;                       
-wire            vb_bypass_vld_x;                     
-wire            vb_bypass_with_clean;                
-wire    [2 :0]  vb_snq_bypass_db_id;                 
-wire            vb_snq_start_wait;                   
-wire            vb_snq_start_wait_x;                 
-wire    [1 :0]  vb_snq_wait_remove;                  
-wire    [1 :0]  vb_snq_wait_vb_id;                   
-wire    [39:0]  wmb_read_req_addr;                   
-wire    [7 :0]  wmb_write_ptr;                       
-wire    [39:0]  wmb_write_req_addr;                  
+wire            arb_snq_entry_oldest_index;
+wire            arb_snq_entry_oldest_index_x;
+wire            biu_snq_cr_resp_acept;
+wire            biu_snq_cr_resp_acept_x;
+wire            cp0_lsu_icg_en;
+wire            cpurst_b;
+wire            data_transfer;
+wire    [4 :0]  dcache_snq_resp;
+wire            dcache_snq_snoop_tag_grnt;
+wire            dcache_snq_snpdt_grnt;
+wire            dcache_snq_tag_resp_dirty;
+wire            dcache_snq_tag_resp_dirty_final;
+wire            dcache_snq_tag_resp_share;
+wire            dcache_snq_tag_resp_share_final;
+wire            dcache_snq_tag_resp_valid;
+wire            dcache_snq_tag_resp_valid_final;
+wire            dcache_snq_tag_resp_way;
+wire            error;
+wire            is_shared;
+wire            lfb_bypass_chg_tag;
+wire            lfb_bypass_chg_tag_data0;
+wire            lfb_bypass_chg_tag_data1;
+wire            lfb_bypass_invalid;
+wire            lfb_bypass_invalid_data0;
+wire            lfb_bypass_invalid_data1;
+wire            lfb_bypass_vld;
+wire            lfb_bypass_vld_x;
+wire    [1 :0]  lfb_snq_bypass_data_id;
+wire            lfb_snq_bypass_share;
+wire    [33:0]  lfb_vb_addr_tto6;
+wire            lsu_snoop_clk;
+wire            make_invalid_req;
+wire            pad_yy_icg_scan_en;
+wire            pass_dirty;
+wire            save_tag_resp;
+wire            snpdt_snq_cmplt;
+wire            snpdt_snq_cmplt_x;
+wire            snpt_snpdt_start;
+wire            snpt_snpdt_start_x;
+wire            snpt_state_idle;
+wire            snq_cr_resp_valid_x;
+wire    [39:0]  snq_create_addr;
+wire    [9 :0]  snq_create_depd;
+wire            snq_create_en;
+wire            snq_create_en_x;
+wire    [3 :0]  snq_create_type;
+wire            snq_ctl_clk_en;
+wire            snq_depd_clk_en;
+wire    [9 :0]  snq_depd_remove;
+wire            snq_depd_remove_vld;
+wire    [2 :0]  snq_entry_bypass_db_id_v;
+wire            snq_entry_clk_en;
+wire    [33:0]  snq_entry_cmp_lfb_vb_addr_tto6;
+wire    [39:0]  snq_entry_cmp_wmb_read_req_addr;
+wire    [39:0]  snq_entry_cmp_wmb_write_req_addr;
+wire    [1 :0]  snq_entry_depd_vb_id;
+wire    [1 :0]  snq_entry_depd_vb_id_v;
+wire    [39:0]  snq_entry_from_snq_create_addr;
+wire            snq_entry_lfb_bypass_chg_tag_data0_x;
+wire            snq_entry_lfb_bypass_chg_tag_data1_x;
+wire            snq_entry_lfb_bypass_invalid_data0_x;
+wire            snq_entry_lfb_bypass_invalid_data1_x;
+wire            snq_entry_lfb_vb_req_hit_idx;
+wire            snq_entry_lfb_vb_req_hit_idx_x;
+wire            snq_entry_vb_bypass_invalid_x;
+wire            snq_entry_vb_bypass_readonce_x;
+wire            snq_entry_vb_bypass_start_x;
+wire            snq_entry_wmb_read_req_hit_idx;
+wire            snq_entry_wmb_read_req_hit_idx_x;
+wire            snq_entry_wmb_write_req_hit_idx;
+wire            snq_entry_wmb_write_req_hit_idx_x;
+wire    [35:0]  snq_entryx_addr;
+wire    [4 :0]  snq_entryx_cr_resp;
+wire            snq_inv_en;
+wire            snq_issued_x;
+wire            snq_need_chg_tag_i;
+wire            snq_need_chg_tag_i_x;
+wire            snq_need_chg_tag_m;
+wire            snq_need_chg_tag_s;
+wire            snq_need_chg_tag_s_x;
+wire            snq_need_chg_tag_x;
+wire            snq_need_read_data;
+wire            snq_need_read_data_x;
+wire            snq_need_snpdt;
+wire            snq_rd_tag_rdy;
+wire            snq_rd_tag_rdy_x;
+wire            snq_resp_clk_en;
+wire            snq_resp_create_en;
+wire            snq_resp_create_en_x;
+wire    [4 :0]  snq_return_snoop_resp;
+wire            snq_return_snoop_resp_vld;
+wire            snq_snoop_tag_req;
+wire            snq_snoop_tag_req_x;
+wire            snq_snoop_tag_start;
+wire            snq_snoop_tag_start_x;
+wire            snq_tag_reissue;
+wire            snq_tag_req_for_inv;
+wire            snq_tag_req_for_inv_x;
+wire            snq_tag_req_issued;
+wire            snq_vld_x;
+wire            snq_wait_remove_vld;
+wire            snq_wait_vb_vld;
+wire            snq_way_x;
+wire            snqctrlclk;
+wire            snqdepdclk;
+wire            snqentyclk;
+wire            snqrespclk;
+wire            st_da_snq_ecc_err;
+wire            vb_bypass_invalid;
+wire            vb_bypass_need_chg_tag;
+wire            vb_bypass_ready;
+wire            vb_bypass_start;
+wire            vb_bypass_vld;
+wire            vb_bypass_vld_x;
+wire            vb_bypass_with_clean;
+wire    [2 :0]  vb_snq_bypass_db_id;
+wire            vb_snq_start_wait;
+wire            vb_snq_start_wait_x;
+wire    [1 :0]  vb_snq_wait_remove;
+wire    [1 :0]  vb_snq_wait_vb_id;
+wire    [39:0]  wmb_read_req_addr;
+wire    [7 :0]  wmb_write_ptr;
+wire    [39:0]  wmb_write_req_addr;
 
 
 //======================================
-//    Snoop Queue 
+//    Snoop Queue
 //entry content:
 //| vld  | issue_depend[] | addr | snoop_type |
 //| prot |    issued      | resp | way|
@@ -325,7 +325,7 @@ assign snq_rd_tag_rdy = (!(|snq_depd[9:0])) && snq_vld && !snq_issued;
 assign snq_entry_depd_vb_id[1:0] = {2{snq_vld}} & snq_depd[1:0];
 //--------------------------------------
 //data_buffer_depend
-//distinguish from data bypass 
+//distinguish from data bypass
 assign snpt_state_idle = !(|snpt_cur_state[4:0]);  //SNPT_IDLE
 assign snq_wait_remove_vld = |(snq_need_wait_vb[1:0] & vb_snq_wait_remove[1:0]);
  always @(posedge snqctrlclk or negedge cpurst_b)
@@ -360,15 +360,15 @@ assign snq_wait_vb_vld = |snq_need_wait_vb[1:0];
      snq_entry_bypass_db_id[2:0] <= vb_snq_bypass_db_id[2:0];
  end
 
-assign vb_bypass_ready   = vb_bypass_need_chg_tag 
+assign vb_bypass_ready   = vb_bypass_need_chg_tag
                            ? snpt_cur_state[4]
-                           : snpt_cur_state[2] && arb_snq_entry_oldest_index; 
+                           : snpt_cur_state[2] && arb_snq_entry_oldest_index;
 
-assign vb_bypass_start   = vb_bypass_mode 
+assign vb_bypass_start   = vb_bypass_mode
                            && vb_bypass_ready
                            && !make_invalid_req;
 
-assign vb_bypass_invalid = vb_bypass_mode 
+assign vb_bypass_invalid = vb_bypass_mode
                            && vb_bypass_ready
                            && make_invalid_req;
 //--------------------------------------
@@ -399,14 +399,14 @@ assign vb_bypass_invalid = vb_bypass_mode
    end
  end
 
-assign lfb_bypass_invalid = lfb_bypass_mode 
+assign lfb_bypass_invalid = lfb_bypass_mode
                             && (snpt_cur_state[2]
                                    && arb_snq_entry_oldest_index
                                    && snq_need_chg_tag_i_ff
                                 || save_tag_resp
                                    && dcache_snq_tag_resp_valid);
 
-assign lfb_bypass_chg_tag = lfb_bypass_mode 
+assign lfb_bypass_chg_tag = lfb_bypass_mode
                             && snpt_cur_state[2]
                             && snq_need_chg_tag_s_ff
                             && arb_snq_entry_oldest_index;
@@ -436,7 +436,7 @@ begin
   end
 end
 
-assign snq_tag_reissue = 1'b0; 
+assign snq_tag_reissue = 1'b0;
 always @(posedge snqctrlclk or negedge cpurst_b)
 begin
   if(~cpurst_b)
@@ -485,7 +485,7 @@ begin
 end
 
 assign vb_bypass_need_chg_tag = vb_bypass_with_clean_ff
-                                && snq_need_chg_tag_ff;   
+                                && snq_need_chg_tag_ff;
 
 //since L2 in inclusive, only M will transfer data for efficiency
 
@@ -497,7 +497,7 @@ assign vb_bypass_need_chg_tag = vb_bypass_with_clean_ff
 //                         && (   snq_type[3:0] == CLEAN_INVALID
 //                             || snq_type[3:0] == CLEAN_SHARED));
 
-assign data_transfer =  (dcache_snq_tag_resp_valid_final && dcache_snq_tag_resp_dirty_final)    //(M) 
+assign data_transfer =  (dcache_snq_tag_resp_valid_final && dcache_snq_tag_resp_dirty_final)    //(M)
                          && (   snq_type[3:0] == READ_SHARED
                              || snq_type[3:0] == READ_UNIQUE
                              || snq_type[3:0] == READ_ONCE
@@ -601,9 +601,9 @@ assign snq_need_snpdt =  snq_need_read_data
 //           start SDT FSM(read data,if need)
 //WAIT_SDT_CMPLT:
 //           wait read data and(or) change tag cmplt
-//WAIT_POP : if this entry oldest,then 
-//           return resp and pop                      
-//           
+//WAIT_POP : if this entry oldest,then
+//           return resp and pop
+//
 //======================================
 parameter SNPT_IDLE             = 5'b00000;
 parameter SNPT_WAIT_DATA_BUFFER = 5'b00001;
@@ -702,14 +702,14 @@ begin
 end
 
 assign snq_snoop_tag_req = snq_snoop_tag_start;
-assign snq_tag_req_issued = snq_snoop_tag_start 
-                            && dcache_snq_snoop_tag_grnt 
+assign snq_tag_req_issued = snq_snoop_tag_start
+                            && dcache_snq_snoop_tag_grnt
                             && snpt_state_idle;
-assign save_tag_resp = snq_resp_create_en; 
-assign snpt_snpdt_start =  arb_snq_entry_oldest_index 
-                           && snpt_cur_state[2] 
-                           && (!vb_bypass_mode || vb_bypass_need_chg_tag) 
-                           && !lfb_bypass_mode; 
+assign save_tag_resp = snq_resp_create_en;
+assign snpt_snpdt_start =  arb_snq_entry_oldest_index
+                           && snpt_cur_state[2]
+                           && (!vb_bypass_mode || vb_bypass_need_chg_tag)
+                           && !lfb_bypass_mode;
 //                        && (snpt_cur_state[2:0] == SNPT_SDT_REQ);
 assign snq_return_snoop_resp_vld =  arb_snq_entry_oldest_index
                                  && snpt_cur_state[4];
@@ -765,7 +765,7 @@ assign snq_inv_en =  biu_snq_cr_resp_acept;
 //    end
 //  endcase
 //&CombEnd;
-        
+
 //======================================
 //         cr resp return
 //
@@ -821,7 +821,7 @@ gated_clk_cell  x_snq_ctrl_gated_cell (
 //         ); @544
 
 
-assign snq_depd_clk_en =  snq_create_en 
+assign snq_depd_clk_en =  snq_create_en
                        || snq_depd_remove_vld;
 // &Instance("gated_clk_cell","x_snq_depd_gated_cell"); @549
 gated_clk_cell  x_snq_depd_gated_cell (

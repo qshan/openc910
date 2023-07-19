@@ -27,38 +27,38 @@ module ct_f_spsram_8192x32(
 );
 
 // &Ports; @26
-input   [12:0]  A;           
-input           CEN;         
-input           CLK;         
-input   [31:0]  D;           
-input           GWEN;        
-input   [31:0]  WEN;         
-output  [31:0]  Q;           
+input   [12:0]  A;
+input           CEN;
+input           CLK;
+input   [31:0]  D;
+input           GWEN;
+input   [31:0]  WEN;
+output  [31:0]  Q;
 
 // &Regs; @27
-reg     [12:0]  addr_holding; 
+reg     [12:0]  addr_holding;
 
 // &Wires; @28
-wire    [12:0]  A;           
-wire            CEN;         
-wire            CLK;         
-wire    [31:0]  D;           
-wire            GWEN;        
-wire    [31:0]  Q;           
-wire    [31:0]  WEN;         
-wire    [12:0]  addr;        
-wire    [7 :0]  ram0_din;    
-wire    [7 :0]  ram0_dout;   
-wire            ram0_wen;    
-wire    [7 :0]  ram1_din;    
-wire    [7 :0]  ram1_dout;   
-wire            ram1_wen;    
-wire    [7 :0]  ram2_din;    
-wire    [7 :0]  ram2_dout;   
-wire            ram2_wen;    
-wire    [7 :0]  ram3_din;    
-wire    [7 :0]  ram3_dout;   
-wire            ram3_wen;    
+wire    [12:0]  A;
+wire            CEN;
+wire            CLK;
+wire    [31:0]  D;
+wire            GWEN;
+wire    [31:0]  Q;
+wire    [31:0]  WEN;
+wire    [12:0]  addr;
+wire    [7 :0]  ram0_din;
+wire    [7 :0]  ram0_dout;
+wire            ram0_wen;
+wire    [7 :0]  ram1_din;
+wire    [7 :0]  ram1_dout;
+wire            ram1_wen;
+wire    [7 :0]  ram2_din;
+wire    [7 :0]  ram2_dout;
+wire            ram2_wen;
+wire    [7 :0]  ram3_din;
+wire    [7 :0]  ram3_dout;
+wire            ram3_wen;
 
 
 parameter ADDR_WIDTH = 13;

@@ -35,7 +35,7 @@ reg_access:
       csrrs x10,mstatus,x1
 #read to x10 & clr x1 bit to csr
       csrrc x10,mstatus,x1
-#read to x10      
+#read to x10
       csrr x10,mstatus
 # write x1 to csr
       csrw mstatus,x1

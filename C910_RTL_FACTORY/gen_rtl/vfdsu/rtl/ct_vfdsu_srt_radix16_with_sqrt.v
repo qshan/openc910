@@ -37,239 +37,239 @@ module ct_vfdsu_srt_radix16_with_sqrt(
 );
 
 // &Ports; @23
-input           cp0_vfpu_icg_en;           
-input           cp0_yy_clk_en;             
-input           cpurst_b;                  
-input           forever_cpuclk;            
-input   [6 :0]  initial_bound_sel_in;      
-input   [55:0]  initial_divisor_in;        
-input   [60:0]  initial_remainder_in;      
-input           initial_srt_en;            
-input           initial_srt_sel_div_in;    
-input           initial_srt_sel_sqrt_in;   
-input           pad_yy_icg_scan_en;        
-input           srt_first_round;           
-input           srt_secd_round;            
-input           srt_sm_on;                 
-output  [60:0]  srt_remainder;             
-output  [59:0]  srt_remainder_out;         
-output          srt_remainder_sign;        
-output  [57:0]  total_qt_rt;               
-output  [57:0]  vdiv_qt_rt;                
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input   [6 :0]  initial_bound_sel_in;
+input   [55:0]  initial_divisor_in;
+input   [60:0]  initial_remainder_in;
+input           initial_srt_en;
+input           initial_srt_sel_div_in;
+input           initial_srt_sel_sqrt_in;
+input           pad_yy_icg_scan_en;
+input           srt_first_round;
+input           srt_secd_round;
+input           srt_sm_on;
+output  [60:0]  srt_remainder;
+output  [59:0]  srt_remainder_out;
+output          srt_remainder_sign;
+output  [57:0]  total_qt_rt;
+output  [57:0]  vdiv_qt_rt;
 
 // &Regs; @24
-reg     [6 :0]  bound_sel;                 
-reg     [60:0]  cur_rem;                   
-reg     [57:0]  qt_rt_const_shift_std;     
-reg     [55:0]  srt_divisor;               
-reg     [60:0]  srt_remainder;             
-reg     [60:0]  srt_remainder_minus;       
-reg     [60:0]  srt_remainder_minus_nxt;   
-reg             srt_sel_div;               
-reg             srt_sel_sqrt;              
-reg     [57:0]  total_qt_rt;               
-reg     [57:0]  total_qt_rt_minus;         
-reg     [57:0]  total_qt_rt_minus_next;    
-reg     [57:0]  total_qt_rt_next;          
+reg     [6 :0]  bound_sel;
+reg     [60:0]  cur_rem;
+reg     [57:0]  qt_rt_const_shift_std;
+reg     [55:0]  srt_divisor;
+reg     [60:0]  srt_remainder;
+reg     [60:0]  srt_remainder_minus;
+reg     [60:0]  srt_remainder_minus_nxt;
+reg             srt_sel_div;
+reg             srt_sel_sqrt;
+reg     [57:0]  total_qt_rt;
+reg     [57:0]  total_qt_rt_minus;
+reg     [57:0]  total_qt_rt_minus_next;
+reg     [57:0]  total_qt_rt_next;
 
 // &Wires; @25
-wire            bound1_cmp_sign;           
-wire            bound2_cmp_sign;           
-wire            bound3_cmp_sign;           
-wire            bound4_cmp_sign;           
-wire            bound5_cmp_sign;           
-wire            bound6_cmp_sign;           
-wire            bound7_cmp_sign;           
-wire            bound8_cmp_sign;           
-wire            bound9_cmp_sign;           
-wire    [8 :0]  bound_cmp_sign;            
-wire            cp0_vfpu_icg_en;           
-wire            cp0_yy_clk_en;             
-wire            cpurst_b;                  
-wire    [60:0]  cur_rem_1;                 
-wire    [60:0]  cur_rem_2;                 
-wire    [60:0]  cur_rem_3;                 
-wire    [60:0]  cur_rem_4;                 
-wire    [60:0]  cur_rem_5;                 
-wire    [60:0]  cur_rem_6;                 
-wire    [60:0]  cur_rem_7;                 
-wire    [60:0]  cur_rem_8;                 
-wire    [60:0]  cur_rem_9;                 
-wire    [11:0]  digit_bound_1;             
-wire    [11:0]  digit_bound_2;             
-wire    [11:0]  digit_bound_3;             
-wire    [11:0]  digit_bound_4;             
-wire    [11:0]  digit_bound_5;             
-wire    [11:0]  digit_bound_6;             
-wire    [11:0]  digit_bound_7;             
-wire    [11:0]  digit_bound_8;             
-wire    [11:0]  digit_bound_9;             
-wire    [60:0]  div_qt_1_rem_add_op1;      
-wire    [60:0]  div_qt_2_rem_add_op1;      
-wire    [60:0]  div_qt_3_rem_add_op1_0;    
-wire    [60:0]  div_qt_3_rem_add_op1_1;    
-wire    [60:0]  div_qt_4_rem_add_op1;      
-wire    [60:0]  div_qt_5_rem_add_op1_0;    
-wire    [60:0]  div_qt_5_rem_add_op1_1;    
-wire    [60:0]  div_qt_6_rem_add_op1_0;    
-wire    [60:0]  div_qt_6_rem_add_op1_1;    
-wire    [60:0]  div_qt_7_rem_add_op1_0;    
-wire    [60:0]  div_qt_7_rem_add_op1_1;    
-wire    [60:0]  div_qt_8_rem_add_op1;      
-wire    [60:0]  div_qt_9_rem_add_op1_0;    
-wire    [60:0]  div_qt_9_rem_add_op1_1;    
-wire    [60:0]  div_qt_r1_rem_add_op1;     
-wire    [60:0]  div_qt_r2_rem_add_op1;     
-wire    [60:0]  div_qt_r3_rem_add_op1_0;   
-wire    [60:0]  div_qt_r3_rem_add_op1_1;   
-wire    [60:0]  div_qt_r4_rem_add_op1;     
-wire    [60:0]  div_qt_r5_rem_add_op1_0;   
-wire    [60:0]  div_qt_r5_rem_add_op1_1;   
-wire    [60:0]  div_qt_r6_rem_add_op1_0;   
-wire    [60:0]  div_qt_r6_rem_add_op1_1;   
-wire    [60:0]  div_qt_r7_rem_add_op1_0;   
-wire    [60:0]  div_qt_r7_rem_add_op1_1;   
-wire    [60:0]  div_qt_r8_rem_add_op1;     
-wire    [60:0]  div_qt_r9_rem_add_op1_0;   
-wire    [60:0]  div_qt_r9_rem_add_op1_1;   
-wire    [60:0]  div_rem_add1_op1;          
-wire    [60:0]  div_rem_add2_op1;          
-wire    [60:0]  div_rem_add3_op1_0;        
-wire    [60:0]  div_rem_add3_op1_1;        
-wire    [60:0]  div_rem_add4_op1;          
-wire    [60:0]  div_rem_add5_op1_0;        
-wire    [60:0]  div_rem_add5_op1_1;        
-wire    [60:0]  div_rem_add6_op1_0;        
-wire    [60:0]  div_rem_add6_op1_1;        
-wire    [60:0]  div_rem_add7_op1_0;        
-wire    [60:0]  div_rem_add7_op1_1;        
-wire    [60:0]  div_rem_add8_op1;          
-wire    [60:0]  div_rem_add9_op1_0;        
-wire    [60:0]  div_rem_add9_op1_1;        
-wire            forever_cpuclk;            
-wire    [6 :0]  initial_bound_sel_in;      
-wire    [55:0]  initial_divisor_in;        
-wire    [60:0]  initial_remainder_in;      
-wire            initial_srt_en;            
-wire            initial_srt_sel_div_in;    
-wire            initial_srt_sel_sqrt_in;   
-wire            pad_yy_icg_scan_en;        
-wire    [11:0]  part_rem;                  
-wire    [62:0]  qt_rt_const_q1;            
-wire    [62:0]  qt_rt_const_q10;           
-wire    [62:0]  qt_rt_const_q11;           
-wire    [62:0]  qt_rt_const_q112;          
-wire    [62:0]  qt_rt_const_q12;           
-wire    [62:0]  qt_rt_const_q128;          
-wire    [62:0]  qt_rt_const_q13;           
-wire    [62:0]  qt_rt_const_q14;           
-wire    [62:0]  qt_rt_const_q15;           
-wire    [62:0]  qt_rt_const_q16;           
-wire    [62:0]  qt_rt_const_q17;           
-wire    [62:0]  qt_rt_const_q192;          
-wire    [62:0]  qt_rt_const_q2;            
-wire    [62:0]  qt_rt_const_q23;           
-wire    [62:0]  qt_rt_const_q24;           
-wire    [62:0]  qt_rt_const_q27;           
-wire    [62:0]  qt_rt_const_q3;            
-wire    [62:0]  qt_rt_const_q31;           
-wire    [62:0]  qt_rt_const_q32;           
-wire    [62:0]  qt_rt_const_q4;            
-wire    [62:0]  qt_rt_const_q44;           
-wire    [62:0]  qt_rt_const_q5;            
-wire    [62:0]  qt_rt_const_q56;           
-wire    [62:0]  qt_rt_const_q6;            
-wire    [62:0]  qt_rt_const_q60;           
-wire    [62:0]  qt_rt_const_q64;           
-wire    [62:0]  qt_rt_const_q7;            
-wire    [62:0]  qt_rt_const_q8;            
-wire    [62:0]  qt_rt_const_q80;           
-wire    [62:0]  qt_rt_const_q9;            
-wire    [57:0]  qt_rt_const_shift_std_next; 
-wire    [60:0]  rem_add1_op1;              
-wire    [60:0]  rem_add2_op1;              
-wire    [60:0]  rem_add3_op1_0;            
-wire    [60:0]  rem_add3_op1_1;            
-wire    [60:0]  rem_add4_op1;              
-wire    [60:0]  rem_add5_op1_0;            
-wire    [60:0]  rem_add5_op1_1;            
-wire    [60:0]  rem_add6_op1_0;            
-wire    [60:0]  rem_add6_op1_1;            
-wire    [60:0]  rem_add7_op1_0;            
-wire    [60:0]  rem_add7_op1_1;            
-wire    [60:0]  rem_add8_op1;              
-wire    [60:0]  rem_add9_op1_0;            
-wire    [60:0]  rem_add9_op1_1;            
-wire    [60:0]  rem_minus_minus_6;         
-wire            rem_sign;                  
-wire    [60:0]  remainder_minus_nor_nxt_0; 
-wire    [60:0]  remainder_minus_nor_nxt_1; 
-wire    [60:0]  remainder_minus_nor_nxt_2; 
-wire    [60:0]  remainder_minus_nor_nxt_3; 
-wire    [60:0]  remainder_minus_nor_nxt_4; 
-wire    [60:0]  remainder_minus_nor_nxt_5; 
-wire    [60:0]  remainder_minus_nor_nxt_6; 
-wire    [60:0]  remainder_minus_nor_nxt_7; 
-wire    [60:0]  remainder_minus_nor_nxt_8; 
-wire    [60:0]  remainder_minus_nor_nxt_9; 
-wire    [60:0]  remainder_minus_shift;     
-wire    [60:0]  remainder_shift;           
-wire            sqrt_first_round;          
-wire    [60:0]  sqrt_qt_1_rem_add_op1;     
-wire    [60:0]  sqrt_qt_2_rem_add_op1;     
-wire    [60:0]  sqrt_qt_3_rem_add_op1_0;   
-wire    [60:0]  sqrt_qt_3_rem_add_op1_1;   
-wire    [60:0]  sqrt_qt_4_rem_add_op1;     
-wire    [60:0]  sqrt_qt_5_rem_add_op1_0;   
-wire    [60:0]  sqrt_qt_5_rem_add_op1_1;   
-wire    [60:0]  sqrt_qt_6_rem_add_op1_0;   
-wire    [60:0]  sqrt_qt_6_rem_add_op1_1;   
-wire    [60:0]  sqrt_qt_7_rem_add_op1_0;   
-wire    [60:0]  sqrt_qt_7_rem_add_op1_1;   
-wire    [60:0]  sqrt_qt_8_rem_add_op1;     
-wire    [60:0]  sqrt_qt_9_rem_add_op1_0;   
-wire    [60:0]  sqrt_qt_9_rem_add_op1_1;   
-wire    [60:0]  sqrt_qt_r1_rem_add_op1;    
-wire    [60:0]  sqrt_qt_r2_rem_add_op1;    
-wire    [60:0]  sqrt_qt_r3_rem_add_op1_0;  
-wire    [60:0]  sqrt_qt_r3_rem_add_op1_1;  
-wire    [60:0]  sqrt_qt_r4_rem_add_op1;    
-wire    [60:0]  sqrt_qt_r5_rem_add_op1_0;  
-wire    [60:0]  sqrt_qt_r5_rem_add_op1_1;  
-wire    [60:0]  sqrt_qt_r6_rem_add_op1_0;  
-wire    [60:0]  sqrt_qt_r6_rem_add_op1_1;  
-wire    [60:0]  sqrt_qt_r7_rem_add_op1_0;  
-wire    [60:0]  sqrt_qt_r7_rem_add_op1_1;  
-wire    [60:0]  sqrt_qt_r8_rem_add_op1;    
-wire    [60:0]  sqrt_qt_r9_rem_add_op1_0;  
-wire    [60:0]  sqrt_qt_r9_rem_add_op1_1;  
-wire    [60:0]  sqrt_rem_add1_op1;         
-wire    [60:0]  sqrt_rem_add2_op1;         
-wire    [60:0]  sqrt_rem_add3_op1_0;       
-wire    [60:0]  sqrt_rem_add3_op1_1;       
-wire    [60:0]  sqrt_rem_add4_op1;         
-wire    [60:0]  sqrt_rem_add5_op1_0;       
-wire    [60:0]  sqrt_rem_add5_op1_1;       
-wire    [60:0]  sqrt_rem_add6_op1_0;       
-wire    [60:0]  sqrt_rem_add6_op1_1;       
-wire    [60:0]  sqrt_rem_add7_op1_0;       
-wire    [60:0]  sqrt_rem_add7_op1_1;       
-wire    [60:0]  sqrt_rem_add8_op1;         
-wire    [60:0]  sqrt_rem_add9_op1_0;       
-wire    [60:0]  sqrt_rem_add9_op1_1;       
-wire            sqrt_secd_round;           
-wire            sqrt_secd_round_sign;      
-wire            srt_div_clk;               
-wire            srt_div_clk_en;            
-wire            srt_first_round;           
-wire            srt_qt_rem_clk;            
-wire            srt_qt_rem_clk_en;         
-wire    [60:0]  srt_remainder_nxt;         
-wire    [59:0]  srt_remainder_out;         
-wire            srt_remainder_sign;        
-wire            srt_secd_round;            
-wire            srt_sm_on;                 
-wire    [57:0]  vdiv_qt_rt;                
+wire            bound1_cmp_sign;
+wire            bound2_cmp_sign;
+wire            bound3_cmp_sign;
+wire            bound4_cmp_sign;
+wire            bound5_cmp_sign;
+wire            bound6_cmp_sign;
+wire            bound7_cmp_sign;
+wire            bound8_cmp_sign;
+wire            bound9_cmp_sign;
+wire    [8 :0]  bound_cmp_sign;
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [60:0]  cur_rem_1;
+wire    [60:0]  cur_rem_2;
+wire    [60:0]  cur_rem_3;
+wire    [60:0]  cur_rem_4;
+wire    [60:0]  cur_rem_5;
+wire    [60:0]  cur_rem_6;
+wire    [60:0]  cur_rem_7;
+wire    [60:0]  cur_rem_8;
+wire    [60:0]  cur_rem_9;
+wire    [11:0]  digit_bound_1;
+wire    [11:0]  digit_bound_2;
+wire    [11:0]  digit_bound_3;
+wire    [11:0]  digit_bound_4;
+wire    [11:0]  digit_bound_5;
+wire    [11:0]  digit_bound_6;
+wire    [11:0]  digit_bound_7;
+wire    [11:0]  digit_bound_8;
+wire    [11:0]  digit_bound_9;
+wire    [60:0]  div_qt_1_rem_add_op1;
+wire    [60:0]  div_qt_2_rem_add_op1;
+wire    [60:0]  div_qt_3_rem_add_op1_0;
+wire    [60:0]  div_qt_3_rem_add_op1_1;
+wire    [60:0]  div_qt_4_rem_add_op1;
+wire    [60:0]  div_qt_5_rem_add_op1_0;
+wire    [60:0]  div_qt_5_rem_add_op1_1;
+wire    [60:0]  div_qt_6_rem_add_op1_0;
+wire    [60:0]  div_qt_6_rem_add_op1_1;
+wire    [60:0]  div_qt_7_rem_add_op1_0;
+wire    [60:0]  div_qt_7_rem_add_op1_1;
+wire    [60:0]  div_qt_8_rem_add_op1;
+wire    [60:0]  div_qt_9_rem_add_op1_0;
+wire    [60:0]  div_qt_9_rem_add_op1_1;
+wire    [60:0]  div_qt_r1_rem_add_op1;
+wire    [60:0]  div_qt_r2_rem_add_op1;
+wire    [60:0]  div_qt_r3_rem_add_op1_0;
+wire    [60:0]  div_qt_r3_rem_add_op1_1;
+wire    [60:0]  div_qt_r4_rem_add_op1;
+wire    [60:0]  div_qt_r5_rem_add_op1_0;
+wire    [60:0]  div_qt_r5_rem_add_op1_1;
+wire    [60:0]  div_qt_r6_rem_add_op1_0;
+wire    [60:0]  div_qt_r6_rem_add_op1_1;
+wire    [60:0]  div_qt_r7_rem_add_op1_0;
+wire    [60:0]  div_qt_r7_rem_add_op1_1;
+wire    [60:0]  div_qt_r8_rem_add_op1;
+wire    [60:0]  div_qt_r9_rem_add_op1_0;
+wire    [60:0]  div_qt_r9_rem_add_op1_1;
+wire    [60:0]  div_rem_add1_op1;
+wire    [60:0]  div_rem_add2_op1;
+wire    [60:0]  div_rem_add3_op1_0;
+wire    [60:0]  div_rem_add3_op1_1;
+wire    [60:0]  div_rem_add4_op1;
+wire    [60:0]  div_rem_add5_op1_0;
+wire    [60:0]  div_rem_add5_op1_1;
+wire    [60:0]  div_rem_add6_op1_0;
+wire    [60:0]  div_rem_add6_op1_1;
+wire    [60:0]  div_rem_add7_op1_0;
+wire    [60:0]  div_rem_add7_op1_1;
+wire    [60:0]  div_rem_add8_op1;
+wire    [60:0]  div_rem_add9_op1_0;
+wire    [60:0]  div_rem_add9_op1_1;
+wire            forever_cpuclk;
+wire    [6 :0]  initial_bound_sel_in;
+wire    [55:0]  initial_divisor_in;
+wire    [60:0]  initial_remainder_in;
+wire            initial_srt_en;
+wire            initial_srt_sel_div_in;
+wire            initial_srt_sel_sqrt_in;
+wire            pad_yy_icg_scan_en;
+wire    [11:0]  part_rem;
+wire    [62:0]  qt_rt_const_q1;
+wire    [62:0]  qt_rt_const_q10;
+wire    [62:0]  qt_rt_const_q11;
+wire    [62:0]  qt_rt_const_q112;
+wire    [62:0]  qt_rt_const_q12;
+wire    [62:0]  qt_rt_const_q128;
+wire    [62:0]  qt_rt_const_q13;
+wire    [62:0]  qt_rt_const_q14;
+wire    [62:0]  qt_rt_const_q15;
+wire    [62:0]  qt_rt_const_q16;
+wire    [62:0]  qt_rt_const_q17;
+wire    [62:0]  qt_rt_const_q192;
+wire    [62:0]  qt_rt_const_q2;
+wire    [62:0]  qt_rt_const_q23;
+wire    [62:0]  qt_rt_const_q24;
+wire    [62:0]  qt_rt_const_q27;
+wire    [62:0]  qt_rt_const_q3;
+wire    [62:0]  qt_rt_const_q31;
+wire    [62:0]  qt_rt_const_q32;
+wire    [62:0]  qt_rt_const_q4;
+wire    [62:0]  qt_rt_const_q44;
+wire    [62:0]  qt_rt_const_q5;
+wire    [62:0]  qt_rt_const_q56;
+wire    [62:0]  qt_rt_const_q6;
+wire    [62:0]  qt_rt_const_q60;
+wire    [62:0]  qt_rt_const_q64;
+wire    [62:0]  qt_rt_const_q7;
+wire    [62:0]  qt_rt_const_q8;
+wire    [62:0]  qt_rt_const_q80;
+wire    [62:0]  qt_rt_const_q9;
+wire    [57:0]  qt_rt_const_shift_std_next;
+wire    [60:0]  rem_add1_op1;
+wire    [60:0]  rem_add2_op1;
+wire    [60:0]  rem_add3_op1_0;
+wire    [60:0]  rem_add3_op1_1;
+wire    [60:0]  rem_add4_op1;
+wire    [60:0]  rem_add5_op1_0;
+wire    [60:0]  rem_add5_op1_1;
+wire    [60:0]  rem_add6_op1_0;
+wire    [60:0]  rem_add6_op1_1;
+wire    [60:0]  rem_add7_op1_0;
+wire    [60:0]  rem_add7_op1_1;
+wire    [60:0]  rem_add8_op1;
+wire    [60:0]  rem_add9_op1_0;
+wire    [60:0]  rem_add9_op1_1;
+wire    [60:0]  rem_minus_minus_6;
+wire            rem_sign;
+wire    [60:0]  remainder_minus_nor_nxt_0;
+wire    [60:0]  remainder_minus_nor_nxt_1;
+wire    [60:0]  remainder_minus_nor_nxt_2;
+wire    [60:0]  remainder_minus_nor_nxt_3;
+wire    [60:0]  remainder_minus_nor_nxt_4;
+wire    [60:0]  remainder_minus_nor_nxt_5;
+wire    [60:0]  remainder_minus_nor_nxt_6;
+wire    [60:0]  remainder_minus_nor_nxt_7;
+wire    [60:0]  remainder_minus_nor_nxt_8;
+wire    [60:0]  remainder_minus_nor_nxt_9;
+wire    [60:0]  remainder_minus_shift;
+wire    [60:0]  remainder_shift;
+wire            sqrt_first_round;
+wire    [60:0]  sqrt_qt_1_rem_add_op1;
+wire    [60:0]  sqrt_qt_2_rem_add_op1;
+wire    [60:0]  sqrt_qt_3_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_3_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_4_rem_add_op1;
+wire    [60:0]  sqrt_qt_5_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_5_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_6_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_6_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_7_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_7_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_8_rem_add_op1;
+wire    [60:0]  sqrt_qt_9_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_9_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_r1_rem_add_op1;
+wire    [60:0]  sqrt_qt_r2_rem_add_op1;
+wire    [60:0]  sqrt_qt_r3_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_r3_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_r4_rem_add_op1;
+wire    [60:0]  sqrt_qt_r5_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_r5_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_r6_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_r6_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_r7_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_r7_rem_add_op1_1;
+wire    [60:0]  sqrt_qt_r8_rem_add_op1;
+wire    [60:0]  sqrt_qt_r9_rem_add_op1_0;
+wire    [60:0]  sqrt_qt_r9_rem_add_op1_1;
+wire    [60:0]  sqrt_rem_add1_op1;
+wire    [60:0]  sqrt_rem_add2_op1;
+wire    [60:0]  sqrt_rem_add3_op1_0;
+wire    [60:0]  sqrt_rem_add3_op1_1;
+wire    [60:0]  sqrt_rem_add4_op1;
+wire    [60:0]  sqrt_rem_add5_op1_0;
+wire    [60:0]  sqrt_rem_add5_op1_1;
+wire    [60:0]  sqrt_rem_add6_op1_0;
+wire    [60:0]  sqrt_rem_add6_op1_1;
+wire    [60:0]  sqrt_rem_add7_op1_0;
+wire    [60:0]  sqrt_rem_add7_op1_1;
+wire    [60:0]  sqrt_rem_add8_op1;
+wire    [60:0]  sqrt_rem_add9_op1_0;
+wire    [60:0]  sqrt_rem_add9_op1_1;
+wire            sqrt_secd_round;
+wire            sqrt_secd_round_sign;
+wire            srt_div_clk;
+wire            srt_div_clk_en;
+wire            srt_first_round;
+wire            srt_qt_rem_clk;
+wire            srt_qt_rem_clk_en;
+wire    [60:0]  srt_remainder_nxt;
+wire    [59:0]  srt_remainder_out;
+wire            srt_remainder_sign;
+wire            srt_secd_round;
+wire            srt_sm_on;
+wire    [57:0]  vdiv_qt_rt;
 
 
 parameter  DATA_WIDTH = 56;
@@ -405,7 +405,7 @@ end
 // &Force("output","total_qt_rt"); @137
 // &Force("output","vdiv_qt_rt"); @138
 
-assign vdiv_qt_rt[QT_WIDTH-1:0] = srt_remainder[REM_WIDTH-1] 
+assign vdiv_qt_rt[QT_WIDTH-1:0] = srt_remainder[REM_WIDTH-1]
                                   ? total_qt_rt_minus[QT_WIDTH-1:0]
                                   : total_qt_rt[QT_WIDTH-1:0];
 
@@ -414,7 +414,7 @@ assign qt_rt_const_shift_std_next[QT_WIDTH-1:0] = {4'b0, qt_rt_const_shift_std[Q
 //====================================================
 //  boundary  calculation
 //====================================================
-//assign bound_sel[6:0]   = srt_sel_div ? srt_divisor[DATA_WIDTH-1:DATA_WIDTH-7] 
+//assign bound_sel[6:0]   = srt_sel_div ? srt_divisor[DATA_WIDTH-1:DATA_WIDTH-7]
 //                                      : total_qt_rt[QT_WIDTH-2:QT_WIDTH-8];
 
 // &Instance("ct_vfdsu_srt_radix16_bound_table"); @152
@@ -469,12 +469,12 @@ assign part_rem[11:0]          = rem_sign
 // &Force("nonport","digit_bound_8"); @185
 // &Force("nonport","digit_bound_9"); @186
 // &Force("nonport","part_rem"); @187
-////csky vperl_off                                 
-//assign bound1_cmp_result[11:0] = $unsigned($signed(part_rem[11:0]) 
+////csky vperl_off
+//assign bound1_cmp_result[11:0] = $unsigned($signed(part_rem[11:0])
 //                                         + $signed(digit_bound_1[11:0]));
 //assign bound2_cmp_result[11:0] = $unsigned($signed(part_rem[11:0])
 //                                         + $signed(digit_bound_2[11:0]));
-//assign bound3_cmp_result[11:0] = $unsigned($signed(part_rem[11:0]) 
+//assign bound3_cmp_result[11:0] = $unsigned($signed(part_rem[11:0])
 //                                         + $signed(digit_bound_3[11:0]));
 //assign bound4_cmp_result[11:0] = $unsigned($signed(part_rem[11:0])
 //                                         + $signed(digit_bound_4[11:0]));
@@ -519,66 +519,66 @@ assign qt_rt_const_q16[REM_WIDTH+1:0]  = {1'b0,qt_rt_const_shift_std[QT_WIDTH-1:
 assign qt_rt_const_q32[REM_WIDTH+1:0]  =      {qt_rt_const_shift_std[QT_WIDTH-1:0],5'b0};
 assign qt_rt_const_q64[REM_WIDTH+1:0]  =      {qt_rt_const_shift_std[QT_WIDTH-2:0],6'b0};
 assign qt_rt_const_q128[REM_WIDTH+1:0] =      {qt_rt_const_shift_std[QT_WIDTH-3:0],7'b0};
-assign qt_rt_const_q3[REM_WIDTH+1:0]          =  qt_rt_const_q1[REM_WIDTH+1:0]   
+assign qt_rt_const_q3[REM_WIDTH+1:0]          =  qt_rt_const_q1[REM_WIDTH+1:0]
                                                 |qt_rt_const_q2[REM_WIDTH+1:0];
-assign qt_rt_const_q5[REM_WIDTH+1:0]          =  qt_rt_const_q1[REM_WIDTH+1:0]   
+assign qt_rt_const_q5[REM_WIDTH+1:0]          =  qt_rt_const_q1[REM_WIDTH+1:0]
                                                 |qt_rt_const_q4[REM_WIDTH+1:0];
-assign qt_rt_const_q6[REM_WIDTH+1:0]          =  qt_rt_const_q2[REM_WIDTH+1:0]   
+assign qt_rt_const_q6[REM_WIDTH+1:0]          =  qt_rt_const_q2[REM_WIDTH+1:0]
                                                 |qt_rt_const_q4[REM_WIDTH+1:0];
 assign qt_rt_const_q7[REM_WIDTH+1:0]          =  qt_rt_const_q1[REM_WIDTH+1:0]
-                                                |qt_rt_const_q2[REM_WIDTH+1:0]   
+                                                |qt_rt_const_q2[REM_WIDTH+1:0]
                                                 |qt_rt_const_q4[REM_WIDTH+1:0];
 assign qt_rt_const_q9[REM_WIDTH+1:0]          =  qt_rt_const_q1[REM_WIDTH+1:0]
                                                 |qt_rt_const_q8[REM_WIDTH+1:0];
-assign qt_rt_const_q10[REM_WIDTH+1:0]         =  qt_rt_const_q2[REM_WIDTH+1:0]   
+assign qt_rt_const_q10[REM_WIDTH+1:0]         =  qt_rt_const_q2[REM_WIDTH+1:0]
                                                 |qt_rt_const_q8[REM_WIDTH+1:0];
 assign qt_rt_const_q11[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]
-                                                |qt_rt_const_q2[REM_WIDTH+1:0]   
+                                                |qt_rt_const_q2[REM_WIDTH+1:0]
                                                 |qt_rt_const_q8[REM_WIDTH+1:0];
 assign qt_rt_const_q12[REM_WIDTH+1:0]         =  qt_rt_const_q4[REM_WIDTH+1:0]
-                                                |qt_rt_const_q8[REM_WIDTH+1:0];              
+                                                |qt_rt_const_q8[REM_WIDTH+1:0];
 assign qt_rt_const_q13[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]
                                                 |qt_rt_const_q4[REM_WIDTH+1:0]
-                                                |qt_rt_const_q8[REM_WIDTH+1:0]; 
+                                                |qt_rt_const_q8[REM_WIDTH+1:0];
 assign qt_rt_const_q14[REM_WIDTH+1:0]         =  qt_rt_const_q2[REM_WIDTH+1:0]
                                                 |qt_rt_const_q4[REM_WIDTH+1:0]
                                                 |qt_rt_const_q8[REM_WIDTH+1:0];
 assign qt_rt_const_q15[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]
-                                                |qt_rt_const_q2[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q4[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q8[REM_WIDTH+1:0]; 
+                                                |qt_rt_const_q2[REM_WIDTH+1:0]
+                                                |qt_rt_const_q4[REM_WIDTH+1:0]
+                                                |qt_rt_const_q8[REM_WIDTH+1:0];
 assign qt_rt_const_q17[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]
                                                |qt_rt_const_q16[REM_WIDTH+1:0];
-assign qt_rt_const_q23[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q2[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q4[REM_WIDTH+1:0] 
+assign qt_rt_const_q23[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]
+                                                |qt_rt_const_q2[REM_WIDTH+1:0]
+                                                |qt_rt_const_q4[REM_WIDTH+1:0]
                                                |qt_rt_const_q16[REM_WIDTH+1:0];
-assign qt_rt_const_q24[REM_WIDTH+1:0]         =  qt_rt_const_q8[REM_WIDTH+1:0]   
+assign qt_rt_const_q24[REM_WIDTH+1:0]         =  qt_rt_const_q8[REM_WIDTH+1:0]
                                                |qt_rt_const_q16[REM_WIDTH+1:0];
-assign qt_rt_const_q27[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q2[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q8[REM_WIDTH+1:0]   
-                                               |qt_rt_const_q16[REM_WIDTH+1:0];  
+assign qt_rt_const_q27[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]
+                                                |qt_rt_const_q2[REM_WIDTH+1:0]
+                                                |qt_rt_const_q8[REM_WIDTH+1:0]
+                                               |qt_rt_const_q16[REM_WIDTH+1:0];
 assign qt_rt_const_q31[REM_WIDTH+1:0]         =  qt_rt_const_q1[REM_WIDTH+1:0]
-                                                |qt_rt_const_q2[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q4[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q8[REM_WIDTH+1:0]   
+                                                |qt_rt_const_q2[REM_WIDTH+1:0]
+                                                |qt_rt_const_q4[REM_WIDTH+1:0]
+                                                |qt_rt_const_q8[REM_WIDTH+1:0]
                                                |qt_rt_const_q16[REM_WIDTH+1:0];
 assign qt_rt_const_q44[REM_WIDTH+1:0]         =  qt_rt_const_q4[REM_WIDTH+1:0]
-                                                |qt_rt_const_q8[REM_WIDTH+1:0]   
-                                               |qt_rt_const_q32[REM_WIDTH+1:0]; 
+                                                |qt_rt_const_q8[REM_WIDTH+1:0]
+                                               |qt_rt_const_q32[REM_WIDTH+1:0];
 assign qt_rt_const_q56[REM_WIDTH+1:0]         =  qt_rt_const_q8[REM_WIDTH+1:0]
-                                               |qt_rt_const_q16[REM_WIDTH+1:0]   
-                                               |qt_rt_const_q32[REM_WIDTH+1:0]; 
-assign qt_rt_const_q60[REM_WIDTH+1:0]         =  qt_rt_const_q4[REM_WIDTH+1:0]   
-                                                |qt_rt_const_q8[REM_WIDTH+1:0]   
-                                               |qt_rt_const_q16[REM_WIDTH+1:0]   
-                                               |qt_rt_const_q32[REM_WIDTH+1:0]; 
+                                               |qt_rt_const_q16[REM_WIDTH+1:0]
+                                               |qt_rt_const_q32[REM_WIDTH+1:0];
+assign qt_rt_const_q60[REM_WIDTH+1:0]         =  qt_rt_const_q4[REM_WIDTH+1:0]
+                                                |qt_rt_const_q8[REM_WIDTH+1:0]
+                                               |qt_rt_const_q16[REM_WIDTH+1:0]
+                                               |qt_rt_const_q32[REM_WIDTH+1:0];
 assign  qt_rt_const_q80[REM_WIDTH+1:0]       =  qt_rt_const_q16[REM_WIDTH+1:0]
-                                               |qt_rt_const_q64[REM_WIDTH+1:0]; 
-assign qt_rt_const_q112[REM_WIDTH+1:0]       =  qt_rt_const_q16[REM_WIDTH+1:0]   
+                                               |qt_rt_const_q64[REM_WIDTH+1:0];
+assign qt_rt_const_q112[REM_WIDTH+1:0]       =  qt_rt_const_q16[REM_WIDTH+1:0]
                                                |qt_rt_const_q32[REM_WIDTH+1:0]
-                                               |qt_rt_const_q64[REM_WIDTH+1:0]; 
+                                               |qt_rt_const_q64[REM_WIDTH+1:0];
 assign qt_rt_const_q192[REM_WIDTH+1:0]       =  qt_rt_const_q64[REM_WIDTH+1:0]
                                               |qt_rt_const_q128[REM_WIDTH+1:0];
 //=====================================
@@ -588,15 +588,15 @@ assign qt_rt_const_q192[REM_WIDTH+1:0]       =  qt_rt_const_q64[REM_WIDTH+1:0]
 // -1
 assign sqrt_qt_r1_rem_add_op1[REM_WIDTH-1:0]  = {4'b0,total_qt_rt_minus[QT_WIDTH-1:1]}
                                                 |qt_rt_const_q31[REM_WIDTH+1:2];
-//-2                                            
+//-2
 assign sqrt_qt_r2_rem_add_op1[REM_WIDTH-1:0]  =  {3'b0,total_qt_rt_minus[QT_WIDTH-1:0]}
                                                 |qt_rt_const_q60[REM_WIDTH+1:2];
 //-4
 assign sqrt_qt_r4_rem_add_op1[REM_WIDTH-1:0]   = {2'b0,total_qt_rt_minus[QT_WIDTH-1:0],1'b0}
-                                                |qt_rt_const_q112[REM_WIDTH+1:2]; 
-//-8                                                
+                                                |qt_rt_const_q112[REM_WIDTH+1:2];
+//-8
 assign sqrt_qt_r8_rem_add_op1[REM_WIDTH-1:0]   = {1'b0,total_qt_rt_minus[QT_WIDTH-1:0],2'b0}
-                                                |qt_rt_const_q192[REM_WIDTH+1:2]; 
+                                                |qt_rt_const_q192[REM_WIDTH+1:2];
 //-3
 assign sqrt_qt_r3_rem_add_op1_0[REM_WIDTH-1:0] = sqrt_qt_r2_rem_add_op1[REM_WIDTH-1:0];
 assign sqrt_qt_r3_rem_add_op1_1[REM_WIDTH-1:0] = {4'b0,total_qt_rt_minus[QT_WIDTH-1:1]}
@@ -605,11 +605,11 @@ assign sqrt_qt_r3_rem_add_op1_1[REM_WIDTH-1:0] = {4'b0,total_qt_rt_minus[QT_WIDT
 assign sqrt_qt_r5_rem_add_op1_0[REM_WIDTH-1:0] = sqrt_qt_r4_rem_add_op1[REM_WIDTH-1:0];
 assign sqrt_qt_r5_rem_add_op1_1[REM_WIDTH-1:0] = {4'b0,total_qt_rt_minus[QT_WIDTH-1:1]}
                                                 |qt_rt_const_q23[REM_WIDTH+1:2];
-//-6                                                
+//-6
 assign sqrt_qt_r6_rem_add_op1_0[REM_WIDTH-1:0] = sqrt_qt_r4_rem_add_op1[REM_WIDTH-1:0];
 assign sqrt_qt_r6_rem_add_op1_1[REM_WIDTH-1:0] = {3'b0,total_qt_rt_minus[QT_WIDTH-1:0]}
                                                 |qt_rt_const_q44[REM_WIDTH+1:2];
-//-7  
+//-7
 assign sqrt_qt_r7_rem_add_op1_0[REM_WIDTH-1:0] = sqrt_qt_r8_rem_add_op1[REM_WIDTH-1:0];
 assign sqrt_qt_r7_rem_add_op1_1[REM_WIDTH-1:0] = ~({4'b0,total_qt_rt_minus[QT_WIDTH-1:1]}
                                                    |qt_rt_const_q17[REM_WIDTH+1:2]);
@@ -619,79 +619,79 @@ assign sqrt_qt_r9_rem_add_op1_1[REM_WIDTH-1:0] = {4'b0,total_qt_rt_minus[QT_WIDT
                                                 | qt_rt_const_q15[REM_WIDTH+1:2];
 // the root is positive
 // 1
-assign sqrt_qt_1_rem_add_op1[REM_WIDTH-1:0]    =  ~({4'b0,total_qt_rt[QT_WIDTH-1:1]} 
-                                                  | qt_rt_const_q1[REM_WIDTH+1:2]);           
+assign sqrt_qt_1_rem_add_op1[REM_WIDTH-1:0]    =  ~({4'b0,total_qt_rt[QT_WIDTH-1:1]}
+                                                  | qt_rt_const_q1[REM_WIDTH+1:2]);
 // 2
-assign sqrt_qt_2_rem_add_op1[REM_WIDTH-1:0]    = ~({3'b0,total_qt_rt[QT_WIDTH-1:0]} 
+assign sqrt_qt_2_rem_add_op1[REM_WIDTH-1:0]    = ~({3'b0,total_qt_rt[QT_WIDTH-1:0]}
                                                   | qt_rt_const_q4[REM_WIDTH+1:2]);
 // 4
-assign sqrt_qt_4_rem_add_op1[REM_WIDTH-1:0]    = ~({2'b0,total_qt_rt[QT_WIDTH-1:0],1'b0} 
+assign sqrt_qt_4_rem_add_op1[REM_WIDTH-1:0]    = ~({2'b0,total_qt_rt[QT_WIDTH-1:0],1'b0}
                                                   | qt_rt_const_q16[REM_WIDTH+1:2]);
 // 8
-assign sqrt_qt_8_rem_add_op1[REM_WIDTH-1:0]    = ~({1'b0,total_qt_rt[QT_WIDTH-1:0],2'b0} 
-                                                  | qt_rt_const_q64[REM_WIDTH+1:2]);  
+assign sqrt_qt_8_rem_add_op1[REM_WIDTH-1:0]    = ~({1'b0,total_qt_rt[QT_WIDTH-1:0],2'b0}
+                                                  | qt_rt_const_q64[REM_WIDTH+1:2]);
 // 3
 assign sqrt_qt_3_rem_add_op1_0[REM_WIDTH-1:0]  = ~({3'b0,total_qt_rt[QT_WIDTH-1:0]}
                                                   |qt_rt_const_q8[REM_WIDTH+1:2]);
 assign sqrt_qt_3_rem_add_op1_1[REM_WIDTH-1:0]  = sqrt_qt_1_rem_add_op1[REM_WIDTH-1:0];
 //5
-assign sqrt_qt_5_rem_add_op1_0[REM_WIDTH-1:0]  = ~({2'b0,total_qt_rt[QT_WIDTH-1:0],1'b0} 
+assign sqrt_qt_5_rem_add_op1_0[REM_WIDTH-1:0]  = ~({2'b0,total_qt_rt[QT_WIDTH-1:0],1'b0}
                                                   | qt_rt_const_q24[REM_WIDTH+1:2]);
 assign sqrt_qt_5_rem_add_op1_1[REM_WIDTH-1:0]  = sqrt_qt_1_rem_add_op1[REM_WIDTH-1:0];
 //6
-assign sqrt_qt_6_rem_add_op1_0[REM_WIDTH-1:0]  = ~({2'b0,total_qt_rt[QT_WIDTH-1:0],1'b0} 
+assign sqrt_qt_6_rem_add_op1_0[REM_WIDTH-1:0]  = ~({2'b0,total_qt_rt[QT_WIDTH-1:0],1'b0}
                                                   | qt_rt_const_q32[REM_WIDTH+1:2]);
 assign sqrt_qt_6_rem_add_op1_1[REM_WIDTH-1:0]  = sqrt_qt_2_rem_add_op1[REM_WIDTH-1:0];
 //7
-assign sqrt_qt_7_rem_add_op1_0[REM_WIDTH-1:0]  = ~({1'b0,total_qt_rt[QT_WIDTH-1:0],2'b0} 
+assign sqrt_qt_7_rem_add_op1_0[REM_WIDTH-1:0]  = ~({1'b0,total_qt_rt[QT_WIDTH-1:0],2'b0}
                                                   | qt_rt_const_q56[REM_WIDTH+1:2]);
-assign sqrt_qt_7_rem_add_op1_1[REM_WIDTH-1:0]  = {4'b0,total_qt_rt[QT_WIDTH-1:1]} 
+assign sqrt_qt_7_rem_add_op1_1[REM_WIDTH-1:0]  = {4'b0,total_qt_rt[QT_WIDTH-1:1]}
                                                   | qt_rt_const_q7[REM_WIDTH+1:2];
 //9
-assign sqrt_qt_9_rem_add_op1_0[REM_WIDTH-1:0]  = ~({1'b0,total_qt_rt[QT_WIDTH-1:0],2'b0} 
+assign sqrt_qt_9_rem_add_op1_0[REM_WIDTH-1:0]  = ~({1'b0,total_qt_rt[QT_WIDTH-1:0],2'b0}
                                                   | qt_rt_const_q80[REM_WIDTH+1:2]);
 assign sqrt_qt_9_rem_add_op1_1[REM_WIDTH-1:0]  = sqrt_qt_1_rem_add_op1[REM_WIDTH-1:0];
 
-assign sqrt_rem_add1_op1[REM_WIDTH-1:0]        = rem_sign 
+assign sqrt_rem_add1_op1[REM_WIDTH-1:0]        = rem_sign
                                                  ? sqrt_qt_r1_rem_add_op1[REM_WIDTH-1:0]
                                                  : sqrt_qt_1_rem_add_op1[REM_WIDTH-1:0];
 assign sqrt_rem_add2_op1[REM_WIDTH-1:0]        = rem_sign
                                                  ? sqrt_qt_r2_rem_add_op1[REM_WIDTH-1:0]
                                                  : sqrt_qt_2_rem_add_op1[REM_WIDTH-1:0];
-assign sqrt_rem_add4_op1[REM_WIDTH-1:0]        = rem_sign 
+assign sqrt_rem_add4_op1[REM_WIDTH-1:0]        = rem_sign
                                                  ? sqrt_qt_r4_rem_add_op1[REM_WIDTH-1:0]
                                                  : sqrt_qt_4_rem_add_op1[REM_WIDTH-1:0];
 assign sqrt_rem_add8_op1[REM_WIDTH-1:0]        = rem_sign
                                                  ? sqrt_qt_r8_rem_add_op1[REM_WIDTH-1:0]
-                                                 : sqrt_qt_8_rem_add_op1[REM_WIDTH-1:0];     
-assign sqrt_rem_add3_op1_0[REM_WIDTH-1:0]      = rem_sign 
+                                                 : sqrt_qt_8_rem_add_op1[REM_WIDTH-1:0];
+assign sqrt_rem_add3_op1_0[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r3_rem_add_op1_0[REM_WIDTH-1:0]
                                                 : sqrt_qt_3_rem_add_op1_0[REM_WIDTH-1:0];
-assign sqrt_rem_add3_op1_1[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add3_op1_1[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r3_rem_add_op1_1[REM_WIDTH-1:0]
                                                 : sqrt_qt_3_rem_add_op1_1[REM_WIDTH-1:0];
-assign sqrt_rem_add5_op1_0[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add5_op1_0[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r5_rem_add_op1_0[REM_WIDTH-1:0]
                                                 : sqrt_qt_5_rem_add_op1_0[REM_WIDTH-1:0];
-assign sqrt_rem_add5_op1_1[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add5_op1_1[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r5_rem_add_op1_1[REM_WIDTH-1:0]
                                                 : sqrt_qt_5_rem_add_op1_1[REM_WIDTH-1:0];
-assign sqrt_rem_add6_op1_0[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add6_op1_0[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r6_rem_add_op1_0[REM_WIDTH-1:0]
                                                 : sqrt_qt_6_rem_add_op1_0[REM_WIDTH-1:0];
-assign sqrt_rem_add6_op1_1[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add6_op1_1[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r6_rem_add_op1_1[REM_WIDTH-1:0]
                                                 : sqrt_qt_6_rem_add_op1_1[REM_WIDTH-1:0];
-assign sqrt_rem_add7_op1_0[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add7_op1_0[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r7_rem_add_op1_0[REM_WIDTH-1:0]
                                                 : sqrt_qt_7_rem_add_op1_0[REM_WIDTH-1:0];
-assign sqrt_rem_add7_op1_1[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add7_op1_1[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r7_rem_add_op1_1[REM_WIDTH-1:0]
                                                 : sqrt_qt_7_rem_add_op1_1[REM_WIDTH-1:0];
-assign sqrt_rem_add9_op1_0[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add9_op1_0[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r9_rem_add_op1_0[REM_WIDTH-1:0]
                                                 : sqrt_qt_9_rem_add_op1_0[REM_WIDTH-1:0];
-assign sqrt_rem_add9_op1_1[REM_WIDTH-1:0]      = rem_sign 
+assign sqrt_rem_add9_op1_1[REM_WIDTH-1:0]      = rem_sign
                                                 ? sqrt_qt_r9_rem_add_op1_1[REM_WIDTH-1:0]
                                                 : sqrt_qt_9_rem_add_op1_1[REM_WIDTH-1:0];
 
@@ -713,7 +713,7 @@ assign div_qt_r7_rem_add_op1_0[REM_WIDTH-1:0]  = div_qt_r8_rem_add_op1[REM_WIDTH
 assign div_qt_r7_rem_add_op1_1[REM_WIDTH-1:0]  =~div_qt_r1_rem_add_op1[REM_WIDTH-1:0];
 assign div_qt_r9_rem_add_op1_0[REM_WIDTH-1:0]  = div_qt_r8_rem_add_op1[REM_WIDTH-1:0];
 assign div_qt_r9_rem_add_op1_1[REM_WIDTH-1:0]  = div_qt_r1_rem_add_op1[REM_WIDTH-1:0];
-//positive 
+//positive
 assign div_qt_1_rem_add_op1[REM_WIDTH-1:0]     =~div_qt_r1_rem_add_op1[REM_WIDTH-1:0];
 assign div_qt_2_rem_add_op1[REM_WIDTH-1:0]     =~div_qt_r2_rem_add_op1[REM_WIDTH-1:0];
 assign div_qt_4_rem_add_op1[REM_WIDTH-1:0]     =~div_qt_r4_rem_add_op1[REM_WIDTH-1:0];
@@ -736,34 +736,34 @@ assign div_rem_add4_op1[REM_WIDTH-1:0]         = rem_sign ? div_qt_r4_rem_add_op
                                                           : div_qt_4_rem_add_op1[REM_WIDTH-1:0];
 assign div_rem_add8_op1[REM_WIDTH-1:0]         = rem_sign ? div_qt_r8_rem_add_op1[REM_WIDTH-1:0]
                                                           : div_qt_8_rem_add_op1[REM_WIDTH-1:0];
-assign div_rem_add3_op1_0[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add3_op1_0[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r3_rem_add_op1_0[REM_WIDTH-1:0]
                                                  : div_qt_3_rem_add_op1_0[REM_WIDTH-1:0];
-assign div_rem_add3_op1_1[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add3_op1_1[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r3_rem_add_op1_1[REM_WIDTH-1:0]
                                                  : div_qt_3_rem_add_op1_1[REM_WIDTH-1:0];
-assign div_rem_add5_op1_0[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add5_op1_0[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r5_rem_add_op1_0[REM_WIDTH-1:0]
                                                  : div_qt_5_rem_add_op1_0[REM_WIDTH-1:0];
-assign div_rem_add5_op1_1[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add5_op1_1[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r5_rem_add_op1_1[REM_WIDTH-1:0]
                                                  : div_qt_5_rem_add_op1_1[REM_WIDTH-1:0];
-assign div_rem_add6_op1_0[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add6_op1_0[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r6_rem_add_op1_0[REM_WIDTH-1:0]
                                                  : div_qt_6_rem_add_op1_0[REM_WIDTH-1:0];
-assign div_rem_add6_op1_1[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add6_op1_1[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r6_rem_add_op1_1[REM_WIDTH-1:0]
                                                  : div_qt_6_rem_add_op1_1[REM_WIDTH-1:0];
-assign div_rem_add7_op1_0[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add7_op1_0[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r7_rem_add_op1_0[REM_WIDTH-1:0]
                                                  : div_qt_7_rem_add_op1_0[REM_WIDTH-1:0];
-assign div_rem_add7_op1_1[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add7_op1_1[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r7_rem_add_op1_1[REM_WIDTH-1:0]
                                                  : div_qt_7_rem_add_op1_1[REM_WIDTH-1:0];
-assign div_rem_add9_op1_0[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add9_op1_0[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r9_rem_add_op1_0[REM_WIDTH-1:0]
                                                  : div_qt_9_rem_add_op1_0[REM_WIDTH-1:0];
-assign div_rem_add9_op1_1[REM_WIDTH-1:0]       = rem_sign 
+assign div_rem_add9_op1_1[REM_WIDTH-1:0]       = rem_sign
                                                  ? div_qt_r9_rem_add_op1_1[REM_WIDTH-1:0]
                                                  : div_qt_9_rem_add_op1_1[REM_WIDTH-1:0];
 //=====================================
@@ -826,16 +826,16 @@ assign remainder_shift[REM_WIDTH-1:0]  = {srt_remainder[REM_WIDTH-5:0],4'b0};
 //csky vperl_off
 assign cur_rem_1[REM_WIDTH-1:0]        = $unsigned($signed(remainder_shift[REM_WIDTH-1:0])
                                          + $signed(rem_add1_op1[REM_WIDTH-1:0])
-                                         + $signed({{REM_WIDTH-1{1'b0}},~rem_sign}));   
+                                         + $signed({{REM_WIDTH-1{1'b0}},~rem_sign}));
 assign cur_rem_2[REM_WIDTH-1:0]        = $unsigned($signed(remainder_shift[REM_WIDTH-1:0])
                                          + $signed(rem_add2_op1[REM_WIDTH-1:0])
-                                         + $signed({{REM_WIDTH-1{1'b0}},~rem_sign}));  
+                                         + $signed({{REM_WIDTH-1{1'b0}},~rem_sign}));
 assign cur_rem_4[REM_WIDTH-1:0]        = $unsigned($signed(remainder_shift[REM_WIDTH-1:0])
                                          + $signed(rem_add4_op1[REM_WIDTH-1:0])
-                                         + $signed({{REM_WIDTH-1{1'b0}},~rem_sign}));   
+                                         + $signed({{REM_WIDTH-1{1'b0}},~rem_sign}));
 assign cur_rem_8[REM_WIDTH-1:0]        = $unsigned($signed(remainder_shift[REM_WIDTH-1:0])
                                          + $signed(rem_add8_op1[REM_WIDTH-1:0])
-                                         + $signed({{REM_WIDTH-1{1'b0}},~rem_sign}));  
+                                         + $signed({{REM_WIDTH-1{1'b0}},~rem_sign}));
 assign cur_rem_3[REM_WIDTH-1:0]        = $unsigned($signed(remainder_shift[REM_WIDTH-1:0])
                                          + $signed(rem_add3_op1_0[REM_WIDTH-1:0])
                                          + $signed(rem_add3_op1_1[REM_WIDTH-1:0])
@@ -859,7 +859,7 @@ assign cur_rem_9[REM_WIDTH-1:0]        = $unsigned($signed(remainder_shift[REM_W
 //csky vperl_on
 //====================================================
 //  quotient selection
-//==================================================== 
+//====================================================
 assign bound_cmp_sign[8:0] =  {bound1_cmp_sign,bound2_cmp_sign,bound3_cmp_sign,bound4_cmp_sign,
              bound5_cmp_sign,bound6_cmp_sign,bound7_cmp_sign,bound8_cmp_sign,bound9_cmp_sign};
 
@@ -1048,15 +1048,15 @@ always @( cur_rem_2[60:0]
 begin
 case(bound_cmp_sign[8:0])
   9'b111111111: cur_rem[REM_WIDTH-1:0]   = remainder_shift[REM_WIDTH-1:0]; //0
-  9'b011111111: cur_rem[REM_WIDTH-1:0]   = cur_rem_1[REM_WIDTH-1:0];       //+-1          
-  9'b001111111: cur_rem[REM_WIDTH-1:0]   = cur_rem_2[REM_WIDTH-1:0];       //+-2          
-  9'b000111111: cur_rem[REM_WIDTH-1:0]   = cur_rem_3[REM_WIDTH-1:0];       //+-3          
-  9'b000011111: cur_rem[REM_WIDTH-1:0]   = cur_rem_4[REM_WIDTH-1:0];       //+-4          
-  9'b000001111: cur_rem[REM_WIDTH-1:0]   = cur_rem_5[REM_WIDTH-1:0];       //+-5          
-  9'b000000111: cur_rem[REM_WIDTH-1:0]   = cur_rem_6[REM_WIDTH-1:0];       //+-6          
-  9'b000000011: cur_rem[REM_WIDTH-1:0]   = cur_rem_7[REM_WIDTH-1:0];       //+-7          
-  9'b000000001: cur_rem[REM_WIDTH-1:0]   = cur_rem_8[REM_WIDTH-1:0];       //+-8          
-  9'b000000000: cur_rem[REM_WIDTH-1:0]   = cur_rem_9[REM_WIDTH-1:0];       //+-9          
+  9'b011111111: cur_rem[REM_WIDTH-1:0]   = cur_rem_1[REM_WIDTH-1:0];       //+-1
+  9'b001111111: cur_rem[REM_WIDTH-1:0]   = cur_rem_2[REM_WIDTH-1:0];       //+-2
+  9'b000111111: cur_rem[REM_WIDTH-1:0]   = cur_rem_3[REM_WIDTH-1:0];       //+-3
+  9'b000011111: cur_rem[REM_WIDTH-1:0]   = cur_rem_4[REM_WIDTH-1:0];       //+-4
+  9'b000001111: cur_rem[REM_WIDTH-1:0]   = cur_rem_5[REM_WIDTH-1:0];       //+-5
+  9'b000000111: cur_rem[REM_WIDTH-1:0]   = cur_rem_6[REM_WIDTH-1:0];       //+-6
+  9'b000000011: cur_rem[REM_WIDTH-1:0]   = cur_rem_7[REM_WIDTH-1:0];       //+-7
+  9'b000000001: cur_rem[REM_WIDTH-1:0]   = cur_rem_8[REM_WIDTH-1:0];       //+-8
+  9'b000000000: cur_rem[REM_WIDTH-1:0]   = cur_rem_9[REM_WIDTH-1:0];       //+-9
   default :     cur_rem[REM_WIDTH-1:0]   = {REM_WIDTH{1'bx}};
 endcase
 // &CombEnd; @745

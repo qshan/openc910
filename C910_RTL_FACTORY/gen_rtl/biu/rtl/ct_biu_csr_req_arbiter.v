@@ -31,40 +31,40 @@ module ct_biu_csr_req_arbiter(
 );
 
 // &Ports; @23
-input            biu_csr_cmplt; 
-input   [127:0]  biu_csr_rdata; 
-input   [15 :0]  cp0_biu_op;    
-input            cp0_biu_sel;   
-input   [63 :0]  cp0_biu_wdata; 
-input   [15 :0]  hpcp_biu_op;   
-input            hpcp_biu_sel;  
-input   [63 :0]  hpcp_biu_wdata; 
-output           biu_cp0_cmplt; 
-output  [127:0]  biu_cp0_rdata; 
-output  [15 :0]  biu_csr_op;    
-output           biu_csr_sel;   
-output  [63 :0]  biu_csr_wdata; 
-output           biu_hpcp_cmplt; 
-output  [127:0]  biu_hpcp_rdata; 
+input            biu_csr_cmplt;
+input   [127:0]  biu_csr_rdata;
+input   [15 :0]  cp0_biu_op;
+input            cp0_biu_sel;
+input   [63 :0]  cp0_biu_wdata;
+input   [15 :0]  hpcp_biu_op;
+input            hpcp_biu_sel;
+input   [63 :0]  hpcp_biu_wdata;
+output           biu_cp0_cmplt;
+output  [127:0]  biu_cp0_rdata;
+output  [15 :0]  biu_csr_op;
+output           biu_csr_sel;
+output  [63 :0]  biu_csr_wdata;
+output           biu_hpcp_cmplt;
+output  [127:0]  biu_hpcp_rdata;
 
 // &Regs; @24
-reg     [15 :0]  biu_csr_op;    
-reg              biu_csr_sel;   
-reg     [63 :0]  biu_csr_wdata; 
+reg     [15 :0]  biu_csr_op;
+reg              biu_csr_sel;
+reg     [63 :0]  biu_csr_wdata;
 
 // &Wires; @25
-wire             biu_cp0_cmplt; 
-wire    [127:0]  biu_cp0_rdata; 
-wire             biu_csr_cmplt; 
-wire    [127:0]  biu_csr_rdata; 
-wire             biu_hpcp_cmplt; 
-wire    [127:0]  biu_hpcp_rdata; 
-wire    [15 :0]  cp0_biu_op;    
-wire             cp0_biu_sel;   
-wire    [63 :0]  cp0_biu_wdata; 
-wire    [15 :0]  hpcp_biu_op;   
-wire             hpcp_biu_sel;  
-wire    [63 :0]  hpcp_biu_wdata; 
+wire             biu_cp0_cmplt;
+wire    [127:0]  biu_cp0_rdata;
+wire             biu_csr_cmplt;
+wire    [127:0]  biu_csr_rdata;
+wire             biu_hpcp_cmplt;
+wire    [127:0]  biu_hpcp_rdata;
+wire    [15 :0]  cp0_biu_op;
+wire             cp0_biu_sel;
+wire    [63 :0]  cp0_biu_wdata;
+wire    [15 :0]  hpcp_biu_op;
+wire             hpcp_biu_sel;
+wire    [63 :0]  hpcp_biu_wdata;
 
 
 // &CombBeg; @27

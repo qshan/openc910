@@ -50,131 +50,131 @@ module ct_idu_ir_decd(
 );
 
 // &Ports; @27
-input           x_illegal;             
-input   [31:0]  x_opcode;              
-input           x_type_alu;            
-input           x_type_staddr;         
-input           x_type_vload;          
-input   [2 :0]  x_vsew;                
-output          x_alu_short;           
-output          x_bar;                 
-output  [3 :0]  x_bar_type;            
-output          x_csr;                 
-output          x_ecall;               
-output          x_fp;                  
-output          x_load;                
-output          x_mfvr;                
-output          x_mtvr;                
-output          x_pcall;               
-output          x_pcfifo;              
-output          x_rts;                 
-output          x_store;               
-output          x_str;                 
-output          x_sync;                
-output          x_unit_stride;         
-output          x_vamo;                
-output          x_vdiv;                
-output          x_vec;                 
-output          x_viq_srcv12_switch;   
-output          x_vmla_short;          
-output  [2 :0]  x_vmla_type;           
-output          x_vmul;                
-output          x_vmul_unsplit;        
-output          x_vsetvl;              
-output          x_vsetvli;             
+input           x_illegal;
+input   [31:0]  x_opcode;
+input           x_type_alu;
+input           x_type_staddr;
+input           x_type_vload;
+input   [2 :0]  x_vsew;
+output          x_alu_short;
+output          x_bar;
+output  [3 :0]  x_bar_type;
+output          x_csr;
+output          x_ecall;
+output          x_fp;
+output          x_load;
+output          x_mfvr;
+output          x_mtvr;
+output          x_pcall;
+output          x_pcfifo;
+output          x_rts;
+output          x_store;
+output          x_str;
+output          x_sync;
+output          x_unit_stride;
+output          x_vamo;
+output          x_vdiv;
+output          x_vec;
+output          x_viq_srcv12_switch;
+output          x_vmla_short;
+output  [2 :0]  x_vmla_type;
+output          x_vmul;
+output          x_vmul_unsplit;
+output          x_vsetvl;
+output          x_vsetvli;
 
 // &Regs; @28
 
 // &Wires; @29
-wire            decd_alu_short;        
-wire            decd_bar;              
-wire    [3 :0]  decd_bar_type;         
-wire            decd_bar_type_sel;     
-wire            decd_cmp_inst;         
-wire            decd_csr;              
-wire            decd_ecall;            
-wire            decd_fmac_doub;        
-wire            decd_fmac_half;        
-wire            decd_fmac_sing;        
-wire            decd_fp_inst;          
-wire            decd_load;             
-wire            decd_mfvr;             
-wire            decd_mtvr;             
-wire            decd_narr_vsft;        
-wire            decd_opfvf;            
-wire            decd_opfvv;            
-wire            decd_opivi;            
-wire            decd_opivv;            
-wire            decd_opivx;            
-wire            decd_opmvv;            
-wire            decd_opmvx;            
-wire            decd_pcall;            
-wire            decd_pcfifo;           
-wire            decd_permu;            
-wire            decd_redu_vlgc;        
-wire            decd_redu_vsum;        
-wire            decd_return;           
-wire            decd_rts;              
-wire            decd_sca_fmac;         
-wire            decd_sca_fmac_doub;    
-wire            decd_sca_fmac_half;    
-wire            decd_sca_fmac_sing;    
-wire            decd_store;            
-wire            decd_str;              
-wire            decd_sub_call;         
-wire            decd_sync;             
-wire            decd_unit_stride;      
-wire            decd_vamo;             
-wire            decd_vdiv;             
-wire            decd_vec_fmac;         
-wire            decd_vec_fmac_doub;    
-wire            decd_vec_fmac_half;    
-wire            decd_vec_fmac_sing;    
-wire            decd_vec_inst;         
-wire            decd_vec_other;        
-wire            decd_viq_srcv12_switch; 
-wire            decd_vmac_norm;        
-wire            decd_vmac_wide;        
-wire            decd_vmla_short;       
-wire    [2 :0]  decd_vmla_type;        
-wire            decd_vmul;             
-wire            decd_vmul_norm;        
-wire            decd_vmul_unsplit;     
-wire            decd_vmul_wide;        
-wire            decd_vsetvl;           
-wire            decd_vsetvli;          
-wire            x_alu_short;           
-wire            x_bar;                 
-wire    [3 :0]  x_bar_type;            
-wire            x_csr;                 
-wire            x_ecall;               
-wire            x_fp;                  
-wire            x_illegal;             
-wire            x_load;                
-wire            x_mfvr;                
-wire            x_mtvr;                
-wire    [31:0]  x_opcode;              
-wire            x_pcall;               
-wire            x_pcfifo;              
-wire            x_rts;                 
-wire            x_store;               
-wire            x_str;                 
-wire            x_sync;                
-wire            x_type_alu;            
-wire            x_type_staddr;         
-wire            x_type_vload;          
-wire            x_unit_stride;         
-wire            x_vamo;                
-wire            x_vdiv;                
-wire            x_vec;                 
-wire            x_viq_srcv12_switch;   
-wire            x_vmla_short;          
-wire    [2 :0]  x_vmla_type;           
-wire            x_vmul;                
-wire            x_vmul_unsplit;        
-wire            x_vsetvl;              
-wire            x_vsetvli;             
-wire    [2 :0]  x_vsew;                
+wire            decd_alu_short;
+wire            decd_bar;
+wire    [3 :0]  decd_bar_type;
+wire            decd_bar_type_sel;
+wire            decd_cmp_inst;
+wire            decd_csr;
+wire            decd_ecall;
+wire            decd_fmac_doub;
+wire            decd_fmac_half;
+wire            decd_fmac_sing;
+wire            decd_fp_inst;
+wire            decd_load;
+wire            decd_mfvr;
+wire            decd_mtvr;
+wire            decd_narr_vsft;
+wire            decd_opfvf;
+wire            decd_opfvv;
+wire            decd_opivi;
+wire            decd_opivv;
+wire            decd_opivx;
+wire            decd_opmvv;
+wire            decd_opmvx;
+wire            decd_pcall;
+wire            decd_pcfifo;
+wire            decd_permu;
+wire            decd_redu_vlgc;
+wire            decd_redu_vsum;
+wire            decd_return;
+wire            decd_rts;
+wire            decd_sca_fmac;
+wire            decd_sca_fmac_doub;
+wire            decd_sca_fmac_half;
+wire            decd_sca_fmac_sing;
+wire            decd_store;
+wire            decd_str;
+wire            decd_sub_call;
+wire            decd_sync;
+wire            decd_unit_stride;
+wire            decd_vamo;
+wire            decd_vdiv;
+wire            decd_vec_fmac;
+wire            decd_vec_fmac_doub;
+wire            decd_vec_fmac_half;
+wire            decd_vec_fmac_sing;
+wire            decd_vec_inst;
+wire            decd_vec_other;
+wire            decd_viq_srcv12_switch;
+wire            decd_vmac_norm;
+wire            decd_vmac_wide;
+wire            decd_vmla_short;
+wire    [2 :0]  decd_vmla_type;
+wire            decd_vmul;
+wire            decd_vmul_norm;
+wire            decd_vmul_unsplit;
+wire            decd_vmul_wide;
+wire            decd_vsetvl;
+wire            decd_vsetvli;
+wire            x_alu_short;
+wire            x_bar;
+wire    [3 :0]  x_bar_type;
+wire            x_csr;
+wire            x_ecall;
+wire            x_fp;
+wire            x_illegal;
+wire            x_load;
+wire            x_mfvr;
+wire            x_mtvr;
+wire    [31:0]  x_opcode;
+wire            x_pcall;
+wire            x_pcfifo;
+wire            x_rts;
+wire            x_store;
+wire            x_str;
+wire            x_sync;
+wire            x_type_alu;
+wire            x_type_staddr;
+wire            x_type_vload;
+wire            x_unit_stride;
+wire            x_vamo;
+wire            x_vdiv;
+wire            x_vec;
+wire            x_viq_srcv12_switch;
+wire            x_vmla_short;
+wire    [2 :0]  x_vmla_type;
+wire            x_vmul;
+wire            x_vmul_unsplit;
+wire            x_vsetvl;
+wire            x_vsetvli;
+wire    [2 :0]  x_vsew;
 
 
 
@@ -442,7 +442,7 @@ assign decd_sync =
 //----------------------------------------------------------
 //            Return Stack Related Instruction
 //----------------------------------------------------------
-assign decd_return = 
+assign decd_return =
      ({x_opcode[15:12], x_opcode[1:0]} == 6'b1000_10) //c.jr x1/x5
      && (x_opcode[6:2] == 5'b0)
      && ((x_opcode[11:7] == 5'd1) || (x_opcode[11:7] == 5'd5))
@@ -528,12 +528,12 @@ assign decd_opfvf    = (x_opcode[14:12] == 3'b101);
 assign decd_vdiv = ({x_opcode[31:27],x_opcode[6:0]}  == 12'b00011_1010011)  //fdiv.t
                 || ({x_opcode[31:27],x_opcode[6:0]}  == 12'b01011_1010011)  //fsqrt.t
                 ||  (x_opcode[31:28]== 4'b1000) &&   //vdiv vdivu vrem vremu
-                    (decd_opmvv || decd_opmvx) && decd_vec_inst 
-                ||  (x_opcode[31:26]== 6'b100000) &&   //vfdiv 
+                    (decd_opmvv || decd_opmvx) && decd_vec_inst
+                ||  (x_opcode[31:26]== 6'b100000) &&   //vfdiv
                     (decd_opfvv || decd_opfvf) && decd_vec_inst
-                ||  (x_opcode[31:26]== 6'b100001) &&   //vfrdiv 
+                ||  (x_opcode[31:26]== 6'b100001) &&   //vfrdiv
                     (              decd_opfvf) && decd_vec_inst
-                ||  (x_opcode[31:26]== 6'b100011) &&   //vfsqrt 
+                ||  (x_opcode[31:26]== 6'b100011) &&   //vfsqrt
                     (decd_opfvv                 ) && (x_opcode[19:15]==5'b00000) && decd_vec_inst;
 
 assign decd_mfvr = ({x_opcode[31:20],x_opcode[14:12],x_opcode[6:0]} == 22'b111000000000_000_1010011) //fmv.x.w
@@ -561,9 +561,9 @@ assign decd_mtvr = ({x_opcode[31:20],x_opcode[14:12],x_opcode[6:0]} == 22'b11110
                 ||  (x_opcode[31:20]== 12'b010111_1_00000) && decd_opivx && decd_vec_inst //vmv.v.x
                 ||  (x_opcode[31:20]== 12'b001100_1_00000) && decd_opfvf && decd_vec_inst; //vfmv.s.f
 //type info for vfpu internal forward
-assign decd_vmla_type[2:0] = {3{decd_vmac_norm && !(x_opcode[31:28]== 4'b1010)}} & 3'b110  //vmla_type[2]==1 is used specially for integer vmac inst 
-                            |{3{decd_vmac_wide}} & 3'b110 
-                            |{3{decd_redu_vsum}} & 3'b101 
+assign decd_vmla_type[2:0] = {3{decd_vmac_norm && !(x_opcode[31:28]== 4'b1010)}} & 3'b110  //vmla_type[2]==1 is used specially for integer vmac inst
+                            |{3{decd_vmac_wide}} & 3'b110
+                            |{3{decd_redu_vsum}} & 3'b101
                             |{3{decd_vec_other}} & 3'b100
                             |{3{decd_fmac_half}} & 3'b011
                             |{3{decd_fmac_sing}} & 3'b010
@@ -603,19 +603,19 @@ assign decd_vec_fmac_half = (x_vsew[2:0] == 3'b001) && !(&x_opcode[31:28]);
 assign decd_vec_fmac_sing = (x_vsew[2:0] == 3'b010) && !(&x_opcode[31:28]);
 assign decd_vec_fmac_doub = (x_vsew[2:0] == 3'b011) && !(&x_opcode[31:28])
                          || (x_vsew[2:0] == 3'b010) && (&x_opcode[31:28]);
-assign decd_sca_fmac_half = (x_opcode[26:25] == 2'b10); 
-assign decd_sca_fmac_sing = (x_opcode[26:25] == 2'b00); 
+assign decd_sca_fmac_half = (x_opcode[26:25] == 2'b10);
+assign decd_sca_fmac_sing = (x_opcode[26:25] == 2'b00);
 assign decd_sca_fmac_doub = (x_opcode[26:25] == 2'b01);
 
 assign decd_fmac_half     = decd_sca_fmac_half && decd_sca_fmac
-                         || decd_vec_fmac_half && decd_vec_fmac; 
+                         || decd_vec_fmac_half && decd_vec_fmac;
 assign decd_fmac_sing     = decd_sca_fmac_sing && decd_sca_fmac
-                         || decd_vec_fmac_sing && decd_vec_fmac; 
+                         || decd_vec_fmac_sing && decd_vec_fmac;
 assign decd_fmac_doub     = decd_sca_fmac_doub && decd_sca_fmac
-                         || decd_vec_fmac_doub && decd_vec_fmac; 
+                         || decd_vec_fmac_doub && decd_vec_fmac;
 
 //vfpu back to back issue
-assign decd_vmla_short = decd_redu_vsum ||decd_redu_vlgc || decd_narr_vsft 
+assign decd_vmla_short = decd_redu_vsum ||decd_redu_vlgc || decd_narr_vsft
                       || decd_cmp_inst || decd_permu;
                      //||decd_vmac_norm || decd_vmac_wide;
 
@@ -650,7 +650,7 @@ assign decd_vsetvl  = (x_opcode[31:25]== 7'b100_0000) && (x_opcode[14:12]==3'b11
 
 assign decd_viq_srcv12_switch = ((x_opcode[31:26]== 6'b101001)||(x_opcode[31:26]== 6'b101011)) //vmadd vmnsub
                                 &&  (decd_opmvv || decd_opmvx) && decd_vec_inst                //vfmadd
-                             || ((x_opcode[31:28]== 4'b1010) && (decd_opfvv || decd_opfvf)) && decd_vec_inst 
+                             || ((x_opcode[31:28]== 4'b1010) && (decd_opfvv || decd_opfvf)) && decd_vec_inst
                              || (x_opcode[31:26] == 6'b100010) && decd_opfvv && decd_vec_inst;
 
 assign decd_unit_stride = (x_opcode[27:26]== 2'b0) && (x_opcode[31:29]== 3'b000);

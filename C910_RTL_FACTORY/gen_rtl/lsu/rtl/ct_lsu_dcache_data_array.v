@@ -26,29 +26,29 @@ module ct_lsu_dcache_data_array(
   cp0_lsu_icg_en
 );
 input   [31:0]  data_din;
-input           data_gateclk_en;     
-input           data_gwen_b;         
-input   [10:0]  data_idx;            
-input           data_sel_b;          
-input   [3 :0]  data_wen_b;          
-input           forever_cpuclk;      
-input           pad_yy_icg_scan_en; 
+input           data_gateclk_en;
+input           data_gwen_b;
+input   [10:0]  data_idx;
+input           data_sel_b;
+input   [3 :0]  data_wen_b;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
 input           cp0_lsu_icg_en;
 output  [31:0]  data_dout;
 
-wire            data_clk;            
+wire            data_clk;
 wire            data_clk_en;
-wire    [31:0]  data_din;            
+wire    [31:0]  data_din;
 wire    [31:0]  data_dout;
-wire            data_gateclk_en;     
-wire            data_gwen_b;         
-wire    [10:0]  data_idx;            
-wire            data_sel_b;          
+wire            data_gateclk_en;
+wire            data_gwen_b;
+wire    [10:0]  data_idx;
+wire            data_sel_b;
 wire    [3 :0]  data_wen_b;
 wire    [31:0]  data_wen_b_all;
-wire            forever_cpuclk;      
-wire            pad_yy_icg_scan_en; 
-wire            cp0_lsu_icg_en; 
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
+wire            cp0_lsu_icg_en;
 
 //==========================================================
 //                 Instance of Gated Cell

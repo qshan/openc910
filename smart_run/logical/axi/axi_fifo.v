@@ -67,93 +67,93 @@ module axi_fifo(
 );
 
 
-input   [39:0]  biu_pad_araddr;  
-input   [1 :0]  biu_pad_arburst; 
-input   [3 :0]  biu_pad_arcache; 
-input   [7 :0]  biu_pad_arid;    
-input   [7 :0]  biu_pad_arlen;   
-input           biu_pad_arlock;  
-input   [2 :0]  biu_pad_arprot;  
-input   [2 :0]  biu_pad_arsize;  
-input           biu_pad_arvalid; 
-input   [31:0]  counter_num0;    
-input   [31:0]  counter_num1;    
-input   [31:0]  counter_num2;    
-input   [31:0]  counter_num3;    
-input   [31:0]  counter_num4;    
-input   [31:0]  counter_num5;    
-input   [31:0]  counter_num6;    
-input   [31:0]  counter_num7;    
-input           cpu_clk;         
-input           cpu_rst_b;       
-input           pad_biu_arready; 
-output          fifo_biu_arready; 
-output  [39:0]  fifo_pad_araddr; 
-output  [1 :0]  fifo_pad_arburst; 
-output  [3 :0]  fifo_pad_arcache; 
-output  [7 :0]  fifo_pad_arid;   
-output  [7 :0]  fifo_pad_arlen;  
-output          fifo_pad_arlock; 
-output  [2 :0]  fifo_pad_arprot; 
-output  [2 :0]  fifo_pad_arsize; 
-output          fifo_pad_artrust; 
-output          fifo_pad_arvalid; 
+input   [39:0]  biu_pad_araddr;
+input   [1 :0]  biu_pad_arburst;
+input   [3 :0]  biu_pad_arcache;
+input   [7 :0]  biu_pad_arid;
+input   [7 :0]  biu_pad_arlen;
+input           biu_pad_arlock;
+input   [2 :0]  biu_pad_arprot;
+input   [2 :0]  biu_pad_arsize;
+input           biu_pad_arvalid;
+input   [31:0]  counter_num0;
+input   [31:0]  counter_num1;
+input   [31:0]  counter_num2;
+input   [31:0]  counter_num3;
+input   [31:0]  counter_num4;
+input   [31:0]  counter_num5;
+input   [31:0]  counter_num6;
+input   [31:0]  counter_num7;
+input           cpu_clk;
+input           cpu_rst_b;
+input           pad_biu_arready;
+output          fifo_biu_arready;
+output  [39:0]  fifo_pad_araddr;
+output  [1 :0]  fifo_pad_arburst;
+output  [3 :0]  fifo_pad_arcache;
+output  [7 :0]  fifo_pad_arid;
+output  [7 :0]  fifo_pad_arlen;
+output          fifo_pad_arlock;
+output  [2 :0]  fifo_pad_arprot;
+output  [2 :0]  fifo_pad_arsize;
+output          fifo_pad_artrust;
+output          fifo_pad_arvalid;
 
 
-reg     [7 :0]  create_ptr;      
-reg     [7 :0]  entry_vld;       
-reg     [7 :0]  pop_ptr;         
+reg     [7 :0]  create_ptr;
+reg     [7 :0]  entry_vld;
+reg     [7 :0]  pop_ptr;
 
 
-wire            araddr_hit;      
-wire    [39:0]  biu_pad_araddr;  
-wire    [1 :0]  biu_pad_arburst; 
-wire    [3 :0]  biu_pad_arcache; 
-wire    [7 :0]  biu_pad_arid;    
-wire    [7 :0]  biu_pad_arlen;   
-wire            biu_pad_arlock;  
-wire    [2 :0]  biu_pad_arprot;  
-wire    [2 :0]  biu_pad_arsize;  
-wire            biu_pad_arvalid; 
-wire    [7 :0]  counter_done;    
-wire    [7 :0]  counter_en;      
-wire    [31:0]  counter_num0;    
-wire    [31:0]  counter_num1;    
-wire    [31:0]  counter_num2;    
-wire    [31:0]  counter_num3;    
-wire    [31:0]  counter_num4;    
-wire    [31:0]  counter_num5;    
-wire    [31:0]  counter_num6;    
-wire    [31:0]  counter_num7;    
-wire            cpu_clk;         
-wire            cpu_rst_b;       
-wire    [7 :0]  create;          
-wire            create_en;       
-wire            create_vld;      
-wire            fifo_biu_arready; 
-wire    [39:0]  fifo_pad_araddr; 
-wire    [1 :0]  fifo_pad_arburst; 
-wire    [3 :0]  fifo_pad_arcache; 
-wire    [7 :0]  fifo_pad_arid;   
-wire    [7 :0]  fifo_pad_arlen;  
-wire            fifo_pad_arlock; 
-wire    [2 :0]  fifo_pad_arprot; 
-wire    [2 :0]  fifo_pad_arsize; 
-wire            fifo_pad_artrust; 
-wire            fifo_pad_arvalid; 
-wire    [70:0]  input_data;      
-wire    [70:0]  output_data;     
-wire    [70:0]  output_data0;    
-wire    [70:0]  output_data1;    
-wire    [70:0]  output_data2;    
-wire    [70:0]  output_data3;    
-wire    [70:0]  output_data4;    
-wire    [70:0]  output_data5;    
-wire    [70:0]  output_data6;    
-wire    [70:0]  output_data7;    
-wire            pad_biu_arready; 
-wire            pop_en;          
-wire            pop_req;         
+wire            araddr_hit;
+wire    [39:0]  biu_pad_araddr;
+wire    [1 :0]  biu_pad_arburst;
+wire    [3 :0]  biu_pad_arcache;
+wire    [7 :0]  biu_pad_arid;
+wire    [7 :0]  biu_pad_arlen;
+wire            biu_pad_arlock;
+wire    [2 :0]  biu_pad_arprot;
+wire    [2 :0]  biu_pad_arsize;
+wire            biu_pad_arvalid;
+wire    [7 :0]  counter_done;
+wire    [7 :0]  counter_en;
+wire    [31:0]  counter_num0;
+wire    [31:0]  counter_num1;
+wire    [31:0]  counter_num2;
+wire    [31:0]  counter_num3;
+wire    [31:0]  counter_num4;
+wire    [31:0]  counter_num5;
+wire    [31:0]  counter_num6;
+wire    [31:0]  counter_num7;
+wire            cpu_clk;
+wire            cpu_rst_b;
+wire    [7 :0]  create;
+wire            create_en;
+wire            create_vld;
+wire            fifo_biu_arready;
+wire    [39:0]  fifo_pad_araddr;
+wire    [1 :0]  fifo_pad_arburst;
+wire    [3 :0]  fifo_pad_arcache;
+wire    [7 :0]  fifo_pad_arid;
+wire    [7 :0]  fifo_pad_arlen;
+wire            fifo_pad_arlock;
+wire    [2 :0]  fifo_pad_arprot;
+wire    [2 :0]  fifo_pad_arsize;
+wire            fifo_pad_artrust;
+wire            fifo_pad_arvalid;
+wire    [70:0]  input_data;
+wire    [70:0]  output_data;
+wire    [70:0]  output_data0;
+wire    [70:0]  output_data1;
+wire    [70:0]  output_data2;
+wire    [70:0]  output_data3;
+wire    [70:0]  output_data4;
+wire    [70:0]  output_data5;
+wire    [70:0]  output_data6;
+wire    [70:0]  output_data7;
+wire            pad_biu_arready;
+wire            pop_en;
+wire            pop_req;
 
 parameter ENTRY_NUM = 8;
 
@@ -174,7 +174,7 @@ begin
     create_ptr[ENTRY_NUM-1:0]  <= {{(ENTRY_NUM-1){1'b0}},1'b1};
   else if (create_en)
     create_ptr[ENTRY_NUM-1:0] <= {create_ptr[ENTRY_NUM-2:0],create_ptr[ENTRY_NUM-1]};
-  else 
+  else
     create_ptr[ENTRY_NUM-1:0] <= create_ptr[ENTRY_NUM-1:0] ;
 end
 
@@ -184,13 +184,13 @@ end
 
 always @(posedge cpu_clk or negedge cpu_rst_b)
 begin
-  if (!cpu_rst_b) 
+  if (!cpu_rst_b)
       entry_vld[ENTRY_NUM-1:0] <= {ENTRY_NUM{1'b0}};
-  else 
-  begin   
-    if (create_en && pop_en) 
+  else
+  begin
+    if (create_en && pop_en)
       entry_vld[ENTRY_NUM-1:0] <= (entry_vld[ENTRY_NUM-1:0] | create_ptr[ENTRY_NUM-1:0]) & (~pop_ptr[ENTRY_NUM-1:0]);
-    else if (create_en) 
+    else if (create_en)
       entry_vld[ENTRY_NUM-1:0] <= entry_vld[ENTRY_NUM-1:0] | create_ptr[ENTRY_NUM-1:0];
     else if (pop_en)
       entry_vld[ENTRY_NUM-1:0] <= entry_vld[ENTRY_NUM-1:0] & (~pop_ptr[ENTRY_NUM-1:0]);
@@ -202,11 +202,11 @@ end
 
 
 
-assign araddr_hit = (biu_pad_araddr[39:0] >=SRAM_START) && (biu_pad_araddr[39:0] <=SRAM_END) 
+assign araddr_hit = (biu_pad_araddr[39:0] >=SRAM_START) && (biu_pad_araddr[39:0] <=SRAM_END)
                  &&  biu_pad_arcache[2];
 
 assign create_vld = create_en && araddr_hit;
-assign counter_en[ENTRY_NUM-1:0] = {ENTRY_NUM{create_vld}} & create_ptr[ENTRY_NUM-1:0]; 
+assign counter_en[ENTRY_NUM-1:0] = {ENTRY_NUM{create_vld}} & create_ptr[ENTRY_NUM-1:0];
 
 
 fifo_counter  x_counter_entry0 (
@@ -325,7 +325,7 @@ fifo_counter  x_counter_entry7 (
 
 
 assign pop_req = |(pop_ptr[ENTRY_NUM-1:0] & counter_done[ENTRY_NUM-1:0] & entry_vld[ENTRY_NUM-1:0]);
-assign pop_en  = pop_req && pad_biu_arready; 
+assign pop_en  = pop_req && pad_biu_arready;
 
 always @(posedge cpu_clk or negedge cpu_rst_b)
 begin
@@ -499,12 +499,12 @@ assign output_data[70:0] = {71{pop_ptr[0]}} & output_data0[70:0]
 assign fifo_pad_artrust      = output_data[0];
 assign fifo_pad_arsize[2:0]  = output_data[3:1];
 assign fifo_pad_arprot[2:0]  = output_data[6:4];
-assign fifo_pad_arlock       = output_data[7]; 
-assign fifo_pad_arlen[7:0]   = {output_data[70:67],output_data[12:9]}; 
-assign fifo_pad_arid[7:0]    = output_data[20:13]; 
-assign fifo_pad_arcache[3:0] = output_data[24:21]; 
-assign fifo_pad_arburst[1:0] = output_data[26:25]; 
-assign fifo_pad_araddr[39:0] = output_data[66:27]; 
+assign fifo_pad_arlock       = output_data[7];
+assign fifo_pad_arlen[7:0]   = {output_data[70:67],output_data[12:9]};
+assign fifo_pad_arid[7:0]    = output_data[20:13];
+assign fifo_pad_arcache[3:0] = output_data[24:21];
+assign fifo_pad_arburst[1:0] = output_data[26:25];
+assign fifo_pad_araddr[39:0] = output_data[66:27];
 
 assign fifo_pad_arvalid =  pop_req ;
 assign fifo_biu_arready =  create_en;

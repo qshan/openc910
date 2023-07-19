@@ -34,22 +34,22 @@ module ct_l2cache_data_array(
 
 parameter DATA_INDEX_WIDTH = `L2C_DATA_INDEX_WIDTH;
 
-input            data_cen;            
-input            data_clk;         
-input   [127:0]  data_din;            
-input            data_gwen;           
-input   [DATA_INDEX_WIDTH-1:0]  data_idx;            
-input   [127:0]  data_wen;            
+input            data_cen;
+input            data_clk;
+input   [127:0]  data_din;
+input            data_gwen;
+input   [DATA_INDEX_WIDTH-1:0]  data_idx;
+input   [127:0]  data_wen;
 input            pad_yy_icg_scan_en;
-output  [127:0]  data_dout;           
+output  [127:0]  data_dout;
 
-wire             data_cen;            
-wire             data_clk;         
-wire    [127:0]  data_din;            
-wire    [127:0]  data_dout;           
-wire             data_gwen;           
-wire    [DATA_INDEX_WIDTH-1:0]  data_idx;            
-wire    [127:0]  data_wen;            
+wire             data_cen;
+wire             data_clk;
+wire    [127:0]  data_din;
+wire    [127:0]  data_dout;
+wire             data_gwen;
+wire    [DATA_INDEX_WIDTH-1:0]  data_idx;
+wire    [127:0]  data_wen;
 wire             pad_yy_icg_scan_en;
 
 

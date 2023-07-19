@@ -82,158 +82,158 @@ module ct_mmu_arb(
 );
 
 // &Ports; @29
-input           cp0_mmu_icg_en;        
-input           cp0_mmu_no_op_req;     
-input           cpurst_b;              
-input           dutlb_arb_cmplt;       
-input           dutlb_arb_load;        
-input           dutlb_arb_req;         
-input   [26:0]  dutlb_arb_vpn;         
-input           dutlb_xx_mmu_off;      
-input           forever_cpuclk;        
-input           iutlb_arb_cmplt;       
-input           iutlb_arb_req;         
-input   [26:0]  iutlb_arb_vpn;         
-input           jtlb_arb_cmp_va;       
-input           jtlb_arb_par_clr;      
-input           jtlb_arb_pfu_cmplt;    
-input   [26:0]  jtlb_arb_pfu_vpn;      
-input           jtlb_arb_sel_1g;       
-input           jtlb_arb_sel_2m;       
-input           jtlb_arb_sel_4k;       
-input           jtlb_arb_tc_miss;      
-input   [2 :0]  jtlb_arb_type;         
-input   [26:0]  jtlb_arb_vpn;          
-input           lsu_mmu_va2_vld;       
-input           pad_yy_icg_scan_en;    
-input   [3 :0]  ptw_arb_bank_sel;      
-input   [41:0]  ptw_arb_data_din;      
-input   [3 :0]  ptw_arb_fifo_din;      
-input   [2 :0]  ptw_arb_pgs;           
-input           ptw_arb_req;           
-input   [47:0]  ptw_arb_tag_din;       
-input   [26:0]  ptw_arb_vpn;           
-input   [3 :0]  tlboper_arb_bank_sel;  
-input           tlboper_arb_cmp_va;    
-input   [41:0]  tlboper_arb_data_din;  
-input   [3 :0]  tlboper_arb_fifo_din;  
-input           tlboper_arb_fifo_write; 
-input   [8 :0]  tlboper_arb_idx;       
-input           tlboper_arb_idx_not_va; 
-input           tlboper_arb_req;       
-input   [47:0]  tlboper_arb_tag_din;   
-input   [26:0]  tlboper_arb_vpn;       
-input           tlboper_arb_write;     
-input           tlboper_xx_cmplt;      
-input   [2 :0]  tlboper_xx_pgs;        
-input           tlboper_xx_pgs_en;     
-output          arb_dutlb_grant;       
-output          arb_iutlb_grant;       
-output  [2 :0]  arb_jtlb_acc_type;     
-output  [3 :0]  arb_jtlb_bank_sel;     
-output          arb_jtlb_cmp_with_va;  
-output  [41:0]  arb_jtlb_data_din;     
-output  [3 :0]  arb_jtlb_fifo_din;     
-output          arb_jtlb_fifo_write;   
-output  [8 :0]  arb_jtlb_idx;          
-output          arb_jtlb_req;          
-output  [47:0]  arb_jtlb_tag_din;      
-output  [26:0]  arb_jtlb_vpn;          
-output          arb_jtlb_write;        
-output          arb_ptw_grant;         
-output          arb_ptw_mask;          
-output          arb_tlboper_grant;     
-output  [1 :0]  arb_top_cur_st;        
-output          arb_top_tlboper_on;    
-output          mmu_yy_xx_no_op;       
+input           cp0_mmu_icg_en;
+input           cp0_mmu_no_op_req;
+input           cpurst_b;
+input           dutlb_arb_cmplt;
+input           dutlb_arb_load;
+input           dutlb_arb_req;
+input   [26:0]  dutlb_arb_vpn;
+input           dutlb_xx_mmu_off;
+input           forever_cpuclk;
+input           iutlb_arb_cmplt;
+input           iutlb_arb_req;
+input   [26:0]  iutlb_arb_vpn;
+input           jtlb_arb_cmp_va;
+input           jtlb_arb_par_clr;
+input           jtlb_arb_pfu_cmplt;
+input   [26:0]  jtlb_arb_pfu_vpn;
+input           jtlb_arb_sel_1g;
+input           jtlb_arb_sel_2m;
+input           jtlb_arb_sel_4k;
+input           jtlb_arb_tc_miss;
+input   [2 :0]  jtlb_arb_type;
+input   [26:0]  jtlb_arb_vpn;
+input           lsu_mmu_va2_vld;
+input           pad_yy_icg_scan_en;
+input   [3 :0]  ptw_arb_bank_sel;
+input   [41:0]  ptw_arb_data_din;
+input   [3 :0]  ptw_arb_fifo_din;
+input   [2 :0]  ptw_arb_pgs;
+input           ptw_arb_req;
+input   [47:0]  ptw_arb_tag_din;
+input   [26:0]  ptw_arb_vpn;
+input   [3 :0]  tlboper_arb_bank_sel;
+input           tlboper_arb_cmp_va;
+input   [41:0]  tlboper_arb_data_din;
+input   [3 :0]  tlboper_arb_fifo_din;
+input           tlboper_arb_fifo_write;
+input   [8 :0]  tlboper_arb_idx;
+input           tlboper_arb_idx_not_va;
+input           tlboper_arb_req;
+input   [47:0]  tlboper_arb_tag_din;
+input   [26:0]  tlboper_arb_vpn;
+input           tlboper_arb_write;
+input           tlboper_xx_cmplt;
+input   [2 :0]  tlboper_xx_pgs;
+input           tlboper_xx_pgs_en;
+output          arb_dutlb_grant;
+output          arb_iutlb_grant;
+output  [2 :0]  arb_jtlb_acc_type;
+output  [3 :0]  arb_jtlb_bank_sel;
+output          arb_jtlb_cmp_with_va;
+output  [41:0]  arb_jtlb_data_din;
+output  [3 :0]  arb_jtlb_fifo_din;
+output          arb_jtlb_fifo_write;
+output  [8 :0]  arb_jtlb_idx;
+output          arb_jtlb_req;
+output  [47:0]  arb_jtlb_tag_din;
+output  [26:0]  arb_jtlb_vpn;
+output          arb_jtlb_write;
+output          arb_ptw_grant;
+output          arb_ptw_mask;
+output          arb_tlboper_grant;
+output  [1 :0]  arb_top_cur_st;
+output          arb_top_tlboper_on;
+output          mmu_yy_xx_no_op;
 
 // &Regs; @30
-reg     [1 :0]  arb_cur_st;            
-reg     [1 :0]  arb_nxt_st;            
-reg             tlboper_on;            
+reg     [1 :0]  arb_cur_st;
+reg     [1 :0]  arb_nxt_st;
+reg             tlboper_on;
 
 // &Wires; @31
-wire            arb_clk;               
-wire            arb_clk_en;            
-wire            arb_dutlb_grant;       
-wire            arb_idx_sel_1g;        
-wire            arb_idx_sel_2m;        
-wire            arb_idx_sel_4k;        
-wire            arb_iutlb_grant;       
-wire    [2 :0]  arb_jtlb_acc_type;     
-wire    [3 :0]  arb_jtlb_bank_sel;     
-wire            arb_jtlb_cmp_with_va;  
-wire    [41:0]  arb_jtlb_data_din;     
-wire    [3 :0]  arb_jtlb_fifo_din;     
-wire            arb_jtlb_fifo_write;   
-wire    [8 :0]  arb_jtlb_idx;          
-wire            arb_jtlb_req;          
-wire    [47:0]  arb_jtlb_tag_din;      
-wire    [26:0]  arb_jtlb_vpn;          
-wire            arb_jtlb_write;        
-wire            arb_load_grant;        
-wire            arb_par_clr;           
-wire            arb_pfu_grant;         
-wire            arb_ptw_grant;         
-wire            arb_ptw_mask;          
-wire            arb_read_huge;         
-wire            arb_store_grant;       
-wire            arb_tlboper_grant;     
-wire    [1 :0]  arb_top_cur_st;        
-wire            arb_top_tlboper_on;    
-wire    [8 :0]  arb_va_index;          
-wire    [26:0]  arb_vpn;               
-wire            cp0_mmu_icg_en;        
-wire            cp0_mmu_no_op_req;     
-wire            cpurst_b;              
-wire            dutlb_arb_cmplt;       
-wire            dutlb_arb_load;        
-wire            dutlb_arb_req;         
-wire    [26:0]  dutlb_arb_vpn;         
-wire            dutlb_xx_mmu_off;      
-wire            forever_cpuclk;        
-wire            iutlb_arb_cmplt;       
-wire            iutlb_arb_req;         
-wire    [26:0]  iutlb_arb_vpn;         
-wire            jtlb_arb_cmp_va;       
-wire            jtlb_arb_par_clr;      
-wire            jtlb_arb_pfu_cmplt;    
-wire    [26:0]  jtlb_arb_pfu_vpn;      
-wire            jtlb_arb_sel_1g;       
-wire            jtlb_arb_sel_2m;       
-wire            jtlb_arb_sel_4k;       
-wire            jtlb_arb_tc_miss;      
-wire    [2 :0]  jtlb_arb_type;         
-wire    [26:0]  jtlb_arb_vpn;          
-wire            lsu_mmu_va2_vld;       
-wire            mmu_yy_xx_no_op;       
-wire            pad_yy_icg_scan_en;    
-wire    [3 :0]  ptw_arb_bank_sel;      
-wire    [41:0]  ptw_arb_data_din;      
-wire    [3 :0]  ptw_arb_fifo_din;      
-wire    [2 :0]  ptw_arb_pgs;           
-wire            ptw_arb_req;           
-wire    [47:0]  ptw_arb_tag_din;       
-wire    [26:0]  ptw_arb_vpn;           
-wire    [3 :0]  tlboper_arb_bank_sel;  
-wire            tlboper_arb_cmp_va;    
-wire    [41:0]  tlboper_arb_data_din;  
-wire    [3 :0]  tlboper_arb_fifo_din;  
-wire            tlboper_arb_fifo_write; 
-wire    [8 :0]  tlboper_arb_idx;       
-wire            tlboper_arb_idx_not_va; 
-wire            tlboper_arb_req;       
-wire    [47:0]  tlboper_arb_tag_din;   
-wire    [26:0]  tlboper_arb_vpn;       
-wire            tlboper_arb_write;     
-wire            tlboper_fifo_wen;      
-wire            tlboper_idx_not_va_sel; 
-wire            tlboper_wen;           
-wire            tlboper_xx_cmplt;      
-wire    [2 :0]  tlboper_xx_pgs;        
-wire            tlboper_xx_pgs_en;     
-wire            utlb_mask;             
-wire            utlb_refill_on;        
+wire            arb_clk;
+wire            arb_clk_en;
+wire            arb_dutlb_grant;
+wire            arb_idx_sel_1g;
+wire            arb_idx_sel_2m;
+wire            arb_idx_sel_4k;
+wire            arb_iutlb_grant;
+wire    [2 :0]  arb_jtlb_acc_type;
+wire    [3 :0]  arb_jtlb_bank_sel;
+wire            arb_jtlb_cmp_with_va;
+wire    [41:0]  arb_jtlb_data_din;
+wire    [3 :0]  arb_jtlb_fifo_din;
+wire            arb_jtlb_fifo_write;
+wire    [8 :0]  arb_jtlb_idx;
+wire            arb_jtlb_req;
+wire    [47:0]  arb_jtlb_tag_din;
+wire    [26:0]  arb_jtlb_vpn;
+wire            arb_jtlb_write;
+wire            arb_load_grant;
+wire            arb_par_clr;
+wire            arb_pfu_grant;
+wire            arb_ptw_grant;
+wire            arb_ptw_mask;
+wire            arb_read_huge;
+wire            arb_store_grant;
+wire            arb_tlboper_grant;
+wire    [1 :0]  arb_top_cur_st;
+wire            arb_top_tlboper_on;
+wire    [8 :0]  arb_va_index;
+wire    [26:0]  arb_vpn;
+wire            cp0_mmu_icg_en;
+wire            cp0_mmu_no_op_req;
+wire            cpurst_b;
+wire            dutlb_arb_cmplt;
+wire            dutlb_arb_load;
+wire            dutlb_arb_req;
+wire    [26:0]  dutlb_arb_vpn;
+wire            dutlb_xx_mmu_off;
+wire            forever_cpuclk;
+wire            iutlb_arb_cmplt;
+wire            iutlb_arb_req;
+wire    [26:0]  iutlb_arb_vpn;
+wire            jtlb_arb_cmp_va;
+wire            jtlb_arb_par_clr;
+wire            jtlb_arb_pfu_cmplt;
+wire    [26:0]  jtlb_arb_pfu_vpn;
+wire            jtlb_arb_sel_1g;
+wire            jtlb_arb_sel_2m;
+wire            jtlb_arb_sel_4k;
+wire            jtlb_arb_tc_miss;
+wire    [2 :0]  jtlb_arb_type;
+wire    [26:0]  jtlb_arb_vpn;
+wire            lsu_mmu_va2_vld;
+wire            mmu_yy_xx_no_op;
+wire            pad_yy_icg_scan_en;
+wire    [3 :0]  ptw_arb_bank_sel;
+wire    [41:0]  ptw_arb_data_din;
+wire    [3 :0]  ptw_arb_fifo_din;
+wire    [2 :0]  ptw_arb_pgs;
+wire            ptw_arb_req;
+wire    [47:0]  ptw_arb_tag_din;
+wire    [26:0]  ptw_arb_vpn;
+wire    [3 :0]  tlboper_arb_bank_sel;
+wire            tlboper_arb_cmp_va;
+wire    [41:0]  tlboper_arb_data_din;
+wire    [3 :0]  tlboper_arb_fifo_din;
+wire            tlboper_arb_fifo_write;
+wire    [8 :0]  tlboper_arb_idx;
+wire            tlboper_arb_idx_not_va;
+wire            tlboper_arb_req;
+wire    [47:0]  tlboper_arb_tag_din;
+wire    [26:0]  tlboper_arb_vpn;
+wire            tlboper_arb_write;
+wire            tlboper_fifo_wen;
+wire            tlboper_idx_not_va_sel;
+wire            tlboper_wen;
+wire            tlboper_xx_cmplt;
+wire    [2 :0]  tlboper_xx_pgs;
+wire            tlboper_xx_pgs_en;
+wire            utlb_mask;
+wire            utlb_refill_on;
 
 
 parameter VPN_WIDTH  = 39-12;  // VPN
@@ -243,13 +243,13 @@ parameter PGS_WIDTH  = 3;      // Page Size
 parameter ASID_WIDTH = 16;     // Flags
 
 // Valid + VPN + ASID + PageSize + Global
-parameter TAG_WIDTH  = 1+VPN_WIDTH+ASID_WIDTH+PGS_WIDTH+1;  
+parameter TAG_WIDTH  = 1+VPN_WIDTH+ASID_WIDTH+PGS_WIDTH+1;
 parameter DATA_WIDTH = PPN_WIDTH+FLG_WIDTH;
 
 //==========================================================
 //                  Gate Cell
 //==========================================================
-assign arb_clk_en = iutlb_arb_req 
+assign arb_clk_en = iutlb_arb_req
                  || dutlb_arb_req
                  || tlboper_arb_req
                  || lsu_mmu_va2_vld
@@ -285,7 +285,7 @@ gated_clk_cell  x_jtlb_arb_gateclk (
 // &Force("output","arb_tlboper_grant"); @69
 // &Force("output","arb_ptw_grant"); @70
 
-assign arb_pfu_grant   = lsu_mmu_va2_vld 
+assign arb_pfu_grant   = lsu_mmu_va2_vld
                      && !dutlb_xx_mmu_off // only valid when mmu is enabled
                      && !iutlb_arb_req
                      && !dutlb_arb_req
@@ -332,7 +332,7 @@ begin
     arb_cur_st[1:0] <= ARB_IDLE;
   else
     arb_cur_st[1:0] <= arb_nxt_st[1:0];
-end 
+end
 
 // &CombBeg; @121
 always @( arb_cur_st
@@ -401,7 +401,7 @@ assign utlb_mask      = (arb_cur_st[1:0] != ARB_IDLE)
 
 assign utlb_refill_on = (arb_cur_st[1:0] != ARB_IDLE);
 
-assign arb_ptw_mask   = tlboper_on; 
+assign arb_ptw_mask   = tlboper_on;
 
 assign mmu_yy_xx_no_op = cp0_mmu_no_op_req
                       && !utlb_refill_on;
@@ -410,10 +410,10 @@ assign arb_read_huge  = (jtlb_arb_sel_2m || jtlb_arb_sel_1g) && jtlb_arb_tc_miss
 assign arb_idx_sel_4k = tlboper_xx_pgs_en ? tlboper_xx_pgs[0] :
                         arb_ptw_grant ? ptw_arb_pgs[0] :
                         arb_par_clr ? jtlb_arb_sel_2m : jtlb_arb_sel_4k ;
-assign arb_idx_sel_2m = tlboper_xx_pgs_en ? tlboper_xx_pgs[1] : 
+assign arb_idx_sel_2m = tlboper_xx_pgs_en ? tlboper_xx_pgs[1] :
                         arb_ptw_grant ? ptw_arb_pgs[1] :
                         arb_par_clr ? jtlb_arb_sel_1g : jtlb_arb_sel_2m ;
-assign arb_idx_sel_1g = tlboper_xx_pgs_en ? tlboper_xx_pgs[2] : 
+assign arb_idx_sel_1g = tlboper_xx_pgs_en ? tlboper_xx_pgs[2] :
                         arb_ptw_grant ? ptw_arb_pgs[2] :
                         arb_par_clr ? !jtlb_arb_sel_1g && !jtlb_arb_sel_2m : jtlb_arb_sel_1g ;
 
@@ -457,7 +457,7 @@ assign arb_jtlb_write = arb_tlboper_grant && tlboper_arb_write
                      || arb_par_clr;
 
 assign arb_jtlb_fifo_write = arb_tlboper_grant && tlboper_arb_fifo_write
-                          || arb_ptw_grant     && 1'b1 
+                          || arb_ptw_grant     && 1'b1
                           || arb_par_clr;
 
 assign arb_jtlb_cmp_with_va = arb_pfu_grant
@@ -465,7 +465,7 @@ assign arb_jtlb_cmp_with_va = arb_pfu_grant
                            || arb_dutlb_grant
                            || arb_read_huge && jtlb_arb_cmp_va
                            //|| arb_par_clr && jtlb_arb_cmp_va
-                           || arb_tlboper_grant && tlboper_arb_cmp_va; 
+                           || arb_tlboper_grant && tlboper_arb_cmp_va;
 
 assign arb_load_grant  = arb_dutlb_grant && dutlb_arb_load;
 assign arb_store_grant = arb_dutlb_grant && !dutlb_arb_load;
@@ -482,16 +482,16 @@ assign arb_jtlb_acc_type[2:0] = {3{arb_pfu_grant}}     & 3'b100
 //                  jTLB Tag & Data Input
 //==========================================================
 assign tlboper_fifo_wen = arb_tlboper_grant && tlboper_arb_fifo_write;
-assign arb_jtlb_fifo_din[3:0] = 
+assign arb_jtlb_fifo_din[3:0] =
                             {4{tlboper_fifo_wen}} & tlboper_arb_fifo_din[3:0]
                           | {4{arb_ptw_grant}}    & ptw_arb_fifo_din[3:0];
 
 assign tlboper_wen = arb_tlboper_grant && tlboper_arb_write;
-assign arb_jtlb_tag_din[TAG_WIDTH-1:0]  = 
+assign arb_jtlb_tag_din[TAG_WIDTH-1:0]  =
                 {TAG_WIDTH{tlboper_wen}}   & tlboper_arb_tag_din[TAG_WIDTH-1:0]
               | {TAG_WIDTH{arb_ptw_grant}} & ptw_arb_tag_din[TAG_WIDTH-1:0];
 
-assign arb_jtlb_data_din[DATA_WIDTH-1:0] = 
+assign arb_jtlb_data_din[DATA_WIDTH-1:0] =
              {DATA_WIDTH{tlboper_wen}}   & tlboper_arb_data_din[DATA_WIDTH-1:0]
            | {DATA_WIDTH{arb_ptw_grant}} & ptw_arb_data_din[DATA_WIDTH-1:0];
 

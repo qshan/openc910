@@ -155,468 +155,468 @@ module ct_ciu_ncq(
 );
 
 // &Ports; @25
-input            apbif_ncq_ar_grant;         
-input            apbif_ncq_aw_grant;         
-input   [7  :0]  apbif_ncq_bid;              
-input   [1  :0]  apbif_ncq_bresp;            
-input            apbif_ncq_bvalid;           
-input   [127:0]  apbif_ncq_rdata;            
-input   [7  :0]  apbif_ncq_rid;              
-input            apbif_ncq_rlast;            
-input   [1  :0]  apbif_ncq_rresp;            
-input            apbif_ncq_rvalid;           
-input            apbif_ncq_w_grant;          
-input            bmbif_ncq_bar_req;          
-input   [2  :0]  bmbif_ncq_mid;              
-input   [8  :0]  bmbif_ncq_req_bus;          
-input            ciu_chr2_bar_dis;           
-input            ciu_icg_en;                 
-input            ciu_so_ostd_dis;            
-input            cpurst_b;                   
-input            ebiu_ncq_ar_grant;          
-input            ebiu_ncq_ar_grant_gate;     
-input            ebiu_ncq_aw_grant;          
-input            ebiu_ncq_aw_grant_gated;    
-input   [7  :0]  ebiu_ncq_bid;               
-input   [1  :0]  ebiu_ncq_bresp;             
-input            ebiu_ncq_bvalid;            
-input   [127:0]  ebiu_ncq_rdata;             
-input   [7  :0]  ebiu_ncq_rid;               
-input            ebiu_ncq_rlast;             
-input   [1  :0]  ebiu_ncq_rresp;             
-input            ebiu_ncq_rvalid;            
-input            ebiu_ncq_w_grant;           
-input            forever_cpuclk;             
-input            pad_yy_icg_scan_en;         
-input   [73 :0]  piu0_ncq_ar_bus;            
-input            piu0_ncq_ar_req;            
-input   [73 :0]  piu0_ncq_aw_bus;            
-input            piu0_ncq_aw_req;            
-input            piu0_ncq_b_grant;           
-input            piu0_ncq_r_grant;           
-input   [143:0]  piu0_ncq_wcd_bus;           
-input            piu0_ncq_wcd_req;           
-input   [73 :0]  piu1_ncq_ar_bus;            
-input            piu1_ncq_ar_req;            
-input   [73 :0]  piu1_ncq_aw_bus;            
-input            piu1_ncq_aw_req;            
-input            piu1_ncq_b_grant;           
-input            piu1_ncq_r_grant;           
-input   [143:0]  piu1_ncq_wcd_bus;           
-input            piu1_ncq_wcd_req;           
-input   [73 :0]  piu2_ncq_ar_bus;            
-input            piu2_ncq_ar_req;            
-input   [73 :0]  piu2_ncq_aw_bus;            
-input            piu2_ncq_aw_req;            
-input            piu2_ncq_b_grant;           
-input            piu2_ncq_r_grant;           
-input   [143:0]  piu2_ncq_wcd_bus;           
-input            piu2_ncq_wcd_req;           
-input   [73 :0]  piu3_ncq_ar_bus;            
-input            piu3_ncq_ar_req;            
-input   [73 :0]  piu3_ncq_aw_bus;            
-input            piu3_ncq_aw_req;            
-input            piu3_ncq_b_grant;           
-input            piu3_ncq_r_grant;           
-input   [143:0]  piu3_ncq_wcd_bus;           
-input            piu3_ncq_wcd_req;           
-input   [39 :0]  sysio_ciu_apb_base;         
-output           ncq_apbif_arvalid;          
-output           ncq_apbif_awvalid;          
-output           ncq_apbif_b_grant;          
-output           ncq_apbif_r_grant;          
-output           ncq_apbif_wvalid;           
-output           ncq_bmbif_bar_grant;        
-output  [4  :0]  ncq_dbg_info;               
-output           ncq_ebiu_arvalid;           
-output           ncq_ebiu_awvalid;           
-output           ncq_ebiu_b_grant;           
-output           ncq_ebiu_r_grant;           
-output           ncq_ebiu_wvalid;            
-output           ncq_piu0_ar_grant;          
-output           ncq_piu0_aw_grant;          
-output           ncq_piu0_bar_cmplt;         
-output  [13 :0]  ncq_piu0_bbus;              
-output           ncq_piu0_bvalid;            
-output           ncq_piu0_rvalid;            
-output           ncq_piu0_wcd_grant;         
-output           ncq_piu1_ar_grant;          
-output           ncq_piu1_aw_grant;          
-output           ncq_piu1_bar_cmplt;         
-output  [13 :0]  ncq_piu1_bbus;              
-output           ncq_piu1_bvalid;            
-output           ncq_piu1_rvalid;            
-output           ncq_piu1_wcd_grant;         
-output           ncq_piu2_ar_grant;          
-output           ncq_piu2_aw_grant;          
-output           ncq_piu2_bar_cmplt;         
-output  [13 :0]  ncq_piu2_bbus;              
-output           ncq_piu2_bvalid;            
-output           ncq_piu2_rvalid;            
-output           ncq_piu2_wcd_grant;         
-output           ncq_piu3_ar_grant;          
-output           ncq_piu3_aw_grant;          
-output           ncq_piu3_bar_cmplt;         
-output  [13 :0]  ncq_piu3_bbus;              
-output           ncq_piu3_bvalid;            
-output           ncq_piu3_rvalid;            
-output           ncq_piu3_wcd_grant;         
-output  [534:0]  ncq_piux_rbus;              
-output  [39 :0]  ncq_xx_araddr;              
-output  [1  :0]  ncq_xx_arbar;               
-output  [1  :0]  ncq_xx_arburst;             
-output  [3  :0]  ncq_xx_arcache;             
-output  [1  :0]  ncq_xx_ardomain;            
-output  [7  :0]  ncq_xx_arid;                
-output  [7  :0]  ncq_xx_arlen;               
-output           ncq_xx_arlock;              
-output  [2  :0]  ncq_xx_arprot;              
-output  [2  :0]  ncq_xx_arsize;              
-output  [3  :0]  ncq_xx_arsnoop;             
-output           ncq_xx_aruser;              
-output           ncq_xx_aw_needissue;        
-output  [39 :0]  ncq_xx_awaddr;              
-output  [1  :0]  ncq_xx_awbar;               
-output  [1  :0]  ncq_xx_awburst;             
-output  [3  :0]  ncq_xx_awcache;             
-output  [1  :0]  ncq_xx_awdomain;            
-output  [7  :0]  ncq_xx_awid;                
-output  [7  :0]  ncq_xx_awlen;               
-output           ncq_xx_awlock;              
-output  [2  :0]  ncq_xx_awprot;              
-output  [2  :0]  ncq_xx_awsize;              
-output  [2  :0]  ncq_xx_awsnoop;             
-output           ncq_xx_awuser;              
-output           ncq_xx_no_op;               
-output  [127:0]  ncq_xx_wdata;               
-output  [7  :0]  ncq_xx_wid;                 
-output           ncq_xx_wlast;               
-output  [15 :0]  ncq_xx_wstrb;               
+input            apbif_ncq_ar_grant;
+input            apbif_ncq_aw_grant;
+input   [7  :0]  apbif_ncq_bid;
+input   [1  :0]  apbif_ncq_bresp;
+input            apbif_ncq_bvalid;
+input   [127:0]  apbif_ncq_rdata;
+input   [7  :0]  apbif_ncq_rid;
+input            apbif_ncq_rlast;
+input   [1  :0]  apbif_ncq_rresp;
+input            apbif_ncq_rvalid;
+input            apbif_ncq_w_grant;
+input            bmbif_ncq_bar_req;
+input   [2  :0]  bmbif_ncq_mid;
+input   [8  :0]  bmbif_ncq_req_bus;
+input            ciu_chr2_bar_dis;
+input            ciu_icg_en;
+input            ciu_so_ostd_dis;
+input            cpurst_b;
+input            ebiu_ncq_ar_grant;
+input            ebiu_ncq_ar_grant_gate;
+input            ebiu_ncq_aw_grant;
+input            ebiu_ncq_aw_grant_gated;
+input   [7  :0]  ebiu_ncq_bid;
+input   [1  :0]  ebiu_ncq_bresp;
+input            ebiu_ncq_bvalid;
+input   [127:0]  ebiu_ncq_rdata;
+input   [7  :0]  ebiu_ncq_rid;
+input            ebiu_ncq_rlast;
+input   [1  :0]  ebiu_ncq_rresp;
+input            ebiu_ncq_rvalid;
+input            ebiu_ncq_w_grant;
+input            forever_cpuclk;
+input            pad_yy_icg_scan_en;
+input   [73 :0]  piu0_ncq_ar_bus;
+input            piu0_ncq_ar_req;
+input   [73 :0]  piu0_ncq_aw_bus;
+input            piu0_ncq_aw_req;
+input            piu0_ncq_b_grant;
+input            piu0_ncq_r_grant;
+input   [143:0]  piu0_ncq_wcd_bus;
+input            piu0_ncq_wcd_req;
+input   [73 :0]  piu1_ncq_ar_bus;
+input            piu1_ncq_ar_req;
+input   [73 :0]  piu1_ncq_aw_bus;
+input            piu1_ncq_aw_req;
+input            piu1_ncq_b_grant;
+input            piu1_ncq_r_grant;
+input   [143:0]  piu1_ncq_wcd_bus;
+input            piu1_ncq_wcd_req;
+input   [73 :0]  piu2_ncq_ar_bus;
+input            piu2_ncq_ar_req;
+input   [73 :0]  piu2_ncq_aw_bus;
+input            piu2_ncq_aw_req;
+input            piu2_ncq_b_grant;
+input            piu2_ncq_r_grant;
+input   [143:0]  piu2_ncq_wcd_bus;
+input            piu2_ncq_wcd_req;
+input   [73 :0]  piu3_ncq_ar_bus;
+input            piu3_ncq_ar_req;
+input   [73 :0]  piu3_ncq_aw_bus;
+input            piu3_ncq_aw_req;
+input            piu3_ncq_b_grant;
+input            piu3_ncq_r_grant;
+input   [143:0]  piu3_ncq_wcd_bus;
+input            piu3_ncq_wcd_req;
+input   [39 :0]  sysio_ciu_apb_base;
+output           ncq_apbif_arvalid;
+output           ncq_apbif_awvalid;
+output           ncq_apbif_b_grant;
+output           ncq_apbif_r_grant;
+output           ncq_apbif_wvalid;
+output           ncq_bmbif_bar_grant;
+output  [4  :0]  ncq_dbg_info;
+output           ncq_ebiu_arvalid;
+output           ncq_ebiu_awvalid;
+output           ncq_ebiu_b_grant;
+output           ncq_ebiu_r_grant;
+output           ncq_ebiu_wvalid;
+output           ncq_piu0_ar_grant;
+output           ncq_piu0_aw_grant;
+output           ncq_piu0_bar_cmplt;
+output  [13 :0]  ncq_piu0_bbus;
+output           ncq_piu0_bvalid;
+output           ncq_piu0_rvalid;
+output           ncq_piu0_wcd_grant;
+output           ncq_piu1_ar_grant;
+output           ncq_piu1_aw_grant;
+output           ncq_piu1_bar_cmplt;
+output  [13 :0]  ncq_piu1_bbus;
+output           ncq_piu1_bvalid;
+output           ncq_piu1_rvalid;
+output           ncq_piu1_wcd_grant;
+output           ncq_piu2_ar_grant;
+output           ncq_piu2_aw_grant;
+output           ncq_piu2_bar_cmplt;
+output  [13 :0]  ncq_piu2_bbus;
+output           ncq_piu2_bvalid;
+output           ncq_piu2_rvalid;
+output           ncq_piu2_wcd_grant;
+output           ncq_piu3_ar_grant;
+output           ncq_piu3_aw_grant;
+output           ncq_piu3_bar_cmplt;
+output  [13 :0]  ncq_piu3_bbus;
+output           ncq_piu3_bvalid;
+output           ncq_piu3_rvalid;
+output           ncq_piu3_wcd_grant;
+output  [534:0]  ncq_piux_rbus;
+output  [39 :0]  ncq_xx_araddr;
+output  [1  :0]  ncq_xx_arbar;
+output  [1  :0]  ncq_xx_arburst;
+output  [3  :0]  ncq_xx_arcache;
+output  [1  :0]  ncq_xx_ardomain;
+output  [7  :0]  ncq_xx_arid;
+output  [7  :0]  ncq_xx_arlen;
+output           ncq_xx_arlock;
+output  [2  :0]  ncq_xx_arprot;
+output  [2  :0]  ncq_xx_arsize;
+output  [3  :0]  ncq_xx_arsnoop;
+output           ncq_xx_aruser;
+output           ncq_xx_aw_needissue;
+output  [39 :0]  ncq_xx_awaddr;
+output  [1  :0]  ncq_xx_awbar;
+output  [1  :0]  ncq_xx_awburst;
+output  [3  :0]  ncq_xx_awcache;
+output  [1  :0]  ncq_xx_awdomain;
+output  [7  :0]  ncq_xx_awid;
+output  [7  :0]  ncq_xx_awlen;
+output           ncq_xx_awlock;
+output  [2  :0]  ncq_xx_awprot;
+output  [2  :0]  ncq_xx_awsize;
+output  [2  :0]  ncq_xx_awsnoop;
+output           ncq_xx_awuser;
+output           ncq_xx_no_op;
+output  [127:0]  ncq_xx_wdata;
+output  [7  :0]  ncq_xx_wid;
+output           ncq_xx_wlast;
+output  [15 :0]  ncq_xx_wstrb;
 
 // &Regs; @26
-reg     [15 :0]  dsq_apb;                    
-reg     [3  :0]  dsq_create_ptr;             
-reg     [3  :0]  dsq_pop_ptr;                
-reg     [15 :0]  dsq_vld;                    
-reg              ncq_ar_apbif_sel;           
-reg     [4  :0]  ncq_ar_ebiu_ostd_cnt;       
-reg              ncq_ar_ebiu_so_sel;         
-reg     [4  :0]  ncq_ar_ostd_cnt_piu0;       
-reg     [4  :0]  ncq_ar_ostd_cnt_piu1;       
-reg              ncq_aw_apbif_sel;           
-reg     [4  :0]  ncq_aw_ebiu_ostd_cnt;       
-reg     [4  :0]  ncq_aw_ostd_cnt_piu0;       
-reg     [4  :0]  ncq_aw_ostd_cnt_piu1;       
-reg     [4  :0]  ncq_bar_ar_ostd_cnt_piu0;   
-reg     [4  :0]  ncq_bar_ar_ostd_cnt_piu1;   
-reg     [4  :0]  ncq_bar_aw_ostd_cnt_piu0;   
-reg     [4  :0]  ncq_bar_aw_ostd_cnt_piu1;   
-reg     [3  :0]  ncq_bar_sh;                 
-reg     [3  :0]  ncq_bar_vld;                
-reg     [4  :0]  ncq_total_ar_ostd_cnt;      
-reg     [4  :0]  ncq_total_aw_ostd_cnt;      
-reg     [73 :0]  raq_create_bus;             
-reg     [73 :0]  waq_create_bus;             
-reg     [151:0]  wdq_create_bus;             
+reg     [15 :0]  dsq_apb;
+reg     [3  :0]  dsq_create_ptr;
+reg     [3  :0]  dsq_pop_ptr;
+reg     [15 :0]  dsq_vld;
+reg              ncq_ar_apbif_sel;
+reg     [4  :0]  ncq_ar_ebiu_ostd_cnt;
+reg              ncq_ar_ebiu_so_sel;
+reg     [4  :0]  ncq_ar_ostd_cnt_piu0;
+reg     [4  :0]  ncq_ar_ostd_cnt_piu1;
+reg              ncq_aw_apbif_sel;
+reg     [4  :0]  ncq_aw_ebiu_ostd_cnt;
+reg     [4  :0]  ncq_aw_ostd_cnt_piu0;
+reg     [4  :0]  ncq_aw_ostd_cnt_piu1;
+reg     [4  :0]  ncq_bar_ar_ostd_cnt_piu0;
+reg     [4  :0]  ncq_bar_ar_ostd_cnt_piu1;
+reg     [4  :0]  ncq_bar_aw_ostd_cnt_piu0;
+reg     [4  :0]  ncq_bar_aw_ostd_cnt_piu1;
+reg     [3  :0]  ncq_bar_sh;
+reg     [3  :0]  ncq_bar_vld;
+reg     [4  :0]  ncq_total_ar_ostd_cnt;
+reg     [4  :0]  ncq_total_aw_ostd_cnt;
+reg     [73 :0]  raq_create_bus;
+reg     [73 :0]  waq_create_bus;
+reg     [151:0]  wdq_create_bus;
 
 // &Wires; @27
-wire             apbif_ncq_ar_grant;         
-wire             apbif_ncq_aw_grant;         
-wire    [9  :0]  apbif_ncq_bbus;             
-wire    [7  :0]  apbif_ncq_bid;              
-wire    [1  :0]  apbif_ncq_bresp;            
-wire             apbif_ncq_bvalid;           
-wire    [137:0]  apbif_ncq_rbus;             
-wire    [127:0]  apbif_ncq_rdata;            
-wire    [7  :0]  apbif_ncq_rid;              
-wire    [1  :0]  apbif_ncq_rresp;            
-wire             apbif_ncq_rvalid;           
-wire             apbif_ncq_w_grant;          
-wire             ar_prio_clk;                
-wire             ar_prio_clk_en;             
-wire             aw_prio_clk;                
-wire             aw_prio_clk_en;             
-wire             bmbif_ncq_bar_req;          
-wire    [2  :0]  bmbif_ncq_mid;              
-wire    [8  :0]  bmbif_ncq_req_bus;          
-wire             bmbif_ncq_shareable;        
-wire             ciu_chr2_bar_dis;           
-wire             ciu_icg_en;                 
-wire             ciu_so_ostd_dis;            
-wire             cpurst_b;                   
-wire             dsq_clk_en;                 
-wire    [15 :0]  dsq_create_en;              
-wire             dsq_pop_apb;                
-wire             dsq_pop_ebiu;               
-wire    [15 :0]  dsq_pop_en;                 
-wire             dsqclk;                     
-wire             ebiu_ncq_ar_grant;          
-wire             ebiu_ncq_ar_grant_gate;     
-wire             ebiu_ncq_ar_so_grant;       
-wire             ebiu_ncq_aw_grant;          
-wire             ebiu_ncq_aw_grant_gated;    
-wire    [9  :0]  ebiu_ncq_bbus;              
-wire    [7  :0]  ebiu_ncq_bid;               
-wire    [1  :0]  ebiu_ncq_bresp;             
-wire             ebiu_ncq_bvalid;            
-wire    [137:0]  ebiu_ncq_rbus;              
-wire    [127:0]  ebiu_ncq_rdata;             
-wire    [7  :0]  ebiu_ncq_rid;               
-wire    [1  :0]  ebiu_ncq_rresp;             
-wire             ebiu_ncq_rvalid;            
-wire             ebiu_ncq_w_grant;           
-wire             forever_cpuclk;             
-wire             gm_ar_req;                  
-wire             gm_ar_req_gate;             
-wire             gm_aw_req;                  
-wire             gm_ctrl_clk;                
-wire    [3  :0]  gm_set_vld;                 
-wire    [3  :0]  gm_set_vld_gate;            
-wire    [3  :0]  gm_success;                 
-wire    [3  :0]  gm_vld;                     
-wire             ncq_apbif_arvalid;          
-wire             ncq_apbif_awvalid;          
-wire             ncq_apbif_b_grant;          
-wire             ncq_apbif_r_grant;          
-wire             ncq_apbif_wvalid;           
-wire             ncq_ar_ebiu_sel;            
-wire    [4  :0]  ncq_ar_ostd_cnt_piu0_dec;   
-wire    [4  :0]  ncq_ar_ostd_cnt_piu0_final; 
-wire    [4  :0]  ncq_ar_ostd_cnt_piu1_dec;   
-wire    [4  :0]  ncq_ar_ostd_cnt_piu1_final; 
-wire             ncq_aw_ebiu_sel;            
-wire    [4  :0]  ncq_aw_ostd_cnt_piu0_dec;   
-wire    [4  :0]  ncq_aw_ostd_cnt_piu0_final; 
-wire    [4  :0]  ncq_aw_ostd_cnt_piu1_dec;   
-wire    [4  :0]  ncq_aw_ostd_cnt_piu1_final; 
-wire    [4  :0]  ncq_bar_ar_ostd_cnt_piu2;   
-wire    [4  :0]  ncq_bar_ar_ostd_cnt_piu3;   
-wire    [4  :0]  ncq_bar_aw_ostd_cnt_piu2;   
-wire    [4  :0]  ncq_bar_aw_ostd_cnt_piu3;   
-wire             ncq_bar_clk_en;             
-wire             ncq_bar_piu0_arcnt_pop_en;  
-wire             ncq_bar_piu0_awcnt_pop_en;  
-wire             ncq_bar_piu0_cnt_create_en; 
-wire             ncq_bar_piu1_arcnt_pop_en;  
-wire             ncq_bar_piu1_awcnt_pop_en;  
-wire             ncq_bar_piu1_cnt_create_en; 
-wire             ncq_barcnt_clk;             
-wire             ncq_barcnt_clk_en;          
-wire             ncq_bmbif_bar_grant;        
-wire    [4  :0]  ncq_dbg_info;               
-wire             ncq_ebiu_arvalid;           
-wire             ncq_ebiu_awvalid;           
-wire             ncq_ebiu_b_grant;           
-wire             ncq_ebiu_r_grant;           
-wire             ncq_ebiu_r_so_grant;        
-wire             ncq_ebiu_wvalid;            
-wire             ncq_gm_clk_en;              
-wire             ncq_piu0_ar_grant;          
-wire             ncq_piu0_aw_grant;          
-wire             ncq_piu0_bar_cmplt;         
-wire    [13 :0]  ncq_piu0_bbus;              
-wire             ncq_piu0_bvalid;            
-wire             ncq_piu0_rvalid;            
-wire             ncq_piu0_wcd_grant;         
-wire             ncq_piu1_ar_grant;          
-wire             ncq_piu1_aw_grant;          
-wire             ncq_piu1_bar_cmplt;         
-wire    [13 :0]  ncq_piu1_bbus;              
-wire             ncq_piu1_bvalid;            
-wire             ncq_piu1_rvalid;            
-wire             ncq_piu1_wcd_grant;         
-wire             ncq_piu2_ar_grant;          
-wire             ncq_piu2_aw_grant;          
-wire             ncq_piu2_bar_cmplt;         
-wire    [13 :0]  ncq_piu2_bbus;              
-wire             ncq_piu2_bvalid;            
-wire             ncq_piu2_rvalid;            
-wire             ncq_piu2_wcd_grant;         
-wire             ncq_piu3_ar_grant;          
-wire             ncq_piu3_aw_grant;          
-wire             ncq_piu3_bar_cmplt;         
-wire    [13 :0]  ncq_piu3_bbus;              
-wire             ncq_piu3_bvalid;            
-wire             ncq_piu3_rvalid;            
-wire             ncq_piu3_wcd_grant;         
-wire    [3  :0]  ncq_piu_bar_cmplt;          
-wire    [13 :0]  ncq_piu_bbus;               
-wire    [534:0]  ncq_piu_rbus;               
-wire    [534:0]  ncq_piux_rbus;              
-wire             ncq_rd_clk_en;              
-wire    [4  :0]  ncq_total_ar_ostd_cnt_dec;  
-wire    [4  :0]  ncq_total_ar_ostd_cnt_final; 
-wire    [4  :0]  ncq_total_aw_ostd_cnt_dec;  
-wire    [4  :0]  ncq_total_aw_ostd_cnt_final; 
-wire             ncq_wt_clk_en;              
-wire    [39 :0]  ncq_xx_araddr;              
-wire    [1  :0]  ncq_xx_arbar;               
-wire    [1  :0]  ncq_xx_arburst;             
-wire    [3  :0]  ncq_xx_arcache;             
-wire    [1  :0]  ncq_xx_ardomain;            
-wire    [7  :0]  ncq_xx_arid;                
-wire    [7  :0]  ncq_xx_arlen;               
-wire             ncq_xx_arlock;              
-wire    [2  :0]  ncq_xx_arprot;              
-wire    [2  :0]  ncq_xx_arsize;              
-wire    [3  :0]  ncq_xx_arsnoop;             
-wire             ncq_xx_aruser;              
-wire             ncq_xx_aw_needissue;        
-wire    [39 :0]  ncq_xx_awaddr;              
-wire    [1  :0]  ncq_xx_awbar;               
-wire    [1  :0]  ncq_xx_awburst;             
-wire    [3  :0]  ncq_xx_awcache;             
-wire    [1  :0]  ncq_xx_awdomain;            
-wire    [7  :0]  ncq_xx_awid;                
-wire    [7  :0]  ncq_xx_awlen;               
-wire             ncq_xx_awlock;              
-wire    [2  :0]  ncq_xx_awprot;              
-wire    [2  :0]  ncq_xx_awsize;              
-wire    [2  :0]  ncq_xx_awsnoop;             
-wire             ncq_xx_awuser;              
-wire             ncq_xx_no_op;               
-wire    [127:0]  ncq_xx_wdata;               
-wire    [7  :0]  ncq_xx_wid;                 
-wire             ncq_xx_wlast;               
-wire    [15 :0]  ncq_xx_wstrb;               
-wire             ncqbarclk;                  
-wire             ncqrdclk;                   
-wire             ncqwtclk;                   
-wire             pad_yy_icg_scan_en;         
-wire    [73 :0]  piu0_ncq_ar_bus;            
-wire             piu0_ncq_ar_req;            
-wire    [73 :0]  piu0_ncq_aw_bus;            
-wire             piu0_ncq_aw_req;            
-wire             piu0_ncq_b_grant;           
-wire             piu0_ncq_r_grant;           
-wire    [143:0]  piu0_ncq_wcd_bus;           
-wire             piu0_ncq_wcd_req;           
-wire             piu0_ostd_cmplt;            
-wire    [73 :0]  piu1_ncq_ar_bus;            
-wire             piu1_ncq_ar_req;            
-wire    [73 :0]  piu1_ncq_aw_bus;            
-wire             piu1_ncq_aw_req;            
-wire             piu1_ncq_b_grant;           
-wire             piu1_ncq_r_grant;           
-wire    [143:0]  piu1_ncq_wcd_bus;           
-wire             piu1_ncq_wcd_req;           
-wire             piu1_ostd_cmplt;            
-wire    [73 :0]  piu2_ncq_ar_bus;            
-wire             piu2_ncq_ar_req;            
-wire    [73 :0]  piu2_ncq_aw_bus;            
-wire             piu2_ncq_aw_req;            
-wire             piu2_ncq_b_grant;           
-wire             piu2_ncq_r_grant;           
-wire    [143:0]  piu2_ncq_wcd_bus;           
-wire             piu2_ncq_wcd_req;           
-wire             piu2_ostd_cmplt;            
-wire    [73 :0]  piu3_ncq_ar_bus;            
-wire             piu3_ncq_ar_req;            
-wire    [73 :0]  piu3_ncq_aw_bus;            
-wire             piu3_ncq_aw_req;            
-wire             piu3_ncq_b_grant;           
-wire             piu3_ncq_r_grant;           
-wire    [143:0]  piu3_ncq_wcd_bus;           
-wire             piu3_ncq_wcd_req;           
-wire             piu3_ostd_cmplt;            
-wire    [3  :0]  piu_ar_req;                 
-wire    [3  :0]  piu_ar_req_sel;             
-wire    [3  :0]  piu_aw_req;                 
-wire    [3  :0]  piu_aw_req_sel;             
-wire    [3  :0]  piu_b_grant;                
-wire    [3  :0]  piu_r_grant;                
-wire    [3  :0]  piu_w_req;                  
-wire    [3  :0]  piu_w_req_sel;              
-wire             raq_apbif_sel;              
-wire             raq_create_en;              
-wire    [1  :0]  raq_create_mid;             
-wire             raq_empty;                  
-wire             raq_full;                   
-wire    [39 :0]  raq_pop_araddr;             
-wire    [1  :0]  raq_pop_arbar;              
-wire    [1  :0]  raq_pop_arburst;            
-wire    [3  :0]  raq_pop_arcache;            
-wire    [1  :0]  raq_pop_ardomain;           
-wire    [7  :0]  raq_pop_arid;               
-wire    [1  :0]  raq_pop_arlen;              
-wire             raq_pop_arlock;             
-wire    [2  :0]  raq_pop_arprot;             
-wire    [2  :0]  raq_pop_arsize;             
-wire    [3  :0]  raq_pop_arsnoop;            
-wire    [2  :0]  raq_pop_aruser;             
-wire             raq_pop_arvalid;            
-wire    [73 :0]  raq_pop_bus;                
-wire             raq_pop_bus_vld;            
-wire             raq_pop_en;                 
-wire             raq_pop_en_gate;            
-wire             raq_pop_so;                 
-wire    [137:0]  rdq_create_bus;             
-wire             rdq_create_en;              
-wire             rdq_empty;                  
-wire             rdq_full;                   
-wire    [137:0]  rdq_pop_bus;                
-wire             rdq_pop_bus_vld;            
-wire             rdq_pop_en;                 
-wire    [2  :0]  rdq_pop_mid;                
-wire    [127:0]  rdq_pop_rdata;              
-wire    [4  :0]  rdq_pop_rid;                
-wire    [1  :0]  rdq_pop_rresp;              
-wire    [39 :0]  sysio_ciu_apb_base;         
-wire             total_ar_ostd_full;         
-wire             total_aw_ostd_full;         
-wire             total_ostd_cmplt;           
-wire             waq_apbif_sel;              
-wire    [7  :0]  waq_create_awid;            
-wire             waq_create_en;              
-wire             waq_empty;                  
-wire             waq_full;                   
-wire    [39 :0]  waq_pop_awaddr;             
-wire    [1  :0]  waq_pop_awbar;              
-wire    [1  :0]  waq_pop_awburst;            
-wire    [3  :0]  waq_pop_awcache;            
-wire    [1  :0]  waq_pop_awdomain;           
-wire    [7  :0]  waq_pop_awid;               
-wire    [1  :0]  waq_pop_awlen;              
-wire             waq_pop_awlock;             
-wire    [2  :0]  waq_pop_awprot;             
-wire    [2  :0]  waq_pop_awsize;             
-wire    [3  :0]  waq_pop_awsnoop;            
-wire    [2  :0]  waq_pop_awuser;             
-wire             waq_pop_awvalid;            
-wire    [73 :0]  waq_pop_bus;                
-wire             waq_pop_bus_vld;            
-wire             waq_pop_en;                 
-wire             waq_pop_en_gated;           
-wire    [9  :0]  wbq_create_bus;             
-wire             wbq_create_en;              
-wire             wbq_empty;                  
-wire             wbq_full;                   
-wire    [4  :0]  wbq_pop_bid;                
-wire    [1  :0]  wbq_pop_bresp;              
-wire    [9  :0]  wbq_pop_bus;                
-wire             wbq_pop_bus_vld;            
-wire             wbq_pop_en;                 
-wire    [2  :0]  wbq_pop_mid;                
-wire             wdq_create_en;              
-wire             wdq_empty;                  
-wire             wdq_full;                   
-wire    [151:0]  wdq_pop_bus;                
-wire             wdq_pop_bus_vld;            
-wire             wdq_pop_en;                 
-wire    [127:0]  wdq_pop_wdata;              
-wire    [7  :0]  wdq_pop_wid;                
-wire    [15 :0]  wdq_pop_wstrb;              
-wire             wdq_pop_wvalid;             
-wire    [7  :0]  woq_create_bus;             
-wire             woq_create_en;              
-wire             woq_empty;                  
-wire             woq_full;                   
-wire    [7  :0]  woq_pop_awid;               
-wire    [7  :0]  woq_pop_bus;                
-wire             woq_pop_bus_vld;            
-wire             woq_pop_en;                 
-wire             woq_pop_vld;                
-wire    [3  :0]  woq_pop_w_sel;              
+wire             apbif_ncq_ar_grant;
+wire             apbif_ncq_aw_grant;
+wire    [9  :0]  apbif_ncq_bbus;
+wire    [7  :0]  apbif_ncq_bid;
+wire    [1  :0]  apbif_ncq_bresp;
+wire             apbif_ncq_bvalid;
+wire    [137:0]  apbif_ncq_rbus;
+wire    [127:0]  apbif_ncq_rdata;
+wire    [7  :0]  apbif_ncq_rid;
+wire    [1  :0]  apbif_ncq_rresp;
+wire             apbif_ncq_rvalid;
+wire             apbif_ncq_w_grant;
+wire             ar_prio_clk;
+wire             ar_prio_clk_en;
+wire             aw_prio_clk;
+wire             aw_prio_clk_en;
+wire             bmbif_ncq_bar_req;
+wire    [2  :0]  bmbif_ncq_mid;
+wire    [8  :0]  bmbif_ncq_req_bus;
+wire             bmbif_ncq_shareable;
+wire             ciu_chr2_bar_dis;
+wire             ciu_icg_en;
+wire             ciu_so_ostd_dis;
+wire             cpurst_b;
+wire             dsq_clk_en;
+wire    [15 :0]  dsq_create_en;
+wire             dsq_pop_apb;
+wire             dsq_pop_ebiu;
+wire    [15 :0]  dsq_pop_en;
+wire             dsqclk;
+wire             ebiu_ncq_ar_grant;
+wire             ebiu_ncq_ar_grant_gate;
+wire             ebiu_ncq_ar_so_grant;
+wire             ebiu_ncq_aw_grant;
+wire             ebiu_ncq_aw_grant_gated;
+wire    [9  :0]  ebiu_ncq_bbus;
+wire    [7  :0]  ebiu_ncq_bid;
+wire    [1  :0]  ebiu_ncq_bresp;
+wire             ebiu_ncq_bvalid;
+wire    [137:0]  ebiu_ncq_rbus;
+wire    [127:0]  ebiu_ncq_rdata;
+wire    [7  :0]  ebiu_ncq_rid;
+wire    [1  :0]  ebiu_ncq_rresp;
+wire             ebiu_ncq_rvalid;
+wire             ebiu_ncq_w_grant;
+wire             forever_cpuclk;
+wire             gm_ar_req;
+wire             gm_ar_req_gate;
+wire             gm_aw_req;
+wire             gm_ctrl_clk;
+wire    [3  :0]  gm_set_vld;
+wire    [3  :0]  gm_set_vld_gate;
+wire    [3  :0]  gm_success;
+wire    [3  :0]  gm_vld;
+wire             ncq_apbif_arvalid;
+wire             ncq_apbif_awvalid;
+wire             ncq_apbif_b_grant;
+wire             ncq_apbif_r_grant;
+wire             ncq_apbif_wvalid;
+wire             ncq_ar_ebiu_sel;
+wire    [4  :0]  ncq_ar_ostd_cnt_piu0_dec;
+wire    [4  :0]  ncq_ar_ostd_cnt_piu0_final;
+wire    [4  :0]  ncq_ar_ostd_cnt_piu1_dec;
+wire    [4  :0]  ncq_ar_ostd_cnt_piu1_final;
+wire             ncq_aw_ebiu_sel;
+wire    [4  :0]  ncq_aw_ostd_cnt_piu0_dec;
+wire    [4  :0]  ncq_aw_ostd_cnt_piu0_final;
+wire    [4  :0]  ncq_aw_ostd_cnt_piu1_dec;
+wire    [4  :0]  ncq_aw_ostd_cnt_piu1_final;
+wire    [4  :0]  ncq_bar_ar_ostd_cnt_piu2;
+wire    [4  :0]  ncq_bar_ar_ostd_cnt_piu3;
+wire    [4  :0]  ncq_bar_aw_ostd_cnt_piu2;
+wire    [4  :0]  ncq_bar_aw_ostd_cnt_piu3;
+wire             ncq_bar_clk_en;
+wire             ncq_bar_piu0_arcnt_pop_en;
+wire             ncq_bar_piu0_awcnt_pop_en;
+wire             ncq_bar_piu0_cnt_create_en;
+wire             ncq_bar_piu1_arcnt_pop_en;
+wire             ncq_bar_piu1_awcnt_pop_en;
+wire             ncq_bar_piu1_cnt_create_en;
+wire             ncq_barcnt_clk;
+wire             ncq_barcnt_clk_en;
+wire             ncq_bmbif_bar_grant;
+wire    [4  :0]  ncq_dbg_info;
+wire             ncq_ebiu_arvalid;
+wire             ncq_ebiu_awvalid;
+wire             ncq_ebiu_b_grant;
+wire             ncq_ebiu_r_grant;
+wire             ncq_ebiu_r_so_grant;
+wire             ncq_ebiu_wvalid;
+wire             ncq_gm_clk_en;
+wire             ncq_piu0_ar_grant;
+wire             ncq_piu0_aw_grant;
+wire             ncq_piu0_bar_cmplt;
+wire    [13 :0]  ncq_piu0_bbus;
+wire             ncq_piu0_bvalid;
+wire             ncq_piu0_rvalid;
+wire             ncq_piu0_wcd_grant;
+wire             ncq_piu1_ar_grant;
+wire             ncq_piu1_aw_grant;
+wire             ncq_piu1_bar_cmplt;
+wire    [13 :0]  ncq_piu1_bbus;
+wire             ncq_piu1_bvalid;
+wire             ncq_piu1_rvalid;
+wire             ncq_piu1_wcd_grant;
+wire             ncq_piu2_ar_grant;
+wire             ncq_piu2_aw_grant;
+wire             ncq_piu2_bar_cmplt;
+wire    [13 :0]  ncq_piu2_bbus;
+wire             ncq_piu2_bvalid;
+wire             ncq_piu2_rvalid;
+wire             ncq_piu2_wcd_grant;
+wire             ncq_piu3_ar_grant;
+wire             ncq_piu3_aw_grant;
+wire             ncq_piu3_bar_cmplt;
+wire    [13 :0]  ncq_piu3_bbus;
+wire             ncq_piu3_bvalid;
+wire             ncq_piu3_rvalid;
+wire             ncq_piu3_wcd_grant;
+wire    [3  :0]  ncq_piu_bar_cmplt;
+wire    [13 :0]  ncq_piu_bbus;
+wire    [534:0]  ncq_piu_rbus;
+wire    [534:0]  ncq_piux_rbus;
+wire             ncq_rd_clk_en;
+wire    [4  :0]  ncq_total_ar_ostd_cnt_dec;
+wire    [4  :0]  ncq_total_ar_ostd_cnt_final;
+wire    [4  :0]  ncq_total_aw_ostd_cnt_dec;
+wire    [4  :0]  ncq_total_aw_ostd_cnt_final;
+wire             ncq_wt_clk_en;
+wire    [39 :0]  ncq_xx_araddr;
+wire    [1  :0]  ncq_xx_arbar;
+wire    [1  :0]  ncq_xx_arburst;
+wire    [3  :0]  ncq_xx_arcache;
+wire    [1  :0]  ncq_xx_ardomain;
+wire    [7  :0]  ncq_xx_arid;
+wire    [7  :0]  ncq_xx_arlen;
+wire             ncq_xx_arlock;
+wire    [2  :0]  ncq_xx_arprot;
+wire    [2  :0]  ncq_xx_arsize;
+wire    [3  :0]  ncq_xx_arsnoop;
+wire             ncq_xx_aruser;
+wire             ncq_xx_aw_needissue;
+wire    [39 :0]  ncq_xx_awaddr;
+wire    [1  :0]  ncq_xx_awbar;
+wire    [1  :0]  ncq_xx_awburst;
+wire    [3  :0]  ncq_xx_awcache;
+wire    [1  :0]  ncq_xx_awdomain;
+wire    [7  :0]  ncq_xx_awid;
+wire    [7  :0]  ncq_xx_awlen;
+wire             ncq_xx_awlock;
+wire    [2  :0]  ncq_xx_awprot;
+wire    [2  :0]  ncq_xx_awsize;
+wire    [2  :0]  ncq_xx_awsnoop;
+wire             ncq_xx_awuser;
+wire             ncq_xx_no_op;
+wire    [127:0]  ncq_xx_wdata;
+wire    [7  :0]  ncq_xx_wid;
+wire             ncq_xx_wlast;
+wire    [15 :0]  ncq_xx_wstrb;
+wire             ncqbarclk;
+wire             ncqrdclk;
+wire             ncqwtclk;
+wire             pad_yy_icg_scan_en;
+wire    [73 :0]  piu0_ncq_ar_bus;
+wire             piu0_ncq_ar_req;
+wire    [73 :0]  piu0_ncq_aw_bus;
+wire             piu0_ncq_aw_req;
+wire             piu0_ncq_b_grant;
+wire             piu0_ncq_r_grant;
+wire    [143:0]  piu0_ncq_wcd_bus;
+wire             piu0_ncq_wcd_req;
+wire             piu0_ostd_cmplt;
+wire    [73 :0]  piu1_ncq_ar_bus;
+wire             piu1_ncq_ar_req;
+wire    [73 :0]  piu1_ncq_aw_bus;
+wire             piu1_ncq_aw_req;
+wire             piu1_ncq_b_grant;
+wire             piu1_ncq_r_grant;
+wire    [143:0]  piu1_ncq_wcd_bus;
+wire             piu1_ncq_wcd_req;
+wire             piu1_ostd_cmplt;
+wire    [73 :0]  piu2_ncq_ar_bus;
+wire             piu2_ncq_ar_req;
+wire    [73 :0]  piu2_ncq_aw_bus;
+wire             piu2_ncq_aw_req;
+wire             piu2_ncq_b_grant;
+wire             piu2_ncq_r_grant;
+wire    [143:0]  piu2_ncq_wcd_bus;
+wire             piu2_ncq_wcd_req;
+wire             piu2_ostd_cmplt;
+wire    [73 :0]  piu3_ncq_ar_bus;
+wire             piu3_ncq_ar_req;
+wire    [73 :0]  piu3_ncq_aw_bus;
+wire             piu3_ncq_aw_req;
+wire             piu3_ncq_b_grant;
+wire             piu3_ncq_r_grant;
+wire    [143:0]  piu3_ncq_wcd_bus;
+wire             piu3_ncq_wcd_req;
+wire             piu3_ostd_cmplt;
+wire    [3  :0]  piu_ar_req;
+wire    [3  :0]  piu_ar_req_sel;
+wire    [3  :0]  piu_aw_req;
+wire    [3  :0]  piu_aw_req_sel;
+wire    [3  :0]  piu_b_grant;
+wire    [3  :0]  piu_r_grant;
+wire    [3  :0]  piu_w_req;
+wire    [3  :0]  piu_w_req_sel;
+wire             raq_apbif_sel;
+wire             raq_create_en;
+wire    [1  :0]  raq_create_mid;
+wire             raq_empty;
+wire             raq_full;
+wire    [39 :0]  raq_pop_araddr;
+wire    [1  :0]  raq_pop_arbar;
+wire    [1  :0]  raq_pop_arburst;
+wire    [3  :0]  raq_pop_arcache;
+wire    [1  :0]  raq_pop_ardomain;
+wire    [7  :0]  raq_pop_arid;
+wire    [1  :0]  raq_pop_arlen;
+wire             raq_pop_arlock;
+wire    [2  :0]  raq_pop_arprot;
+wire    [2  :0]  raq_pop_arsize;
+wire    [3  :0]  raq_pop_arsnoop;
+wire    [2  :0]  raq_pop_aruser;
+wire             raq_pop_arvalid;
+wire    [73 :0]  raq_pop_bus;
+wire             raq_pop_bus_vld;
+wire             raq_pop_en;
+wire             raq_pop_en_gate;
+wire             raq_pop_so;
+wire    [137:0]  rdq_create_bus;
+wire             rdq_create_en;
+wire             rdq_empty;
+wire             rdq_full;
+wire    [137:0]  rdq_pop_bus;
+wire             rdq_pop_bus_vld;
+wire             rdq_pop_en;
+wire    [2  :0]  rdq_pop_mid;
+wire    [127:0]  rdq_pop_rdata;
+wire    [4  :0]  rdq_pop_rid;
+wire    [1  :0]  rdq_pop_rresp;
+wire    [39 :0]  sysio_ciu_apb_base;
+wire             total_ar_ostd_full;
+wire             total_aw_ostd_full;
+wire             total_ostd_cmplt;
+wire             waq_apbif_sel;
+wire    [7  :0]  waq_create_awid;
+wire             waq_create_en;
+wire             waq_empty;
+wire             waq_full;
+wire    [39 :0]  waq_pop_awaddr;
+wire    [1  :0]  waq_pop_awbar;
+wire    [1  :0]  waq_pop_awburst;
+wire    [3  :0]  waq_pop_awcache;
+wire    [1  :0]  waq_pop_awdomain;
+wire    [7  :0]  waq_pop_awid;
+wire    [1  :0]  waq_pop_awlen;
+wire             waq_pop_awlock;
+wire    [2  :0]  waq_pop_awprot;
+wire    [2  :0]  waq_pop_awsize;
+wire    [3  :0]  waq_pop_awsnoop;
+wire    [2  :0]  waq_pop_awuser;
+wire             waq_pop_awvalid;
+wire    [73 :0]  waq_pop_bus;
+wire             waq_pop_bus_vld;
+wire             waq_pop_en;
+wire             waq_pop_en_gated;
+wire    [9  :0]  wbq_create_bus;
+wire             wbq_create_en;
+wire             wbq_empty;
+wire             wbq_full;
+wire    [4  :0]  wbq_pop_bid;
+wire    [1  :0]  wbq_pop_bresp;
+wire    [9  :0]  wbq_pop_bus;
+wire             wbq_pop_bus_vld;
+wire             wbq_pop_en;
+wire    [2  :0]  wbq_pop_mid;
+wire             wdq_create_en;
+wire             wdq_empty;
+wire             wdq_full;
+wire    [151:0]  wdq_pop_bus;
+wire             wdq_pop_bus_vld;
+wire             wdq_pop_en;
+wire    [127:0]  wdq_pop_wdata;
+wire    [7  :0]  wdq_pop_wid;
+wire    [15 :0]  wdq_pop_wstrb;
+wire             wdq_pop_wvalid;
+wire    [7  :0]  woq_create_bus;
+wire             woq_create_en;
+wire             woq_empty;
+wire             woq_full;
+wire    [7  :0]  woq_pop_awid;
+wire    [7  :0]  woq_pop_bus;
+wire             woq_pop_bus_vld;
+wire             woq_pop_en;
+wire             woq_pop_vld;
+wire    [3  :0]  woq_pop_w_sel;
 
 
 parameter ADDRW = 40;
@@ -625,7 +625,7 @@ parameter ADDRW = 40;
 //                      read channel
 //==============================================================================
 //================================================
-//                  RAQ: 2-entry 
+//                  RAQ: 2-entry
 //================================================
 // use RAQ to cut down long path from ebiu ready to PIU grant
 parameter ARPROT_0   = 0;
@@ -825,7 +825,7 @@ assign ncq_ar_ebiu_sel = |ncq_ar_ebiu_ostd_cnt[4:0];
 assign raq_pop_so = raq_pop_arid[4:0] == SO_ID;
 
 assign ncq_apbif_arvalid = raq_pop_arvalid &&  raq_apbif_sel && !ncq_ar_ebiu_sel && !ncq_aw_apbif_sel;
-assign ncq_ebiu_arvalid  = raq_pop_arvalid && !raq_apbif_sel && !ncq_ar_apbif_sel && 
+assign ncq_ebiu_arvalid  = raq_pop_arvalid && !raq_apbif_sel && !ncq_ar_apbif_sel &&
                            (!ciu_so_ostd_dis || !raq_pop_so || !ncq_ar_ebiu_so_sel);
 
 assign ncq_xx_araddr[ADDRW-1:0] = raq_pop_araddr[ADDRW-1:0];
@@ -842,7 +842,7 @@ assign ncq_xx_ardomain[1:0]     = raq_pop_ardomain[1:0];
 assign ncq_xx_aruser            = raq_pop_aruser[1];
 
 //================================================
-//                  RDQ: 2-entry 
+//                  RDQ: 2-entry
 //================================================
 parameter RDATA_0 = 0;
 parameter RDATA_H = 127;
@@ -873,8 +873,8 @@ assign ebiu_ncq_rbus[RWIDTH-1:0] = {ebiu_ncq_rid[7:0],
                                     ebiu_ncq_rresp[1:0],
                                     ebiu_ncq_rdata[127:0]};
 
-assign rdq_create_bus[RWIDTH-1:0] = apbif_ncq_rvalid 
-                                  ? apbif_ncq_rbus[RWIDTH-1:0] 
+assign rdq_create_bus[RWIDTH-1:0] = apbif_ncq_rvalid
+                                  ? apbif_ncq_rbus[RWIDTH-1:0]
                                   : ebiu_ncq_rbus[RWIDTH-1:0];
 
 assign ncq_ebiu_r_grant  = rdq_create_en && !apbif_ncq_rvalid;
@@ -1028,7 +1028,7 @@ assign waq_create_en = |piu_aw_req[3:0] &&
                        !total_aw_ostd_full &&
                        !waq_full &&
                        !woq_full;
-    
+
 // &CombBeg;  @366
 always @( piu2_ncq_aw_bus[73:0]
        or piu_aw_req_sel[3:0]
@@ -1042,7 +1042,7 @@ begin
     4'b0100: waq_create_bus[AWWIDTH-1:0] = piu2_ncq_aw_bus[AWWIDTH-1:0];
     4'b1000: waq_create_bus[AWWIDTH-1:0] = piu3_ncq_aw_bus[AWWIDTH-1:0];
     default: waq_create_bus[AWWIDTH-1:0] = {AWWIDTH{1'bx}};
-  endcase 
+  endcase
 // &CombEnd; @374
 end
 
@@ -1194,7 +1194,7 @@ begin
     ncq_aw_apbif_sel <= 1'b0;
   else if (apbif_ncq_aw_grant && !ncq_apbif_b_grant)
     ncq_aw_apbif_sel <= 1'b1;
-  else if (!apbif_ncq_aw_grant && ncq_apbif_b_grant) 
+  else if (!apbif_ncq_aw_grant && ncq_apbif_b_grant)
     ncq_aw_apbif_sel <= 1'b0;
   else
     ncq_aw_apbif_sel <= ncq_aw_apbif_sel;
@@ -1333,7 +1333,7 @@ begin
     4'b0100: wdq_create_bus[WWIDTH-1:0] = {woq_pop_awid[7:0],piu2_ncq_wcd_bus[WWIDTH_P-1:0]};
     4'b1000: wdq_create_bus[WWIDTH-1:0] = {woq_pop_awid[7:0],piu3_ncq_wcd_bus[WWIDTH_P-1:0]};
     default: wdq_create_bus[WWIDTH-1:0] = {WWIDTH{1'bx}};
-  endcase 
+  endcase
 // &CombEnd; @623
 end
 
@@ -1488,7 +1488,7 @@ parameter BID_0   = 0;
 // &Force("nonport","wbq_empty"); @755
 // &Force("nonport", "wbq_pop_en"); @756
 
-assign wbq_create_en = (ebiu_ncq_bvalid || apbif_ncq_bvalid) && 
+assign wbq_create_en = (ebiu_ncq_bvalid || apbif_ncq_bvalid) &&
                        !wbq_full;
 
 assign apbif_ncq_bbus[BWIDTH-1:0] = {apbif_ncq_bresp[1:0],
@@ -1542,7 +1542,7 @@ ct_fifo #(.WIDTH(BWIDTH), .DEPTH(2), .PTR_W(1)) x_ct_ciu_ncq_wbq (
 //   .fifo_icg_en           (ciu_icg_en) @794
 // ); @795
 
-assign wbq_pop_mid[2:0]   = wbq_pop_bus[BID_7  : BID_5];    
+assign wbq_pop_mid[2:0]   = wbq_pop_bus[BID_7  : BID_5];
 assign wbq_pop_bid[4:0]   = wbq_pop_bus[BID_4  : BID_0];
 assign wbq_pop_bresp[1:0] = wbq_pop_bus[BRESP_1: BRESP_0];
 
@@ -1560,7 +1560,7 @@ assign ncq_piu2_bbus[BUSW-1:0] = ncq_piu_bbus[BUSW-1:0];
 assign ncq_piu3_bbus[BUSW-1:0] = ncq_piu_bbus[BUSW-1:0];
 
 //==============================================================================
-//                               BAR 
+//                               BAR
 //==============================================================================
 parameter PIU_NUM = 4;
 
@@ -1576,7 +1576,7 @@ begin
     for(i=0; i<PIU_NUM; i=i+1)
       ncq_bar_vld[i] <= 1'b0;
   end
-  else 
+  else
   begin
     for(i=0; i<PIU_NUM; i=i+1)
     begin
@@ -1595,7 +1595,7 @@ begin
   if (!cpurst_b)
   begin
     for(i=0; i<PIU_NUM; i=i+1)
-      ncq_bar_sh[i] <= 1'b0;    
+      ncq_bar_sh[i] <= 1'b0;
   end
   else
   begin
@@ -1733,8 +1733,8 @@ begin
     ncq_total_ar_ostd_cnt[4:0] <= 5'b0;
   else if (raq_create_en && !rdq_pop_en)
     ncq_total_ar_ostd_cnt[4:0] <= ncq_total_ar_ostd_cnt[4:0] + 5'b1;
-  else if (!raq_create_en && rdq_pop_en) 
-    ncq_total_ar_ostd_cnt[4:0] <= ncq_total_ar_ostd_cnt_dec[4:0]; 
+  else if (!raq_create_en && rdq_pop_en)
+    ncq_total_ar_ostd_cnt[4:0] <= ncq_total_ar_ostd_cnt_dec[4:0];
 end
 
 assign ncq_total_ar_ostd_cnt_dec[4:0] = ncq_total_ar_ostd_cnt[4:0] - 5'b1;
@@ -1745,8 +1745,8 @@ begin
     ncq_total_aw_ostd_cnt[4:0] <= 5'b0;
   else if (waq_create_en && !wbq_pop_en)
     ncq_total_aw_ostd_cnt[4:0] <= ncq_total_aw_ostd_cnt[4:0] + 5'b1;
-  else if (!waq_create_en && wbq_pop_en) 
-    ncq_total_aw_ostd_cnt[4:0] <= ncq_total_aw_ostd_cnt_dec[4:0]; 
+  else if (!waq_create_en && wbq_pop_en)
+    ncq_total_aw_ostd_cnt[4:0] <= ncq_total_aw_ostd_cnt_dec[4:0];
 end
 
 assign ncq_total_aw_ostd_cnt_dec[4:0] = ncq_total_aw_ostd_cnt[4:0] - 5'b1;
@@ -1759,19 +1759,19 @@ assign piu1_ostd_cmplt  = (ncq_bar_ar_ostd_cnt_piu1[4:0] == 5'b0) && (ncq_bar_aw
 assign piu2_ostd_cmplt  = (ncq_bar_ar_ostd_cnt_piu2[4:0] == 5'b0) && (ncq_bar_aw_ostd_cnt_piu2[4:0] == 5'b0);
 assign piu3_ostd_cmplt  = (ncq_bar_ar_ostd_cnt_piu3[4:0] == 5'b0) && (ncq_bar_aw_ostd_cnt_piu3[4:0] == 5'b0);
 
-assign ncq_piu_bar_cmplt[0] = ncq_bar_vld[0] && 
+assign ncq_piu_bar_cmplt[0] = ncq_bar_vld[0] &&
                                  (piu0_ostd_cmplt ||
                                   ciu_chr2_bar_dis);
 
-assign ncq_piu_bar_cmplt[1] = ncq_bar_vld[1] && 
+assign ncq_piu_bar_cmplt[1] = ncq_bar_vld[1] &&
                                  (piu1_ostd_cmplt ||
                                   ciu_chr2_bar_dis);
 
-assign ncq_piu_bar_cmplt[2] = ncq_bar_vld[2] && 
+assign ncq_piu_bar_cmplt[2] = ncq_bar_vld[2] &&
                                  (piu2_ostd_cmplt ||
                                   ciu_chr2_bar_dis);
 
-assign ncq_piu_bar_cmplt[3] = ncq_bar_vld[3] && 
+assign ncq_piu_bar_cmplt[3] = ncq_bar_vld[3] &&
                                  (piu3_ostd_cmplt ||
                                   ciu_chr2_bar_dis);
 
@@ -1865,7 +1865,7 @@ gated_clk_cell  x_ncq_barcnt_gated_clk (
 //          .module_en   (ciu_icg_en), @1206
 //          .local_en    (ncq_barcnt_clk_en), @1207
 //          .clk_out     (ncq_barcnt_clk)); @1208
-     
+
 // &ModuleEnd; @1210
 endmodule
 

@@ -29,34 +29,34 @@ module ct_ifu_bht_pre_array(
 );
 
 // &Ports; @23
-input           bht_pre_array_clk_en; 
-input           bht_pred_array_cen_b; 
-input   [63:0]  bht_pred_array_din;  
-input           bht_pred_array_gwen; 
-input   [9 :0]  bht_pred_array_index; 
-input   [63:0]  bht_pred_bwen;       
-input           cp0_ifu_icg_en;      
-input           cp0_yy_clk_en;       
-input           forever_cpuclk;      
-input           pad_yy_icg_scan_en;  
-output  [63:0]  bht_pre_data_out;    
+input           bht_pre_array_clk_en;
+input           bht_pred_array_cen_b;
+input   [63:0]  bht_pred_array_din;
+input           bht_pred_array_gwen;
+input   [9 :0]  bht_pred_array_index;
+input   [63:0]  bht_pred_bwen;
+input           cp0_ifu_icg_en;
+input           cp0_yy_clk_en;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+output  [63:0]  bht_pre_data_out;
 
 // &Regs; @24
 
 // &Wires; @25
-wire            bht_pre_array_clk_en; 
-wire            bht_pre_clk;         
-wire    [63:0]  bht_pre_data_out;    
-wire            bht_pre_en;          
-wire            bht_pred_array_cen_b; 
-wire    [63:0]  bht_pred_array_din;  
-wire            bht_pred_array_gwen; 
-wire    [9 :0]  bht_pred_array_index; 
-wire    [63:0]  bht_pred_bwen;       
-wire            cp0_ifu_icg_en;      
-wire            cp0_yy_clk_en;       
-wire            forever_cpuclk;      
-wire            pad_yy_icg_scan_en;  
+wire            bht_pre_array_clk_en;
+wire            bht_pre_clk;
+wire    [63:0]  bht_pre_data_out;
+wire            bht_pre_en;
+wire            bht_pred_array_cen_b;
+wire    [63:0]  bht_pred_array_din;
+wire            bht_pred_array_gwen;
+wire    [9 :0]  bht_pred_array_index;
+wire    [63:0]  bht_pred_bwen;
+wire            cp0_ifu_icg_en;
+wire            cp0_yy_clk_en;
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
 
 
 //Gate Clk

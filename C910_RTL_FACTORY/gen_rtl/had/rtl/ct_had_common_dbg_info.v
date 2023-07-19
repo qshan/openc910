@@ -28,44 +28,44 @@ module ct_had_common_dbg_info(
 
 
 // &Ports; @25
-input   [292:0]  ciu_had_dbg_info;       
-input            core0_dbg_ack_pc;       
-input            core1_dbg_ack_pc;       
-input            cpurst_b;               
-input            dbgfifo2_read_ren;      
-input            forever_cpuclk;         
-input   [43 :0]  l2c_had_dbg_info;       
-input            pad_yy_icg_scan_en;     
-output  [63 :0]  dbgfifo2_data;          
+input   [292:0]  ciu_had_dbg_info;
+input            core0_dbg_ack_pc;
+input            core1_dbg_ack_pc;
+input            cpurst_b;
+input            dbgfifo2_read_ren;
+input            forever_cpuclk;
+input   [43 :0]  l2c_had_dbg_info;
+input            pad_yy_icg_scan_en;
+output  [63 :0]  dbgfifo2_data;
 
 // &Regs; @26
-reg              dbg_ack_info_f;         
-reg     [2  :0]  dbg_rptr;               
-reg     [63 :0]  dbginfo_dout;           
-reg     [336:0]  xx_dbg_info_reg;        
+reg              dbg_ack_info_f;
+reg     [2  :0]  dbg_rptr;
+reg     [63 :0]  dbginfo_dout;
+reg     [336:0]  xx_dbg_info_reg;
 
 // &Wires; @27
-wire    [292:0]  ciu_had_dbg_info;       
-wire             core0_dbg_ack_pc;       
-wire             core0_dbg_ack_pc_sync;  
-wire             core1_dbg_ack_pc;       
-wire             core1_dbg_ack_pc_sync;  
-wire             core2_dbg_ack_pc_sync;  
-wire             core3_dbg_ack_pc_sync;  
-wire             cpurst_b;               
-wire             dbg_ack_info;           
-wire             dbg_info_record;        
-wire             dbg_rptr_done;          
-wire    [63 :0]  dbgfifo2_data;          
-wire             dbgfifo2_read_ren;      
-wire             dbginfo_clk;            
-wire             dbginfo_clk_en;         
-wire             forever_cpuclk;         
-wire             had_dbg_ack_pc;         
-wire    [43 :0]  l2c_had_dbg_info;       
-wire             pad_yy_icg_scan_en;     
-wire    [336:0]  xx_dbg_info;            
-wire    [383:0]  xx_dbg_info_reg_padding; 
+wire    [292:0]  ciu_had_dbg_info;
+wire             core0_dbg_ack_pc;
+wire             core0_dbg_ack_pc_sync;
+wire             core1_dbg_ack_pc;
+wire             core1_dbg_ack_pc_sync;
+wire             core2_dbg_ack_pc_sync;
+wire             core3_dbg_ack_pc_sync;
+wire             cpurst_b;
+wire             dbg_ack_info;
+wire             dbg_info_record;
+wire             dbg_rptr_done;
+wire    [63 :0]  dbgfifo2_data;
+wire             dbgfifo2_read_ren;
+wire             dbginfo_clk;
+wire             dbginfo_clk_en;
+wire             forever_cpuclk;
+wire             had_dbg_ack_pc;
+wire    [43 :0]  l2c_had_dbg_info;
+wire             pad_yy_icg_scan_en;
+wire    [336:0]  xx_dbg_info;
+wire    [383:0]  xx_dbg_info_reg_padding;
 
 
 //==========================================================

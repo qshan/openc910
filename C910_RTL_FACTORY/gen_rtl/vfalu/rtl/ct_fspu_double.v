@@ -28,51 +28,51 @@ module ct_fspu_double(
 );
 
 // &Ports; @20
-input           ex1_op_fmvvf;        
-input           ex1_op_fsgnj;        
-input           ex1_op_fsgnjn;       
-input           ex1_op_fsgnjx;       
-input   [63:0]  ex1_oper0;           
-input   [63:0]  ex1_oper1;           
-input   [63:0]  mtvr_src0;           
-output  [63:0]  ex1_result;          
-output  [63:0]  result_fclass;       
-output  [63:0]  result_fmfvr;        
+input           ex1_op_fmvvf;
+input           ex1_op_fsgnj;
+input           ex1_op_fsgnjn;
+input           ex1_op_fsgnjx;
+input   [63:0]  ex1_oper0;
+input   [63:0]  ex1_oper1;
+input   [63:0]  mtvr_src0;
+output  [63:0]  ex1_result;
+output  [63:0]  result_fclass;
+output  [63:0]  result_fmfvr;
 
 // &Regs; @21
 
 // &Wires; @22
-wire            ex1_doub_expnt0_max; 
-wire            ex1_doub_expnt0_zero; 
-wire            ex1_doub_frac0_all0; 
-wire            ex1_doub_frac0_msb;  
-wire            ex1_doub_neg_dn;     
-wire            ex1_doub_neg_inf;    
-wire            ex1_doub_neg_nm;     
-wire            ex1_doub_neg_zero;   
-wire            ex1_doub_op0_sign;   
-wire            ex1_doub_pos_dn;     
-wire            ex1_doub_pos_inf;    
-wire            ex1_doub_pos_nm;     
-wire            ex1_doub_pos_zero;   
-wire            ex1_doub_qnan;       
-wire            ex1_doub_snan;       
-wire            ex1_op_fmvvf;        
-wire            ex1_op_fsgnj;        
-wire            ex1_op_fsgnjn;       
-wire            ex1_op_fsgnjx;       
-wire    [63:0]  ex1_oper0;           
-wire    [63:0]  ex1_oper1;           
-wire    [63:0]  ex1_result;          
-wire    [63:0]  mtvr_src0;           
-wire    [63:0]  result_fclass;       
-wire    [63:0]  result_fclassd;      
-wire    [63:0]  result_fmfvr;        
-wire    [63:0]  result_fmfvrd;       
-wire    [63:0]  result_fmtvrd;       
-wire    [63:0]  result_fsgnjd;       
-wire    [63:0]  result_fsgnjnd;      
-wire    [63:0]  result_fsgnjxd;      
+wire            ex1_doub_expnt0_max;
+wire            ex1_doub_expnt0_zero;
+wire            ex1_doub_frac0_all0;
+wire            ex1_doub_frac0_msb;
+wire            ex1_doub_neg_dn;
+wire            ex1_doub_neg_inf;
+wire            ex1_doub_neg_nm;
+wire            ex1_doub_neg_zero;
+wire            ex1_doub_op0_sign;
+wire            ex1_doub_pos_dn;
+wire            ex1_doub_pos_inf;
+wire            ex1_doub_pos_nm;
+wire            ex1_doub_pos_zero;
+wire            ex1_doub_qnan;
+wire            ex1_doub_snan;
+wire            ex1_op_fmvvf;
+wire            ex1_op_fsgnj;
+wire            ex1_op_fsgnjn;
+wire            ex1_op_fsgnjx;
+wire    [63:0]  ex1_oper0;
+wire    [63:0]  ex1_oper1;
+wire    [63:0]  ex1_result;
+wire    [63:0]  mtvr_src0;
+wire    [63:0]  result_fclass;
+wire    [63:0]  result_fclassd;
+wire    [63:0]  result_fmfvr;
+wire    [63:0]  result_fmfvrd;
+wire    [63:0]  result_fmtvrd;
+wire    [63:0]  result_fsgnjd;
+wire    [63:0]  result_fsgnjnd;
+wire    [63:0]  result_fsgnjxd;
 
 // &Force("bus","ex1_oper1",63,0); @23
 //Sign bit prepare
@@ -91,13 +91,13 @@ assign ex1_doub_frac0_all0    = ~|ex1_oper0[51:0];
 assign ex1_doub_frac0_msb     = ex1_oper0[51];
 
 
-//FCLASS.D 
+//FCLASS.D
 assign ex1_doub_neg_inf  = ex1_doub_op0_sign   && ex1_doub_expnt0_max  && ex1_doub_frac0_all0;
 assign ex1_doub_neg_nm   = ex1_doub_op0_sign   && !ex1_doub_expnt0_max && !ex1_doub_expnt0_zero;
 assign ex1_doub_neg_dn   = ex1_doub_op0_sign   && ex1_doub_expnt0_zero && !ex1_doub_frac0_all0;
 assign ex1_doub_neg_zero = ex1_doub_op0_sign   && ex1_doub_expnt0_zero && ex1_doub_frac0_all0;
 assign ex1_doub_pos_zero = !ex1_doub_op0_sign  && ex1_doub_expnt0_zero && ex1_doub_frac0_all0;
-assign ex1_doub_pos_dn   = !ex1_doub_op0_sign  && ex1_doub_expnt0_zero && !ex1_doub_frac0_all0; 
+assign ex1_doub_pos_dn   = !ex1_doub_op0_sign  && ex1_doub_expnt0_zero && !ex1_doub_frac0_all0;
 assign ex1_doub_pos_nm   = !ex1_doub_op0_sign  && !ex1_doub_expnt0_max && !ex1_doub_expnt0_zero;
 assign ex1_doub_pos_inf  = !ex1_doub_op0_sign  && ex1_doub_expnt0_max  && ex1_doub_frac0_all0;
 assign ex1_doub_snan     = ex1_doub_expnt0_max && !ex1_doub_frac0_all0 && !ex1_doub_frac0_msb;
@@ -141,10 +141,10 @@ assign result_fmfvr[63:0]   = result_fmfvrd[63:0];
 assign result_fclass[63:0]  = result_fclassd[63:0];
 
 //Final Result
-assign ex1_result[63:0] = {64{ex1_op_fmvvf}}        & result_fmtvrd[63:0]  | 
-                          {64{ex1_op_fsgnj}}       & result_fsgnjd[63:0]  | 
-                          {64{ex1_op_fsgnjn}}      & result_fsgnjnd[63:0] | 
-                          {64{ex1_op_fsgnjx}}      & result_fsgnjxd[63:0]; 
+assign ex1_result[63:0] = {64{ex1_op_fmvvf}}        & result_fmtvrd[63:0]  |
+                          {64{ex1_op_fsgnj}}       & result_fsgnjd[63:0]  |
+                          {64{ex1_op_fsgnjn}}      & result_fsgnjnd[63:0] |
+                          {64{ex1_op_fsgnjx}}      & result_fsgnjxd[63:0];
 
 // &ModuleEnd; @95
 endmodule

@@ -233,819 +233,819 @@ module ct_cp0_regs(
 );
 
 // &Ports; @25
-input   [39 :0]  biu_cp0_apb_base;               
-input            biu_cp0_cmplt;                  
-input   [2  :0]  biu_cp0_coreid;                 
-input            biu_cp0_me_int;                 
-input            biu_cp0_ms_int;                 
-input            biu_cp0_mt_int;                 
-input   [127:0]  biu_cp0_rdata;                  
-input   [39 :0]  biu_cp0_rvba;                   
-input            biu_cp0_se_int;                 
-input            biu_cp0_ss_int;                 
-input            biu_cp0_st_int;                 
-input            cp0_mret;                       
-input            cp0_sret;                       
-input            cp0_yy_clk_en;                  
-input            cpurst_b;                       
-input            forever_cpuclk;                 
-input   [63 :0]  hpcp_cp0_data;                  
-input            hpcp_cp0_int_vld;               
-input            hpcp_cp0_sce;                   
-input   [6  :0]  idu_cp0_fesr_acc_updt_val;      
-input            idu_cp0_fesr_acc_updt_vld;      
-input            ifu_cp0_bht_inv_done;           
-input            ifu_cp0_btb_inv_done;           
-input            ifu_cp0_icache_inv_done;        
-input   [127:0]  ifu_cp0_icache_read_data;       
-input            ifu_cp0_icache_read_data_vld;   
-input            ifu_cp0_ind_btb_inv_done;       
-input            ifu_cp0_rst_inv_req;            
-input   [11 :0]  iui_regs_addr;                  
-input            iui_regs_csr_wr;                
-input            iui_regs_csrw;                  
-input            iui_regs_ex3_inst_csr;          
-input            iui_regs_inst_mret;             
-input            iui_regs_inst_sret;             
-input            iui_regs_inv_expt;              
-input   [31 :0]  iui_regs_opcode;                
-input   [63 :0]  iui_regs_ori_src0;              
-input            iui_regs_rst_inv_d;             
-input            iui_regs_rst_inv_i;             
-input            iui_regs_sel;                   
-input   [63 :0]  iui_regs_src0;                  
-input            lsu_cp0_dcache_done;            
-input   [127:0]  lsu_cp0_dcache_read_data;       
-input            lsu_cp0_dcache_read_data_vld;   
-input   [63 :0]  mmu_cp0_data;                   
-input   [63 :0]  mmu_cp0_satp_data;              
-input            pad_yy_icg_scan_en;             
-input   [63 :0]  pmp_cp0_data;                   
-input   [63 :0]  rtu_cp0_epc;                    
-input            rtu_cp0_expt_gateclk_vld;       
-input   [63 :0]  rtu_cp0_expt_mtval;             
-input            rtu_cp0_expt_vld;               
-input            rtu_cp0_fp_dirty_vld;           
-input            rtu_cp0_int_ack;                
-input            rtu_cp0_vec_dirty_vld;          
-input            rtu_cp0_vsetvl_vill;            
-input   [7  :0]  rtu_cp0_vsetvl_vl;              
-input            rtu_cp0_vsetvl_vl_vld;          
-input   [1  :0]  rtu_cp0_vsetvl_vlmul;           
-input   [2  :0]  rtu_cp0_vsetvl_vsew;            
-input            rtu_cp0_vsetvl_vtype_vld;       
-input   [6  :0]  rtu_cp0_vstart;                 
-input            rtu_cp0_vstart_vld;             
-input   [5  :0]  rtu_yy_xx_expt_vec;             
-input            rtu_yy_xx_flush;                
-output           cp0_biu_icg_en;                 
-output  [31 :0]  cp0_had_cpuid_0;                
-output  [1  :0]  cp0_had_trace_pm_wdata;         
-output           cp0_had_trace_pm_wen;           
-output           cp0_hpcp_icg_en;                
-output  [11 :0]  cp0_hpcp_index;                 
-output           cp0_hpcp_int_disable;           
-output  [31 :0]  cp0_hpcp_mcntwen;               
-output           cp0_hpcp_pmdm;                  
-output           cp0_hpcp_pmds;                  
-output           cp0_hpcp_pmdu;                  
-output  [63 :0]  cp0_hpcp_wdata;                 
-output           cp0_idu_cskyee;                 
-output           cp0_idu_dlb_disable;            
-output  [2  :0]  cp0_idu_frm;                    
-output  [1  :0]  cp0_idu_fs;                     
-output           cp0_idu_icg_en;                 
-output           cp0_idu_iq_bypass_disable;      
-output           cp0_idu_rob_fold_disable;       
-output           cp0_idu_src2_fwd_disable;       
-output           cp0_idu_srcv2_fwd_disable;      
-output           cp0_idu_vill;                   
-output  [1  :0]  cp0_idu_vs;                     
-output  [6  :0]  cp0_idu_vstart;                 
-output           cp0_idu_zero_delay_move_disable; 
-output           cp0_ifu_bht_en;                 
-output           cp0_ifu_bht_inv;                
-output           cp0_ifu_btb_en;                 
-output           cp0_ifu_btb_inv;                
-output           cp0_ifu_icache_en;              
-output           cp0_ifu_icache_inv;             
-output           cp0_ifu_icache_pref_en;         
-output  [16 :0]  cp0_ifu_icache_read_index;      
-output           cp0_ifu_icache_read_req;        
-output           cp0_ifu_icache_read_tag;        
-output           cp0_ifu_icache_read_way;        
-output           cp0_ifu_icg_en;                 
-output           cp0_ifu_ind_btb_en;             
-output           cp0_ifu_ind_btb_inv;            
-output           cp0_ifu_insde;                  
-output           cp0_ifu_iwpe;                   
-output           cp0_ifu_l0btb_en;               
-output           cp0_ifu_lbuf_en;                
-output           cp0_ifu_nsfe;                   
-output           cp0_ifu_ras_en;                 
-output  [39 :0]  cp0_ifu_rvbr;                   
-output  [39 :0]  cp0_ifu_vbr;                    
-output  [7  :0]  cp0_ifu_vl;                     
-output  [1  :0]  cp0_ifu_vlmul;                  
-output           cp0_ifu_vsetvli_pred_disable;   
-output           cp0_ifu_vsetvli_pred_mode;      
-output  [2  :0]  cp0_ifu_vsew;                   
-output           cp0_iu_div_entry_disable;       
-output           cp0_iu_div_entry_disable_clr;   
-output  [38 :0]  cp0_iu_ex3_efpc;                
-output           cp0_iu_ex3_efpc_vld;            
-output           cp0_iu_icg_en;                  
-output           cp0_iu_vill;                    
-output  [7  :0]  cp0_iu_vl;                      
-output           cp0_iu_vsetvli_pre_decd_disable; 
-output  [6  :0]  cp0_iu_vstart;                  
-output           cp0_lsu_amr;                    
-output           cp0_lsu_amr2;                   
-output           cp0_lsu_cb_aclr_dis;            
-output           cp0_lsu_corr_dis;               
-output           cp0_lsu_ctc_flush_dis;          
-output           cp0_lsu_da_fwd_dis;             
-output           cp0_lsu_dcache_clr;             
-output           cp0_lsu_dcache_en;              
-output           cp0_lsu_dcache_inv;             
-output  [1  :0]  cp0_lsu_dcache_pref_dist;       
-output           cp0_lsu_dcache_pref_en;         
-output  [16 :0]  cp0_lsu_dcache_read_index;      
-output           cp0_lsu_dcache_read_ld_tag;     
-output           cp0_lsu_dcache_read_req;        
-output           cp0_lsu_dcache_read_st_tag;     
-output           cp0_lsu_dcache_read_way;        
-output           cp0_lsu_fencei_broad_dis;       
-output           cp0_lsu_fencerw_broad_dis;      
-output           cp0_lsu_icg_en;                 
-output  [1  :0]  cp0_lsu_l2_pref_dist;           
-output           cp0_lsu_l2_pref_en;             
-output           cp0_lsu_l2_st_pref_en;          
-output           cp0_lsu_mm;                     
-output           cp0_lsu_nsfe;                   
-output           cp0_lsu_pfu_mmu_dis;            
-output  [29 :0]  cp0_lsu_timeout_cnt;            
-output           cp0_lsu_tlb_broad_dis;          
-output           cp0_lsu_tvm;                    
-output           cp0_lsu_ucme;                   
-output  [6  :0]  cp0_lsu_vstart;                 
-output           cp0_lsu_wa;                     
-output           cp0_lsu_wr_burst_dis;           
-output           cp0_mmu_cskyee;                 
-output           cp0_mmu_icg_en;                 
-output           cp0_mmu_maee;                   
-output  [1  :0]  cp0_mmu_mpp;                    
-output           cp0_mmu_mprv;                   
-output           cp0_mmu_mxr;                    
-output           cp0_mmu_ptw_en;                 
-output  [1  :0]  cp0_mmu_reg_num;                
-output           cp0_mmu_satp_sel;               
-output           cp0_mmu_sum;                    
-output  [63 :0]  cp0_mmu_wdata;                  
-output           cp0_mmu_wreg;                   
-output  [63 :0]  cp0_pad_mstatus;                
-output           cp0_pmp_icg_en;                 
-output  [1  :0]  cp0_pmp_mpp;                    
-output           cp0_pmp_mprv;                   
-output  [4  :0]  cp0_pmp_reg_num;                
-output  [63 :0]  cp0_pmp_wdata;                  
-output           cp0_pmp_wreg;                   
-output           cp0_rtu_icg_en;                 
-output           cp0_rtu_srt_en;                 
-output  [63 :0]  cp0_vfpu_fcsr;                  
-output  [31 :0]  cp0_vfpu_fxcr;                  
-output           cp0_vfpu_icg_en;                
-output  [7  :0]  cp0_vfpu_vl;                    
-output           cp0_xx_core_icg_en;             
-output           cp0_yy_dcache_pref_en;          
-output           cp0_yy_hyper;                   
-output  [1  :0]  cp0_yy_priv_mode;               
-output           cp0_yy_virtual_mode;            
-output           regs_iui_cfr_no_op;             
-output           regs_iui_chk_vld;               
-output           regs_iui_cindex_l2;             
-output           regs_iui_cins_no_op;            
-output           regs_iui_cskyee;                
-output  [63 :0]  regs_iui_data_out;              
-output           regs_iui_dca_sel;               
-output           regs_iui_fs_off;                
-output           regs_iui_hpcp_regs_sel;         
-output           regs_iui_hpcp_scr_inv;          
-output  [14 :0]  regs_iui_int_sel;               
-output           regs_iui_l2_regs_sel;           
-output  [1  :0]  regs_iui_pm;                    
-output  [3  :0]  regs_iui_reg_idx;               
-output           regs_iui_scnt_inv;              
-output           regs_iui_tee_ff;                
-output           regs_iui_tee_vld;               
-output           regs_iui_tsr;                   
-output           regs_iui_tvm;                   
-output           regs_iui_tw;                    
-output           regs_iui_ucnt_inv;              
-output           regs_iui_v;                     
-output           regs_iui_vs_off;                
-output  [63 :0]  regs_iui_wdata;                 
-output           regs_lpmd_int_vld;              
-output           regs_xx_icg_en;                 
+input   [39 :0]  biu_cp0_apb_base;
+input            biu_cp0_cmplt;
+input   [2  :0]  biu_cp0_coreid;
+input            biu_cp0_me_int;
+input            biu_cp0_ms_int;
+input            biu_cp0_mt_int;
+input   [127:0]  biu_cp0_rdata;
+input   [39 :0]  biu_cp0_rvba;
+input            biu_cp0_se_int;
+input            biu_cp0_ss_int;
+input            biu_cp0_st_int;
+input            cp0_mret;
+input            cp0_sret;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            forever_cpuclk;
+input   [63 :0]  hpcp_cp0_data;
+input            hpcp_cp0_int_vld;
+input            hpcp_cp0_sce;
+input   [6  :0]  idu_cp0_fesr_acc_updt_val;
+input            idu_cp0_fesr_acc_updt_vld;
+input            ifu_cp0_bht_inv_done;
+input            ifu_cp0_btb_inv_done;
+input            ifu_cp0_icache_inv_done;
+input   [127:0]  ifu_cp0_icache_read_data;
+input            ifu_cp0_icache_read_data_vld;
+input            ifu_cp0_ind_btb_inv_done;
+input            ifu_cp0_rst_inv_req;
+input   [11 :0]  iui_regs_addr;
+input            iui_regs_csr_wr;
+input            iui_regs_csrw;
+input            iui_regs_ex3_inst_csr;
+input            iui_regs_inst_mret;
+input            iui_regs_inst_sret;
+input            iui_regs_inv_expt;
+input   [31 :0]  iui_regs_opcode;
+input   [63 :0]  iui_regs_ori_src0;
+input            iui_regs_rst_inv_d;
+input            iui_regs_rst_inv_i;
+input            iui_regs_sel;
+input   [63 :0]  iui_regs_src0;
+input            lsu_cp0_dcache_done;
+input   [127:0]  lsu_cp0_dcache_read_data;
+input            lsu_cp0_dcache_read_data_vld;
+input   [63 :0]  mmu_cp0_data;
+input   [63 :0]  mmu_cp0_satp_data;
+input            pad_yy_icg_scan_en;
+input   [63 :0]  pmp_cp0_data;
+input   [63 :0]  rtu_cp0_epc;
+input            rtu_cp0_expt_gateclk_vld;
+input   [63 :0]  rtu_cp0_expt_mtval;
+input            rtu_cp0_expt_vld;
+input            rtu_cp0_fp_dirty_vld;
+input            rtu_cp0_int_ack;
+input            rtu_cp0_vec_dirty_vld;
+input            rtu_cp0_vsetvl_vill;
+input   [7  :0]  rtu_cp0_vsetvl_vl;
+input            rtu_cp0_vsetvl_vl_vld;
+input   [1  :0]  rtu_cp0_vsetvl_vlmul;
+input   [2  :0]  rtu_cp0_vsetvl_vsew;
+input            rtu_cp0_vsetvl_vtype_vld;
+input   [6  :0]  rtu_cp0_vstart;
+input            rtu_cp0_vstart_vld;
+input   [5  :0]  rtu_yy_xx_expt_vec;
+input            rtu_yy_xx_flush;
+output           cp0_biu_icg_en;
+output  [31 :0]  cp0_had_cpuid_0;
+output  [1  :0]  cp0_had_trace_pm_wdata;
+output           cp0_had_trace_pm_wen;
+output           cp0_hpcp_icg_en;
+output  [11 :0]  cp0_hpcp_index;
+output           cp0_hpcp_int_disable;
+output  [31 :0]  cp0_hpcp_mcntwen;
+output           cp0_hpcp_pmdm;
+output           cp0_hpcp_pmds;
+output           cp0_hpcp_pmdu;
+output  [63 :0]  cp0_hpcp_wdata;
+output           cp0_idu_cskyee;
+output           cp0_idu_dlb_disable;
+output  [2  :0]  cp0_idu_frm;
+output  [1  :0]  cp0_idu_fs;
+output           cp0_idu_icg_en;
+output           cp0_idu_iq_bypass_disable;
+output           cp0_idu_rob_fold_disable;
+output           cp0_idu_src2_fwd_disable;
+output           cp0_idu_srcv2_fwd_disable;
+output           cp0_idu_vill;
+output  [1  :0]  cp0_idu_vs;
+output  [6  :0]  cp0_idu_vstart;
+output           cp0_idu_zero_delay_move_disable;
+output           cp0_ifu_bht_en;
+output           cp0_ifu_bht_inv;
+output           cp0_ifu_btb_en;
+output           cp0_ifu_btb_inv;
+output           cp0_ifu_icache_en;
+output           cp0_ifu_icache_inv;
+output           cp0_ifu_icache_pref_en;
+output  [16 :0]  cp0_ifu_icache_read_index;
+output           cp0_ifu_icache_read_req;
+output           cp0_ifu_icache_read_tag;
+output           cp0_ifu_icache_read_way;
+output           cp0_ifu_icg_en;
+output           cp0_ifu_ind_btb_en;
+output           cp0_ifu_ind_btb_inv;
+output           cp0_ifu_insde;
+output           cp0_ifu_iwpe;
+output           cp0_ifu_l0btb_en;
+output           cp0_ifu_lbuf_en;
+output           cp0_ifu_nsfe;
+output           cp0_ifu_ras_en;
+output  [39 :0]  cp0_ifu_rvbr;
+output  [39 :0]  cp0_ifu_vbr;
+output  [7  :0]  cp0_ifu_vl;
+output  [1  :0]  cp0_ifu_vlmul;
+output           cp0_ifu_vsetvli_pred_disable;
+output           cp0_ifu_vsetvli_pred_mode;
+output  [2  :0]  cp0_ifu_vsew;
+output           cp0_iu_div_entry_disable;
+output           cp0_iu_div_entry_disable_clr;
+output  [38 :0]  cp0_iu_ex3_efpc;
+output           cp0_iu_ex3_efpc_vld;
+output           cp0_iu_icg_en;
+output           cp0_iu_vill;
+output  [7  :0]  cp0_iu_vl;
+output           cp0_iu_vsetvli_pre_decd_disable;
+output  [6  :0]  cp0_iu_vstart;
+output           cp0_lsu_amr;
+output           cp0_lsu_amr2;
+output           cp0_lsu_cb_aclr_dis;
+output           cp0_lsu_corr_dis;
+output           cp0_lsu_ctc_flush_dis;
+output           cp0_lsu_da_fwd_dis;
+output           cp0_lsu_dcache_clr;
+output           cp0_lsu_dcache_en;
+output           cp0_lsu_dcache_inv;
+output  [1  :0]  cp0_lsu_dcache_pref_dist;
+output           cp0_lsu_dcache_pref_en;
+output  [16 :0]  cp0_lsu_dcache_read_index;
+output           cp0_lsu_dcache_read_ld_tag;
+output           cp0_lsu_dcache_read_req;
+output           cp0_lsu_dcache_read_st_tag;
+output           cp0_lsu_dcache_read_way;
+output           cp0_lsu_fencei_broad_dis;
+output           cp0_lsu_fencerw_broad_dis;
+output           cp0_lsu_icg_en;
+output  [1  :0]  cp0_lsu_l2_pref_dist;
+output           cp0_lsu_l2_pref_en;
+output           cp0_lsu_l2_st_pref_en;
+output           cp0_lsu_mm;
+output           cp0_lsu_nsfe;
+output           cp0_lsu_pfu_mmu_dis;
+output  [29 :0]  cp0_lsu_timeout_cnt;
+output           cp0_lsu_tlb_broad_dis;
+output           cp0_lsu_tvm;
+output           cp0_lsu_ucme;
+output  [6  :0]  cp0_lsu_vstart;
+output           cp0_lsu_wa;
+output           cp0_lsu_wr_burst_dis;
+output           cp0_mmu_cskyee;
+output           cp0_mmu_icg_en;
+output           cp0_mmu_maee;
+output  [1  :0]  cp0_mmu_mpp;
+output           cp0_mmu_mprv;
+output           cp0_mmu_mxr;
+output           cp0_mmu_ptw_en;
+output  [1  :0]  cp0_mmu_reg_num;
+output           cp0_mmu_satp_sel;
+output           cp0_mmu_sum;
+output  [63 :0]  cp0_mmu_wdata;
+output           cp0_mmu_wreg;
+output  [63 :0]  cp0_pad_mstatus;
+output           cp0_pmp_icg_en;
+output  [1  :0]  cp0_pmp_mpp;
+output           cp0_pmp_mprv;
+output  [4  :0]  cp0_pmp_reg_num;
+output  [63 :0]  cp0_pmp_wdata;
+output           cp0_pmp_wreg;
+output           cp0_rtu_icg_en;
+output           cp0_rtu_srt_en;
+output  [63 :0]  cp0_vfpu_fcsr;
+output  [31 :0]  cp0_vfpu_fxcr;
+output           cp0_vfpu_icg_en;
+output  [7  :0]  cp0_vfpu_vl;
+output           cp0_xx_core_icg_en;
+output           cp0_yy_dcache_pref_en;
+output           cp0_yy_hyper;
+output  [1  :0]  cp0_yy_priv_mode;
+output           cp0_yy_virtual_mode;
+output           regs_iui_cfr_no_op;
+output           regs_iui_chk_vld;
+output           regs_iui_cindex_l2;
+output           regs_iui_cins_no_op;
+output           regs_iui_cskyee;
+output  [63 :0]  regs_iui_data_out;
+output           regs_iui_dca_sel;
+output           regs_iui_fs_off;
+output           regs_iui_hpcp_regs_sel;
+output           regs_iui_hpcp_scr_inv;
+output  [14 :0]  regs_iui_int_sel;
+output           regs_iui_l2_regs_sel;
+output  [1  :0]  regs_iui_pm;
+output  [3  :0]  regs_iui_reg_idx;
+output           regs_iui_scnt_inv;
+output           regs_iui_tee_ff;
+output           regs_iui_tee_vld;
+output           regs_iui_tsr;
+output           regs_iui_tvm;
+output           regs_iui_tw;
+output           regs_iui_ucnt_inv;
+output           regs_iui_v;
+output           regs_iui_vs_off;
+output  [63 :0]  regs_iui_wdata;
+output           regs_lpmd_int_vld;
+output           regs_xx_icg_en;
 
 // &Regs; @26
-reg              amr;                            
-reg              amr2;                           
-reg              bht_inv;                        
-reg              bpe;                            
-reg              btb_inv;                        
-reg              btbe;                           
-reg              cb_aclr_dis;                    
-reg     [63 :0]  cdata0;                         
-reg     [63 :0]  cdata1;                         
-reg     [127:0]  cdata_read_data;                
-reg     [20 :0]  cindex_index;                   
-reg     [3  :0]  cindex_rid;                     
-reg     [3  :0]  cindex_way;                     
-reg              cins_ff;                        
-reg              cins_r;                         
-reg              clintee;                        
-reg              clr;                            
-reg     [31 :0]  cnt_sel;                        
-reg              corr_dis;                       
-reg              cskyisaee;                      
-reg              ctc_flush_dis;                  
-reg              da_fwd_dis;                     
-reg     [63 :0]  data_out;                       
-reg              dcache_inv;                     
-reg     [1  :0]  dcache_pref_dist;               
-reg              dcache_pref_en;                 
-reg              de;                             
-reg              div_entry_dis;                  
-reg              dlb_dis;                        
-reg     [15 :0]  edeleg;                         
-reg              fcsr_dz;                        
-reg     [2  :0]  fcsr_frm;                       
-reg              fcsr_nv;                        
-reg              fcsr_nx;                        
-reg              fcsr_of;                        
-reg     [1  :0]  fcsr_raw_vxrm;                  
-reg              fcsr_raw_vxsat;                 
-reg              fcsr_uf;                        
-reg              fencei_broad_dis;               
-reg              fencerw_broad_dis;              
-reg     [1  :0]  fs;                             
-reg              fxcr_dqnan;                     
-reg              fxcr_fe;                        
-reg              ibp_inv;                        
-reg              ibpe;                           
-reg              icache_inv;                     
-reg              icache_pref_en;                 
-reg              ie;                             
-reg     [2  :0]  index;                          
-reg              insde;                          
-reg              iq_bypass_dis;                  
-reg              iwpe;                           
-reg              l0btbe;                         
-reg     [1  :0]  l2_pref_dist;                   
-reg     [3  :0]  l2_regs_idx;                    
-reg              l2pld;                          
-reg              l2stpld;                        
-reg     [8  :0]  local_icg_en;                   
-reg              lpe;                            
-reg              m_intr;                         
-reg     [4  :0]  m_vector;                       
-reg              maee;                           
-reg     [31 :0]  mcnten_reg;                     
-reg     [31 :0]  mcntwen_reg;                    
-reg     [31 :0]  mcpuid_value;                   
-reg              meie;                           
-reg     [62 :0]  mepc_reg;                       
-reg              mhrd;                           
-reg              mie_bit;                        
-reg              mm;                             
-reg              moie;                           
-reg              moie_deleg;                     
-reg              mpie;                           
-reg     [1  :0]  mpp;                            
-reg              mprv;                           
-reg     [38 :0]  mrvbr_reg;                      
-reg     [63 :0]  mscratch_value;                 
-reg              msie;                           
-reg              mtie;                           
-reg     [63 :0]  mtval_data;                     
-reg     [61 :0]  mtvec_base;                     
-reg     [1  :0]  mtvec_mode;                     
-reg              mxr;                            
-reg              nsfe;                           
-reg     [3  :0]  par_dis;                        
-reg              pfu_mmu_dis;                    
-reg     [1  :0]  pm;                             
-reg     [1  :0]  pm_wdata;                       
-reg              pmdm;                           
-reg              pmds;                           
-reg              pmdu;                           
-reg              rob_fold_dis;                   
-reg              rse;                            
-reg              rst_sample;                     
-reg              s_intr;                         
-reg     [4  :0]  s_vector;                       
-reg     [31 :0]  scnten_reg;                     
-reg              seie;                           
-reg              seie_deleg;                     
-reg              seip_reg;                       
-reg     [1  :0]  sel;                            
-reg     [62 :0]  sepc_reg;                       
-reg              sie_bit;                        
-reg              spie;                           
-reg              spp;                            
-reg              src2_fwd_dis;                   
-reg              srcv2_fwd_dis;                  
-reg              sre;                            
-reg     [63 :0]  sscratch_value;                 
-reg              ssie;                           
-reg              ssie_deleg;                     
-reg              ssip_reg;                       
-reg              stie;                           
-reg              stie_deleg;                     
-reg              stip_reg;                       
-reg     [63 :0]  stval_data;                     
-reg     [61 :0]  stvec_base;                     
-reg     [1  :0]  stvec_mode;                     
-reg              sum;                            
-reg     [29 :0]  timeout_cnt;                    
-reg              tlb_broad_dis;                  
-reg              tsr;                            
-reg              tvm;                            
-reg              tw;                             
-reg              ucme;                           
-reg     [18 :0]  vec_num;                        
-reg     [7  :0]  vl_raw_vl;                      
-reg     [1  :0]  vs_raw;                         
-reg              vsetvli_dis;                    
-reg              vsetvli_pred;                   
-reg     [6  :0]  vstart_raw_vstart;              
-reg              vtype_raw_vill;                 
-reg     [1  :0]  vtype_raw_vlmul;                
-reg     [2  :0]  vtype_raw_vsew;                 
-reg              wa;                             
-reg              wr_burst_dis;                   
-reg              zero_move_dis;                  
+reg              amr;
+reg              amr2;
+reg              bht_inv;
+reg              bpe;
+reg              btb_inv;
+reg              btbe;
+reg              cb_aclr_dis;
+reg     [63 :0]  cdata0;
+reg     [63 :0]  cdata1;
+reg     [127:0]  cdata_read_data;
+reg     [20 :0]  cindex_index;
+reg     [3  :0]  cindex_rid;
+reg     [3  :0]  cindex_way;
+reg              cins_ff;
+reg              cins_r;
+reg              clintee;
+reg              clr;
+reg     [31 :0]  cnt_sel;
+reg              corr_dis;
+reg              cskyisaee;
+reg              ctc_flush_dis;
+reg              da_fwd_dis;
+reg     [63 :0]  data_out;
+reg              dcache_inv;
+reg     [1  :0]  dcache_pref_dist;
+reg              dcache_pref_en;
+reg              de;
+reg              div_entry_dis;
+reg              dlb_dis;
+reg     [15 :0]  edeleg;
+reg              fcsr_dz;
+reg     [2  :0]  fcsr_frm;
+reg              fcsr_nv;
+reg              fcsr_nx;
+reg              fcsr_of;
+reg     [1  :0]  fcsr_raw_vxrm;
+reg              fcsr_raw_vxsat;
+reg              fcsr_uf;
+reg              fencei_broad_dis;
+reg              fencerw_broad_dis;
+reg     [1  :0]  fs;
+reg              fxcr_dqnan;
+reg              fxcr_fe;
+reg              ibp_inv;
+reg              ibpe;
+reg              icache_inv;
+reg              icache_pref_en;
+reg              ie;
+reg     [2  :0]  index;
+reg              insde;
+reg              iq_bypass_dis;
+reg              iwpe;
+reg              l0btbe;
+reg     [1  :0]  l2_pref_dist;
+reg     [3  :0]  l2_regs_idx;
+reg              l2pld;
+reg              l2stpld;
+reg     [8  :0]  local_icg_en;
+reg              lpe;
+reg              m_intr;
+reg     [4  :0]  m_vector;
+reg              maee;
+reg     [31 :0]  mcnten_reg;
+reg     [31 :0]  mcntwen_reg;
+reg     [31 :0]  mcpuid_value;
+reg              meie;
+reg     [62 :0]  mepc_reg;
+reg              mhrd;
+reg              mie_bit;
+reg              mm;
+reg              moie;
+reg              moie_deleg;
+reg              mpie;
+reg     [1  :0]  mpp;
+reg              mprv;
+reg     [38 :0]  mrvbr_reg;
+reg     [63 :0]  mscratch_value;
+reg              msie;
+reg              mtie;
+reg     [63 :0]  mtval_data;
+reg     [61 :0]  mtvec_base;
+reg     [1  :0]  mtvec_mode;
+reg              mxr;
+reg              nsfe;
+reg     [3  :0]  par_dis;
+reg              pfu_mmu_dis;
+reg     [1  :0]  pm;
+reg     [1  :0]  pm_wdata;
+reg              pmdm;
+reg              pmds;
+reg              pmdu;
+reg              rob_fold_dis;
+reg              rse;
+reg              rst_sample;
+reg              s_intr;
+reg     [4  :0]  s_vector;
+reg     [31 :0]  scnten_reg;
+reg              seie;
+reg              seie_deleg;
+reg              seip_reg;
+reg     [1  :0]  sel;
+reg     [62 :0]  sepc_reg;
+reg              sie_bit;
+reg              spie;
+reg              spp;
+reg              src2_fwd_dis;
+reg              srcv2_fwd_dis;
+reg              sre;
+reg     [63 :0]  sscratch_value;
+reg              ssie;
+reg              ssie_deleg;
+reg              ssip_reg;
+reg              stie;
+reg              stie_deleg;
+reg              stip_reg;
+reg     [63 :0]  stval_data;
+reg     [61 :0]  stvec_base;
+reg     [1  :0]  stvec_mode;
+reg              sum;
+reg     [29 :0]  timeout_cnt;
+reg              tlb_broad_dis;
+reg              tsr;
+reg              tvm;
+reg              tw;
+reg              ucme;
+reg     [18 :0]  vec_num;
+reg     [7  :0]  vl_raw_vl;
+reg     [1  :0]  vs_raw;
+reg              vsetvli_dis;
+reg              vsetvli_pred;
+reg     [6  :0]  vstart_raw_vstart;
+reg              vtype_raw_vill;
+reg     [1  :0]  vtype_raw_vlmul;
+reg     [2  :0]  vtype_raw_vsew;
+reg              wa;
+reg              wr_burst_dis;
+reg              zero_move_dis;
 
 // &Wires; @27
-wire    [39 :0]  biu_cp0_apb_base;               
-wire             biu_cp0_cmplt;                  
-wire    [2  :0]  biu_cp0_coreid;                 
-wire             biu_cp0_me_int;                 
-wire             biu_cp0_ms_int;                 
-wire             biu_cp0_mt_int;                 
-wire    [127:0]  biu_cp0_rdata;                  
-wire    [39 :0]  biu_cp0_rvba;                   
-wire             biu_cp0_se_int;                 
-wire             biu_cp0_ss_int;                 
-wire             biu_cp0_st_int;                 
-wire             cdata_clk;                      
-wire             cdata_data_vld;                 
-wire             cfr_bits_done;                  
-wire             cindex_rid_dcache_data;         
-wire             cindex_rid_dcache_data_ecc;     
-wire             cindex_rid_dcache_ld_tag;       
-wire             cindex_rid_dcache_ld_tag_ecc;   
-wire             cindex_rid_dcache_st_tag;       
-wire             cindex_rid_dcache_st_tag_ecc;   
-wire             cindex_rid_icache_data;         
-wire             cindex_rid_icache_data_ecc;     
-wire             cindex_rid_icache_tag;          
-wire             cindex_rid_icache_tag_ecc;      
-wire             cindex_rid_l2cache_data;        
-wire             cindex_rid_l2cache_data_ecc;    
-wire             cindex_rid_l2cache_tag;         
-wire             cindex_rid_l2cache_tag_ecc;     
-wire             cins_no_op_data_vld;            
-wire             cins_read_data_vld;             
-wire             clr_done;                       
-wire             cp0_biu_icg_en;                 
-wire    [31 :0]  cp0_had_cpuid_0;                
-wire    [1  :0]  cp0_had_trace_pm_wdata;         
-wire             cp0_had_trace_pm_wen;           
-wire             cp0_hpcp_icg_en;                
-wire    [11 :0]  cp0_hpcp_index;                 
-wire             cp0_hpcp_int_disable;           
-wire    [31 :0]  cp0_hpcp_mcntwen;               
-wire             cp0_hpcp_pmdm;                  
-wire             cp0_hpcp_pmds;                  
-wire             cp0_hpcp_pmdu;                  
-wire    [63 :0]  cp0_hpcp_wdata;                 
-wire             cp0_idu_cskyee;                 
-wire             cp0_idu_dlb_disable;            
-wire    [2  :0]  cp0_idu_frm;                    
-wire    [1  :0]  cp0_idu_fs;                     
-wire             cp0_idu_icg_en;                 
-wire             cp0_idu_iq_bypass_disable;      
-wire             cp0_idu_rob_fold_disable;       
-wire             cp0_idu_src2_fwd_disable;       
-wire             cp0_idu_srcv2_fwd_disable;      
-wire             cp0_idu_vill;                   
-wire    [1  :0]  cp0_idu_vs;                     
-wire    [6  :0]  cp0_idu_vstart;                 
-wire             cp0_idu_zero_delay_move_disable; 
-wire             cp0_ifu_bht_en;                 
-wire             cp0_ifu_bht_inv;                
-wire             cp0_ifu_btb_en;                 
-wire             cp0_ifu_btb_inv;                
-wire             cp0_ifu_icache_en;              
-wire             cp0_ifu_icache_inv;             
-wire             cp0_ifu_icache_pref_en;         
-wire    [16 :0]  cp0_ifu_icache_read_index;      
-wire             cp0_ifu_icache_read_req;        
-wire             cp0_ifu_icache_read_tag;        
-wire             cp0_ifu_icache_read_way;        
-wire             cp0_ifu_icg_en;                 
-wire             cp0_ifu_ind_btb_en;             
-wire             cp0_ifu_ind_btb_inv;            
-wire             cp0_ifu_insde;                  
-wire             cp0_ifu_iwpe;                   
-wire             cp0_ifu_l0btb_en;               
-wire             cp0_ifu_lbuf_en;                
-wire             cp0_ifu_nsfe;                   
-wire             cp0_ifu_ras_en;                 
-wire    [39 :0]  cp0_ifu_rvbr;                   
-wire    [39 :0]  cp0_ifu_vbr;                    
-wire    [7  :0]  cp0_ifu_vl;                     
-wire    [1  :0]  cp0_ifu_vlmul;                  
-wire             cp0_ifu_vsetvli_pred_disable;   
-wire             cp0_ifu_vsetvli_pred_mode;      
-wire    [2  :0]  cp0_ifu_vsew;                   
-wire             cp0_iu_div_entry_disable;       
-wire             cp0_iu_div_entry_disable_clr;   
-wire    [38 :0]  cp0_iu_ex3_efpc;                
-wire             cp0_iu_ex3_efpc_vld;            
-wire             cp0_iu_icg_en;                  
-wire             cp0_iu_vill;                    
-wire    [7  :0]  cp0_iu_vl;                      
-wire             cp0_iu_vsetvli_pre_decd_disable; 
-wire    [6  :0]  cp0_iu_vstart;                  
-wire             cp0_lsu_amr;                    
-wire             cp0_lsu_amr2;                   
-wire             cp0_lsu_cb_aclr_dis;            
-wire             cp0_lsu_corr_dis;               
-wire             cp0_lsu_ctc_flush_dis;          
-wire             cp0_lsu_da_fwd_dis;             
-wire             cp0_lsu_dcache_clr;             
-wire             cp0_lsu_dcache_en;              
-wire             cp0_lsu_dcache_inv;             
-wire    [1  :0]  cp0_lsu_dcache_pref_dist;       
-wire             cp0_lsu_dcache_pref_en;         
-wire    [16 :0]  cp0_lsu_dcache_read_index;      
-wire             cp0_lsu_dcache_read_ld_tag;     
-wire             cp0_lsu_dcache_read_req;        
-wire             cp0_lsu_dcache_read_st_tag;     
-wire             cp0_lsu_dcache_read_way;        
-wire             cp0_lsu_fencei_broad_dis;       
-wire             cp0_lsu_fencerw_broad_dis;      
-wire             cp0_lsu_icg_en;                 
-wire    [1  :0]  cp0_lsu_l2_pref_dist;           
-wire             cp0_lsu_l2_pref_en;             
-wire             cp0_lsu_l2_st_pref_en;          
-wire             cp0_lsu_mm;                     
-wire             cp0_lsu_nsfe;                   
-wire             cp0_lsu_pfu_mmu_dis;            
-wire    [29 :0]  cp0_lsu_timeout_cnt;            
-wire             cp0_lsu_tlb_broad_dis;          
-wire             cp0_lsu_tvm;                    
-wire             cp0_lsu_ucme;                   
-wire    [6  :0]  cp0_lsu_vstart;                 
-wire             cp0_lsu_wa;                     
-wire             cp0_lsu_wr_burst_dis;           
-wire             cp0_mmu_cskyee;                 
-wire             cp0_mmu_icg_en;                 
-wire             cp0_mmu_maee;                   
-wire    [1  :0]  cp0_mmu_mpp;                    
-wire             cp0_mmu_mprv;                   
-wire             cp0_mmu_mxr;                    
-wire             cp0_mmu_ptw_en;                 
-wire    [1  :0]  cp0_mmu_reg_num;                
-wire             cp0_mmu_satp_sel;               
-wire             cp0_mmu_sum;                    
-wire    [63 :0]  cp0_mmu_wdata;                  
-wire             cp0_mmu_wreg;                   
-wire             cp0_mret;                       
-wire    [63 :0]  cp0_pad_mstatus;                
-wire             cp0_pmp_icg_en;                 
-wire    [1  :0]  cp0_pmp_mpp;                    
-wire             cp0_pmp_mprv;                   
-wire    [4  :0]  cp0_pmp_reg_num;                
-wire    [63 :0]  cp0_pmp_wdata;                  
-wire             cp0_pmp_wreg;                   
-wire             cp0_regs_sel;                   
-wire             cp0_rtu_icg_en;                 
-wire             cp0_rtu_srt_en;                 
-wire             cp0_sret;                       
-wire    [63 :0]  cp0_vfpu_fcsr;                  
-wire    [31 :0]  cp0_vfpu_fxcr;                  
-wire             cp0_vfpu_icg_en;                
-wire    [7  :0]  cp0_vfpu_vl;                    
-wire             cp0_xx_core_icg_en;             
-wire             cp0_yy_clk_en;                  
-wire             cp0_yy_dcache_pref_en;          
-wire             cp0_yy_hyper;                   
-wire    [1  :0]  cp0_yy_priv_mode;               
-wire             cp0_yy_virtual_mode;            
-wire    [31 :0]  cpuid_index0_value;             
-wire    [31 :0]  cpuid_index1_value;             
-wire    [31 :0]  cpuid_index2_value;             
-wire    [31 :0]  cpuid_index3_value;             
-wire    [31 :0]  cpuid_index4_value;             
-wire             cpuid_index5_core_num_1;        
-wire             cpuid_index5_core_num_2;        
-wire             cpuid_index5_core_num_3;        
-wire    [31 :0]  cpuid_index5_value;             
-wire    [31 :0]  cpuid_index6_value;             
-wire             cpurst_b;                       
-wire             ecc_en;                         
-wire             ecc_int_vld;                    
-wire    [15 :0]  edeleg_upd_val;                 
-wire    [25 :0]  extensions;                     
-wire             fccee;                          
-wire             fcsr_local_en;                  
-wire    [63 :0]  fcsr_value;                     
-wire    [1  :0]  fcsr_vxrm;                      
-wire             fcsr_vxsat;                     
-wire             fflags_local_en;                
-wire    [63 :0]  fflags_value;                   
-wire             forever_cpuclk;                 
-wire             frm_local_en;                   
-wire    [63 :0]  frm_value;                      
-wire             fs_dirty_upd;                   
-wire             fxcr_local_en;                  
-wire    [63 :0]  fxcr_value;                     
-wire    [63 :0]  hedeleg_value;                  
-wire    [63 :0]  hpcp_cp0_data;                  
-wire             hpcp_cp0_int_vld;               
-wire             hpcp_cp0_sce;                   
-wire             hpm_regs_sel;                   
-wire    [63 :0]  hstatus_value;                  
-wire    [6  :0]  idu_cp0_fesr_acc_updt_val;      
-wire             idu_cp0_fesr_acc_updt_vld;      
-wire             ifu_cp0_bht_inv_done;           
-wire             ifu_cp0_btb_inv_done;           
-wire             ifu_cp0_icache_inv_done;        
-wire    [127:0]  ifu_cp0_icache_read_data;       
-wire             ifu_cp0_icache_read_data_vld;   
-wire             ifu_cp0_ind_btb_inv_done;       
-wire             ifu_cp0_rst_inv_req;            
-wire             index_max;                      
-wire    [2  :0]  index_next_val;                 
-wire    [14 :0]  int_sel;                        
-wire             inv;                            
-wire    [11 :0]  iui_regs_addr;                  
-wire             iui_regs_csr_wr;                
-wire             iui_regs_csrw;                  
-wire             iui_regs_ex3_inst_csr;          
-wire             iui_regs_inst_mret;             
-wire             iui_regs_inst_sret;             
-wire             iui_regs_inv_expt;              
-wire    [31 :0]  iui_regs_opcode;                
-wire    [63 :0]  iui_regs_ori_src0;              
-wire             iui_regs_rst_inv_d;             
-wire             iui_regs_rst_inv_i;             
-wire             iui_regs_sel;                   
-wire    [63 :0]  iui_regs_src0;                  
-wire             l2_regs_sel;                    
-wire             lsu_cp0_dcache_done;            
-wire    [127:0]  lsu_cp0_dcache_read_data;       
-wire             lsu_cp0_dcache_read_data_vld;   
-wire    [63 :0]  mapbaddr_value;                 
-wire    [63 :0]  marchid_value;                  
-wire             mcause_local_en;                
-wire    [63 :0]  mcause_value;                   
-wire             mccr2_local_en;                 
-wire    [63 :0]  mcdata0_value;                  
-wire    [63 :0]  mcdata1_value;                  
-wire             mcer2_local_en;                 
-wire    [63 :0]  mcer_value;                     
-wire             mcie;                           
-wire             mcie_deleg;                     
-wire             mcindex_local_en;               
-wire    [63 :0]  mcindex_value;                  
-wire             mcins_local_en;                 
-wire    [63 :0]  mcins_value;                    
-wire             mcip;                           
-wire             mcip_acc_en;                    
-wire             mcip_deleg_vld;                 
-wire             mcip_en;                        
-wire             mcip_nodeleg_vld;               
-wire             mcnten_hit;                     
-wire             mcnten_local_en;                
-wire    [63 :0]  mcnten_value;                   
-wire             mcntwen_hit;                    
-wire             mcntwen_local_en;               
-wire    [63 :0]  mcntwen_value;                  
-wire             mcor_local_en;                  
-wire    [63 :0]  mcor_value;                     
-wire             mcpuid_local_en;                
-wire             mdeleg_vld;                     
-wire             medeleg_local_en;               
-wire    [63 :0]  medeleg_value;                  
-wire             medeleg_vld;                    
-wire             meicr2_local_en;                
-wire    [63 :0]  meicr_value;                    
-wire             meip;                           
-wire             meip_en;                        
-wire             meip_vld;                       
-wire             mepc_local_en;                  
-wire    [63 :0]  mepc_value;                     
-wire    [63 :0]  mhartid_value;                  
-wire             mhcr_local_en;                  
-wire    [63 :0]  mhcr_value;                     
-wire             mhie;                           
-wire             mhie_deleg;                     
-wire             mhint2_local_en;                
-wire    [63 :0]  mhint2_value;                   
-wire             mhint3_local_en;                
-wire    [63 :0]  mhint3_value;                   
-wire             mhint4_local_en;                
-wire             mhint_local_en;                 
-wire    [63 :0]  mhint_value;                    
-wire             mhip;                           
-wire             mhip_acc_en;                    
-wire             mhip_deleg_vld;                 
-wire             mhip_en;                        
-wire             mhip_nodeleg_vld;               
-wire             mhpmcr_local_en;                
-wire             mideleg_local_en;               
-wire    [63 :0]  mideleg_value;                  
-wire             mideleg_vld;                    
-wire             mie_local_en;                   
-wire    [63 :0]  mie_value;                      
-wire    [63 :0]  mimpid_value;                   
-wire             mip_local_en;                   
-wire    [63 :0]  mip_upd_value;                  
-wire    [63 :0]  mip_value;                      
-wire             misa_hypervisor;                
-wire             misa_local_en;                  
-wire    [63 :0]  misa_value;                     
-wire             misa_vector;                    
-wire    [63 :0]  mmu_cp0_data;                   
-wire    [63 :0]  mmu_cp0_satp_data;              
-wire             mmu_regs_sel;                   
-wire             moip;                           
-wire             moip_acc_en;                    
-wire             moip_deleg_vld;                 
-wire             moip_en;                        
-wire             moip_nodeleg_vld;               
-wire             mpv;                            
-wire    [63 :0]  mrvbr_value;                    
-wire             mscratch_local_en;              
-wire             msip;                           
-wire             msip_en;                        
-wire             msip_vld;                       
-wire             msmpr_local_en;                 
-wire             mstatus_local_en;               
-wire    [63 :0]  mstatus_value;                  
-wire             mteecfg_local_en;               
-wire    [63 :0]  mteecfg_value;                  
-wire             mtip;                           
-wire             mtip_en;                        
-wire             mtip_vld;                       
-wire             mtval_local_en;                 
-wire    [63 :0]  mtval_upd_data;                 
-wire    [63 :0]  mtval_value;                    
-wire             mtvec_local_en;                 
-wire    [63 :0]  mtvec_value;                    
-wire    [63 :0]  mvendorid_value;                
-wire    [63 :0]  mwmsr_value;                    
-wire    [1  :0]  mxl;                            
-wire             mxstatus_local_en;              
-wire    [63 :0]  mxstatus_value;                 
-wire             pad_yy_icg_scan_en;             
-wire             pm_wen;                         
-wire    [63 :0]  pmp_cp0_data;                   
-wire             pmp_regs_sel;                   
-wire             regs_cindex_sel_l2;             
-wire             regs_clk;                       
-wire             regs_clk_en;                    
-wire             regs_dca_sel;                   
-wire             regs_flush_clk;                 
-wire             regs_flush_clk_en;              
-wire             regs_iui_cfr_no_op;             
-wire             regs_iui_chk_vld;               
-wire             regs_iui_cindex_l2;             
-wire             regs_iui_cins_no_op;            
-wire             regs_iui_cskyee;                
-wire    [63 :0]  regs_iui_data_out;              
-wire             regs_iui_dca_sel;               
-wire             regs_iui_fs_off;                
-wire             regs_iui_hpcp_regs_sel;         
-wire             regs_iui_hpcp_scr_inv;          
-wire    [14 :0]  regs_iui_int_sel;               
-wire             regs_iui_l2_regs_sel;           
-wire    [1  :0]  regs_iui_pm;                    
-wire    [3  :0]  regs_iui_reg_idx;               
-wire             regs_iui_scnt_inv;              
-wire             regs_iui_tee_ff;                
-wire             regs_iui_tee_vld;               
-wire             regs_iui_tsr;                   
-wire             regs_iui_tvm;                   
-wire             regs_iui_tw;                    
-wire             regs_iui_ucnt_inv;              
-wire             regs_iui_v;                     
-wire             regs_iui_vs_off;                
-wire    [63 :0]  regs_iui_wdata;                 
-wire             regs_lpmd_int_vld;              
-wire             regs_xx_icg_en;                 
-wire    [63 :0]  rtu_cp0_epc;                    
-wire             rtu_cp0_expt_gateclk_vld;       
-wire    [63 :0]  rtu_cp0_expt_mtval;             
-wire             rtu_cp0_expt_vld;               
-wire             rtu_cp0_fp_dirty_vld;           
-wire             rtu_cp0_vec_dirty_vld;          
-wire             rtu_cp0_vsetvl_vill;            
-wire    [7  :0]  rtu_cp0_vsetvl_vl;              
-wire             rtu_cp0_vsetvl_vl_vld;          
-wire    [1  :0]  rtu_cp0_vsetvl_vlmul;           
-wire    [2  :0]  rtu_cp0_vsetvl_vsew;            
-wire             rtu_cp0_vsetvl_vtype_vld;       
-wire    [6  :0]  rtu_cp0_vstart;                 
-wire             rtu_cp0_vstart_vld;             
-wire    [5  :0]  rtu_yy_xx_expt_vec;             
-wire             rtu_yy_xx_flush;                
-wire             satp_local_en;                  
-wire             scause_local_en;                
-wire    [63 :0]  scause_value;                   
-wire             scer2_local_en;                 
-wire    [63 :0]  scer_value;                     
-wire    [2  :0]  sck;                            
-wire             scnt_addr_hit;                  
-wire             scnten_hit;                     
-wire             scnten_local_en;                
-wire    [63 :0]  scnten_value;                   
-wire             sd;                             
-wire             seip;                           
-wire             seip_acc_en;                    
-wire             seip_deleg_vld;                 
-wire             seip_en;                        
-wire             seip_nodeleg_vld;               
-wire             seip_upd_val;                   
-wire             sepc_local_en;                  
-wire    [63 :0]  sepc_value;                     
-wire    [63 :0]  shcr_value;                     
-wire             shpmcr_local_en;                
-wire             sie_local_en;                   
-wire    [63 :0]  sie_value;                      
-wire             sip_local_en;                   
-wire    [63 :0]  sip_value;                      
-wire             sscratch_local_en;              
-wire             ssip;                           
-wire             ssip_acc_en;                    
-wire             ssip_deleg_vld;                 
-wire             ssip_en;                        
-wire             ssip_nodeleg_vld;               
-wire             ssip_upd_val;                   
-wire             sstatus_local_en;               
-wire             sstatus_spp;                    
-wire    [63 :0]  sstatus_value;                  
-wire             stip;                           
-wire             stip_acc_en;                    
-wire             stip_deleg_vld;                 
-wire             stip_en;                        
-wire             stip_nodeleg_vld;               
-wire             stip_upd_val;                   
-wire             stval_local_en;                 
-wire    [63 :0]  stval_upd_data;                 
-wire    [63 :0]  stval_value;                    
-wire             stvec_local_en;                 
-wire    [63 :0]  stvec_value;                    
-wire    [1  :0]  sxl;                            
-wire             sxstatus_local_en;              
-wire    [63 :0]  sxstatus_value;                 
-wire             tee_ff;                         
-wire             tee_lock;                       
-wire             ucnt_addr_hit;                  
-wire    [1  :0]  uxl;                            
-wire             v;                              
-wire             ve;                             
-wire             vec_clk;                        
-wire             vec_clk_en;                     
-wire    [63 :0]  vl_value;                       
-wire    [7  :0]  vl_vl;                          
-wire    [63 :0]  vlenb_value;                    
-wire    [1  :0]  vs;                             
-wire             vs_dirty_upd;                   
-wire    [63 :0]  vsstatus_value;                 
-wire             vstart_local_en;                
-wire    [63 :0]  vstart_value;                   
-wire    [6  :0]  vstart_vstart;                  
-wire    [63 :0]  vtype_value;                    
-wire             vtype_vill;                     
-wire    [1  :0]  vtype_vlmul;                    
-wire    [2  :0]  vtype_vsew;                     
-wire             vxrm_local_en;                  
-wire    [63 :0]  vxrm_value;                     
-wire             vxsat_local_en;                 
-wire    [63 :0]  vxsat_value;                    
-wire             wb;                             
-wire             wbr;                            
-wire    [1  :0]  xs;                             
+wire    [39 :0]  biu_cp0_apb_base;
+wire             biu_cp0_cmplt;
+wire    [2  :0]  biu_cp0_coreid;
+wire             biu_cp0_me_int;
+wire             biu_cp0_ms_int;
+wire             biu_cp0_mt_int;
+wire    [127:0]  biu_cp0_rdata;
+wire    [39 :0]  biu_cp0_rvba;
+wire             biu_cp0_se_int;
+wire             biu_cp0_ss_int;
+wire             biu_cp0_st_int;
+wire             cdata_clk;
+wire             cdata_data_vld;
+wire             cfr_bits_done;
+wire             cindex_rid_dcache_data;
+wire             cindex_rid_dcache_data_ecc;
+wire             cindex_rid_dcache_ld_tag;
+wire             cindex_rid_dcache_ld_tag_ecc;
+wire             cindex_rid_dcache_st_tag;
+wire             cindex_rid_dcache_st_tag_ecc;
+wire             cindex_rid_icache_data;
+wire             cindex_rid_icache_data_ecc;
+wire             cindex_rid_icache_tag;
+wire             cindex_rid_icache_tag_ecc;
+wire             cindex_rid_l2cache_data;
+wire             cindex_rid_l2cache_data_ecc;
+wire             cindex_rid_l2cache_tag;
+wire             cindex_rid_l2cache_tag_ecc;
+wire             cins_no_op_data_vld;
+wire             cins_read_data_vld;
+wire             clr_done;
+wire             cp0_biu_icg_en;
+wire    [31 :0]  cp0_had_cpuid_0;
+wire    [1  :0]  cp0_had_trace_pm_wdata;
+wire             cp0_had_trace_pm_wen;
+wire             cp0_hpcp_icg_en;
+wire    [11 :0]  cp0_hpcp_index;
+wire             cp0_hpcp_int_disable;
+wire    [31 :0]  cp0_hpcp_mcntwen;
+wire             cp0_hpcp_pmdm;
+wire             cp0_hpcp_pmds;
+wire             cp0_hpcp_pmdu;
+wire    [63 :0]  cp0_hpcp_wdata;
+wire             cp0_idu_cskyee;
+wire             cp0_idu_dlb_disable;
+wire    [2  :0]  cp0_idu_frm;
+wire    [1  :0]  cp0_idu_fs;
+wire             cp0_idu_icg_en;
+wire             cp0_idu_iq_bypass_disable;
+wire             cp0_idu_rob_fold_disable;
+wire             cp0_idu_src2_fwd_disable;
+wire             cp0_idu_srcv2_fwd_disable;
+wire             cp0_idu_vill;
+wire    [1  :0]  cp0_idu_vs;
+wire    [6  :0]  cp0_idu_vstart;
+wire             cp0_idu_zero_delay_move_disable;
+wire             cp0_ifu_bht_en;
+wire             cp0_ifu_bht_inv;
+wire             cp0_ifu_btb_en;
+wire             cp0_ifu_btb_inv;
+wire             cp0_ifu_icache_en;
+wire             cp0_ifu_icache_inv;
+wire             cp0_ifu_icache_pref_en;
+wire    [16 :0]  cp0_ifu_icache_read_index;
+wire             cp0_ifu_icache_read_req;
+wire             cp0_ifu_icache_read_tag;
+wire             cp0_ifu_icache_read_way;
+wire             cp0_ifu_icg_en;
+wire             cp0_ifu_ind_btb_en;
+wire             cp0_ifu_ind_btb_inv;
+wire             cp0_ifu_insde;
+wire             cp0_ifu_iwpe;
+wire             cp0_ifu_l0btb_en;
+wire             cp0_ifu_lbuf_en;
+wire             cp0_ifu_nsfe;
+wire             cp0_ifu_ras_en;
+wire    [39 :0]  cp0_ifu_rvbr;
+wire    [39 :0]  cp0_ifu_vbr;
+wire    [7  :0]  cp0_ifu_vl;
+wire    [1  :0]  cp0_ifu_vlmul;
+wire             cp0_ifu_vsetvli_pred_disable;
+wire             cp0_ifu_vsetvli_pred_mode;
+wire    [2  :0]  cp0_ifu_vsew;
+wire             cp0_iu_div_entry_disable;
+wire             cp0_iu_div_entry_disable_clr;
+wire    [38 :0]  cp0_iu_ex3_efpc;
+wire             cp0_iu_ex3_efpc_vld;
+wire             cp0_iu_icg_en;
+wire             cp0_iu_vill;
+wire    [7  :0]  cp0_iu_vl;
+wire             cp0_iu_vsetvli_pre_decd_disable;
+wire    [6  :0]  cp0_iu_vstart;
+wire             cp0_lsu_amr;
+wire             cp0_lsu_amr2;
+wire             cp0_lsu_cb_aclr_dis;
+wire             cp0_lsu_corr_dis;
+wire             cp0_lsu_ctc_flush_dis;
+wire             cp0_lsu_da_fwd_dis;
+wire             cp0_lsu_dcache_clr;
+wire             cp0_lsu_dcache_en;
+wire             cp0_lsu_dcache_inv;
+wire    [1  :0]  cp0_lsu_dcache_pref_dist;
+wire             cp0_lsu_dcache_pref_en;
+wire    [16 :0]  cp0_lsu_dcache_read_index;
+wire             cp0_lsu_dcache_read_ld_tag;
+wire             cp0_lsu_dcache_read_req;
+wire             cp0_lsu_dcache_read_st_tag;
+wire             cp0_lsu_dcache_read_way;
+wire             cp0_lsu_fencei_broad_dis;
+wire             cp0_lsu_fencerw_broad_dis;
+wire             cp0_lsu_icg_en;
+wire    [1  :0]  cp0_lsu_l2_pref_dist;
+wire             cp0_lsu_l2_pref_en;
+wire             cp0_lsu_l2_st_pref_en;
+wire             cp0_lsu_mm;
+wire             cp0_lsu_nsfe;
+wire             cp0_lsu_pfu_mmu_dis;
+wire    [29 :0]  cp0_lsu_timeout_cnt;
+wire             cp0_lsu_tlb_broad_dis;
+wire             cp0_lsu_tvm;
+wire             cp0_lsu_ucme;
+wire    [6  :0]  cp0_lsu_vstart;
+wire             cp0_lsu_wa;
+wire             cp0_lsu_wr_burst_dis;
+wire             cp0_mmu_cskyee;
+wire             cp0_mmu_icg_en;
+wire             cp0_mmu_maee;
+wire    [1  :0]  cp0_mmu_mpp;
+wire             cp0_mmu_mprv;
+wire             cp0_mmu_mxr;
+wire             cp0_mmu_ptw_en;
+wire    [1  :0]  cp0_mmu_reg_num;
+wire             cp0_mmu_satp_sel;
+wire             cp0_mmu_sum;
+wire    [63 :0]  cp0_mmu_wdata;
+wire             cp0_mmu_wreg;
+wire             cp0_mret;
+wire    [63 :0]  cp0_pad_mstatus;
+wire             cp0_pmp_icg_en;
+wire    [1  :0]  cp0_pmp_mpp;
+wire             cp0_pmp_mprv;
+wire    [4  :0]  cp0_pmp_reg_num;
+wire    [63 :0]  cp0_pmp_wdata;
+wire             cp0_pmp_wreg;
+wire             cp0_regs_sel;
+wire             cp0_rtu_icg_en;
+wire             cp0_rtu_srt_en;
+wire             cp0_sret;
+wire    [63 :0]  cp0_vfpu_fcsr;
+wire    [31 :0]  cp0_vfpu_fxcr;
+wire             cp0_vfpu_icg_en;
+wire    [7  :0]  cp0_vfpu_vl;
+wire             cp0_xx_core_icg_en;
+wire             cp0_yy_clk_en;
+wire             cp0_yy_dcache_pref_en;
+wire             cp0_yy_hyper;
+wire    [1  :0]  cp0_yy_priv_mode;
+wire             cp0_yy_virtual_mode;
+wire    [31 :0]  cpuid_index0_value;
+wire    [31 :0]  cpuid_index1_value;
+wire    [31 :0]  cpuid_index2_value;
+wire    [31 :0]  cpuid_index3_value;
+wire    [31 :0]  cpuid_index4_value;
+wire             cpuid_index5_core_num_1;
+wire             cpuid_index5_core_num_2;
+wire             cpuid_index5_core_num_3;
+wire    [31 :0]  cpuid_index5_value;
+wire    [31 :0]  cpuid_index6_value;
+wire             cpurst_b;
+wire             ecc_en;
+wire             ecc_int_vld;
+wire    [15 :0]  edeleg_upd_val;
+wire    [25 :0]  extensions;
+wire             fccee;
+wire             fcsr_local_en;
+wire    [63 :0]  fcsr_value;
+wire    [1  :0]  fcsr_vxrm;
+wire             fcsr_vxsat;
+wire             fflags_local_en;
+wire    [63 :0]  fflags_value;
+wire             forever_cpuclk;
+wire             frm_local_en;
+wire    [63 :0]  frm_value;
+wire             fs_dirty_upd;
+wire             fxcr_local_en;
+wire    [63 :0]  fxcr_value;
+wire    [63 :0]  hedeleg_value;
+wire    [63 :0]  hpcp_cp0_data;
+wire             hpcp_cp0_int_vld;
+wire             hpcp_cp0_sce;
+wire             hpm_regs_sel;
+wire    [63 :0]  hstatus_value;
+wire    [6  :0]  idu_cp0_fesr_acc_updt_val;
+wire             idu_cp0_fesr_acc_updt_vld;
+wire             ifu_cp0_bht_inv_done;
+wire             ifu_cp0_btb_inv_done;
+wire             ifu_cp0_icache_inv_done;
+wire    [127:0]  ifu_cp0_icache_read_data;
+wire             ifu_cp0_icache_read_data_vld;
+wire             ifu_cp0_ind_btb_inv_done;
+wire             ifu_cp0_rst_inv_req;
+wire             index_max;
+wire    [2  :0]  index_next_val;
+wire    [14 :0]  int_sel;
+wire             inv;
+wire    [11 :0]  iui_regs_addr;
+wire             iui_regs_csr_wr;
+wire             iui_regs_csrw;
+wire             iui_regs_ex3_inst_csr;
+wire             iui_regs_inst_mret;
+wire             iui_regs_inst_sret;
+wire             iui_regs_inv_expt;
+wire    [31 :0]  iui_regs_opcode;
+wire    [63 :0]  iui_regs_ori_src0;
+wire             iui_regs_rst_inv_d;
+wire             iui_regs_rst_inv_i;
+wire             iui_regs_sel;
+wire    [63 :0]  iui_regs_src0;
+wire             l2_regs_sel;
+wire             lsu_cp0_dcache_done;
+wire    [127:0]  lsu_cp0_dcache_read_data;
+wire             lsu_cp0_dcache_read_data_vld;
+wire    [63 :0]  mapbaddr_value;
+wire    [63 :0]  marchid_value;
+wire             mcause_local_en;
+wire    [63 :0]  mcause_value;
+wire             mccr2_local_en;
+wire    [63 :0]  mcdata0_value;
+wire    [63 :0]  mcdata1_value;
+wire             mcer2_local_en;
+wire    [63 :0]  mcer_value;
+wire             mcie;
+wire             mcie_deleg;
+wire             mcindex_local_en;
+wire    [63 :0]  mcindex_value;
+wire             mcins_local_en;
+wire    [63 :0]  mcins_value;
+wire             mcip;
+wire             mcip_acc_en;
+wire             mcip_deleg_vld;
+wire             mcip_en;
+wire             mcip_nodeleg_vld;
+wire             mcnten_hit;
+wire             mcnten_local_en;
+wire    [63 :0]  mcnten_value;
+wire             mcntwen_hit;
+wire             mcntwen_local_en;
+wire    [63 :0]  mcntwen_value;
+wire             mcor_local_en;
+wire    [63 :0]  mcor_value;
+wire             mcpuid_local_en;
+wire             mdeleg_vld;
+wire             medeleg_local_en;
+wire    [63 :0]  medeleg_value;
+wire             medeleg_vld;
+wire             meicr2_local_en;
+wire    [63 :0]  meicr_value;
+wire             meip;
+wire             meip_en;
+wire             meip_vld;
+wire             mepc_local_en;
+wire    [63 :0]  mepc_value;
+wire    [63 :0]  mhartid_value;
+wire             mhcr_local_en;
+wire    [63 :0]  mhcr_value;
+wire             mhie;
+wire             mhie_deleg;
+wire             mhint2_local_en;
+wire    [63 :0]  mhint2_value;
+wire             mhint3_local_en;
+wire    [63 :0]  mhint3_value;
+wire             mhint4_local_en;
+wire             mhint_local_en;
+wire    [63 :0]  mhint_value;
+wire             mhip;
+wire             mhip_acc_en;
+wire             mhip_deleg_vld;
+wire             mhip_en;
+wire             mhip_nodeleg_vld;
+wire             mhpmcr_local_en;
+wire             mideleg_local_en;
+wire    [63 :0]  mideleg_value;
+wire             mideleg_vld;
+wire             mie_local_en;
+wire    [63 :0]  mie_value;
+wire    [63 :0]  mimpid_value;
+wire             mip_local_en;
+wire    [63 :0]  mip_upd_value;
+wire    [63 :0]  mip_value;
+wire             misa_hypervisor;
+wire             misa_local_en;
+wire    [63 :0]  misa_value;
+wire             misa_vector;
+wire    [63 :0]  mmu_cp0_data;
+wire    [63 :0]  mmu_cp0_satp_data;
+wire             mmu_regs_sel;
+wire             moip;
+wire             moip_acc_en;
+wire             moip_deleg_vld;
+wire             moip_en;
+wire             moip_nodeleg_vld;
+wire             mpv;
+wire    [63 :0]  mrvbr_value;
+wire             mscratch_local_en;
+wire             msip;
+wire             msip_en;
+wire             msip_vld;
+wire             msmpr_local_en;
+wire             mstatus_local_en;
+wire    [63 :0]  mstatus_value;
+wire             mteecfg_local_en;
+wire    [63 :0]  mteecfg_value;
+wire             mtip;
+wire             mtip_en;
+wire             mtip_vld;
+wire             mtval_local_en;
+wire    [63 :0]  mtval_upd_data;
+wire    [63 :0]  mtval_value;
+wire             mtvec_local_en;
+wire    [63 :0]  mtvec_value;
+wire    [63 :0]  mvendorid_value;
+wire    [63 :0]  mwmsr_value;
+wire    [1  :0]  mxl;
+wire             mxstatus_local_en;
+wire    [63 :0]  mxstatus_value;
+wire             pad_yy_icg_scan_en;
+wire             pm_wen;
+wire    [63 :0]  pmp_cp0_data;
+wire             pmp_regs_sel;
+wire             regs_cindex_sel_l2;
+wire             regs_clk;
+wire             regs_clk_en;
+wire             regs_dca_sel;
+wire             regs_flush_clk;
+wire             regs_flush_clk_en;
+wire             regs_iui_cfr_no_op;
+wire             regs_iui_chk_vld;
+wire             regs_iui_cindex_l2;
+wire             regs_iui_cins_no_op;
+wire             regs_iui_cskyee;
+wire    [63 :0]  regs_iui_data_out;
+wire             regs_iui_dca_sel;
+wire             regs_iui_fs_off;
+wire             regs_iui_hpcp_regs_sel;
+wire             regs_iui_hpcp_scr_inv;
+wire    [14 :0]  regs_iui_int_sel;
+wire             regs_iui_l2_regs_sel;
+wire    [1  :0]  regs_iui_pm;
+wire    [3  :0]  regs_iui_reg_idx;
+wire             regs_iui_scnt_inv;
+wire             regs_iui_tee_ff;
+wire             regs_iui_tee_vld;
+wire             regs_iui_tsr;
+wire             regs_iui_tvm;
+wire             regs_iui_tw;
+wire             regs_iui_ucnt_inv;
+wire             regs_iui_v;
+wire             regs_iui_vs_off;
+wire    [63 :0]  regs_iui_wdata;
+wire             regs_lpmd_int_vld;
+wire             regs_xx_icg_en;
+wire    [63 :0]  rtu_cp0_epc;
+wire             rtu_cp0_expt_gateclk_vld;
+wire    [63 :0]  rtu_cp0_expt_mtval;
+wire             rtu_cp0_expt_vld;
+wire             rtu_cp0_fp_dirty_vld;
+wire             rtu_cp0_vec_dirty_vld;
+wire             rtu_cp0_vsetvl_vill;
+wire    [7  :0]  rtu_cp0_vsetvl_vl;
+wire             rtu_cp0_vsetvl_vl_vld;
+wire    [1  :0]  rtu_cp0_vsetvl_vlmul;
+wire    [2  :0]  rtu_cp0_vsetvl_vsew;
+wire             rtu_cp0_vsetvl_vtype_vld;
+wire    [6  :0]  rtu_cp0_vstart;
+wire             rtu_cp0_vstart_vld;
+wire    [5  :0]  rtu_yy_xx_expt_vec;
+wire             rtu_yy_xx_flush;
+wire             satp_local_en;
+wire             scause_local_en;
+wire    [63 :0]  scause_value;
+wire             scer2_local_en;
+wire    [63 :0]  scer_value;
+wire    [2  :0]  sck;
+wire             scnt_addr_hit;
+wire             scnten_hit;
+wire             scnten_local_en;
+wire    [63 :0]  scnten_value;
+wire             sd;
+wire             seip;
+wire             seip_acc_en;
+wire             seip_deleg_vld;
+wire             seip_en;
+wire             seip_nodeleg_vld;
+wire             seip_upd_val;
+wire             sepc_local_en;
+wire    [63 :0]  sepc_value;
+wire    [63 :0]  shcr_value;
+wire             shpmcr_local_en;
+wire             sie_local_en;
+wire    [63 :0]  sie_value;
+wire             sip_local_en;
+wire    [63 :0]  sip_value;
+wire             sscratch_local_en;
+wire             ssip;
+wire             ssip_acc_en;
+wire             ssip_deleg_vld;
+wire             ssip_en;
+wire             ssip_nodeleg_vld;
+wire             ssip_upd_val;
+wire             sstatus_local_en;
+wire             sstatus_spp;
+wire    [63 :0]  sstatus_value;
+wire             stip;
+wire             stip_acc_en;
+wire             stip_deleg_vld;
+wire             stip_en;
+wire             stip_nodeleg_vld;
+wire             stip_upd_val;
+wire             stval_local_en;
+wire    [63 :0]  stval_upd_data;
+wire    [63 :0]  stval_value;
+wire             stvec_local_en;
+wire    [63 :0]  stvec_value;
+wire    [1  :0]  sxl;
+wire             sxstatus_local_en;
+wire    [63 :0]  sxstatus_value;
+wire             tee_ff;
+wire             tee_lock;
+wire             ucnt_addr_hit;
+wire    [1  :0]  uxl;
+wire             v;
+wire             ve;
+wire             vec_clk;
+wire             vec_clk_en;
+wire    [63 :0]  vl_value;
+wire    [7  :0]  vl_vl;
+wire    [63 :0]  vlenb_value;
+wire    [1  :0]  vs;
+wire             vs_dirty_upd;
+wire    [63 :0]  vsstatus_value;
+wire             vstart_local_en;
+wire    [63 :0]  vstart_value;
+wire    [6  :0]  vstart_vstart;
+wire    [63 :0]  vtype_value;
+wire             vtype_vill;
+wire    [1  :0]  vtype_vlmul;
+wire    [2  :0]  vtype_vsew;
+wire             vxrm_local_en;
+wire    [63 :0]  vxrm_value;
+wire             vxsat_local_en;
+wire    [63 :0]  vxsat_value;
+wire             wb;
+wire             wbr;
+wire    [1  :0]  xs;
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign regs_clk_en = iui_regs_sel
                   || idu_cp0_fesr_acc_updt_vld;
@@ -1369,70 +1369,70 @@ parameter VSSTATUS  = 12'h200;
 //==========================================================
 //              Generate Local Signal to CSRs
 //==========================================================
-assign mstatus_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MSTATUS;   
+assign mstatus_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MSTATUS;
 assign misa_local_en     = iui_regs_sel && iui_regs_addr[11:0] == MCAUSE;
 assign medeleg_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MEDELEG;
 assign mideleg_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MIDELEG;
-assign mie_local_en      = iui_regs_sel && iui_regs_addr[11:0] == MIE;       
-assign mtvec_local_en    = iui_regs_sel && iui_regs_addr[11:0] == MTVEC;  
-assign mcnten_local_en   = iui_regs_sel && iui_regs_addr[11:0] == MCNTEN;  
+assign mie_local_en      = iui_regs_sel && iui_regs_addr[11:0] == MIE;
+assign mtvec_local_en    = iui_regs_sel && iui_regs_addr[11:0] == MTVEC;
+assign mcnten_local_en   = iui_regs_sel && iui_regs_addr[11:0] == MCNTEN;
 
 assign mscratch_local_en = iui_regs_sel && iui_regs_addr[11:0] == MSCRATCH;
-assign mepc_local_en     = iui_regs_sel && iui_regs_addr[11:0] == MEPC;      
+assign mepc_local_en     = iui_regs_sel && iui_regs_addr[11:0] == MEPC;
 assign mcause_local_en   = iui_regs_sel && iui_regs_addr[11:0] == MCAUSE;
-assign mtval_local_en    = iui_regs_sel && iui_regs_addr[11:0] == MTVAL;     
-assign mip_local_en      = iui_regs_sel && iui_regs_addr[11:0] == MIP;       
+assign mtval_local_en    = iui_regs_sel && iui_regs_addr[11:0] == MTVAL;
+assign mip_local_en      = iui_regs_sel && iui_regs_addr[11:0] == MIP;
 
-assign sstatus_local_en  = iui_regs_sel && iui_regs_addr[11:0] == SSTATUS;   
-assign sie_local_en      = iui_regs_sel && iui_regs_addr[11:0] == SIE;       
-assign stvec_local_en    = iui_regs_sel && iui_regs_addr[11:0] == STVEC;  
-assign scnten_local_en   = iui_regs_sel && iui_regs_addr[11:0] == SCNTEN;  
+assign sstatus_local_en  = iui_regs_sel && iui_regs_addr[11:0] == SSTATUS;
+assign sie_local_en      = iui_regs_sel && iui_regs_addr[11:0] == SIE;
+assign stvec_local_en    = iui_regs_sel && iui_regs_addr[11:0] == STVEC;
+assign scnten_local_en   = iui_regs_sel && iui_regs_addr[11:0] == SCNTEN;
 
 assign sscratch_local_en = iui_regs_sel && iui_regs_addr[11:0] == SSCRATCH;
-assign sepc_local_en     = iui_regs_sel && iui_regs_addr[11:0] == SEPC;      
+assign sepc_local_en     = iui_regs_sel && iui_regs_addr[11:0] == SEPC;
 assign scause_local_en   = iui_regs_sel && iui_regs_addr[11:0] == SCAUSE;
-assign stval_local_en    = iui_regs_sel && iui_regs_addr[11:0] == STVAL;     
-assign sip_local_en      = iui_regs_sel && iui_regs_addr[11:0] == SIP;       
+assign stval_local_en    = iui_regs_sel && iui_regs_addr[11:0] == STVAL;
+assign sip_local_en      = iui_regs_sel && iui_regs_addr[11:0] == SIP;
 
-assign fflags_local_en   = iui_regs_sel && iui_regs_addr[11:0] == FFLAGS;       
-assign frm_local_en      = iui_regs_sel && iui_regs_addr[11:0] == FRM;  
-assign fcsr_local_en     = iui_regs_sel && iui_regs_addr[11:0] == FCSR;  
-assign vstart_local_en   = iui_regs_sel && iui_regs_addr[11:0] == VSTART;  
-assign vxsat_local_en    = iui_regs_sel && iui_regs_addr[11:0] == VXSAT;  
-assign vxrm_local_en     = iui_regs_sel && iui_regs_addr[11:0] == VXRM;  
+assign fflags_local_en   = iui_regs_sel && iui_regs_addr[11:0] == FFLAGS;
+assign frm_local_en      = iui_regs_sel && iui_regs_addr[11:0] == FRM;
+assign fcsr_local_en     = iui_regs_sel && iui_regs_addr[11:0] == FCSR;
+assign vstart_local_en   = iui_regs_sel && iui_regs_addr[11:0] == VSTART;
+assign vxsat_local_en    = iui_regs_sel && iui_regs_addr[11:0] == VXSAT;
+assign vxrm_local_en     = iui_regs_sel && iui_regs_addr[11:0] == VXRM;
 
 assign mxstatus_local_en = iui_regs_sel && iui_regs_addr[11:0] == MXSTATUS;
-assign mhcr_local_en     = iui_regs_sel && iui_regs_addr[11:0] == MHCR;       
-assign mcor_local_en     = iui_regs_sel && iui_regs_addr[11:0] == MCOR;     
+assign mhcr_local_en     = iui_regs_sel && iui_regs_addr[11:0] == MHCR;
+assign mcor_local_en     = iui_regs_sel && iui_regs_addr[11:0] == MCOR;
 assign mhint_local_en    = iui_regs_sel && iui_regs_addr[11:0] == MHINT;
 assign mhint2_local_en   = iui_regs_sel && iui_regs_addr[11:0] == MHINT2;
 assign mhint3_local_en   = iui_regs_sel && iui_regs_addr[11:0] == MHINT3;
 assign mhint4_local_en   = iui_regs_addr[11:0] == MHINT4;
 assign mhpmcr_local_en   = iui_regs_sel && iui_regs_addr[11:0] == MHPMCR;
-assign msmpr_local_en    = iui_regs_addr[11:0] == MSMPR;  
+assign msmpr_local_en    = iui_regs_addr[11:0] == MSMPR;
 assign mteecfg_local_en  = 1'b0;
 
 assign mcntwen_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MCNTWEN;
 
-assign mccr2_local_en    = iui_regs_addr[11:0] == MCCR2;      
-assign mcer2_local_en    = iui_regs_addr[11:0] == MCER2;     
+assign mccr2_local_en    = iui_regs_addr[11:0] == MCCR2;
+assign mcer2_local_en    = iui_regs_addr[11:0] == MCER2;
 //assign mrmr_local_en     = iui_regs_addr[11:0] == MRMR;
 //assign mrvbr_local_en    = iui_regs_addr[11:0] == MRVBR;
 assign meicr2_local_en   = iui_regs_addr[11:0] == MEICR2;
 
-assign mcins_local_en    = iui_regs_sel && iui_regs_addr[11:0] == MCINS;       
-assign mcindex_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MCINDEX;     
+assign mcins_local_en    = iui_regs_sel && iui_regs_addr[11:0] == MCINS;
+assign mcindex_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MCINDEX;
 //assign mcdata0_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MCDATA0;
 //assign mcdata1_local_en  = iui_regs_sel && iui_regs_addr[11:0] == MCDATA1;
 assign mcpuid_local_en   = iui_regs_addr[11:0] == MCPUID;
 
 assign sxstatus_local_en = iui_regs_sel && iui_regs_addr[11:0] == SXSTATUS;
-//assign shcr_local_en     = iui_regs_sel && iui_regs_addr[11:0] == SHCR;       
-assign scer2_local_en    = iui_regs_addr[11:0] == SCER2;     
+//assign shcr_local_en     = iui_regs_sel && iui_regs_addr[11:0] == SHCR;
+assign scer2_local_en    = iui_regs_addr[11:0] == SCER2;
 
 assign satp_local_en     = iui_regs_addr[11:0] == SATP;
 
-assign fxcr_local_en     = iui_regs_sel && iui_regs_addr[11:0] == FXCR;  
+assign fxcr_local_en     = iui_regs_sel && iui_regs_addr[11:0] == FXCR;
 
 assign shpmcr_local_en   = iui_regs_sel && iui_regs_addr[11:0] == SHPMCR;
 
@@ -1598,7 +1598,7 @@ assign fs_dirty_upd = (fs[1:0] == 2'b01 || fs[1:0] == 2'b10)
                        || vxrm_local_en
                        || vxsat_local_en
                        || rtu_cp0_fp_dirty_vld);
-                                           
+
 always @(posedge regs_flush_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -1710,7 +1710,7 @@ end
 
 
 assign mstatus_value[63:0]  = {sd, 23'b0, mpv, 3'b0, sxl[1:0], uxl[1:0], 7'b0, vs[1:0],
-                               tsr, tw, tvm, mxr, sum, mprv, 
+                               tsr, tw, tvm, mxr, sum, mprv,
                                xs[1:0], fs[1:0], mpp[1:0], 2'b0, spp,
                                mpie, 1'b0, spie, 1'b0, mie_bit, 1'b0, sie_bit, 1'b0};
 
@@ -1745,7 +1745,7 @@ assign misa_value[63:0] = {mxl[1:0], 36'b0, extensions[25:0]};
 //  Providing the CPU Status
 //  the definiton for MEDELEG register is listed as follows
 //==========================================================
-assign edeleg_upd_val[15:0] = {iui_regs_src0[15], 1'b0, 
+assign edeleg_upd_val[15:0] = {iui_regs_src0[15], 1'b0,
                                iui_regs_src0[13:12], 2'b0,
                                iui_regs_src0[9:0]};
 
@@ -1897,17 +1897,17 @@ begin
   end
 end
 
-assign mie_value[63:0] =  {45'b0, mhie, moie, mcie, 4'b0, 
-                                  meie, 1'b0, seie, 1'b0, 
-                                  mtie, 1'b0, stie, 1'b0, 
-                                  msie, 1'b0, ssie, 1'b0}; 
+assign mie_value[63:0] =  {45'b0, mhie, moie, mcie, 4'b0,
+                                  meie, 1'b0, seie, 1'b0,
+                                  mtie, 1'b0, stie, 1'b0,
+                                  msie, 1'b0, ssie, 1'b0};
 
 
 //==========================================================
 //               Define the MTVEC register
 //  Machine Trap Vector Register
 //  64-bit Machine Mode Read/Write
-//  Providing the Trap Vector Base and Mode 
+//  Providing the Trap Vector Base and Mode
 //  the definiton for MTVEC register is listed as follows
 //==========================================================
 always @(posedge regs_clk or negedge cpurst_b)
@@ -1937,7 +1937,7 @@ assign mtvec_value[63:0] = {mtvec_base[61:0], 1'b0, mtvec_mode[0]};
 //               Define the MCNTEN register
 //  Machine Trap Vector Register
 //  64-bit Machine Mode Read/Write
-//  Providing the Trap Vector Base and Mode 
+//  Providing the Trap Vector Base and Mode
 //  the definiton for MTVEC register is listed as follows
 //  HPM31...HPM3, IR, TM, CY
 //==========================================================
@@ -2042,7 +2042,7 @@ always @(posedge regs_flush_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
     mtval_data[63:0] <= 64'b0;
-  else if((rtu_cp0_expt_vld || iui_regs_inv_expt) && !mdeleg_vld) 
+  else if((rtu_cp0_expt_vld || iui_regs_inv_expt) && !mdeleg_vld)
     mtval_data[63:0] <= mtval_upd_data[63:0];
   else if(mtval_local_en)
     mtval_data[63:0] <= iui_regs_src0[63:0];
@@ -2066,9 +2066,9 @@ assign stip_upd_val = (iui_regs_csrw || iui_regs_ori_src0[5])
                      ? iui_regs_src0[5] : stip_reg;
 assign ssip_upd_val = (iui_regs_csrw || iui_regs_ori_src0[1])
                      ? iui_regs_src0[1] : ssip_reg;
-assign mip_upd_value[63:0] =  {52'b0, 2'b0, seip_upd_val, 1'b0, 
-                                      2'b0, stip_upd_val, 1'b0, 
-                                      2'b0, ssip_upd_val, 1'b0}; 
+assign mip_upd_value[63:0] =  {52'b0, 2'b0, seip_upd_val, 1'b0,
+                                      2'b0, stip_upd_val, 1'b0,
+                                      2'b0, ssip_upd_val, 1'b0};
 
 assign mhip_acc_en = mideleg_value[18];
 assign moip_acc_en = mideleg_value[17];
@@ -2104,7 +2104,7 @@ begin
     ssip_reg <= ssip_reg;
   end
 end
-  
+
 assign mhip = 1'b0;
 assign moip = hpcp_cp0_int_vld;
 assign mcip = ecc_int_vld;
@@ -2117,9 +2117,9 @@ assign stip = biu_cp0_st_int && clintee || stip_reg;
 assign ssip = biu_cp0_ss_int && clintee || ssip_reg;
 
 assign mip_value[63:0] =  {45'b0, mhip, moip, mcip, 4'b0,
-                                  meip, 1'b0, seip, 1'b0, 
-                                  mtip, 1'b0, stip, 1'b0, 
-                                  msip, 1'b0, ssip, 1'b0}; 
+                                  meip, 1'b0, seip, 1'b0,
+                                  mtip, 1'b0, stip, 1'b0,
+                                  msip, 1'b0, ssip, 1'b0};
 
 assign mhip_en = mhie && mhip;
 assign moip_en = moie && moip;
@@ -2132,16 +2132,16 @@ assign seip_en = seie && seip;
 assign stip_en = stie && stip;
 assign ssip_en = ssie && ssip;
 
-// For MEI, MTI, MSI: 
-assign mhip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit 
+// For MEI, MTI, MSI:
+assign mhip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit
                           || pm[1:0] == 2'b01
                           || pm[1:0] == 2'b00)
                         && mhip_en && !mideleg_value[18];
-assign moip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit 
+assign moip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit
                           || pm[1:0] == 2'b01
                           || pm[1:0] == 2'b00)
                         && moip_en && !mideleg_value[17];
-assign mcip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit 
+assign mcip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit
                           || pm[1:0] == 2'b01
                           || pm[1:0] == 2'b00)
                         && mcip_en && !mideleg_value[16];
@@ -2158,15 +2158,15 @@ assign meip_vld = (pm[1:0] != 2'b11 || mie_bit) && meip_en;
 assign mtip_vld = (pm[1:0] != 2'b11 || mie_bit) && mtip_en;
 assign msip_vld = (pm[1:0] != 2'b11 || mie_bit) && msip_en;
 
-// For SEI, STI, SSI: 
+// For SEI, STI, SSI:
 // M-Mode -> MIE Controlled when non-delegation;
 // S-Mode -> SIE Controlled
 // U-Mode -> Global always on
-assign seip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit 
+assign seip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit
                           || pm[1:0] == 2'b01
                           || pm[1:0] == 2'b00)
                         && seip_en && !mideleg_value[9];
-assign stip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit 
+assign stip_nodeleg_vld = (pm[1:0] == 2'b11 && mie_bit
                           || pm[1:0] == 2'b01
                           || pm[1:0] == 2'b00)
                         && stip_en && !mideleg_value[5];
@@ -2225,16 +2225,16 @@ assign sstatus_value[63:0]  = {sd, 29'b0, uxl[1:0], 7'b0, vs[1:0], 3'b0,
 //==========================================================
 assign sie_value[63:0] =  {45'b0, mhie && mhip_acc_en,
                             moie && moip_acc_en, mcie && mcip_acc_en,
-                            6'b0, seie && seip_acc_en, 1'b0, 
-                            2'b0, stie && stip_acc_en, 1'b0, 
-                            2'b0, ssie && ssip_acc_en, 1'b0}; 
+                            6'b0, seie && seip_acc_en, 1'b0,
+                            2'b0, stie && stip_acc_en, 1'b0,
+                            2'b0, ssie && ssip_acc_en, 1'b0};
 
 
 //==========================================================
 //               Define the STVEC register
 //  Supervisor Trap Vector Register
 //  64-bit Supervisor Mode Read/Write
-//  Providing the Trap Vector Base and Mode 
+//  Providing the Trap Vector Base and Mode
 //  the definiton for STVEC register is listed as follows
 //==========================================================
 always @(posedge regs_clk or negedge cpurst_b)
@@ -2265,7 +2265,7 @@ assign stvec_value[63:0] = {stvec_base[61:0], 1'b0, stvec_mode[0]};
 //==========================================================
 //  Supervisor Trap Vector Register
 //  64-bit Supervisor Mode Read/Write
-//  Providing the Trap Vector Base and Mode 
+//  Providing the Trap Vector Base and Mode
 //  the definiton for STVEC register is listed as follows
 //  HPM31...HPM3, IR, TM, CY
 //==========================================================
@@ -2373,7 +2373,7 @@ always @(posedge regs_flush_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
     stval_data[63:0] <= 64'b0;
-  else if((rtu_cp0_expt_vld || iui_regs_inv_expt) && mdeleg_vld) 
+  else if((rtu_cp0_expt_vld || iui_regs_inv_expt) && mdeleg_vld)
     stval_data[63:0] <= stval_upd_data[63:0];
   else if(stval_local_en)
     stval_data[63:0] <= iui_regs_src0[63:0];
@@ -2393,9 +2393,9 @@ assign stval_value[63:0] = stval_data[63:0];
 //==========================================================
 assign sip_value[63:0] =  {45'b0, mhip && mhip_acc_en,
                             moip && moip_acc_en, mcip && mcip_acc_en,
-                            6'b0, seip && seip_acc_en, 1'b0, 
-                            2'b0, stip && stip_acc_en, 1'b0, 
-                            2'b0, ssip && ssip_acc_en, 1'b0}; 
+                            6'b0, seip && seip_acc_en, 1'b0,
+                            2'b0, stip && stip_acc_en, 1'b0,
+                            2'b0, ssip && ssip_acc_en, 1'b0};
 
 
 //==========================================================
@@ -2522,7 +2522,7 @@ end
 assign fcsr_vxsat     = 1'b0;
 assign fcsr_vxrm[1:0] = 2'b0;
 
-assign fcsr_value[63:0] = {32'b0, 21'b0, fcsr_vxrm[1:0], fcsr_vxsat, 
+assign fcsr_value[63:0] = {32'b0, 21'b0, fcsr_vxrm[1:0], fcsr_vxsat,
                            fcsr_frm[2:0], fcsr_nv, fcsr_dz, fcsr_of,
                            fcsr_uf, fcsr_nx};
 
@@ -2669,7 +2669,7 @@ begin
     pm[1:0] <= 2'b11;
   else if(pm_wen)
     pm[1:0] <= pm_wdata[1:0];
-  else 
+  else
     pm[1:0] <= pm[1:0];
 end
 
@@ -2767,7 +2767,7 @@ assign v  = 1'b0;
 
 assign mxstatus_value[63:0]  = {32'b0, pm[1:0], 7'b0, cskyisaee, maee,
                                 fccee, insde, mhrd, clintee, ucme, mm,
-                                1'b0, pmdm, 1'b0, pmds, pmdu, v, ve, 
+                                1'b0, pmdm, 1'b0, pmds, pmdu, v, ve,
                                 8'b0};
 
 //==========================================================
@@ -2856,7 +2856,7 @@ begin
       ibp_inv <= 1'b0;
   else if(rtu_yy_xx_flush)
       ibp_inv <= 1'b0;
-  else if(mcor_local_en) 
+  else if(mcor_local_en)
       ibp_inv <= iui_regs_src0[18];
   else if(ifu_cp0_ind_btb_inv_done)
       ibp_inv <= 1'b0;
@@ -2870,7 +2870,7 @@ begin
     btb_inv <= 1'b0;
   else if(rtu_yy_xx_flush)
     btb_inv <= 1'b0;
-  else if(mcor_local_en) 
+  else if(mcor_local_en)
     btb_inv <= iui_regs_src0[17];
   else if(ifu_cp0_btb_inv_done)
     btb_inv <= 1'b0;
@@ -2884,7 +2884,7 @@ begin
     bht_inv <= 1'b0;
   else if(rtu_yy_xx_flush)
     bht_inv <= 1'b0;
-  else if(mcor_local_en) 
+  else if(mcor_local_en)
     bht_inv <= iui_regs_src0[16];
   else if(ifu_cp0_bht_inv_done)
     bht_inv <= 1'b0;
@@ -2902,7 +2902,7 @@ begin
    clr <= 1'b0;
   else if(rtu_yy_xx_flush)
    clr <= 1'b0;
-  else if(mcor_local_en) 
+  else if(mcor_local_en)
    clr <= iui_regs_src0[5];
   else if(clr && clr_done)
    clr <= 1'b0;
@@ -2918,7 +2918,7 @@ begin
       icache_inv <= 1'b0;
   else if(rtu_yy_xx_flush)
       icache_inv <= 1'b0;
-  else if(mcor_local_en) 
+  else if(mcor_local_en)
       icache_inv <= iui_regs_src0[4];
   else if(icache_inv && (ifu_cp0_icache_inv_done || !sel[0]))
       icache_inv <= 1'b0;
@@ -2932,7 +2932,7 @@ begin
       dcache_inv <= 1'b0;
   else if(rtu_yy_xx_flush)
       dcache_inv <= 1'b0;
-  else if(mcor_local_en) 
+  else if(mcor_local_en)
       dcache_inv <= iui_regs_src0[4];
   else if(dcache_inv && (lsu_cp0_dcache_done || !sel[1]))
       dcache_inv <= 1'b0;
@@ -2946,7 +2946,7 @@ always @(posedge regs_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
     sel[1:0] <= 2'b0;
-  else if(mcor_local_en) 
+  else if(mcor_local_en)
     sel[1:0] <= iui_regs_src0[1:0];
   else
     sel[1:0] <= sel[1:0];
@@ -2998,7 +2998,7 @@ begin
     tlb_broad_dis         <= iui_regs_src0[21];
     l2stpld               <= iui_regs_src0[20];
     nsfe                  <= iui_regs_src0[18];
-    l2_pref_dist[1:0]     <= iui_regs_src0[17:16]; 
+    l2_pref_dist[1:0]     <= iui_regs_src0[17:16];
     l2pld                 <= iui_regs_src0[15];
     dcache_pref_dist[1:0] <= iui_regs_src0[14:13];
     sre                   <= iui_regs_src0[11];
@@ -3031,7 +3031,7 @@ end
 
 assign mhint_value[63:0] = {32'b0, 7'b0, corr_dis, fencei_broad_dis, fencerw_broad_dis,
                             tlb_broad_dis, l2stpld, ecc_en,
-                            nsfe, l2_pref_dist[1:0], l2pld, 
+                            nsfe, l2_pref_dist[1:0], l2pld,
                             dcache_pref_dist[1:0], 1'b0, sre,
                             iwpe, lpe, icache_pref_en, 2'b0, amr2,
                             1'b0, amr, dcache_pref_en, 2'b0};
@@ -3055,7 +3055,7 @@ end
 always @(posedge regs_flush_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    mrvbr_reg[38:0] <= 39'b0; 
+    mrvbr_reg[38:0] <= 39'b0;
   else if(rst_sample)
     mrvbr_reg[38:0] <= biu_cp0_rvba[39:1];
   else
@@ -3131,7 +3131,7 @@ end
 
 assign mhint2_value[63:0] = {30'b0, vsetvli_pred, ctc_flush_dis, par_dis[3:0], pfu_mmu_dis, vsetvli_dis, 3'b0,
                             local_icg_en[8:0], da_fwd_dis, src2_fwd_dis, div_entry_dis, cb_aclr_dis,
-                            wr_burst_dis, 4'b0, zero_move_dis, 
+                            wr_burst_dis, 4'b0, zero_move_dis,
                             dlb_dis, rob_fold_dis, iq_bypass_dis, srcv2_fwd_dis};
 
 //==========================================================
@@ -3146,7 +3146,7 @@ assign mhint2_value[63:0] = {30'b0, vsetvli_pred, ctc_flush_dis, par_dis[3:0], p
 always @(posedge regs_clk or negedge cpurst_b)
 begin
   if(!cpurst_b) begin
-    timeout_cnt[29:0] <= 30'h10404040; 
+    timeout_cnt[29:0] <= 30'h10404040;
   end
   else if(mhint3_local_en) begin
     timeout_cnt[29:0] <= iui_regs_src0[29:0];
@@ -3425,7 +3425,7 @@ end
     assign cpuid_index0_value[31:28] = 4'b0000;
 
 //------------------------------------------------
-//                     Arch  
+//                     Arch
 //------------------------------------------------
     assign cpuid_index0_value[27:26] = 2'b10;   // CSKY V3 ISA Arch
 
@@ -3435,16 +3435,16 @@ end
     assign cpuid_index0_value[25:22] = 4'b0100; // C Series Family
 
 //------------------------------------------------
-//                     Class 
+//                     Class
 //------------------------------------------------
     assign cpuid_index0_value[21:18] = 4'b0011; // C960 Class
 
 //------------------------------------------------
-//                     Model 
+//                     Model
 //------------------------------------------------
-    assign cpuid_index0_value[17:12] = 6'b0; 
+    assign cpuid_index0_value[17:12] = 6'b0;
     assign cpuid_index0_value[11] = 1'b0;
-    assign cpuid_index0_value[10] = 1'b0;  
+    assign cpuid_index0_value[10] = 1'b0;
     assign cpuid_index0_value[9] = 1'b0;
     assign cpuid_index0_value[8] = 1'b1;  //FPU
 
@@ -3453,7 +3453,7 @@ end
 //------------------------------------------------
 //Revision 0:
 //  Initial revision
-    assign cpuid_index0_value[7:3] = 5'b00001; 
+    assign cpuid_index0_value[7:3] = 5'b00001;
 
 //------------------------------------------------
 //                     Version
@@ -3491,7 +3491,7 @@ end
     assign cpuid_index2_value[31:28] = 4'b0010;
 
 //---------------------------------------------------------
-//                    BUS0 
+//                    BUS0
 //---------------------------------------------------------
     assign cpuid_index2_value[27:24] = 4'b0110; //AXI128
 
@@ -3511,7 +3511,7 @@ end
     assign cpuid_index2_value[18] = 1'b1;
 
 //------------------------------------------------
-//                    Reserved 
+//                    Reserved
 //------------------------------------------------
     assign cpuid_index2_value[17:16] = 2'b0;
 
@@ -3528,35 +3528,35 @@ end
     assign cpuid_index3_value[31:28] = 4'b0011;
 
 //------------------------------------------------
-//                    Reserved 
+//                    Reserved
 //------------------------------------------------
     assign cpuid_index3_value[27:25] = 3'b0;
 
 
 //------------------------------------------------
-//                    IBP 
+//                    IBP
 //------------------------------------------------
     assign cpuid_index3_value[24:22] = 3'b001;
 
 //------------------------------------------------
 //                      BTB
 //------------------------------------------------
-    assign cpuid_index3_value[21:19] = 3'b010; 
+    assign cpuid_index3_value[21:19] = 3'b010;
 
 //------------------------------------------------
-//                      BHT   
+//                      BHT
 //------------------------------------------------
-    assign cpuid_index3_value[18:16] = 3'b011; //8K BHT 
+    assign cpuid_index3_value[18:16] = 3'b011; //8K BHT
 
 //------------------------------------------------
-//                      DSPM 
+//                      DSPM
 //------------------------------------------------
-    assign cpuid_index3_value[15:12] = 4'b0000; 
+    assign cpuid_index3_value[15:12] = 4'b0000;
 
 //------------------------------------------------
-//                      ISPM 
+//                      ISPM
 //------------------------------------------------
-    assign cpuid_index3_value[11:8] = 4'b0000; 
+    assign cpuid_index3_value[11:8] = 4'b0000;
 
 //------------------------------------------------
 //                     DCACHE
@@ -3651,7 +3651,7 @@ end
     assign cpuid_index5_value[2:0] = {2'b0, cpuid_index5_core_num_1}
                                    + {2'b0, cpuid_index5_core_num_2}
                                    + {2'b0, cpuid_index5_core_num_3};
-  
+
 //---------------------------------------------------------
 //                    Index 6
 //---------------------------------------------------------
@@ -3675,7 +3675,7 @@ end
 //------------------------------------------------
 //                    MGU ZONE NUM
 //------------------------------------------------
-    assign cpuid_index6_value[3:0] = 4'b0011; 
+    assign cpuid_index6_value[3:0] = 4'b0011;
 
 //==========================================================
 //               Define the MAPBADDR register
@@ -3751,7 +3751,7 @@ begin
   end
 end
 
-assign fxcr_value[63:0]    = {37'b0, fcsr_frm[2:0], fxcr_dqnan, 
+assign fxcr_value[63:0]    = {37'b0, fcsr_frm[2:0], fxcr_dqnan,
                               17'b0, fxcr_fe, fcsr_nv,
                               fcsr_dz, fcsr_of, fcsr_uf, fcsr_nx};
 
@@ -3794,11 +3794,11 @@ assign cp0_regs_sel = iui_regs_addr[11:8] == 4'hF  // M-Infor
                    || iui_regs_addr[11:4] == 8'h34 // M-Trap Handling
                    || iui_regs_addr[11:4] == 8'h10 // S-Trap Setup
                    || iui_regs_addr[11:4] == 8'h14 // S-Trap Handling
-                   || iui_regs_addr[11:4] == 8'h7C && !l2_regs_sel 
-                      && iui_regs_addr[3:1] != 3'b101 // Extension CSR 
+                   || iui_regs_addr[11:4] == 8'h7C && !l2_regs_sel
+                      && iui_regs_addr[3:1] != 3'b101 // Extension CSR
                    || iui_regs_addr[11:4] == 8'h7D // Extension Cache Read
                    || iui_regs_addr[11:4] == 8'h5C && !scer2_local_en
-                      && iui_regs_addr[3:2] == 2'b00 // S-Extension CSR 
+                      && iui_regs_addr[3:2] == 2'b00 // S-Extension CSR
                    || mteecfg_local_en
                    || iui_regs_addr[11:8] == 4'h0  // User F-CSR
                    || iui_regs_addr[11:8] == 4'h8  // FXCR
@@ -3812,18 +3812,18 @@ assign pmp_regs_sel = iui_regs_addr[11:4] == 8'h3A
 assign hpm_regs_sel = iui_regs_addr[11:8] == 4'hB  // Machine Counters/Timers
                    || iui_regs_addr[11:4] == 8'h32 // Machine Counter Setup
                    || iui_regs_addr[11:4] == 8'h33 // Machine Counter Setup
-                   || iui_regs_addr[11:4] == 8'h7C 
+                   || iui_regs_addr[11:4] == 8'h7C
                      && iui_regs_addr[3:1] == 3'b101 // Machine Counter Control
-                   || iui_regs_addr[11:2] == 10'h1FC 
+                   || iui_regs_addr[11:2] == 10'h1FC
                      && iui_regs_addr[1:0] != 2'b11 // Machine HPM Extension
-                   || iui_regs_addr[11:4] == 8'h5C 
+                   || iui_regs_addr[11:4] == 8'h5C
                       && iui_regs_addr[3:2] != 2'b00 // Supervisor Counter Control
                    || iui_regs_addr[11:4] == 8'h5E // Supervisor Counter/Timers
                    || iui_regs_addr[11:4] == 8'h5F // Supervisor Counter/Timers
                    || iui_regs_addr[11:4] == 8'hC0 // User Counter/Timers
                    || iui_regs_addr[11:4] == 8'hC1;// User Counter/Timers
 
-assign l2_regs_sel  = mccr2_local_en || mcer2_local_en 
+assign l2_regs_sel  = mccr2_local_en || mcer2_local_en
 //                   || mrmr_local_en  || mrvbr_local_en
                    || regs_dca_sel
                    || msmpr_local_en  || mteecfg_local_en && !(tee_lock && iui_regs_csr_wr)
@@ -3921,7 +3921,7 @@ begin
     SIE       : data_out[63:0] = sie_value[63:0];
     STVEC     : data_out[63:0] = stvec_value[63:0];
     SCNTEN    : data_out[63:0] = scnten_value[63:0];
-    
+
     SSCRATCH  : data_out[63:0] = sscratch_value[63:0];
     SEPC      : data_out[63:0] = sepc_value[63:0];
     SCAUSE    : data_out[63:0] = scause_value[63:0];
@@ -3971,7 +3971,7 @@ begin
 
     VSSTATUS  : data_out[63:0] = vsstatus_value[63:0];
 
-    default   : data_out[63:0] = 64'b0; 
+    default   : data_out[63:0] = 64'b0;
   endcase
 // &CombEnd; @3742
 end
@@ -3993,7 +3993,7 @@ assign regs_iui_cfr_no_op  = !(ibp_inv || btb_inv || bht_inv || inv || clr || mc
 assign regs_iui_cins_no_op = !(cins_r || mcins_local_en);
 
 // data signals
-assign regs_iui_data_out[63:0] = {64{cp0_regs_sel}}  & data_out[63:0] 
+assign regs_iui_data_out[63:0] = {64{cp0_regs_sel}}  & data_out[63:0]
                                | {64{pmp_regs_sel}}  & pmp_cp0_data[63:0]
                                //| {64{l2_regs_sel}}   & biu_cp0_l2_data[63:0]
                                | {64{hpm_regs_sel}}  & hpcp_cp0_data[63:0]
@@ -4067,7 +4067,7 @@ assign regs_iui_scnt_inv = ucnt_addr_hit && !mcnten_hit
                         || scnt_addr_hit && !mcntwen_hit && iui_regs_csr_wr;
 assign regs_iui_ucnt_inv = ucnt_addr_hit && !(mcnten_hit && scnten_hit);
 
-assign regs_iui_hpcp_scr_inv = (iui_regs_addr[11:0] == SHPMCR 
+assign regs_iui_hpcp_scr_inv = (iui_regs_addr[11:0] == SHPMCR
                                 || iui_regs_addr[11:0] == SHPMSP
                                 || iui_regs_addr[11:0] == SHPMEP)
                             && !hpcp_cp0_sce;
@@ -4298,8 +4298,8 @@ assign cp0_hpcp_icg_en = local_icg_en[2];
 //                 Generate output to L2
 //==========================================================
 // L2 Regs select and write information
-//assign cp0_biu_l2_wreg         = iui_regs_sel 
-//                             && (mccr2_local_en || mcer2_local_en 
+//assign cp0_biu_l2_wreg         = iui_regs_sel
+//                             && (mccr2_local_en || mcer2_local_en
 //                              || mrmr_local_en  || mrvbr_local_en
 //                              || meicr2_local_en || mhint4_local_en);
 //assign cp0_biu_l2_reg_sel[5:0] = {mhint4_local_en, meicr2_local_en, mrmr_local_en,

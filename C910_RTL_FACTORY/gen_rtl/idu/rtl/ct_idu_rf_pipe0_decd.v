@@ -25,36 +25,36 @@ module ct_idu_rf_pipe0_decd(
 );
 
 // &Ports; @28
-input           pipe0_decd_expt_vld; 
-input   [31:0]  pipe0_decd_opcode;  
-output  [3 :0]  pipe0_decd_eu_sel;  
-output  [4 :0]  pipe0_decd_func;    
-output  [5 :0]  pipe0_decd_imm;     
-output  [20:0]  pipe0_decd_sel;     
-output  [63:0]  pipe0_decd_src1_imm; 
+input           pipe0_decd_expt_vld;
+input   [31:0]  pipe0_decd_opcode;
+output  [3 :0]  pipe0_decd_eu_sel;
+output  [4 :0]  pipe0_decd_func;
+output  [5 :0]  pipe0_decd_imm;
+output  [20:0]  pipe0_decd_sel;
+output  [63:0]  pipe0_decd_src1_imm;
 
 // &Regs; @29
-reg     [3 :0]  decd_16_eu_sel;     
-reg     [4 :0]  decd_16_func;       
-reg     [20:0]  decd_16_sel;        
-reg     [3 :0]  decd_32_eu_sel;     
-reg     [4 :0]  decd_32_func;       
-reg     [20:0]  decd_32_sel;        
-reg     [3 :0]  pipe0_decd_eu_sel;  
-reg     [4 :0]  pipe0_decd_func;    
-reg     [20:0]  pipe0_decd_sel;     
-reg     [63:0]  pipe0_decd_src1_imm; 
+reg     [3 :0]  decd_16_eu_sel;
+reg     [4 :0]  decd_16_func;
+reg     [20:0]  decd_16_sel;
+reg     [3 :0]  decd_32_eu_sel;
+reg     [4 :0]  decd_32_func;
+reg     [20:0]  decd_32_sel;
+reg     [3 :0]  pipe0_decd_eu_sel;
+reg     [4 :0]  pipe0_decd_func;
+reg     [20:0]  pipe0_decd_sel;
+reg     [63:0]  pipe0_decd_src1_imm;
 
 // &Wires; @30
-wire    [9 :0]  decd_caddi4spn_imm; 
-wire    [9 :0]  decd_caddisp_imm;   
-wire            decd_expt_vld;      
-wire    [5 :0]  decd_ext_offset;    
-wire    [4 :0]  decd_imm_sel;       
-wire    [31:0]  decd_op;            
-wire            pipe0_decd_expt_vld; 
-wire    [5 :0]  pipe0_decd_imm;     
-wire    [31:0]  pipe0_decd_opcode;  
+wire    [9 :0]  decd_caddi4spn_imm;
+wire    [9 :0]  decd_caddisp_imm;
+wire            decd_expt_vld;
+wire    [5 :0]  decd_ext_offset;
+wire    [4 :0]  decd_imm_sel;
+wire    [31:0]  decd_op;
+wire            pipe0_decd_expt_vld;
+wire    [5 :0]  pipe0_decd_imm;
+wire    [31:0]  pipe0_decd_opcode;
 
 
 

@@ -59,141 +59,141 @@ module ct_idu_dep_reg_src2_entry(
 );
 
 // &Ports; @27
-input           alu0_reg_fwd_vld;                       
-input           alu1_reg_fwd_vld;                       
-input           cp0_idu_icg_en;                         
-input           cp0_yy_clk_en;                          
-input           cpurst_b;                               
-input           ctrl_xx_rf_pipe0_preg_lch_vld_dupx;     
-input           ctrl_xx_rf_pipe1_preg_lch_vld_dupx;     
-input   [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;           
-input   [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;           
-input           forever_cpuclk;                         
-input           gateclk_entry_vld;                      
-input           iu_idu_div_inst_vld;                    
-input   [6 :0]  iu_idu_div_preg_dupx;                   
-input   [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;          
-input           iu_idu_ex2_pipe0_wb_preg_vld_dupx;      
-input           iu_idu_ex2_pipe1_mult_inst_vld_dupx;    
-input   [6 :0]  iu_idu_ex2_pipe1_preg_dupx;             
-input   [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;          
-input           iu_idu_ex2_pipe1_wb_preg_vld_dupx;      
-input           lsu_idu_ag_pipe3_load_inst_vld;         
-input   [6 :0]  lsu_idu_ag_pipe3_preg_dupx;             
-input           lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx; 
-input           lsu_idu_dc_pipe3_load_inst_vld_dupx;    
-input   [6 :0]  lsu_idu_dc_pipe3_preg_dupx;             
-input   [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;          
-input           lsu_idu_wb_pipe3_wb_preg_vld_dupx;      
-input           mla_reg_fwd_vld;                        
-input           pad_yy_icg_scan_en;                     
-input           rtu_idu_flush_fe;                       
-input           rtu_idu_flush_is;                       
-input           vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;  
-input   [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;           
-input           vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;  
-input   [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;           
-input   [10:0]  x_create_data;                          
-input           x_entry_mla;                            
-input           x_gateclk_idx_write_en;                 
-input           x_gateclk_write_en;                     
-input           x_rdy_clr;                              
-input           x_write_en;                             
-output  [12:0]  x_read_data;                            
+input           alu0_reg_fwd_vld;
+input           alu1_reg_fwd_vld;
+input           cp0_idu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           ctrl_xx_rf_pipe0_preg_lch_vld_dupx;
+input           ctrl_xx_rf_pipe1_preg_lch_vld_dupx;
+input   [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;
+input   [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;
+input           forever_cpuclk;
+input           gateclk_entry_vld;
+input           iu_idu_div_inst_vld;
+input   [6 :0]  iu_idu_div_preg_dupx;
+input   [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;
+input           iu_idu_ex2_pipe0_wb_preg_vld_dupx;
+input           iu_idu_ex2_pipe1_mult_inst_vld_dupx;
+input   [6 :0]  iu_idu_ex2_pipe1_preg_dupx;
+input   [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;
+input           iu_idu_ex2_pipe1_wb_preg_vld_dupx;
+input           lsu_idu_ag_pipe3_load_inst_vld;
+input   [6 :0]  lsu_idu_ag_pipe3_preg_dupx;
+input           lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx;
+input           lsu_idu_dc_pipe3_load_inst_vld_dupx;
+input   [6 :0]  lsu_idu_dc_pipe3_preg_dupx;
+input   [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;
+input           lsu_idu_wb_pipe3_wb_preg_vld_dupx;
+input           mla_reg_fwd_vld;
+input           pad_yy_icg_scan_en;
+input           rtu_idu_flush_fe;
+input           rtu_idu_flush_is;
+input           vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;
+input           vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;
+input   [10:0]  x_create_data;
+input           x_entry_mla;
+input           x_gateclk_idx_write_en;
+input           x_gateclk_write_en;
+input           x_rdy_clr;
+input           x_write_en;
+output  [12:0]  x_read_data;
 
 // &Regs; @28
-reg             lsu_match;                              
-reg             mla_rdy;                                
-reg     [6 :0]  preg;                                   
-reg             rdy;                                    
-reg             wb;                                     
+reg             lsu_match;
+reg             mla_rdy;
+reg     [6 :0]  preg;
+reg             rdy;
+reg             wb;
 
 // &Wires; @29
-wire            alu0_data_ready;                        
-wire            alu0_issue_data_ready;                  
-wire            alu0_reg_fwd_vld;                       
-wire            alu1_data_ready;                        
-wire            alu1_issue_data_ready;                  
-wire            alu1_reg_fwd_vld;                       
-wire            cp0_idu_icg_en;                         
-wire            cp0_yy_clk_en;                          
-wire            cpurst_b;                               
-wire            ctrl_xx_rf_pipe0_preg_lch_vld_dupx;     
-wire            ctrl_xx_rf_pipe1_preg_lch_vld_dupx;     
-wire            data_ready;                             
-wire            dep_clk;                                
-wire            dep_clk_en;                             
-wire            div_data_ready;                         
-wire    [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;           
-wire    [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;           
-wire            forever_cpuclk;                         
-wire            gateclk_entry_vld;                      
-wire            iu_idu_div_inst_vld;                    
-wire    [6 :0]  iu_idu_div_preg_dupx;                   
-wire    [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;          
-wire            iu_idu_ex2_pipe0_wb_preg_vld_dupx;      
-wire            iu_idu_ex2_pipe1_mult_inst_vld_dupx;    
-wire    [6 :0]  iu_idu_ex2_pipe1_preg_dupx;             
-wire    [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;          
-wire            iu_idu_ex2_pipe1_wb_preg_vld_dupx;      
-wire            load_data_ready;                        
-wire            load_issue_data_ready;                  
-wire            lsu_idu_ag_pipe3_load_inst_vld;         
-wire    [6 :0]  lsu_idu_ag_pipe3_preg_dupx;             
-wire            lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx; 
-wire            lsu_idu_dc_pipe3_load_inst_vld_dupx;    
-wire    [6 :0]  lsu_idu_dc_pipe3_preg_dupx;             
-wire    [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;          
-wire            lsu_idu_wb_pipe3_wb_preg_vld_dupx;      
-wire            lsu_match_update;                       
-wire            mla_data_ready;                         
-wire            mla_issue_data_ready;                   
-wire            mla_rdy_update;                         
-wire            mla_reg_fwd_vld;                        
-wire            mult_data_ready;                        
-wire            pad_yy_icg_scan_en;                     
-wire            pipe0_wb;                               
-wire            pipe1_wb;                               
-wire            pipe3_wb;                               
-wire            rdy_clear;                              
-wire            rdy_update;                             
-wire            rtu_idu_flush_fe;                       
-wire            rtu_idu_flush_is;                       
-wire            vfpu0_data_ready;                       
-wire            vfpu1_data_ready;                       
-wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;  
-wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;           
-wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;  
-wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;           
-wire            wake_up;                                
-wire            wb_update;                              
-wire            write_back;                             
-wire            write_clk;                              
-wire            write_clk_en;                           
-wire    [10:0]  x_create_data;                          
-wire            x_create_lsu_match;                     
-wire            x_create_mla_rdy;                       
-wire    [6 :0]  x_create_preg;                          
-wire            x_create_rdy;                           
-wire            x_create_wb;                            
-wire            x_entry_mla;                            
-wire            x_gateclk_idx_write_en;                 
-wire            x_gateclk_write_en;                     
-wire            x_rdy_clr;                              
-wire    [12:0]  x_read_data;                            
-wire            x_read_lsu_match;                       
-wire            x_read_mla_rdy;                         
-wire    [6 :0]  x_read_preg;                            
-wire            x_read_rdy;                             
-wire            x_read_rdy_for_bypass;                  
-wire            x_read_rdy_for_issue;                   
-wire            x_read_wb;                              
-wire            x_write_en;                             
+wire            alu0_data_ready;
+wire            alu0_issue_data_ready;
+wire            alu0_reg_fwd_vld;
+wire            alu1_data_ready;
+wire            alu1_issue_data_ready;
+wire            alu1_reg_fwd_vld;
+wire            cp0_idu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            ctrl_xx_rf_pipe0_preg_lch_vld_dupx;
+wire            ctrl_xx_rf_pipe1_preg_lch_vld_dupx;
+wire            data_ready;
+wire            dep_clk;
+wire            dep_clk_en;
+wire            div_data_ready;
+wire    [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;
+wire    [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;
+wire            forever_cpuclk;
+wire            gateclk_entry_vld;
+wire            iu_idu_div_inst_vld;
+wire    [6 :0]  iu_idu_div_preg_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;
+wire            iu_idu_ex2_pipe0_wb_preg_vld_dupx;
+wire            iu_idu_ex2_pipe1_mult_inst_vld_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe1_preg_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;
+wire            iu_idu_ex2_pipe1_wb_preg_vld_dupx;
+wire            load_data_ready;
+wire            load_issue_data_ready;
+wire            lsu_idu_ag_pipe3_load_inst_vld;
+wire    [6 :0]  lsu_idu_ag_pipe3_preg_dupx;
+wire            lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx;
+wire            lsu_idu_dc_pipe3_load_inst_vld_dupx;
+wire    [6 :0]  lsu_idu_dc_pipe3_preg_dupx;
+wire    [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;
+wire            lsu_idu_wb_pipe3_wb_preg_vld_dupx;
+wire            lsu_match_update;
+wire            mla_data_ready;
+wire            mla_issue_data_ready;
+wire            mla_rdy_update;
+wire            mla_reg_fwd_vld;
+wire            mult_data_ready;
+wire            pad_yy_icg_scan_en;
+wire            pipe0_wb;
+wire            pipe1_wb;
+wire            pipe3_wb;
+wire            rdy_clear;
+wire            rdy_update;
+wire            rtu_idu_flush_fe;
+wire            rtu_idu_flush_is;
+wire            vfpu0_data_ready;
+wire            vfpu1_data_ready;
+wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;
+wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;
+wire            wake_up;
+wire            wb_update;
+wire            write_back;
+wire            write_clk;
+wire            write_clk_en;
+wire    [10:0]  x_create_data;
+wire            x_create_lsu_match;
+wire            x_create_mla_rdy;
+wire    [6 :0]  x_create_preg;
+wire            x_create_rdy;
+wire            x_create_wb;
+wire            x_entry_mla;
+wire            x_gateclk_idx_write_en;
+wire            x_gateclk_write_en;
+wire            x_rdy_clr;
+wire    [12:0]  x_read_data;
+wire            x_read_lsu_match;
+wire            x_read_mla_rdy;
+wire    [6 :0]  x_read_preg;
+wire            x_read_rdy;
+wire            x_read_rdy_for_bypass;
+wire            x_read_rdy_for_issue;
+wire            x_read_wb;
+wire            x_write_en;
 
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign dep_clk_en = x_gateclk_write_en || gateclk_entry_vld && (!rdy || !wb);
 // &Instance("gated_clk_cell", "x_dep_gated_clk"); @36
@@ -292,7 +292,7 @@ assign rdy_clear         = x_rdy_clr;
 
 //1.if ready is already be 1, just hold 1
 //2.if producer are presumed to produce the result two cycles later,
-//  set ready to 1 
+//  set ready to 1
 //3.if producer wake up, set ready to 1
 //4.clear ready to 0
 assign rdy_update = (rdy || data_ready || wake_up) && !rdy_clear;
@@ -325,13 +325,13 @@ end
 
 //-------------Update value of Ready Bit--------------------
 //prepare data_ready signal
-assign mla_issue_data_ready = x_entry_mla 
+assign mla_issue_data_ready = x_entry_mla
                               && mla_reg_fwd_vld;
 assign mla_data_ready       = mla_issue_data_ready;
 
 //1.if ready is already be 1, just hold 1
 //2.if producer are presumed to produce the result two cycles later,
-//  set ready to 1 
+//  set ready to 1
 //3.if producer wake up, set ready to 1
 //4.clear ready to 0
 assign mla_rdy_update = (mla_rdy || mla_data_ready || wake_up) && !rdy_clear;
@@ -351,7 +351,7 @@ begin
 end
 
 //==========================================================
-//                     Write Back Valid  
+//                     Write Back Valid
 //==========================================================
 //write back valid shows whether the result is written back
 //into PRF : 1 stands for the result is in PRF
@@ -406,7 +406,7 @@ begin
 end
 
 //==========================================================
-//                         Preg 
+//                         Preg
 //==========================================================
 assign x_read_preg[6:0] = preg[6:0];
 always @(posedge write_clk or negedge cpurst_b)

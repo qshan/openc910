@@ -45,121 +45,121 @@ module ct_lsu_pfu_sdb_cmp(
 );
 
 // &Ports; @27
-input           cp0_lsu_icg_en;                    
-input           cp0_yy_clk_en;                     
-input           cpurst_b;                          
-input           entry_addr0_act;                   
-input           entry_clk;                         
-input           entry_create_dp_vld;               
-input           entry_create_gateclk_en;           
-input           entry_pf_inst_vld;                 
-input           entry_stride_keep;                 
-input           entry_vld;                         
-input           forever_cpuclk;                    
-input   [6 :0]  ld_da_iid;                         
-input           pad_yy_icg_scan_en;                
-input   [39:0]  pipe_va;                           
-input           rtu_yy_xx_commit0;                 
-input   [6 :0]  rtu_yy_xx_commit0_iid;             
-input           rtu_yy_xx_commit1;                 
-input   [6 :0]  rtu_yy_xx_commit1_iid;             
-input           rtu_yy_xx_commit2;                 
-input   [6 :0]  rtu_yy_xx_commit2_iid;             
-input           rtu_yy_xx_flush;                   
-output          entry_addr_cmp_info_vld;           
-output          entry_check_stride_success;        
-output          entry_normal_stride;               
-output  [10:0]  entry_stride;                      
-output          entry_stride_neg;                  
-output  [6 :0]  entry_strideh_6to0;                
+input           cp0_lsu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           entry_addr0_act;
+input           entry_clk;
+input           entry_create_dp_vld;
+input           entry_create_gateclk_en;
+input           entry_pf_inst_vld;
+input           entry_stride_keep;
+input           entry_vld;
+input           forever_cpuclk;
+input   [6 :0]  ld_da_iid;
+input           pad_yy_icg_scan_en;
+input   [39:0]  pipe_va;
+input           rtu_yy_xx_commit0;
+input   [6 :0]  rtu_yy_xx_commit0_iid;
+input           rtu_yy_xx_commit1;
+input   [6 :0]  rtu_yy_xx_commit1_iid;
+input           rtu_yy_xx_commit2;
+input   [6 :0]  rtu_yy_xx_commit2_iid;
+input           rtu_yy_xx_flush;
+output          entry_addr_cmp_info_vld;
+output          entry_check_stride_success;
+output          entry_normal_stride;
+output  [10:0]  entry_stride;
+output          entry_stride_neg;
+output  [6 :0]  entry_strideh_6to0;
 
 // &Regs; @28
-reg     [39:0]  entry_addr_0;                      
-reg     [39:0]  entry_addr_1;                      
-reg     [39:0]  entry_addr_2;                      
-reg             entry_addr_cmp_info_vld;           
-reg     [2 :0]  entry_addr_vld;                    
-reg     [2 :0]  entry_cmit;                        
-reg     [6 :0]  entry_iid_0;                       
-reg     [6 :0]  entry_iid_1;                       
-reg     [6 :0]  entry_iid_2;                       
-reg     [10:0]  entry_stride;                      
-reg             entry_stride_0to1_neg_cross_2k;    
-reg             entry_stride_0to1_pos_cross_2k;    
-reg             entry_stride_0to1_zero;            
-reg             entry_stride_cmp0_eq;              
-reg             entry_stride_diff_eq;              
-reg             entry_stride_neg;                  
+reg     [39:0]  entry_addr_0;
+reg     [39:0]  entry_addr_1;
+reg     [39:0]  entry_addr_2;
+reg             entry_addr_cmp_info_vld;
+reg     [2 :0]  entry_addr_vld;
+reg     [2 :0]  entry_cmit;
+reg     [6 :0]  entry_iid_0;
+reg     [6 :0]  entry_iid_1;
+reg     [6 :0]  entry_iid_2;
+reg     [10:0]  entry_stride;
+reg             entry_stride_0to1_neg_cross_2k;
+reg             entry_stride_0to1_pos_cross_2k;
+reg             entry_stride_0to1_zero;
+reg             entry_stride_cmp0_eq;
+reg             entry_stride_diff_eq;
+reg             entry_stride_neg;
 
 // &Wires; @29
-wire            cp0_lsu_icg_en;                    
-wire            cp0_yy_clk_en;                     
-wire            cpurst_b;                          
-wire            entry_addr0_act;                   
-wire            entry_addr_0_clk;                  
-wire            entry_addr_0_clk_en;               
-wire    [39:0]  entry_addr_0_next;                 
-wire            entry_addr_1_clk;                  
-wire            entry_addr_1_clk_en;               
-wire    [39:0]  entry_addr_1_next;                 
-wire            entry_addr_2_clk;                  
-wire            entry_addr_2_clk_en;               
-wire    [39:0]  entry_addr_2_next;                 
-wire    [2 :0]  entry_addr_dp_set;                 
-wire    [2 :0]  entry_addr_set;                    
-wire            entry_check_stride_success;        
-wire            entry_clk;                         
-wire            entry_clr_addr_info_vld;           
-wire            entry_cmit_all;                    
-wire            entry_cmit_all_clk;                
-wire            entry_cmit_all_clk_en;             
-wire    [2 :0]  entry_cmit_hit0;                   
-wire    [2 :0]  entry_cmit_hit1;                   
-wire    [2 :0]  entry_cmit_hit2;                   
-wire    [2 :0]  entry_cmit_set;                    
-wire            entry_create_dp_vld;               
-wire            entry_create_gateclk_en;           
-wire    [2 :0]  entry_flush_uncmit;                
-wire    [6 :0]  entry_iid_0_next;                  
-wire    [6 :0]  entry_iid_1_next;                  
-wire    [6 :0]  entry_iid_2_next;                  
-wire    [2 :0]  entry_iid_newer_than_ld_da;        
-wire    [2 :0]  entry_newer_than_ld_da;            
-wire            entry_normal_stride;               
-wire            entry_pf_inst_vld;                 
-wire            entry_sel_2;                       
-wire    [39:0]  entry_stride_0to1;                 
-wire            entry_stride_0to1_cross_2k;        
-wire            entry_stride_0to1_neg_cross_2k_set; 
-wire            entry_stride_0to1_pos_cross_2k_set; 
-wire            entry_stride_0to1_zero_set;        
-wire    [39:0]  entry_stride_1to0;                 
-wire    [39:0]  entry_stride_1to2;                 
-wire            entry_stride_cmp0_eq_set;          
-wire            entry_stride_create_vld;           
-wire            entry_stride_diff_eq_set;          
-wire            entry_stride_ge_cache_line;        
-wire            entry_stride_keep;                 
-wire            entry_stride_neg_ge_cache_line;    
-wire            entry_stride_neg_set;              
-wire            entry_stride_pos_ge_cache_line;    
-wire    [6 :0]  entry_strideh_6to0;                
-wire            entry_vld;                         
-wire            forever_cpuclk;                    
-wire    [6 :0]  ld_da_iid;                         
-wire            pad_yy_icg_scan_en;                
-wire    [39:0]  pipe_va;                           
-wire            rtu_yy_xx_commit0;                 
-wire    [6 :0]  rtu_yy_xx_commit0_iid;             
-wire            rtu_yy_xx_commit1;                 
-wire    [6 :0]  rtu_yy_xx_commit1_iid;             
-wire            rtu_yy_xx_commit2;                 
-wire    [6 :0]  rtu_yy_xx_commit2_iid;             
-wire            rtu_yy_xx_flush;                   
+wire            cp0_lsu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            entry_addr0_act;
+wire            entry_addr_0_clk;
+wire            entry_addr_0_clk_en;
+wire    [39:0]  entry_addr_0_next;
+wire            entry_addr_1_clk;
+wire            entry_addr_1_clk_en;
+wire    [39:0]  entry_addr_1_next;
+wire            entry_addr_2_clk;
+wire            entry_addr_2_clk_en;
+wire    [39:0]  entry_addr_2_next;
+wire    [2 :0]  entry_addr_dp_set;
+wire    [2 :0]  entry_addr_set;
+wire            entry_check_stride_success;
+wire            entry_clk;
+wire            entry_clr_addr_info_vld;
+wire            entry_cmit_all;
+wire            entry_cmit_all_clk;
+wire            entry_cmit_all_clk_en;
+wire    [2 :0]  entry_cmit_hit0;
+wire    [2 :0]  entry_cmit_hit1;
+wire    [2 :0]  entry_cmit_hit2;
+wire    [2 :0]  entry_cmit_set;
+wire            entry_create_dp_vld;
+wire            entry_create_gateclk_en;
+wire    [2 :0]  entry_flush_uncmit;
+wire    [6 :0]  entry_iid_0_next;
+wire    [6 :0]  entry_iid_1_next;
+wire    [6 :0]  entry_iid_2_next;
+wire    [2 :0]  entry_iid_newer_than_ld_da;
+wire    [2 :0]  entry_newer_than_ld_da;
+wire            entry_normal_stride;
+wire            entry_pf_inst_vld;
+wire            entry_sel_2;
+wire    [39:0]  entry_stride_0to1;
+wire            entry_stride_0to1_cross_2k;
+wire            entry_stride_0to1_neg_cross_2k_set;
+wire            entry_stride_0to1_pos_cross_2k_set;
+wire            entry_stride_0to1_zero_set;
+wire    [39:0]  entry_stride_1to0;
+wire    [39:0]  entry_stride_1to2;
+wire            entry_stride_cmp0_eq_set;
+wire            entry_stride_create_vld;
+wire            entry_stride_diff_eq_set;
+wire            entry_stride_ge_cache_line;
+wire            entry_stride_keep;
+wire            entry_stride_neg_ge_cache_line;
+wire            entry_stride_neg_set;
+wire            entry_stride_pos_ge_cache_line;
+wire    [6 :0]  entry_strideh_6to0;
+wire            entry_vld;
+wire            forever_cpuclk;
+wire    [6 :0]  ld_da_iid;
+wire            pad_yy_icg_scan_en;
+wire    [39:0]  pipe_va;
+wire            rtu_yy_xx_commit0;
+wire    [6 :0]  rtu_yy_xx_commit0_iid;
+wire            rtu_yy_xx_commit1;
+wire    [6 :0]  rtu_yy_xx_commit1_iid;
+wire            rtu_yy_xx_commit2;
+wire    [6 :0]  rtu_yy_xx_commit2_iid;
+wire            rtu_yy_xx_flush;
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign entry_cmit_all_clk_en  = entry_create_gateclk_en
                                 ||  entry_vld
@@ -470,7 +470,7 @@ assign entry_cmit_set[2]  = (entry_cmit_hit0[2]
 //-------------------flush uncommited-----------------------
 assign entry_flush_uncmit[2:0]  = {3{rtu_yy_xx_flush}}
                                   & (~entry_cmit[2:0]);
-                                        
+
 
 //==========================================================
 //                    Set addr and iid

@@ -31,187 +31,187 @@ module ct_idu_id_split_short(
 );
 
 // &Ports; @26
-input            dp_split_short_bkpta_inst; 
-input            dp_split_short_bkptb_inst; 
-input   [31 :0]  dp_split_short_inst;      
-input            dp_split_short_no_spec;   
-input   [14 :0]  dp_split_short_pc;        
-input   [6  :0]  dp_split_short_type;      
-input   [7  :0]  dp_split_short_vl;        
-input            dp_split_short_vl_pred;   
-input   [1  :0]  dp_split_short_vlmul;     
-input   [2  :0]  dp_split_short_vsew;      
-output  [3  :0]  split_short_dp_dep_info;  
-output  [177:0]  split_short_dp_inst0_data; 
-output  [177:0]  split_short_dp_inst1_data; 
+input            dp_split_short_bkpta_inst;
+input            dp_split_short_bkptb_inst;
+input   [31 :0]  dp_split_short_inst;
+input            dp_split_short_no_spec;
+input   [14 :0]  dp_split_short_pc;
+input   [6  :0]  dp_split_short_type;
+input   [7  :0]  dp_split_short_vl;
+input            dp_split_short_vl_pred;
+input   [1  :0]  dp_split_short_vlmul;
+input   [2  :0]  dp_split_short_vsew;
+output  [3  :0]  split_short_dp_dep_info;
+output  [177:0]  split_short_dp_inst0_data;
+output  [177:0]  split_short_dp_inst1_data;
 
 // &Regs; @27
-reg     [177:0]  fp_inst0_data;            
-reg     [177:0]  fp_inst1_data;            
-reg     [177:0]  jal_inst0_data;           
-reg     [177:0]  jal_inst1_data;           
-reg     [2  :0]  lsd_func3;                
-reg     [177:0]  lsd_inst0_load_data;      
-reg     [177:0]  lsd_inst0_store_data;     
-reg     [177:0]  lsd_inst1_load_data;      
-reg     [177:0]  lsd_inst1_store_data;     
-reg     [7  :0]  lsi_imm;                  
-reg     [177:0]  lsi_inst0_data;           
-reg     [177:0]  lsi_inst1_load_data;      
-reg     [177:0]  lsi_inst1_store_data;     
-reg     [177:0]  split_short_dp_inst0_data; 
-reg     [177:0]  split_short_dp_inst1_data; 
-reg     [177:0]  vec_mpop_inst0_data;      
-reg     [177:0]  vec_mpop_inst1_data;      
-reg     [177:0]  vec_norm_inst0_data;      
-reg     [177:0]  vec_norm_inst1_data;      
-reg     [9  :0]  vec_norm_pipe;            
-reg     [177:0]  vec_vext_inst0_data;      
-reg     [177:0]  vec_vext_inst1_data;      
+reg     [177:0]  fp_inst0_data;
+reg     [177:0]  fp_inst1_data;
+reg     [177:0]  jal_inst0_data;
+reg     [177:0]  jal_inst1_data;
+reg     [2  :0]  lsd_func3;
+reg     [177:0]  lsd_inst0_load_data;
+reg     [177:0]  lsd_inst0_store_data;
+reg     [177:0]  lsd_inst1_load_data;
+reg     [177:0]  lsd_inst1_store_data;
+reg     [7  :0]  lsi_imm;
+reg     [177:0]  lsi_inst0_data;
+reg     [177:0]  lsi_inst1_load_data;
+reg     [177:0]  lsi_inst1_store_data;
+reg     [177:0]  split_short_dp_inst0_data;
+reg     [177:0]  split_short_dp_inst1_data;
+reg     [177:0]  vec_mpop_inst0_data;
+reg     [177:0]  vec_mpop_inst1_data;
+reg     [177:0]  vec_norm_inst0_data;
+reg     [177:0]  vec_norm_inst1_data;
+reg     [9  :0]  vec_norm_pipe;
+reg     [177:0]  vec_vext_inst0_data;
+reg     [177:0]  vec_vext_inst1_data;
 
 // &Wires; @28
-wire             dp_split_short_bkpta_inst; 
-wire             dp_split_short_bkptb_inst; 
-wire    [31 :0]  dp_split_short_inst;      
-wire             dp_split_short_no_spec;   
-wire    [14 :0]  dp_split_short_pc;        
-wire    [6  :0]  dp_split_short_type;      
-wire    [7  :0]  dp_split_short_vl;        
-wire             dp_split_short_vl_pred;   
-wire    [1  :0]  dp_split_short_vlmul;     
-wire    [2  :0]  dp_split_short_vsew;      
-wire             fp_cvt_type0;             
-wire             fp_cvt_type0_l;           
-wire             fp_cvt_type0_w;           
-wire             fp_cvt_type1;             
-wire             fp_cvt_type1_l;           
-wire             fp_cvt_type1_w;           
-wire    [3  :0]  fp_dep_info;              
-wire    [31 :0]  fp_inst;                  
-wire    [31 :0]  fp_inst0_op;              
-wire    [31 :0]  fp_inst1_op;              
-wire             jal_cjalr;                
-wire    [3  :0]  jal_dep_info;             
-wire    [31 :0]  jal_inst;                 
-wire             jal_jal;                  
-wire    [3  :0]  lsd_dep_info;             
-wire    [31 :0]  lsd_inst;                 
-wire    [177:0]  lsd_inst0_data;           
-wire    [11 :0]  lsd_inst0_offset;         
-wire    [177:0]  lsd_inst1_data;           
-wire    [11 :0]  lsd_inst1_offset;         
-wire             lsd_load;                 
-wire             lsd_word;                 
-wire    [3  :0]  lsi_dep_info;             
-wire    [31 :0]  lsi_inst;                 
-wire    [177:0]  lsi_inst1_data;           
-wire             lsi_load;                 
-wire    [11 :0]  lsi_offset;               
-wire             lsi_post;                 
-wire    [3  :0]  mpop_dep_info;            
-wire    [3  :0]  norm_dep_info;            
-wire    [3  :0]  split_short_dp_dep_info;  
-wire    [177:0]  split_short_inst0_data;   
-wire    [177:0]  split_short_inst1_data;   
-wire    [3  :0]  vec_dep_info;             
-wire    [31 :0]  vec_inst;                 
-wire    [177:0]  vec_inst0_data;           
-wire    [177:0]  vec_inst1_data;           
-wire             vec_inst_adc;             
-wire             vec_inst_cmp;             
-wire             vec_inst_div;             
-wire             vec_inst_ereg;            
-wire             vec_inst_mac;             
-wire             vec_inst_madd;            
-wire             vec_inst_red;             
-wire             vec_inst_sat;             
-wire             vec_inst_sht;             
-wire    [2  :0]  vec_inst_type;            
-wire    [31 :0]  vec_mpop_inst0_op;        
-wire    [31 :0]  vec_mpop_inst1_op;        
-wire             vec_narr_sat;             
-wire             vec_narr_sht;             
-wire    [5  :0]  vec_norm_destv_offset;    
-wire    [5  :0]  vec_norm_destv_offset_tmp; 
-wire    [4  :0]  vec_norm_destv_vreg_0;    
-wire    [4  :0]  vec_norm_destv_vreg_1;    
-wire             vec_norm_div;             
-wire             vec_norm_inst_vmla;       
-wire             vec_norm_mac;             
-wire             vec_norm_mul;             
-wire             vec_norm_sat;             
-wire             vec_norm_sht;             
-wire    [5  :0]  vec_norm_srcv0_offset;    
-wire             vec_norm_srcv0_vld;       
-wire    [4  :0]  vec_norm_srcv0_vreg_0;    
-wire    [4  :0]  vec_norm_srcv0_vreg_0_tmp; 
-wire    [4  :0]  vec_norm_srcv0_vreg_1;    
-wire    [4  :0]  vec_norm_srcv0_vreg_1_tmp; 
-wire    [5  :0]  vec_norm_srcv1_offset;    
-wire             vec_norm_srcv1_vld;       
-wire    [4  :0]  vec_norm_srcv1_vreg_0;    
-wire    [4  :0]  vec_norm_srcv1_vreg_0_tmp; 
-wire    [4  :0]  vec_norm_srcv1_vreg_1;    
-wire    [4  :0]  vec_norm_srcv1_vreg_1_tmp; 
-wire             vec_norm_srcv2_vld;       
-wire             vec_norm_srcvm_vld;       
-wire             vec_opfvv;                
-wire             vec_opivi;                
-wire             vec_opivv;                
-wire             vec_opmvv;                
-wire             vec_src_switch;           
-wire             vec_type_cmp;             
-wire             vec_type_fcvt;            
-wire             vec_type_fcvt_narr;       
-wire             vec_type_fcvt_norm;       
-wire             vec_type_fcvt_wide;       
-wire             vec_type_fdiv;            
-wire             vec_type_fmac;            
-wire             vec_type_narr;            
-wire             vec_type_narr_0;          
-wire             vec_type_narr_1;          
-wire             vec_type_narr_2;          
-wire             vec_type_norm_0_2;        
-wire             vec_type_norm_0_3;        
-wire             vec_type_norm_0_4;        
-wire             vec_type_norm_0_5;        
-wire             vec_type_norm_0_7;        
-wire             vec_type_norm_0_9;        
-wire             vec_type_norm_0_a;        
-wire             vec_type_norm_0_b;        
-wire             vec_type_norm_1_0;        
-wire             vec_type_norm_1_1;        
-wire             vec_type_norm_1_2;        
-wire             vec_type_norm_1_3;        
-wire             vec_type_norm_2_1;        
-wire             vec_type_norm_2_3;        
-wire             vec_type_norm_2_4;        
-wire             vec_type_norm_2_6;        
-wire             vec_type_norm_2_7;        
-wire             vec_type_norm_2_a;        
-wire             vec_type_norm_2_b;        
-wire             vec_type_norm_2_c;        
-wire             vec_type_redu;            
-wire             vec_type_wide;            
-wire             vec_type_wide_0;          
-wire             vec_type_wide_1;          
-wire             vec_type_wide_2;          
-wire             vec_type_wide_3;          
-wire             vec_type_wide_4;          
-wire             vec_type_wide_5;          
-wire             vec_type_wide_6;          
-wire             vec_type_wide_7;          
-wire             vec_type_wide_8;          
-wire             vec_type_wide_9;          
-wire    [31 :0]  vec_vext_inst0_op;        
-wire    [31 :0]  vec_vext_inst1_op;        
-wire             vec_wide_mac;             
-wire             vec_wide_mul;             
-wire             vec_wide_sat;             
-wire    [3  :0]  vext_dep_info;            
-wire             x_vfunary0_vld_narr;      
-wire             x_vfunary0_vld_norm;      
-wire             x_vfunary0_vld_wide;      
+wire             dp_split_short_bkpta_inst;
+wire             dp_split_short_bkptb_inst;
+wire    [31 :0]  dp_split_short_inst;
+wire             dp_split_short_no_spec;
+wire    [14 :0]  dp_split_short_pc;
+wire    [6  :0]  dp_split_short_type;
+wire    [7  :0]  dp_split_short_vl;
+wire             dp_split_short_vl_pred;
+wire    [1  :0]  dp_split_short_vlmul;
+wire    [2  :0]  dp_split_short_vsew;
+wire             fp_cvt_type0;
+wire             fp_cvt_type0_l;
+wire             fp_cvt_type0_w;
+wire             fp_cvt_type1;
+wire             fp_cvt_type1_l;
+wire             fp_cvt_type1_w;
+wire    [3  :0]  fp_dep_info;
+wire    [31 :0]  fp_inst;
+wire    [31 :0]  fp_inst0_op;
+wire    [31 :0]  fp_inst1_op;
+wire             jal_cjalr;
+wire    [3  :0]  jal_dep_info;
+wire    [31 :0]  jal_inst;
+wire             jal_jal;
+wire    [3  :0]  lsd_dep_info;
+wire    [31 :0]  lsd_inst;
+wire    [177:0]  lsd_inst0_data;
+wire    [11 :0]  lsd_inst0_offset;
+wire    [177:0]  lsd_inst1_data;
+wire    [11 :0]  lsd_inst1_offset;
+wire             lsd_load;
+wire             lsd_word;
+wire    [3  :0]  lsi_dep_info;
+wire    [31 :0]  lsi_inst;
+wire    [177:0]  lsi_inst1_data;
+wire             lsi_load;
+wire    [11 :0]  lsi_offset;
+wire             lsi_post;
+wire    [3  :0]  mpop_dep_info;
+wire    [3  :0]  norm_dep_info;
+wire    [3  :0]  split_short_dp_dep_info;
+wire    [177:0]  split_short_inst0_data;
+wire    [177:0]  split_short_inst1_data;
+wire    [3  :0]  vec_dep_info;
+wire    [31 :0]  vec_inst;
+wire    [177:0]  vec_inst0_data;
+wire    [177:0]  vec_inst1_data;
+wire             vec_inst_adc;
+wire             vec_inst_cmp;
+wire             vec_inst_div;
+wire             vec_inst_ereg;
+wire             vec_inst_mac;
+wire             vec_inst_madd;
+wire             vec_inst_red;
+wire             vec_inst_sat;
+wire             vec_inst_sht;
+wire    [2  :0]  vec_inst_type;
+wire    [31 :0]  vec_mpop_inst0_op;
+wire    [31 :0]  vec_mpop_inst1_op;
+wire             vec_narr_sat;
+wire             vec_narr_sht;
+wire    [5  :0]  vec_norm_destv_offset;
+wire    [5  :0]  vec_norm_destv_offset_tmp;
+wire    [4  :0]  vec_norm_destv_vreg_0;
+wire    [4  :0]  vec_norm_destv_vreg_1;
+wire             vec_norm_div;
+wire             vec_norm_inst_vmla;
+wire             vec_norm_mac;
+wire             vec_norm_mul;
+wire             vec_norm_sat;
+wire             vec_norm_sht;
+wire    [5  :0]  vec_norm_srcv0_offset;
+wire             vec_norm_srcv0_vld;
+wire    [4  :0]  vec_norm_srcv0_vreg_0;
+wire    [4  :0]  vec_norm_srcv0_vreg_0_tmp;
+wire    [4  :0]  vec_norm_srcv0_vreg_1;
+wire    [4  :0]  vec_norm_srcv0_vreg_1_tmp;
+wire    [5  :0]  vec_norm_srcv1_offset;
+wire             vec_norm_srcv1_vld;
+wire    [4  :0]  vec_norm_srcv1_vreg_0;
+wire    [4  :0]  vec_norm_srcv1_vreg_0_tmp;
+wire    [4  :0]  vec_norm_srcv1_vreg_1;
+wire    [4  :0]  vec_norm_srcv1_vreg_1_tmp;
+wire             vec_norm_srcv2_vld;
+wire             vec_norm_srcvm_vld;
+wire             vec_opfvv;
+wire             vec_opivi;
+wire             vec_opivv;
+wire             vec_opmvv;
+wire             vec_src_switch;
+wire             vec_type_cmp;
+wire             vec_type_fcvt;
+wire             vec_type_fcvt_narr;
+wire             vec_type_fcvt_norm;
+wire             vec_type_fcvt_wide;
+wire             vec_type_fdiv;
+wire             vec_type_fmac;
+wire             vec_type_narr;
+wire             vec_type_narr_0;
+wire             vec_type_narr_1;
+wire             vec_type_narr_2;
+wire             vec_type_norm_0_2;
+wire             vec_type_norm_0_3;
+wire             vec_type_norm_0_4;
+wire             vec_type_norm_0_5;
+wire             vec_type_norm_0_7;
+wire             vec_type_norm_0_9;
+wire             vec_type_norm_0_a;
+wire             vec_type_norm_0_b;
+wire             vec_type_norm_1_0;
+wire             vec_type_norm_1_1;
+wire             vec_type_norm_1_2;
+wire             vec_type_norm_1_3;
+wire             vec_type_norm_2_1;
+wire             vec_type_norm_2_3;
+wire             vec_type_norm_2_4;
+wire             vec_type_norm_2_6;
+wire             vec_type_norm_2_7;
+wire             vec_type_norm_2_a;
+wire             vec_type_norm_2_b;
+wire             vec_type_norm_2_c;
+wire             vec_type_redu;
+wire             vec_type_wide;
+wire             vec_type_wide_0;
+wire             vec_type_wide_1;
+wire             vec_type_wide_2;
+wire             vec_type_wide_3;
+wire             vec_type_wide_4;
+wire             vec_type_wide_5;
+wire             vec_type_wide_6;
+wire             vec_type_wide_7;
+wire             vec_type_wide_8;
+wire             vec_type_wide_9;
+wire    [31 :0]  vec_vext_inst0_op;
+wire    [31 :0]  vec_vext_inst1_op;
+wire             vec_wide_mac;
+wire             vec_wide_mul;
+wire             vec_wide_sat;
+wire    [3  :0]  vext_dep_info;
+wire             x_vfunary0_vld_narr;
+wire             x_vfunary0_vld_norm;
+wire             x_vfunary0_vld_wide;
 
 
 
@@ -288,7 +288,7 @@ parameter PIPE7    = 10'b0100000000;
 parameter SPECIAL  = 10'b1000000000;
 
 //==========================================================
-//                    jal instructions 
+//                    jal instructions
 //==========================================================
 //----------------------------------------------------------
 //                     Contrl Signals
@@ -353,7 +353,7 @@ begin
 end
 
 //==========================================================
-//                    lsi instructions 
+//                    lsi instructions
 //==========================================================
 //----------------------------------------------------------
 //                     Contrl Signals
@@ -475,7 +475,7 @@ assign lsi_inst1_data[IR_WIDTH-1:0] = lsi_load
                                       : lsi_inst1_store_data[IR_WIDTH-1:0];
 
 //==========================================================
-//                    lsd instructions 
+//                    lsd instructions
 //==========================================================
 //----------------------------------------------------------
 //                     Contrl Signals
@@ -673,7 +673,7 @@ begin
   if(1'b1) begin
   fp_inst0_data[IR_OPCODE:IR_OPCODE-31]      = fp_inst0_op[31:0];
 
-  fp_inst0_data[IR_INST_TYPE:IR_INST_TYPE-9] = (fp_cvt_type1) ? ALU 
+  fp_inst0_data[IR_INST_TYPE:IR_INST_TYPE-9] = (fp_cvt_type1) ? ALU
                                                :  PIPE7;
   fp_inst0_data[IR_SRC0_VLD]                 = fp_cvt_type1;
   fp_inst0_data[IR_SRC0_REG:IR_SRC0_REG-5]   = (fp_cvt_type1) ? {1'b0,fp_inst[19:15]} : 6'b0;
@@ -704,7 +704,7 @@ assign fp_inst1_op[31:20]      =
  | {12{fp_cvt_type0_l}} & {12'b111000100000}; //fmv.x.d
 
 assign fp_inst1_op[19:15]      = 5'b1;
-assign fp_inst1_op[14:0]       = 
+assign fp_inst1_op[14:0]       =
   // {15{fp_compare}}     & {3'b0,fp_inst[11:7],7'b1010011}  //fmv.x.w
   {15{fp_cvt_type1}}   & fp_inst[14:0]      //fcvt
  | {15{fp_cvt_type0_w}} & {3'b0,fp_inst[11:7],7'b1010011}  //fmv.x.w
@@ -751,7 +751,7 @@ assign vec_type_narr_0    = (vec_inst[31:27] == 5'b10110) && (vec_opivv || vec_o
 assign vec_type_narr_1    = (vec_inst[31:27] == 5'b10111) && (vec_opivv || vec_opivi);//sat narrow shift
 assign vec_type_narr_2    = (vec_inst[31:26] == 6'b100010) && (x_vfunary0_vld_narr) && (vec_opfvv);//narrow fcvt
 
-assign vec_type_narr      = (vec_type_narr_0 || vec_type_narr_1 || vec_type_narr_2); 
+assign vec_type_narr      = (vec_type_narr_0 || vec_type_narr_1 || vec_type_narr_2);
 assign vec_narr_sat       =  vec_type_narr_1;
 assign vec_narr_sht       =  vec_type_narr_0 || vec_type_narr_1;
 
@@ -776,10 +776,10 @@ assign vec_type_wide_7    = (vec_inst[31:26] == 6'b111000)&& (vec_opfvv); //vfwm
 assign vec_type_wide_8    = (vec_inst[31:28] == 4'b1111)  && (vec_opfvv);  //wide mac
 assign vec_type_wide_9    = (vec_inst[31:26] == 6'b100010)&& (x_vfunary0_vld_wide) && (vec_opfvv);//widening fcvt
 
-assign vec_type_wide      = (vec_type_wide_0 || vec_type_wide_1 || 
+assign vec_type_wide      = (vec_type_wide_0 || vec_type_wide_1 ||
                              vec_type_wide_2 || vec_type_wide_3 ||
                              vec_type_wide_4 || vec_type_wide_5 ||
-                             vec_type_wide_6 || vec_type_wide_7 || 
+                             vec_type_wide_6 || vec_type_wide_7 ||
                              vec_type_wide_8 || vec_type_wide_9);
 
 assign vec_wide_sat       =  vec_type_wide_0;
@@ -809,7 +809,7 @@ assign vec_type_norm_0_7  = (vec_opivv || vec_opivi) && (vec_inst[31:26]== 6'b10
 assign vec_type_norm_0_9  = (vec_opivv || vec_opivi) && (vec_inst[31:26]== 6'b100111); //smul
 assign vec_type_norm_0_a  = (vec_opivv || vec_opivi) && (vec_inst[31:27]== 5'b10100); //shift
 assign vec_type_norm_0_b  = (vec_opivv || vec_opivi) && (vec_inst[31:27]== 5'b10101); //sat shift
-//assign vec_type_norm_0    = (vec_type_norm_0_0 || vec_type_norm_0_1 || 
+//assign vec_type_norm_0    = (vec_type_norm_0_0 || vec_type_norm_0_1 ||
 //                             vec_type_norm_0_2 || vec_type_norm_0_3 ||
 //                             vec_type_norm_0_4 || vec_type_norm_0_5 ||
 //                             vec_type_norm_0_6 || vec_type_norm_0_7 ||
@@ -819,13 +819,13 @@ assign vec_type_norm_0_b  = (vec_opivv || vec_opivi) && (vec_inst[31:27]== 5'b10
 assign vec_type_norm_1_0  = (vec_opmvv) && (vec_inst[31:28]== 4'b1000);//div
 assign vec_type_norm_1_1  = (vec_opmvv) && (vec_inst[31:28]== 4'b1001);//mult
 assign vec_type_norm_1_2  = (vec_opmvv) && (vec_inst[31:29]== 3'b101);//mac
-assign vec_type_norm_1_3  = (vec_opmvv) && (vec_inst[31:26]== 6'b010110) 
+assign vec_type_norm_1_3  = (vec_opmvv) && (vec_inst[31:26]== 6'b010110)
                                         && (vec_inst[19:16]== 4'b1000); //viota vid
 
 //assign vec_type_norm_1    = (vec_type_norm_1_0 || vec_type_norm_1_1 ||
 //                             vec_type_norm_1_2 || vec_type_norm_1_3 );
 //
-//assign vec_type_norm      = (vec_type_norm_0 || vec_type_norm_1 ); 
+//assign vec_type_norm      = (vec_type_norm_0 || vec_type_norm_1 );
 
 assign x_vfunary0_vld_norm = (vec_inst[19:15] == 5'b00000) //vfcvt.xu.f.v
                            ||(vec_inst[19:15] == 5'b00001) //vfcvt.x.f.v
@@ -871,7 +871,7 @@ assign vec_inst_mac       = vec_wide_mac || vec_norm_mac;
 
 assign vec_inst_sht       = vec_narr_sht || vec_norm_sht;
 
-assign vec_inst_div       = vec_norm_div || vec_type_fdiv; 
+assign vec_inst_div       = vec_norm_div || vec_type_fdiv;
 
 assign vec_inst_adc       = vec_type_norm_0_2;
 
@@ -881,10 +881,10 @@ assign vec_inst_cmp       = vec_type_norm_0_2 && vec_inst[26] || vec_type_norm_0
 
 assign vec_inst_madd      =  vec_type_norm_2_c;
 
-assign vec_norm_inst_vmla = vec_inst_mac || vec_narr_sht  || vec_inst_red || 
+assign vec_norm_inst_vmla = vec_inst_mac || vec_narr_sht  || vec_inst_red ||
                             vec_inst_cmp || vec_type_fmac || vec_type_fcvt;
 
-assign vec_inst_ereg      =(vec_opfvv) 
+assign vec_inst_ereg      =(vec_opfvv)
                         && !vec_type_norm_2_1    //fsgnj
                         && !vec_type_norm_2_7;   //fclass
 // &CombBeg; @640
@@ -910,26 +910,26 @@ assign vec_norm_srcv0_vld = !(vec_type_norm_0_3 && vec_inst[25]) && //vmv
 
 assign vec_norm_srcv1_vld = !vec_type_norm_1_3 && !vec_opivi  //viota,vid or V-I inst
                     //     && !vec_type_fcvt     //fcvt
-                         && !vec_type_norm_2_6  //fsqrt 
+                         && !vec_type_norm_2_6  //fsqrt
                          && !vec_type_norm_2_7; //fclass
 
 assign vec_norm_srcv2_vld = (!vec_inst[25] && !vec_inst_red) || vec_norm_mac || vec_wide_mac || vec_type_fmac || vec_inst_madd;
-assign vec_norm_srcvm_vld = !vec_inst[25] || vec_inst_adc;  
+assign vec_norm_srcvm_vld = !vec_inst[25] || vec_inst_adc;
 
-assign vec_norm_srcv0_offset[5:0] =(vec_type_wide_0 || vec_type_wide_1 
-                                 || vec_type_wide_3 || vec_type_wide_4 
+assign vec_norm_srcv0_offset[5:0] =(vec_type_wide_0 || vec_type_wide_1
+                                 || vec_type_wide_3 || vec_type_wide_4
                                  || vec_type_wide_5 || vec_type_wide_7
-                                 || vec_type_wide_8 || vec_type_wide_9 || 
+                                 || vec_type_wide_8 || vec_type_wide_9 ||
                                    vec_type_norm_1_3)
-                                   ? {3'b000,3'b000} 
+                                   ? {3'b000,3'b000}
                                    : {3'b001,3'b000};
 
 assign vec_norm_srcv1_offset[5:0] =(vec_type_wide || vec_type_narr)
-                                   ? {3'b000,3'b000} 
+                                   ? {3'b000,3'b000}
                                    : {3'b001,3'b000};
 
 assign vec_norm_destv_offset_tmp[5:0] =(vec_type_narr)
-                                      ? {3'b000,3'b000} 
+                                      ? {3'b000,3'b000}
                                       : {3'b001,3'b000};
 
 assign vec_type_cmp = vec_inst_cmp || vec_type_norm_2_3;
@@ -1214,14 +1214,14 @@ assign split_short_inst1_data[IR_WIDTH-1:0] =
          {IR_WIDTH{dp_split_short_type[0]}}  &   jal_inst1_data[IR_WIDTH-1:0]
        | {IR_WIDTH{dp_split_short_type[1]}}  &   fp_inst1_data[IR_WIDTH-1:0]
        | {IR_WIDTH{dp_split_short_type[2]}}  &   lsi_inst1_data[IR_WIDTH-1:0]
-       | {IR_WIDTH{dp_split_short_type[3]}}  &   lsd_inst1_data[IR_WIDTH-1:0] 
+       | {IR_WIDTH{dp_split_short_type[3]}}  &   lsd_inst1_data[IR_WIDTH-1:0]
        |                                         vec_inst1_data[IR_WIDTH-1:0];
 
 assign split_short_dp_dep_info[3:0] =
          {4{dp_split_short_type[0]}}  &   jal_dep_info[3:0]
        | {4{dp_split_short_type[1]}}  &   fp_dep_info[3:0]
        | {4{dp_split_short_type[2]}}  &   lsi_dep_info[3:0]
-       | {4{dp_split_short_type[3]}}  &   lsd_dep_info[3:0] 
+       | {4{dp_split_short_type[3]}}  &   lsd_dep_info[3:0]
        |                                  vec_dep_info[3:0];
 
 //----------------------------------------------------------
@@ -1269,7 +1269,7 @@ always @( dp_split_short_bkptb_inst
 begin
   split_short_dp_inst1_data[IR_WIDTH-1:0]              = split_short_inst1_data[IR_WIDTH-1:0];
   if(1'b1) begin
-  split_short_dp_inst1_data[IR_DST_X0]                 = (split_short_inst1_data[IR_DST_REG:IR_DST_REG-5] 
+  split_short_dp_inst1_data[IR_DST_X0]                 = (split_short_inst1_data[IR_DST_REG:IR_DST_REG-5]
                                                           == 6'd0);
   split_short_dp_inst1_data[IR_SPLIT_LAST]             = !split_short_inst1_data[IR_SPLIT];
   split_short_dp_inst1_data[IR_BKPTB_INST]             = dp_split_short_bkptb_inst;

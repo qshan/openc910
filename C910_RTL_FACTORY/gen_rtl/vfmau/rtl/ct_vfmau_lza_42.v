@@ -22,18 +22,18 @@ module ct_vfmau_lza_42(
 );
 
 // &Ports; @24
-input   [3:0]  lza_precod; 
-output         lza_p0;    
-output         lza_p1;    
-output         lza_vld;   
+input   [3:0]  lza_precod;
+output         lza_p0;
+output         lza_p1;
+output         lza_vld;
 
 // &Regs; @25
 
 // &Wires; @26
-wire           lza_p0;    
-wire           lza_p1;    
-wire    [3:0]  lza_precod; 
-wire           lza_vld;   
+wire           lza_p0;
+wire           lza_p1;
+wire    [3:0]  lza_precod;
+wire           lza_vld;
 
 
 assign lza_vld = |lza_precod[3:0];

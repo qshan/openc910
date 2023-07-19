@@ -109,7 +109,7 @@ wire  [INT_NUM-1:0]         busif_clr_kid_ip;
 wire  [INT_NUM-1:0]         busif_set_kid_ip;
 wire  [INT_NUM-1:0]         hreg_int_claim_kid;
 wire  [INT_NUM*PRIO_BIT-1:0]kid_arb_int_prio;
-wire  [INT_NUM-1:0]         kid_arb_int_pulse; 
+wire  [INT_NUM-1:0]         kid_arb_int_pulse;
 wire  [INT_NUM-1:0]         kid_arb_int_req;
 wire  [INT_NUM-1:0]         kid_int_active;
 wire  [PRIO_BIT-1:0]        kid_busif_int_prio[PRIO_SLV_NUM*128:0];
@@ -124,7 +124,7 @@ wire  [PRIO_SLV_NUM*2-1:0]  prio_split_pprot;
 wire  [PRIO_SLV_NUM-1:0]    prio_split_penable;
 wire  [PRIO_SLV_NUM-1:0]    prio_split_pwrite;
 wire  [PRIO_SLV_NUM*12-1:0] prio_split_paddr;
-wire  [PRIO_SLV_NUM*32-1:0] prio_split_pwdata;   
+wire  [PRIO_SLV_NUM*32-1:0] prio_split_pwdata;
 wire  [PRIO_SLV_NUM*32-1:0] prio_split_prdata;
 wire  [PRIO_SLV_NUM-1:0]    prio_apb_write_en;
 wire  [PRIO_SLV_NUM-1:0]    prio_apb_read_en;
@@ -203,7 +203,7 @@ begin:INT_KID
   plic_int_kid #(.PRIO_BIT(PRIO_BIT)) x_plic_int_kid(
     .busif_clr_kid_ip_x         (busif_clr_kid_ip[i]),
     .busif_set_kid_ip_x         (busif_set_kid_ip[i]),
-    .busif_we_kid_prio_data     (busif_we_kid_prio_data[i]), 
+    .busif_we_kid_prio_data     (busif_we_kid_prio_data[i]),
     .busif_we_kid_prio_x        (busif_we_kid_prio[i]),
     .hreg_int_claim_kid_x       (hreg_int_claim_kid[i]),
     .hreg_int_complete_kid_x    (hreg_kid_cmplt_vld[i]),
@@ -244,7 +244,7 @@ begin:KID_GATE_CLK
     .module_en            (ciu_plic_icg_en     ),
     .pad_yy_icg_scan_en (pad_yy_icg_scan_en)
   );
-  assign kids_regs_clk_en[gk]  =    |kid_sample_en[gk*32+:32] 
+  assign kids_regs_clk_en[gk]  =    |kid_sample_en[gk*32+:32]
                                  || |busif_we_kid_prio[gk*32+:32]
                                  || ip_wrd_write_en[gk]
                                  || |hreg_int_claim_kid[gk*32+:32]
@@ -257,14 +257,14 @@ generate
 genvar add_idx;
 for(add_idx=0;add_idx<FILL_LEFT_INT;add_idx=add_idx+1)
 begin:LFT_PRIO
-assign kid_busif_int_prio[INT_NUM + add_idx][PRIO_BIT-1:0]  = {PRIO_BIT{1'b0}}; 
+assign kid_busif_int_prio[INT_NUM + add_idx][PRIO_BIT-1:0]  = {PRIO_BIT{1'b0}};
 assign int_sec_infor_pack[INT_NUM + add_idx]                = 1'b1;
 end
 endgenerate
 assign int_sec_infor_pack[INT_NUM-1:0]  = int_sec_infor[INT_NUM-1:0];
 //**********************************************************************
 //   priority  write and read interface
-//   
+//
 //**********************************************************************
 
 //**********************************************************************
@@ -329,17 +329,17 @@ assign prio_lst_read_tmp[k][PRIO_BIT-1:0] = {PRIO_BIT{1'b0}};
   for(m=0;m<128;m=m+1)
     begin:WR_IN_DATA
 assign      prio_kid_sec_mask[k*128+m]  = prio_split_psec[k] | ~int_sec_infor_pack[k*128+m] | ~ctrl_xx_amp_mode ;
-assign      busif_we_kid_prio[k*128+m] = prio_apb_write_en[k] && (prio_split_paddr[(2+12*k)+:7] == m) 
+assign      busif_we_kid_prio[k*128+m] = prio_apb_write_en[k] && (prio_split_paddr[(2+12*k)+:7] == m)
                                         && prio_kid_sec_mask[k*128+m];
 assign      busif_rd_kid_prio[k*128+m] = prio_apb_read_en[k] && (prio_split_paddr[(2+12*k)+:7] == m)
                                         && prio_kid_sec_mask[k*128+m];
-assign      busif_we_kid_prio_data[k*128+m][PRIO_BIT-1:0] 
+assign      busif_we_kid_prio_data[k*128+m][PRIO_BIT-1:0]
                                        = prio_split_pwdata[32*k+:PRIO_BIT];
 assign      prio_lst_read_tmp[k][PRIO_BIT*(m+1)+:PRIO_BIT]
                                         = prio_lst_read_tmp[k][PRIO_BIT*m+:PRIO_BIT]
-                                          |({PRIO_BIT{busif_rd_kid_prio[k*128+m]}} 
+                                          |({PRIO_BIT{busif_rd_kid_prio[k*128+m]}}
                                             & kid_busif_int_prio[k*128+m]);
-   end 
+   end
 end
 endgenerate
 
@@ -347,12 +347,12 @@ generate
 genvar slv_idx;
 for(slv_idx=0;slv_idx<PRIO_SLV_NUM;slv_idx=slv_idx+1)
 begin:APB_SEL_EN
-  assign prio_apb_write_en[slv_idx]   =  prio_apb_acc_en[slv_idx] 
+  assign prio_apb_write_en[slv_idx]   =  prio_apb_acc_en[slv_idx]
                                          && prio_split_pwrite[slv_idx]
                                          && !prio_split_pslverr_pre[slv_idx];
-  assign prio_apb_read_en[slv_idx]    =  prio_apb_acc_en[slv_idx] 
+  assign prio_apb_read_en[slv_idx]    =  prio_apb_acc_en[slv_idx]
                                          && !prio_split_pwrite[slv_idx];
-  assign prio_split_prdata_pre[slv_idx*PRIO_BIT+:PRIO_BIT] 
+  assign prio_split_prdata_pre[slv_idx*PRIO_BIT+:PRIO_BIT]
                                       = prio_split_pslverr_pre[slv_idx] ? {PRIO_BIT{1'b0}} : prio_lst_read_tmp[slv_idx][PRIO_BIT*128+:PRIO_BIT];
 //*************************************
 //  the prio split ready signal
@@ -374,7 +374,7 @@ begin:APB_SEL_EN
     .rst_b    (plicrst_b),
     .data_in  (prio_split_prdata_pre[slv_idx*PRIO_BIT+:PRIO_BIT]),
     .data_out (prio_split_prdata_flop[slv_idx*PRIO_BIT+:PRIO_BIT])
-  ); 
+  );
   gated_clk_cell  x_prio_split_ready_gateclk (
     .clk_in               (plic_clk            ),
     .clk_out              (prio_ready_clk[slv_idx]),
@@ -398,10 +398,10 @@ endgenerate
 //  for the 0-PRIO_SPLIT1, the access
 //  response is OK,
 //  for the PRIO_SPLIT1 < PRIO_SLV_NUM
-//  the access in non-exist int will 
+//  the access in non-exist int will
 //  response with err
 //*************************************
-assign prio_lst_apb_acc_en = prio_split_psel[PRIO_SLV_NUM-1] 
+assign prio_lst_apb_acc_en = prio_split_psel[PRIO_SLV_NUM-1]
                               && !prio_split_penable[PRIO_SLV_NUM-1];
 assign prio_lst_apb_addr_non = (prio_split_paddr[12*(PRIO_SLV_NUM-1)+:9] >=
                                $unsigned(LEFT_INT*4)) && (LEFT_INT>0);
@@ -422,13 +422,13 @@ assign prio_split_pslverr[PRIO_SLV_NUM-1:0]      = tmp_prio_split_pslverr[PRIO_S
 
 //**********************************************************************
 //   priority  write and read interface
-//   
+//
 //**********************************************************************
 assign ip_apb_acc_en   = bus_mtx_ip_psel && !bus_mtx_ip_penable;
 assign ip_apb_write_en = ip_apb_acc_en && bus_mtx_ip_pwrite && !ip_bus_mtx_pslverr_pre;
 assign ip_apb_read_en  = ip_apb_acc_en && !bus_mtx_ip_pwrite;
 assign ip_read_data_tmp[31:0] = 32'b0;
-generate 
+generate
 genvar n;
 for(n=0;n<INT_NUM/32;n=n+1)
 begin:IP_WR
@@ -439,7 +439,7 @@ begin:IP_WR
                                                                   (kid_busif_pending[n*32+:32] & ~ip_kid_sec_mask[n*32+:32]));
   assign busif_clr_kid_ip[n*32+:32] = {32{ip_wrd_write_en[n]}} & ((~bus_mtx_ip_pwdata[31:0]     & ip_kid_sec_mask[n*32+:32]));
   assign ip_read_data_tmp[(n+1)*32+:32] = ip_read_data_tmp[n*32+:32] |
-                                          ({32{ip_wrd_read_en[n]}}  
+                                          ({32{ip_wrd_read_en[n]}}
                                            & kid_busif_pending[n*32+:32]
                                            & ip_kid_sec_mask[n*32+:32]);
 end
@@ -458,13 +458,13 @@ begin
     ip_bus_mtx_pready_flop <= 1'b0;
     ip_bus_mtx_pslverr_flop<= 1'b0;
   end
-  else 
+  else
   begin
     ip_bus_mtx_pready_flop <= ip_apb_acc_en;
     ip_bus_mtx_pslverr_flop<= ip_bus_mtx_pslverr_pre;
   end
 end
-assign ip_bus_mtx_pslverr_pre = (bus_mtx_ip_paddr[11:2] >= $unsigned(INT_NUM/32)) 
+assign ip_bus_mtx_pslverr_pre = (bus_mtx_ip_paddr[11:2] >= $unsigned(INT_NUM/32))
                               || (bus_mtx_ip_pprot[1]== 1'b0);
 
 gated_clk_cell  x_ip_ready_gateclk (
@@ -482,29 +482,29 @@ assign ip_bus_mtx_pslverr       = ip_bus_mtx_pslverr_flop;
 assign ip_bus_mtx_prdata[31:0]  = ip_bus_mtx_prdata_flop[31:0];
 //**********************************************************************
 //   interface to Hreg
-//   
+//
 //**********************************************************************
 assign kid_hreg_new_int_pulse =  |kid_hreg_int_pulse[INT_NUM-1:0];
 assign kid_hreg_ip_prio_reg_we = |prio_apb_write_en[PRIO_SLV_NUM-1:0] || ip_apb_write_en;
-                                  
+
 //**********************************************************************
 //   claim and complete from hreg
-//   
+//
 //**********************************************************************
 //generate
 //genvar claim_idx;
 //  for(claim_idx=0;claim_idx<INT_NUM;claim_idx=claim_idx+1)
 //  begin:CLAIM_CMPLT
-//    assign hreg_int_claim_kid[claim_idx] = hreg_kid_claim_vld 
+//    assign hreg_int_claim_kid[claim_idx] = hreg_kid_claim_vld
 //                                           && (hreg_kid_claim_id[ID_NUM-1:0] == claim_idx);
-////    assign hreg_int_complete_kid[claim_idx] = hreg_kid_cmplt_vld 
+////    assign hreg_int_complete_kid[claim_idx] = hreg_kid_cmplt_vld
 ////                                           && (hreg_kid_cmplt_id[ID_NUM-1:0] == claim_idx);
 //  end
 //endgenerate
 assign hreg_int_claim_kid[INT_NUM-1:0]  = hreg_kid_claim_vld[INT_NUM-1:0];
 //**********************************************************************
 //   interface to arbitor
-//   
+//
 //**********************************************************************
 assign kid_yy_int_req[INT_NUM-1:0]           = kid_arb_int_req[INT_NUM-1:0];
 assign kid_yy_int_prio[INT_NUM*PRIO_BIT-1:0] = {kid_arb_int_prio[INT_NUM*PRIO_BIT-1:PRIO_BIT],

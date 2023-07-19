@@ -22,18 +22,18 @@ module ct_fcnvt_dtos_sh(
 );
 
 // &Ports; @17
-input   [10:0]  dtos_sh_cnt; 
-input   [51:0]  dtos_sh_src; 
-output  [23:0]  dtos_sh_f_v; 
-output  [53:0]  dtos_sh_f_x; 
+input   [10:0]  dtos_sh_cnt;
+input   [51:0]  dtos_sh_src;
+output  [23:0]  dtos_sh_f_v;
+output  [53:0]  dtos_sh_f_x;
 
 // &Regs; @18
-reg     [23:0]  dtos_sh_f_v; 
-reg     [53:0]  dtos_sh_f_x; 
+reg     [23:0]  dtos_sh_f_v;
+reg     [53:0]  dtos_sh_f_x;
 
 // &Wires; @19
-wire    [10:0]  dtos_sh_cnt; 
-wire    [51:0]  dtos_sh_src; 
+wire    [10:0]  dtos_sh_cnt;
+wire    [51:0]  dtos_sh_src;
 
 
 

@@ -80,173 +80,173 @@ module ct_ciu_apbif(
 );
 
 // &Ports; @23
-input            apb_clk_en;               
-input            ciu_apbif_had_pctrace_inv; 
-input            ciu_icg_en;               
-input   [31 :0]  core0_prdata_l2pmp;       
-input   [31 :0]  core1_prdata_l2pmp;       
-input   [31 :0]  core2_prdata_l2pmp;       
-input   [31 :0]  core3_prdata_l2pmp;       
-input            cpurst_b;                 
-input            forever_cpuclk;           
-input            ncq_apbif_arvalid;        
-input            ncq_apbif_awvalid;        
-input            ncq_apbif_b_grant;        
-input            ncq_apbif_r_grant;        
-input            ncq_apbif_wvalid;         
-input   [39 :0]  ncq_xx_araddr;            
-input   [7  :0]  ncq_xx_arid;              
-input   [2  :0]  ncq_xx_arprot;            
-input            ncq_xx_aruser;            
-input            ncq_xx_aw_needissue;      
-input   [39 :0]  ncq_xx_awaddr;            
-input   [7  :0]  ncq_xx_awid;              
-input   [2  :0]  ncq_xx_awprot;            
-input            ncq_xx_awuser;            
-input   [127:0]  ncq_xx_wdata;             
-input            pad_yy_icg_scan_en;       
-input            perr_clint;               
-input            perr_had;                 
-input   [3  :0]  perr_l2pmp;               
-input            perr_plic;                
-input            perr_rmr;                 
-input   [31 :0]  prdata_clint;             
-input   [31 :0]  prdata_had;               
-input   [31 :0]  prdata_plic;              
-input   [31 :0]  prdata_rmr;               
-input            pready_clint;             
-input            pready_had;               
-input   [3  :0]  pready_l2pmp;             
-input            pready_plic;              
-input            pready_rmr;               
-input            regs_apbif_icg_en;        
-output           apbif_had_pctrace_inv;    
-output           apbif_ncq_ar_grant;       
-output           apbif_ncq_aw_grant;       
-output  [7  :0]  apbif_ncq_bid;            
-output  [1  :0]  apbif_ncq_bresp;          
-output           apbif_ncq_bvalid;         
-output  [127:0]  apbif_ncq_rdata;          
-output  [7  :0]  apbif_ncq_rid;            
-output           apbif_ncq_rlast;          
-output  [1  :0]  apbif_ncq_rresp;          
-output           apbif_ncq_rvalid;         
-output           apbif_ncq_w_grant;        
-output           ciu_clint_icg_en;         
-output           ciu_plic_icg_en;          
-output  [31 :0]  paddr;                    
-output           penable;                  
-output  [1  :0]  pprot;                    
-output           psel_clint;               
-output           psel_had;                 
-output  [3  :0]  psel_l2pmp;               
-output           psel_plic;                
-output           psel_rmr;                 
-output  [31 :0]  pwdata;                   
-output           pwrite;                   
+input            apb_clk_en;
+input            ciu_apbif_had_pctrace_inv;
+input            ciu_icg_en;
+input   [31 :0]  core0_prdata_l2pmp;
+input   [31 :0]  core1_prdata_l2pmp;
+input   [31 :0]  core2_prdata_l2pmp;
+input   [31 :0]  core3_prdata_l2pmp;
+input            cpurst_b;
+input            forever_cpuclk;
+input            ncq_apbif_arvalid;
+input            ncq_apbif_awvalid;
+input            ncq_apbif_b_grant;
+input            ncq_apbif_r_grant;
+input            ncq_apbif_wvalid;
+input   [39 :0]  ncq_xx_araddr;
+input   [7  :0]  ncq_xx_arid;
+input   [2  :0]  ncq_xx_arprot;
+input            ncq_xx_aruser;
+input            ncq_xx_aw_needissue;
+input   [39 :0]  ncq_xx_awaddr;
+input   [7  :0]  ncq_xx_awid;
+input   [2  :0]  ncq_xx_awprot;
+input            ncq_xx_awuser;
+input   [127:0]  ncq_xx_wdata;
+input            pad_yy_icg_scan_en;
+input            perr_clint;
+input            perr_had;
+input   [3  :0]  perr_l2pmp;
+input            perr_plic;
+input            perr_rmr;
+input   [31 :0]  prdata_clint;
+input   [31 :0]  prdata_had;
+input   [31 :0]  prdata_plic;
+input   [31 :0]  prdata_rmr;
+input            pready_clint;
+input            pready_had;
+input   [3  :0]  pready_l2pmp;
+input            pready_plic;
+input            pready_rmr;
+input            regs_apbif_icg_en;
+output           apbif_had_pctrace_inv;
+output           apbif_ncq_ar_grant;
+output           apbif_ncq_aw_grant;
+output  [7  :0]  apbif_ncq_bid;
+output  [1  :0]  apbif_ncq_bresp;
+output           apbif_ncq_bvalid;
+output  [127:0]  apbif_ncq_rdata;
+output  [7  :0]  apbif_ncq_rid;
+output           apbif_ncq_rlast;
+output  [1  :0]  apbif_ncq_rresp;
+output           apbif_ncq_rvalid;
+output           apbif_ncq_w_grant;
+output           ciu_clint_icg_en;
+output           ciu_plic_icg_en;
+output  [31 :0]  paddr;
+output           penable;
+output  [1  :0]  pprot;
+output           psel_clint;
+output           psel_had;
+output  [3  :0]  psel_l2pmp;
+output           psel_plic;
+output           psel_rmr;
+output  [31 :0]  pwdata;
+output           pwrite;
 
 // &Regs; @24
-reg     [1  :0]  apb_cur_state;            
-reg              apb_icg_en;               
-reg     [1  :0]  apb_next_state;           
-reg     [39 :0]  apbif_addr;               
-reg     [7  :0]  apbif_id;                 
-reg              apbif_needissue;          
-reg     [1  :0]  apbif_prot;               
-reg     [31 :0]  apbif_wdata;              
-reg              apbif_write;              
-reg     [31 :0]  rdata;                    
-reg              resp_err;                 
-reg     [7  :0]  resp_id;                  
-reg              resp_vld;                 
-reg              resp_wt;                  
-reg     [7  :0]  sel;                      
+reg     [1  :0]  apb_cur_state;
+reg              apb_icg_en;
+reg     [1  :0]  apb_next_state;
+reg     [39 :0]  apbif_addr;
+reg     [7  :0]  apbif_id;
+reg              apbif_needissue;
+reg     [1  :0]  apbif_prot;
+reg     [31 :0]  apbif_wdata;
+reg              apbif_write;
+reg     [31 :0]  rdata;
+reg              resp_err;
+reg     [7  :0]  resp_id;
+reg              resp_vld;
+reg              resp_wt;
+reg     [7  :0]  sel;
 
 // &Wires; @25
-wire             apb_clk_en;               
-wire             apb_fsm_idle;             
-wire             apb_fsm_pend;             
-wire             apb_fsm_req;              
-wire             apb_fsm_waddr;            
-wire             apbif_clk;                
-wire             apbif_clk_en;             
-wire             apbif_had_pctrace_inv;    
-wire             apbif_ncq_ar_grant;       
-wire             apbif_ncq_aw_grant;       
-wire    [7  :0]  apbif_ncq_bid;            
-wire    [1  :0]  apbif_ncq_bresp;          
-wire             apbif_ncq_bvalid;         
-wire    [127:0]  apbif_ncq_rdata;          
-wire    [7  :0]  apbif_ncq_rid;            
-wire             apbif_ncq_rlast;          
-wire    [1  :0]  apbif_ncq_rresp;          
-wire             apbif_ncq_rvalid;         
-wire             apbif_ncq_w_grant;        
-wire             apbif_req;                
-wire             ciu_apbif_had_pctrace_inv; 
-wire             ciu_clint_icg_en;         
-wire             ciu_icg_en;               
-wire             ciu_plic_icg_en;          
-wire             cmplt;                    
-wire    [31 :0]  core0_prdata_l2pmp;       
-wire    [31 :0]  core1_prdata_l2pmp;       
-wire    [31 :0]  core2_prdata_l2pmp;       
-wire    [31 :0]  core3_prdata_l2pmp;       
-wire             cpurst_b;                 
-wire             forever_cpuclk;           
-wire             l2pmp_sel;                
-wire             ncq_apbif_arvalid;        
-wire             ncq_apbif_awvalid;        
-wire             ncq_apbif_b_grant;        
-wire             ncq_apbif_r_grant;        
-wire             ncq_apbif_wvalid;         
-wire    [39 :0]  ncq_xx_araddr;            
-wire    [7  :0]  ncq_xx_arid;              
-wire    [2  :0]  ncq_xx_arprot;            
-wire             ncq_xx_aruser;            
-wire             ncq_xx_aw_needissue;      
-wire    [39 :0]  ncq_xx_awaddr;            
-wire    [7  :0]  ncq_xx_awid;              
-wire    [2  :0]  ncq_xx_awprot;            
-wire             ncq_xx_awuser;            
-wire    [127:0]  ncq_xx_wdata;             
-wire             pad_yy_icg_scan_en;       
-wire    [31 :0]  paddr;                    
-wire             penable;                  
-wire             perr;                     
-wire             perr_clint;               
-wire             perr_had;                 
-wire    [3  :0]  perr_l2pmp;               
-wire             perr_plic;                
-wire             perr_rmr;                 
-wire    [1  :0]  pprot;                    
-wire    [31 :0]  prdata;                   
-wire    [31 :0]  prdata_clint;             
-wire    [31 :0]  prdata_had;               
-wire    [31 :0]  prdata_l2pmp;             
-wire    [31 :0]  prdata_plic;              
-wire    [31 :0]  prdata_rmr;               
-wire             pready;                   
-wire             pready_clint;             
-wire             pready_had;               
-wire    [3  :0]  pready_l2pmp;             
-wire             pready_plic;              
-wire             pready_rmr;               
-wire             psel_clint;               
-wire             psel_had;                 
-wire    [3  :0]  psel_l2pmp;               
-wire             psel_none;                
-wire             psel_plic;                
-wire             psel_rmr;                 
-wire    [31 :0]  pwdata;                   
-wire             pwrite;                   
-wire             regs_apbif_icg_en;        
-wire             sel_clint;                
-wire    [3  :0]  sel_core;                 
-wire             sel_had;                  
-wire             sel_l2pmp;                
-wire             sel_plic;                 
-wire             sel_rmr;                  
+wire             apb_clk_en;
+wire             apb_fsm_idle;
+wire             apb_fsm_pend;
+wire             apb_fsm_req;
+wire             apb_fsm_waddr;
+wire             apbif_clk;
+wire             apbif_clk_en;
+wire             apbif_had_pctrace_inv;
+wire             apbif_ncq_ar_grant;
+wire             apbif_ncq_aw_grant;
+wire    [7  :0]  apbif_ncq_bid;
+wire    [1  :0]  apbif_ncq_bresp;
+wire             apbif_ncq_bvalid;
+wire    [127:0]  apbif_ncq_rdata;
+wire    [7  :0]  apbif_ncq_rid;
+wire             apbif_ncq_rlast;
+wire    [1  :0]  apbif_ncq_rresp;
+wire             apbif_ncq_rvalid;
+wire             apbif_ncq_w_grant;
+wire             apbif_req;
+wire             ciu_apbif_had_pctrace_inv;
+wire             ciu_clint_icg_en;
+wire             ciu_icg_en;
+wire             ciu_plic_icg_en;
+wire             cmplt;
+wire    [31 :0]  core0_prdata_l2pmp;
+wire    [31 :0]  core1_prdata_l2pmp;
+wire    [31 :0]  core2_prdata_l2pmp;
+wire    [31 :0]  core3_prdata_l2pmp;
+wire             cpurst_b;
+wire             forever_cpuclk;
+wire             l2pmp_sel;
+wire             ncq_apbif_arvalid;
+wire             ncq_apbif_awvalid;
+wire             ncq_apbif_b_grant;
+wire             ncq_apbif_r_grant;
+wire             ncq_apbif_wvalid;
+wire    [39 :0]  ncq_xx_araddr;
+wire    [7  :0]  ncq_xx_arid;
+wire    [2  :0]  ncq_xx_arprot;
+wire             ncq_xx_aruser;
+wire             ncq_xx_aw_needissue;
+wire    [39 :0]  ncq_xx_awaddr;
+wire    [7  :0]  ncq_xx_awid;
+wire    [2  :0]  ncq_xx_awprot;
+wire             ncq_xx_awuser;
+wire    [127:0]  ncq_xx_wdata;
+wire             pad_yy_icg_scan_en;
+wire    [31 :0]  paddr;
+wire             penable;
+wire             perr;
+wire             perr_clint;
+wire             perr_had;
+wire    [3  :0]  perr_l2pmp;
+wire             perr_plic;
+wire             perr_rmr;
+wire    [1  :0]  pprot;
+wire    [31 :0]  prdata;
+wire    [31 :0]  prdata_clint;
+wire    [31 :0]  prdata_had;
+wire    [31 :0]  prdata_l2pmp;
+wire    [31 :0]  prdata_plic;
+wire    [31 :0]  prdata_rmr;
+wire             pready;
+wire             pready_clint;
+wire             pready_had;
+wire    [3  :0]  pready_l2pmp;
+wire             pready_plic;
+wire             pready_rmr;
+wire             psel_clint;
+wire             psel_had;
+wire    [3  :0]  psel_l2pmp;
+wire             psel_none;
+wire             psel_plic;
+wire             psel_rmr;
+wire    [31 :0]  pwdata;
+wire             pwrite;
+wire             regs_apbif_icg_en;
+wire             sel_clint;
+wire    [3  :0]  sel_core;
+wire             sel_had;
+wire             sel_l2pmp;
+wire             sel_plic;
+wire             sel_rmr;
 
 
 parameter ADDRW = `PA_WIDTH;
@@ -317,10 +317,10 @@ assign apbif_req   = (apb_fsm_req || apb_fsm_pend) && apbif_needissue;
 always @(posedge apbif_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)begin
-    apbif_addr[ADDRW-1:0] <= {ADDRW{1'b0}}; 
-    apbif_id[7:0]         <= 8'b0; 
-    apbif_prot[1:0]       <= 2'b0; 
-    apbif_needissue       <= 1'b0; 
+    apbif_addr[ADDRW-1:0] <= {ADDRW{1'b0}};
+    apbif_id[7:0]         <= 8'b0;
+    apbif_prot[1:0]       <= 2'b0;
+    apbif_needissue       <= 1'b0;
     apbif_write           <= 1'b0;
   end
   else if (apb_clk_en && apb_fsm_idle)begin
@@ -347,7 +347,7 @@ always @(posedge apbif_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)
     apbif_wdata[31:0] <= 32'b0;
-  else if (ncq_apbif_wvalid && apb_fsm_waddr && apb_clk_en) 
+  else if (ncq_apbif_wvalid && apb_fsm_waddr && apb_clk_en)
   begin
     if (apbif_addr[3:2] == 2'b00)
       apbif_wdata[31:0] <= ncq_xx_wdata[31:0];
@@ -397,7 +397,7 @@ begin
     apb_icg_en <= 1'b0;
   else if (apb_clk_en)
     apb_icg_en <= regs_apbif_icg_en;
-  else 
+  else
     apb_icg_en <= apb_icg_en;
 end
 
@@ -422,7 +422,7 @@ assign prdata_l2pmp[31:0] = {32{sel[3]}} & core0_prdata_l2pmp[31:0] |
 
 assign prdata[31:0] = {32{sel[0]}}    & prdata_plic[31:0] |
                       {32{sel[1]}}    & prdata_clint[31:0] |
-                      {32{sel[2]}}    & prdata_had[31:0] | 
+                      {32{sel[2]}}    & prdata_had[31:0] |
                       {32{l2pmp_sel}} & prdata_l2pmp[31:0] |
                       {32{sel[7]}}    & prdata_rmr[31:0];
 
@@ -464,20 +464,20 @@ begin
   end
 end
 
-assign apbif_ncq_rvalid       = !resp_wt && resp_vld; 
+assign apbif_ncq_rvalid       = !resp_wt && resp_vld;
 assign apbif_ncq_rdata[127:0] = {4{rdata[31:0]}};
 assign apbif_ncq_rresp[1:0]   = {resp_err,1'b0};
 assign apbif_ncq_rid[7:0]     = resp_id[7:0];
 assign apbif_ncq_rlast        = 1'b1;
 
-assign apbif_ncq_bvalid       = resp_wt && resp_vld; 
+assign apbif_ncq_bvalid       = resp_wt && resp_vld;
 assign apbif_ncq_bid[7:0]     = resp_id[7:0];
 assign apbif_ncq_bresp[1:0]   = {resp_err,1'b0};
 
 //==========================================================
 //     ICG
 //==========================================================
-assign apbif_clk_en = ncq_apbif_r_grant | ncq_apbif_b_grant | 
+assign apbif_clk_en = ncq_apbif_r_grant | ncq_apbif_b_grant |
                       apb_clk_en & apb_fsm_idle & (ncq_apbif_arvalid | ncq_apbif_awvalid) |
                       apb_clk_en & !apb_fsm_idle;
 

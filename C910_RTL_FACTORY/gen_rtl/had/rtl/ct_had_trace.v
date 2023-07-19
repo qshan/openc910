@@ -30,38 +30,38 @@ module ct_had_trace(
 );
 
 // &Ports; @24
-input           cpuclk;                  
-input           cpurst_b;                
-input           ctrl_trace_en;           
-input           inst_bkpt_dbgreq;        
-input           ir_xx_otc_reg_sel;       
-input   [63:0]  ir_xx_wdata;             
-input           rtu_had_xx_split_inst;   
-input           rtu_yy_xx_dbgon;         
-input           rtu_yy_xx_retire0_normal; 
-input           x_sm_xx_update_dr_en;    
-output          trace_ctrl_req;          
-output  [7 :0]  trace_regs_otc;          
+input           cpuclk;
+input           cpurst_b;
+input           ctrl_trace_en;
+input           inst_bkpt_dbgreq;
+input           ir_xx_otc_reg_sel;
+input   [63:0]  ir_xx_wdata;
+input           rtu_had_xx_split_inst;
+input           rtu_yy_xx_dbgon;
+input           rtu_yy_xx_retire0_normal;
+input           x_sm_xx_update_dr_en;
+output          trace_ctrl_req;
+output  [7 :0]  trace_regs_otc;
 
 // &Regs; @25
-reg     [7 :0]  trace_counter;           
+reg     [7 :0]  trace_counter;
 
 // &Wires; @26
-wire            cpuclk;                  
-wire            cpurst_b;                
-wire            ctrl_trace_en;           
-wire            inst_bkpt_dbgreq;        
-wire            ir_xx_otc_reg_sel;       
-wire    [63:0]  ir_xx_wdata;             
-wire            rtu_had_xx_split_inst;   
-wire            rtu_yy_xx_dbgon;         
-wire            rtu_yy_xx_retire0_normal; 
-wire            trace_counter_dec;       
-wire            trace_counter_eq_0;      
-wire            trace_ctrl_req;          
-wire    [7 :0]  trace_regs_otc;          
-wire            trace_vld;               
-wire            x_sm_xx_update_dr_en;    
+wire            cpuclk;
+wire            cpurst_b;
+wire            ctrl_trace_en;
+wire            inst_bkpt_dbgreq;
+wire            ir_xx_otc_reg_sel;
+wire    [63:0]  ir_xx_wdata;
+wire            rtu_had_xx_split_inst;
+wire            rtu_yy_xx_dbgon;
+wire            rtu_yy_xx_retire0_normal;
+wire            trace_counter_dec;
+wire            trace_counter_eq_0;
+wire            trace_ctrl_req;
+wire    [7 :0]  trace_regs_otc;
+wire            trace_vld;
+wire            x_sm_xx_update_dr_en;
 
 
 //==============================================================================

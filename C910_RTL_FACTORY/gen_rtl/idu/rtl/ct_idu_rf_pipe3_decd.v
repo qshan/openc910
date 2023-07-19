@@ -30,37 +30,37 @@ module ct_idu_rf_pipe3_decd(
 );
 
 // &Ports; @28
-input   [31:0]  pipe3_decd_opcode;      
-output          pipe3_decd_atomic;      
-output          pipe3_decd_inst_fls;    
-output          pipe3_decd_inst_ldr;    
-output  [1 :0]  pipe3_decd_inst_size;   
-output  [1 :0]  pipe3_decd_inst_type;   
-output          pipe3_decd_lsfifo;      
-output          pipe3_decd_off_0_extend; 
-output  [11:0]  pipe3_decd_offset;      
-output  [12:0]  pipe3_decd_offset_plus; 
-output  [3 :0]  pipe3_decd_shift;       
-output          pipe3_decd_sign_extend; 
+input   [31:0]  pipe3_decd_opcode;
+output          pipe3_decd_atomic;
+output          pipe3_decd_inst_fls;
+output          pipe3_decd_inst_ldr;
+output  [1 :0]  pipe3_decd_inst_size;
+output  [1 :0]  pipe3_decd_inst_type;
+output          pipe3_decd_lsfifo;
+output          pipe3_decd_off_0_extend;
+output  [11:0]  pipe3_decd_offset;
+output  [12:0]  pipe3_decd_offset_plus;
+output  [3 :0]  pipe3_decd_shift;
+output          pipe3_decd_sign_extend;
 
 // &Regs; @29
-reg     [3 :0]  ldr_shift;              
-reg             pipe3_decd_atomic;      
-reg             pipe3_decd_inst_fls;    
-reg             pipe3_decd_inst_ldr;    
-reg     [1 :0]  pipe3_decd_inst_size;   
-reg     [1 :0]  pipe3_decd_inst_type;   
-reg             pipe3_decd_inst_vls;    
-reg             pipe3_decd_lsfifo;      
-reg             pipe3_decd_off_0_extend; 
-reg     [11:0]  pipe3_decd_offset;      
-reg     [3 :0]  pipe3_decd_shift;       
-reg             pipe3_decd_sign_extend; 
+reg     [3 :0]  ldr_shift;
+reg             pipe3_decd_atomic;
+reg             pipe3_decd_inst_fls;
+reg             pipe3_decd_inst_ldr;
+reg     [1 :0]  pipe3_decd_inst_size;
+reg     [1 :0]  pipe3_decd_inst_type;
+reg             pipe3_decd_inst_vls;
+reg             pipe3_decd_lsfifo;
+reg             pipe3_decd_off_0_extend;
+reg     [11:0]  pipe3_decd_offset;
+reg     [3 :0]  pipe3_decd_shift;
+reg             pipe3_decd_sign_extend;
 
 // &Wires; @30
-wire    [31:0]  decd_op;                
-wire    [12:0]  pipe3_decd_offset_plus; 
-wire    [31:0]  pipe3_decd_opcode;      
+wire    [31:0]  decd_op;
+wire    [12:0]  pipe3_decd_offset_plus;
+wire    [31:0]  pipe3_decd_opcode;
 
 
 parameter BYTE        = 2'b00,

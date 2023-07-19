@@ -32,54 +32,54 @@ module ct_vfalu_top_pipe7(
 );
 
 // &Ports; @23
-input           cp0_vfpu_icg_en;             
-input           cp0_yy_clk_en;               
-input           cpurst_b;                    
-input   [19:0]  dp_vfalu_ex1_pipex_func;     
-input   [2 :0]  dp_vfalu_ex1_pipex_imm0;     
-input   [63:0]  dp_vfalu_ex1_pipex_mtvr_src0; 
-input   [2 :0]  dp_vfalu_ex1_pipex_sel;      
-input   [63:0]  dp_vfalu_ex1_pipex_srcf0;    
-input   [63:0]  dp_vfalu_ex1_pipex_srcf1;    
-input           forever_cpuclk;              
-input           pad_yy_icg_scan_en;          
-input           vfpu_yy_xx_dqnan;            
-input   [2 :0]  vfpu_yy_xx_rm;               
-output  [63:0]  pipex_dp_ex1_vfalu_mfvr_data; 
-output  [4 :0]  pipex_dp_ex3_vfalu_ereg_data; 
-output  [63:0]  pipex_dp_ex3_vfalu_freg_data; 
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input   [19:0]  dp_vfalu_ex1_pipex_func;
+input   [2 :0]  dp_vfalu_ex1_pipex_imm0;
+input   [63:0]  dp_vfalu_ex1_pipex_mtvr_src0;
+input   [2 :0]  dp_vfalu_ex1_pipex_sel;
+input   [63:0]  dp_vfalu_ex1_pipex_srcf0;
+input   [63:0]  dp_vfalu_ex1_pipex_srcf1;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input           vfpu_yy_xx_dqnan;
+input   [2 :0]  vfpu_yy_xx_rm;
+output  [63:0]  pipex_dp_ex1_vfalu_mfvr_data;
+output  [4 :0]  pipex_dp_ex3_vfalu_ereg_data;
+output  [63:0]  pipex_dp_ex3_vfalu_freg_data;
 
 // &Regs; @24
 
 // &Wires; @25
-wire            cp0_vfpu_icg_en;             
-wire            cp0_yy_clk_en;               
-wire            cpurst_b;                    
-wire    [19:0]  dp_vfalu_ex1_pipex_func;     
-wire    [2 :0]  dp_vfalu_ex1_pipex_imm0;     
-wire    [63:0]  dp_vfalu_ex1_pipex_mtvr_src0; 
-wire    [2 :0]  dp_vfalu_ex1_pipex_sel;      
-wire    [63:0]  dp_vfalu_ex1_pipex_srcf0;    
-wire    [63:0]  dp_vfalu_ex1_pipex_srcf1;    
-wire            fadd_ereg_ex3_forward_r_vld; 
-wire    [4 :0]  fadd_ereg_ex3_result;        
-wire            fadd_forward_r_vld;          
-wire    [63:0]  fadd_forward_result;         
-wire    [63:0]  fadd_mfvr_cmp_result;        
-wire            fcnvt_ereg_forward_r_vld;    
-wire    [4 :0]  fcnvt_ereg_forward_result;   
-wire            fcnvt_forward_r_vld;         
-wire    [63:0]  fcnvt_forward_result;        
-wire            forever_cpuclk;              
-wire            fspu_forward_r_vld;          
-wire    [63:0]  fspu_forward_result;         
-wire    [63:0]  fspu_mfvr_data;              
-wire            pad_yy_icg_scan_en;          
-wire    [63:0]  pipex_dp_ex1_vfalu_mfvr_data; 
-wire    [4 :0]  pipex_dp_ex3_vfalu_ereg_data; 
-wire    [63:0]  pipex_dp_ex3_vfalu_freg_data; 
-wire            vfpu_yy_xx_dqnan;            
-wire    [2 :0]  vfpu_yy_xx_rm;               
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [19:0]  dp_vfalu_ex1_pipex_func;
+wire    [2 :0]  dp_vfalu_ex1_pipex_imm0;
+wire    [63:0]  dp_vfalu_ex1_pipex_mtvr_src0;
+wire    [2 :0]  dp_vfalu_ex1_pipex_sel;
+wire    [63:0]  dp_vfalu_ex1_pipex_srcf0;
+wire    [63:0]  dp_vfalu_ex1_pipex_srcf1;
+wire            fadd_ereg_ex3_forward_r_vld;
+wire    [4 :0]  fadd_ereg_ex3_result;
+wire            fadd_forward_r_vld;
+wire    [63:0]  fadd_forward_result;
+wire    [63:0]  fadd_mfvr_cmp_result;
+wire            fcnvt_ereg_forward_r_vld;
+wire    [4 :0]  fcnvt_ereg_forward_result;
+wire            fcnvt_forward_r_vld;
+wire    [63:0]  fcnvt_forward_result;
+wire            forever_cpuclk;
+wire            fspu_forward_r_vld;
+wire    [63:0]  fspu_forward_result;
+wire    [63:0]  fspu_mfvr_data;
+wire            pad_yy_icg_scan_en;
+wire    [63:0]  pipex_dp_ex1_vfalu_mfvr_data;
+wire    [4 :0]  pipex_dp_ex3_vfalu_ereg_data;
+wire    [63:0]  pipex_dp_ex3_vfalu_freg_data;
+wire            vfpu_yy_xx_dqnan;
+wire    [2 :0]  vfpu_yy_xx_rm;
 
 
 // &Instance("ct_fcnvt_top"); @27

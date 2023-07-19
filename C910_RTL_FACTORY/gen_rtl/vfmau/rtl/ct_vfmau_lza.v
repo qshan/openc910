@@ -22,45 +22,45 @@ module ct_vfmau_lza(
 );
 
 // &Ports; @24
-input   [107:0]  addend;            
-input            sub_vld;           
-input   [107:0]  summand;           
-output  [6  :0]  lza_result;        
+input   [107:0]  addend;
+input            sub_vld;
+input   [107:0]  summand;
+output  [6  :0]  lza_result;
 
 // &Regs; @25
-reg     [3  :0]  high_l2_set0_encod; 
-reg     [3  :0]  high_l2_set1_encod; 
-reg     [3  :0]  high_l2_set2_encod; 
-reg     [3  :0]  high_l2_set3_encod; 
-reg     [5  :0]  high_l3_set0_encod; 
-reg     [3  :0]  low_l2_set0_encod; 
-reg     [3  :0]  low_l2_set1_encod; 
-reg     [3  :0]  low_l2_set2_encod; 
-reg     [5  :0]  low_l3_set0_encod; 
+reg     [3  :0]  high_l2_set0_encod;
+reg     [3  :0]  high_l2_set1_encod;
+reg     [3  :0]  high_l2_set2_encod;
+reg     [3  :0]  high_l2_set3_encod;
+reg     [5  :0]  high_l3_set0_encod;
+reg     [3  :0]  low_l2_set0_encod;
+reg     [3  :0]  low_l2_set1_encod;
+reg     [3  :0]  low_l2_set2_encod;
+reg     [5  :0]  low_l3_set0_encod;
 
 // &Wires; @26
-wire    [107:0]  addend;            
-wire    [107:0]  carry_d;           
-wire    [107:0]  carry_g;           
-wire    [107:0]  carry_p;           
-wire    [31 :0]  high_l1_encod;     
-wire    [15 :0]  high_l1_vld;       
-wire    [7  :0]  high_l2_encod;     
-wire    [3  :0]  high_l2_vld;       
-wire    [1  :0]  high_l3_encod;     
-wire             high_l3_vld;       
-wire    [21 :0]  low_l1_encod;      
-wire    [10 :0]  low_l1_vld;        
-wire    [5  :0]  low_l2_encod;      
-wire    [2  :0]  low_l2_vld;        
-wire    [1  :0]  low_l3_encod;      
-wire             low_l3_vld;        
-wire    [6  :0]  lza_l4_encod;      
-wire    [107:0]  lza_precod;        
-wire    [6  :0]  lza_result;        
-wire             lza_result_vld;    
-wire             sub_vld;           
-wire    [107:0]  summand;           
+wire    [107:0]  addend;
+wire    [107:0]  carry_d;
+wire    [107:0]  carry_g;
+wire    [107:0]  carry_p;
+wire    [31 :0]  high_l1_encod;
+wire    [15 :0]  high_l1_vld;
+wire    [7  :0]  high_l2_encod;
+wire    [3  :0]  high_l2_vld;
+wire    [1  :0]  high_l3_encod;
+wire             high_l3_vld;
+wire    [21 :0]  low_l1_encod;
+wire    [10 :0]  low_l1_vld;
+wire    [5  :0]  low_l2_encod;
+wire    [2  :0]  low_l2_vld;
+wire    [1  :0]  low_l3_encod;
+wire             low_l3_vld;
+wire    [6  :0]  lza_l4_encod;
+wire    [107:0]  lza_precod;
+wire    [6  :0]  lza_result;
+wire             lza_result_vld;
+wire             sub_vld;
+wire    [107:0]  summand;
 
 
 //==========================================================
@@ -79,15 +79,15 @@ assign carry_d[107:0] = ~(summand[107:0] | addend[107:0]);
 //                   Signal decode
 //----------------------------------------------------------
 //pre-predecode for leading zero anticipation
-assign lza_precod[0] = 
+assign lza_precod[0] =
     carry_p[1] && (carry_g[0] && sub_vld || carry_d[0])
  || !carry_p[1] && (carry_d[0] && sub_vld || carry_g[0]);
 
-assign lza_precod[107] = 
+assign lza_precod[107] =
     sub_vld && (carry_g[107] && !carry_d[106] || carry_d[107] && !carry_g[106])
  || !sub_vld && (carry_d[107] && !carry_d[106] || !carry_d[107]);
 
-assign lza_precod[106:1] = 
+assign lza_precod[106:1] =
     carry_p[107:2] & (carry_g[106:1] & ~carry_d[105:0] | carry_d[106:1] & ~carry_g[105:0])
  | ~carry_p[107:2] & (carry_g[106:1] & ~carry_g[105:0] | carry_d[106:1] & ~carry_d[105:0]);
 
@@ -451,7 +451,7 @@ case(high_l3_encod[1:0])
 // &CombEnd; @241
 end
 
-   
+
 //----------------------------------------------------------
 //                  low 44-bit lza encoder
 //----------------------------------------------------------
@@ -712,7 +712,7 @@ case(low_l3_encod[1:0])
 end
 
 //----------------------------------------------------------
-//                  108-bit lza encoder result 
+//                  108-bit lza encoder result
 //----------------------------------------------------------
 assign lza_l4_encod[6:0] = (high_l3_vld)
                            ? {1'b0,high_l3_set0_encod[5:0]}

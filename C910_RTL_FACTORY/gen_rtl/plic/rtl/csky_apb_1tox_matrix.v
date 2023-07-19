@@ -124,9 +124,9 @@ generate
                                 == mst_base_addr[i*ADDR+:ADDR]);
   end
 endgenerate
-  
+
 assign apb_vlalid_select                   = slv_psel && !slv_penable;
-assign apb_mst_psel_pre[SLAVE-1:0]         = {SLAVE{apb_vlalid_select}} 
+assign apb_mst_psel_pre[SLAVE-1:0]         = {SLAVE{apb_vlalid_select}}
                                              & slave_addr_sel[SLAVE-1:0];
 assign apb_mst_penable_pre[SLAVE-1:0]      = {SLAVE{slv_penable}};
 assign slv_pready_vld[SLAVE:0]           =    ({1'b0,mst_psel[SLAVE-1:0]
@@ -141,11 +141,11 @@ genvar k;
 generate
 for(k=0;k<SLAVE;k=k+1)
 begin:MASTER_PENABLE_REG
-  assign slv_pready_data_pre[(k+2)*32-1:(k+1)*32]  = ({32{slv_pready_vld[k]}} 
+  assign slv_pready_data_pre[(k+2)*32-1:(k+1)*32]  = ({32{slv_pready_vld[k]}}
                                                   & mst_prdata[(k+1)*32-1:k*32])
                                                 | slv_pready_data_pre[(k+1)*32-1:k*32];
-  assign slv_pready_pslverr_pre[k+1]     =  slv_pready_vld[k] & mst_pslverr[k] 
-                                            | slv_pready_pslverr_pre[k];                                            
+  assign slv_pready_pslverr_pre[k+1]     =  slv_pready_vld[k] & mst_pslverr[k]
+                                            | slv_pready_pslverr_pre[k];
 end
 endgenerate
 assign slv_prdata_pre[31:0]            = slv_pready_data_pre[(SLAVE+1)*32-1:SLAVE*32];
@@ -190,7 +190,7 @@ begin
 end
 
 
-generate 
+generate
 genvar idx;
 for(idx=0;idx<SLAVE;idx=idx+1)
 begin:GATE_CLK
@@ -241,7 +241,7 @@ begin: MST_FLOP
       mst_paddr_flop[j*ADDR+:ADDR]  <= {ADDR{1'b0}};
       mst_pwdata_flop[j*32+:32]     <= {32{1'b0}};
     end
-    else 
+    else
     begin
       mst_pprot_flop[j*2+:2]         <= {{slv_pprot[1:0]}};
       mst_pwrite_flop[j]             <= {{slv_pwrite}};
@@ -253,17 +253,17 @@ begin: MST_FLOP
   begin
     if(!prst_b)
       mst_psec_flop[j]          <= {1'b0};
-    else 
+    else
       mst_psec_flop[j]          <= slv_psec;
   end
 end
 endgenerate
 assign flop_inout                = FLOP == 1;
-assign mst_psel[SLAVE-1:0]       = flop_inout ? mst_psel_flop[SLAVE-1:0] 
+assign mst_psel[SLAVE-1:0]       = flop_inout ? mst_psel_flop[SLAVE-1:0]
                                         : apb_mst_psel_pre[SLAVE-1:0];
-assign mst_pprot[SLAVE*2-1:0]    = flop_inout ? mst_pprot_flop[SLAVE*2-1:0] 
+assign mst_pprot[SLAVE*2-1:0]    = flop_inout ? mst_pprot_flop[SLAVE*2-1:0]
                                         : {SLAVE{slv_pprot[1:0]}};
-assign mst_paddr[SLAVE*ADDR-1:0] = flop_inout ? mst_paddr_flop[SLAVE*ADDR-1:0] 
+assign mst_paddr[SLAVE*ADDR-1:0] = flop_inout ? mst_paddr_flop[SLAVE*ADDR-1:0]
                                         : {SLAVE{slv_paddr[ADDR-1:0]}};
 assign mst_penable[SLAVE-1:0]    = flop_inout ? mst_penable_flop[SLAVE-1:0]
                                         : {SLAVE{slv_penable}};
@@ -274,13 +274,13 @@ assign mst_pwdata[SLAVE*32-1:0]  = flop_inout ? mst_pwdata_flop[SLAVE*32-1:0]
 assign slv_pready                = flop_inout ? slv_pready_flop
                                         : slv_pready_pre;
 assign slv_pslverr               = flop_inout ? slv_pslverr_flop
-                                         : slv_pslverr_pre;                               
-assign slv_prdata[31:0]          = flop_inout  ? slv_prdata_flop[31:0] 
-                                        : slv_prdata_pre[31:0];         
+                                         : slv_pslverr_pre;
+assign slv_prdata[31:0]          = flop_inout  ? slv_prdata_flop[31:0]
+                                        : slv_prdata_pre[31:0];
 assign mst_psec[SLAVE-1:0]        = mst_psec_flop[SLAVE-1:0];
 
-endmodule                                        
+endmodule
 
-  
-  
+
+
 

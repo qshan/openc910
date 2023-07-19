@@ -25,30 +25,30 @@ module ct_lsu_dcache_ld_tag_array(
   tag_wen_b,
   cp0_lsu_icg_en
 );
-input           forever_cpuclk;      
+input           forever_cpuclk;
 input           pad_yy_icg_scan_en;
 input   [53:0]  tag_din;
-input           tag_gateclk_en;      
-input           tag_gwen_b;          
-input   [8 :0]  tag_idx;             
-input           tag_sel_b;           
+input           tag_gateclk_en;
+input           tag_gwen_b;
+input   [8 :0]  tag_idx;
+input           tag_sel_b;
 input   [1 :0]  tag_wen_b;
 input           cp0_lsu_icg_en;
 output  [53:0]  tag_dout;
 
-wire            forever_cpuclk;      
-wire            ld_tag_clk;          
-wire            ld_tag_clk_en;       
+wire            forever_cpuclk;
+wire            ld_tag_clk;
+wire            ld_tag_clk_en;
 wire            pad_yy_icg_scan_en;
-wire    [53:0]  tag_din;             
+wire    [53:0]  tag_din;
 wire    [53:0]  tag_dout;
-wire            tag_gateclk_en;      
-wire            tag_gwen_b;          
-wire    [8 :0]  tag_idx;             
-wire            tag_sel_b;           
+wire            tag_gateclk_en;
+wire            tag_gwen_b;
+wire    [8 :0]  tag_idx;
+wire            tag_sel_b;
 wire    [1 :0]  tag_wen_b;
 wire    [53:0]  tag_wen_b_all;
-wire            cp0_lsu_icg_en;        
+wire            cp0_lsu_icg_en;
 
 //==========================================================
 //                 Instance of Gated Cell

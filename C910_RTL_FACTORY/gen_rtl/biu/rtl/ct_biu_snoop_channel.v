@@ -51,121 +51,121 @@ module ct_biu_snoop_channel(
 );
 
 // &Ports; @23
-input            accpuclk;               
-input            cdcpuclk;               
-input            cpurst_b;               
-input            crcpuclk;               
-input            forever_coreclk;        
-input            lsu_biu_ac_empty;       
-input            lsu_biu_ac_ready;       
-input   [127:0]  lsu_biu_cd_data;        
-input            lsu_biu_cd_last;        
-input            lsu_biu_cd_valid;       
-input   [4  :0]  lsu_biu_cr_resp;        
-input            lsu_biu_cr_valid;       
-input   [39 :0]  pad_biu_acaddr;         
-input   [2  :0]  pad_biu_acprot;         
-input   [3  :0]  pad_biu_acsnoop;        
-input            pad_biu_acvalid;        
-input            pad_biu_cdready;        
-input            pad_biu_crready;        
-output  [39 :0]  biu_lsu_ac_addr;        
-output  [2  :0]  biu_lsu_ac_prot;        
-output           biu_lsu_ac_req;         
-output  [3  :0]  biu_lsu_ac_snoop;       
-output           biu_lsu_cd_ready;       
-output           biu_lsu_cr_ready;       
-output           biu_pad_acready;        
-output  [127:0]  biu_pad_cddata;         
-output           biu_pad_cderr;          
-output           biu_pad_cdlast;         
-output           biu_pad_cdvalid;        
-output  [4  :0]  biu_pad_crresp;         
-output           biu_pad_crvalid;        
-output           biu_xx_snoop_vld;       
-output           snoop_ac_clk_en;        
-output           snoop_cd_clk_en;        
-output           snoop_cr_clk_en;        
+input            accpuclk;
+input            cdcpuclk;
+input            cpurst_b;
+input            crcpuclk;
+input            forever_coreclk;
+input            lsu_biu_ac_empty;
+input            lsu_biu_ac_ready;
+input   [127:0]  lsu_biu_cd_data;
+input            lsu_biu_cd_last;
+input            lsu_biu_cd_valid;
+input   [4  :0]  lsu_biu_cr_resp;
+input            lsu_biu_cr_valid;
+input   [39 :0]  pad_biu_acaddr;
+input   [2  :0]  pad_biu_acprot;
+input   [3  :0]  pad_biu_acsnoop;
+input            pad_biu_acvalid;
+input            pad_biu_cdready;
+input            pad_biu_crready;
+output  [39 :0]  biu_lsu_ac_addr;
+output  [2  :0]  biu_lsu_ac_prot;
+output           biu_lsu_ac_req;
+output  [3  :0]  biu_lsu_ac_snoop;
+output           biu_lsu_cd_ready;
+output           biu_lsu_cr_ready;
+output           biu_pad_acready;
+output  [127:0]  biu_pad_cddata;
+output           biu_pad_cderr;
+output           biu_pad_cdlast;
+output           biu_pad_cdvalid;
+output  [4  :0]  biu_pad_crresp;
+output           biu_pad_crvalid;
+output           biu_xx_snoop_vld;
+output           snoop_ac_clk_en;
+output           snoop_cd_clk_en;
+output           snoop_cr_clk_en;
 
 // &Regs; @24
-reg              core_snoop_vld;         
-reg     [39 :0]  cur_acaddr_buf0_acaddr; 
-reg     [2  :0]  cur_acaddr_buf0_acprot; 
-reg     [3  :0]  cur_acaddr_buf0_acsnoop; 
-reg              cur_acaddr_buf0_acvalid; 
-reg     [39 :0]  cur_acaddr_buf1_acaddr; 
-reg     [2  :0]  cur_acaddr_buf1_acprot; 
-reg     [3  :0]  cur_acaddr_buf1_acsnoop; 
-reg              cur_acaddr_buf1_acvalid; 
-reg     [39 :0]  cur_acaddr_buf_acaddr;  
-reg     [2  :0]  cur_acaddr_buf_acprot;  
-reg     [3  :0]  cur_acaddr_buf_acsnoop; 
-reg              cur_acaddr_buf_crt1_sel; 
-reg              cur_acaddr_buf_pop1_sel; 
-reg     [127:0]  cur_cddata_buf0_cddata; 
-reg              cur_cddata_buf0_cdlast; 
-reg              cur_cddata_buf0_cdvalid; 
-reg     [127:0]  cur_cddata_buf1_cddata; 
-reg              cur_cddata_buf1_cdlast; 
-reg              cur_cddata_buf1_cdvalid; 
-reg     [127:0]  cur_cddata_buf_cddata;  
-reg              cur_cddata_buf_cdlast;  
-reg              cur_cddata_buf_crt1_sel; 
-reg              cur_cddata_buf_pop1_sel; 
-reg     [4  :0]  cur_craddr_buf0_crresp; 
-reg              cur_craddr_buf0_crvalid; 
-reg     [4  :0]  cur_craddr_buf1_crresp; 
-reg              cur_craddr_buf1_crvalid; 
-reg              cur_craddr_buf_crt1_sel; 
-reg              cur_craddr_buf_pop1_sel; 
+reg              core_snoop_vld;
+reg     [39 :0]  cur_acaddr_buf0_acaddr;
+reg     [2  :0]  cur_acaddr_buf0_acprot;
+reg     [3  :0]  cur_acaddr_buf0_acsnoop;
+reg              cur_acaddr_buf0_acvalid;
+reg     [39 :0]  cur_acaddr_buf1_acaddr;
+reg     [2  :0]  cur_acaddr_buf1_acprot;
+reg     [3  :0]  cur_acaddr_buf1_acsnoop;
+reg              cur_acaddr_buf1_acvalid;
+reg     [39 :0]  cur_acaddr_buf_acaddr;
+reg     [2  :0]  cur_acaddr_buf_acprot;
+reg     [3  :0]  cur_acaddr_buf_acsnoop;
+reg              cur_acaddr_buf_crt1_sel;
+reg              cur_acaddr_buf_pop1_sel;
+reg     [127:0]  cur_cddata_buf0_cddata;
+reg              cur_cddata_buf0_cdlast;
+reg              cur_cddata_buf0_cdvalid;
+reg     [127:0]  cur_cddata_buf1_cddata;
+reg              cur_cddata_buf1_cdlast;
+reg              cur_cddata_buf1_cdvalid;
+reg     [127:0]  cur_cddata_buf_cddata;
+reg              cur_cddata_buf_cdlast;
+reg              cur_cddata_buf_crt1_sel;
+reg              cur_cddata_buf_pop1_sel;
+reg     [4  :0]  cur_craddr_buf0_crresp;
+reg              cur_craddr_buf0_crvalid;
+reg     [4  :0]  cur_craddr_buf1_crresp;
+reg              cur_craddr_buf1_crvalid;
+reg              cur_craddr_buf_crt1_sel;
+reg              cur_craddr_buf_pop1_sel;
 
 // &Wires; @25
-wire             accpuclk;               
-wire    [39 :0]  biu_lsu_ac_addr;        
-wire    [2  :0]  biu_lsu_ac_prot;        
-wire             biu_lsu_ac_req;         
-wire    [3  :0]  biu_lsu_ac_snoop;       
-wire             biu_lsu_cd_ready;       
-wire             biu_lsu_cr_ready;       
-wire             biu_pad_acready;        
-wire    [127:0]  biu_pad_cddata;         
-wire             biu_pad_cderr;          
-wire             biu_pad_cdlast;         
-wire             biu_pad_cdvalid;        
-wire    [4  :0]  biu_pad_crresp;         
-wire             biu_pad_crvalid;        
-wire             biu_xx_snoop_vld;       
-wire             cdcpuclk;               
-wire             cdready;                
-wire             core_ac_empty;          
-wire             cpurst_b;               
-wire             crcpuclk;               
-wire             crready;                
-wire             cur_acaddr_buf_acvalid; 
-wire             cur_acaddr_buf_ready;   
-wire             cur_cddata_buf_cdvalid; 
-wire             cur_cddata_buf_ready;   
-wire    [4  :0]  cur_craddr_buf_crresp;  
-wire             cur_craddr_buf_crvalid; 
-wire             cur_craddr_buf_ready;   
-wire             forever_coreclk;        
-wire             lsu_biu_ac_empty;       
-wire             lsu_biu_ac_ready;       
-wire    [127:0]  lsu_biu_cd_data;        
-wire             lsu_biu_cd_last;        
-wire             lsu_biu_cd_valid;       
-wire    [4  :0]  lsu_biu_cr_resp;        
-wire             lsu_biu_cr_valid;       
-wire    [39 :0]  pad_biu_acaddr;         
-wire    [2  :0]  pad_biu_acprot;         
-wire    [3  :0]  pad_biu_acsnoop;        
-wire             pad_biu_acvalid;        
-wire             pad_biu_cdready;        
-wire             pad_biu_crready;        
-wire             snoop_ac_clk_en;        
-wire             snoop_cd_clk_en;        
-wire             snoop_cr_clk_en;        
-wire             snoop_req_create_en;    
+wire             accpuclk;
+wire    [39 :0]  biu_lsu_ac_addr;
+wire    [2  :0]  biu_lsu_ac_prot;
+wire             biu_lsu_ac_req;
+wire    [3  :0]  biu_lsu_ac_snoop;
+wire             biu_lsu_cd_ready;
+wire             biu_lsu_cr_ready;
+wire             biu_pad_acready;
+wire    [127:0]  biu_pad_cddata;
+wire             biu_pad_cderr;
+wire             biu_pad_cdlast;
+wire             biu_pad_cdvalid;
+wire    [4  :0]  biu_pad_crresp;
+wire             biu_pad_crvalid;
+wire             biu_xx_snoop_vld;
+wire             cdcpuclk;
+wire             cdready;
+wire             core_ac_empty;
+wire             cpurst_b;
+wire             crcpuclk;
+wire             crready;
+wire             cur_acaddr_buf_acvalid;
+wire             cur_acaddr_buf_ready;
+wire             cur_cddata_buf_cdvalid;
+wire             cur_cddata_buf_ready;
+wire    [4  :0]  cur_craddr_buf_crresp;
+wire             cur_craddr_buf_crvalid;
+wire             cur_craddr_buf_ready;
+wire             forever_coreclk;
+wire             lsu_biu_ac_empty;
+wire             lsu_biu_ac_ready;
+wire    [127:0]  lsu_biu_cd_data;
+wire             lsu_biu_cd_last;
+wire             lsu_biu_cd_valid;
+wire    [4  :0]  lsu_biu_cr_resp;
+wire             lsu_biu_cr_valid;
+wire    [39 :0]  pad_biu_acaddr;
+wire    [2  :0]  pad_biu_acprot;
+wire    [3  :0]  pad_biu_acsnoop;
+wire             pad_biu_acvalid;
+wire             pad_biu_cdready;
+wire             pad_biu_crready;
+wire             snoop_ac_clk_en;
+wire             snoop_cd_clk_en;
+wire             snoop_cr_clk_en;
+wire             snoop_req_create_en;
 
 
 //**********************************************************
@@ -187,7 +187,7 @@ assign cur_acaddr_buf_ready =  !cur_acaddr_buf0_acvalid
 
 assign biu_pad_acready      =  cur_acaddr_buf_ready;
 //**********************************************************
-//           snoop addr channel                        
+//           snoop addr channel
 //cur_acaddr_buf:
 //| cur_acaddr_buf_acvalid | cur_acaddr_buf_acaddr |
 //|            ..._acsnoop |            ..._acprot |
@@ -234,7 +234,7 @@ begin
   end
   else
   begin
-    cur_acaddr_buf0_acaddr[`PA_WIDTH-1:0] <= cur_acaddr_buf0_acaddr[`PA_WIDTH-1:0]; 
+    cur_acaddr_buf0_acaddr[`PA_WIDTH-1:0] <= cur_acaddr_buf0_acaddr[`PA_WIDTH-1:0];
     cur_acaddr_buf0_acsnoop[3:0] <= cur_acaddr_buf0_acsnoop[3:0];
     cur_acaddr_buf0_acprot[2:0]  <= cur_acaddr_buf0_acprot[2:0];
   end
@@ -262,7 +262,7 @@ begin
   end
   else
   begin
-    cur_acaddr_buf1_acaddr[`PA_WIDTH-1:0] <= cur_acaddr_buf1_acaddr[`PA_WIDTH-1:0]; 
+    cur_acaddr_buf1_acaddr[`PA_WIDTH-1:0] <= cur_acaddr_buf1_acaddr[`PA_WIDTH-1:0];
     cur_acaddr_buf1_acsnoop[3:0] <= cur_acaddr_buf1_acsnoop[3:0];
     cur_acaddr_buf1_acprot[2:0]  <= cur_acaddr_buf1_acprot[2:0];
   end
@@ -281,13 +281,13 @@ always @( cur_acaddr_buf0_acprot[2:0]
 begin
   if(cur_acaddr_buf_pop1_sel)
   begin
-  cur_acaddr_buf_acaddr[`PA_WIDTH-1:0] = cur_acaddr_buf1_acaddr[`PA_WIDTH-1:0]; 
+  cur_acaddr_buf_acaddr[`PA_WIDTH-1:0] = cur_acaddr_buf1_acaddr[`PA_WIDTH-1:0];
   cur_acaddr_buf_acsnoop[3:0]          = cur_acaddr_buf1_acsnoop[3:0];
   cur_acaddr_buf_acprot[2:0]           = cur_acaddr_buf1_acprot[2:0];
   end
   else
   begin
-  cur_acaddr_buf_acaddr[`PA_WIDTH-1:0] = cur_acaddr_buf0_acaddr[`PA_WIDTH-1:0]; 
+  cur_acaddr_buf_acaddr[`PA_WIDTH-1:0] = cur_acaddr_buf0_acaddr[`PA_WIDTH-1:0];
   cur_acaddr_buf_acsnoop[3:0]          = cur_acaddr_buf0_acsnoop[3:0];
   cur_acaddr_buf_acprot[2:0]           = cur_acaddr_buf0_acprot[2:0];
   end
@@ -310,7 +310,7 @@ assign crready = cur_craddr_buf_ready;
 assign cur_craddr_buf_ready = !cur_craddr_buf0_crvalid
                               || !cur_craddr_buf1_crvalid;
 //**********************************************************
-//           snoop resp channel                        
+//           snoop resp channel
 //cur_crresp_buf:
 //| cur_crresp_buf_crvalid | cur_crresp_buf_crresp |
 //**********************************************************
@@ -398,7 +398,7 @@ assign cdready = cur_cddata_buf_ready;
 assign cur_cddata_buf_ready = !cur_cddata_buf0_cdvalid
                               || !cur_cddata_buf1_cdvalid;
 //**********************************************************
-//           snoop data channel                        
+//           snoop data channel
 //cur_crresp_buf:
 //| cur_cddata_buf_cdvalid | cur_cddata_buf_cddata |
 //| cur_cddata_buf_cdlast  |
@@ -546,7 +546,7 @@ begin
     core_snoop_vld <= core_snoop_vld;
 end
 
-assign biu_xx_snoop_vld = core_snoop_vld; 
+assign biu_xx_snoop_vld = core_snoop_vld;
 
 // &ModuleEnd; @419
 endmodule

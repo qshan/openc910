@@ -36,61 +36,61 @@ module ct_had_sm(
 );
 
 // &Ports; @23
-input          cpurst_b;              
-input          forever_cpuclk;        
-input          io_sm_tap_en;          
-input          ir_sm_hacr_rw;         
-input          ir_xx_dbgfifo2_reg_sel; 
-input          pad_had_jtg_tms;       
-input          pad_yy_icg_scan_en;    
-input          tclk;                  
-input          trst_b;                
-output         dbgfifo2_read_ren;     
-output         sm_io_tdo_en;          
-output         sm_ir_update_hacr;     
-output         sm_serial_capture_dr;  
-output         sm_serial_shift_dr;    
-output         sm_serial_shift_ir;    
-output         sm_update_dr;          
-output         sm_update_ir;          
-output         sm_xx_write_en;        
+input          cpurst_b;
+input          forever_cpuclk;
+input          io_sm_tap_en;
+input          ir_sm_hacr_rw;
+input          ir_xx_dbgfifo2_reg_sel;
+input          pad_had_jtg_tms;
+input          pad_yy_icg_scan_en;
+input          tclk;
+input          trst_b;
+output         dbgfifo2_read_ren;
+output         sm_io_tdo_en;
+output         sm_ir_update_hacr;
+output         sm_serial_capture_dr;
+output         sm_serial_shift_dr;
+output         sm_serial_shift_ir;
+output         sm_update_dr;
+output         sm_update_ir;
+output         sm_xx_write_en;
 
 // &Regs; @24
-reg     [5:0]  tap5_cur_st;           
-reg     [5:0]  tap5_nxt_st;           
-reg            tdo_en;                
-reg            update_ir_cpu_ff1;     
+reg     [5:0]  tap5_cur_st;
+reg     [5:0]  tap5_nxt_st;
+reg            tdo_en;
+reg            update_ir_cpu_ff1;
 
 // &Wires; @25
-wire           cpurst_b;              
-wire           dbgfifo2_read;         
-wire           dbgfifo2_read_ren;     
-wire           forever_cpuclk;        
-wire           io_sm_tap_en;          
-wire           ir_sm_hacr_rw;         
-wire           ir_xx_dbgfifo2_reg_sel; 
-wire           pad_had_jtg_tms;       
-wire           pad_yy_icg_scan_en;    
-wire           sm5_capture_dr;        
-wire           sm5_shift_dr;          
-wire           sm5_shift_ir;          
-wire           sm5_update_dr;         
-wire           sm5_update_ir;         
-wire           sm_clk;                
-wire           sm_clk_en;             
-wire           sm_io_tdo_en;          
-wire           sm_ir_update_hacr;     
-wire           sm_ir_update_hacr_ff1; 
-wire           sm_serial_capture_dr;  
-wire           sm_serial_shift_dr;    
-wire           sm_serial_shift_ir;    
-wire           sm_update_dr;          
-wire           sm_update_ir;          
-wire           sm_update_ir_cpu;      
-wire           sm_xx_write_en;        
-wire           tclk;                  
-wire           tms_i;                 
-wire           trst_b;                
+wire           cpurst_b;
+wire           dbgfifo2_read;
+wire           dbgfifo2_read_ren;
+wire           forever_cpuclk;
+wire           io_sm_tap_en;
+wire           ir_sm_hacr_rw;
+wire           ir_xx_dbgfifo2_reg_sel;
+wire           pad_had_jtg_tms;
+wire           pad_yy_icg_scan_en;
+wire           sm5_capture_dr;
+wire           sm5_shift_dr;
+wire           sm5_shift_ir;
+wire           sm5_update_dr;
+wire           sm5_update_ir;
+wire           sm_clk;
+wire           sm_clk_en;
+wire           sm_io_tdo_en;
+wire           sm_ir_update_hacr;
+wire           sm_ir_update_hacr_ff1;
+wire           sm_serial_capture_dr;
+wire           sm_serial_shift_dr;
+wire           sm_serial_shift_ir;
+wire           sm_update_dr;
+wire           sm_update_ir;
+wire           sm_update_ir_cpu;
+wire           sm_xx_write_en;
+wire           tclk;
+wire           tms_i;
+wire           trst_b;
 
 
 assign tms_i = pad_had_jtg_tms;
@@ -138,7 +138,7 @@ begin
       else
         tap5_nxt_st[5:0] = TAP5_RESET;
     TAP5_IDLE:
-      if (tms_i)      
+      if (tms_i)
         tap5_nxt_st[5:0] = TAP5_SELECT_DR_SCAN;
       else
         tap5_nxt_st[5:0] = TAP5_IDLE;
@@ -157,7 +157,7 @@ begin
         tap5_nxt_st[5:0] = TAP5_SHIFT_IR;
       else
         tap5_nxt_st[5:0] = TAP5_EXIT1_IR;
-    TAP5_SHIFT_IR: 
+    TAP5_SHIFT_IR:
       if (tms_i)
         tap5_nxt_st[5:0] = TAP5_EXIT1_IR;
       else
@@ -182,7 +182,7 @@ begin
         tap5_nxt_st[5:0] = TAP5_SELECT_DR_SCAN;
       else
         tap5_nxt_st[5:0] = TAP5_IDLE;
-    TAP5_CAPTURE_DR: 
+    TAP5_CAPTURE_DR:
       if (!tms_i)
         tap5_nxt_st[5:0] = TAP5_SHIFT_DR;
       else
@@ -246,9 +246,9 @@ assign sm_io_tdo_en = tdo_en;
 //==========================================================
 //           Interface to serial module
 //==========================================================
-// shift_ir, shift_dr and capture_dr are used in serial in and out and is in 
+// shift_ir, shift_dr and capture_dr are used in serial in and out and is in
 // tclk domain, thus no synchronization is needed.
-assign sm_serial_shift_ir   = sm5_shift_ir; 
+assign sm_serial_shift_ir   = sm5_shift_ir;
 assign sm_serial_shift_dr   = sm5_shift_dr;
 assign sm_serial_capture_dr = sm5_capture_dr;
 

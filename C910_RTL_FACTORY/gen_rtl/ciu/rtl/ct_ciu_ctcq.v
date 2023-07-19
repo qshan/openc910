@@ -106,415 +106,415 @@ module ct_ciu_ctcq(
 );
 
 // &Ports; @24
-input            bmbif_ctcq_bar_req;        
-input   [2  :0]  bmbif_ctcq_mid;            
-input   [8  :0]  bmbif_ctcq_req_bus;        
-input            ciu_chr2_dvm_dis;          
-input            ciu_icg_en;                
-input   [3  :0]  ciu_xx_smpen;              
-input            cpurst_b;                  
-input            ebiu_ctcq_ar_grant;        
-input   [5  :0]  ebiu_ctcq_rid;             
-input            ebiu_ctcq_rvalid;          
-input   [39 :0]  ebiuif_ctcq_acaddr;        
-input   [4  :0]  ebiuif_ctcq_acid;          
-input   [3  :0]  ebiuif_ctcq_acsnoop;       
-input            ebiuif_ctcq_acvalid;       
-input            ebiuif_ctcq_cr_grant;      
-input            forever_cpuclk;            
-input            l2c_ctcq_cmplt;            
-input            pad_yy_icg_scan_en;        
-input            piu0_ctcq_ac_grant;        
-input   [70 :0]  piu0_ctcq_ar_bus;          
-input            piu0_ctcq_ar_req;          
-input   [9  :0]  piu0_ctcq_cr_bus;          
-input            piu0_ctcq_cr_req;          
-input            piu0_ctcq_r_grant;         
-input            piu1_ctcq_ac_grant;        
-input   [70 :0]  piu1_ctcq_ar_bus;          
-input            piu1_ctcq_ar_req;          
-input   [9  :0]  piu1_ctcq_cr_bus;          
-input            piu1_ctcq_cr_req;          
-input            piu1_ctcq_r_grant;         
-input            piu2_ctcq_ac_grant;        
-input   [70 :0]  piu2_ctcq_ar_bus;          
-input            piu2_ctcq_ar_req;          
-input   [9  :0]  piu2_ctcq_cr_bus;          
-input            piu2_ctcq_cr_req;          
-input            piu2_ctcq_r_grant;         
-input            piu3_ctcq_ac_grant;        
-input   [70 :0]  piu3_ctcq_ar_bus;          
-input            piu3_ctcq_ar_req;          
-input   [9  :0]  piu3_ctcq_cr_bus;          
-input            piu3_ctcq_cr_req;          
-input            piu3_ctcq_r_grant;         
-output           ctcq_bmbif_bar_grant;      
-output  [55 :0]  ctcq_dbg_info;             
-output  [39 :0]  ctcq_ebiu_araddr;          
-output  [1  :0]  ctcq_ebiu_arbar;           
-output  [1  :0]  ctcq_ebiu_arburst;         
-output  [3  :0]  ctcq_ebiu_arcache;         
-output  [1  :0]  ctcq_ebiu_ardomain;        
-output  [5  :0]  ctcq_ebiu_arid;            
-output  [7  :0]  ctcq_ebiu_arlen;           
-output           ctcq_ebiu_arlock;          
-output  [2  :0]  ctcq_ebiu_arprot;          
-output  [2  :0]  ctcq_ebiu_arsize;          
-output  [3  :0]  ctcq_ebiu_arsnoop;         
-output           ctcq_ebiu_arvalid;         
-output           ctcq_ebiu_r_grant;         
-output           ctcq_ebiuif_ac_grant;      
-output  [4  :0]  ctcq_ebiuif_crresp;        
-output           ctcq_ebiuif_crvalid;       
-output           ctcq_l2c_addr_req;         
-output  [1  :0]  ctcq_l2c_req_type;         
-output  [54 :0]  ctcq_piu0_acbus;           
-output           ctcq_piu0_acvalid;         
-output           ctcq_piu0_ar_grant;        
-output           ctcq_piu0_bar_cmplt;       
-output           ctcq_piu0_cr_grant;        
-output           ctcq_piu0_rvalid;          
-output  [54 :0]  ctcq_piu1_acbus;           
-output           ctcq_piu1_acvalid;         
-output           ctcq_piu1_ar_grant;        
-output           ctcq_piu1_bar_cmplt;       
-output           ctcq_piu1_cr_grant;        
-output           ctcq_piu1_rvalid;          
-output  [54 :0]  ctcq_piu2_acbus;           
-output           ctcq_piu2_acvalid;         
-output           ctcq_piu2_ar_grant;        
-output           ctcq_piu2_bar_cmplt;       
-output           ctcq_piu2_cr_grant;        
-output           ctcq_piu2_rvalid;          
-output  [54 :0]  ctcq_piu3_acbus;           
-output           ctcq_piu3_acvalid;         
-output           ctcq_piu3_ar_grant;        
-output           ctcq_piu3_bar_cmplt;       
-output           ctcq_piu3_cr_grant;        
-output           ctcq_piu3_rvalid;          
-output  [534:0]  ctcq_piux_rbus;            
-output           ctcq_xx_no_op;             
+input            bmbif_ctcq_bar_req;
+input   [2  :0]  bmbif_ctcq_mid;
+input   [8  :0]  bmbif_ctcq_req_bus;
+input            ciu_chr2_dvm_dis;
+input            ciu_icg_en;
+input   [3  :0]  ciu_xx_smpen;
+input            cpurst_b;
+input            ebiu_ctcq_ar_grant;
+input   [5  :0]  ebiu_ctcq_rid;
+input            ebiu_ctcq_rvalid;
+input   [39 :0]  ebiuif_ctcq_acaddr;
+input   [4  :0]  ebiuif_ctcq_acid;
+input   [3  :0]  ebiuif_ctcq_acsnoop;
+input            ebiuif_ctcq_acvalid;
+input            ebiuif_ctcq_cr_grant;
+input            forever_cpuclk;
+input            l2c_ctcq_cmplt;
+input            pad_yy_icg_scan_en;
+input            piu0_ctcq_ac_grant;
+input   [70 :0]  piu0_ctcq_ar_bus;
+input            piu0_ctcq_ar_req;
+input   [9  :0]  piu0_ctcq_cr_bus;
+input            piu0_ctcq_cr_req;
+input            piu0_ctcq_r_grant;
+input            piu1_ctcq_ac_grant;
+input   [70 :0]  piu1_ctcq_ar_bus;
+input            piu1_ctcq_ar_req;
+input   [9  :0]  piu1_ctcq_cr_bus;
+input            piu1_ctcq_cr_req;
+input            piu1_ctcq_r_grant;
+input            piu2_ctcq_ac_grant;
+input   [70 :0]  piu2_ctcq_ar_bus;
+input            piu2_ctcq_ar_req;
+input   [9  :0]  piu2_ctcq_cr_bus;
+input            piu2_ctcq_cr_req;
+input            piu2_ctcq_r_grant;
+input            piu3_ctcq_ac_grant;
+input   [70 :0]  piu3_ctcq_ar_bus;
+input            piu3_ctcq_ar_req;
+input   [9  :0]  piu3_ctcq_cr_bus;
+input            piu3_ctcq_cr_req;
+input            piu3_ctcq_r_grant;
+output           ctcq_bmbif_bar_grant;
+output  [55 :0]  ctcq_dbg_info;
+output  [39 :0]  ctcq_ebiu_araddr;
+output  [1  :0]  ctcq_ebiu_arbar;
+output  [1  :0]  ctcq_ebiu_arburst;
+output  [3  :0]  ctcq_ebiu_arcache;
+output  [1  :0]  ctcq_ebiu_ardomain;
+output  [5  :0]  ctcq_ebiu_arid;
+output  [7  :0]  ctcq_ebiu_arlen;
+output           ctcq_ebiu_arlock;
+output  [2  :0]  ctcq_ebiu_arprot;
+output  [2  :0]  ctcq_ebiu_arsize;
+output  [3  :0]  ctcq_ebiu_arsnoop;
+output           ctcq_ebiu_arvalid;
+output           ctcq_ebiu_r_grant;
+output           ctcq_ebiuif_ac_grant;
+output  [4  :0]  ctcq_ebiuif_crresp;
+output           ctcq_ebiuif_crvalid;
+output           ctcq_l2c_addr_req;
+output  [1  :0]  ctcq_l2c_req_type;
+output  [54 :0]  ctcq_piu0_acbus;
+output           ctcq_piu0_acvalid;
+output           ctcq_piu0_ar_grant;
+output           ctcq_piu0_bar_cmplt;
+output           ctcq_piu0_cr_grant;
+output           ctcq_piu0_rvalid;
+output  [54 :0]  ctcq_piu1_acbus;
+output           ctcq_piu1_acvalid;
+output           ctcq_piu1_ar_grant;
+output           ctcq_piu1_bar_cmplt;
+output           ctcq_piu1_cr_grant;
+output           ctcq_piu1_rvalid;
+output  [54 :0]  ctcq_piu2_acbus;
+output           ctcq_piu2_acvalid;
+output           ctcq_piu2_ar_grant;
+output           ctcq_piu2_bar_cmplt;
+output           ctcq_piu2_cr_grant;
+output           ctcq_piu2_rvalid;
+output  [54 :0]  ctcq_piu3_acbus;
+output           ctcq_piu3_acvalid;
+output           ctcq_piu3_ar_grant;
+output           ctcq_piu3_bar_cmplt;
+output           ctcq_piu3_cr_grant;
+output           ctcq_piu3_rvalid;
+output  [534:0]  ctcq_piux_rbus;
+output           ctcq_xx_no_op;
 
 // &Regs; @25
-reg              aim_ebiu_f;                
-reg     [4  :0]  aim_last;                  
-reg              arbuf_vld;                 
-reg     [1  :0]  bar_mid;                   
-reg     [2  :0]  comp_cur_state;            
-reg     [2  :0]  comp_next_state;           
-reg     [39 :0]  ctcq_araddr;               
-reg     [5  :0]  ctcq_arid;                 
-reg     [3  :0]  ctcq_arsnoop;              
-reg     [39 :0]  ctcq_ebiu_araddr;          
-reg     [5  :0]  ctcq_ebiu_arid;            
-reg     [3  :0]  ctcq_ebiu_arsnoop;         
-reg     [4  :0]  last_req_sel;              
-reg     [7  :0]  reqq_create_ptr;           
-reg     [7  :0]  reqq_pop0_ptr;             
-reg     [7  :0]  reqq_pop1_ptr;             
-reg     [7  :0]  reqq_pop2_ptr;             
-reg     [7  :0]  reqq_pop3_ptr;             
-reg     [7  :0]  reqq_pop_ebiu_ptr;         
-reg     [7  :0]  reqq_popl2c_ptr;           
-reg     [7  :0]  reqq_resp_ptr;             
-reg     [3  :0]  respq_create_ptr;          
-reg     [2  :0]  sync_cur_state;            
-reg     [2  :0]  sync_next_state;           
-reg              two_trans_need;            
+reg              aim_ebiu_f;
+reg     [4  :0]  aim_last;
+reg              arbuf_vld;
+reg     [1  :0]  bar_mid;
+reg     [2  :0]  comp_cur_state;
+reg     [2  :0]  comp_next_state;
+reg     [39 :0]  ctcq_araddr;
+reg     [5  :0]  ctcq_arid;
+reg     [3  :0]  ctcq_arsnoop;
+reg     [39 :0]  ctcq_ebiu_araddr;
+reg     [5  :0]  ctcq_ebiu_arid;
+reg     [3  :0]  ctcq_ebiu_arsnoop;
+reg     [4  :0]  last_req_sel;
+reg     [7  :0]  reqq_create_ptr;
+reg     [7  :0]  reqq_pop0_ptr;
+reg     [7  :0]  reqq_pop1_ptr;
+reg     [7  :0]  reqq_pop2_ptr;
+reg     [7  :0]  reqq_pop3_ptr;
+reg     [7  :0]  reqq_pop_ebiu_ptr;
+reg     [7  :0]  reqq_popl2c_ptr;
+reg     [7  :0]  reqq_resp_ptr;
+reg     [3  :0]  respq_create_ptr;
+reg     [2  :0]  sync_cur_state;
+reg     [2  :0]  sync_next_state;
+reg              two_trans_need;
 
 // &Wires; @26
-wire             aim_ebiu;                  
-wire             aim_ebiu_final;            
-wire    [4  :0]  aim_piu;                   
-wire             aim_piu0;                  
-wire             aim_piu0_final;            
-wire             aim_piu1;                  
-wire             aim_piu1_final;            
-wire             aim_piu2;                  
-wire             aim_piu2_final;            
-wire             aim_piu3;                  
-wire             aim_piu3_final;            
-wire             arbuf_clk;                 
-wire             arbuf_clk_en;              
-wire             arbuf_create_en;           
-wire             arbuf_idle;                
-wire             arbuf_pop_en;              
-wire             bar_cmplt;                 
-wire             bar_grant;                 
-wire             bar_req_vld;               
-wire             bmbif_ctcq_bar_req;        
-wire    [2  :0]  bmbif_ctcq_mid;            
-wire             ciu_icg_en;                
-wire    [3  :0]  ciu_xx_smpen;              
-wire             comp_fsm_idle;             
-wire             comp_fsm_stall;            
-wire    [3  :0]  cp_mode;                   
-wire             cpurst_b;                  
-wire    [53 :0]  ctc0_bus;                  
-wire             ctc0_op;                   
-wire    [53 :0]  ctc1_bus;                  
-wire             ctc1_op;                   
-wire    [53 :0]  ctc2_bus;                  
-wire             ctc2_op;                   
-wire    [53 :0]  ctc3_bus;                  
-wire             ctc3_op;                   
-wire    [39 :0]  ctc_dvm_addr;              
-wire    [5  :0]  ctc_dvm_aim;               
-wire    [53 :0]  ctc_dvm_bus;               
-wire             ctc_dvm_clr;               
-wire             ctc_dvm_create_en;         
-wire    [1  :0]  ctc_dvm_domain;            
-wire    [4  :0]  ctc_dvm_id;                
-wire    [2  :0]  ctc_dvm_mid;               
-wire    [4  :0]  ctc_dvm_req;               
-wire    [4  :0]  ctc_dvm_req_after_mask;    
-wire             ctc_dvm_req_vld;           
-wire             ctc_dvm_resp_grant;        
-wire    [3  :0]  ctc_dvm_respq_id;          
-wire    [4  :0]  ctc_dvm_sel;               
-wire    [3  :0]  ctc_dvm_snoop;             
-wire             ctc_req_vld;               
-wire             ctc_respq_full;            
-wire             ctc_sh;                    
-wire    [2  :0]  ctcq_arvalid;              
-wire             ctcq_bmbif_bar_grant;      
-wire             ctcq_clk;                  
-wire             ctcq_clk_en;               
-wire             ctcq_create_clk;           
-wire             ctcq_create_clk_en;        
-wire    [55 :0]  ctcq_dbg_info;             
-wire    [1  :0]  ctcq_ebiu_arbar;           
-wire    [1  :0]  ctcq_ebiu_arburst;         
-wire    [3  :0]  ctcq_ebiu_arcache;         
-wire    [1  :0]  ctcq_ebiu_ardomain;        
-wire    [7  :0]  ctcq_ebiu_arlen;           
-wire             ctcq_ebiu_arlock;          
-wire    [2  :0]  ctcq_ebiu_arprot;          
-wire    [2  :0]  ctcq_ebiu_arsize;          
-wire             ctcq_ebiu_arvalid;         
-wire             ctcq_ebiu_r_grant;         
-wire             ctcq_ebiu_real_req;        
-wire             ctcq_ebiu_void_req;        
-wire             ctcq_ebiuif_ac_grant;      
-wire    [4  :0]  ctcq_ebiuif_crresp;        
-wire             ctcq_ebiuif_crvalid;       
-wire             ctcq_l2c_addr_req;         
-wire             ctcq_l2c_real_req;         
-wire    [1  :0]  ctcq_l2c_req_type;         
-wire    [3  :0]  ctcq_l2c_respq_id;         
-wire             ctcq_l2c_void_req;         
-wire    [39 :0]  ctcq_piu0_ac_addr;         
-wire    [3  :0]  ctcq_piu0_ac_respq_id;     
-wire    [54 :0]  ctcq_piu0_acbus;           
-wire             ctcq_piu0_acvalid;         
-wire             ctcq_piu0_ar_grant;        
-wire             ctcq_piu0_bar_cmplt;       
-wire             ctcq_piu0_cr_grant;        
-wire             ctcq_piu0_real_req;        
-wire             ctcq_piu0_rvalid;          
-wire             ctcq_piu0_void_req;        
-wire    [39 :0]  ctcq_piu1_ac_addr;         
-wire    [3  :0]  ctcq_piu1_ac_respq_id;     
-wire    [54 :0]  ctcq_piu1_acbus;           
-wire             ctcq_piu1_acvalid;         
-wire             ctcq_piu1_ar_grant;        
-wire             ctcq_piu1_bar_cmplt;       
-wire             ctcq_piu1_cr_grant;        
-wire             ctcq_piu1_real_req;        
-wire             ctcq_piu1_rvalid;          
-wire             ctcq_piu1_void_req;        
-wire    [39 :0]  ctcq_piu2_ac_addr;         
-wire    [3  :0]  ctcq_piu2_ac_respq_id;     
-wire    [54 :0]  ctcq_piu2_acbus;           
-wire             ctcq_piu2_acvalid;         
-wire             ctcq_piu2_ar_grant;        
-wire             ctcq_piu2_bar_cmplt;       
-wire             ctcq_piu2_cr_grant;        
-wire             ctcq_piu2_real_req;        
-wire             ctcq_piu2_rvalid;          
-wire             ctcq_piu2_void_req;        
-wire    [39 :0]  ctcq_piu3_ac_addr;         
-wire    [3  :0]  ctcq_piu3_ac_respq_id;     
-wire    [54 :0]  ctcq_piu3_acbus;           
-wire             ctcq_piu3_acvalid;         
-wire             ctcq_piu3_ar_grant;        
-wire             ctcq_piu3_bar_cmplt;       
-wire             ctcq_piu3_cr_grant;        
-wire             ctcq_piu3_real_req;        
-wire             ctcq_piu3_rvalid;          
-wire             ctcq_piu3_void_req;        
-wire    [534:0]  ctcq_piux_rbus;            
-wire             ctcq_req_pop0_en;          
-wire             ctcq_req_pop1_en;          
-wire             ctcq_req_pop2_en;          
-wire             ctcq_req_pop3_en;          
-wire             ctcq_req_pop_ebiu_en;      
-wire             ctcq_req_popl2c_en;        
-wire             ctcq_xx_no_op;             
-wire    [53 :0]  dvm_bus;                   
-wire             dvm_comp;                  
-wire    [39 :0]  dvm_comp_araddr;           
-wire             dvm_comp_arvalid;          
-wire             dvm_comp_cmplt;            
-wire             dvm_comp_grant;            
-wire             dvm_op;                    
-wire    [39 :0]  dvm_op_araddr;             
-wire    [3  :0]  dvm_op_arid;               
-wire             dvm_op_arvalid;            
-wire             dvm_op_cmplt;              
-wire             dvm_op_grant;              
-wire    [3  :0]  dvm_op_rid;                
-wire             dvm_respq_full;            
-wire    [3  :0]  dvm_rfifo_create_bus;      
-wire             dvm_rfifo_create_en;       
-wire    [3  :0]  dvm_rfifo_pop_bus;         
-wire             dvm_rfifo_pop_en;          
-wire             dvm_sync;                  
-wire    [39 :0]  dvm_sync_araddr;           
-wire             dvm_sync_arvalid;          
-wire             dvm_sync_cmplt;            
-wire             dvm_sync_grant;            
-wire             dvm_sync_pop;              
-wire             ebiu_ctcq_ar_grant;        
-wire    [5  :0]  ebiu_ctcq_rid;             
-wire             ebiu_ctcq_rvalid;          
-wire             ebiu_dvm_req;              
-wire    [39 :0]  ebiuif_ctcq_acaddr;        
-wire    [4  :0]  ebiuif_ctcq_acid;          
-wire    [3  :0]  ebiuif_ctcq_acsnoop;       
-wire             ebiuif_ctcq_acvalid;       
-wire             ebiuif_ctcq_cr_grant;      
-wire             forever_cpuclk;            
-wire             icachei;                   
-wire             l2c_aim;                   
-wire             l2c_ctcq_cmplt;            
-wire             l2cicc;                    
-wire             op_sync;                   
-wire             pad_yy_icg_scan_en;        
-wire             piu0_ctcq_ac_grant;        
-wire    [70 :0]  piu0_ctcq_ar_bus;          
-wire             piu0_ctcq_ar_req;          
-wire    [9  :0]  piu0_ctcq_cr_bus;          
-wire             piu0_ctcq_cr_req;          
-wire             piu0_ctcq_r_grant;         
-wire             piu1_ctcq_ac_grant;        
-wire    [70 :0]  piu1_ctcq_ar_bus;          
-wire             piu1_ctcq_ar_req;          
-wire    [9  :0]  piu1_ctcq_cr_bus;          
-wire             piu1_ctcq_cr_req;          
-wire             piu1_ctcq_r_grant;         
-wire             piu2_ctcq_ac_grant;        
-wire    [70 :0]  piu2_ctcq_ar_bus;          
-wire             piu2_ctcq_ar_req;          
-wire    [9  :0]  piu2_ctcq_cr_bus;          
-wire             piu2_ctcq_cr_req;          
-wire             piu2_ctcq_r_grant;         
-wire             piu3_ctcq_ac_grant;        
-wire    [70 :0]  piu3_ctcq_ar_bus;          
-wire             piu3_ctcq_ar_req;          
-wire    [9  :0]  piu3_ctcq_cr_bus;          
-wire             piu3_ctcq_cr_req;          
-wire             piu3_ctcq_r_grant;         
-wire    [3  :0]  piu_ctc_req;               
-wire             prio_clk;                  
-wire             prio_clk_en;               
-wire    [7  :0]  reqq_create_en;            
-wire    [7  :0]  reqq_ctc;                  
-wire             reqq_ctc_empty;            
-wire    [7  :0]  reqq_ebiu_aim;             
-wire    [7  :0]  reqq_ebiu_vld;             
-wire             reqq_empty;                
-wire    [39 :0]  reqq_entry0_addr;          
-wire    [1  :0]  reqq_entry0_l2ctype;       
-wire    [2  :0]  reqq_entry0_mid;           
-wire    [3  :0]  reqq_entry0_respq_id;      
-wire    [4  :0]  reqq_entry0_rid;           
-wire    [39 :0]  reqq_entry1_addr;          
-wire    [1  :0]  reqq_entry1_l2ctype;       
-wire    [2  :0]  reqq_entry1_mid;           
-wire    [3  :0]  reqq_entry1_respq_id;      
-wire    [4  :0]  reqq_entry1_rid;           
-wire    [39 :0]  reqq_entry2_addr;          
-wire    [1  :0]  reqq_entry2_l2ctype;       
-wire    [2  :0]  reqq_entry2_mid;           
-wire    [3  :0]  reqq_entry2_respq_id;      
-wire    [4  :0]  reqq_entry2_rid;           
-wire    [39 :0]  reqq_entry3_addr;          
-wire    [1  :0]  reqq_entry3_l2ctype;       
-wire    [2  :0]  reqq_entry3_mid;           
-wire    [3  :0]  reqq_entry3_respq_id;      
-wire    [4  :0]  reqq_entry3_rid;           
-wire    [39 :0]  reqq_entry4_addr;          
-wire    [1  :0]  reqq_entry4_l2ctype;       
-wire    [2  :0]  reqq_entry4_mid;           
-wire    [3  :0]  reqq_entry4_respq_id;      
-wire    [4  :0]  reqq_entry4_rid;           
-wire    [39 :0]  reqq_entry5_addr;          
-wire    [1  :0]  reqq_entry5_l2ctype;       
-wire    [2  :0]  reqq_entry5_mid;           
-wire    [3  :0]  reqq_entry5_respq_id;      
-wire    [4  :0]  reqq_entry5_rid;           
-wire    [39 :0]  reqq_entry6_addr;          
-wire    [1  :0]  reqq_entry6_l2ctype;       
-wire    [2  :0]  reqq_entry6_mid;           
-wire    [3  :0]  reqq_entry6_respq_id;      
-wire    [4  :0]  reqq_entry6_rid;           
-wire    [39 :0]  reqq_entry7_addr;          
-wire    [1  :0]  reqq_entry7_l2ctype;       
-wire    [2  :0]  reqq_entry7_mid;           
-wire    [3  :0]  reqq_entry7_respq_id;      
-wire    [4  :0]  reqq_entry7_rid;           
-wire             reqq_full;                 
-wire    [7  :0]  reqq_l2c_aim;              
-wire    [7  :0]  reqq_l2c_vld;              
-wire    [7  :0]  reqq_piu0_aim;             
-wire    [7  :0]  reqq_piu0_vld;             
-wire    [7  :0]  reqq_piu1_aim;             
-wire    [7  :0]  reqq_piu1_vld;             
-wire    [7  :0]  reqq_piu2_aim;             
-wire    [7  :0]  reqq_piu2_vld;             
-wire    [7  :0]  reqq_piu3_aim;             
-wire    [7  :0]  reqq_piu3_vld;             
-wire    [7  :0]  reqq_pop0_en;              
-wire    [7  :0]  reqq_pop1_en;              
-wire    [7  :0]  reqq_pop2_en;              
-wire    [7  :0]  reqq_pop3_en;              
-wire             reqq_pop_clk;              
-wire             reqq_pop_clk_en;           
-wire    [7  :0]  reqq_pop_ebiu_en;          
-wire    [7  :0]  reqq_popl2c_en;            
-wire    [7  :0]  reqq_resp_done;            
-wire    [2  :0]  reqq_resp_mid;             
-wire    [4  :0]  reqq_resp_rid;             
-wire             reqq_resp_valid;           
-wire    [7  :0]  reqq_resp_vld;             
-wire    [7  :0]  reqq_vld;                  
-wire             resp_clk;                  
-wire             resp_clk_en;               
-wire    [5  :0]  respq_create_cmplt_init;   
-wire             respq_create_dvm;          
-wire    [15 :0]  respq_create_en;           
-wire    [15 :0]  respq_create_sel;          
-wire             respq_ctc_empty;           
-wire    [15 :0]  respq_dvm;                 
-wire             respq_dvm_empty;           
-wire    [15 :0]  respq_ebiu_resp_create_en; 
-wire    [15 :0]  respq_ebiu_resp_create_ptr; 
-wire             respq_empty;               
-wire    [15 :0]  respq_l2c_resp_create_en;  
-wire    [15 :0]  respq_l2c_resp_create_ptr; 
-wire    [15 :0]  respq_piu0_resp_create_en; 
-wire    [15 :0]  respq_piu0_resp_create_ptr; 
-wire    [15 :0]  respq_piu1_resp_create_en; 
-wire    [15 :0]  respq_piu1_resp_create_ptr; 
-wire    [15 :0]  respq_piu2_resp_create_en; 
-wire    [15 :0]  respq_piu2_resp_create_ptr; 
-wire    [15 :0]  respq_piu3_resp_create_en; 
-wire    [15 :0]  respq_piu3_resp_create_ptr; 
-wire    [15 :0]  respq_vld;                 
-wire             sync_fsm_idle;             
-wire             sync_fsm_stall;            
-wire             tlbi;                      
+wire             aim_ebiu;
+wire             aim_ebiu_final;
+wire    [4  :0]  aim_piu;
+wire             aim_piu0;
+wire             aim_piu0_final;
+wire             aim_piu1;
+wire             aim_piu1_final;
+wire             aim_piu2;
+wire             aim_piu2_final;
+wire             aim_piu3;
+wire             aim_piu3_final;
+wire             arbuf_clk;
+wire             arbuf_clk_en;
+wire             arbuf_create_en;
+wire             arbuf_idle;
+wire             arbuf_pop_en;
+wire             bar_cmplt;
+wire             bar_grant;
+wire             bar_req_vld;
+wire             bmbif_ctcq_bar_req;
+wire    [2  :0]  bmbif_ctcq_mid;
+wire             ciu_icg_en;
+wire    [3  :0]  ciu_xx_smpen;
+wire             comp_fsm_idle;
+wire             comp_fsm_stall;
+wire    [3  :0]  cp_mode;
+wire             cpurst_b;
+wire    [53 :0]  ctc0_bus;
+wire             ctc0_op;
+wire    [53 :0]  ctc1_bus;
+wire             ctc1_op;
+wire    [53 :0]  ctc2_bus;
+wire             ctc2_op;
+wire    [53 :0]  ctc3_bus;
+wire             ctc3_op;
+wire    [39 :0]  ctc_dvm_addr;
+wire    [5  :0]  ctc_dvm_aim;
+wire    [53 :0]  ctc_dvm_bus;
+wire             ctc_dvm_clr;
+wire             ctc_dvm_create_en;
+wire    [1  :0]  ctc_dvm_domain;
+wire    [4  :0]  ctc_dvm_id;
+wire    [2  :0]  ctc_dvm_mid;
+wire    [4  :0]  ctc_dvm_req;
+wire    [4  :0]  ctc_dvm_req_after_mask;
+wire             ctc_dvm_req_vld;
+wire             ctc_dvm_resp_grant;
+wire    [3  :0]  ctc_dvm_respq_id;
+wire    [4  :0]  ctc_dvm_sel;
+wire    [3  :0]  ctc_dvm_snoop;
+wire             ctc_req_vld;
+wire             ctc_respq_full;
+wire             ctc_sh;
+wire    [2  :0]  ctcq_arvalid;
+wire             ctcq_bmbif_bar_grant;
+wire             ctcq_clk;
+wire             ctcq_clk_en;
+wire             ctcq_create_clk;
+wire             ctcq_create_clk_en;
+wire    [55 :0]  ctcq_dbg_info;
+wire    [1  :0]  ctcq_ebiu_arbar;
+wire    [1  :0]  ctcq_ebiu_arburst;
+wire    [3  :0]  ctcq_ebiu_arcache;
+wire    [1  :0]  ctcq_ebiu_ardomain;
+wire    [7  :0]  ctcq_ebiu_arlen;
+wire             ctcq_ebiu_arlock;
+wire    [2  :0]  ctcq_ebiu_arprot;
+wire    [2  :0]  ctcq_ebiu_arsize;
+wire             ctcq_ebiu_arvalid;
+wire             ctcq_ebiu_r_grant;
+wire             ctcq_ebiu_real_req;
+wire             ctcq_ebiu_void_req;
+wire             ctcq_ebiuif_ac_grant;
+wire    [4  :0]  ctcq_ebiuif_crresp;
+wire             ctcq_ebiuif_crvalid;
+wire             ctcq_l2c_addr_req;
+wire             ctcq_l2c_real_req;
+wire    [1  :0]  ctcq_l2c_req_type;
+wire    [3  :0]  ctcq_l2c_respq_id;
+wire             ctcq_l2c_void_req;
+wire    [39 :0]  ctcq_piu0_ac_addr;
+wire    [3  :0]  ctcq_piu0_ac_respq_id;
+wire    [54 :0]  ctcq_piu0_acbus;
+wire             ctcq_piu0_acvalid;
+wire             ctcq_piu0_ar_grant;
+wire             ctcq_piu0_bar_cmplt;
+wire             ctcq_piu0_cr_grant;
+wire             ctcq_piu0_real_req;
+wire             ctcq_piu0_rvalid;
+wire             ctcq_piu0_void_req;
+wire    [39 :0]  ctcq_piu1_ac_addr;
+wire    [3  :0]  ctcq_piu1_ac_respq_id;
+wire    [54 :0]  ctcq_piu1_acbus;
+wire             ctcq_piu1_acvalid;
+wire             ctcq_piu1_ar_grant;
+wire             ctcq_piu1_bar_cmplt;
+wire             ctcq_piu1_cr_grant;
+wire             ctcq_piu1_real_req;
+wire             ctcq_piu1_rvalid;
+wire             ctcq_piu1_void_req;
+wire    [39 :0]  ctcq_piu2_ac_addr;
+wire    [3  :0]  ctcq_piu2_ac_respq_id;
+wire    [54 :0]  ctcq_piu2_acbus;
+wire             ctcq_piu2_acvalid;
+wire             ctcq_piu2_ar_grant;
+wire             ctcq_piu2_bar_cmplt;
+wire             ctcq_piu2_cr_grant;
+wire             ctcq_piu2_real_req;
+wire             ctcq_piu2_rvalid;
+wire             ctcq_piu2_void_req;
+wire    [39 :0]  ctcq_piu3_ac_addr;
+wire    [3  :0]  ctcq_piu3_ac_respq_id;
+wire    [54 :0]  ctcq_piu3_acbus;
+wire             ctcq_piu3_acvalid;
+wire             ctcq_piu3_ar_grant;
+wire             ctcq_piu3_bar_cmplt;
+wire             ctcq_piu3_cr_grant;
+wire             ctcq_piu3_real_req;
+wire             ctcq_piu3_rvalid;
+wire             ctcq_piu3_void_req;
+wire    [534:0]  ctcq_piux_rbus;
+wire             ctcq_req_pop0_en;
+wire             ctcq_req_pop1_en;
+wire             ctcq_req_pop2_en;
+wire             ctcq_req_pop3_en;
+wire             ctcq_req_pop_ebiu_en;
+wire             ctcq_req_popl2c_en;
+wire             ctcq_xx_no_op;
+wire    [53 :0]  dvm_bus;
+wire             dvm_comp;
+wire    [39 :0]  dvm_comp_araddr;
+wire             dvm_comp_arvalid;
+wire             dvm_comp_cmplt;
+wire             dvm_comp_grant;
+wire             dvm_op;
+wire    [39 :0]  dvm_op_araddr;
+wire    [3  :0]  dvm_op_arid;
+wire             dvm_op_arvalid;
+wire             dvm_op_cmplt;
+wire             dvm_op_grant;
+wire    [3  :0]  dvm_op_rid;
+wire             dvm_respq_full;
+wire    [3  :0]  dvm_rfifo_create_bus;
+wire             dvm_rfifo_create_en;
+wire    [3  :0]  dvm_rfifo_pop_bus;
+wire             dvm_rfifo_pop_en;
+wire             dvm_sync;
+wire    [39 :0]  dvm_sync_araddr;
+wire             dvm_sync_arvalid;
+wire             dvm_sync_cmplt;
+wire             dvm_sync_grant;
+wire             dvm_sync_pop;
+wire             ebiu_ctcq_ar_grant;
+wire    [5  :0]  ebiu_ctcq_rid;
+wire             ebiu_ctcq_rvalid;
+wire             ebiu_dvm_req;
+wire    [39 :0]  ebiuif_ctcq_acaddr;
+wire    [4  :0]  ebiuif_ctcq_acid;
+wire    [3  :0]  ebiuif_ctcq_acsnoop;
+wire             ebiuif_ctcq_acvalid;
+wire             ebiuif_ctcq_cr_grant;
+wire             forever_cpuclk;
+wire             icachei;
+wire             l2c_aim;
+wire             l2c_ctcq_cmplt;
+wire             l2cicc;
+wire             op_sync;
+wire             pad_yy_icg_scan_en;
+wire             piu0_ctcq_ac_grant;
+wire    [70 :0]  piu0_ctcq_ar_bus;
+wire             piu0_ctcq_ar_req;
+wire    [9  :0]  piu0_ctcq_cr_bus;
+wire             piu0_ctcq_cr_req;
+wire             piu0_ctcq_r_grant;
+wire             piu1_ctcq_ac_grant;
+wire    [70 :0]  piu1_ctcq_ar_bus;
+wire             piu1_ctcq_ar_req;
+wire    [9  :0]  piu1_ctcq_cr_bus;
+wire             piu1_ctcq_cr_req;
+wire             piu1_ctcq_r_grant;
+wire             piu2_ctcq_ac_grant;
+wire    [70 :0]  piu2_ctcq_ar_bus;
+wire             piu2_ctcq_ar_req;
+wire    [9  :0]  piu2_ctcq_cr_bus;
+wire             piu2_ctcq_cr_req;
+wire             piu2_ctcq_r_grant;
+wire             piu3_ctcq_ac_grant;
+wire    [70 :0]  piu3_ctcq_ar_bus;
+wire             piu3_ctcq_ar_req;
+wire    [9  :0]  piu3_ctcq_cr_bus;
+wire             piu3_ctcq_cr_req;
+wire             piu3_ctcq_r_grant;
+wire    [3  :0]  piu_ctc_req;
+wire             prio_clk;
+wire             prio_clk_en;
+wire    [7  :0]  reqq_create_en;
+wire    [7  :0]  reqq_ctc;
+wire             reqq_ctc_empty;
+wire    [7  :0]  reqq_ebiu_aim;
+wire    [7  :0]  reqq_ebiu_vld;
+wire             reqq_empty;
+wire    [39 :0]  reqq_entry0_addr;
+wire    [1  :0]  reqq_entry0_l2ctype;
+wire    [2  :0]  reqq_entry0_mid;
+wire    [3  :0]  reqq_entry0_respq_id;
+wire    [4  :0]  reqq_entry0_rid;
+wire    [39 :0]  reqq_entry1_addr;
+wire    [1  :0]  reqq_entry1_l2ctype;
+wire    [2  :0]  reqq_entry1_mid;
+wire    [3  :0]  reqq_entry1_respq_id;
+wire    [4  :0]  reqq_entry1_rid;
+wire    [39 :0]  reqq_entry2_addr;
+wire    [1  :0]  reqq_entry2_l2ctype;
+wire    [2  :0]  reqq_entry2_mid;
+wire    [3  :0]  reqq_entry2_respq_id;
+wire    [4  :0]  reqq_entry2_rid;
+wire    [39 :0]  reqq_entry3_addr;
+wire    [1  :0]  reqq_entry3_l2ctype;
+wire    [2  :0]  reqq_entry3_mid;
+wire    [3  :0]  reqq_entry3_respq_id;
+wire    [4  :0]  reqq_entry3_rid;
+wire    [39 :0]  reqq_entry4_addr;
+wire    [1  :0]  reqq_entry4_l2ctype;
+wire    [2  :0]  reqq_entry4_mid;
+wire    [3  :0]  reqq_entry4_respq_id;
+wire    [4  :0]  reqq_entry4_rid;
+wire    [39 :0]  reqq_entry5_addr;
+wire    [1  :0]  reqq_entry5_l2ctype;
+wire    [2  :0]  reqq_entry5_mid;
+wire    [3  :0]  reqq_entry5_respq_id;
+wire    [4  :0]  reqq_entry5_rid;
+wire    [39 :0]  reqq_entry6_addr;
+wire    [1  :0]  reqq_entry6_l2ctype;
+wire    [2  :0]  reqq_entry6_mid;
+wire    [3  :0]  reqq_entry6_respq_id;
+wire    [4  :0]  reqq_entry6_rid;
+wire    [39 :0]  reqq_entry7_addr;
+wire    [1  :0]  reqq_entry7_l2ctype;
+wire    [2  :0]  reqq_entry7_mid;
+wire    [3  :0]  reqq_entry7_respq_id;
+wire    [4  :0]  reqq_entry7_rid;
+wire             reqq_full;
+wire    [7  :0]  reqq_l2c_aim;
+wire    [7  :0]  reqq_l2c_vld;
+wire    [7  :0]  reqq_piu0_aim;
+wire    [7  :0]  reqq_piu0_vld;
+wire    [7  :0]  reqq_piu1_aim;
+wire    [7  :0]  reqq_piu1_vld;
+wire    [7  :0]  reqq_piu2_aim;
+wire    [7  :0]  reqq_piu2_vld;
+wire    [7  :0]  reqq_piu3_aim;
+wire    [7  :0]  reqq_piu3_vld;
+wire    [7  :0]  reqq_pop0_en;
+wire    [7  :0]  reqq_pop1_en;
+wire    [7  :0]  reqq_pop2_en;
+wire    [7  :0]  reqq_pop3_en;
+wire             reqq_pop_clk;
+wire             reqq_pop_clk_en;
+wire    [7  :0]  reqq_pop_ebiu_en;
+wire    [7  :0]  reqq_popl2c_en;
+wire    [7  :0]  reqq_resp_done;
+wire    [2  :0]  reqq_resp_mid;
+wire    [4  :0]  reqq_resp_rid;
+wire             reqq_resp_valid;
+wire    [7  :0]  reqq_resp_vld;
+wire    [7  :0]  reqq_vld;
+wire             resp_clk;
+wire             resp_clk_en;
+wire    [5  :0]  respq_create_cmplt_init;
+wire             respq_create_dvm;
+wire    [15 :0]  respq_create_en;
+wire    [15 :0]  respq_create_sel;
+wire             respq_ctc_empty;
+wire    [15 :0]  respq_dvm;
+wire             respq_dvm_empty;
+wire    [15 :0]  respq_ebiu_resp_create_en;
+wire    [15 :0]  respq_ebiu_resp_create_ptr;
+wire             respq_empty;
+wire    [15 :0]  respq_l2c_resp_create_en;
+wire    [15 :0]  respq_l2c_resp_create_ptr;
+wire    [15 :0]  respq_piu0_resp_create_en;
+wire    [15 :0]  respq_piu0_resp_create_ptr;
+wire    [15 :0]  respq_piu1_resp_create_en;
+wire    [15 :0]  respq_piu1_resp_create_ptr;
+wire    [15 :0]  respq_piu2_resp_create_en;
+wire    [15 :0]  respq_piu2_resp_create_ptr;
+wire    [15 :0]  respq_piu3_resp_create_en;
+wire    [15 :0]  respq_piu3_resp_create_ptr;
+wire    [15 :0]  respq_vld;
+wire             sync_fsm_idle;
+wire             sync_fsm_stall;
+wire             tlbi;
 
 
 parameter ADDRW = `PA_WIDTH;
@@ -537,7 +537,7 @@ always@(posedge ctcq_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)
     sync_cur_state[2:0] <= S_IDLE;
-  else 
+  else
     sync_cur_state[2:0] <= sync_next_state[2:0];
 end
 
@@ -562,19 +562,19 @@ begin
       sync_next_state = S_CMPLT;
     else if (ctc_dvm_create_en & ctc_req_vld)
       sync_next_state = S_WFB;
-    else 
+    else
       sync_next_state = S_IDLE;
   end
   S_WFB: begin
-    if (bar_req_vld) 
+    if (bar_req_vld)
       sync_next_state = S_WFE;
-    else 
+    else
       sync_next_state = S_WFB;
   end
   S_WFE: begin
     if (reqq_ctc_empty & respq_ctc_empty & comp_fsm_idle)
       sync_next_state = aim_ebiu_f ? S_REQ : S_CMPLT;
-    else 
+    else
       sync_next_state = S_WFE;
   end
   S_REQ: begin
@@ -602,7 +602,7 @@ begin
   S_WFR: begin
     if (dvm_sync_cmplt)
       sync_next_state = S_CMPLT;
-    else 
+    else
       sync_next_state = S_WFR;
   end
   S_CMPLT: begin
@@ -616,7 +616,7 @@ end
 assign dvm_sync_arvalid = (sync_cur_state == S_REQ);
 assign dvm_sync_araddr[ADDRW-1:0] = {24'b0, 4'b1100, 12'b0};
 
-assign bar_grant = bar_req_vld & 
+assign bar_grant = bar_req_vld &
                    ((sync_cur_state == S_IDLE) | (sync_cur_state == S_WFB));
 assign bar_cmplt = (sync_cur_state == S_CMPLT);
 
@@ -654,7 +654,7 @@ assign ctcq_piu3_bar_cmplt = bar_cmplt & (bar_mid[1:0] == 2'b11);
 
 //==========================================================
 //                   COMPLETE FSM
-// recieve DVM SYNC from AC, generate DVM complete to AR 
+// recieve DVM SYNC from AC, generate DVM complete to AR
 //==========================================================
 parameter C_IDLE = 3'b000;
 parameter C_POP  = 3'b001;
@@ -666,7 +666,7 @@ always@(posedge ctcq_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)
     comp_cur_state[2:0] <= C_IDLE;
-  else 
+  else
     comp_cur_state[2:0] <= comp_next_state[2:0];
 end
 
@@ -683,7 +683,7 @@ begin
   C_IDLE : begin
     if (ctc_dvm_create_en & dvm_sync)
       comp_next_state = C_POP;
-    else 
+    else
       comp_next_state = C_IDLE;
   end
   C_POP : begin
@@ -697,19 +697,19 @@ begin
   C_WFE: begin
     if (respq_dvm_empty)
       comp_next_state = C_REQ;
-    else 
+    else
       comp_next_state = C_WFE;
   end
   C_REQ : begin
     if (dvm_comp_grant)
       comp_next_state = C_RESP;
-    else 
+    else
       comp_next_state = C_REQ;
   end
   C_RESP : begin
     if (dvm_comp_cmplt)
       comp_next_state = C_IDLE;
-    else 
+    else
       comp_next_state = C_RESP;
   end
   default: comp_next_state = C_IDLE;
@@ -726,13 +726,13 @@ assign comp_fsm_idle  = (comp_cur_state == C_IDLE);
 //                  req source select(master0~3)
 //note:       req source select(according ciu)
 //            if two_trans_1st set, then fix source
-//                   
+//
 //==========================================================
 //reqq create  ; bar req create
 assign piu_ctc_req[3:0] = {piu3_ctcq_ar_req,
                            piu2_ctcq_ar_req,
                            piu1_ctcq_ar_req,
-                           piu0_ctcq_ar_req} 
+                           piu0_ctcq_ar_req}
                         & {4{!sync_fsm_stall & !ctc_respq_full}};
 
 assign ebiu_dvm_req     = ebiuif_ctcq_acvalid & !comp_fsm_stall & !dvm_respq_full;
@@ -803,7 +803,7 @@ assign ctc_req_vld       = |ctc_dvm_sel[3:0];
 
 assign ctc_dvm_req_vld   = |ctc_dvm_req_after_mask[4:0];
 
-assign ctc_dvm_create_en = ctc_dvm_req_vld & 
+assign ctc_dvm_create_en = ctc_dvm_req_vld &
                            !reqq_full;
 
 parameter REQQ_WIDTH = 54;
@@ -814,11 +814,11 @@ assign ctc2_bus[REQQ_WIDTH-1:0] = {3'b010, 4'b1111, piu2_ctcq_ar_bus[ARDOMAIN_1:
 assign ctc3_bus[REQQ_WIDTH-1:0] = {3'b011, 4'b1111, piu3_ctcq_ar_bus[ARDOMAIN_1:ARDOMAIN_0], piu3_ctcq_ar_bus[ARID_4:ARID_0], piu3_ctcq_ar_bus[ARADDR_H:ARADDR_0]};
 assign dvm_bus[REQQ_WIDTH-1:0]  = {3'b110, ebiuif_ctcq_acsnoop[3:0], 2'b01, ebiuif_ctcq_acid[4:0], ebiuif_ctcq_acaddr[ADDRW-1:0]};
 
-assign ctc_dvm_bus[REQQ_WIDTH-1:0] = 
-            {REQQ_WIDTH{ctc_dvm_sel[0]}} & ctc0_bus[REQQ_WIDTH-1:0] | 
-            {REQQ_WIDTH{ctc_dvm_sel[1]}} & ctc1_bus[REQQ_WIDTH-1:0] | 
-            {REQQ_WIDTH{ctc_dvm_sel[2]}} & ctc2_bus[REQQ_WIDTH-1:0] | 
-            {REQQ_WIDTH{ctc_dvm_sel[3]}} & ctc3_bus[REQQ_WIDTH-1:0] | 
+assign ctc_dvm_bus[REQQ_WIDTH-1:0] =
+            {REQQ_WIDTH{ctc_dvm_sel[0]}} & ctc0_bus[REQQ_WIDTH-1:0] |
+            {REQQ_WIDTH{ctc_dvm_sel[1]}} & ctc1_bus[REQQ_WIDTH-1:0] |
+            {REQQ_WIDTH{ctc_dvm_sel[2]}} & ctc2_bus[REQQ_WIDTH-1:0] |
+            {REQQ_WIDTH{ctc_dvm_sel[3]}} & ctc3_bus[REQQ_WIDTH-1:0] |
             {REQQ_WIDTH{ctc_dvm_sel[4]}} &  dvm_bus[REQQ_WIDTH-1:0];
 
 parameter ADDR_0   = 0;
@@ -935,7 +935,7 @@ assign reqq_resp_done[7:0] = {8{ctc_dvm_resp_grant}} & reqq_resp_ptr[7:0];
 
 assign reqq_resp_valid = |(reqq_resp_ptr[7:0] & reqq_resp_vld[7:0]);
 
-assign reqq_resp_mid[2:0] = 
+assign reqq_resp_mid[2:0] =
                     {3{reqq_resp_ptr[0]}} & reqq_entry0_mid[2:0] |
                     {3{reqq_resp_ptr[1]}} & reqq_entry1_mid[2:0] |
                     {3{reqq_resp_ptr[2]}} & reqq_entry2_mid[2:0] |
@@ -945,7 +945,7 @@ assign reqq_resp_mid[2:0] =
                     {3{reqq_resp_ptr[6]}} & reqq_entry6_mid[2:0] |
                     {3{reqq_resp_ptr[7]}} & reqq_entry7_mid[2:0];
 
-assign reqq_resp_rid[4:0] = 
+assign reqq_resp_rid[4:0] =
                     {5{reqq_resp_ptr[0]}} & reqq_entry0_rid[4:0] |
                     {5{reqq_resp_ptr[1]}} & reqq_entry1_rid[4:0] |
                     {5{reqq_resp_ptr[2]}} & reqq_entry2_rid[4:0] |
@@ -964,7 +964,7 @@ assign ctcq_piu3_rvalid = reqq_resp_valid & (reqq_resp_mid[2:0] == 3'b011);
 assign ctcq_piux_rbus[UPKB_WIDTH-1:0] = {2'b00,2'b0,2'b10,5'b0,reqq_resp_rid[4:0],519'b0};
 
 assign ctcq_ebiuif_crvalid = dvm_sync_pop;
-assign ctcq_ebiuif_crresp[4:0] = 5'b0;  
+assign ctcq_ebiuif_crresp[4:0] = 5'b0;
 
 assign dvm_sync_pop = reqq_resp_valid & (reqq_resp_mid[2:0] == 3'b110);
 //--------------------------------------
@@ -986,10 +986,10 @@ assign ctcq_req_pop0_en =  piu0_ctcq_ac_grant //real req
                          | ctcq_piu0_void_req;//void req
 
 parameter AC_WIDTH = 55;
-assign ctcq_piu0_real_req = |(  reqq_piu0_vld[7:0] 
+assign ctcq_piu0_real_req = |(  reqq_piu0_vld[7:0]
                               & reqq_piu0_aim[7:0]
                               & reqq_pop0_ptr[7:0]);
-assign ctcq_piu0_void_req = |(  reqq_piu0_vld[7:0] 
+assign ctcq_piu0_void_req = |(  reqq_piu0_vld[7:0]
                               & ~reqq_piu0_aim[7:0]
                               & reqq_pop0_ptr[7:0]);
 assign ctcq_piu0_acvalid = ctcq_piu0_real_req;
@@ -1003,7 +1003,7 @@ assign ctcq_piu0_ac_respq_id[3:0] = (reqq_entry0_respq_id[3:0] & {4{reqq_pop0_pt
                                   | (reqq_entry6_respq_id[3:0] & {4{reqq_pop0_ptr[6]}})
                                   | (reqq_entry7_respq_id[3:0] & {4{reqq_pop0_ptr[7]}});
 
-assign ctcq_piu0_ac_addr[ADDRW-1:0] 
+assign ctcq_piu0_ac_addr[ADDRW-1:0]
                                = (reqq_entry0_addr[ADDRW-1:0] & {ADDRW{reqq_pop0_ptr[0]}})
                                | (reqq_entry1_addr[ADDRW-1:0] & {ADDRW{reqq_pop0_ptr[1]}})
                                | (reqq_entry2_addr[ADDRW-1:0] & {ADDRW{reqq_pop0_ptr[2]}})
@@ -1039,10 +1039,10 @@ assign reqq_pop1_en[7:0] = {8{ctcq_req_pop1_en}} & reqq_pop1_ptr[7:0];
 assign ctcq_req_pop1_en =  piu1_ctcq_ac_grant //real req
                         || ctcq_piu1_void_req;//void req
 // dispatch req to piu1
-assign ctcq_piu1_real_req = |(  reqq_piu1_vld[7:0] 
+assign ctcq_piu1_real_req = |(  reqq_piu1_vld[7:0]
                               & reqq_piu1_aim[7:0]
                               & reqq_pop1_ptr[7:0]);
-assign ctcq_piu1_void_req = |(  reqq_piu1_vld[7:0] 
+assign ctcq_piu1_void_req = |(  reqq_piu1_vld[7:0]
                               & ~reqq_piu1_aim[7:0]
                               & reqq_pop1_ptr[7:0]);
 
@@ -1057,7 +1057,7 @@ assign ctcq_piu1_ac_respq_id[3:0] = (reqq_entry0_respq_id[3:0] & {4{reqq_pop1_pt
                                   | (reqq_entry6_respq_id[3:0] & {4{reqq_pop1_ptr[6]}})
                                   | (reqq_entry7_respq_id[3:0] & {4{reqq_pop1_ptr[7]}});
 
-assign ctcq_piu1_ac_addr[ADDRW-1:0] 
+assign ctcq_piu1_ac_addr[ADDRW-1:0]
                                = (reqq_entry0_addr[ADDRW-1:0] & {ADDRW{reqq_pop1_ptr[0]}})
                                | (reqq_entry1_addr[ADDRW-1:0] & {ADDRW{reqq_pop1_ptr[1]}})
                                | (reqq_entry2_addr[ADDRW-1:0] & {ADDRW{reqq_pop1_ptr[2]}})
@@ -1093,10 +1093,10 @@ assign reqq_pop2_en[7:0] = {8{ctcq_req_pop2_en}} & reqq_pop2_ptr[7:0];
 assign ctcq_req_pop2_en =  piu2_ctcq_ac_grant //real req
                         || ctcq_piu2_void_req;//void req
 
-assign ctcq_piu2_real_req = |(  reqq_piu2_vld[7:0] 
+assign ctcq_piu2_real_req = |(  reqq_piu2_vld[7:0]
                               & reqq_piu2_aim[7:0]
                               & reqq_pop2_ptr[7:0]);
-assign ctcq_piu2_void_req = |(  reqq_piu2_vld[7:0] 
+assign ctcq_piu2_void_req = |(  reqq_piu2_vld[7:0]
                               & ~reqq_piu2_aim[7:0]
                               & reqq_pop2_ptr[7:0]);
 
@@ -1111,7 +1111,7 @@ assign ctcq_piu2_ac_respq_id[3:0] = (reqq_entry0_respq_id[3:0] & {4{reqq_pop2_pt
                                   | (reqq_entry6_respq_id[3:0] & {4{reqq_pop2_ptr[6]}})
                                   | (reqq_entry7_respq_id[3:0] & {4{reqq_pop2_ptr[7]}});
 
-assign ctcq_piu2_ac_addr[ADDRW-1:0] 
+assign ctcq_piu2_ac_addr[ADDRW-1:0]
                                = (reqq_entry0_addr[ADDRW-1:0] & {ADDRW{reqq_pop2_ptr[0]}})
                                | (reqq_entry1_addr[ADDRW-1:0] & {ADDRW{reqq_pop2_ptr[1]}})
                                | (reqq_entry2_addr[ADDRW-1:0] & {ADDRW{reqq_pop2_ptr[2]}})
@@ -1147,10 +1147,10 @@ assign reqq_pop3_en[7:0] = {8{ctcq_req_pop3_en}} & reqq_pop3_ptr[7:0];
 assign ctcq_req_pop3_en =  piu3_ctcq_ac_grant //real req
                         || ctcq_piu3_void_req;//void req
 
-assign ctcq_piu3_real_req = |(  reqq_piu3_vld[7:0] 
+assign ctcq_piu3_real_req = |(  reqq_piu3_vld[7:0]
                               & reqq_piu3_aim[7:0]
                               & reqq_pop3_ptr[7:0]);
-assign ctcq_piu3_void_req = |(  reqq_piu3_vld[7:0] 
+assign ctcq_piu3_void_req = |(  reqq_piu3_vld[7:0]
                               & ~reqq_piu3_aim[7:0]
                               & reqq_pop3_ptr[7:0]);
 
@@ -1165,7 +1165,7 @@ assign ctcq_piu3_ac_respq_id[3:0] = (reqq_entry0_respq_id[3:0] & {4{reqq_pop3_pt
                                   | (reqq_entry6_respq_id[3:0] & {4{reqq_pop3_ptr[6]}})
                                   | (reqq_entry7_respq_id[3:0] & {4{reqq_pop3_ptr[7]}});
 
-assign ctcq_piu3_ac_addr[ADDRW-1:0] 
+assign ctcq_piu3_ac_addr[ADDRW-1:0]
                                = (reqq_entry0_addr[ADDRW-1:0] & {ADDRW{reqq_pop3_ptr[0]}})
                                | (reqq_entry1_addr[ADDRW-1:0] & {ADDRW{reqq_pop3_ptr[1]}})
                                | (reqq_entry2_addr[ADDRW-1:0] & {ADDRW{reqq_pop3_ptr[2]}})
@@ -1266,11 +1266,11 @@ end
 assign reqq_popl2c_en[7:0] = {8{ctcq_req_popl2c_en}} & reqq_popl2c_ptr[7:0];
 assign ctcq_req_popl2c_en =  l2c_ctcq_cmplt | ctcq_l2c_void_req;
 
-assign ctcq_l2c_real_req = |(  reqq_l2c_vld[7:0] 
+assign ctcq_l2c_real_req = |(  reqq_l2c_vld[7:0]
                               & reqq_l2c_aim[7:0]
                               & reqq_popl2c_ptr[7:0]);
 
-assign ctcq_l2c_void_req = |(   reqq_l2c_vld[7:0] 
+assign ctcq_l2c_void_req = |(   reqq_l2c_vld[7:0]
                               & ~reqq_l2c_aim[7:0]
                               & reqq_popl2c_ptr[7:0]);
 
@@ -1324,7 +1324,7 @@ begin
     arbuf_vld <= 1'b0;
   else if (arbuf_create_en)
     arbuf_vld <= 1'b1;
-  else if (arbuf_pop_en)        
+  else if (arbuf_pop_en)
     arbuf_vld <= 1'b0;
 end
 
@@ -1349,7 +1349,7 @@ assign ctcq_ebiu_ardomain[1:0] = 2'b01;
 assign ctcq_ebiu_arbar[1:0]    = 2'b0;
 assign ctcq_ebiu_arlock        = 1'b0;
 
-assign dvm_comp_grant = arbuf_idle; 
+assign dvm_comp_grant = arbuf_idle;
 assign dvm_sync_grant = arbuf_idle & !dvm_comp_arvalid;
 assign dvm_op_grant   = arbuf_idle & !dvm_comp_arvalid & !dvm_sync_arvalid & dvm_op_arvalid;
 
@@ -1369,22 +1369,22 @@ assign dvm_respq_full = &respq_vld[15:0];
 always @( respq_vld[15:0])
 begin
   casez(respq_vld[15:0])
-  16'b???????????????0 : respq_create_ptr[3:0] = 4'b0000; 
-  16'b??????????????01 : respq_create_ptr[3:0] = 4'b0001; 
-  16'b?????????????011 : respq_create_ptr[3:0] = 4'b0010; 
-  16'b????????????0111 : respq_create_ptr[3:0] = 4'b0011; 
-  16'b???????????01111 : respq_create_ptr[3:0] = 4'b0100; 
-  16'b??????????011111 : respq_create_ptr[3:0] = 4'b0101; 
-  16'b?????????0111111 : respq_create_ptr[3:0] = 4'b0110; 
-  16'b????????01111111 : respq_create_ptr[3:0] = 4'b0111; 
-  16'b???????011111111 : respq_create_ptr[3:0] = 4'b1000; 
-  16'b??????0111111111 : respq_create_ptr[3:0] = 4'b1001; 
-  16'b?????01111111111 : respq_create_ptr[3:0] = 4'b1010; 
-  16'b????011111111111 : respq_create_ptr[3:0] = 4'b1011; 
-  16'b???0111111111111 : respq_create_ptr[3:0] = 4'b1100; 
-  16'b??01111111111111 : respq_create_ptr[3:0] = 4'b1101; 
-  16'b?011111111111111 : respq_create_ptr[3:0] = 4'b1110; 
-  16'b0111111111111111 : respq_create_ptr[3:0] = 4'b1111; 
+  16'b???????????????0 : respq_create_ptr[3:0] = 4'b0000;
+  16'b??????????????01 : respq_create_ptr[3:0] = 4'b0001;
+  16'b?????????????011 : respq_create_ptr[3:0] = 4'b0010;
+  16'b????????????0111 : respq_create_ptr[3:0] = 4'b0011;
+  16'b???????????01111 : respq_create_ptr[3:0] = 4'b0100;
+  16'b??????????011111 : respq_create_ptr[3:0] = 4'b0101;
+  16'b?????????0111111 : respq_create_ptr[3:0] = 4'b0110;
+  16'b????????01111111 : respq_create_ptr[3:0] = 4'b0111;
+  16'b???????011111111 : respq_create_ptr[3:0] = 4'b1000;
+  16'b??????0111111111 : respq_create_ptr[3:0] = 4'b1001;
+  16'b?????01111111111 : respq_create_ptr[3:0] = 4'b1010;
+  16'b????011111111111 : respq_create_ptr[3:0] = 4'b1011;
+  16'b???0111111111111 : respq_create_ptr[3:0] = 4'b1100;
+  16'b??01111111111111 : respq_create_ptr[3:0] = 4'b1101;
+  16'b?011111111111111 : respq_create_ptr[3:0] = 4'b1110;
+  16'b0111111111111111 : respq_create_ptr[3:0] = 4'b1111;
   default              : respq_create_ptr[3:0] = 4'b0;
   endcase
 // &CombEnd; @874
@@ -1553,7 +1553,7 @@ gated_clk_cell  x_ctcq_resp_gated_cell (
 //           .module_en (ciu_icg_en       ) @996
 //         ); @997
 
-assign reqq_pop_clk_en = ctcq_req_popl2c_en | 
+assign reqq_pop_clk_en = ctcq_req_popl2c_en |
                          ctcq_req_pop_ebiu_en |
                          ctcq_req_pop3_en |
                          ctcq_req_pop2_en |

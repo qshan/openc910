@@ -37,11 +37,11 @@ module apb(
   per_clk,
   cpu_clk,
 `ifdef PMU_LP_MODE_TEST
-  pmu_cpu_pwr_on , 
-  pmu_cpu_iso_in , 
-  pmu_cpu_iso_out, 
-  pmu_cpu_save   , 
-  pmu_cpu_restore, 
+  pmu_cpu_pwr_on ,
+  pmu_cpu_iso_in ,
+  pmu_cpu_iso_out,
+  pmu_cpu_save   ,
+  pmu_cpu_restore,
 `endif
   uart0_sin,
   uart0_sout,
@@ -49,106 +49,106 @@ module apb(
 );
 
 
-input   [39 :0]  biu_pad_haddr;    
-input   [3  :0]  biu_pad_hprot;    
-input   [1  :0]  biu_pad_lpmd_b;   
-input   [39 :0]  haddr_s2;         
-input   [2  :0]  hburst_s2;        
-input            hmastlock;        
-input   [3  :0]  hprot_s2;         
-input            hsel_s2;          
-input   [2  :0]  hsize_s2;         
-input   [1  :0]  htrans_s2;        
-input   [127:0]  hwdata_s2;        
-input            hwrite_s2;        
-input            i_pad_clk;        
-input            uart0_sin;        
-output           clk_en;           
-output  [127:0]  hrdata_s2;        
-output           hready_s2;        
-output  [1  :0]  hresp_s2;         
-output  [2  :0]  pad_biu_clkratio; 
-input           pad_cpu_rst_b;    
-output           per_clk;          
-output           cpu_clk;          
+input   [39 :0]  biu_pad_haddr;
+input   [3  :0]  biu_pad_hprot;
+input   [1  :0]  biu_pad_lpmd_b;
+input   [39 :0]  haddr_s2;
+input   [2  :0]  hburst_s2;
+input            hmastlock;
+input   [3  :0]  hprot_s2;
+input            hsel_s2;
+input   [2  :0]  hsize_s2;
+input   [1  :0]  htrans_s2;
+input   [127:0]  hwdata_s2;
+input            hwrite_s2;
+input            i_pad_clk;
+input            uart0_sin;
+output           clk_en;
+output  [127:0]  hrdata_s2;
+output           hready_s2;
+output  [1  :0]  hresp_s2;
+output  [2  :0]  pad_biu_clkratio;
+input           pad_cpu_rst_b;
+output           per_clk;
+output           cpu_clk;
 `ifdef PMU_LP_MODE_TEST
-output           pmu_cpu_pwr_on ; 
-output           pmu_cpu_iso_in ; 
-output           pmu_cpu_iso_out; 
-output           pmu_cpu_save   ; 
-output           pmu_cpu_restore; 
+output           pmu_cpu_pwr_on ;
+output           pmu_cpu_iso_in ;
+output           pmu_cpu_iso_out;
+output           pmu_cpu_save   ;
+output           pmu_cpu_restore;
 `endif
-output           uart0_sout;       
-output  [39 :0]  xx_intc_vld;      
-inout   [7  :0]  b_pad_gpio_porta; 
+output           uart0_sout;
+output  [39 :0]  xx_intc_vld;
+inout   [7  :0]  b_pad_gpio_porta;
 
-wire             apb_clkgen_psel;  
-wire             apb_gpio_psel;    
-wire    [39 :0]  apb_haddr;        
-wire    [2  :0]  apb_hburst;       
-wire    [31 :0]  apb_hrdata;       
-wire             apb_hready;       
-wire    [1  :0]  apb_hresp;        
-wire             apb_hsel;         
-wire    [2  :0]  apb_hsize;        
-wire    [1  :0]  apb_htrans;       
-wire    [31 :0]  apb_hwdata;       
-wire             apb_hwrite;       
+wire             apb_clkgen_psel;
+wire             apb_gpio_psel;
+wire    [39 :0]  apb_haddr;
+wire    [2  :0]  apb_hburst;
+wire    [31 :0]  apb_hrdata;
+wire             apb_hready;
+wire    [1  :0]  apb_hresp;
+wire             apb_hsel;
+wire    [2  :0]  apb_hsize;
+wire    [1  :0]  apb_htrans;
+wire    [31 :0]  apb_hwdata;
+wire             apb_hwrite;
 
-wire             apb_intc_psel;    
-wire             apb_stim_psel;    
-wire             apb_tim_psel;     
-wire             apb_uart_psel;    
-wire             apb_pmu_psel;          
+wire             apb_intc_psel;
+wire             apb_stim_psel;
+wire             apb_tim_psel;
+wire             apb_uart_psel;
+wire             apb_pmu_psel;
 
-wire    [39 :0]  apb_xx_paddr;     
-wire             apb_xx_penable;   
-wire    [31 :0]  apb_xx_pwdata;    
-wire             apb_xx_pwrite;    
-wire    [7  :0]  b_pad_gpio_porta; 
-wire    [39 :0]  biu_pad_haddr;    
-wire    [3  :0]  biu_pad_hprot;    
-wire    [1  :0]  biu_pad_lpmd_b;   
-wire             clk_en;           
-wire    [31 :0]  clkgen_apb_prdata; 
-wire    [31 :0]  gpio_apb_prdata;  
-wire    [7  :0]  gpio_intc_int;    
-wire    [39 :0]  haddr_s2;         
-wire    [2  :0]  hburst_s2;        
-wire             hmastlock;        
-wire    [3  :0]  hprot_s2;         
-wire    [127:0]  hrdata_s2;        
-wire             hready_s2;        
-wire    [1  :0]  hresp_s2;         
-wire             hsel_s2;          
-wire    [2  :0]  hsize_s2;         
-wire    [1  :0]  htrans_s2;        
-wire    [127:0]  hwdata_s2;        
-wire             hwrite_s2;        
-wire             i_pad_clk;        
-wire    [2  :0]  pad_biu_clkratio; 
-wire             pad_cpu_rst_b;    
-wire             per_clk;          
-wire    [31 :0]  stim_apb_prdata;  
-wire    [3  :0]  stim_intc_int;    
-wire    [31 :0]  tim_apb_prdata;   
-wire    [3  :0]  tim_intc_int;     
-wire             uart0_intc_int;   
-wire             uart0_sin;        
-wire             uart0_sout;       
-wire    [31 :0]  uart_apb_prdata;  
-wire    [39 :0]  xx_intc_vld;      
+wire    [39 :0]  apb_xx_paddr;
+wire             apb_xx_penable;
+wire    [31 :0]  apb_xx_pwdata;
+wire             apb_xx_pwrite;
+wire    [7  :0]  b_pad_gpio_porta;
+wire    [39 :0]  biu_pad_haddr;
+wire    [3  :0]  biu_pad_hprot;
+wire    [1  :0]  biu_pad_lpmd_b;
+wire             clk_en;
+wire    [31 :0]  clkgen_apb_prdata;
+wire    [31 :0]  gpio_apb_prdata;
+wire    [7  :0]  gpio_intc_int;
+wire    [39 :0]  haddr_s2;
+wire    [2  :0]  hburst_s2;
+wire             hmastlock;
+wire    [3  :0]  hprot_s2;
+wire    [127:0]  hrdata_s2;
+wire             hready_s2;
+wire    [1  :0]  hresp_s2;
+wire             hsel_s2;
+wire    [2  :0]  hsize_s2;
+wire    [1  :0]  htrans_s2;
+wire    [127:0]  hwdata_s2;
+wire             hwrite_s2;
+wire             i_pad_clk;
+wire    [2  :0]  pad_biu_clkratio;
+wire             pad_cpu_rst_b;
+wire             per_clk;
+wire    [31 :0]  stim_apb_prdata;
+wire    [3  :0]  stim_intc_int;
+wire    [31 :0]  tim_apb_prdata;
+wire    [3  :0]  tim_intc_int;
+wire             uart0_intc_int;
+wire             uart0_sin;
+wire             uart0_sout;
+wire    [31 :0]  uart_apb_prdata;
+wire    [39 :0]  xx_intc_vld;
 
 
-wire             gate_en0;              
-wire             gate_en1;              
-wire             pmu_cpu_pwr_on ; 
-wire             pmu_cpu_iso_in ; 
-wire             pmu_cpu_iso_out; 
-wire             pmu_cpu_save   ; 
-wire             pmu_cpu_restore; 
-wire             merged_int_vld; 
-wire    [31:0 ]  pmu_apb_prdata;        
+wire             gate_en0;
+wire             gate_en1;
+wire             pmu_cpu_pwr_on ;
+wire             pmu_cpu_iso_in ;
+wire             pmu_cpu_iso_out;
+wire             pmu_cpu_save   ;
+wire             pmu_cpu_restore;
+wire             merged_int_vld;
+wire    [31:0 ]  pmu_apb_prdata;
 
 
 ahb2apb  x_ahb2apb (
@@ -301,11 +301,11 @@ pmu  x_pmu (
   .pg_reset_b             (                      ),	// output from pmu
   .pmu_apb_prdata         (pmu_apb_prdata        ),
   .pmu_clk                (per_clk               ),
-  .pmu_cpu_pwr_on         (pmu_cpu_pwr_on        ), 
-  .pmu_cpu_iso_in         (pmu_cpu_iso_in        ), 
-  .pmu_cpu_iso_out        (pmu_cpu_iso_out       ), 
-  .pmu_cpu_save           (pmu_cpu_save          ), 
-  .pmu_cpu_restore        (pmu_cpu_restore       ) 
+  .pmu_cpu_pwr_on         (pmu_cpu_pwr_on        ),
+  .pmu_cpu_iso_in         (pmu_cpu_iso_in        ),
+  .pmu_cpu_iso_out        (pmu_cpu_iso_out       ),
+  .pmu_cpu_save           (pmu_cpu_save          ),
+  .pmu_cpu_restore        (pmu_cpu_restore       )
 );
 
 assign merged_int_vld = | xx_intc_vld[39:0];

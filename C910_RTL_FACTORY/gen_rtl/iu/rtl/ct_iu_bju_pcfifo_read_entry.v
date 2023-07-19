@@ -30,81 +30,81 @@ module ct_iu_bju_pcfifo_read_entry(
 );
 
 // &Ports; @28
-input           cp0_iu_icg_en;       
-input           cp0_yy_clk_en;       
-input           cpurst_b;            
-input           forever_cpuclk;      
-input           iu_yy_xx_cancel;     
-input           pad_yy_icg_scan_en;  
-input           rtu_iu_flush_fe;     
-input           rtu_yy_xx_flush;     
-input   [50:0]  x_create_data;       
-input           x_create_en;         
-input           x_create_gateclk_en; 
-output  [50:0]  x_rt_read_data;      
+input           cp0_iu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           iu_yy_xx_cancel;
+input           pad_yy_icg_scan_en;
+input           rtu_iu_flush_fe;
+input           rtu_yy_xx_flush;
+input   [50:0]  x_create_data;
+input           x_create_en;
+input           x_create_gateclk_en;
+output  [50:0]  x_rt_read_data;
 
 // &Regs; @29
-reg             bht_mispred;         
-reg             bht_pred;            
-reg             bju;                 
-reg             cmplt;               
-reg             condbr;              
-reg             flush;               
-reg             jmp;                 
-reg             length;              
-reg     [39:0]  pc;                  
-reg             pcall;               
-reg             pret;                
-reg             vld;                 
+reg             bht_mispred;
+reg             bht_pred;
+reg             bju;
+reg             cmplt;
+reg             condbr;
+reg             flush;
+reg             jmp;
+reg             length;
+reg     [39:0]  pc;
+reg             pcall;
+reg             pret;
+reg             vld;
 
 // &Wires; @30
-wire            cmplt_clk;           
-wire            cmplt_clk_en;        
-wire            cp0_iu_icg_en;       
-wire            cp0_yy_clk_en;       
-wire            cpurst_b;            
-wire            entry_clk;           
-wire            entry_clk_en;        
-wire            flush_with_create;   
-wire            forever_cpuclk;      
-wire            iu_yy_xx_cancel;     
-wire            pad_yy_icg_scan_en;  
-wire            rtu_iu_flush_fe;     
-wire            rtu_yy_xx_flush;     
-wire            vld_with_create;     
-wire            x_create_bht_mispred; 
-wire            x_create_bht_pred;   
-wire            x_create_bju;        
-wire            x_create_cmplt;      
-wire            x_create_condbr;     
-wire    [50:0]  x_create_data;       
-wire            x_create_en;         
-wire            x_create_flush;      
-wire            x_create_gateclk_en; 
-wire            x_create_jmp;        
-wire            x_create_length;     
-wire    [39:0]  x_create_pc;         
-wire            x_create_pcall;      
-wire            x_create_pret;       
-wire            x_create_vld;        
-wire            x_read_bht_mispred;  
-wire            x_read_bht_pred;     
-wire            x_read_bju;          
-wire            x_read_cmplt;        
-wire            x_read_condbr;       
-wire            x_read_flush;        
-wire            x_read_jmp;          
-wire            x_read_length;       
-wire    [39:0]  x_read_pc;           
-wire            x_read_pcall;        
-wire            x_read_pret;         
-wire            x_read_vld;          
-wire    [50:0]  x_rt_read_data;      
+wire            cmplt_clk;
+wire            cmplt_clk_en;
+wire            cp0_iu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            entry_clk;
+wire            entry_clk_en;
+wire            flush_with_create;
+wire            forever_cpuclk;
+wire            iu_yy_xx_cancel;
+wire            pad_yy_icg_scan_en;
+wire            rtu_iu_flush_fe;
+wire            rtu_yy_xx_flush;
+wire            vld_with_create;
+wire            x_create_bht_mispred;
+wire            x_create_bht_pred;
+wire            x_create_bju;
+wire            x_create_cmplt;
+wire            x_create_condbr;
+wire    [50:0]  x_create_data;
+wire            x_create_en;
+wire            x_create_flush;
+wire            x_create_gateclk_en;
+wire            x_create_jmp;
+wire            x_create_length;
+wire    [39:0]  x_create_pc;
+wire            x_create_pcall;
+wire            x_create_pret;
+wire            x_create_vld;
+wire            x_read_bht_mispred;
+wire            x_read_bht_pred;
+wire            x_read_bju;
+wire            x_read_cmplt;
+wire            x_read_condbr;
+wire            x_read_flush;
+wire            x_read_jmp;
+wire            x_read_length;
+wire    [39:0]  x_read_pc;
+wire            x_read_pcall;
+wire            x_read_pret;
+wire            x_read_vld;
+wire    [50:0]  x_rt_read_data;
 
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign entry_clk_en = x_create_gateclk_en
                       || rtu_yy_xx_flush
@@ -294,7 +294,7 @@ assign x_read_condbr        = condbr;
 assign x_read_pcall         = pcall;
 assign x_read_pret          = pret;
 assign x_read_jmp           = jmp;
-assign x_read_bht_mispred   = bht_mispred; 
+assign x_read_bht_mispred   = bht_mispred;
 assign x_read_bht_pred      = bht_pred;
 assign x_read_length        = length;
 

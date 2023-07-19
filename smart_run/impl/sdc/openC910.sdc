@@ -95,21 +95,21 @@ if {$parent_path==""} {
 
    set CLK_INPUTS               [get_ports {*clk *clock *tck}]
    set DATA_INPUTS              [remove_from_collection [all_inputs] $CLK_INPUTS]
-   
+
    set_max_fanout $MAX_FANOUT [current_design]
    set_max_transition $MAX_TRANSITION [current_design]
    set_input_transition 0.1 $CLK_INPUTS
    set_load [expr [load_of [get_lib_pins */$LOAD_PIN]]*5.0] [all_outputs]
    set_driving_cell -lib_cell $DRIVING_CELL $DATA_INPUTS
-   
-   create_clock [get_ports pad_had_jtg_tclk] -name JTG_CLK -period $JTG_PERIOD 
+
+   create_clock [get_ports pad_had_jtg_tclk] -name JTG_CLK -period $JTG_PERIOD
    create_clock [get_ports pll_cpu_clk] -name $CPU_CLOCK_NAME -period $CPU_PERIOD
-   
+
    create_clock -name V_CPU_CLK -period $CPU_PERIOD
    create_clock -name V_SYS_CLK -period $SYS_PERIOD
    create_clock -name V_JTG_CLK -period $JTG_PERIOD
 }
- 
+
 ################################################################################
 # Generated Clock: PLIC
 ################################################################################
@@ -120,15 +120,15 @@ set_multicycle_path -from $CPU_CLOCK_NAME -to PLIC_CLK -hold  1 -start
 set_multicycle_path -to $CPU_CLOCK_NAME -from PLIC_CLK -setup 2 -end
 set_multicycle_path -to $CPU_CLOCK_NAME -from PLIC_CLK -hold  1 -end
 ################################################################################
-# SYSTEM AXI CLK 
+# SYSTEM AXI CLK
 ################################################################################
-if {$parent_path == ""} { 
+if {$parent_path == ""} {
   if {$SYS2CPU_CLK_RATIO>1} {
      set_multicycle_path -from $CPU_CLOCK_NAME -to V_SYS_CLK -setup $SYS2CPU_CLK_RATIO -start
      set_multicycle_path -from $CPU_CLOCK_NAME -to V_SYS_CLK -hold  [expr $SYS2CPU_CLK_RATIO - 1] -start
      set_multicycle_path -to $CPU_CLOCK_NAME -from V_SYS_CLK -setup $SYS2CPU_CLK_RATIO -end
      set_multicycle_path -to $CPU_CLOCK_NAME -from V_SYS_CLK -hold  [expr $SYS2CPU_CLK_RATIO - 1] -end
-  
+
   }
 }
 ################################################################################
@@ -228,11 +228,11 @@ if {$parent_path==""} {
 
    set_input_delay  -max [expr $SYS_PERIOD*0.4] -clock V_SYS_CLK $SYS_CLK_INS
    set_input_delay  -min 0 -clock V_SYS_CLK $SYS_CLK_INS
-   
+
    set_output_delay -max [expr $SYS_PERIOD*0.6] -clock V_SYS_CLK $SYS_CLK_OUTS
    set_output_delay -min 0 -clock V_SYS_CLK $SYS_CLK_OUTS
 
-} 
+}
 
 ##### Async Reset & Constants
 set RESET {*_rst_b}
@@ -247,7 +247,7 @@ pad_l2c_data_mbist_clk_ratio*
 pad_l2c_tag_mbist_clk_ratio*
 }
 eval set_max_delay 10 [get_args_port_pin [list_add_prefix $CONSTANTS $parent_path]]
-   
+
 ##### Debug IO NOTE: debug signals are supposed to be Floating in top
 set DEBUG {
 core*pad_retire*

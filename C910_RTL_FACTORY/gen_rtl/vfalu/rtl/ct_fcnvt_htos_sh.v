@@ -21,16 +21,16 @@ module ct_fcnvt_htos_sh(
 );
 
 // &Ports; @23
-input   [9 :0]  htos_sh_src; 
-output  [5 :0]  htos_sh_cnt; 
-output  [10:0]  htos_sh_f_v; 
+input   [9 :0]  htos_sh_src;
+output  [5 :0]  htos_sh_cnt;
+output  [10:0]  htos_sh_f_v;
 
 // &Regs; @24
-reg     [5 :0]  htos_sh_cnt; 
-reg     [10:0]  htos_sh_f_v; 
+reg     [5 :0]  htos_sh_cnt;
+reg     [10:0]  htos_sh_f_v;
 
 // &Wires; @25
-wire    [9 :0]  htos_sh_src; 
+wire    [9 :0]  htos_sh_src;
 
 
 // &CombBeg; @27

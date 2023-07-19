@@ -72,215 +72,215 @@ module ct_biu_read_channel(
 );
 
 // &Ports; @23
-input   [39 :0]  araddr;                  
-input   [1  :0]  arbar;                   
-input   [1  :0]  arburst;                 
-input   [3  :0]  arcache;                 
-input            arcpuclk;                
-input   [1  :0]  ardomain;                
-input   [4  :0]  arid;                    
-input   [1  :0]  arlen;                   
-input            arlock;                  
-input   [2  :0]  arprot;                  
-input   [2  :0]  arsize;                  
-input   [3  :0]  arsnoop;                 
-input   [2  :0]  aruser;                  
-input            arvalid;                 
-input            arvalid_gate;            
-input            coreclk;                 
-input            cpurst_b;                
-input            ifu_biu_r_ready;         
-input            lsu_biu_r_linefill_ready; 
-input            pad_biu_arready;         
-input            pad_biu_rack_ready;      
-input   [127:0]  pad_biu_rdata;           
-input   [4  :0]  pad_biu_rid;             
-input            pad_biu_rlast;           
-input   [3  :0]  pad_biu_rresp;           
-input            pad_biu_rvalid;          
-input            rcpuclk;                 
-output           arready;                 
-output  [127:0]  biu_ifu_rd_data;         
-output           biu_ifu_rd_data_vld;     
-output           biu_ifu_rd_id;           
-output           biu_ifu_rd_last;         
-output  [1  :0]  biu_ifu_rd_resp;         
-output  [127:0]  biu_lsu_r_data;          
-output  [4  :0]  biu_lsu_r_id;            
-output           biu_lsu_r_last;          
-output  [3  :0]  biu_lsu_r_resp;          
-output           biu_lsu_r_vld;           
-output  [39 :0]  biu_pad_araddr;          
-output  [1  :0]  biu_pad_arbar;           
-output  [1  :0]  biu_pad_arburst;         
-output  [3  :0]  biu_pad_arcache;         
-output  [1  :0]  biu_pad_ardomain;        
-output  [4  :0]  biu_pad_arid;            
-output  [1  :0]  biu_pad_arlen;           
-output           biu_pad_arlock;          
-output  [2  :0]  biu_pad_arprot;          
-output  [2  :0]  biu_pad_arsize;          
-output  [3  :0]  biu_pad_arsnoop;         
-output  [2  :0]  biu_pad_aruser;          
-output           biu_pad_arvalid;         
-output           biu_pad_rack;            
-output           biu_pad_rready;          
-output           read_ar_clk_en;          
-output           read_busy;               
-output           read_r_clk_en;           
+input   [39 :0]  araddr;
+input   [1  :0]  arbar;
+input   [1  :0]  arburst;
+input   [3  :0]  arcache;
+input            arcpuclk;
+input   [1  :0]  ardomain;
+input   [4  :0]  arid;
+input   [1  :0]  arlen;
+input            arlock;
+input   [2  :0]  arprot;
+input   [2  :0]  arsize;
+input   [3  :0]  arsnoop;
+input   [2  :0]  aruser;
+input            arvalid;
+input            arvalid_gate;
+input            coreclk;
+input            cpurst_b;
+input            ifu_biu_r_ready;
+input            lsu_biu_r_linefill_ready;
+input            pad_biu_arready;
+input            pad_biu_rack_ready;
+input   [127:0]  pad_biu_rdata;
+input   [4  :0]  pad_biu_rid;
+input            pad_biu_rlast;
+input   [3  :0]  pad_biu_rresp;
+input            pad_biu_rvalid;
+input            rcpuclk;
+output           arready;
+output  [127:0]  biu_ifu_rd_data;
+output           biu_ifu_rd_data_vld;
+output           biu_ifu_rd_id;
+output           biu_ifu_rd_last;
+output  [1  :0]  biu_ifu_rd_resp;
+output  [127:0]  biu_lsu_r_data;
+output  [4  :0]  biu_lsu_r_id;
+output           biu_lsu_r_last;
+output  [3  :0]  biu_lsu_r_resp;
+output           biu_lsu_r_vld;
+output  [39 :0]  biu_pad_araddr;
+output  [1  :0]  biu_pad_arbar;
+output  [1  :0]  biu_pad_arburst;
+output  [3  :0]  biu_pad_arcache;
+output  [1  :0]  biu_pad_ardomain;
+output  [4  :0]  biu_pad_arid;
+output  [1  :0]  biu_pad_arlen;
+output           biu_pad_arlock;
+output  [2  :0]  biu_pad_arprot;
+output  [2  :0]  biu_pad_arsize;
+output  [3  :0]  biu_pad_arsnoop;
+output  [2  :0]  biu_pad_aruser;
+output           biu_pad_arvalid;
+output           biu_pad_rack;
+output           biu_pad_rready;
+output           read_ar_clk_en;
+output           read_busy;
+output           read_r_clk_en;
 
 // &Regs; @24
-reg     [39 :0]  cur_raddr_buf0_araddr;   
-reg     [1  :0]  cur_raddr_buf0_arbar;    
-reg     [1  :0]  cur_raddr_buf0_arburst;  
-reg     [3  :0]  cur_raddr_buf0_arcache;  
-reg     [1  :0]  cur_raddr_buf0_ardomain; 
-reg     [4  :0]  cur_raddr_buf0_arid;     
-reg     [1  :0]  cur_raddr_buf0_arlen;    
-reg              cur_raddr_buf0_arlock;   
-reg     [2  :0]  cur_raddr_buf0_arprot;   
-reg     [2  :0]  cur_raddr_buf0_arsize;   
-reg     [3  :0]  cur_raddr_buf0_arsnoop;  
-reg     [2  :0]  cur_raddr_buf0_aruser;   
-reg              cur_raddr_buf0_arvalid;  
-reg     [39 :0]  cur_raddr_buf1_araddr;   
-reg     [1  :0]  cur_raddr_buf1_arbar;    
-reg     [1  :0]  cur_raddr_buf1_arburst;  
-reg     [3  :0]  cur_raddr_buf1_arcache;  
-reg     [1  :0]  cur_raddr_buf1_ardomain; 
-reg     [4  :0]  cur_raddr_buf1_arid;     
-reg     [1  :0]  cur_raddr_buf1_arlen;    
-reg              cur_raddr_buf1_arlock;   
-reg     [2  :0]  cur_raddr_buf1_arprot;   
-reg     [2  :0]  cur_raddr_buf1_arsize;   
-reg     [3  :0]  cur_raddr_buf1_arsnoop;  
-reg     [2  :0]  cur_raddr_buf1_aruser;   
-reg              cur_raddr_buf1_arvalid;  
-reg     [39 :0]  cur_raddr_buf_araddr;    
-reg     [1  :0]  cur_raddr_buf_arbar;     
-reg     [1  :0]  cur_raddr_buf_arburst;   
-reg     [3  :0]  cur_raddr_buf_arcache;   
-reg     [1  :0]  cur_raddr_buf_ardomain;  
-reg     [4  :0]  cur_raddr_buf_arid;      
-reg     [1  :0]  cur_raddr_buf_arlen;     
-reg              cur_raddr_buf_arlock;    
-reg     [2  :0]  cur_raddr_buf_arprot;    
-reg     [2  :0]  cur_raddr_buf_arsize;    
-reg     [3  :0]  cur_raddr_buf_arsnoop;   
-reg     [2  :0]  cur_raddr_buf_aruser;    
-reg              cur_raddr_buf_crt1_sel;  
-reg              cur_raddr_buf_pop1_sel;  
-reg     [127:0]  cur_rdata_buf0_rdata;    
-reg     [4  :0]  cur_rdata_buf0_rid;      
-reg              cur_rdata_buf0_rlast;    
-reg     [3  :0]  cur_rdata_buf0_rresp;    
-reg              cur_rdata_buf0_rvalid;   
-reg     [127:0]  cur_rdata_buf1_rdata;    
-reg     [4  :0]  cur_rdata_buf1_rid;      
-reg              cur_rdata_buf1_rlast;    
-reg     [3  :0]  cur_rdata_buf1_rresp;    
-reg              cur_rdata_buf1_rvalid;   
-reg              cur_rdata_buf_crt1_sel;  
-reg              cur_rdata_buf_pop1_sel;  
-reg     [127:0]  cur_rdata_buf_rdata;     
-reg     [4  :0]  cur_rdata_buf_rid;       
-reg              cur_rdata_buf_rlast;     
-reg     [3  :0]  cur_rdata_buf_rresp;     
-reg              rack_pending;            
-reg              rack_valid;              
+reg     [39 :0]  cur_raddr_buf0_araddr;
+reg     [1  :0]  cur_raddr_buf0_arbar;
+reg     [1  :0]  cur_raddr_buf0_arburst;
+reg     [3  :0]  cur_raddr_buf0_arcache;
+reg     [1  :0]  cur_raddr_buf0_ardomain;
+reg     [4  :0]  cur_raddr_buf0_arid;
+reg     [1  :0]  cur_raddr_buf0_arlen;
+reg              cur_raddr_buf0_arlock;
+reg     [2  :0]  cur_raddr_buf0_arprot;
+reg     [2  :0]  cur_raddr_buf0_arsize;
+reg     [3  :0]  cur_raddr_buf0_arsnoop;
+reg     [2  :0]  cur_raddr_buf0_aruser;
+reg              cur_raddr_buf0_arvalid;
+reg     [39 :0]  cur_raddr_buf1_araddr;
+reg     [1  :0]  cur_raddr_buf1_arbar;
+reg     [1  :0]  cur_raddr_buf1_arburst;
+reg     [3  :0]  cur_raddr_buf1_arcache;
+reg     [1  :0]  cur_raddr_buf1_ardomain;
+reg     [4  :0]  cur_raddr_buf1_arid;
+reg     [1  :0]  cur_raddr_buf1_arlen;
+reg              cur_raddr_buf1_arlock;
+reg     [2  :0]  cur_raddr_buf1_arprot;
+reg     [2  :0]  cur_raddr_buf1_arsize;
+reg     [3  :0]  cur_raddr_buf1_arsnoop;
+reg     [2  :0]  cur_raddr_buf1_aruser;
+reg              cur_raddr_buf1_arvalid;
+reg     [39 :0]  cur_raddr_buf_araddr;
+reg     [1  :0]  cur_raddr_buf_arbar;
+reg     [1  :0]  cur_raddr_buf_arburst;
+reg     [3  :0]  cur_raddr_buf_arcache;
+reg     [1  :0]  cur_raddr_buf_ardomain;
+reg     [4  :0]  cur_raddr_buf_arid;
+reg     [1  :0]  cur_raddr_buf_arlen;
+reg              cur_raddr_buf_arlock;
+reg     [2  :0]  cur_raddr_buf_arprot;
+reg     [2  :0]  cur_raddr_buf_arsize;
+reg     [3  :0]  cur_raddr_buf_arsnoop;
+reg     [2  :0]  cur_raddr_buf_aruser;
+reg              cur_raddr_buf_crt1_sel;
+reg              cur_raddr_buf_pop1_sel;
+reg     [127:0]  cur_rdata_buf0_rdata;
+reg     [4  :0]  cur_rdata_buf0_rid;
+reg              cur_rdata_buf0_rlast;
+reg     [3  :0]  cur_rdata_buf0_rresp;
+reg              cur_rdata_buf0_rvalid;
+reg     [127:0]  cur_rdata_buf1_rdata;
+reg     [4  :0]  cur_rdata_buf1_rid;
+reg              cur_rdata_buf1_rlast;
+reg     [3  :0]  cur_rdata_buf1_rresp;
+reg              cur_rdata_buf1_rvalid;
+reg              cur_rdata_buf_crt1_sel;
+reg              cur_rdata_buf_pop1_sel;
+reg     [127:0]  cur_rdata_buf_rdata;
+reg     [4  :0]  cur_rdata_buf_rid;
+reg              cur_rdata_buf_rlast;
+reg     [3  :0]  cur_rdata_buf_rresp;
+reg              rack_pending;
+reg              rack_valid;
 
 // &Wires; @25
-wire    [39 :0]  araddr;                  
-wire    [1  :0]  arbar;                   
-wire    [1  :0]  arburst;                 
-wire    [3  :0]  arcache;                 
-wire             arcpuclk;                
-wire    [1  :0]  ardomain;                
-wire    [4  :0]  arid;                    
-wire    [1  :0]  arlen;                   
-wire             arlock;                  
-wire    [2  :0]  arprot;                  
-wire             arready;                 
-wire    [2  :0]  arsize;                  
-wire    [3  :0]  arsnoop;                 
-wire    [2  :0]  aruser;                  
-wire             arvalid;                 
-wire             arvalid_gate;            
-wire    [127:0]  biu_ifu_rd_data;         
-wire             biu_ifu_rd_data_vld;     
-wire             biu_ifu_rd_id;           
-wire             biu_ifu_rd_last;         
-wire    [1  :0]  biu_ifu_rd_resp;         
-wire    [127:0]  biu_lsu_r_data;          
-wire    [4  :0]  biu_lsu_r_id;            
-wire             biu_lsu_r_last;          
-wire    [3  :0]  biu_lsu_r_resp;          
-wire             biu_lsu_r_vld;           
-wire    [39 :0]  biu_pad_araddr;          
-wire    [1  :0]  biu_pad_arbar;           
-wire    [1  :0]  biu_pad_arburst;         
-wire    [3  :0]  biu_pad_arcache;         
-wire    [1  :0]  biu_pad_ardomain;        
-wire    [4  :0]  biu_pad_arid;            
-wire    [1  :0]  biu_pad_arlen;           
-wire             biu_pad_arlock;          
-wire    [2  :0]  biu_pad_arprot;          
-wire    [2  :0]  biu_pad_arsize;          
-wire    [3  :0]  biu_pad_arsnoop;         
-wire    [2  :0]  biu_pad_aruser;          
-wire             biu_pad_arvalid;         
-wire             biu_pad_rack;            
-wire             biu_pad_rready;          
-wire             coreclk;                 
-wire             cpurst_b;                
-wire             cur_raddr_buf_arvalid;   
-wire             cur_raddr_buf_empty;     
-wire             cur_raddr_buf_ready;     
-wire             cur_rdata_buf_empty;     
-wire             cur_rdata_buf_ready;     
-wire             cur_rdata_buf_rvalid;    
-wire             cur_rdata_is_ifu;        
-wire             cur_rdata_is_linefill;   
-wire             cur_rdata_is_lsu;        
-wire             ifu_biu_r_ready;         
-wire             lsu_biu_r_linefill_ready; 
-wire             pad_biu_arready;         
-wire             pad_biu_rack_ready;      
-wire    [127:0]  pad_biu_rdata;           
-wire    [4  :0]  pad_biu_rid;             
-wire             pad_biu_rlast;           
-wire    [3  :0]  pad_biu_rresp;           
-wire             pad_biu_rvalid;          
-wire             rack_full;               
-wire             rcpuclk;                 
-wire             rd_data_clr_en;          
-wire             rd_data_clr_en_raw;      
-wire             rd_data_create_en;       
-wire             read_ar_clk_en;          
-wire             read_busy;               
-wire             read_r_clk_en;           
-wire             rlast_done;              
+wire    [39 :0]  araddr;
+wire    [1  :0]  arbar;
+wire    [1  :0]  arburst;
+wire    [3  :0]  arcache;
+wire             arcpuclk;
+wire    [1  :0]  ardomain;
+wire    [4  :0]  arid;
+wire    [1  :0]  arlen;
+wire             arlock;
+wire    [2  :0]  arprot;
+wire             arready;
+wire    [2  :0]  arsize;
+wire    [3  :0]  arsnoop;
+wire    [2  :0]  aruser;
+wire             arvalid;
+wire             arvalid_gate;
+wire    [127:0]  biu_ifu_rd_data;
+wire             biu_ifu_rd_data_vld;
+wire             biu_ifu_rd_id;
+wire             biu_ifu_rd_last;
+wire    [1  :0]  biu_ifu_rd_resp;
+wire    [127:0]  biu_lsu_r_data;
+wire    [4  :0]  biu_lsu_r_id;
+wire             biu_lsu_r_last;
+wire    [3  :0]  biu_lsu_r_resp;
+wire             biu_lsu_r_vld;
+wire    [39 :0]  biu_pad_araddr;
+wire    [1  :0]  biu_pad_arbar;
+wire    [1  :0]  biu_pad_arburst;
+wire    [3  :0]  biu_pad_arcache;
+wire    [1  :0]  biu_pad_ardomain;
+wire    [4  :0]  biu_pad_arid;
+wire    [1  :0]  biu_pad_arlen;
+wire             biu_pad_arlock;
+wire    [2  :0]  biu_pad_arprot;
+wire    [2  :0]  biu_pad_arsize;
+wire    [3  :0]  biu_pad_arsnoop;
+wire    [2  :0]  biu_pad_aruser;
+wire             biu_pad_arvalid;
+wire             biu_pad_rack;
+wire             biu_pad_rready;
+wire             coreclk;
+wire             cpurst_b;
+wire             cur_raddr_buf_arvalid;
+wire             cur_raddr_buf_empty;
+wire             cur_raddr_buf_ready;
+wire             cur_rdata_buf_empty;
+wire             cur_rdata_buf_ready;
+wire             cur_rdata_buf_rvalid;
+wire             cur_rdata_is_ifu;
+wire             cur_rdata_is_linefill;
+wire             cur_rdata_is_lsu;
+wire             ifu_biu_r_ready;
+wire             lsu_biu_r_linefill_ready;
+wire             pad_biu_arready;
+wire             pad_biu_rack_ready;
+wire    [127:0]  pad_biu_rdata;
+wire    [4  :0]  pad_biu_rid;
+wire             pad_biu_rlast;
+wire    [3  :0]  pad_biu_rresp;
+wire             pad_biu_rvalid;
+wire             rack_full;
+wire             rcpuclk;
+wire             rd_data_clr_en;
+wire             rd_data_clr_en_raw;
+wire             rd_data_create_en;
+wire             read_ar_clk_en;
+wire             read_busy;
+wire             read_r_clk_en;
+wire             rlast_done;
 
 
 //**********************************************************
-//           read channel                        
+//           read channel
 // transmit read req after arbitrated
 // transmit data from bus to req source(lsu/ifu)
 //**********************************************************
 //
 //**********************************************************
-//           read addr channel                        
+//           read addr channel
 // transmit read req after arbitrated
 //**********************************************************
 //buf ready stand for buf can acept req from lsu/ifu
 assign arready = cur_raddr_buf_ready;
 
-assign cur_raddr_buf_ready =  cur_raddr_buf_empty; 
+assign cur_raddr_buf_ready =  cur_raddr_buf_empty;
 
 assign cur_raddr_buf_empty = !cur_raddr_buf0_arvalid
                              || !cur_raddr_buf1_arvalid;
 //**********************************************************
-//           read addr channel                        
+//           read addr channel
 //cur_raddr_buf:
 //| cur_raddr_buf_arvalid | cur_raddr_buf_arid | cur_raddr_buf_araddr |
 //|             ..._arlen |         ..._arsize |          ..._arburst |
@@ -401,7 +401,7 @@ always @(posedge arcpuclk or negedge cpurst_b)
 begin
   if(~cpurst_b)
   begin
-    cur_raddr_buf0_arid[4:0]     <= 5'b0; 
+    cur_raddr_buf0_arid[4:0]     <= 5'b0;
     cur_raddr_buf0_araddr[`PA_WIDTH-1:0]  <= {`PA_WIDTH{1'b0}};
     cur_raddr_buf0_arlen[1:0]    <= 2'b0;
     cur_raddr_buf0_arsize[2:0]   <= 3'b0;
@@ -462,7 +462,7 @@ always @(posedge arcpuclk or negedge cpurst_b)
 begin
   if(~cpurst_b)
   begin
-    cur_raddr_buf1_arid[4:0]     <= 5'b0; 
+    cur_raddr_buf1_arid[4:0]     <= 5'b0;
     cur_raddr_buf1_araddr[`PA_WIDTH-1:0]  <= {`PA_WIDTH{1'b0}};
     cur_raddr_buf1_arlen[1:0]    <= 2'b0;
     cur_raddr_buf1_arsize[2:0]   <= 3'b0;
@@ -508,8 +508,8 @@ begin
 end
 
 //**********************************************************
-//           read data channel    
-//           bus handshake signal             
+//           read data channel
+//           bus handshake signal
 //**********************************************************
 assign biu_pad_rready      =   cur_rdata_buf_ready;
 
@@ -570,7 +570,7 @@ assign rack_full = rack_valid && rack_pending;
 assign biu_pad_rack = rack_valid;
 //**********************************************************
 //           read data channel : get data from bus    //cur_rdata_buf:
-//| cur_rdata_buf_rvalid | 
+//| cur_rdata_buf_rvalid |
 //| cur_rdata_buf_rid    | cur_rdata_buf_rdata |
 //| cur_rdata_buf_rresp  | cur_rdata_buf_rlast |
 //**********************************************************
@@ -698,7 +698,7 @@ begin
   end
 end
 //**********************************************************
-//           read data channel : return data to lsu/ifu     
+//           read data channel : return data to lsu/ifu
 //           resp: [3]  ==1'b1 |IsShared :other CPU dcache has the data;only lsu
 //                 [2]  ==1'b1 |passdirty:donot support
 //                 [1]  ==1'b1 |Error
@@ -712,7 +712,7 @@ assign biu_lsu_r_resp[3:0]   = cur_rdata_buf_rresp[3:0];
 assign biu_lsu_r_last        = cur_rdata_buf_rlast;
 
 assign biu_ifu_rd_data_vld    = cur_rdata_is_ifu && !rack_full;
-assign biu_ifu_rd_id          = cur_rdata_buf_rid[0]; 
+assign biu_ifu_rd_id          = cur_rdata_buf_rid[0];
 assign biu_ifu_rd_data[127:0] = cur_rdata_buf_rdata[127:0];
 assign biu_ifu_rd_resp[1:0]   = cur_rdata_buf_rresp[1:0];
 assign biu_ifu_rd_last        = cur_rdata_buf_rlast;
@@ -730,9 +730,9 @@ assign read_r_clk_en  = cur_rdata_buf_ready //data acpet,for timing,neglect rval
 
 //for low power
 assign read_busy = cur_raddr_buf_arvalid
-                   || cur_rdata_buf_rvalid 
-                   || rack_valid 
-                   || rack_pending; 
+                   || cur_rdata_buf_rvalid
+                   || rack_valid
+                   || rack_pending;
 
 // &ModuleEnd; @486
 endmodule

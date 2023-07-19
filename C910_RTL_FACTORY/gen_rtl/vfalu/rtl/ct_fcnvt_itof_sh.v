@@ -36,46 +36,46 @@ module ct_fcnvt_itof_sh(
 );
 
 // &Ports; @23
-input   [63:0]  ff1_sh_src;       
-output          ff1_sh_c_in;      
-output  [5 :0]  ff1_sh_cnt;       
-output  [5 :0]  ff1_sh_cnt_p1;    
-output  [52:0]  ff1_sh_d_add_1;   
-output          ff1_sh_d_c_eq_0p5; 
-output          ff1_sh_d_c_gt_0p5; 
-output          ff1_sh_d_c_zero;  
-output  [23:0]  ff1_sh_f_v;       
-output  [39:0]  ff1_sh_f_x;       
-output  [52:0]  ff1_sh_h_add_1;   
-output          ff1_sh_h_c_eq_0p5; 
-output          ff1_sh_h_c_gt_0p5; 
-output          ff1_sh_h_c_zero;  
-output  [52:0]  ff1_sh_s_add_1;   
-output          ff1_sh_s_c_eq_0p5; 
-output          ff1_sh_s_c_gt_0p5; 
-output          ff1_sh_s_c_zero;  
+input   [63:0]  ff1_sh_src;
+output          ff1_sh_c_in;
+output  [5 :0]  ff1_sh_cnt;
+output  [5 :0]  ff1_sh_cnt_p1;
+output  [52:0]  ff1_sh_d_add_1;
+output          ff1_sh_d_c_eq_0p5;
+output          ff1_sh_d_c_gt_0p5;
+output          ff1_sh_d_c_zero;
+output  [23:0]  ff1_sh_f_v;
+output  [39:0]  ff1_sh_f_x;
+output  [52:0]  ff1_sh_h_add_1;
+output          ff1_sh_h_c_eq_0p5;
+output          ff1_sh_h_c_gt_0p5;
+output          ff1_sh_h_c_zero;
+output  [52:0]  ff1_sh_s_add_1;
+output          ff1_sh_s_c_eq_0p5;
+output          ff1_sh_s_c_gt_0p5;
+output          ff1_sh_s_c_zero;
 
 // &Regs; @24
-reg             ff1_sh_c_in;      
-reg     [5 :0]  ff1_sh_cnt;       
-reg     [5 :0]  ff1_sh_cnt_p1;    
-reg     [52:0]  ff1_sh_d_add_1;   
-reg             ff1_sh_d_c_eq_0p5; 
-reg             ff1_sh_d_c_gt_0p5; 
-reg             ff1_sh_d_c_zero;  
-reg     [23:0]  ff1_sh_f_v;       
-reg     [39:0]  ff1_sh_f_x;       
-reg     [52:0]  ff1_sh_h_add_1;   
-reg             ff1_sh_h_c_eq_0p5; 
-reg             ff1_sh_h_c_gt_0p5; 
-reg             ff1_sh_h_c_zero;  
-reg     [52:0]  ff1_sh_s_add_1;   
-reg             ff1_sh_s_c_eq_0p5; 
-reg             ff1_sh_s_c_gt_0p5; 
-reg             ff1_sh_s_c_zero;  
+reg             ff1_sh_c_in;
+reg     [5 :0]  ff1_sh_cnt;
+reg     [5 :0]  ff1_sh_cnt_p1;
+reg     [52:0]  ff1_sh_d_add_1;
+reg             ff1_sh_d_c_eq_0p5;
+reg             ff1_sh_d_c_gt_0p5;
+reg             ff1_sh_d_c_zero;
+reg     [23:0]  ff1_sh_f_v;
+reg     [39:0]  ff1_sh_f_x;
+reg     [52:0]  ff1_sh_h_add_1;
+reg             ff1_sh_h_c_eq_0p5;
+reg             ff1_sh_h_c_gt_0p5;
+reg             ff1_sh_h_c_zero;
+reg     [52:0]  ff1_sh_s_add_1;
+reg             ff1_sh_s_c_eq_0p5;
+reg             ff1_sh_s_c_gt_0p5;
+reg             ff1_sh_s_c_zero;
 
 // &Wires; @25
-wire    [63:0]  ff1_sh_src;       
+wire    [63:0]  ff1_sh_src;
 
 
 
@@ -711,8 +711,8 @@ casez(ff1_sh_src[63:0])
     ff1_sh_c_in      = &ff1_sh_src[32:0];
     ff1_sh_d_add_1[52:0]= {53'h100000};
     ff1_sh_d_c_zero     =1'b1;
-    ff1_sh_d_c_eq_0p5   =1'b0; 
-    ff1_sh_d_c_gt_0p5   =1'b0; 
+    ff1_sh_d_c_eq_0p5   =1'b0;
+    ff1_sh_d_c_gt_0p5   =1'b0;
     ff1_sh_s_add_1[52:0]= {23'b0,&ff1_sh_src[8:0],29'b0};
     ff1_sh_s_c_zero     = &ff1_sh_src[8:0];
     ff1_sh_s_c_eq_0p5   = ~ff1_sh_src[8] &&  &ff1_sh_src[7:0];

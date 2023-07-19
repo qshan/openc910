@@ -30,7 +30,7 @@ limitations under the License.
 .global main
 main:
       csrr	x10, mhartid
-      bnez	x10, TEST_WFI 
+      bnez	x10, TEST_WFI
       nop
 .global ENABLE_THEADEE
 ENABLE_THEADEE:
@@ -1376,7 +1376,7 @@ TEST_EXIT:
   jr   x1
 .global TEST_FAIL
 TEST_FAIL:
-   la   x1, __fail 
+   la   x1, __fail
   jr   x1
 .global TEST_WFI
 TEST_WFI:

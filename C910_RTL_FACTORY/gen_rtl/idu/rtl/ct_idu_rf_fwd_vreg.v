@@ -45,65 +45,65 @@ module ct_idu_rf_fwd_vreg(
 );
 
 // &Ports; @27
-input   [6 :0]  lsu_idu_da_pipe3_fwd_vreg;       
-input   [63:0]  lsu_idu_da_pipe3_fwd_vreg_data;  
-input           lsu_idu_da_pipe3_fwd_vreg_vld;   
-input   [6 :0]  lsu_idu_wb_pipe3_fwd_vreg;       
-input           lsu_idu_wb_pipe3_fwd_vreg_vld;   
-input   [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;   
-input   [6 :0]  vfpu_idu_ex3_pipe6_fwd_vreg;     
-input   [63:0]  vfpu_idu_ex3_pipe6_fwd_vreg_data; 
-input           vfpu_idu_ex3_pipe6_fwd_vreg_vld; 
-input   [6 :0]  vfpu_idu_ex3_pipe7_fwd_vreg;     
-input   [63:0]  vfpu_idu_ex3_pipe7_fwd_vreg_data; 
-input           vfpu_idu_ex3_pipe7_fwd_vreg_vld; 
-input   [6 :0]  vfpu_idu_ex4_pipe6_fwd_vreg;     
-input   [63:0]  vfpu_idu_ex4_pipe6_fwd_vreg_data; 
-input           vfpu_idu_ex4_pipe6_fwd_vreg_vld; 
-input   [6 :0]  vfpu_idu_ex4_pipe7_fwd_vreg;     
-input   [63:0]  vfpu_idu_ex4_pipe7_fwd_vreg_data; 
-input           vfpu_idu_ex4_pipe7_fwd_vreg_vld; 
-input   [6 :0]  vfpu_idu_ex5_pipe6_fwd_vreg;     
-input           vfpu_idu_ex5_pipe6_fwd_vreg_vld; 
-input   [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data; 
-input   [6 :0]  vfpu_idu_ex5_pipe7_fwd_vreg;     
-input           vfpu_idu_ex5_pipe7_fwd_vreg_vld; 
-input   [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data; 
-input   [6 :0]  x_srcv_reg;                      
-output  [63:0]  x_srcv_data;                     
-output          x_srcv_no_fwd;                   
+input   [6 :0]  lsu_idu_da_pipe3_fwd_vreg;
+input   [63:0]  lsu_idu_da_pipe3_fwd_vreg_data;
+input           lsu_idu_da_pipe3_fwd_vreg_vld;
+input   [6 :0]  lsu_idu_wb_pipe3_fwd_vreg;
+input           lsu_idu_wb_pipe3_fwd_vreg_vld;
+input   [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;
+input   [6 :0]  vfpu_idu_ex3_pipe6_fwd_vreg;
+input   [63:0]  vfpu_idu_ex3_pipe6_fwd_vreg_data;
+input           vfpu_idu_ex3_pipe6_fwd_vreg_vld;
+input   [6 :0]  vfpu_idu_ex3_pipe7_fwd_vreg;
+input   [63:0]  vfpu_idu_ex3_pipe7_fwd_vreg_data;
+input           vfpu_idu_ex3_pipe7_fwd_vreg_vld;
+input   [6 :0]  vfpu_idu_ex4_pipe6_fwd_vreg;
+input   [63:0]  vfpu_idu_ex4_pipe6_fwd_vreg_data;
+input           vfpu_idu_ex4_pipe6_fwd_vreg_vld;
+input   [6 :0]  vfpu_idu_ex4_pipe7_fwd_vreg;
+input   [63:0]  vfpu_idu_ex4_pipe7_fwd_vreg_data;
+input           vfpu_idu_ex4_pipe7_fwd_vreg_vld;
+input   [6 :0]  vfpu_idu_ex5_pipe6_fwd_vreg;
+input           vfpu_idu_ex5_pipe6_fwd_vreg_vld;
+input   [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data;
+input   [6 :0]  vfpu_idu_ex5_pipe7_fwd_vreg;
+input           vfpu_idu_ex5_pipe7_fwd_vreg_vld;
+input   [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data;
+input   [6 :0]  x_srcv_reg;
+output  [63:0]  x_srcv_data;
+output          x_srcv_no_fwd;
 
 // &Regs; @28
-reg     [63:0]  x_srcv_data;                     
+reg     [63:0]  x_srcv_data;
 
 // &Wires; @29
-wire    [7 :0]  fwd_srcv_sel;                    
-wire    [6 :0]  lsu_idu_da_pipe3_fwd_vreg;       
-wire    [63:0]  lsu_idu_da_pipe3_fwd_vreg_data;  
-wire            lsu_idu_da_pipe3_fwd_vreg_vld;   
-wire    [6 :0]  lsu_idu_wb_pipe3_fwd_vreg;       
-wire            lsu_idu_wb_pipe3_fwd_vreg_vld;   
-wire    [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;   
-wire    [6 :0]  vfpu_idu_ex3_pipe6_fwd_vreg;     
-wire    [63:0]  vfpu_idu_ex3_pipe6_fwd_vreg_data; 
-wire            vfpu_idu_ex3_pipe6_fwd_vreg_vld; 
-wire    [6 :0]  vfpu_idu_ex3_pipe7_fwd_vreg;     
-wire    [63:0]  vfpu_idu_ex3_pipe7_fwd_vreg_data; 
-wire            vfpu_idu_ex3_pipe7_fwd_vreg_vld; 
-wire    [6 :0]  vfpu_idu_ex4_pipe6_fwd_vreg;     
-wire    [63:0]  vfpu_idu_ex4_pipe6_fwd_vreg_data; 
-wire            vfpu_idu_ex4_pipe6_fwd_vreg_vld; 
-wire    [6 :0]  vfpu_idu_ex4_pipe7_fwd_vreg;     
-wire    [63:0]  vfpu_idu_ex4_pipe7_fwd_vreg_data; 
-wire            vfpu_idu_ex4_pipe7_fwd_vreg_vld; 
-wire    [6 :0]  vfpu_idu_ex5_pipe6_fwd_vreg;     
-wire            vfpu_idu_ex5_pipe6_fwd_vreg_vld; 
-wire    [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data; 
-wire    [6 :0]  vfpu_idu_ex5_pipe7_fwd_vreg;     
-wire            vfpu_idu_ex5_pipe7_fwd_vreg_vld; 
-wire    [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data; 
-wire            x_srcv_no_fwd;                   
-wire    [6 :0]  x_srcv_reg;                      
+wire    [7 :0]  fwd_srcv_sel;
+wire    [6 :0]  lsu_idu_da_pipe3_fwd_vreg;
+wire    [63:0]  lsu_idu_da_pipe3_fwd_vreg_data;
+wire            lsu_idu_da_pipe3_fwd_vreg_vld;
+wire    [6 :0]  lsu_idu_wb_pipe3_fwd_vreg;
+wire            lsu_idu_wb_pipe3_fwd_vreg_vld;
+wire    [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;
+wire    [6 :0]  vfpu_idu_ex3_pipe6_fwd_vreg;
+wire    [63:0]  vfpu_idu_ex3_pipe6_fwd_vreg_data;
+wire            vfpu_idu_ex3_pipe6_fwd_vreg_vld;
+wire    [6 :0]  vfpu_idu_ex3_pipe7_fwd_vreg;
+wire    [63:0]  vfpu_idu_ex3_pipe7_fwd_vreg_data;
+wire            vfpu_idu_ex3_pipe7_fwd_vreg_vld;
+wire    [6 :0]  vfpu_idu_ex4_pipe6_fwd_vreg;
+wire    [63:0]  vfpu_idu_ex4_pipe6_fwd_vreg_data;
+wire            vfpu_idu_ex4_pipe6_fwd_vreg_vld;
+wire    [6 :0]  vfpu_idu_ex4_pipe7_fwd_vreg;
+wire    [63:0]  vfpu_idu_ex4_pipe7_fwd_vreg_data;
+wire            vfpu_idu_ex4_pipe7_fwd_vreg_vld;
+wire    [6 :0]  vfpu_idu_ex5_pipe6_fwd_vreg;
+wire            vfpu_idu_ex5_pipe6_fwd_vreg_vld;
+wire    [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data;
+wire    [6 :0]  vfpu_idu_ex5_pipe7_fwd_vreg;
+wire            vfpu_idu_ex5_pipe7_fwd_vreg_vld;
+wire    [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data;
+wire            x_srcv_no_fwd;
+wire    [6 :0]  x_srcv_reg;
 
 
 
@@ -124,9 +124,9 @@ assign fwd_srcv_sel[4] = vfpu_idu_ex4_pipe7_fwd_vreg_vld
                          && (x_srcv_reg[6:0] == vfpu_idu_ex4_pipe7_fwd_vreg[6:0]);
 assign fwd_srcv_sel[5] = vfpu_idu_ex5_pipe7_fwd_vreg_vld
                          && (x_srcv_reg[6:0] == vfpu_idu_ex5_pipe7_fwd_vreg[6:0]);
-assign fwd_srcv_sel[6] = lsu_idu_da_pipe3_fwd_vreg_vld 
+assign fwd_srcv_sel[6] = lsu_idu_da_pipe3_fwd_vreg_vld
                          && (x_srcv_reg[6:0] == lsu_idu_da_pipe3_fwd_vreg[6:0]);
-assign fwd_srcv_sel[7] = lsu_idu_wb_pipe3_fwd_vreg_vld 
+assign fwd_srcv_sel[7] = lsu_idu_wb_pipe3_fwd_vreg_vld
                          && (x_srcv_reg[6:0] == lsu_idu_wb_pipe3_fwd_vreg[6:0]);
 
 assign x_srcv_no_fwd = !(|fwd_srcv_sel[7:0]);

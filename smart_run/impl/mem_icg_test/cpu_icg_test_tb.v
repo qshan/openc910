@@ -57,7 +57,7 @@ gated_clk_cell  x_gated_clk_cell_xor (
 integer i;
 
 `ifdef GATED_CELL
-initial 
+initial
 begin
 //gated cell test
            #20
@@ -66,30 +66,30 @@ begin
            temp_pad_yy_test_mode       = 1'b0;
            icg_passed                  = 1'b0;
            #100
-//gated celll type test 
-           $display("$$$$$$$$$  gated clk type aftre gated,clkout should be 0  test......                                    $");    
+//gated celll type test
+           $display("$$$$$$$$$  gated clk type aftre gated,clkout should be 0  test......                                    $");
            @(posedge temp_forever_cpuclk)
            #0.1
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          Sorry, aftre gated clock out is  %h, gated clk check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          Sorry, aftre gated clock out is  %h, gated clk check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
             #(`CLK_PERIOD/2)
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          gated clk  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          gated clk  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
 
             #(`CLK_PERIOD/2)
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          gated clk  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          gated clk  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
-//loacal enable enable test,clkout next cycle valid 
-           $display("$$$$$$$$$  gated clk local en  enable  test......                                    $");    
+//loacal enable enable test,clkout next cycle valid
+           $display("$$$$$$$$$  gated clk local en  enable  test......                                    $");
            @(posedge temp_forever_cpuclk)
            #0.1
            temp_external_en            = 1'b1;
@@ -97,24 +97,24 @@ begin
            #0.1
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          Sorry, aftre gated clock out is  %h, gated clk check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          Sorry, aftre gated clock out is  %h, gated clk check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
             #(`CLK_PERIOD/2)
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          gated clk  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          gated clk  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
             #(`CLK_PERIOD/2)
             if(temp_xor_clk !== 1'b1)
                begin
-                   $display("$          gated loacl en  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          gated loacl en  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
 
 //loacal en disable test,clkout next cycle invalid
-           $display("$$$$$$$$$  gated clk local en disable   test......                                  $");    
+           $display("$$$$$$$$$  gated clk local en disable   test......                                  $");
            @(posedge temp_forever_cpuclk)
            #0.1
            temp_external_en            = 1'b0;
@@ -122,23 +122,23 @@ begin
            #0.1
             if(temp_xor_clk !== 1'b1)
                begin
-                   $display("$          Sorry, loacel en gated disable  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          Sorry, loacel en gated disable  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
             #(`CLK_PERIOD/2)
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          Sorry, loacel en gated disable  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          Sorry, loacel en gated disable  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
             #(`CLK_PERIOD/2)
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          Sorry, loacel en gated disable  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          Sorry, loacel en gated disable  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
 //test en enable test,clkout current cycle vaild
-           $display("$$$$$$$$$  gated clk test en enable   test......                                  $");    
+           $display("$$$$$$$$$  gated clk test en enable   test......                                  $");
            @(posedge temp_forever_cpuclk)
            #0.1
 //           temp_external_en            = 1'b0;
@@ -146,24 +146,24 @@ begin
 //           #0.1
 //            if(temp_xor_clk !== 1'b1)
 //               begin
-//                   $display("$          Sorry, test en enable  check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, test en enable  check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
 //            #(`CLK_PERIOD/2)
 //            if(temp_xor_clk !== 1'b0)
 //               begin
-//                   $display("$          Sorry, test en enable  check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, test en enable  check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
 //            #(`CLK_PERIOD/2)
 //            if(temp_xor_clk !== 1'b1)
 //               begin
-//                   $display("$          Sorry, test en enable  check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, test en enable  check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
 //
 ////test en disable test,clkout cycle cycle  invalid
-//           $display("$$$$$$$$$  gated clk test en disable   test......                                  $");    
+//           $display("$$$$$$$$$  gated clk test en disable   test......                                  $");
 //           @(posedge temp_forever_cpuclk)
 //           #0.1
            temp_external_en            = 1'b0;
@@ -171,24 +171,24 @@ begin
            #0.1
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          Sorry, test en disable  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          Sorry, test en disable  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
             #(`CLK_PERIOD/2)
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          Sorry, test en disable  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          Sorry, test en disable  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
             #(`CLK_PERIOD/2)
             if(temp_xor_clk !== 1'b0)
                begin
-                   $display("$          Sorry, test en disable  check fail ! @_@     $",temp_xor_clk);    
+                   $display("$          Sorry, test en disable  check fail ! @_@     $",temp_xor_clk);
                    $finish;
                end
 
 //test en and loacal en both enabke  test,clkout valid current cycle
-           $display("$$$$$$$$$  gated clk test en local en both enable   test......                                  $");    
+           $display("$$$$$$$$$  gated clk test en local en both enable   test......                                  $");
            @(posedge temp_forever_cpuclk)
            #0.1
 //           temp_external_en            = 1'b1;
@@ -196,24 +196,24 @@ begin
 //           #0.1
 //            if(temp_xor_clk !== 1'b1)
 //               begin
-//                   $display("$          Sorry, gated enable check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, gated enable check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
 //            #(`CLK_PERIOD/2)
 //            if(temp_xor_clk !== 1'b0)
 //               begin
-//                   $display("$          Sorry, gated enable check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, gated enable check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
 //            #(`CLK_PERIOD/2)
 //            if(temp_xor_clk !== 1'b1)
 //               begin
-//                   $display("$          Sorry, gated enable check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, gated enable check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
 //
 ////test en and loacal en both disable  test,clkout disable next cycle
-//           $display("$$$$$$$$$  gated clk test en local en both disable   test......                                  $");    
+//           $display("$$$$$$$$$  gated clk test en local en both disable   test......                                  $");
 //           @(posedge temp_forever_cpuclk)
 //           #0.1
 //           temp_external_en            = 1'b0;
@@ -221,26 +221,26 @@ begin
 //           #0.1
 //            if(temp_xor_clk !== 1'b1)
 //               begin
-//                   $display("$          Sorry, gated disable check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, gated disable check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
 //            #(`CLK_PERIOD/2)
 //            if(temp_xor_clk !== 1'b0)
 //               begin
-//                   $display("$          Sorry, gated disable check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, gated disable check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
 //            #(`CLK_PERIOD/2)
 //            if(temp_xor_clk !== 1'b0)
 //               begin
-//                   $display("$          Sorry, gated disable check fail ! @_@     $",temp_xor_clk);    
+//                   $display("$          Sorry, gated disable check fail ! @_@     $",temp_xor_clk);
 //                   $finish;
 //               end
            icg_passed = 1'b1;
            $display("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-           $display("$           gated clk test PASS!!!!!!!!!!!!!!!!!!!!                     $");    
-           $display("$           gated clk test PASS!!!!!!!!!!!!!!!!!!!!                     $");    
-           $display("$           gated clk test PASS!!!!!!!!!!!!!!!!!!!!                     $");    
+           $display("$           gated clk test PASS!!!!!!!!!!!!!!!!!!!!                     $");
+           $display("$           gated clk test PASS!!!!!!!!!!!!!!!!!!!!                     $");
+           $display("$           gated clk test PASS!!!!!!!!!!!!!!!!!!!!                     $");
            $display("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 end
 `else

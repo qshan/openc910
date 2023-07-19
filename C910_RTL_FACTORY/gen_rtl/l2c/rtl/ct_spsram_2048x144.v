@@ -25,24 +25,24 @@ module ct_spsram_2048x144(
 );
 
 // &Ports; @23
-input   [10 :0]  A;   
-input            CEN; 
-input            CLK; 
-input   [143:0]  D;   
-input            GWEN; 
-input   [143:0]  WEN; 
-output  [143:0]  Q;   
+input   [10 :0]  A;
+input            CEN;
+input            CLK;
+input   [143:0]  D;
+input            GWEN;
+input   [143:0]  WEN;
+output  [143:0]  Q;
 
 // &Regs; @24
 
 // &Wires; @25
-wire    [10 :0]  A;   
-wire             CEN; 
-wire             CLK; 
-wire    [143:0]  D;   
-wire             GWEN; 
-wire    [143:0]  Q;   
-wire    [143:0]  WEN; 
+wire    [10 :0]  A;
+wire             CEN;
+wire             CLK;
+wire    [143:0]  D;
+wire             GWEN;
+wire    [143:0]  Q;
+wire    [143:0]  WEN;
 
 
 //**********************************************************

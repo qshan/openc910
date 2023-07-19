@@ -21,17 +21,17 @@ module ct_fadd_onehot_sel_h(
 );
 
 // &Ports; @23
-input   [11:0]  data_in; 
-input   [11:0]  onehot;  
-output  [11:0]  result;  
+input   [11:0]  data_in;
+input   [11:0]  onehot;
+output  [11:0]  result;
 
 // &Regs; @24
-reg     [11:0]  result_h; 
+reg     [11:0]  result_h;
 
 // &Wires; @25
-wire    [11:0]  data_in; 
-wire    [11:0]  onehot;  
-wire    [11:0]  result;  
+wire    [11:0]  data_in;
+wire    [11:0]  onehot;
+wire    [11:0]  result;
 
 
 // &Force("bus","data_in",11,0); @27

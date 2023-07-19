@@ -37,5 +37,5 @@ begin
     clk_en <= clk_en_af_latch;
 end
 assign O = I && clk_en ;
-   
-endmodule   
+
+endmodule

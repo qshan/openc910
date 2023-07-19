@@ -74,81 +74,81 @@ module gpio_apbif(
 );
 
 
-input   [7 :0]  gpio_ext_porta_rb;     
-input   [7 :0]  gpio_intstatus;        
-input   [7 :0]  gpio_raw_intstatus;    
-input   [6 :2]  paddr;                 
-input           pclk;                  
-input           penable;               
-input           presetn;               
-input           psel;                  
-input   [31:0]  pwdata;                
-input           pwrite;                
-output  [7 :0]  gpio_int_polarity;     
-output  [7 :0]  gpio_inten;            
-output  [7 :0]  gpio_intmask;          
-output  [7 :0]  gpio_inttype_level;    
-output          gpio_ls_sync;          
-output  [7 :0]  gpio_porta_eoi;        
-output  [7 :0]  gpio_swporta_ctl;      
-output  [7 :0]  gpio_swporta_ddr;      
-output  [7 :0]  gpio_swporta_dr;       
-output  [31:0]  prdata;                
+input   [7 :0]  gpio_ext_porta_rb;
+input   [7 :0]  gpio_intstatus;
+input   [7 :0]  gpio_raw_intstatus;
+input   [6 :2]  paddr;
+input           pclk;
+input           penable;
+input           presetn;
+input           psel;
+input   [31:0]  pwdata;
+input           pwrite;
+output  [7 :0]  gpio_int_polarity;
+output  [7 :0]  gpio_inten;
+output  [7 :0]  gpio_intmask;
+output  [7 :0]  gpio_inttype_level;
+output          gpio_ls_sync;
+output  [7 :0]  gpio_porta_eoi;
+output  [7 :0]  gpio_swporta_ctl;
+output  [7 :0]  gpio_swporta_ddr;
+output  [7 :0]  gpio_swporta_dr;
+output  [31:0]  prdata;
 
 
-reg     [3 :0]  gpio_int_polarity_wen; 
-reg     [3 :0]  gpio_inten_wen;        
-reg     [3 :0]  gpio_intmask_wen;      
-reg     [3 :0]  gpio_inttype_level_wen; 
-reg     [3 :0]  gpio_ls_sync_wen;      
-reg     [3 :0]  gpio_porta_eoi_wen;    
-reg     [3 :0]  gpio_swporta_ctl_wen;  
-reg     [3 :0]  gpio_swporta_ddr_wen;  
-reg     [3 :0]  gpio_swporta_dr_wen;   
-reg     [31:0]  int_gpio_int_polarity; 
-reg     [31:0]  int_gpio_inten;        
-reg     [31:0]  int_gpio_intmask;      
-reg     [31:0]  int_gpio_inttype_level; 
-reg     [31:0]  int_gpio_ls_sync;      
-reg     [31:0]  int_gpio_porta_eoi;    
-reg     [31:0]  int_gpio_swporta_ctl;  
-reg     [31:0]  int_gpio_swporta_ddr;  
-reg     [31:0]  int_gpio_swporta_dr;   
-reg     [31:0]  iprdata;               
-reg     [31:0]  prdata;                
-reg     [31:0]  pwdata_int;            
-reg     [31:0]  ri_gpio_ext_porta_rb;  
-reg     [31:0]  ri_gpio_int_polarity;  
-reg     [31:0]  ri_gpio_inten;         
-reg     [31:0]  ri_gpio_intmask;       
-reg     [31:0]  ri_gpio_intstatus;     
-reg     [31:0]  ri_gpio_inttype_level; 
-reg     [31:0]  ri_gpio_ls_sync;       
-reg     [31:0]  ri_gpio_raw_intstatus; 
-reg     [31:0]  ri_gpio_swporta_ctl;   
-reg     [31:0]  ri_gpio_swporta_ddr;   
-reg     [31:0]  ri_gpio_swporta_dr;    
+reg     [3 :0]  gpio_int_polarity_wen;
+reg     [3 :0]  gpio_inten_wen;
+reg     [3 :0]  gpio_intmask_wen;
+reg     [3 :0]  gpio_inttype_level_wen;
+reg     [3 :0]  gpio_ls_sync_wen;
+reg     [3 :0]  gpio_porta_eoi_wen;
+reg     [3 :0]  gpio_swporta_ctl_wen;
+reg     [3 :0]  gpio_swporta_ddr_wen;
+reg     [3 :0]  gpio_swporta_dr_wen;
+reg     [31:0]  int_gpio_int_polarity;
+reg     [31:0]  int_gpio_inten;
+reg     [31:0]  int_gpio_intmask;
+reg     [31:0]  int_gpio_inttype_level;
+reg     [31:0]  int_gpio_ls_sync;
+reg     [31:0]  int_gpio_porta_eoi;
+reg     [31:0]  int_gpio_swporta_ctl;
+reg     [31:0]  int_gpio_swporta_ddr;
+reg     [31:0]  int_gpio_swporta_dr;
+reg     [31:0]  iprdata;
+reg     [31:0]  prdata;
+reg     [31:0]  pwdata_int;
+reg     [31:0]  ri_gpio_ext_porta_rb;
+reg     [31:0]  ri_gpio_int_polarity;
+reg     [31:0]  ri_gpio_inten;
+reg     [31:0]  ri_gpio_intmask;
+reg     [31:0]  ri_gpio_intstatus;
+reg     [31:0]  ri_gpio_inttype_level;
+reg     [31:0]  ri_gpio_ls_sync;
+reg     [31:0]  ri_gpio_raw_intstatus;
+reg     [31:0]  ri_gpio_swporta_ctl;
+reg     [31:0]  ri_gpio_swporta_ddr;
+reg     [31:0]  ri_gpio_swporta_dr;
 
 
-wire    [7 :0]  gpio_ext_porta_rb;     
-wire    [7 :0]  gpio_int_polarity;     
-wire    [7 :0]  gpio_inten;            
-wire    [7 :0]  gpio_intmask;          
-wire    [7 :0]  gpio_intstatus;        
-wire    [7 :0]  gpio_inttype_level;    
-wire            gpio_ls_sync;          
-wire    [7 :0]  gpio_porta_eoi;        
-wire    [7 :0]  gpio_raw_intstatus;    
-wire    [7 :0]  gpio_swporta_ctl;      
-wire    [7 :0]  gpio_swporta_ddr;      
-wire    [7 :0]  gpio_swporta_dr;       
-wire    [6 :2]  paddr;                 
-wire            pclk;                  
-wire            penable;               
-wire            presetn;               
-wire            psel;                  
-wire    [31:0]  pwdata;                
-wire            pwrite;                
+wire    [7 :0]  gpio_ext_porta_rb;
+wire    [7 :0]  gpio_int_polarity;
+wire    [7 :0]  gpio_inten;
+wire    [7 :0]  gpio_intmask;
+wire    [7 :0]  gpio_intstatus;
+wire    [7 :0]  gpio_inttype_level;
+wire            gpio_ls_sync;
+wire    [7 :0]  gpio_porta_eoi;
+wire    [7 :0]  gpio_raw_intstatus;
+wire    [7 :0]  gpio_swporta_ctl;
+wire    [7 :0]  gpio_swporta_ddr;
+wire    [7 :0]  gpio_swporta_dr;
+wire    [6 :2]  paddr;
+wire            pclk;
+wire            penable;
+wire            presetn;
+wire            psel;
+wire    [31:0]  pwdata;
+wire            pwrite;
 
 
 
@@ -171,21 +171,21 @@ begin
   gpio_swporta_dr_wen[3:0] = 4'b0000;
   gpio_swporta_ddr_wen[3:0] = 4'b0000;
   gpio_swporta_ctl_wen[3:0] = 4'b0000;
-  
-  if((psel == 1'b1) && (penable == 1'b1) && (pwrite == 1'b1)) 
+
+  if((psel == 1'b1) && (penable == 1'b1) && (pwrite == 1'b1))
   begin
     if(paddr[6:2] ==
-       `gpio_swporta_dr_OFFSET) 
+       `gpio_swporta_dr_OFFSET)
     begin
       gpio_swporta_dr_wen[3:0] = {4{1'b1}};
     end
     else if(paddr[6:2] ==
-            `gpio_swporta_ddr_OFFSET) 
+            `gpio_swporta_ddr_OFFSET)
     begin
       gpio_swporta_ddr_wen[3:0] = {4{1'b1}};
     end
     else if(paddr[6:2] ==
-            `gpio_swporta_ctl_OFFSET) 
+            `gpio_swporta_ctl_OFFSET)
     begin
       gpio_swporta_ctl_wen[3:0] = {4{1'b0}};
     end
@@ -209,16 +209,16 @@ begin
   gpio_int_polarity_wen[3:0] = 4'b0000;
   gpio_ls_sync_wen[3:0] = 4'b0000;
   gpio_porta_eoi_wen[3:0] = 4'b0000;
-  
-  if((psel == 1'b1) && (penable == 1'b1) && (pwrite == 1'b1)) 
+
+  if((psel == 1'b1) && (penable == 1'b1) && (pwrite == 1'b1))
   begin
     if(paddr[6:2] ==
-       `gpio_inten_OFFSET) 
+       `gpio_inten_OFFSET)
     begin
       gpio_inten_wen[3:0] = {4{1'b1}};
-    end 
+    end
     else if(paddr[6:2] ==
-            `gpio_intmask_OFFSET) 
+            `gpio_intmask_OFFSET)
     begin
       gpio_intmask_wen[3:0] = {4{1'b1}};
     end
@@ -228,12 +228,12 @@ begin
       gpio_inttype_level_wen[3:0] = {4{1'b1}};
     end
     else if(paddr[6:2] ==
-            `gpio_int_polarity_OFFSET) 
+            `gpio_int_polarity_OFFSET)
     begin
       gpio_int_polarity_wen[3:0] = {4{1'b1}};
     end
     else if(paddr[6:2] ==
-            `gpio_ls_sync_OFFSET) 
+            `gpio_ls_sync_OFFSET)
     begin
       gpio_ls_sync_wen[3:0] = {4{1'b1}};
     end
@@ -250,7 +250,7 @@ end
 always@(posedge pclk or negedge presetn)
 begin
   if(!presetn)
-    int_gpio_swporta_dr[31:0] <= {32{1'b0}}; 
+    int_gpio_swporta_dr[31:0] <= {32{1'b0}};
   else
     if(&gpio_swporta_dr_wen)
       int_gpio_swporta_dr[31:0] <= pwdata_int[31:0];
@@ -312,7 +312,7 @@ always@(posedge pclk or negedge presetn)
 begin
   if(!presetn)
     int_gpio_inten[31:0] <= 32'b0;
-  else 
+  else
     if(&gpio_inten_wen)
       int_gpio_inten[31:0] <= pwdata_int[31:0];
 end
@@ -332,7 +332,7 @@ always@(posedge pclk or negedge presetn)
 begin
   if(!presetn)
     int_gpio_intmask[31:0] <= 32'b0;
-  else 
+  else
     if(&gpio_intmask_wen)
       int_gpio_intmask[31:0] <= pwdata_int[31:0];
 end
@@ -352,7 +352,7 @@ always@(posedge pclk or negedge presetn)
 begin
   if(!presetn)
     int_gpio_inttype_level[31:0] <= 32'b0;
-  else 
+  else
     if(&gpio_inttype_level_wen)
       int_gpio_inttype_level[31:0] <= pwdata_int[31:0];
 end
@@ -372,7 +372,7 @@ always@(posedge pclk or negedge presetn)
 begin
   if(!presetn)
     int_gpio_int_polarity[31:0] <= 32'b0;
-  else 
+  else
     if(&gpio_int_polarity_wen)
       int_gpio_int_polarity[31:0] <= pwdata_int[31:0];
 end
@@ -392,7 +392,7 @@ always@(posedge pclk or negedge presetn)
 begin
   if(!presetn)
     int_gpio_ls_sync[31:0] <= 32'b0;
-  else 
+  else
     if(&gpio_ls_sync_wen)
       int_gpio_ls_sync[31:0] <= pwdata_int[31:0];
 end

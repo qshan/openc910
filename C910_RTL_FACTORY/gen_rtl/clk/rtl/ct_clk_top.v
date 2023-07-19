@@ -28,43 +28,43 @@ module ct_clk_top(
 );
 
 // &Ports; @23
-input        biu_xx_dbg_wakeup; 
-input        biu_xx_int_wakeup; 
-input        biu_xx_normal_work; 
-input        biu_xx_pmp_sel;    
-input        biu_xx_snoop_vld;  
-input        cp0_xx_core_icg_en; 
-input        had_xx_clk_en;     
-input        pll_core_clk;      
-output       coreclk;           
-output       forever_coreclk;   
+input        biu_xx_dbg_wakeup;
+input        biu_xx_int_wakeup;
+input        biu_xx_normal_work;
+input        biu_xx_pmp_sel;
+input        biu_xx_snoop_vld;
+input        cp0_xx_core_icg_en;
+input        had_xx_clk_en;
+input        pll_core_clk;
+output       coreclk;
+output       forever_coreclk;
 
 // &Regs; @24
 
 // &Wires; @25
-wire         biu_xx_dbg_wakeup; 
-wire         biu_xx_int_wakeup; 
-wire         biu_xx_normal_work; 
-wire         biu_xx_pmp_sel;    
-wire         biu_xx_snoop_vld;  
-wire         core_clk_en;       
-wire         cp0_xx_core_icg_en; 
-wire         forever_coreclk;   
-wire         had_xx_clk_en;     
-wire         pll_core_clk;      
+wire         biu_xx_dbg_wakeup;
+wire         biu_xx_int_wakeup;
+wire         biu_xx_normal_work;
+wire         biu_xx_pmp_sel;
+wire         biu_xx_snoop_vld;
+wire         core_clk_en;
+wire         cp0_xx_core_icg_en;
+wire         forever_coreclk;
+wire         had_xx_clk_en;
+wire         pll_core_clk;
 
 
 // &Force("output", "forever_coreclk"); @27
 
 assign forever_coreclk = pll_core_clk;
 //==============================================================================
-//      global ICG for core 
+//      global ICG for core
 //==============================================================================
 assign core_clk_en = biu_xx_normal_work |
-                     biu_xx_int_wakeup | 
-                     biu_xx_dbg_wakeup | 
+                     biu_xx_int_wakeup |
+                     biu_xx_dbg_wakeup |
                      biu_xx_snoop_vld |
-                     had_xx_clk_en | 
+                     had_xx_clk_en |
                      biu_xx_pmp_sel |
                      cp0_xx_core_icg_en ;
 // &Force("nonport","core_clk_en"); @41

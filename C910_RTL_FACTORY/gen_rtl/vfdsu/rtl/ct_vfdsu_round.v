@@ -73,207 +73,207 @@ module ct_vfdsu_round(
 );
 
 // &Ports; @23
-input           cp0_vfpu_icg_en;                      
-input           cp0_yy_clk_en;                        
-input           cpurst_b;                             
-input           ex3_pipedown;                         
-input           forever_cpuclk;                       
-input           pad_yy_icg_scan_en;                   
-input   [57:0]  total_qt_rt_58;                       
-input           vfdsu_ex2_of_rm_lfn;                  
-input   [12:0]  vfdsu_ex3_doub_expnt_rst;             
-input           vfdsu_ex3_double;                     
-input           vfdsu_ex3_dz;                         
-input   [12:0]  vfdsu_ex3_half_expnt_rst;             
-input           vfdsu_ex3_id_srt_skip;                
-input           vfdsu_ex3_nv;                         
-input           vfdsu_ex3_of;                         
-input           vfdsu_ex3_potnt_of;                   
-input           vfdsu_ex3_potnt_uf;                   
-input   [51:0]  vfdsu_ex3_qnan_f;                     
-input           vfdsu_ex3_qnan_sign;                  
-input           vfdsu_ex3_rem_sign;                   
-input           vfdsu_ex3_rem_zero;                   
-input   [52:0]  vfdsu_ex3_result_denorm_round_add_num; 
-input           vfdsu_ex3_result_inf;                 
-input           vfdsu_ex3_result_lfn;                 
-input           vfdsu_ex3_result_qnan;                
-input           vfdsu_ex3_result_sign;                
-input           vfdsu_ex3_result_zero;                
-input   [2 :0]  vfdsu_ex3_rm;                         
-input           vfdsu_ex3_rslt_denorm;                
-input   [8 :0]  vfdsu_ex3_sing_expnt_rst;             
-input           vfdsu_ex3_single;                     
-input           vfdsu_ex3_uf;                         
-output          vfdsu_ex4_denorm_to_tiny_frac;        
-output          vfdsu_ex4_double;                     
-output          vfdsu_ex4_dz;                         
-output  [12:0]  vfdsu_ex4_expnt_rst;                  
-output  [54:0]  vfdsu_ex4_frac;                       
-output          vfdsu_ex4_nv;                         
-output          vfdsu_ex4_nx;                         
-output          vfdsu_ex4_of;                         
-output          vfdsu_ex4_of_rst_lfn;                 
-output  [1 :0]  vfdsu_ex4_potnt_norm;                 
-output          vfdsu_ex4_potnt_of;                   
-output          vfdsu_ex4_potnt_uf;                   
-output  [51:0]  vfdsu_ex4_qnan_f;                     
-output          vfdsu_ex4_qnan_sign;                  
-output          vfdsu_ex4_result_inf;                 
-output          vfdsu_ex4_result_lfn;                 
-output          vfdsu_ex4_result_nor;                 
-output          vfdsu_ex4_result_qnan;                
-output          vfdsu_ex4_result_sign;                
-output          vfdsu_ex4_result_zero;                
-output          vfdsu_ex4_rslt_denorm;                
-output          vfdsu_ex4_single;                     
-output          vfdsu_ex4_uf;                         
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           ex3_pipedown;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input   [57:0]  total_qt_rt_58;
+input           vfdsu_ex2_of_rm_lfn;
+input   [12:0]  vfdsu_ex3_doub_expnt_rst;
+input           vfdsu_ex3_double;
+input           vfdsu_ex3_dz;
+input   [12:0]  vfdsu_ex3_half_expnt_rst;
+input           vfdsu_ex3_id_srt_skip;
+input           vfdsu_ex3_nv;
+input           vfdsu_ex3_of;
+input           vfdsu_ex3_potnt_of;
+input           vfdsu_ex3_potnt_uf;
+input   [51:0]  vfdsu_ex3_qnan_f;
+input           vfdsu_ex3_qnan_sign;
+input           vfdsu_ex3_rem_sign;
+input           vfdsu_ex3_rem_zero;
+input   [52:0]  vfdsu_ex3_result_denorm_round_add_num;
+input           vfdsu_ex3_result_inf;
+input           vfdsu_ex3_result_lfn;
+input           vfdsu_ex3_result_qnan;
+input           vfdsu_ex3_result_sign;
+input           vfdsu_ex3_result_zero;
+input   [2 :0]  vfdsu_ex3_rm;
+input           vfdsu_ex3_rslt_denorm;
+input   [8 :0]  vfdsu_ex3_sing_expnt_rst;
+input           vfdsu_ex3_single;
+input           vfdsu_ex3_uf;
+output          vfdsu_ex4_denorm_to_tiny_frac;
+output          vfdsu_ex4_double;
+output          vfdsu_ex4_dz;
+output  [12:0]  vfdsu_ex4_expnt_rst;
+output  [54:0]  vfdsu_ex4_frac;
+output          vfdsu_ex4_nv;
+output          vfdsu_ex4_nx;
+output          vfdsu_ex4_of;
+output          vfdsu_ex4_of_rst_lfn;
+output  [1 :0]  vfdsu_ex4_potnt_norm;
+output          vfdsu_ex4_potnt_of;
+output          vfdsu_ex4_potnt_uf;
+output  [51:0]  vfdsu_ex4_qnan_f;
+output          vfdsu_ex4_qnan_sign;
+output          vfdsu_ex4_result_inf;
+output          vfdsu_ex4_result_lfn;
+output          vfdsu_ex4_result_nor;
+output          vfdsu_ex4_result_qnan;
+output          vfdsu_ex4_result_sign;
+output          vfdsu_ex4_result_zero;
+output          vfdsu_ex4_rslt_denorm;
+output          vfdsu_ex4_single;
+output          vfdsu_ex4_uf;
 
 // &Regs; @24
-reg             denorm_to_tiny_frac;                  
-reg             double_denorm_lst_frac;               
-reg     [54:0]  frac_add1_op1;                        
-reg             frac_add_1;                           
-reg             frac_orig;                            
-reg     [54:0]  frac_sub1_op1;                        
-reg             frac_sub_1;                           
-reg             half_denorm_lst_frac;                 
-reg     [56:0]  qt_result_double_denorm_for_round;    
-reg     [13:0]  qt_result_half_denorm_for_round;      
-reg     [27:0]  qt_result_single_denorm_for_round;    
-reg             single_denorm_lst_frac;               
-reg             vfdsu_ex4_denorm_to_tiny_frac;        
-reg             vfdsu_ex4_double;                     
-reg             vfdsu_ex4_dz;                         
-reg     [12:0]  vfdsu_ex4_expnt_rst;                  
-reg     [54:0]  vfdsu_ex4_frac;                       
-reg             vfdsu_ex4_nv;                         
-reg             vfdsu_ex4_nx;                         
-reg             vfdsu_ex4_of;                         
-reg             vfdsu_ex4_of_rst_lfn;                 
-reg     [1 :0]  vfdsu_ex4_potnt_norm;                 
-reg             vfdsu_ex4_potnt_of;                   
-reg             vfdsu_ex4_potnt_uf;                   
-reg     [51:0]  vfdsu_ex4_qnan_f;                     
-reg             vfdsu_ex4_qnan_sign;                  
-reg             vfdsu_ex4_result_inf;                 
-reg             vfdsu_ex4_result_lfn;                 
-reg             vfdsu_ex4_result_nor;                 
-reg             vfdsu_ex4_result_qnan;                
-reg             vfdsu_ex4_result_sign;                
-reg             vfdsu_ex4_result_zero;                
-reg             vfdsu_ex4_rslt_denorm;                
-reg             vfdsu_ex4_single;                     
-reg             vfdsu_ex4_uf;                         
+reg             denorm_to_tiny_frac;
+reg             double_denorm_lst_frac;
+reg     [54:0]  frac_add1_op1;
+reg             frac_add_1;
+reg             frac_orig;
+reg     [54:0]  frac_sub1_op1;
+reg             frac_sub_1;
+reg             half_denorm_lst_frac;
+reg     [56:0]  qt_result_double_denorm_for_round;
+reg     [13:0]  qt_result_half_denorm_for_round;
+reg     [27:0]  qt_result_single_denorm_for_round;
+reg             single_denorm_lst_frac;
+reg             vfdsu_ex4_denorm_to_tiny_frac;
+reg             vfdsu_ex4_double;
+reg             vfdsu_ex4_dz;
+reg     [12:0]  vfdsu_ex4_expnt_rst;
+reg     [54:0]  vfdsu_ex4_frac;
+reg             vfdsu_ex4_nv;
+reg             vfdsu_ex4_nx;
+reg             vfdsu_ex4_of;
+reg             vfdsu_ex4_of_rst_lfn;
+reg     [1 :0]  vfdsu_ex4_potnt_norm;
+reg             vfdsu_ex4_potnt_of;
+reg             vfdsu_ex4_potnt_uf;
+reg     [51:0]  vfdsu_ex4_qnan_f;
+reg             vfdsu_ex4_qnan_sign;
+reg             vfdsu_ex4_result_inf;
+reg             vfdsu_ex4_result_lfn;
+reg             vfdsu_ex4_result_nor;
+reg             vfdsu_ex4_result_qnan;
+reg             vfdsu_ex4_result_sign;
+reg             vfdsu_ex4_result_zero;
+reg             vfdsu_ex4_rslt_denorm;
+reg             vfdsu_ex4_single;
+reg             vfdsu_ex4_uf;
 
 // &Wires; @25
-wire            cp0_vfpu_icg_en;                      
-wire            cp0_yy_clk_en;                        
-wire            cpurst_b;                             
-wire            ex3_denorm_eq;                        
-wire            ex3_denorm_gr;                        
-wire            ex3_denorm_lst_frac;                  
-wire            ex3_denorm_nx;                        
-wire            ex3_denorm_plus;                      
-wire            ex3_denorm_potnt_norm;                
-wire            ex3_denorm_zero;                      
-wire            ex3_doub_denorm_plus;                 
-wire            ex3_doub_denorm_potnt_norm;           
-wire            ex3_doub_eq;                          
-wire            ex3_doub_gr;                          
-wire            ex3_doub_rst_eq_1;                    
-wire            ex3_doub_zero;                        
-wire            ex3_double_denorm_eq;                 
-wire            ex3_double_denorm_gr;                 
-wire            ex3_double_denorm_zero;               
-wire            ex3_double_low_not_zero;              
-wire    [12:0]  ex3_expnt_adjst;                      
-wire    [12:0]  ex3_expnt_adjust_result;              
-wire            ex3_half_denorm_eq;                   
-wire            ex3_half_denorm_gr;                   
-wire            ex3_half_denorm_plus;                 
-wire            ex3_half_denorm_potnt_norm;           
-wire            ex3_half_denorm_zero;                 
-wire            ex3_half_eq;                          
-wire            ex3_half_gr;                          
-wire            ex3_half_low_not_zero;                
-wire            ex3_half_rst_eq_1;                    
-wire            ex3_half_zero;                        
-wire            ex3_nx;                               
-wire            ex3_pipe_clk;                         
-wire            ex3_pipe_clk_en;                      
-wire            ex3_pipedown;                         
-wire    [1 :0]  ex3_potnt_norm;                       
-wire            ex3_qt_doub_lo2_not0;                 
-wire            ex3_qt_doub_lo3_not0;                 
-wire            ex3_qt_eq;                            
-wire            ex3_qt_gr;                            
-wire            ex3_qt_half_lo2_not0;                 
-wire            ex3_qt_half_lo3_not0;                 
-wire            ex3_qt_sing_lo3_not0;                 
-wire            ex3_qt_sing_lo4_not0;                 
-wire            ex3_qt_zero;                          
-wire            ex3_rslt_denorm;                      
-wire            ex3_rst_eq_1;                         
-wire            ex3_rst_nor;                          
-wire            ex3_sing_denorm_plus;                 
-wire            ex3_sing_denorm_potnt_norm;           
-wire            ex3_sing_eq;                          
-wire            ex3_sing_gr;                          
-wire            ex3_sing_rst_eq_1;                    
-wire            ex3_sing_zero;                        
-wire            ex3_single_denorm_eq;                 
-wire            ex3_single_denorm_gr;                 
-wire            ex3_single_denorm_zero;               
-wire            ex3_single_low_not_zero;              
-wire            forever_cpuclk;                       
-wire    [54:0]  frac_add1_op1_with_denorm;            
-wire    [54:0]  frac_add1_rst;                        
-wire            frac_denorm_rdn_add_1;                
-wire            frac_denorm_rdn_sub_1;                
-wire            frac_denorm_rmm_add_1;                
-wire            frac_denorm_rne_add_1;                
-wire            frac_denorm_rtz_sub_1;                
-wire            frac_denorm_rup_add_1;                
-wire            frac_denorm_rup_sub_1;                
-wire    [54:0]  frac_final_rst;                       
-wire            frac_rdn_add_1;                       
-wire            frac_rdn_sub_1;                       
-wire            frac_rmm_add_1;                       
-wire            frac_rne_add_1;                       
-wire            frac_rtz_sub_1;                       
-wire            frac_rup_add_1;                       
-wire            frac_rup_sub_1;                       
-wire    [54:0]  frac_sub1_op1_with_denorm;            
-wire    [54:0]  frac_sub1_rst;                        
-wire            pad_yy_icg_scan_en;                   
-wire    [57:0]  total_qt_rt_58;                       
-wire            vfdsu_ex2_of_rm_lfn;                  
-wire    [12:0]  vfdsu_ex3_doub_expnt_rst;             
-wire            vfdsu_ex3_double;                     
-wire            vfdsu_ex3_dz;                         
-wire    [12:0]  vfdsu_ex3_expnt_rst;                  
-wire    [12:0]  vfdsu_ex3_half_expnt_rst;             
-wire            vfdsu_ex3_id_srt_skip;                
-wire            vfdsu_ex3_nv;                         
-wire            vfdsu_ex3_of;                         
-wire            vfdsu_ex3_potnt_of;                   
-wire            vfdsu_ex3_potnt_uf;                   
-wire    [51:0]  vfdsu_ex3_qnan_f;                     
-wire            vfdsu_ex3_qnan_sign;                  
-wire            vfdsu_ex3_rem_sign;                   
-wire            vfdsu_ex3_rem_zero;                   
-wire    [52:0]  vfdsu_ex3_result_denorm_round_add_num; 
-wire            vfdsu_ex3_result_inf;                 
-wire            vfdsu_ex3_result_lfn;                 
-wire            vfdsu_ex3_result_qnan;                
-wire            vfdsu_ex3_result_sign;                
-wire            vfdsu_ex3_result_zero;                
-wire    [2 :0]  vfdsu_ex3_rm;                         
-wire            vfdsu_ex3_rslt_denorm;                
-wire    [8 :0]  vfdsu_ex3_sing_expnt_rst;             
-wire            vfdsu_ex3_single;                     
-wire            vfdsu_ex3_uf;                         
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            ex3_denorm_eq;
+wire            ex3_denorm_gr;
+wire            ex3_denorm_lst_frac;
+wire            ex3_denorm_nx;
+wire            ex3_denorm_plus;
+wire            ex3_denorm_potnt_norm;
+wire            ex3_denorm_zero;
+wire            ex3_doub_denorm_plus;
+wire            ex3_doub_denorm_potnt_norm;
+wire            ex3_doub_eq;
+wire            ex3_doub_gr;
+wire            ex3_doub_rst_eq_1;
+wire            ex3_doub_zero;
+wire            ex3_double_denorm_eq;
+wire            ex3_double_denorm_gr;
+wire            ex3_double_denorm_zero;
+wire            ex3_double_low_not_zero;
+wire    [12:0]  ex3_expnt_adjst;
+wire    [12:0]  ex3_expnt_adjust_result;
+wire            ex3_half_denorm_eq;
+wire            ex3_half_denorm_gr;
+wire            ex3_half_denorm_plus;
+wire            ex3_half_denorm_potnt_norm;
+wire            ex3_half_denorm_zero;
+wire            ex3_half_eq;
+wire            ex3_half_gr;
+wire            ex3_half_low_not_zero;
+wire            ex3_half_rst_eq_1;
+wire            ex3_half_zero;
+wire            ex3_nx;
+wire            ex3_pipe_clk;
+wire            ex3_pipe_clk_en;
+wire            ex3_pipedown;
+wire    [1 :0]  ex3_potnt_norm;
+wire            ex3_qt_doub_lo2_not0;
+wire            ex3_qt_doub_lo3_not0;
+wire            ex3_qt_eq;
+wire            ex3_qt_gr;
+wire            ex3_qt_half_lo2_not0;
+wire            ex3_qt_half_lo3_not0;
+wire            ex3_qt_sing_lo3_not0;
+wire            ex3_qt_sing_lo4_not0;
+wire            ex3_qt_zero;
+wire            ex3_rslt_denorm;
+wire            ex3_rst_eq_1;
+wire            ex3_rst_nor;
+wire            ex3_sing_denorm_plus;
+wire            ex3_sing_denorm_potnt_norm;
+wire            ex3_sing_eq;
+wire            ex3_sing_gr;
+wire            ex3_sing_rst_eq_1;
+wire            ex3_sing_zero;
+wire            ex3_single_denorm_eq;
+wire            ex3_single_denorm_gr;
+wire            ex3_single_denorm_zero;
+wire            ex3_single_low_not_zero;
+wire            forever_cpuclk;
+wire    [54:0]  frac_add1_op1_with_denorm;
+wire    [54:0]  frac_add1_rst;
+wire            frac_denorm_rdn_add_1;
+wire            frac_denorm_rdn_sub_1;
+wire            frac_denorm_rmm_add_1;
+wire            frac_denorm_rne_add_1;
+wire            frac_denorm_rtz_sub_1;
+wire            frac_denorm_rup_add_1;
+wire            frac_denorm_rup_sub_1;
+wire    [54:0]  frac_final_rst;
+wire            frac_rdn_add_1;
+wire            frac_rdn_sub_1;
+wire            frac_rmm_add_1;
+wire            frac_rne_add_1;
+wire            frac_rtz_sub_1;
+wire            frac_rup_add_1;
+wire            frac_rup_sub_1;
+wire    [54:0]  frac_sub1_op1_with_denorm;
+wire    [54:0]  frac_sub1_rst;
+wire            pad_yy_icg_scan_en;
+wire    [57:0]  total_qt_rt_58;
+wire            vfdsu_ex2_of_rm_lfn;
+wire    [12:0]  vfdsu_ex3_doub_expnt_rst;
+wire            vfdsu_ex3_double;
+wire            vfdsu_ex3_dz;
+wire    [12:0]  vfdsu_ex3_expnt_rst;
+wire    [12:0]  vfdsu_ex3_half_expnt_rst;
+wire            vfdsu_ex3_id_srt_skip;
+wire            vfdsu_ex3_nv;
+wire            vfdsu_ex3_of;
+wire            vfdsu_ex3_potnt_of;
+wire            vfdsu_ex3_potnt_uf;
+wire    [51:0]  vfdsu_ex3_qnan_f;
+wire            vfdsu_ex3_qnan_sign;
+wire            vfdsu_ex3_rem_sign;
+wire            vfdsu_ex3_rem_zero;
+wire    [52:0]  vfdsu_ex3_result_denorm_round_add_num;
+wire            vfdsu_ex3_result_inf;
+wire            vfdsu_ex3_result_lfn;
+wire            vfdsu_ex3_result_qnan;
+wire            vfdsu_ex3_result_sign;
+wire            vfdsu_ex3_result_zero;
+wire    [2 :0]  vfdsu_ex3_rm;
+wire            vfdsu_ex3_rslt_denorm;
+wire    [8 :0]  vfdsu_ex3_sing_expnt_rst;
+wire            vfdsu_ex3_single;
+wire            vfdsu_ex3_uf;
 
 
 //=======================Round Rule=========================
@@ -290,22 +290,22 @@ wire            vfdsu_ex3_uf;
 //if q[56] is 0, q[55:32] as 1.xxxx valid result, [31:28] for round
 assign ex3_qt_half_lo3_not0 = |total_qt_rt_58[44:42];
 assign ex3_qt_half_lo2_not0 = |total_qt_rt_58[43:42];
-assign ex3_half_gr       = total_qt_rt_58[56] 
+assign ex3_half_gr       = total_qt_rt_58[56]
                               ? total_qt_rt_58[45] && ex3_qt_half_lo3_not0
                               : total_qt_rt_58[44] && ex3_qt_half_lo2_not0;
 assign ex3_half_eq          = (total_qt_rt_58[56])
-                            ?  total_qt_rt_58[45] && !ex3_qt_sing_lo4_not0 
+                            ?  total_qt_rt_58[45] && !ex3_qt_sing_lo4_not0
                             :  total_qt_rt_58[44] && !ex3_qt_sing_lo3_not0;
 assign ex3_half_zero        = (total_qt_rt_58[56])
                             ? ~|total_qt_rt_58[45:42]
                             : ~|total_qt_rt_58[44:42];
-assign ex3_half_rst_eq_1    = total_qt_rt_58[56] && ~|total_qt_rt_58[55:46];       
+assign ex3_half_rst_eq_1    = total_qt_rt_58[56] && ~|total_qt_rt_58[55:46];
 assign ex3_half_denorm_plus = !total_qt_rt_58[56] && (vfdsu_ex3_expnt_rst[12:0] == 13'h1ff2);
 assign ex3_half_denorm_potnt_norm = total_qt_rt_58[56] && (vfdsu_ex3_expnt_rst[12:0] == 13'h1ff1);
 assign vfdsu_ex3_expnt_rst[12:0]  = vfdsu_ex3_half_expnt_rst[12:0];
 // &Force("bus","total_qt_rt_58",57,0); @54
-assign ex3_qt_doub_lo3_not0 = |total_qt_rt_58[2:0]; 
-assign ex3_qt_doub_lo2_not0 = |total_qt_rt_58[1:0]; 
+assign ex3_qt_doub_lo3_not0 = |total_qt_rt_58[2:0];
+assign ex3_qt_doub_lo2_not0 = |total_qt_rt_58[1:0];
 assign ex3_qt_sing_lo4_not0 = |total_qt_rt_58[31:28];
 assign ex3_qt_sing_lo3_not0 = |total_qt_rt_58[30:28];
 //the quotient round bits great than "10000"(ronnd bits 10..0)
@@ -318,10 +318,10 @@ assign ex3_sing_gr          = (total_qt_rt_58[56])
 
 //the quotient round bits is equal to "10000"(ronnd bits 10..0)
 assign ex3_doub_eq          = (total_qt_rt_58[56])
-                            ?  total_qt_rt_58[3] && !ex3_qt_doub_lo3_not0 
+                            ?  total_qt_rt_58[3] && !ex3_qt_doub_lo3_not0
                             :  total_qt_rt_58[2] && !ex3_qt_doub_lo2_not0;
 assign ex3_sing_eq          = (total_qt_rt_58[56])
-                            ?  total_qt_rt_58[32] && !ex3_qt_sing_lo4_not0 
+                            ?  total_qt_rt_58[32] && !ex3_qt_sing_lo4_not0
                             :  total_qt_rt_58[31] && !ex3_qt_sing_lo3_not0;
 //the quotient round bits is zero
 assign ex3_doub_zero        = (total_qt_rt_58[56])
@@ -353,16 +353,16 @@ assign ex3_qt_gr            = (vfdsu_ex3_double)? ex3_doub_gr :
                                vfdsu_ex3_single ? ex3_sing_gr : ex3_half_gr;
 assign ex3_qt_zero          = (vfdsu_ex3_double)? ex3_doub_zero :
                                vfdsu_ex3_single ? ex3_sing_zero : ex3_half_zero;
-assign ex3_denorm_plus            = (vfdsu_ex3_double)  ? ex3_doub_denorm_plus 
+assign ex3_denorm_plus            = (vfdsu_ex3_double)  ? ex3_doub_denorm_plus
                                     : vfdsu_ex3_single ? ex3_sing_denorm_plus
                                                        : ex3_half_denorm_plus;
-                             
+
 // &CombBeg; @108
 always @( vfdsu_ex3_doub_expnt_rst[12:0]
        or total_qt_rt_58[56:0])
 begin
 case(vfdsu_ex3_doub_expnt_rst[12:0])
-  13'h1c02:begin qt_result_double_denorm_for_round[56:0] = {total_qt_rt_58[3:0], 53'b0}; 
+  13'h1c02:begin qt_result_double_denorm_for_round[56:0] = {total_qt_rt_58[3:0], 53'b0};
                  double_denorm_lst_frac =  total_qt_rt_58[4];
 						end//-1022 1
   13'h1c01:begin qt_result_double_denorm_for_round[56:0] = {total_qt_rt_58[4:0], 52'b0}; //-1023 0
@@ -404,7 +404,7 @@ case(vfdsu_ex3_doub_expnt_rst[12:0])
   13'h1bf5:begin  qt_result_double_denorm_for_round[56:0] = {total_qt_rt_58[16:0],40'b0}; //-1035 -12
                  double_denorm_lst_frac =  total_qt_rt_58[17];
 						end//-1022 1
-  13'h1bf4:begin  qt_result_double_denorm_for_round[56:0] = {total_qt_rt_58[17:0],39'b0}; //-1036 -13   
+  13'h1bf4:begin  qt_result_double_denorm_for_round[56:0] = {total_qt_rt_58[17:0],39'b0}; //-1036 -13
                  double_denorm_lst_frac =  total_qt_rt_58[18];
 						end//-1022 1
   13'h1bf3:begin  qt_result_double_denorm_for_round[56:0] = {total_qt_rt_58[18:0],38'b0}; // -1037
@@ -525,17 +525,17 @@ case(vfdsu_ex3_doub_expnt_rst[12:0])
                  double_denorm_lst_frac =  1'b0;
 						end//-1022 1
 
-endcase                                                                     
+endcase
 // &CombEnd; @274
 end
 //denomal result, check for rounding further optimization can be done in
 //future
-assign ex3_double_denorm_eq      = qt_result_double_denorm_for_round[56] 
+assign ex3_double_denorm_eq      = qt_result_double_denorm_for_round[56]
                                    &&  !ex3_double_low_not_zero;
 assign ex3_double_low_not_zero   = |qt_result_double_denorm_for_round[55:0];
-assign ex3_double_denorm_gr      = qt_result_double_denorm_for_round[56] 
+assign ex3_double_denorm_gr      = qt_result_double_denorm_for_round[56]
                                    &&  ex3_double_low_not_zero;
-assign ex3_double_denorm_zero    = !qt_result_double_denorm_for_round[56] 
+assign ex3_double_denorm_zero    = !qt_result_double_denorm_for_round[56]
                                    &&  !ex3_double_low_not_zero;
 
 // &CombBeg; @285
@@ -585,7 +585,7 @@ case(vfdsu_ex3_sing_expnt_rst[8:0])
   9'h175:begin qt_result_single_denorm_for_round[27:0] = {total_qt_rt_58[45:28],10'b0}; //-99 -12
                 single_denorm_lst_frac =  total_qt_rt_58[46];
 			 		end//-1022 1
-  9'h174:begin qt_result_single_denorm_for_round[27:0] = {total_qt_rt_58[46:28],9'b0}; //-140 -9   
+  9'h174:begin qt_result_single_denorm_for_round[27:0] = {total_qt_rt_58[46:28],9'b0}; //-140 -9
                 single_denorm_lst_frac =  total_qt_rt_58[47];
 			 		end//-1022 1
   9'h173:begin qt_result_single_denorm_for_round[27:0] = {total_qt_rt_58[47:28],8'b0}; // -141
@@ -621,13 +621,13 @@ case(vfdsu_ex3_sing_expnt_rst[8:0])
 endcase
 // &CombEnd;  @363
 end
-//rounding evaluation for single denormalize number 
-assign ex3_single_denorm_eq      = qt_result_single_denorm_for_round[27] 
+//rounding evaluation for single denormalize number
+assign ex3_single_denorm_eq      = qt_result_single_denorm_for_round[27]
                                    &&  !ex3_single_low_not_zero;
 assign ex3_single_low_not_zero   = |qt_result_single_denorm_for_round[26:0];
-assign ex3_single_denorm_gr      = qt_result_single_denorm_for_round[27] 
+assign ex3_single_denorm_gr      = qt_result_single_denorm_for_round[27]
                                    &&  ex3_single_low_not_zero;
-assign ex3_single_denorm_zero    = !qt_result_single_denorm_for_round[27] 
+assign ex3_single_denorm_zero    = !qt_result_single_denorm_for_round[27]
                                    && !ex3_single_low_not_zero;
 // &CombBeg; @372
 always @( total_qt_rt_58[56:42]
@@ -673,13 +673,13 @@ case(vfdsu_ex3_half_expnt_rst[12:0])
 endcase
 // &CombEnd;  @411
 end
-//rounding evaluation for single denormalize number 
-assign ex3_half_denorm_eq      = qt_result_half_denorm_for_round[13] 
+//rounding evaluation for single denormalize number
+assign ex3_half_denorm_eq      = qt_result_half_denorm_for_round[13]
                                    &&  !ex3_half_low_not_zero;
 assign ex3_half_low_not_zero   = |qt_result_half_denorm_for_round[12:0];
-assign ex3_half_denorm_gr      = qt_result_half_denorm_for_round[13] 
+assign ex3_half_denorm_gr      = qt_result_half_denorm_for_round[13]
                                    &&  ex3_half_low_not_zero;
-assign ex3_half_denorm_zero    = !qt_result_half_denorm_for_round[13] 
+assign ex3_half_denorm_zero    = !qt_result_half_denorm_for_round[13]
                                    && !ex3_half_low_not_zero;
 
 assign ex3_denorm_eq             = vfdsu_ex3_double ? ex3_double_denorm_eq :
@@ -690,63 +690,63 @@ assign ex3_denorm_zero           = vfdsu_ex3_double ? ex3_double_denorm_zero :
                                    vfdsu_ex3_single ? ex3_single_denorm_zero : ex3_half_denorm_zero;
 assign ex3_denorm_lst_frac       = vfdsu_ex3_double ? double_denorm_lst_frac :
                                    vfdsu_ex3_single ? single_denorm_lst_frac : half_denorm_lst_frac;
-  
+
 //Different Round Mode with different rounding rule
 //Here we call rounding bit as "rb", remainder as "rem"
-//RNE : 
+//RNE :
 //  1.+1 : rb>10000 || rb==10000 && rem>0
 //  2. 0 : Rest Condition
 //  3.-1 : Never occur
-//RTZ : 
+//RTZ :
 //  1.+1 : Never occur
 //  2. 0 : Rest Condition
 //  3.-1 : rb=10000 && rem<0
-//RDN : 
+//RDN :
 //  1.+1 : Q>0 Never occur   ; Q<0 Rest condition
-//  2. 0 : Q>0 Rest condition; Q<0 Rem<0 && rb=0 
+//  2. 0 : Q>0 Rest condition; Q<0 Rem<0 && rb=0
 //  3.-1 : Q>0 Rem<0 && rb=0 ; Q<0 Never occur
-//RUP : 
+//RUP :
 //  1.+1 : Q>0 Rest Condition; Q<0 Never occur
 //  2. 0 : Q>0 Rem<0 && rb=0 ; Q<0 Rest condition
-//  3.-1 : Q>0 Never occur   ; Q<0 Rem<0 && rb=0 
-//RMM : 
+//  3.-1 : Q>0 Never occur   ; Q<0 Rem<0 && rb=0
+//RMM :
 //  1.+1 : rb>10000 || rb==10000 && rem>0
 //  2. 0 : Rest Condition
 //  3.-1 : Never occur
-assign frac_rne_add_1 = ex3_qt_gr || 
-                       (ex3_qt_eq && !vfdsu_ex3_rem_sign); 
+assign frac_rne_add_1 = ex3_qt_gr ||
+                       (ex3_qt_eq && !vfdsu_ex3_rem_sign);
 assign frac_rtz_sub_1 = ex3_qt_zero && vfdsu_ex3_rem_sign;
-assign frac_rup_add_1 = !vfdsu_ex3_result_sign && 
-                       (!ex3_qt_zero || 
-                       (!vfdsu_ex3_rem_sign && !vfdsu_ex3_rem_zero)); 
-assign frac_rup_sub_1 = vfdsu_ex3_result_sign && 
+assign frac_rup_add_1 = !vfdsu_ex3_result_sign &&
+                       (!ex3_qt_zero ||
+                       (!vfdsu_ex3_rem_sign && !vfdsu_ex3_rem_zero));
+assign frac_rup_sub_1 = vfdsu_ex3_result_sign &&
                        (ex3_qt_zero && vfdsu_ex3_rem_sign);
-assign frac_rdn_add_1 = vfdsu_ex3_result_sign && 
-                       (!ex3_qt_zero || 
+assign frac_rdn_add_1 = vfdsu_ex3_result_sign &&
+                       (!ex3_qt_zero ||
                        (!vfdsu_ex3_rem_sign && !vfdsu_ex3_rem_zero));
 assign frac_rdn_sub_1 = !vfdsu_ex3_result_sign &&
                        (ex3_qt_zero && vfdsu_ex3_rem_sign);
-assign frac_rmm_add_1 = ex3_qt_gr || 
-                       (ex3_qt_eq && !vfdsu_ex3_rem_sign); 
-//denormal result 
-assign frac_denorm_rne_add_1 = ex3_denorm_gr || 
-                               (ex3_denorm_eq && 
+assign frac_rmm_add_1 = ex3_qt_gr ||
+                       (ex3_qt_eq && !vfdsu_ex3_rem_sign);
+//denormal result
+assign frac_denorm_rne_add_1 = ex3_denorm_gr ||
+                               (ex3_denorm_eq &&
                                ((vfdsu_ex3_rem_zero &&
                                 ex3_denorm_lst_frac) ||
-                               (!vfdsu_ex3_rem_zero && 
+                               (!vfdsu_ex3_rem_zero &&
                                 !vfdsu_ex3_rem_sign)));
 assign frac_denorm_rtz_sub_1 = ex3_denorm_zero && vfdsu_ex3_rem_sign;
-assign frac_denorm_rup_add_1 = !vfdsu_ex3_result_sign && 
-                               (!ex3_denorm_zero || 
-                               (!vfdsu_ex3_rem_sign && !vfdsu_ex3_rem_zero)); 
-assign frac_denorm_rup_sub_1 = vfdsu_ex3_result_sign && 
+assign frac_denorm_rup_add_1 = !vfdsu_ex3_result_sign &&
+                               (!ex3_denorm_zero ||
+                               (!vfdsu_ex3_rem_sign && !vfdsu_ex3_rem_zero));
+assign frac_denorm_rup_sub_1 = vfdsu_ex3_result_sign &&
                        (ex3_denorm_zero && vfdsu_ex3_rem_sign);
-assign frac_denorm_rdn_add_1 = vfdsu_ex3_result_sign && 
-                       (!ex3_denorm_zero || 
+assign frac_denorm_rdn_add_1 = vfdsu_ex3_result_sign &&
+                       (!ex3_denorm_zero ||
                        (!vfdsu_ex3_rem_sign && !vfdsu_ex3_rem_zero));
 assign frac_denorm_rdn_sub_1 = !vfdsu_ex3_result_sign &&
                        (ex3_denorm_zero && vfdsu_ex3_rem_sign);
-assign frac_denorm_rmm_add_1 = ex3_denorm_gr || 
+assign frac_denorm_rmm_add_1 = ex3_denorm_gr ||
                        (ex3_denorm_eq && !vfdsu_ex3_rem_sign);
 
 //RM select
@@ -772,46 +772,46 @@ always @( vfdsu_ex3_result_sign
 begin
 case(vfdsu_ex3_rm[2:0])
   3'b000://round to nearst,ties to even
-  begin 
+  begin
     frac_add_1          =  ex3_rslt_denorm ? frac_denorm_rne_add_1 : frac_rne_add_1;
     frac_sub_1          =  1'b0;
     frac_orig           =  ex3_rslt_denorm ? !frac_denorm_rne_add_1 : !frac_rne_add_1;
     denorm_to_tiny_frac =  vfdsu_ex3_id_srt_skip ? 1'b0 : frac_denorm_rne_add_1;
   end
   3'b001:// round to 0
-  begin 
+  begin
     frac_add_1           =  1'b0;
     frac_sub_1           =  ex3_rslt_denorm ? frac_denorm_rtz_sub_1 : frac_rtz_sub_1;
     frac_orig            =  ex3_rslt_denorm ? !frac_denorm_rtz_sub_1 : !frac_rtz_sub_1;
     denorm_to_tiny_frac  = 1'b0;
   end
   3'b010://round to -inf
-  begin 
+  begin
     frac_add_1          =  ex3_rslt_denorm ? frac_denorm_rdn_add_1 : frac_rdn_add_1;
     frac_sub_1          =  ex3_rslt_denorm ? frac_denorm_rdn_sub_1 : frac_rdn_sub_1;
-    frac_orig           =  ex3_rslt_denorm ? !frac_denorm_rdn_add_1 && !frac_denorm_rdn_sub_1 
+    frac_orig           =  ex3_rslt_denorm ? !frac_denorm_rdn_add_1 && !frac_denorm_rdn_sub_1
                                            : !frac_rdn_add_1 && !frac_rdn_sub_1;
-    denorm_to_tiny_frac = vfdsu_ex3_id_srt_skip ? vfdsu_ex3_result_sign 
+    denorm_to_tiny_frac = vfdsu_ex3_id_srt_skip ? vfdsu_ex3_result_sign
                                                 : frac_denorm_rdn_add_1;
   end
   3'b011://round to +inf
-  begin 
+  begin
     frac_add_1          =  ex3_rslt_denorm ? frac_denorm_rup_add_1 : frac_rup_add_1;
-    frac_sub_1          =  ex3_rslt_denorm ? frac_denorm_rup_sub_1 : frac_rup_sub_1; 
-    frac_orig           =  ex3_rslt_denorm ? !frac_denorm_rup_add_1 && !frac_denorm_rup_sub_1 
-                                           : !frac_rup_add_1 && !frac_rup_sub_1; 
-    denorm_to_tiny_frac = vfdsu_ex3_id_srt_skip ? !vfdsu_ex3_result_sign 
+    frac_sub_1          =  ex3_rslt_denorm ? frac_denorm_rup_sub_1 : frac_rup_sub_1;
+    frac_orig           =  ex3_rslt_denorm ? !frac_denorm_rup_add_1 && !frac_denorm_rup_sub_1
+                                           : !frac_rup_add_1 && !frac_rup_sub_1;
+    denorm_to_tiny_frac = vfdsu_ex3_id_srt_skip ? !vfdsu_ex3_result_sign
                                                 : frac_denorm_rup_add_1;
   end
   3'b100://round to nearest,ties to max magnitude
-  begin 
+  begin
     frac_add_1          = ex3_rslt_denorm ? frac_denorm_rmm_add_1 : frac_rmm_add_1;
     frac_sub_1          = 1'b0;
     frac_orig           = ex3_rslt_denorm ? !frac_denorm_rmm_add_1 : !frac_rmm_add_1;
     denorm_to_tiny_frac = vfdsu_ex3_id_srt_skip ? 1'b0 : frac_denorm_rmm_add_1;
   end
-  default: 
-  begin 
+  default:
+  begin
     frac_add_1          = 1'b0;
     frac_sub_1          = 1'b0;
     frac_orig           = 1'b0;
@@ -827,22 +827,22 @@ always @( total_qt_rt_58[56]
        or vfdsu_ex3_double)
 begin
 case({total_qt_rt_58[56],vfdsu_ex3_double,vfdsu_ex3_single})
-  3'b001: 
+  3'b001:
   begin
     frac_add1_op1[54:0] = {2'b0,24'b1,29'b0};
     frac_sub1_op1[54:0] = {2'b11,{24{1'b1}},29'b0};
   end
-  3'b010: 
+  3'b010:
   begin
     frac_add1_op1[54:0] = 55'b1;
     frac_sub1_op1[54:0] = {55{1'b1}};
   end
-  3'b101: 
+  3'b101:
   begin
     frac_add1_op1[54:0] = {25'b1,30'b0};
     frac_sub1_op1[54:0] = {{25{1'b1}},30'b0};
   end
-  3'b110: 
+  3'b110:
   begin
     frac_add1_op1[54:0] = 55'b10;
     frac_sub1_op1[54:0] = {{54{1'b1}},1'b0};
@@ -867,16 +867,16 @@ endcase
 end
 //Add 1 or Sub1 final result
 //Conner case when quotient is 0.010000...00 and remainder is negative,
-//The real quotient is actually 0.00fff..ff, 
+//The real quotient is actually 0.00fff..ff,
 //The final result will need to sub 1 when
 //RN : Never occur
 //RP : sign of quotient is -
 //RM : sign of quotient is +
 assign frac_add1_rst[54:0]             = {1'b0,total_qt_rt_58[56:3]} +
                                          frac_add1_op1_with_denorm[54:0];
-assign frac_add1_op1_with_denorm[54:0] = ex3_rslt_denorm ? 
+assign frac_add1_op1_with_denorm[54:0] = ex3_rslt_denorm ?
                                   {1'b0,vfdsu_ex3_result_denorm_round_add_num[52:0],1'b0} :
-                                  frac_add1_op1[54:0];      
+                                  frac_add1_op1[54:0];
 assign frac_sub1_rst[54:0]             = (ex3_rst_eq_1)
                                        ? {2'b0,{53{1'b1}}}
                                        : {1'b0,total_qt_rt_58[56:3]} +
@@ -889,17 +889,17 @@ assign frac_final_rst[54:0]           = (frac_add1_rst[54:0]         & {55{frac_
                                         ({1'b0,total_qt_rt_58[56:3]} & {55{frac_orig}});
 
 //===============Pipe down signal prepare===================
-assign ex3_rst_nor = !vfdsu_ex3_result_zero && 
-                     !vfdsu_ex3_result_qnan && 
-                     !vfdsu_ex3_result_inf  && 
+assign ex3_rst_nor = !vfdsu_ex3_result_zero &&
+                     !vfdsu_ex3_result_qnan &&
+                     !vfdsu_ex3_result_inf  &&
                      !vfdsu_ex3_result_lfn;
-assign ex3_nx      = ex3_rst_nor && 
+assign ex3_nx      = ex3_rst_nor &&
                     (!ex3_qt_zero || !vfdsu_ex3_rem_zero || ex3_denorm_nx);
 assign ex3_denorm_nx = ex3_rslt_denorm && (!ex3_denorm_zero ||  !vfdsu_ex3_rem_zero);
 //Adjust expnt
 //Div:Actural expnt should plus 1 when op0 is id, sub 1 when op1 id
 assign ex3_expnt_adjst[12:0] = vfdsu_ex3_double ? 13'h3ff: vfdsu_ex3_single ? 13'h7f : 13'hf;
-assign ex3_expnt_adjust_result[12:0] = vfdsu_ex3_expnt_rst[12:0] + 
+assign ex3_expnt_adjust_result[12:0] = vfdsu_ex3_expnt_rst[12:0] +
                                        ex3_expnt_adjst[12:0];
 //this information is for the packing, which determin the result is normal
 //numer or not;
@@ -939,14 +939,14 @@ begin
     vfdsu_ex4_potnt_uf        <=  1'b0;
     vfdsu_ex4_result_nor      <=  1'b0;
     vfdsu_ex4_expnt_rst[12:0] <= 13'b0;
-    vfdsu_ex4_nv              <=  1'b0; 
-    vfdsu_ex4_nx              <=  1'b0; 
-    vfdsu_ex4_uf              <=  1'b0; 
-    vfdsu_ex4_of              <=  1'b0; 
-    vfdsu_ex4_dz              <=  1'b0; 
+    vfdsu_ex4_nv              <=  1'b0;
+    vfdsu_ex4_nx              <=  1'b0;
+    vfdsu_ex4_uf              <=  1'b0;
+    vfdsu_ex4_of              <=  1'b0;
+    vfdsu_ex4_dz              <=  1'b0;
     vfdsu_ex4_of_rst_lfn      <=  1'b0;
     vfdsu_ex4_frac[54:0]      <= 55'b0;
-    vfdsu_ex4_qnan_sign       <=  1'b0;    
+    vfdsu_ex4_qnan_sign       <=  1'b0;
     vfdsu_ex4_qnan_f[51:0]    <= 52'b0;
     vfdsu_ex4_rslt_denorm     <= 1'b0;
     vfdsu_ex4_denorm_to_tiny_frac
@@ -967,17 +967,17 @@ begin
     vfdsu_ex4_potnt_uf        <= vfdsu_ex3_potnt_uf;
     vfdsu_ex4_result_nor      <= ex3_rst_nor;
     vfdsu_ex4_expnt_rst[12:0] <= ex3_expnt_adjust_result[12:0];
-    vfdsu_ex4_nv              <= vfdsu_ex3_nv; 
-    vfdsu_ex4_nx              <= ex3_nx; 
-    vfdsu_ex4_uf              <= vfdsu_ex3_uf; 
-    vfdsu_ex4_of              <= vfdsu_ex3_of; 
-    vfdsu_ex4_dz              <= vfdsu_ex3_dz; 
+    vfdsu_ex4_nv              <= vfdsu_ex3_nv;
+    vfdsu_ex4_nx              <= ex3_nx;
+    vfdsu_ex4_uf              <= vfdsu_ex3_uf;
+    vfdsu_ex4_of              <= vfdsu_ex3_of;
+    vfdsu_ex4_dz              <= vfdsu_ex3_dz;
     vfdsu_ex4_of_rst_lfn      <= vfdsu_ex2_of_rm_lfn;
     vfdsu_ex4_frac[54:0]      <= frac_final_rst[54:0];
-    vfdsu_ex4_qnan_sign       <= vfdsu_ex3_qnan_sign;    
+    vfdsu_ex4_qnan_sign       <= vfdsu_ex3_qnan_sign;
     vfdsu_ex4_qnan_f[51:0]    <= vfdsu_ex3_qnan_f[51:0];
     vfdsu_ex4_rslt_denorm     <= ex3_rslt_denorm;
-    vfdsu_ex4_denorm_to_tiny_frac 
+    vfdsu_ex4_denorm_to_tiny_frac
                               <= denorm_to_tiny_frac;
     vfdsu_ex4_potnt_norm[1:0] <= ex3_potnt_norm[1:0];
     vfdsu_ex4_double          <= vfdsu_ex3_double;
@@ -994,23 +994,23 @@ begin
     vfdsu_ex4_potnt_uf        <= vfdsu_ex4_potnt_uf;
     vfdsu_ex4_result_nor      <= vfdsu_ex4_result_nor;
     vfdsu_ex4_expnt_rst[12:0] <= vfdsu_ex4_expnt_rst[12:0];
-    vfdsu_ex4_nv              <= vfdsu_ex4_nv; 
-    vfdsu_ex4_nx              <= vfdsu_ex4_nx; 
-    vfdsu_ex4_uf              <= vfdsu_ex4_uf; 
-    vfdsu_ex4_of              <= vfdsu_ex4_of; 
-    vfdsu_ex4_dz              <= vfdsu_ex4_dz; 
+    vfdsu_ex4_nv              <= vfdsu_ex4_nv;
+    vfdsu_ex4_nx              <= vfdsu_ex4_nx;
+    vfdsu_ex4_uf              <= vfdsu_ex4_uf;
+    vfdsu_ex4_of              <= vfdsu_ex4_of;
+    vfdsu_ex4_dz              <= vfdsu_ex4_dz;
     vfdsu_ex4_of_rst_lfn      <= vfdsu_ex4_of_rst_lfn;
     vfdsu_ex4_frac[54:0]      <= vfdsu_ex4_frac[54:0];
     vfdsu_ex4_qnan_sign       <= vfdsu_ex4_qnan_sign;
     vfdsu_ex4_qnan_f[51:0]    <= vfdsu_ex4_qnan_f[51:0];
     vfdsu_ex4_rslt_denorm     <= vfdsu_ex4_rslt_denorm;
-    vfdsu_ex4_denorm_to_tiny_frac 
+    vfdsu_ex4_denorm_to_tiny_frac
                               <= vfdsu_ex4_denorm_to_tiny_frac;
     vfdsu_ex4_potnt_norm[1:0] <= vfdsu_ex4_potnt_norm[1:0];
     vfdsu_ex4_double          <= vfdsu_ex4_double;
     vfdsu_ex4_single          <= vfdsu_ex4_single;
-  end  
-end    
+  end
+end
 
 // &Force("output","vfdsu_ex4_result_nor"); @716
 // &Force("output","vfdsu_ex4_nx"); @717

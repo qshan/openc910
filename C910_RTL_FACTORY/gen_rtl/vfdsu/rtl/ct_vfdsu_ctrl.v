@@ -49,98 +49,98 @@ module ct_vfdsu_ctrl(
 );
 
 // &Ports; @24
-input          cp0_vfpu_icg_en;            
-input          cp0_yy_clk_en;              
-input          cpurst_b;                   
-input          dp_vfdsu_ex1_pipex_sel;     
-input          dp_vfdsu_fdiv_gateclk_issue; 
-input          dp_vfdsu_idu_fdiv_issue;    
-input          ex1_double;                 
-input          ex1_single;                 
-input          forever_cpuclk;             
-input          pad_yy_icg_scan_en;         
-input          rtu_yy_xx_flush;            
-input          srt_ctrl_rem_zero;          
-input          srt_ctrl_skip_srt;          
-input          vfdsu_ex2_double;           
-input          vfdsu_ex2_single;           
-output         ex1_data_clk;               
-output         ex1_pipedown;               
-output         ex2_data_clk;               
-output         ex2_pipedown;               
-output         ex2_srt_first_round;        
-output         ex3_data_clk;               
-output         ex3_pipedown;               
-output         pipex_dp_vfdsu_inst_vld;    
-output         srt_secd_round;             
-output         srt_sm_on;                  
-output         vfdsu_dp_fdiv_busy;         
-output         vfdsu_dp_inst_wb_req;       
-output         vfdsu_ifu_debug_ex2_wait;   
-output         vfdsu_ifu_debug_idle;       
-output         vfdsu_ifu_debug_pipe_busy;  
+input          cp0_vfpu_icg_en;
+input          cp0_yy_clk_en;
+input          cpurst_b;
+input          dp_vfdsu_ex1_pipex_sel;
+input          dp_vfdsu_fdiv_gateclk_issue;
+input          dp_vfdsu_idu_fdiv_issue;
+input          ex1_double;
+input          ex1_single;
+input          forever_cpuclk;
+input          pad_yy_icg_scan_en;
+input          rtu_yy_xx_flush;
+input          srt_ctrl_rem_zero;
+input          srt_ctrl_skip_srt;
+input          vfdsu_ex2_double;
+input          vfdsu_ex2_single;
+output         ex1_data_clk;
+output         ex1_pipedown;
+output         ex2_data_clk;
+output         ex2_pipedown;
+output         ex2_srt_first_round;
+output         ex3_data_clk;
+output         ex3_pipedown;
+output         pipex_dp_vfdsu_inst_vld;
+output         srt_secd_round;
+output         srt_sm_on;
+output         vfdsu_dp_fdiv_busy;
+output         vfdsu_dp_inst_wb_req;
+output         vfdsu_ifu_debug_ex2_wait;
+output         vfdsu_ifu_debug_idle;
+output         vfdsu_ifu_debug_pipe_busy;
 
 // &Regs; @25
-reg     [3:0]  div_cur_state;              
-reg     [3:0]  div_next_state;             
-reg            ex2_srt_first_round;        
-reg            ex2_srt_secd_round;         
-reg     [4:0]  srt_cnt;                    
-reg            srt_cur_state;              
-reg            srt_nxt_state;              
-reg            vfdsu_ex3_vld;              
-reg            vfdsu_ex4_vld;              
+reg     [3:0]  div_cur_state;
+reg     [3:0]  div_next_state;
+reg            ex2_srt_first_round;
+reg            ex2_srt_secd_round;
+reg     [4:0]  srt_cnt;
+reg            srt_cur_state;
+reg            srt_nxt_state;
+reg            vfdsu_ex3_vld;
+reg            vfdsu_ex4_vld;
 
 // &Wires; @26
-wire           cp0_vfpu_icg_en;            
-wire           cp0_yy_clk_en;              
-wire           cpurst_b;                   
-wire           div_sm_clk;                 
-wire           div_sm_clk_en;              
-wire           div_st_ex2;                 
-wire           dp_vfdsu_ex1_pipex_sel;     
-wire           dp_vfdsu_fdiv_gateclk_issue; 
-wire           dp_vfdsu_idu_fdiv_issue;    
-wire           ex1_data_clk;               
-wire           ex1_data_clk_en;            
-wire           ex1_double;                 
-wire           ex1_pipedown;               
-wire           ex1_single;                 
-wire           ex2_data_clk;               
-wire           ex2_data_clk_en;            
-wire           ex2_pipe_clk;               
-wire           ex2_pipe_clk_en;            
-wire           ex2_pipedown;               
-wire           ex2_srt_secd_round_pre;     
-wire           ex3_data_clk;               
-wire           ex3_data_clk_en;            
-wire           ex3_pipe_clk;               
-wire           ex3_pipe_clk_en;            
-wire           ex3_pipedown;               
-wire           ex4_pipedown;               
-wire           forever_cpuclk;             
-wire           pad_yy_icg_scan_en;         
-wire           pipex_dp_vfdsu_inst_vld;    
-wire           rtu_yy_xx_flush;            
-wire           skip_srt;                   
-wire    [4:0]  srt_cnt_ini;                
-wire           srt_cnt_zero;               
-wire           srt_ctrl_rem_zero;          
-wire           srt_ctrl_skip_srt;          
-wire           srt_last_round;             
-wire           srt_secd_round;             
-wire           srt_secd_round_pre;         
-wire           srt_sm_clk;                 
-wire           srt_sm_clk_en;              
-wire           srt_sm_on;                  
-wire           vfdsu_dp_fdiv_busy;         
-wire           vfdsu_dp_inst_wb_req;       
-wire           vfdsu_ex2_double;           
-wire           vfdsu_ex2_single;           
-wire           vfdsu_ex2_vld;              
-wire           vfdsu_ifu_debug_ex2_wait;   
-wire           vfdsu_ifu_debug_idle;       
-wire           vfdsu_ifu_debug_pipe_busy;  
+wire           cp0_vfpu_icg_en;
+wire           cp0_yy_clk_en;
+wire           cpurst_b;
+wire           div_sm_clk;
+wire           div_sm_clk_en;
+wire           div_st_ex2;
+wire           dp_vfdsu_ex1_pipex_sel;
+wire           dp_vfdsu_fdiv_gateclk_issue;
+wire           dp_vfdsu_idu_fdiv_issue;
+wire           ex1_data_clk;
+wire           ex1_data_clk_en;
+wire           ex1_double;
+wire           ex1_pipedown;
+wire           ex1_single;
+wire           ex2_data_clk;
+wire           ex2_data_clk_en;
+wire           ex2_pipe_clk;
+wire           ex2_pipe_clk_en;
+wire           ex2_pipedown;
+wire           ex2_srt_secd_round_pre;
+wire           ex3_data_clk;
+wire           ex3_data_clk_en;
+wire           ex3_pipe_clk;
+wire           ex3_pipe_clk_en;
+wire           ex3_pipedown;
+wire           ex4_pipedown;
+wire           forever_cpuclk;
+wire           pad_yy_icg_scan_en;
+wire           pipex_dp_vfdsu_inst_vld;
+wire           rtu_yy_xx_flush;
+wire           skip_srt;
+wire    [4:0]  srt_cnt_ini;
+wire           srt_cnt_zero;
+wire           srt_ctrl_rem_zero;
+wire           srt_ctrl_skip_srt;
+wire           srt_last_round;
+wire           srt_secd_round;
+wire           srt_secd_round_pre;
+wire           srt_sm_clk;
+wire           srt_sm_clk_en;
+wire           srt_sm_on;
+wire           vfdsu_dp_fdiv_busy;
+wire           vfdsu_dp_inst_wb_req;
+wire           vfdsu_ex2_double;
+wire           vfdsu_ex2_single;
+wire           vfdsu_ex2_vld;
+wire           vfdsu_ifu_debug_ex2_wait;
+wire           vfdsu_ifu_debug_idle;
+wire           vfdsu_ifu_debug_pipe_busy;
 
 
 //==========================================================
@@ -176,8 +176,8 @@ gated_clk_cell  x_srt_sm_clk (
 //           .local_en       (srt_sm_clk_en),//Local Condition @48
 //           .module_en      (cp0_vfpu_icg_en) @49
 //         ); @50
-assign srt_sm_clk_en = srt_cur_state || 
-                       ex1_pipedown  || 
+assign srt_sm_clk_en = srt_cur_state ||
+                       ex1_pipedown  ||
                        rtu_yy_xx_flush;
 
 //state machine
@@ -215,13 +215,13 @@ end
 assign srt_sm_on   =  srt_cur_state;
 // &Force("output","srt_sm_on"); @83
 //state machine control signal
-//srt_last_round on three condition : 
+//srt_last_round on three condition :
 //  1.srt need not execute
-//  2.srt rem is zero 
+//  2.srt rem is zero
 //  3.srt cnt zero
-assign srt_last_round = (skip_srt || 
-                         srt_ctrl_rem_zero || 
-                         srt_cnt_zero)      && 
+assign srt_last_round = (skip_srt ||
+                         srt_ctrl_rem_zero ||
+                         srt_cnt_zero)      &&
                          srt_sm_on;
 assign skip_srt       =  srt_ctrl_skip_srt;
 assign srt_cnt_zero   = ~|srt_cnt[4:0];
@@ -276,7 +276,7 @@ assign srt_secd_round  = ex2_srt_secd_round;
 
 
 assign ex2_srt_secd_round_pre  = srt_sm_on && srt_secd_round_pre;
-assign srt_secd_round_pre      = vfdsu_ex2_double ? srt_cnt[4:0]==5'b01101 : 
+assign srt_secd_round_pre      = vfdsu_ex2_double ? srt_cnt[4:0]==5'b01101 :
                                  vfdsu_ex2_single ? srt_cnt[4:0]==5'b00110 : srt_cnt[4:0] == 5'b00011;
 
 //==========================================================
@@ -301,8 +301,8 @@ gated_clk_cell  x_ex2_pipe_clk (
 //           .local_en       (ex2_pipe_clk_en),//Local Condition @222
 //           .module_en      (cp0_vfpu_icg_en) @223
 //         ); @224
-assign ex2_pipe_clk_en = vfdsu_ex2_vld || 
-                         vfdsu_ex3_vld || 
+assign ex2_pipe_clk_en = vfdsu_ex2_vld ||
+                         vfdsu_ex3_vld ||
                          rtu_yy_xx_flush;
 assign vfdsu_ex2_vld = ex2_pipedown;
 //EX2 to EX3 pipedown
@@ -342,8 +342,8 @@ gated_clk_cell  x_ex3_pipe_clk (
 //           .local_en       (ex3_pipe_clk_en),//Local Condition @253
 //           .module_en      (cp0_vfpu_icg_en) @254
 //         ); @255
-assign ex3_pipe_clk_en = ex3_pipedown || 
-                         vfdsu_ex4_vld || 
+assign ex3_pipe_clk_en = ex3_pipedown ||
+                         vfdsu_ex4_vld ||
                          rtu_yy_xx_flush;
 
 //EX3 to EX4 pipedown
@@ -388,7 +388,7 @@ gated_clk_cell  x_div_sm_clk (
 //           .local_en       (div_sm_clk_en),//Local Condition @289
 //           .module_en      (cp0_vfpu_icg_en) @290
 //         ); @291
-assign div_sm_clk_en = dp_vfdsu_fdiv_gateclk_issue || 
+assign div_sm_clk_en = dp_vfdsu_fdiv_gateclk_issue ||
                        !(div_cur_state[3:0] == IDLE);
 //State Trans
 always @(posedge div_sm_clk or negedge cpurst_b)
@@ -413,13 +413,13 @@ begin
                else
                  div_next_state[3:0] = IDLE;
   RF         : div_next_state[3:0] = EX1;
-  EX1        : if(dp_vfdsu_ex1_pipex_sel) 
+  EX1        : if(dp_vfdsu_ex1_pipex_sel)
                   div_next_state[3:0] = EX2;
                else
                  div_next_state[3:0] = IDLE;
   EX2        : if(srt_last_round)
                  div_next_state[3:0] = WB_REQ;
-               else 
+               else
                  div_next_state[3:0] = EX2;
   WB_REQ   :   if(ex4_pipedown)
                  div_next_state[3:0] = WB;
@@ -437,7 +437,7 @@ end
 assign div_st_ex2             = (div_cur_state[3:0] == EX2);
 
 //Div Rdy Signal
-//assign vfdsu_vfpu_gateclk_en   = div_cur_state[2] || div_cur_state[3] || 
+//assign vfdsu_vfpu_gateclk_en   = div_cur_state[2] || div_cur_state[3] ||
 //                                 ex4_pipedown;
 
 
@@ -461,7 +461,7 @@ gated_clk_cell  x_ex1_data_clk (
 //           .local_en       (ex1_data_clk_en),//Local Condition @345
 //           .module_en      (cp0_vfpu_icg_en) @346
 //         ); @347
-assign ex1_data_clk_en = ex1_pipedown; 
+assign ex1_data_clk_en = ex1_pipedown;
 
 // &Instance("gated_clk_cell","x_ex2_data_clk"); @350
 gated_clk_cell  x_ex2_data_clk (
@@ -505,7 +505,7 @@ assign ex3_data_clk_en = ex3_pipedown;
 
 assign pipex_dp_vfdsu_inst_vld           = div_cur_state[3:0] == WB;
 // this is used to apply write back port
-assign vfdsu_dp_inst_wb_req   = vfdsu_ex3_vld; 
+assign vfdsu_dp_inst_wb_req   = vfdsu_ex3_vld;
 assign vfdsu_dp_fdiv_busy     = div_cur_state[2];
 
 //Debug infor

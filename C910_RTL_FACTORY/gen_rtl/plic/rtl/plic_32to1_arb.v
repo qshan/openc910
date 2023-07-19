@@ -20,7 +20,7 @@ module plic_32to1_arb(
   int_in_req,
   int_select_round,
   ctrl_arb_new_arb_start,
-  
+
   //output
   int_out_req,
   int_out_id,
@@ -42,7 +42,7 @@ input                           arb_clk;
 input                           plicrst_b;
 input   [INT_NUM-1:0]           int_in_req;
 input   [INT_NUM*PRIO_BIT-1:0]  int_in_prio;
-input   [ROUND_WIDTH-1:0]       int_select_round;  
+input   [ROUND_WIDTH-1:0]       int_select_round;
 input                           ctrl_arb_new_arb_start;
 
 
@@ -76,7 +76,7 @@ wire    [ID_NUM-1:0]            int_id_aft_secd_sel;
 wire    [PRIO_BIT-1:0]          int_prio_aft_secd_sel;
 
 // reg definition
-wire    [ROUND-1:0]              int_req_round_prepare[ECH_RD-1:0];    
+wire    [ROUND-1:0]              int_req_round_prepare[ECH_RD-1:0];
 wire    [ROUND*ID_NUM-1:0]       int_id_round_prepare[ECH_RD-1:0];
 wire    [ROUND*PRIO_BIT-1:0]     int_prio_round_prepare[ECH_RD-1:0];
 
@@ -101,7 +101,7 @@ end
 endgenerate
 
 //**********************************************************************
-//  first.round preperation,and prio selection,  
+//  first.round preperation,and prio selection,
 //  32to1 selection and 4 prio selection
 //
 //**********************************************************************
@@ -113,15 +113,15 @@ generate
     for(k=0;k<ECH_RD;k=k+1)
     begin:PREPARE
 assign    int_req_round_prepare[k][j]               =  int_in_req[ECH_RD*j+k];
-assign    int_id_round_prepare[k][j*ID_NUM+:ID_NUM] =  
+assign    int_id_round_prepare[k][j*ID_NUM+:ID_NUM] =
                                             int_in_id[(ECH_RD*j+k)*ID_NUM+:ID_NUM];
 assign    int_prio_round_prepare[k][j*PRIO_BIT+:PRIO_BIT] =
-                                      int_in_prio[(ECH_RD*j+k)*PRIO_BIT+:PRIO_BIT]; 
-    end 
+                                      int_in_prio[(ECH_RD*j+k)*PRIO_BIT+:PRIO_BIT];
+    end
   end
 endgenerate
 
-generate 
+generate
 genvar m;
 for(m=0;m<INT_NUM/ROUND;m=m+1)
 begin: ROUND_SEL
@@ -166,7 +166,7 @@ begin:FIRST_SEL
     .int_in_prio(int_prio_aft_round[n*SEL_NUM*PRIO_BIT+:SEL_NUM*PRIO_BIT]),
     .int_in_id(int_id_aft_round[n*SEL_NUM*ID_NUM+:SEL_NUM*ID_NUM]),
     .int_in_req(int_req_aft_round[n*SEL_NUM+:SEL_NUM]),
-    
+
     .int_out_req(int_req_aft_frt_sel[n]),
     .int_out_id(int_id_aft_frt_sel[n*ID_NUM+:ID_NUM]),
     .int_out_prio(int_prio_aft_frt_sel[n*PRIO_BIT+:PRIO_BIT])
@@ -192,7 +192,7 @@ begin:FIRST_SEL_FLOP
     else if(int_req_aft_frt_sel[fst_idx])
     begin
       int_id_fst_stg[fst_idx*ID_NUM+:ID_NUM]  <= int_id_aft_frt_sel[fst_idx*ID_NUM+:ID_NUM];
-      int_prio_fst_stg[fst_idx*PRIO_BIT+:PRIO_BIT] <= 
+      int_prio_fst_stg[fst_idx*PRIO_BIT+:PRIO_BIT] <=
                                 int_prio_aft_frt_sel[fst_idx*PRIO_BIT+:PRIO_BIT];
     end
   end
@@ -203,15 +203,15 @@ begin:FIRST_SEL_FLOP
     else if(round_int_req_fst_en[fst_idx])
       int_req_fst_stg[fst_idx]   <= int_req_aft_frt_sel[fst_idx];
   end
-  assign round_int_req_fst_en[fst_idx] = int_req_fst_stg[fst_idx] 
+  assign round_int_req_fst_en[fst_idx] = int_req_fst_stg[fst_idx]
                                      ^ int_req_aft_frt_sel[fst_idx];
 end
 
 endgenerate
 
 //**********************************************************************
-//  secod stage: 9 to 1 prio selction.  
-//  
+//  secod stage: 9 to 1 prio selction.
+//
 //**********************************************************************
 plic_granu_arb #(.SEL_NUM(9),
                     .SEL_BIT(4),
@@ -221,7 +221,7 @@ plic_granu_arb #(.SEL_NUM(9),
     .int_in_prio(int_prio_secd_tmp_sel[9*PRIO_BIT-1:0]),
     .int_in_id(int_id_secd_tmp_sel[9*ID_NUM-1:0]),
     .int_in_req(int_req_secd_tmp_sel[9-1:0]),
-    
+
     .int_out_req(int_req_aft_secd_sel),
     .int_out_id(int_id_aft_secd_sel[ID_NUM-1:0]),
     .int_out_prio(int_prio_aft_secd_sel[PRIO_BIT-1:0])
@@ -230,7 +230,7 @@ assign int_req_secd_tmp_sel[8:0] = {int_req_fst_stg[7:0],int_req_secd_stg};
 assign int_prio_secd_tmp_sel[9*PRIO_BIT-1:0]  = {int_prio_fst_stg[8*PRIO_BIT-1:0],
                                                  int_prio_secd_stg[PRIO_BIT-1:0]};
 assign int_id_secd_tmp_sel[9*ID_NUM-1:0]      = {int_id_fst_stg[8*ID_NUM-1:0],
-                                                 int_id_secd_stg[ID_NUM-1:0]};  
+                                                 int_id_secd_stg[ID_NUM-1:0]};
 
 
 always @(posedge arb_clk or negedge plicrst_b)
@@ -243,7 +243,7 @@ always @(posedge arb_clk or negedge plicrst_b)
     else if(int_req_aft_secd_sel)
     begin
       int_id_secd_stg[ID_NUM-1:0]    <= int_id_aft_secd_sel[ID_NUM-1:0];
-      int_prio_secd_stg[PRIO_BIT-1:0]  <= 
+      int_prio_secd_stg[PRIO_BIT-1:0]  <=
                                 int_prio_aft_secd_sel[PRIO_BIT-1:0];
     end
 end
@@ -256,7 +256,7 @@ begin
   else if(round_int_req_secd_en)
     int_req_secd_stg   <= int_req_aft_secd_sel;
 end
-assign round_int_req_secd_en = int_req_secd_stg 
+assign round_int_req_secd_en = int_req_secd_stg
                                    ^ int_req_aft_secd_sel;
 
 assign int_out_req                 = int_req_secd_stg;
@@ -286,7 +286,7 @@ output  [DATA-1:0]                data_out;
 
 //wire definition
 wire [SEL_NUM-1:0]          sel_onehot;
-wire [(SEL_NUM+1)*DATA-1:0] tmp_sel_out; 
+wire [(SEL_NUM+1)*DATA-1:0] tmp_sel_out;
 //reg definition
 
 

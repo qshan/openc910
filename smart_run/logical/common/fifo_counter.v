@@ -40,23 +40,23 @@ module fifo_counter(
 );
 
 
-input           counter_en;   
-input   [31:0]  counter_load; 
-input           cpu_clk;      
-input           cpu_rst_b;    
-output          counter_done; 
+input           counter_en;
+input   [31:0]  counter_load;
+input           cpu_clk;
+input           cpu_rst_b;
+output          counter_done;
 
 
-reg     [31:0]  counter;      
-reg             counter_en_ff; 
+reg     [31:0]  counter;
+reg             counter_en_ff;
 
 
-wire            counter_done; 
-wire            counter_en;   
-wire    [31:0]  counter_load; 
-wire            cpu_clk;      
-wire            cpu_rst_b;    
-wire            load_cnt_en;  
+wire            counter_done;
+wire            counter_en;
+wire    [31:0]  counter_load;
+wire            cpu_clk;
+wire            cpu_rst_b;
+wire            load_cnt_en;
 
 
 always @(posedge cpu_clk or negedge cpu_rst_b)
@@ -86,7 +86,7 @@ begin
   end
   else if (counter_done)
     counter[31:0] <= 32'b0;
-  else 
+  else
     counter[31:0] <= counter[31:0] -1'b1;
  end
 

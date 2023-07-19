@@ -29,34 +29,34 @@ module ct_ifu_bht_sel_array(
 );
 
 // &Ports; @23
-input           bht_sel_array_cen_b; 
-input           bht_sel_array_clk_en; 
-input   [15:0]  bht_sel_array_din;   
-input           bht_sel_array_gwen;  
-input   [6 :0]  bht_sel_array_index; 
-input   [15:0]  bht_sel_bwen;        
-input           cp0_ifu_icg_en;      
-input           cp0_yy_clk_en;       
-input           forever_cpuclk;      
-input           pad_yy_icg_scan_en;  
-output  [15:0]  bht_sel_data_out;    
+input           bht_sel_array_cen_b;
+input           bht_sel_array_clk_en;
+input   [15:0]  bht_sel_array_din;
+input           bht_sel_array_gwen;
+input   [6 :0]  bht_sel_array_index;
+input   [15:0]  bht_sel_bwen;
+input           cp0_ifu_icg_en;
+input           cp0_yy_clk_en;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+output  [15:0]  bht_sel_data_out;
 
 // &Regs; @24
 
 // &Wires; @25
-wire            bht_sel_array_cen_b; 
-wire            bht_sel_array_clk_en; 
-wire    [15:0]  bht_sel_array_din;   
-wire            bht_sel_array_gwen;  
-wire    [6 :0]  bht_sel_array_index; 
-wire    [15:0]  bht_sel_bwen;        
-wire            bht_sel_clk;         
-wire    [15:0]  bht_sel_data_out;    
-wire            bht_sel_en;          
-wire            cp0_ifu_icg_en;      
-wire            cp0_yy_clk_en;       
-wire            forever_cpuclk;      
-wire            pad_yy_icg_scan_en;  
+wire            bht_sel_array_cen_b;
+wire            bht_sel_array_clk_en;
+wire    [15:0]  bht_sel_array_din;
+wire            bht_sel_array_gwen;
+wire    [6 :0]  bht_sel_array_index;
+wire    [15:0]  bht_sel_bwen;
+wire            bht_sel_clk;
+wire    [15:0]  bht_sel_data_out;
+wire            bht_sel_en;
+wire            cp0_ifu_icg_en;
+wire            cp0_yy_clk_en;
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
 
 
 //Gate Clk

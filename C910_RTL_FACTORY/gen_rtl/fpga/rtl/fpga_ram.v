@@ -29,7 +29,7 @@ input   [(ADDRWIDTH-1):0] PortAAddr;
 input   [(DATAWIDTH-1):0] PortADataIn;
 input                     PortAWriteEnable;
 //input                     PortAChipEnable;
-output  [(DATAWIDTH-1):0] PortADataOut; 
+output  [(DATAWIDTH-1):0] PortADataOut;
 
 parameter  MEMDEPTH = 2**(ADDRWIDTH);
 

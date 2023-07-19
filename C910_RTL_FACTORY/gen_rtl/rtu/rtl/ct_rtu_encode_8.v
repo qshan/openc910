@@ -20,14 +20,14 @@ module ct_rtu_encode_8(
 );
 
 // &Ports; @25
-input   [7:0]  x_num_expand; 
-output  [2:0]  x_num;       
+input   [7:0]  x_num_expand;
+output  [2:0]  x_num;
 
 // &Regs; @26
 
 // &Wires; @27
-wire    [2:0]  x_num;       
-wire    [7:0]  x_num_expand; 
+wire    [2:0]  x_num;
+wire    [7:0]  x_num_expand;
 
 
 //==========================================================

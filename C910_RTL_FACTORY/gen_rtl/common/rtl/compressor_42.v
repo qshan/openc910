@@ -15,7 +15,7 @@ limitations under the License.
 
 module compressor_42(p0,p1,p2,p3,cin,s,ca,cout);
 parameter B_SIZE = 8;
-  
+
 input  [B_SIZE-1:0] p0;
 input  [B_SIZE-1:0] p1;
 input  [B_SIZE-1:0] p2;

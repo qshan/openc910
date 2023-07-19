@@ -30,32 +30,32 @@ module ct_had_etm_if(
 
 
 // &Ports; @25
-input        cpurst_b;            
-input        event_clk;           
-input        x_enter_dbg_req;     
-input        x_enter_dbg_req_o;   
-input        x_exit_dbg_req;      
-input        x_exit_dbg_req_o;    
-output       x_enter_dbg_req_i;   
-output       x_enter_dbg_req_o_ff; 
-output       x_event_clk_en;      
-output       x_exit_dbg_req_i;    
-output       x_exit_dbg_req_o_ff; 
+input        cpurst_b;
+input        event_clk;
+input        x_enter_dbg_req;
+input        x_enter_dbg_req_o;
+input        x_exit_dbg_req;
+input        x_exit_dbg_req_o;
+output       x_enter_dbg_req_i;
+output       x_enter_dbg_req_o_ff;
+output       x_event_clk_en;
+output       x_exit_dbg_req_i;
+output       x_exit_dbg_req_o_ff;
 
 // &Regs; @26
-reg          x_enter_dbg_req_i;   
-reg          x_enter_dbg_req_o_ff; 
-reg          x_exit_dbg_req_i;    
-reg          x_exit_dbg_req_o_ff; 
+reg          x_enter_dbg_req_i;
+reg          x_enter_dbg_req_o_ff;
+reg          x_exit_dbg_req_i;
+reg          x_exit_dbg_req_o_ff;
 
 // &Wires; @27
-wire         cpurst_b;            
-wire         event_clk;           
-wire         x_enter_dbg_req;     
-wire         x_enter_dbg_req_o;   
-wire         x_event_clk_en;      
-wire         x_exit_dbg_req;      
-wire         x_exit_dbg_req_o;    
+wire         cpurst_b;
+wire         event_clk;
+wire         x_enter_dbg_req;
+wire         x_enter_dbg_req_o;
+wire         x_event_clk_en;
+wire         x_exit_dbg_req;
+wire         x_exit_dbg_req_o;
 
 
 //==========================================================

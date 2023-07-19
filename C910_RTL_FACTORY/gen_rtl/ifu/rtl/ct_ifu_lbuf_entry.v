@@ -54,86 +54,86 @@ module ct_ifu_lbuf_entry(
 );
 
 // &Ports; @23
-input           cp0_ifu_icg_en;            
-input           cp0_yy_clk_en;             
-input           cpurst_b;                  
-input           entry_create_32_start_x;   
-input           entry_create_back_br_x;    
-input           entry_create_bkpta_x;      
-input           entry_create_bkptb_x;      
-input           entry_create_clk_en_x;     
-input           entry_create_fence_x;      
-input           entry_create_front_br_x;   
-input   [15:0]  entry_create_inst_data_v;  
-input   [2 :0]  entry_create_split0_type_v; 
-input   [2 :0]  entry_create_split1_type_v; 
-input   [7 :0]  entry_create_vl_v;         
-input   [1 :0]  entry_create_vlmul_v;      
-input           entry_create_vsetvli_x;    
-input   [2 :0]  entry_create_vsew_v;       
-input           entry_create_x;            
-input           fill_state_enter;          
-input           forever_cpuclk;            
-input           lbuf_flush;                
-input           pad_yy_icg_scan_en;        
-output          entry_32_start_x;          
-output          entry_back_br_x;           
-output          entry_bkpta_x;             
-output          entry_bkptb_x;             
-output          entry_fence_x;             
-output          entry_front_br_x;          
-output  [15:0]  entry_inst_data_v;         
-output  [2 :0]  entry_split0_type_v;       
-output  [2 :0]  entry_split1_type_v;       
-output  [7 :0]  entry_vl_v;                
-output          entry_vld_x;               
-output  [1 :0]  entry_vlmul_v;             
-output          entry_vsetvli_x;           
-output  [2 :0]  entry_vsew_v;              
+input           cp0_ifu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           entry_create_32_start_x;
+input           entry_create_back_br_x;
+input           entry_create_bkpta_x;
+input           entry_create_bkptb_x;
+input           entry_create_clk_en_x;
+input           entry_create_fence_x;
+input           entry_create_front_br_x;
+input   [15:0]  entry_create_inst_data_v;
+input   [2 :0]  entry_create_split0_type_v;
+input   [2 :0]  entry_create_split1_type_v;
+input   [7 :0]  entry_create_vl_v;
+input   [1 :0]  entry_create_vlmul_v;
+input           entry_create_vsetvli_x;
+input   [2 :0]  entry_create_vsew_v;
+input           entry_create_x;
+input           fill_state_enter;
+input           forever_cpuclk;
+input           lbuf_flush;
+input           pad_yy_icg_scan_en;
+output          entry_32_start_x;
+output          entry_back_br_x;
+output          entry_bkpta_x;
+output          entry_bkptb_x;
+output          entry_fence_x;
+output          entry_front_br_x;
+output  [15:0]  entry_inst_data_v;
+output  [2 :0]  entry_split0_type_v;
+output  [2 :0]  entry_split1_type_v;
+output  [7 :0]  entry_vl_v;
+output          entry_vld_x;
+output  [1 :0]  entry_vlmul_v;
+output          entry_vsetvli_x;
+output  [2 :0]  entry_vsew_v;
 
 // &Regs; @24
-reg             entry_32_start_x;          
-reg             entry_back_br_x;           
-reg             entry_bkpta_x;             
-reg             entry_bkptb_x;             
-reg             entry_fence_x;             
-reg             entry_front_br_x;          
-reg     [15:0]  entry_inst_data_v;         
-reg     [2 :0]  entry_split0_type_v;       
-reg     [2 :0]  entry_split1_type_v;       
-reg     [7 :0]  entry_vl_v;                
-reg             entry_vld_x;               
-reg     [1 :0]  entry_vlmul_v;             
-reg             entry_vsetvli_x;           
-reg     [2 :0]  entry_vsew_v;              
+reg             entry_32_start_x;
+reg             entry_back_br_x;
+reg             entry_bkpta_x;
+reg             entry_bkptb_x;
+reg             entry_fence_x;
+reg             entry_front_br_x;
+reg     [15:0]  entry_inst_data_v;
+reg     [2 :0]  entry_split0_type_v;
+reg     [2 :0]  entry_split1_type_v;
+reg     [7 :0]  entry_vl_v;
+reg             entry_vld_x;
+reg     [1 :0]  entry_vlmul_v;
+reg             entry_vsetvli_x;
+reg     [2 :0]  entry_vsew_v;
 
 // &Wires; @25
-wire            cp0_ifu_icg_en;            
-wire            cp0_yy_clk_en;             
-wire            cpurst_b;                  
-wire            entry_create_32_start_x;   
-wire            entry_create_back_br_x;    
-wire            entry_create_bkpta_x;      
-wire            entry_create_bkptb_x;      
-wire            entry_create_clk_en_x;     
-wire            entry_create_fence_x;      
-wire            entry_create_front_br_x;   
-wire    [15:0]  entry_create_inst_data_v;  
-wire    [2 :0]  entry_create_split0_type_v; 
-wire    [2 :0]  entry_create_split1_type_v; 
-wire    [7 :0]  entry_create_vl_v;         
-wire    [1 :0]  entry_create_vlmul_v;      
-wire            entry_create_vsetvli_x;    
-wire    [2 :0]  entry_create_vsew_v;       
-wire            entry_create_x;            
-wire            fill_state_enter;          
-wire            forever_cpuclk;            
-wire            lbuf_entry_update_clk;     
-wire            lbuf_entry_update_clk_en;  
-wire            lbuf_flush;                
-wire            lbuf_vld_update_clk;       
-wire            lbuf_vld_update_clk_en;    
-wire            pad_yy_icg_scan_en;        
+wire            cp0_ifu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            entry_create_32_start_x;
+wire            entry_create_back_br_x;
+wire            entry_create_bkpta_x;
+wire            entry_create_bkptb_x;
+wire            entry_create_clk_en_x;
+wire            entry_create_fence_x;
+wire            entry_create_front_br_x;
+wire    [15:0]  entry_create_inst_data_v;
+wire    [2 :0]  entry_create_split0_type_v;
+wire    [2 :0]  entry_create_split1_type_v;
+wire    [7 :0]  entry_create_vl_v;
+wire    [1 :0]  entry_create_vlmul_v;
+wire            entry_create_vsetvli_x;
+wire    [2 :0]  entry_create_vsew_v;
+wire            entry_create_x;
+wire            fill_state_enter;
+wire            forever_cpuclk;
+wire            lbuf_entry_update_clk;
+wire            lbuf_entry_update_clk_en;
+wire            lbuf_flush;
+wire            lbuf_vld_update_clk;
+wire            lbuf_vld_update_clk_en;
+wire            pad_yy_icg_scan_en;
 
 
 //==========================================================
@@ -172,7 +172,7 @@ gated_clk_cell  x_lbuf_vld_update_clk (
 //           .local_en       (lbuf_vld_update_clk_en),//Local Condition @51
 //           .module_en      (cp0_ifu_icg_en) @52
 //         ); @53
-assign lbuf_vld_update_clk_en = entry_create_clk_en_x || 
+assign lbuf_vld_update_clk_en = entry_create_clk_en_x ||
                                 entry_vld_x;
 always @(posedge lbuf_vld_update_clk or negedge cpurst_b)
 begin
@@ -226,25 +226,25 @@ begin
     entry_vl_v[7:0]          <= 8'b0;
     entry_front_br_x         <= 1'b0;
     entry_back_br_x          <= 1'b0;
-    entry_fence_x            <= 1'b0;    
-    entry_bkpta_x            <= 1'b0;    
-    entry_bkptb_x            <= 1'b0;    
+    entry_fence_x            <= 1'b0;
+    entry_bkpta_x            <= 1'b0;
+    entry_bkptb_x            <= 1'b0;
     entry_32_start_x         <= 1'b0;
     entry_vsetvli_x          <= 1'b0;
   end
   else if(entry_create_x)
   begin
     entry_inst_data_v[15:0]  <= entry_create_inst_data_v[15:0];
-    entry_split0_type_v[2:0] <= entry_create_split0_type_v[2:0]; 
+    entry_split0_type_v[2:0] <= entry_create_split0_type_v[2:0];
     entry_split1_type_v[2:0] <= entry_create_split1_type_v[2:0];
     entry_vlmul_v[1:0]       <= entry_create_vlmul_v[1:0];
     entry_vsew_v[2:0]        <= entry_create_vsew_v[2:0];
     entry_vl_v[7:0]          <= entry_create_vl_v[7:0];
     entry_front_br_x         <= entry_create_front_br_x;
     entry_back_br_x          <= entry_create_back_br_x;
-    entry_fence_x            <= entry_create_fence_x;    
-    entry_bkpta_x            <= entry_create_bkpta_x;    
-    entry_bkptb_x            <= entry_create_bkptb_x;    
+    entry_fence_x            <= entry_create_fence_x;
+    entry_bkpta_x            <= entry_create_bkpta_x;
+    entry_bkptb_x            <= entry_create_bkptb_x;
     entry_32_start_x         <= entry_create_32_start_x;
     entry_vsetvli_x          <= entry_create_vsetvli_x;
   end
@@ -258,9 +258,9 @@ begin
     entry_vl_v[7:0]          <= entry_vl_v[7:0];
     entry_front_br_x         <= entry_front_br_x;
     entry_back_br_x          <= entry_back_br_x;
-    entry_fence_x            <= entry_fence_x;    
-    entry_bkpta_x            <= entry_bkpta_x;    
-    entry_bkptb_x            <= entry_bkptb_x;    
+    entry_fence_x            <= entry_fence_x;
+    entry_bkpta_x            <= entry_bkpta_x;
+    entry_bkptb_x            <= entry_bkptb_x;
     entry_32_start_x         <= entry_32_start_x;
     entry_vsetvli_x          <= entry_vsetvli_x;
   end

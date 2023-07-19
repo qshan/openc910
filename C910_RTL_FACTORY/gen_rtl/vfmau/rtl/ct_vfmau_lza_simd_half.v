@@ -23,24 +23,24 @@ module ct_vfmau_lza_simd_half(
 );
 
 // &Ports; @24
-input   [23:0]  addend;         
-input           sub_vld;        
-input   [23:0]  summand;        
-output  [4 :0]  lza_result;     
-output          lza_result_zero; 
+input   [23:0]  addend;
+input           sub_vld;
+input   [23:0]  summand;
+output  [4 :0]  lza_result;
+output          lza_result_zero;
 
 // &Regs; @25
-reg     [4 :0]  lza_result;     
+reg     [4 :0]  lza_result;
 
 // &Wires; @26
-wire    [23:0]  addend;         
-wire    [23:0]  carry_d;        
-wire    [23:0]  carry_g;        
-wire    [23:0]  carry_p;        
-wire    [23:0]  lza_precod;     
-wire            lza_result_zero; 
-wire            sub_vld;        
-wire    [23:0]  summand;        
+wire    [23:0]  addend;
+wire    [23:0]  carry_d;
+wire    [23:0]  carry_g;
+wire    [23:0]  carry_p;
+wire    [23:0]  lza_precod;
+wire            lza_result_zero;
+wire            sub_vld;
+wire    [23:0]  summand;
 
 
 //==========================================================
@@ -59,15 +59,15 @@ assign carry_d[23:0] = ~(summand[23:0] | addend[23:0]);
 //                   Signal decode
 //----------------------------------------------------------
 //pre-predecode for leading zero anticipation
-assign lza_precod[0] = 
+assign lza_precod[0] =
      carry_p[1] && (carry_g[0] && sub_vld || carry_d[0])
  || !carry_p[1] && (carry_d[0] && sub_vld || carry_g[0]);
 
-assign lza_precod[23] = 
+assign lza_precod[23] =
      sub_vld && (carry_g[23] && !carry_d[22] || carry_d[23] && !carry_g[22])
  || !sub_vld && (carry_d[23] && !carry_d[22] || !carry_d[23]);
 
-assign lza_precod[22:1] = 
+assign lza_precod[22:1] =
     carry_p[23:2] & (carry_g[22:1] & ~carry_d[21:0] | carry_d[22:1] & ~carry_g[21:0])
  | ~carry_p[23:2] & (carry_g[22:1] & ~carry_g[21:0] | carry_d[22:1] & ~carry_d[21:0]);
 

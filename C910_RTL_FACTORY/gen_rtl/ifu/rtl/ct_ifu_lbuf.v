@@ -187,1030 +187,1030 @@ module ct_ifu_lbuf(
 );
 
 // &Ports; @23
-input   [31:0]  bht_lbuf_pre_ntaken_result;               
-input   [31:0]  bht_lbuf_pre_taken_result;                
-input   [21:0]  bht_lbuf_vghr;                            
-input           cp0_ifu_icg_en;                           
-input           cp0_ifu_lbuf_en;                          
-input   [7 :0]  cp0_ifu_vl;                               
-input           cp0_ifu_vsetvli_pred_disable;             
-input           cp0_ifu_vsetvli_pred_mode;                
-input           cp0_yy_clk_en;                            
-input           cpurst_b;                                 
-input           forever_cpuclk;                           
-input           ibctrl_lbuf_bju_mispred;                  
-input           ibctrl_lbuf_create_vld;                   
-input           ibctrl_lbuf_flush;                        
-input           ibctrl_lbuf_retire_vld;                   
-input   [1 :0]  ibdp_lbuf_bht_sel_array_result;           
-input   [38:0]  ibdp_lbuf_con_br_cur_pc;                  
-input   [3 :0]  ibdp_lbuf_con_br_half_num;                
-input           ibdp_lbuf_con_br_inst_32;                 
-input   [20:0]  ibdp_lbuf_con_br_offset;                  
-input           ibdp_lbuf_con_br_taken;                   
-input   [7 :0]  ibdp_lbuf_con_br_vl;                      
-input   [1 :0]  ibdp_lbuf_con_br_vlmul;                   
-input   [2 :0]  ibdp_lbuf_con_br_vsew;                    
-input           ibdp_lbuf_h0_32_start;                    
-input           ibdp_lbuf_h0_bkpta;                       
-input           ibdp_lbuf_h0_bkptb;                       
-input           ibdp_lbuf_h0_con_br;                      
-input   [15:0]  ibdp_lbuf_h0_data;                        
-input           ibdp_lbuf_h0_fence;                       
-input   [2 :0]  ibdp_lbuf_h0_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h0_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h0_vl;                          
-input           ibdp_lbuf_h0_vld;                         
-input   [1 :0]  ibdp_lbuf_h0_vlmul;                       
-input           ibdp_lbuf_h0_vsetvli;                     
-input   [2 :0]  ibdp_lbuf_h0_vsew;                        
-input   [15:0]  ibdp_lbuf_h1_data;                        
-input   [2 :0]  ibdp_lbuf_h1_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h1_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h1_vl;                          
-input   [1 :0]  ibdp_lbuf_h1_vlmul;                       
-input   [2 :0]  ibdp_lbuf_h1_vsew;                        
-input   [15:0]  ibdp_lbuf_h2_data;                        
-input   [2 :0]  ibdp_lbuf_h2_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h2_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h2_vl;                          
-input   [1 :0]  ibdp_lbuf_h2_vlmul;                       
-input   [2 :0]  ibdp_lbuf_h2_vsew;                        
-input   [15:0]  ibdp_lbuf_h3_data;                        
-input   [2 :0]  ibdp_lbuf_h3_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h3_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h3_vl;                          
-input   [1 :0]  ibdp_lbuf_h3_vlmul;                       
-input   [2 :0]  ibdp_lbuf_h3_vsew;                        
-input   [15:0]  ibdp_lbuf_h4_data;                        
-input   [2 :0]  ibdp_lbuf_h4_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h4_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h4_vl;                          
-input   [1 :0]  ibdp_lbuf_h4_vlmul;                       
-input   [2 :0]  ibdp_lbuf_h4_vsew;                        
-input   [15:0]  ibdp_lbuf_h5_data;                        
-input   [2 :0]  ibdp_lbuf_h5_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h5_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h5_vl;                          
-input   [1 :0]  ibdp_lbuf_h5_vlmul;                       
-input   [2 :0]  ibdp_lbuf_h5_vsew;                        
-input   [15:0]  ibdp_lbuf_h6_data;                        
-input   [2 :0]  ibdp_lbuf_h6_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h6_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h6_vl;                          
-input   [1 :0]  ibdp_lbuf_h6_vlmul;                       
-input   [2 :0]  ibdp_lbuf_h6_vsew;                        
-input   [15:0]  ibdp_lbuf_h7_data;                        
-input   [2 :0]  ibdp_lbuf_h7_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h7_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h7_vl;                          
-input   [1 :0]  ibdp_lbuf_h7_vlmul;                       
-input   [2 :0]  ibdp_lbuf_h7_vsew;                        
-input   [15:0]  ibdp_lbuf_h8_data;                        
-input   [2 :0]  ibdp_lbuf_h8_split0_type;                 
-input   [2 :0]  ibdp_lbuf_h8_split1_type;                 
-input   [7 :0]  ibdp_lbuf_h8_vl;                          
-input   [1 :0]  ibdp_lbuf_h8_vlmul;                       
-input   [2 :0]  ibdp_lbuf_h8_vsew;                        
-input   [3 :0]  ibdp_lbuf_half_vld_num;                   
-input   [7 :0]  ibdp_lbuf_hn_32_start;                    
-input   [7 :0]  ibdp_lbuf_hn_auipc;                       
-input   [7 :0]  ibdp_lbuf_hn_bkpta;                       
-input   [7 :0]  ibdp_lbuf_hn_bkptb;                       
-input   [7 :0]  ibdp_lbuf_hn_chgflw;                      
-input   [7 :0]  ibdp_lbuf_hn_con_br;                      
-input   [7 :0]  ibdp_lbuf_hn_fence;                       
-input   [7 :0]  ibdp_lbuf_hn_vld;                         
-input   [7 :0]  ibdp_lbuf_hn_vsetvli;                     
-input           ibuf_lbuf_empty;                          
-input           ifctrl_lbuf_ins_inv_on;                   
-input           ifctrl_lbuf_inv_req;                      
-input   [7 :0]  ipdp_lbuf_vl_reg;                         
-input   [1 :0]  ipdp_lbuf_vlmul_reg;                      
-input   [2 :0]  ipdp_lbuf_vsew_reg;                       
-input           iu_ifu_bht_check_vld;                     
-input           iu_ifu_bht_condbr_taken;                  
-input           iu_ifu_chgflw_vld;                        
-input   [38:0]  iu_ifu_cur_pc;                            
-input           pad_yy_icg_scan_en;                       
-output          lbuf_addrgen_active_state;                
-output          lbuf_addrgen_cache_state;                 
-output          lbuf_addrgen_chgflw_mask;                 
-output          lbuf_bht_active_state;                    
-output          lbuf_bht_con_br_taken;                    
-output          lbuf_bht_con_br_vld;                      
-output  [5 :0]  lbuf_debug_st;                            
-output          lbuf_ibctrl_active_idle_flush;            
-output  [38:0]  lbuf_ibctrl_chgflw_pc;                    
-output  [1 :0]  lbuf_ibctrl_chgflw_pred;                  
-output  [7 :0]  lbuf_ibctrl_chgflw_vl;                    
-output          lbuf_ibctrl_chgflw_vld;                   
-output  [1 :0]  lbuf_ibctrl_chgflw_vlmul;                 
-output  [2 :0]  lbuf_ibctrl_chgflw_vsew;                  
-output          lbuf_ibctrl_lbuf_active;                  
-output          lbuf_ibctrl_stall;                        
-output  [31:0]  lbuf_ibdp_inst0;                          
-output          lbuf_ibdp_inst0_bkpta;                    
-output          lbuf_ibdp_inst0_bkptb;                    
-output          lbuf_ibdp_inst0_fence;                    
-output  [14:0]  lbuf_ibdp_inst0_pc;                       
-output          lbuf_ibdp_inst0_split0;                   
-output          lbuf_ibdp_inst0_split1;                   
-output          lbuf_ibdp_inst0_valid;                    
-output  [7 :0]  lbuf_ibdp_inst0_vl;                       
-output  [1 :0]  lbuf_ibdp_inst0_vlmul;                    
-output  [2 :0]  lbuf_ibdp_inst0_vsew;                     
-output  [31:0]  lbuf_ibdp_inst1;                          
-output          lbuf_ibdp_inst1_bkpta;                    
-output          lbuf_ibdp_inst1_bkptb;                    
-output          lbuf_ibdp_inst1_fence;                    
-output  [14:0]  lbuf_ibdp_inst1_pc;                       
-output          lbuf_ibdp_inst1_split0;                   
-output          lbuf_ibdp_inst1_split1;                   
-output          lbuf_ibdp_inst1_valid;                    
-output  [7 :0]  lbuf_ibdp_inst1_vl;                       
-output  [1 :0]  lbuf_ibdp_inst1_vlmul;                    
-output  [2 :0]  lbuf_ibdp_inst1_vsew;                     
-output  [31:0]  lbuf_ibdp_inst2;                          
-output          lbuf_ibdp_inst2_bkpta;                    
-output          lbuf_ibdp_inst2_bkptb;                    
-output          lbuf_ibdp_inst2_fence;                    
-output  [14:0]  lbuf_ibdp_inst2_pc;                       
-output          lbuf_ibdp_inst2_split0;                   
-output          lbuf_ibdp_inst2_split1;                   
-output          lbuf_ibdp_inst2_valid;                    
-output  [7 :0]  lbuf_ibdp_inst2_vl;                       
-output  [1 :0]  lbuf_ibdp_inst2_vlmul;                    
-output  [2 :0]  lbuf_ibdp_inst2_vsew;                     
-output          lbuf_ipdp_lbuf_active;                    
-output  [7 :0]  lbuf_ipdp_updt_vl;                        
-output  [1 :0]  lbuf_ipdp_updt_vlmul;                     
-output  [2 :0]  lbuf_ipdp_updt_vsew;                      
-output          lbuf_ipdp_vtype_updt_vld;                 
-output          lbuf_pcfifo_if_create_select;             
-output  [1 :0]  lbuf_pcfifo_if_inst_bht_pre_result;       
-output  [1 :0]  lbuf_pcfifo_if_inst_bht_sel_result;       
-output  [38:0]  lbuf_pcfifo_if_inst_cur_pc;               
-output          lbuf_pcfifo_if_inst_pc_oper;              
-output  [38:0]  lbuf_pcfifo_if_inst_target_pc;            
-output  [21:0]  lbuf_pcfifo_if_inst_vghr;                 
-output          lbuf_pcgen_active;                        
-output          lbuf_pcgen_vld_mask;                      
+input   [31:0]  bht_lbuf_pre_ntaken_result;
+input   [31:0]  bht_lbuf_pre_taken_result;
+input   [21:0]  bht_lbuf_vghr;
+input           cp0_ifu_icg_en;
+input           cp0_ifu_lbuf_en;
+input   [7 :0]  cp0_ifu_vl;
+input           cp0_ifu_vsetvli_pred_disable;
+input           cp0_ifu_vsetvli_pred_mode;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           ibctrl_lbuf_bju_mispred;
+input           ibctrl_lbuf_create_vld;
+input           ibctrl_lbuf_flush;
+input           ibctrl_lbuf_retire_vld;
+input   [1 :0]  ibdp_lbuf_bht_sel_array_result;
+input   [38:0]  ibdp_lbuf_con_br_cur_pc;
+input   [3 :0]  ibdp_lbuf_con_br_half_num;
+input           ibdp_lbuf_con_br_inst_32;
+input   [20:0]  ibdp_lbuf_con_br_offset;
+input           ibdp_lbuf_con_br_taken;
+input   [7 :0]  ibdp_lbuf_con_br_vl;
+input   [1 :0]  ibdp_lbuf_con_br_vlmul;
+input   [2 :0]  ibdp_lbuf_con_br_vsew;
+input           ibdp_lbuf_h0_32_start;
+input           ibdp_lbuf_h0_bkpta;
+input           ibdp_lbuf_h0_bkptb;
+input           ibdp_lbuf_h0_con_br;
+input   [15:0]  ibdp_lbuf_h0_data;
+input           ibdp_lbuf_h0_fence;
+input   [2 :0]  ibdp_lbuf_h0_split0_type;
+input   [2 :0]  ibdp_lbuf_h0_split1_type;
+input   [7 :0]  ibdp_lbuf_h0_vl;
+input           ibdp_lbuf_h0_vld;
+input   [1 :0]  ibdp_lbuf_h0_vlmul;
+input           ibdp_lbuf_h0_vsetvli;
+input   [2 :0]  ibdp_lbuf_h0_vsew;
+input   [15:0]  ibdp_lbuf_h1_data;
+input   [2 :0]  ibdp_lbuf_h1_split0_type;
+input   [2 :0]  ibdp_lbuf_h1_split1_type;
+input   [7 :0]  ibdp_lbuf_h1_vl;
+input   [1 :0]  ibdp_lbuf_h1_vlmul;
+input   [2 :0]  ibdp_lbuf_h1_vsew;
+input   [15:0]  ibdp_lbuf_h2_data;
+input   [2 :0]  ibdp_lbuf_h2_split0_type;
+input   [2 :0]  ibdp_lbuf_h2_split1_type;
+input   [7 :0]  ibdp_lbuf_h2_vl;
+input   [1 :0]  ibdp_lbuf_h2_vlmul;
+input   [2 :0]  ibdp_lbuf_h2_vsew;
+input   [15:0]  ibdp_lbuf_h3_data;
+input   [2 :0]  ibdp_lbuf_h3_split0_type;
+input   [2 :0]  ibdp_lbuf_h3_split1_type;
+input   [7 :0]  ibdp_lbuf_h3_vl;
+input   [1 :0]  ibdp_lbuf_h3_vlmul;
+input   [2 :0]  ibdp_lbuf_h3_vsew;
+input   [15:0]  ibdp_lbuf_h4_data;
+input   [2 :0]  ibdp_lbuf_h4_split0_type;
+input   [2 :0]  ibdp_lbuf_h4_split1_type;
+input   [7 :0]  ibdp_lbuf_h4_vl;
+input   [1 :0]  ibdp_lbuf_h4_vlmul;
+input   [2 :0]  ibdp_lbuf_h4_vsew;
+input   [15:0]  ibdp_lbuf_h5_data;
+input   [2 :0]  ibdp_lbuf_h5_split0_type;
+input   [2 :0]  ibdp_lbuf_h5_split1_type;
+input   [7 :0]  ibdp_lbuf_h5_vl;
+input   [1 :0]  ibdp_lbuf_h5_vlmul;
+input   [2 :0]  ibdp_lbuf_h5_vsew;
+input   [15:0]  ibdp_lbuf_h6_data;
+input   [2 :0]  ibdp_lbuf_h6_split0_type;
+input   [2 :0]  ibdp_lbuf_h6_split1_type;
+input   [7 :0]  ibdp_lbuf_h6_vl;
+input   [1 :0]  ibdp_lbuf_h6_vlmul;
+input   [2 :0]  ibdp_lbuf_h6_vsew;
+input   [15:0]  ibdp_lbuf_h7_data;
+input   [2 :0]  ibdp_lbuf_h7_split0_type;
+input   [2 :0]  ibdp_lbuf_h7_split1_type;
+input   [7 :0]  ibdp_lbuf_h7_vl;
+input   [1 :0]  ibdp_lbuf_h7_vlmul;
+input   [2 :0]  ibdp_lbuf_h7_vsew;
+input   [15:0]  ibdp_lbuf_h8_data;
+input   [2 :0]  ibdp_lbuf_h8_split0_type;
+input   [2 :0]  ibdp_lbuf_h8_split1_type;
+input   [7 :0]  ibdp_lbuf_h8_vl;
+input   [1 :0]  ibdp_lbuf_h8_vlmul;
+input   [2 :0]  ibdp_lbuf_h8_vsew;
+input   [3 :0]  ibdp_lbuf_half_vld_num;
+input   [7 :0]  ibdp_lbuf_hn_32_start;
+input   [7 :0]  ibdp_lbuf_hn_auipc;
+input   [7 :0]  ibdp_lbuf_hn_bkpta;
+input   [7 :0]  ibdp_lbuf_hn_bkptb;
+input   [7 :0]  ibdp_lbuf_hn_chgflw;
+input   [7 :0]  ibdp_lbuf_hn_con_br;
+input   [7 :0]  ibdp_lbuf_hn_fence;
+input   [7 :0]  ibdp_lbuf_hn_vld;
+input   [7 :0]  ibdp_lbuf_hn_vsetvli;
+input           ibuf_lbuf_empty;
+input           ifctrl_lbuf_ins_inv_on;
+input           ifctrl_lbuf_inv_req;
+input   [7 :0]  ipdp_lbuf_vl_reg;
+input   [1 :0]  ipdp_lbuf_vlmul_reg;
+input   [2 :0]  ipdp_lbuf_vsew_reg;
+input           iu_ifu_bht_check_vld;
+input           iu_ifu_bht_condbr_taken;
+input           iu_ifu_chgflw_vld;
+input   [38:0]  iu_ifu_cur_pc;
+input           pad_yy_icg_scan_en;
+output          lbuf_addrgen_active_state;
+output          lbuf_addrgen_cache_state;
+output          lbuf_addrgen_chgflw_mask;
+output          lbuf_bht_active_state;
+output          lbuf_bht_con_br_taken;
+output          lbuf_bht_con_br_vld;
+output  [5 :0]  lbuf_debug_st;
+output          lbuf_ibctrl_active_idle_flush;
+output  [38:0]  lbuf_ibctrl_chgflw_pc;
+output  [1 :0]  lbuf_ibctrl_chgflw_pred;
+output  [7 :0]  lbuf_ibctrl_chgflw_vl;
+output          lbuf_ibctrl_chgflw_vld;
+output  [1 :0]  lbuf_ibctrl_chgflw_vlmul;
+output  [2 :0]  lbuf_ibctrl_chgflw_vsew;
+output          lbuf_ibctrl_lbuf_active;
+output          lbuf_ibctrl_stall;
+output  [31:0]  lbuf_ibdp_inst0;
+output          lbuf_ibdp_inst0_bkpta;
+output          lbuf_ibdp_inst0_bkptb;
+output          lbuf_ibdp_inst0_fence;
+output  [14:0]  lbuf_ibdp_inst0_pc;
+output          lbuf_ibdp_inst0_split0;
+output          lbuf_ibdp_inst0_split1;
+output          lbuf_ibdp_inst0_valid;
+output  [7 :0]  lbuf_ibdp_inst0_vl;
+output  [1 :0]  lbuf_ibdp_inst0_vlmul;
+output  [2 :0]  lbuf_ibdp_inst0_vsew;
+output  [31:0]  lbuf_ibdp_inst1;
+output          lbuf_ibdp_inst1_bkpta;
+output          lbuf_ibdp_inst1_bkptb;
+output          lbuf_ibdp_inst1_fence;
+output  [14:0]  lbuf_ibdp_inst1_pc;
+output          lbuf_ibdp_inst1_split0;
+output          lbuf_ibdp_inst1_split1;
+output          lbuf_ibdp_inst1_valid;
+output  [7 :0]  lbuf_ibdp_inst1_vl;
+output  [1 :0]  lbuf_ibdp_inst1_vlmul;
+output  [2 :0]  lbuf_ibdp_inst1_vsew;
+output  [31:0]  lbuf_ibdp_inst2;
+output          lbuf_ibdp_inst2_bkpta;
+output          lbuf_ibdp_inst2_bkptb;
+output          lbuf_ibdp_inst2_fence;
+output  [14:0]  lbuf_ibdp_inst2_pc;
+output          lbuf_ibdp_inst2_split0;
+output          lbuf_ibdp_inst2_split1;
+output          lbuf_ibdp_inst2_valid;
+output  [7 :0]  lbuf_ibdp_inst2_vl;
+output  [1 :0]  lbuf_ibdp_inst2_vlmul;
+output  [2 :0]  lbuf_ibdp_inst2_vsew;
+output          lbuf_ipdp_lbuf_active;
+output  [7 :0]  lbuf_ipdp_updt_vl;
+output  [1 :0]  lbuf_ipdp_updt_vlmul;
+output  [2 :0]  lbuf_ipdp_updt_vsew;
+output          lbuf_ipdp_vtype_updt_vld;
+output          lbuf_pcfifo_if_create_select;
+output  [1 :0]  lbuf_pcfifo_if_inst_bht_pre_result;
+output  [1 :0]  lbuf_pcfifo_if_inst_bht_sel_result;
+output  [38:0]  lbuf_pcfifo_if_inst_cur_pc;
+output          lbuf_pcfifo_if_inst_pc_oper;
+output  [38:0]  lbuf_pcfifo_if_inst_target_pc;
+output  [21:0]  lbuf_pcfifo_if_inst_vghr;
+output          lbuf_pcgen_active;
+output          lbuf_pcgen_vld_mask;
 
 // &Regs; @24
-reg             active_ctc_record;                        
-reg             active_front_fill_chgflw_vld;             
-reg             active_idle_chgflw_vld;                   
-reg     [1 :0]  back_br_bht_pre_result;                   
-reg     [1 :0]  back_br_sel_array_result;                 
-reg     [38:0]  back_entry_cur_pc;                        
-reg             back_entry_inst_32;                       
-reg     [3 :0]  back_entry_start_num;                     
-reg     [38:0]  back_entry_target_pc;                     
-reg             back_entry_vld;                           
-reg     [38:0]  back_update_pre_cur_pc;                   
-reg             back_update_pre_inst_32;                  
-reg     [38:0]  back_update_pre_tar_pc;                   
-reg             back_update_pre_vld_flop;                 
-reg     [15:0]  create_pointer_pre;                       
-reg     [1 :0]  front_br_bht_pre_result;                  
-reg     [3 :0]  front_br_body_num;                        
-reg     [3 :0]  front_br_body_num_pre;                    
-reg     [3 :0]  front_br_body_num_record;                 
-reg     [1 :0]  front_br_sel_array_result;                
-reg             front_entry_body_filled;                  
-reg     [38:0]  front_entry_cur_pc;                       
-reg             front_entry_inst_32;                      
-reg     [15:0]  front_entry_next_pointer;                 
-reg     [38:0]  front_entry_target_pc;                    
-reg     [15:0]  front_entry_update_pointer;               
-reg             front_entry_vld;                          
-reg     [15:0]  front_update_pointer;                     
-reg             front_update_pre_br_taken;                
-reg     [38:0]  front_update_pre_cur_pc;                  
-reg             front_update_pre_inst_32;                 
-reg     [3 :0]  front_update_pre_offset;                  
-reg     [15:0]  front_update_pre_pointer;                 
-reg     [8 :0]  front_vld_mask;                           
-reg             inst0_bht_result;                         
-reg             inst1_bht_result;                         
-reg             inst2_bht_result;                         
-reg     [15:0]  lbuf_create_pointer;                      
-reg     [3 :0]  lbuf_cur_entry_num;                       
-reg     [38:0]  lbuf_cur_pc;                              
-reg     [38:0]  lbuf_cur_pc_branch_pre;                   
-reg     [38:0]  lbuf_cur_pc_pre;                          
-reg     [5 :0]  lbuf_cur_state;                           
-reg     [15:0]  lbuf_front_br_pointer_pre;                
-reg     [38:0]  lbuf_ibctrl_chgflw_pc;                    
-reg     [7 :0]  lbuf_ibctrl_chgflw_vl;                    
-reg     [1 :0]  lbuf_ibctrl_chgflw_vlmul;                 
-reg     [2 :0]  lbuf_ibctrl_chgflw_vsew;                  
-reg     [5 :0]  lbuf_next_state;                          
-reg     [38:0]  lbuf_pc_pop1_pre;                         
-reg     [38:0]  lbuf_pc_pop2_pre;                         
-reg     [38:0]  lbuf_pc_pop3_pre;                         
-reg     [2 :0]  lbuf_pop1_half_num;                       
-reg     [2 :0]  lbuf_pop2_half_num;                       
-reg     [2 :0]  lbuf_pop3_half_num;                       
-reg             lbuf_pop_inst0_back_br;                   
-reg             lbuf_pop_inst0_bkpta;                     
-reg             lbuf_pop_inst0_bkptb;                     
-reg             lbuf_pop_inst0_br;                        
-reg     [31:0]  lbuf_pop_inst0_data;                      
-reg             lbuf_pop_inst0_fence;                     
-reg             lbuf_pop_inst0_front_br;                  
-reg     [14:0]  lbuf_pop_inst0_pc;                        
-reg     [38:0]  lbuf_pop_inst0_pc_br_pre;                 
-reg     [15:0]  lbuf_pop_inst0_retire_pointer_br_pre;     
-reg     [2 :0]  lbuf_pop_inst0_split0_type;               
-reg     [2 :0]  lbuf_pop_inst0_split1_type;               
-reg             lbuf_pop_inst0_valid;                     
-reg     [7 :0]  lbuf_pop_inst0_vl_pre;                    
-reg     [1 :0]  lbuf_pop_inst0_vlmul_pre;                 
-reg             lbuf_pop_inst0_vsetvli;                   
-reg     [2 :0]  lbuf_pop_inst0_vsew_pre;                  
-reg             lbuf_pop_inst1_back_br;                   
-reg             lbuf_pop_inst1_bkpta;                     
-reg             lbuf_pop_inst1_bkptb;                     
-reg             lbuf_pop_inst1_br;                        
-reg     [31:0]  lbuf_pop_inst1_data;                      
-reg             lbuf_pop_inst1_fence;                     
-reg             lbuf_pop_inst1_front_br;                  
-reg     [14:0]  lbuf_pop_inst1_pc;                        
-reg     [38:0]  lbuf_pop_inst1_pc_br_pre;                 
-reg     [15:0]  lbuf_pop_inst1_retire_pointer_br_pre;     
-reg     [2 :0]  lbuf_pop_inst1_split0_type;               
-reg     [2 :0]  lbuf_pop_inst1_split1_type;               
-reg             lbuf_pop_inst1_valid;                     
-reg     [7 :0]  lbuf_pop_inst1_vl_pre;                    
-reg     [1 :0]  lbuf_pop_inst1_vlmul_pre;                 
-reg             lbuf_pop_inst1_vsetvli;                   
-reg     [2 :0]  lbuf_pop_inst1_vsew_pre;                  
-reg             lbuf_pop_inst2_back_br;                   
-reg             lbuf_pop_inst2_bkpta;                     
-reg             lbuf_pop_inst2_bkptb;                     
-reg             lbuf_pop_inst2_br;                        
-reg     [31:0]  lbuf_pop_inst2_data;                      
-reg             lbuf_pop_inst2_fence;                     
-reg             lbuf_pop_inst2_front_br;                  
-reg     [14:0]  lbuf_pop_inst2_pc;                        
-reg     [38:0]  lbuf_pop_inst2_pc_br_pre;                 
-reg     [15:0]  lbuf_pop_inst2_retire_pointer_br_pre;     
-reg     [2 :0]  lbuf_pop_inst2_split0_type;               
-reg     [2 :0]  lbuf_pop_inst2_split1_type;               
-reg             lbuf_pop_inst2_valid;                     
-reg     [7 :0]  lbuf_pop_inst2_vl_pre;                    
-reg     [1 :0]  lbuf_pop_inst2_vlmul_pre;                 
-reg             lbuf_pop_inst2_vsetvli;                   
-reg     [2 :0]  lbuf_pop_inst2_vsew_pre;                  
-reg     [15:0]  lbuf_retire_pointer;                      
-reg     [15:0]  lbuf_retire_pointer_branch_pre;           
-reg     [15:0]  lbuf_retire_pointer_pop1_pre;             
-reg     [15:0]  lbuf_retire_pointer_pop2_pre;             
-reg     [15:0]  lbuf_retire_pointer_pop3_pre;             
-reg     [15:0]  lbuf_retire_pointer_pre;                  
-reg             lbuf_stop_fetch_chgflw_vld;               
-reg     [38:0]  new_record_cur_pc;                        
-reg     [38:0]  new_record_target_pc;                     
-reg             record_fifo_bit;                          
-reg             record_fifo_entry0_ban;                   
-reg             record_fifo_entry0_filled;                
-reg     [3 :0]  record_fifo_entry0_offset;                
-reg     [38:0]  record_fifo_entry0_pc;                    
-reg     [1 :0]  record_fifo_entry0_pred_mode;             
-reg             record_fifo_entry0_valid;                 
-reg             record_fifo_entry1_ban;                   
-reg             record_fifo_entry1_filled;                
-reg     [3 :0]  record_fifo_entry1_offset;                
-reg     [38:0]  record_fifo_entry1_pc;                    
-reg     [1 :0]  record_fifo_entry1_pred_mode;             
-reg             record_fifo_entry1_valid;                 
-reg             record_fifo_update_flop;                  
+reg             active_ctc_record;
+reg             active_front_fill_chgflw_vld;
+reg             active_idle_chgflw_vld;
+reg     [1 :0]  back_br_bht_pre_result;
+reg     [1 :0]  back_br_sel_array_result;
+reg     [38:0]  back_entry_cur_pc;
+reg             back_entry_inst_32;
+reg     [3 :0]  back_entry_start_num;
+reg     [38:0]  back_entry_target_pc;
+reg             back_entry_vld;
+reg     [38:0]  back_update_pre_cur_pc;
+reg             back_update_pre_inst_32;
+reg     [38:0]  back_update_pre_tar_pc;
+reg             back_update_pre_vld_flop;
+reg     [15:0]  create_pointer_pre;
+reg     [1 :0]  front_br_bht_pre_result;
+reg     [3 :0]  front_br_body_num;
+reg     [3 :0]  front_br_body_num_pre;
+reg     [3 :0]  front_br_body_num_record;
+reg     [1 :0]  front_br_sel_array_result;
+reg             front_entry_body_filled;
+reg     [38:0]  front_entry_cur_pc;
+reg             front_entry_inst_32;
+reg     [15:0]  front_entry_next_pointer;
+reg     [38:0]  front_entry_target_pc;
+reg     [15:0]  front_entry_update_pointer;
+reg             front_entry_vld;
+reg     [15:0]  front_update_pointer;
+reg             front_update_pre_br_taken;
+reg     [38:0]  front_update_pre_cur_pc;
+reg             front_update_pre_inst_32;
+reg     [3 :0]  front_update_pre_offset;
+reg     [15:0]  front_update_pre_pointer;
+reg     [8 :0]  front_vld_mask;
+reg             inst0_bht_result;
+reg             inst1_bht_result;
+reg             inst2_bht_result;
+reg     [15:0]  lbuf_create_pointer;
+reg     [3 :0]  lbuf_cur_entry_num;
+reg     [38:0]  lbuf_cur_pc;
+reg     [38:0]  lbuf_cur_pc_branch_pre;
+reg     [38:0]  lbuf_cur_pc_pre;
+reg     [5 :0]  lbuf_cur_state;
+reg     [15:0]  lbuf_front_br_pointer_pre;
+reg     [38:0]  lbuf_ibctrl_chgflw_pc;
+reg     [7 :0]  lbuf_ibctrl_chgflw_vl;
+reg     [1 :0]  lbuf_ibctrl_chgflw_vlmul;
+reg     [2 :0]  lbuf_ibctrl_chgflw_vsew;
+reg     [5 :0]  lbuf_next_state;
+reg     [38:0]  lbuf_pc_pop1_pre;
+reg     [38:0]  lbuf_pc_pop2_pre;
+reg     [38:0]  lbuf_pc_pop3_pre;
+reg     [2 :0]  lbuf_pop1_half_num;
+reg     [2 :0]  lbuf_pop2_half_num;
+reg     [2 :0]  lbuf_pop3_half_num;
+reg             lbuf_pop_inst0_back_br;
+reg             lbuf_pop_inst0_bkpta;
+reg             lbuf_pop_inst0_bkptb;
+reg             lbuf_pop_inst0_br;
+reg     [31:0]  lbuf_pop_inst0_data;
+reg             lbuf_pop_inst0_fence;
+reg             lbuf_pop_inst0_front_br;
+reg     [14:0]  lbuf_pop_inst0_pc;
+reg     [38:0]  lbuf_pop_inst0_pc_br_pre;
+reg     [15:0]  lbuf_pop_inst0_retire_pointer_br_pre;
+reg     [2 :0]  lbuf_pop_inst0_split0_type;
+reg     [2 :0]  lbuf_pop_inst0_split1_type;
+reg             lbuf_pop_inst0_valid;
+reg     [7 :0]  lbuf_pop_inst0_vl_pre;
+reg     [1 :0]  lbuf_pop_inst0_vlmul_pre;
+reg             lbuf_pop_inst0_vsetvli;
+reg     [2 :0]  lbuf_pop_inst0_vsew_pre;
+reg             lbuf_pop_inst1_back_br;
+reg             lbuf_pop_inst1_bkpta;
+reg             lbuf_pop_inst1_bkptb;
+reg             lbuf_pop_inst1_br;
+reg     [31:0]  lbuf_pop_inst1_data;
+reg             lbuf_pop_inst1_fence;
+reg             lbuf_pop_inst1_front_br;
+reg     [14:0]  lbuf_pop_inst1_pc;
+reg     [38:0]  lbuf_pop_inst1_pc_br_pre;
+reg     [15:0]  lbuf_pop_inst1_retire_pointer_br_pre;
+reg     [2 :0]  lbuf_pop_inst1_split0_type;
+reg     [2 :0]  lbuf_pop_inst1_split1_type;
+reg             lbuf_pop_inst1_valid;
+reg     [7 :0]  lbuf_pop_inst1_vl_pre;
+reg     [1 :0]  lbuf_pop_inst1_vlmul_pre;
+reg             lbuf_pop_inst1_vsetvli;
+reg     [2 :0]  lbuf_pop_inst1_vsew_pre;
+reg             lbuf_pop_inst2_back_br;
+reg             lbuf_pop_inst2_bkpta;
+reg             lbuf_pop_inst2_bkptb;
+reg             lbuf_pop_inst2_br;
+reg     [31:0]  lbuf_pop_inst2_data;
+reg             lbuf_pop_inst2_fence;
+reg             lbuf_pop_inst2_front_br;
+reg     [14:0]  lbuf_pop_inst2_pc;
+reg     [38:0]  lbuf_pop_inst2_pc_br_pre;
+reg     [15:0]  lbuf_pop_inst2_retire_pointer_br_pre;
+reg     [2 :0]  lbuf_pop_inst2_split0_type;
+reg     [2 :0]  lbuf_pop_inst2_split1_type;
+reg             lbuf_pop_inst2_valid;
+reg     [7 :0]  lbuf_pop_inst2_vl_pre;
+reg     [1 :0]  lbuf_pop_inst2_vlmul_pre;
+reg             lbuf_pop_inst2_vsetvli;
+reg     [2 :0]  lbuf_pop_inst2_vsew_pre;
+reg     [15:0]  lbuf_retire_pointer;
+reg     [15:0]  lbuf_retire_pointer_branch_pre;
+reg     [15:0]  lbuf_retire_pointer_pop1_pre;
+reg     [15:0]  lbuf_retire_pointer_pop2_pre;
+reg     [15:0]  lbuf_retire_pointer_pop3_pre;
+reg     [15:0]  lbuf_retire_pointer_pre;
+reg             lbuf_stop_fetch_chgflw_vld;
+reg     [38:0]  new_record_cur_pc;
+reg     [38:0]  new_record_target_pc;
+reg             record_fifo_bit;
+reg             record_fifo_entry0_ban;
+reg             record_fifo_entry0_filled;
+reg     [3 :0]  record_fifo_entry0_offset;
+reg     [38:0]  record_fifo_entry0_pc;
+reg     [1 :0]  record_fifo_entry0_pred_mode;
+reg             record_fifo_entry0_valid;
+reg             record_fifo_entry1_ban;
+reg             record_fifo_entry1_filled;
+reg     [3 :0]  record_fifo_entry1_offset;
+reg     [38:0]  record_fifo_entry1_pc;
+reg     [1 :0]  record_fifo_entry1_pred_mode;
+reg             record_fifo_entry1_valid;
+reg             record_fifo_update_flop;
 
 // &Wires; @25
-wire            active_front_fill_chgflw_gateclk_en;      
-wire    [38:0]  active_front_fill_chgflw_pc_pre;          
-wire            active_front_fill_chgflw_vld_pre;         
-wire    [7 :0]  active_front_fill_vl_pre;                 
-wire    [1 :0]  active_front_fill_vlmul_pre;              
-wire    [2 :0]  active_front_fill_vsew_pre;               
-wire            active_idle_chgflw_gateclk_en;            
-wire    [38:0]  active_idle_chgflw_pc_pre;                
-wire            active_idle_chgflw_vld_pre;               
-wire    [7 :0]  active_idle_vl_pre;                       
-wire    [1 :0]  active_idle_vlmul_pre;                    
-wire    [2 :0]  active_idle_vsew_pre;                     
-wire            active_state_enter;                       
-wire            back_br_bht_result;                       
-wire            back_br_check;                            
-wire            back_br_hit_filled_new_entry;             
-wire            back_br_hit_filled_old_entry;             
-wire            back_br_hit_lbuf_end;                     
-wire            back_br_hit_not_jump_lbuf_end;            
-wire            back_br_hit_record_fifo_fill;             
-wire            back_br_hit_record_fifo_unfill;           
-wire            back_br_hit_unfill_new_entry;             
-wire            back_br_hit_unfill_old_entry;             
-wire            back_br_inst_32;                          
-wire            back_br_not_loop_end;                     
-wire    [3 :0]  back_br_offset;                           
-wire            back_br_offset_less_15;                   
-wire            back_br_offset_less_16;                   
-wire    [38:0]  back_br_pc;                               
-wire            back_br_sel_array_clk;                    
-wire            back_br_sel_array_clk_en;                 
-wire            back_br_sel_array_record;                 
-wire    [1 :0]  back_br_sel_array_result_pre;             
-wire            back_br_sel_array_update;                 
-wire            back_br_taken;                            
-wire    [38:0]  back_br_tar_pc;                           
-wire            back_buffer_update_clk;                   
-wire            back_buffer_update_clk_en;                
-wire            back_entry_update;                        
-wire    [15:0]  back_entry_update_pointer;                
-wire    [31:0]  back_pre_array_result;                    
-wire    [38:0]  back_update_cur_pc;                       
-wire            back_update_inst_32;                      
-wire            back_update_pre_clk;                      
-wire            back_update_pre_clk_en;                   
-wire            back_update_pre_vld;                      
-wire    [38:0]  back_update_target_pc;                    
-wire    [31:0]  bht_lbuf_pre_ntaken_result;               
-wire    [31:0]  bht_lbuf_pre_taken_result;                
-wire    [21:0]  bht_lbuf_vghr;                            
-wire            bju_mispred;                              
-wire    [38:0]  con_br_cur_pc;                            
-wire    [3 :0]  con_br_half_num;                          
-wire    [38:0]  con_br_offset;                            
-wire            con_br_taken;                             
-wire            cp0_ifu_icg_en;                           
-wire            cp0_ifu_lbuf_en;                          
-wire    [7 :0]  cp0_ifu_vl;                               
-wire            cp0_ifu_vsetvli_pred_disable;             
-wire            cp0_ifu_vsetvli_pred_mode;                
-wire            cp0_yy_clk_en;                            
-wire            cpurst_b;                                 
-wire    [1 :0]  cur_pred_mode;                            
-wire    [15:0]  entry_32_start;                           
-wire    [15:0]  entry_back_br;                            
-wire    [15:0]  entry_bkpta;                              
-wire    [15:0]  entry_bkptb;                              
-wire    [15:0]  entry_create;                             
-wire    [15:0]  entry_create_32_start;                    
-wire    [15:0]  entry_create_back_br;                     
-wire    [15:0]  entry_create_bkpta;                       
-wire    [15:0]  entry_create_bkptb;                       
-wire    [15:0]  entry_create_clk_en;                      
-wire    [15:0]  entry_create_fence;                       
-wire    [15:0]  entry_create_front_br;                    
-wire    [15:0]  entry_create_inst_data_0;                 
-wire    [15:0]  entry_create_inst_data_1;                 
-wire    [15:0]  entry_create_inst_data_10;                
-wire    [15:0]  entry_create_inst_data_11;                
-wire    [15:0]  entry_create_inst_data_12;                
-wire    [15:0]  entry_create_inst_data_13;                
-wire    [15:0]  entry_create_inst_data_14;                
-wire    [15:0]  entry_create_inst_data_15;                
-wire    [15:0]  entry_create_inst_data_2;                 
-wire    [15:0]  entry_create_inst_data_3;                 
-wire    [15:0]  entry_create_inst_data_4;                 
-wire    [15:0]  entry_create_inst_data_5;                 
-wire    [15:0]  entry_create_inst_data_6;                 
-wire    [15:0]  entry_create_inst_data_7;                 
-wire    [15:0]  entry_create_inst_data_8;                 
-wire    [15:0]  entry_create_inst_data_9;                 
-wire    [2 :0]  entry_create_split0_type_0;               
-wire    [2 :0]  entry_create_split0_type_1;               
-wire    [2 :0]  entry_create_split0_type_10;              
-wire    [2 :0]  entry_create_split0_type_11;              
-wire    [2 :0]  entry_create_split0_type_12;              
-wire    [2 :0]  entry_create_split0_type_13;              
-wire    [2 :0]  entry_create_split0_type_14;              
-wire    [2 :0]  entry_create_split0_type_15;              
-wire    [2 :0]  entry_create_split0_type_2;               
-wire    [2 :0]  entry_create_split0_type_3;               
-wire    [2 :0]  entry_create_split0_type_4;               
-wire    [2 :0]  entry_create_split0_type_5;               
-wire    [2 :0]  entry_create_split0_type_6;               
-wire    [2 :0]  entry_create_split0_type_7;               
-wire    [2 :0]  entry_create_split0_type_8;               
-wire    [2 :0]  entry_create_split0_type_9;               
-wire    [2 :0]  entry_create_split1_type_0;               
-wire    [2 :0]  entry_create_split1_type_1;               
-wire    [2 :0]  entry_create_split1_type_10;              
-wire    [2 :0]  entry_create_split1_type_11;              
-wire    [2 :0]  entry_create_split1_type_12;              
-wire    [2 :0]  entry_create_split1_type_13;              
-wire    [2 :0]  entry_create_split1_type_14;              
-wire    [2 :0]  entry_create_split1_type_15;              
-wire    [2 :0]  entry_create_split1_type_2;               
-wire    [2 :0]  entry_create_split1_type_3;               
-wire    [2 :0]  entry_create_split1_type_4;               
-wire    [2 :0]  entry_create_split1_type_5;               
-wire    [2 :0]  entry_create_split1_type_6;               
-wire    [2 :0]  entry_create_split1_type_7;               
-wire    [2 :0]  entry_create_split1_type_8;               
-wire    [2 :0]  entry_create_split1_type_9;               
-wire    [7 :0]  entry_create_vl_0;                        
-wire    [7 :0]  entry_create_vl_1;                        
-wire    [7 :0]  entry_create_vl_10;                       
-wire    [7 :0]  entry_create_vl_11;                       
-wire    [7 :0]  entry_create_vl_12;                       
-wire    [7 :0]  entry_create_vl_13;                       
-wire    [7 :0]  entry_create_vl_14;                       
-wire    [7 :0]  entry_create_vl_15;                       
-wire    [7 :0]  entry_create_vl_2;                        
-wire    [7 :0]  entry_create_vl_3;                        
-wire    [7 :0]  entry_create_vl_4;                        
-wire    [7 :0]  entry_create_vl_5;                        
-wire    [7 :0]  entry_create_vl_6;                        
-wire    [7 :0]  entry_create_vl_7;                        
-wire    [7 :0]  entry_create_vl_8;                        
-wire    [7 :0]  entry_create_vl_9;                        
-wire    [1 :0]  entry_create_vlmul_0;                     
-wire    [1 :0]  entry_create_vlmul_1;                     
-wire    [1 :0]  entry_create_vlmul_10;                    
-wire    [1 :0]  entry_create_vlmul_11;                    
-wire    [1 :0]  entry_create_vlmul_12;                    
-wire    [1 :0]  entry_create_vlmul_13;                    
-wire    [1 :0]  entry_create_vlmul_14;                    
-wire    [1 :0]  entry_create_vlmul_15;                    
-wire    [1 :0]  entry_create_vlmul_2;                     
-wire    [1 :0]  entry_create_vlmul_3;                     
-wire    [1 :0]  entry_create_vlmul_4;                     
-wire    [1 :0]  entry_create_vlmul_5;                     
-wire    [1 :0]  entry_create_vlmul_6;                     
-wire    [1 :0]  entry_create_vlmul_7;                     
-wire    [1 :0]  entry_create_vlmul_8;                     
-wire    [1 :0]  entry_create_vlmul_9;                     
-wire    [15:0]  entry_create_vsetvli;                     
-wire    [2 :0]  entry_create_vsew_0;                      
-wire    [2 :0]  entry_create_vsew_1;                      
-wire    [2 :0]  entry_create_vsew_10;                     
-wire    [2 :0]  entry_create_vsew_11;                     
-wire    [2 :0]  entry_create_vsew_12;                     
-wire    [2 :0]  entry_create_vsew_13;                     
-wire    [2 :0]  entry_create_vsew_14;                     
-wire    [2 :0]  entry_create_vsew_15;                     
-wire    [2 :0]  entry_create_vsew_2;                      
-wire    [2 :0]  entry_create_vsew_3;                      
-wire    [2 :0]  entry_create_vsew_4;                      
-wire    [2 :0]  entry_create_vsew_5;                      
-wire    [2 :0]  entry_create_vsew_6;                      
-wire    [2 :0]  entry_create_vsew_7;                      
-wire    [2 :0]  entry_create_vsew_8;                      
-wire    [2 :0]  entry_create_vsew_9;                      
-wire    [15:0]  entry_fence;                              
-wire    [15:0]  entry_front_br;                           
-wire    [15:0]  entry_inst_data_0;                        
-wire    [15:0]  entry_inst_data_1;                        
-wire    [15:0]  entry_inst_data_10;                       
-wire    [15:0]  entry_inst_data_11;                       
-wire    [15:0]  entry_inst_data_12;                       
-wire    [15:0]  entry_inst_data_13;                       
-wire    [15:0]  entry_inst_data_14;                       
-wire    [15:0]  entry_inst_data_15;                       
-wire    [15:0]  entry_inst_data_2;                        
-wire    [15:0]  entry_inst_data_3;                        
-wire    [15:0]  entry_inst_data_4;                        
-wire    [15:0]  entry_inst_data_5;                        
-wire    [15:0]  entry_inst_data_6;                        
-wire    [15:0]  entry_inst_data_7;                        
-wire    [15:0]  entry_inst_data_8;                        
-wire    [15:0]  entry_inst_data_9;                        
-wire    [2 :0]  entry_split0_type_0;                      
-wire    [2 :0]  entry_split0_type_1;                      
-wire    [2 :0]  entry_split0_type_10;                     
-wire    [2 :0]  entry_split0_type_11;                     
-wire    [2 :0]  entry_split0_type_12;                     
-wire    [2 :0]  entry_split0_type_13;                     
-wire    [2 :0]  entry_split0_type_14;                     
-wire    [2 :0]  entry_split0_type_15;                     
-wire    [2 :0]  entry_split0_type_2;                      
-wire    [2 :0]  entry_split0_type_3;                      
-wire    [2 :0]  entry_split0_type_4;                      
-wire    [2 :0]  entry_split0_type_5;                      
-wire    [2 :0]  entry_split0_type_6;                      
-wire    [2 :0]  entry_split0_type_7;                      
-wire    [2 :0]  entry_split0_type_8;                      
-wire    [2 :0]  entry_split0_type_9;                      
-wire    [2 :0]  entry_split1_type_0;                      
-wire    [2 :0]  entry_split1_type_1;                      
-wire    [2 :0]  entry_split1_type_10;                     
-wire    [2 :0]  entry_split1_type_11;                     
-wire    [2 :0]  entry_split1_type_12;                     
-wire    [2 :0]  entry_split1_type_13;                     
-wire    [2 :0]  entry_split1_type_14;                     
-wire    [2 :0]  entry_split1_type_15;                     
-wire    [2 :0]  entry_split1_type_2;                      
-wire    [2 :0]  entry_split1_type_3;                      
-wire    [2 :0]  entry_split1_type_4;                      
-wire    [2 :0]  entry_split1_type_5;                      
-wire    [2 :0]  entry_split1_type_6;                      
-wire    [2 :0]  entry_split1_type_7;                      
-wire    [2 :0]  entry_split1_type_8;                      
-wire    [2 :0]  entry_split1_type_9;                      
-wire    [7 :0]  entry_vl_0;                               
-wire    [7 :0]  entry_vl_1;                               
-wire    [7 :0]  entry_vl_10;                              
-wire    [7 :0]  entry_vl_11;                              
-wire    [7 :0]  entry_vl_12;                              
-wire    [7 :0]  entry_vl_13;                              
-wire    [7 :0]  entry_vl_14;                              
-wire    [7 :0]  entry_vl_15;                              
-wire    [7 :0]  entry_vl_2;                               
-wire    [7 :0]  entry_vl_3;                               
-wire    [7 :0]  entry_vl_4;                               
-wire    [7 :0]  entry_vl_5;                               
-wire    [7 :0]  entry_vl_6;                               
-wire    [7 :0]  entry_vl_7;                               
-wire    [7 :0]  entry_vl_8;                               
-wire    [7 :0]  entry_vl_9;                               
-wire    [15:0]  entry_vld;                                
-wire    [1 :0]  entry_vlmul_0;                            
-wire    [1 :0]  entry_vlmul_1;                            
-wire    [1 :0]  entry_vlmul_10;                           
-wire    [1 :0]  entry_vlmul_11;                           
-wire    [1 :0]  entry_vlmul_12;                           
-wire    [1 :0]  entry_vlmul_13;                           
-wire    [1 :0]  entry_vlmul_14;                           
-wire    [1 :0]  entry_vlmul_15;                           
-wire    [1 :0]  entry_vlmul_2;                            
-wire    [1 :0]  entry_vlmul_3;                            
-wire    [1 :0]  entry_vlmul_4;                            
-wire    [1 :0]  entry_vlmul_5;                            
-wire    [1 :0]  entry_vlmul_6;                            
-wire    [1 :0]  entry_vlmul_7;                            
-wire    [1 :0]  entry_vlmul_8;                            
-wire    [1 :0]  entry_vlmul_9;                            
-wire    [15:0]  entry_vsetvli;                            
-wire    [2 :0]  entry_vsew_0;                             
-wire    [2 :0]  entry_vsew_1;                             
-wire    [2 :0]  entry_vsew_10;                            
-wire    [2 :0]  entry_vsew_11;                            
-wire    [2 :0]  entry_vsew_12;                            
-wire    [2 :0]  entry_vsew_13;                            
-wire    [2 :0]  entry_vsew_14;                            
-wire    [2 :0]  entry_vsew_15;                            
-wire    [2 :0]  entry_vsew_2;                             
-wire    [2 :0]  entry_vsew_3;                             
-wire    [2 :0]  entry_vsew_4;                             
-wire    [2 :0]  entry_vsew_5;                             
-wire    [2 :0]  entry_vsew_6;                             
-wire    [2 :0]  entry_vsew_7;                             
-wire    [2 :0]  entry_vsew_8;                             
-wire    [2 :0]  entry_vsew_9;                             
-wire            fill_not_under_rule;                      
-wire            fill_state_enter;                         
-wire            forever_cpuclk;                           
-wire            front_br_bht_result;                      
-wire            front_br_body_fill_finish;                
-wire            front_br_body_not_filled;                 
-wire            front_br_body_num_update;                 
-wire            front_br_body_num_update_clk;             
-wire            front_br_body_num_update_clk_en;          
-wire            front_br_check;                           
-wire            front_br_inst_32;                         
-wire            front_br_more_than_one;                   
-wire    [3 :0]  front_br_offset;                          
-wire            front_br_offset_less_16;                  
-wire            front_br_oversize;                        
-wire    [38:0]  front_br_pc;                              
-wire            front_br_sel_array_clk;                   
-wire            front_br_sel_array_clk_en;                
-wire            front_br_sel_array_record;                
-wire    [1 :0]  front_br_sel_array_result_pre;            
-wire            front_br_sel_array_update;                
-wire            front_br_taken;                           
-wire            front_br_under_rule;                      
-wire            front_branch_state;                       
-wire            front_buffer_update_clk;                  
-wire            front_buffer_update_clk_en;               
-wire            front_cache_active_state_enter;           
-wire    [3 :0]  front_cur_num;                            
-wire            front_entry_body_filled_update;           
-wire            front_entry_body_filled_update_gateclk_en; 
-wire            front_entry_update;                       
-wire            front_fill_con_br_check;                  
-wire            front_fill_enter;                         
-wire            front_fill_enter_gateclk_en;              
-wire            front_fill_not_under_rule;                
-wire            front_fill_state;                         
-wire    [31:0]  front_pre_array_result;                   
-wire    [3 :0]  front_target_num;                         
-wire            front_update_br_taken;                    
-wire    [38:0]  front_update_cur_pc;                      
-wire            front_update_inst_32;                     
-wire    [15:0]  front_update_next_pointer;                
-wire    [3 :0]  front_update_offset;                      
-wire            front_update_pre_clk;                     
-wire            front_update_pre_clk_en;                  
-wire            front_update_pre_vld;                     
-wire    [38:0]  front_update_target_pc;                   
-wire    [15:0]  h0_data;                                  
-wire    [2 :0]  h0_split0_type;                           
-wire    [2 :0]  h0_split1_type;                           
-wire    [7 :0]  h0_vl;                                    
-wire    [1 :0]  h0_vlmul;                                 
-wire    [2 :0]  h0_vsew;                                  
-wire    [15:0]  h1_data;                                  
-wire    [2 :0]  h1_split0_type;                           
-wire    [2 :0]  h1_split1_type;                           
-wire    [7 :0]  h1_vl;                                    
-wire    [1 :0]  h1_vlmul;                                 
-wire    [2 :0]  h1_vsew;                                  
-wire    [15:0]  h2_data;                                  
-wire    [2 :0]  h2_split0_type;                           
-wire    [2 :0]  h2_split1_type;                           
-wire    [7 :0]  h2_vl;                                    
-wire    [1 :0]  h2_vlmul;                                 
-wire    [2 :0]  h2_vsew;                                  
-wire    [15:0]  h3_data;                                  
-wire    [2 :0]  h3_split0_type;                           
-wire    [2 :0]  h3_split1_type;                           
-wire    [7 :0]  h3_vl;                                    
-wire    [1 :0]  h3_vlmul;                                 
-wire    [2 :0]  h3_vsew;                                  
-wire    [15:0]  h4_data;                                  
-wire    [2 :0]  h4_split0_type;                           
-wire    [2 :0]  h4_split1_type;                           
-wire    [7 :0]  h4_vl;                                    
-wire    [1 :0]  h4_vlmul;                                 
-wire    [2 :0]  h4_vsew;                                  
-wire    [15:0]  h5_data;                                  
-wire    [2 :0]  h5_split0_type;                           
-wire    [2 :0]  h5_split1_type;                           
-wire    [7 :0]  h5_vl;                                    
-wire    [1 :0]  h5_vlmul;                                 
-wire    [2 :0]  h5_vsew;                                  
-wire    [15:0]  h6_data;                                  
-wire    [2 :0]  h6_split0_type;                           
-wire    [2 :0]  h6_split1_type;                           
-wire    [7 :0]  h6_vl;                                    
-wire    [1 :0]  h6_vlmul;                                 
-wire    [2 :0]  h6_vsew;                                  
-wire    [15:0]  h7_data;                                  
-wire    [2 :0]  h7_split0_type;                           
-wire    [2 :0]  h7_split1_type;                           
-wire    [7 :0]  h7_vl;                                    
-wire    [1 :0]  h7_vlmul;                                 
-wire    [2 :0]  h7_vsew;                                  
-wire    [15:0]  h8_data;                                  
-wire    [2 :0]  h8_split0_type;                           
-wire    [2 :0]  h8_split1_type;                           
-wire    [7 :0]  h8_vl;                                    
-wire    [1 :0]  h8_vlmul;                                 
-wire    [2 :0]  h8_vsew;                                  
-wire    [3 :0]  half_vld_num;                             
-wire    [8 :0]  hn_32_start;                              
-wire    [7 :0]  hn_auipc;                                 
-wire    [8 :0]  hn_back_br;                               
-wire    [8 :0]  hn_bkpta;                                 
-wire    [8 :0]  hn_bkptb;                                 
-wire    [7 :0]  hn_chgflw;                                
-wire    [7 :0]  hn_con_br;                                
-wire    [8 :0]  hn_create_vld;                            
-wire    [8 :0]  hn_create_vld_pre;                        
-wire    [8 :0]  hn_fence;                                 
-wire    [8 :0]  hn_front_br;                              
-wire    [8 :0]  hn_vsetvli;                               
-wire            ibctrl_lbuf_bju_mispred;                  
-wire            ibctrl_lbuf_create_vld;                   
-wire            ibctrl_lbuf_flush;                        
-wire            ibctrl_lbuf_retire_vld;                   
-wire    [1 :0]  ibdp_lbuf_bht_sel_array_result;           
-wire    [38:0]  ibdp_lbuf_con_br_cur_pc;                  
-wire    [3 :0]  ibdp_lbuf_con_br_half_num;                
-wire            ibdp_lbuf_con_br_inst_32;                 
-wire    [20:0]  ibdp_lbuf_con_br_offset;                  
-wire            ibdp_lbuf_con_br_taken;                   
-wire    [7 :0]  ibdp_lbuf_con_br_vl;                      
-wire    [1 :0]  ibdp_lbuf_con_br_vlmul;                   
-wire    [2 :0]  ibdp_lbuf_con_br_vsew;                    
-wire            ibdp_lbuf_h0_32_start;                    
-wire            ibdp_lbuf_h0_bkpta;                       
-wire            ibdp_lbuf_h0_bkptb;                       
-wire            ibdp_lbuf_h0_con_br;                      
-wire    [15:0]  ibdp_lbuf_h0_data;                        
-wire            ibdp_lbuf_h0_fence;                       
-wire    [2 :0]  ibdp_lbuf_h0_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h0_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h0_vl;                          
-wire            ibdp_lbuf_h0_vld;                         
-wire    [1 :0]  ibdp_lbuf_h0_vlmul;                       
-wire            ibdp_lbuf_h0_vsetvli;                     
-wire    [2 :0]  ibdp_lbuf_h0_vsew;                        
-wire    [15:0]  ibdp_lbuf_h1_data;                        
-wire    [2 :0]  ibdp_lbuf_h1_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h1_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h1_vl;                          
-wire    [1 :0]  ibdp_lbuf_h1_vlmul;                       
-wire    [2 :0]  ibdp_lbuf_h1_vsew;                        
-wire    [15:0]  ibdp_lbuf_h2_data;                        
-wire    [2 :0]  ibdp_lbuf_h2_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h2_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h2_vl;                          
-wire    [1 :0]  ibdp_lbuf_h2_vlmul;                       
-wire    [2 :0]  ibdp_lbuf_h2_vsew;                        
-wire    [15:0]  ibdp_lbuf_h3_data;                        
-wire    [2 :0]  ibdp_lbuf_h3_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h3_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h3_vl;                          
-wire    [1 :0]  ibdp_lbuf_h3_vlmul;                       
-wire    [2 :0]  ibdp_lbuf_h3_vsew;                        
-wire    [15:0]  ibdp_lbuf_h4_data;                        
-wire    [2 :0]  ibdp_lbuf_h4_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h4_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h4_vl;                          
-wire    [1 :0]  ibdp_lbuf_h4_vlmul;                       
-wire    [2 :0]  ibdp_lbuf_h4_vsew;                        
-wire    [15:0]  ibdp_lbuf_h5_data;                        
-wire    [2 :0]  ibdp_lbuf_h5_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h5_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h5_vl;                          
-wire    [1 :0]  ibdp_lbuf_h5_vlmul;                       
-wire    [2 :0]  ibdp_lbuf_h5_vsew;                        
-wire    [15:0]  ibdp_lbuf_h6_data;                        
-wire    [2 :0]  ibdp_lbuf_h6_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h6_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h6_vl;                          
-wire    [1 :0]  ibdp_lbuf_h6_vlmul;                       
-wire    [2 :0]  ibdp_lbuf_h6_vsew;                        
-wire    [15:0]  ibdp_lbuf_h7_data;                        
-wire    [2 :0]  ibdp_lbuf_h7_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h7_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h7_vl;                          
-wire    [1 :0]  ibdp_lbuf_h7_vlmul;                       
-wire    [2 :0]  ibdp_lbuf_h7_vsew;                        
-wire    [15:0]  ibdp_lbuf_h8_data;                        
-wire    [2 :0]  ibdp_lbuf_h8_split0_type;                 
-wire    [2 :0]  ibdp_lbuf_h8_split1_type;                 
-wire    [7 :0]  ibdp_lbuf_h8_vl;                          
-wire    [1 :0]  ibdp_lbuf_h8_vlmul;                       
-wire    [2 :0]  ibdp_lbuf_h8_vsew;                        
-wire    [3 :0]  ibdp_lbuf_half_vld_num;                   
-wire    [7 :0]  ibdp_lbuf_hn_32_start;                    
-wire    [7 :0]  ibdp_lbuf_hn_auipc;                       
-wire    [7 :0]  ibdp_lbuf_hn_bkpta;                       
-wire    [7 :0]  ibdp_lbuf_hn_bkptb;                       
-wire    [7 :0]  ibdp_lbuf_hn_chgflw;                      
-wire    [7 :0]  ibdp_lbuf_hn_con_br;                      
-wire    [7 :0]  ibdp_lbuf_hn_fence;                       
-wire    [7 :0]  ibdp_lbuf_hn_vld;                         
-wire    [7 :0]  ibdp_lbuf_hn_vsetvli;                     
-wire            ibuf_empty;                               
-wire            ibuf_lbuf_empty;                          
-wire            idle_cache_state_enter;                   
-wire            ifctrl_lbuf_ins_inv_on;                   
-wire            ifctrl_lbuf_inv_req;                      
-wire            ins_inv_on;                               
-wire            inst_auipc;                               
-wire            inst_other_chgflw;                        
-wire    [7 :0]  ipdp_lbuf_vl_reg;                         
-wire    [1 :0]  ipdp_lbuf_vlmul_reg;                      
-wire    [2 :0]  ipdp_lbuf_vsew_reg;                       
-wire            iu_ifu_bht_check_vld;                     
-wire            iu_ifu_bht_condbr_taken;                  
-wire            iu_ifu_chgflw_vld;                        
-wire    [38:0]  iu_ifu_cur_pc;                            
-wire            lbuf_addrgen_active_state;                
-wire            lbuf_addrgen_cache_state;                 
-wire            lbuf_addrgen_chgflw_mask;                 
-wire            lbuf_bht_active_state;                    
-wire            lbuf_bht_con_br_taken;                    
-wire            lbuf_bht_con_br_vld;                      
-wire            lbuf_chgflw_clk;                          
-wire            lbuf_chgflw_clk_en;                       
-wire            lbuf_chgflw_record_clk;                   
-wire            lbuf_chgflw_record_clk_en;                
-wire    [15:0]  lbuf_create_pointer0;                     
-wire    [15:0]  lbuf_create_pointer1;                     
-wire    [15:0]  lbuf_create_pointer2;                     
-wire    [15:0]  lbuf_create_pointer3;                     
-wire    [15:0]  lbuf_create_pointer4;                     
-wire    [15:0]  lbuf_create_pointer5;                     
-wire    [15:0]  lbuf_create_pointer6;                     
-wire    [15:0]  lbuf_create_pointer7;                     
-wire    [15:0]  lbuf_create_pointer8;                     
-wire            lbuf_create_pointer_update_clk;           
-wire            lbuf_create_pointer_update_clk_en;        
-wire            lbuf_create_vld;                          
-wire            lbuf_cur_entry_num_clk;                   
-wire            lbuf_cur_entry_num_clk_en;                
-wire    [3 :0]  lbuf_cur_entry_num_pre;                   
-wire            lbuf_cur_pc_update_clk;                   
-wire            lbuf_cur_pc_update_clk_en;                
-wire    [5 :0]  lbuf_debug_st;                            
-wire            lbuf_fill_state;                          
-wire            lbuf_flush;                               
-wire            lbuf_ibctrl_active_idle_flush;            
-wire    [1 :0]  lbuf_ibctrl_chgflw_pred;                  
-wire            lbuf_ibctrl_chgflw_vld;                   
-wire            lbuf_ibctrl_lbuf_active;                  
-wire            lbuf_ibctrl_stall;                        
-wire    [31:0]  lbuf_ibdp_inst0;                          
-wire            lbuf_ibdp_inst0_bkpta;                    
-wire            lbuf_ibdp_inst0_bkptb;                    
-wire            lbuf_ibdp_inst0_fence;                    
-wire    [14:0]  lbuf_ibdp_inst0_pc;                       
-wire            lbuf_ibdp_inst0_split0;                   
-wire            lbuf_ibdp_inst0_split1;                   
-wire            lbuf_ibdp_inst0_valid;                    
-wire    [7 :0]  lbuf_ibdp_inst0_vl;                       
-wire    [1 :0]  lbuf_ibdp_inst0_vlmul;                    
-wire    [2 :0]  lbuf_ibdp_inst0_vsew;                     
-wire    [31:0]  lbuf_ibdp_inst1;                          
-wire            lbuf_ibdp_inst1_bkpta;                    
-wire            lbuf_ibdp_inst1_bkptb;                    
-wire            lbuf_ibdp_inst1_fence;                    
-wire    [14:0]  lbuf_ibdp_inst1_pc;                       
-wire            lbuf_ibdp_inst1_split0;                   
-wire            lbuf_ibdp_inst1_split1;                   
-wire            lbuf_ibdp_inst1_valid;                    
-wire    [7 :0]  lbuf_ibdp_inst1_vl;                       
-wire    [1 :0]  lbuf_ibdp_inst1_vlmul;                    
-wire    [2 :0]  lbuf_ibdp_inst1_vsew;                     
-wire    [31:0]  lbuf_ibdp_inst2;                          
-wire            lbuf_ibdp_inst2_bkpta;                    
-wire            lbuf_ibdp_inst2_bkptb;                    
-wire            lbuf_ibdp_inst2_fence;                    
-wire    [14:0]  lbuf_ibdp_inst2_pc;                       
-wire            lbuf_ibdp_inst2_split0;                   
-wire            lbuf_ibdp_inst2_split1;                   
-wire            lbuf_ibdp_inst2_valid;                    
-wire    [7 :0]  lbuf_ibdp_inst2_vl;                       
-wire    [1 :0]  lbuf_ibdp_inst2_vlmul;                    
-wire    [2 :0]  lbuf_ibdp_inst2_vsew;                     
-wire            lbuf_ipdp_lbuf_active;                    
-wire    [7 :0]  lbuf_ipdp_updt_vl;                        
-wire    [1 :0]  lbuf_ipdp_updt_vlmul;                     
-wire    [2 :0]  lbuf_ipdp_updt_vsew;                      
-wire            lbuf_ipdp_vtype_updt_vld;                 
-wire    [38:0]  lbuf_pc_add_1;                            
-wire    [38:0]  lbuf_pc_add_2;                            
-wire    [38:0]  lbuf_pc_add_3;                            
-wire    [38:0]  lbuf_pc_add_4;                            
-wire    [38:0]  lbuf_pc_add_5;                            
-wire    [38:0]  lbuf_pc_add_6;                            
-wire            lbuf_pcfifo_if_create_select;             
-wire    [1 :0]  lbuf_pcfifo_if_inst_bht_pre_result;       
-wire    [1 :0]  lbuf_pcfifo_if_inst_bht_sel_result;       
-wire    [38:0]  lbuf_pcfifo_if_inst_cur_pc;               
-wire            lbuf_pcfifo_if_inst_pc_oper;              
-wire    [38:0]  lbuf_pcfifo_if_inst_target_pc;            
-wire    [21:0]  lbuf_pcfifo_if_inst_vghr;                 
-wire            lbuf_pcgen_active;                        
-wire            lbuf_pcgen_vld_mask;                      
-wire            lbuf_pop_branch_vld;                      
-wire    [38:0]  lbuf_pop_con_br_cur_pc;                   
-wire            lbuf_pop_con_br_inst;                     
-wire            lbuf_pop_con_br_taken;                    
-wire            lbuf_pop_front_br;                        
-wire            lbuf_pop_inst0_br_mask_vld;               
-wire            lbuf_pop_inst0_con_br;                    
-wire    [7 :0]  lbuf_pop_inst0_vl;                        
-wire    [1 :0]  lbuf_pop_inst0_vlmul;                     
-wire    [2 :0]  lbuf_pop_inst0_vsew;                      
-wire            lbuf_pop_inst1_br_mask_vld;               
-wire            lbuf_pop_inst1_con_br;                    
-wire    [7 :0]  lbuf_pop_inst1_vl;                        
-wire    [1 :0]  lbuf_pop_inst1_vlmul;                     
-wire    [2 :0]  lbuf_pop_inst1_vsew;                      
-wire            lbuf_pop_inst2_br_mask_vld;               
-wire            lbuf_pop_inst2_con_br;                    
-wire    [7 :0]  lbuf_pop_inst2_vl;                        
-wire    [1 :0]  lbuf_pop_inst2_vlmul;                     
-wire    [2 :0]  lbuf_pop_inst2_vsew;                      
-wire            lbuf_pop_not_taken_back_br;               
-wire            lbuf_pop_not_taken_front_br;              
-wire    [1 :0]  lbuf_pop_pre_result;                      
-wire    [1 :0]  lbuf_pop_sel_result;                      
-wire    [15:0]  lbuf_retire_pointer0;                     
-wire    [15:0]  lbuf_retire_pointer1;                     
-wire    [15:0]  lbuf_retire_pointer2;                     
-wire    [15:0]  lbuf_retire_pointer3;                     
-wire    [15:0]  lbuf_retire_pointer4;                     
-wire    [15:0]  lbuf_retire_pointer5;                     
-wire            lbuf_retire_pointer_update_clk;           
-wire            lbuf_retire_pointer_update_clk_en;        
-wire            lbuf_retire_vld;                          
-wire            lbuf_sm_clk;                              
-wire            lbuf_sm_clk_en;                           
-wire            lbuf_stop_fetch_chgflw_gateclk_en;        
-wire            lbuf_stop_fetch_chgflw_vld_pre;           
-wire    [7 :0]  lbuf_stop_fetch_vl_pre;                   
-wire    [1 :0]  lbuf_stop_fetch_vlmul_pre;                
-wire    [2 :0]  lbuf_stop_fetch_vsew_pre;                 
-wire    [3 :0]  lbuf_target_entry_num;                    
-wire            lbuf_vld_mask;                            
-wire            loop_buffer_full;                         
-wire            loop_end_br_not_taken;                    
-wire    [38:0]  loop_start_pc;                            
-wire            new_entry_ban;                            
-wire            new_entry_filled;                         
-wire    [38:0]  new_entry_pc;                             
-wire    [1 :0]  new_entry_pred_mode;                      
-wire    [3 :0]  new_entry_start_num;                      
-wire            new_entry_valid;                          
-wire            new_record_entry_out_loop;                
-wire            old_entry_ban;                            
-wire            old_entry_filled;                         
-wire    [38:0]  old_entry_pc;                             
-wire    [1 :0]  old_entry_pred_mode;                      
-wire            old_entry_valid;                          
-wire            pad_yy_icg_scan_en;                       
-wire            pop_h0_32_start;                          
-wire            pop_h0_back_br;                           
-wire            pop_h0_bkpta;                             
-wire            pop_h0_bkptb;                             
-wire            pop_h0_br;                                
-wire    [15:0]  pop_h0_data;                              
-wire            pop_h0_fence;                             
-wire            pop_h0_front_br;                          
-wire    [2 :0]  pop_h0_split0_type;                       
-wire    [2 :0]  pop_h0_split1_type;                       
-wire    [7 :0]  pop_h0_vl;                                
-wire            pop_h0_vld;                               
-wire    [1 :0]  pop_h0_vlmul;                             
-wire            pop_h0_vsetvli;                           
-wire    [2 :0]  pop_h0_vsew;                              
-wire            pop_h1_32_start;                          
-wire            pop_h1_back_br;                           
-wire            pop_h1_bkpta;                             
-wire            pop_h1_bkptb;                             
-wire            pop_h1_br;                                
-wire    [15:0]  pop_h1_data;                              
-wire            pop_h1_fence;                             
-wire            pop_h1_front_br;                          
-wire    [2 :0]  pop_h1_split0_type;                       
-wire    [2 :0]  pop_h1_split1_type;                       
-wire    [7 :0]  pop_h1_vl;                                
-wire            pop_h1_vld;                               
-wire    [1 :0]  pop_h1_vlmul;                             
-wire            pop_h1_vsetvli;                           
-wire    [2 :0]  pop_h1_vsew;                              
-wire            pop_h2_32_start;                          
-wire            pop_h2_back_br;                           
-wire            pop_h2_bkpta;                             
-wire            pop_h2_bkptb;                             
-wire            pop_h2_br;                                
-wire    [15:0]  pop_h2_data;                              
-wire            pop_h2_fence;                             
-wire            pop_h2_front_br;                          
-wire    [2 :0]  pop_h2_split0_type;                       
-wire    [2 :0]  pop_h2_split1_type;                       
-wire    [7 :0]  pop_h2_vl;                                
-wire            pop_h2_vld;                               
-wire    [1 :0]  pop_h2_vlmul;                             
-wire            pop_h2_vsetvli;                           
-wire    [2 :0]  pop_h2_vsew;                              
-wire            pop_h3_32_start;                          
-wire            pop_h3_back_br;                           
-wire            pop_h3_bkpta;                             
-wire            pop_h3_bkptb;                             
-wire            pop_h3_br;                                
-wire    [15:0]  pop_h3_data;                              
-wire            pop_h3_fence;                             
-wire            pop_h3_front_br;                          
-wire    [2 :0]  pop_h3_split0_type;                       
-wire    [2 :0]  pop_h3_split1_type;                       
-wire    [7 :0]  pop_h3_vl;                                
-wire            pop_h3_vld;                               
-wire    [1 :0]  pop_h3_vlmul;                             
-wire            pop_h3_vsetvli;                           
-wire    [2 :0]  pop_h3_vsew;                              
-wire            pop_h4_32_start;                          
-wire            pop_h4_back_br;                           
-wire            pop_h4_bkpta;                             
-wire            pop_h4_bkptb;                             
-wire            pop_h4_br;                                
-wire    [15:0]  pop_h4_data;                              
-wire            pop_h4_fence;                             
-wire            pop_h4_front_br;                          
-wire    [2 :0]  pop_h4_split0_type;                       
-wire    [2 :0]  pop_h4_split1_type;                       
-wire    [7 :0]  pop_h4_vl;                                
-wire            pop_h4_vld;                               
-wire    [1 :0]  pop_h4_vlmul;                             
-wire            pop_h4_vsetvli;                           
-wire    [2 :0]  pop_h4_vsew;                              
-wire    [15:0]  pop_h5_data;                              
-wire    [31:0]  pre_ntaken_result;                        
-wire    [31:0]  pre_taken_result;                         
-wire            record_fifo_bit_clk;                      
-wire            record_fifo_bit_clk_en;                   
-wire            record_fifo_bit_update;                   
-wire            record_fifo_entry_ban_update;             
-wire            record_fifo_entry_ban_update_gateclk_en;  
-wire            record_fifo_entry_clk;                    
-wire            record_fifo_entry_clk_en;                 
-wire            record_fifo_entry_filled_update;          
-wire            record_fifo_update;                       
-wire            record_fifo_update_gateclk_en;            
-wire    [1 :0]  sel_array_result;                         
-wire            taken_front_branch_enter;                 
-wire    [13:0]  vghr;                                     
+wire            active_front_fill_chgflw_gateclk_en;
+wire    [38:0]  active_front_fill_chgflw_pc_pre;
+wire            active_front_fill_chgflw_vld_pre;
+wire    [7 :0]  active_front_fill_vl_pre;
+wire    [1 :0]  active_front_fill_vlmul_pre;
+wire    [2 :0]  active_front_fill_vsew_pre;
+wire            active_idle_chgflw_gateclk_en;
+wire    [38:0]  active_idle_chgflw_pc_pre;
+wire            active_idle_chgflw_vld_pre;
+wire    [7 :0]  active_idle_vl_pre;
+wire    [1 :0]  active_idle_vlmul_pre;
+wire    [2 :0]  active_idle_vsew_pre;
+wire            active_state_enter;
+wire            back_br_bht_result;
+wire            back_br_check;
+wire            back_br_hit_filled_new_entry;
+wire            back_br_hit_filled_old_entry;
+wire            back_br_hit_lbuf_end;
+wire            back_br_hit_not_jump_lbuf_end;
+wire            back_br_hit_record_fifo_fill;
+wire            back_br_hit_record_fifo_unfill;
+wire            back_br_hit_unfill_new_entry;
+wire            back_br_hit_unfill_old_entry;
+wire            back_br_inst_32;
+wire            back_br_not_loop_end;
+wire    [3 :0]  back_br_offset;
+wire            back_br_offset_less_15;
+wire            back_br_offset_less_16;
+wire    [38:0]  back_br_pc;
+wire            back_br_sel_array_clk;
+wire            back_br_sel_array_clk_en;
+wire            back_br_sel_array_record;
+wire    [1 :0]  back_br_sel_array_result_pre;
+wire            back_br_sel_array_update;
+wire            back_br_taken;
+wire    [38:0]  back_br_tar_pc;
+wire            back_buffer_update_clk;
+wire            back_buffer_update_clk_en;
+wire            back_entry_update;
+wire    [15:0]  back_entry_update_pointer;
+wire    [31:0]  back_pre_array_result;
+wire    [38:0]  back_update_cur_pc;
+wire            back_update_inst_32;
+wire            back_update_pre_clk;
+wire            back_update_pre_clk_en;
+wire            back_update_pre_vld;
+wire    [38:0]  back_update_target_pc;
+wire    [31:0]  bht_lbuf_pre_ntaken_result;
+wire    [31:0]  bht_lbuf_pre_taken_result;
+wire    [21:0]  bht_lbuf_vghr;
+wire            bju_mispred;
+wire    [38:0]  con_br_cur_pc;
+wire    [3 :0]  con_br_half_num;
+wire    [38:0]  con_br_offset;
+wire            con_br_taken;
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_lbuf_en;
+wire    [7 :0]  cp0_ifu_vl;
+wire            cp0_ifu_vsetvli_pred_disable;
+wire            cp0_ifu_vsetvli_pred_mode;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [1 :0]  cur_pred_mode;
+wire    [15:0]  entry_32_start;
+wire    [15:0]  entry_back_br;
+wire    [15:0]  entry_bkpta;
+wire    [15:0]  entry_bkptb;
+wire    [15:0]  entry_create;
+wire    [15:0]  entry_create_32_start;
+wire    [15:0]  entry_create_back_br;
+wire    [15:0]  entry_create_bkpta;
+wire    [15:0]  entry_create_bkptb;
+wire    [15:0]  entry_create_clk_en;
+wire    [15:0]  entry_create_fence;
+wire    [15:0]  entry_create_front_br;
+wire    [15:0]  entry_create_inst_data_0;
+wire    [15:0]  entry_create_inst_data_1;
+wire    [15:0]  entry_create_inst_data_10;
+wire    [15:0]  entry_create_inst_data_11;
+wire    [15:0]  entry_create_inst_data_12;
+wire    [15:0]  entry_create_inst_data_13;
+wire    [15:0]  entry_create_inst_data_14;
+wire    [15:0]  entry_create_inst_data_15;
+wire    [15:0]  entry_create_inst_data_2;
+wire    [15:0]  entry_create_inst_data_3;
+wire    [15:0]  entry_create_inst_data_4;
+wire    [15:0]  entry_create_inst_data_5;
+wire    [15:0]  entry_create_inst_data_6;
+wire    [15:0]  entry_create_inst_data_7;
+wire    [15:0]  entry_create_inst_data_8;
+wire    [15:0]  entry_create_inst_data_9;
+wire    [2 :0]  entry_create_split0_type_0;
+wire    [2 :0]  entry_create_split0_type_1;
+wire    [2 :0]  entry_create_split0_type_10;
+wire    [2 :0]  entry_create_split0_type_11;
+wire    [2 :0]  entry_create_split0_type_12;
+wire    [2 :0]  entry_create_split0_type_13;
+wire    [2 :0]  entry_create_split0_type_14;
+wire    [2 :0]  entry_create_split0_type_15;
+wire    [2 :0]  entry_create_split0_type_2;
+wire    [2 :0]  entry_create_split0_type_3;
+wire    [2 :0]  entry_create_split0_type_4;
+wire    [2 :0]  entry_create_split0_type_5;
+wire    [2 :0]  entry_create_split0_type_6;
+wire    [2 :0]  entry_create_split0_type_7;
+wire    [2 :0]  entry_create_split0_type_8;
+wire    [2 :0]  entry_create_split0_type_9;
+wire    [2 :0]  entry_create_split1_type_0;
+wire    [2 :0]  entry_create_split1_type_1;
+wire    [2 :0]  entry_create_split1_type_10;
+wire    [2 :0]  entry_create_split1_type_11;
+wire    [2 :0]  entry_create_split1_type_12;
+wire    [2 :0]  entry_create_split1_type_13;
+wire    [2 :0]  entry_create_split1_type_14;
+wire    [2 :0]  entry_create_split1_type_15;
+wire    [2 :0]  entry_create_split1_type_2;
+wire    [2 :0]  entry_create_split1_type_3;
+wire    [2 :0]  entry_create_split1_type_4;
+wire    [2 :0]  entry_create_split1_type_5;
+wire    [2 :0]  entry_create_split1_type_6;
+wire    [2 :0]  entry_create_split1_type_7;
+wire    [2 :0]  entry_create_split1_type_8;
+wire    [2 :0]  entry_create_split1_type_9;
+wire    [7 :0]  entry_create_vl_0;
+wire    [7 :0]  entry_create_vl_1;
+wire    [7 :0]  entry_create_vl_10;
+wire    [7 :0]  entry_create_vl_11;
+wire    [7 :0]  entry_create_vl_12;
+wire    [7 :0]  entry_create_vl_13;
+wire    [7 :0]  entry_create_vl_14;
+wire    [7 :0]  entry_create_vl_15;
+wire    [7 :0]  entry_create_vl_2;
+wire    [7 :0]  entry_create_vl_3;
+wire    [7 :0]  entry_create_vl_4;
+wire    [7 :0]  entry_create_vl_5;
+wire    [7 :0]  entry_create_vl_6;
+wire    [7 :0]  entry_create_vl_7;
+wire    [7 :0]  entry_create_vl_8;
+wire    [7 :0]  entry_create_vl_9;
+wire    [1 :0]  entry_create_vlmul_0;
+wire    [1 :0]  entry_create_vlmul_1;
+wire    [1 :0]  entry_create_vlmul_10;
+wire    [1 :0]  entry_create_vlmul_11;
+wire    [1 :0]  entry_create_vlmul_12;
+wire    [1 :0]  entry_create_vlmul_13;
+wire    [1 :0]  entry_create_vlmul_14;
+wire    [1 :0]  entry_create_vlmul_15;
+wire    [1 :0]  entry_create_vlmul_2;
+wire    [1 :0]  entry_create_vlmul_3;
+wire    [1 :0]  entry_create_vlmul_4;
+wire    [1 :0]  entry_create_vlmul_5;
+wire    [1 :0]  entry_create_vlmul_6;
+wire    [1 :0]  entry_create_vlmul_7;
+wire    [1 :0]  entry_create_vlmul_8;
+wire    [1 :0]  entry_create_vlmul_9;
+wire    [15:0]  entry_create_vsetvli;
+wire    [2 :0]  entry_create_vsew_0;
+wire    [2 :0]  entry_create_vsew_1;
+wire    [2 :0]  entry_create_vsew_10;
+wire    [2 :0]  entry_create_vsew_11;
+wire    [2 :0]  entry_create_vsew_12;
+wire    [2 :0]  entry_create_vsew_13;
+wire    [2 :0]  entry_create_vsew_14;
+wire    [2 :0]  entry_create_vsew_15;
+wire    [2 :0]  entry_create_vsew_2;
+wire    [2 :0]  entry_create_vsew_3;
+wire    [2 :0]  entry_create_vsew_4;
+wire    [2 :0]  entry_create_vsew_5;
+wire    [2 :0]  entry_create_vsew_6;
+wire    [2 :0]  entry_create_vsew_7;
+wire    [2 :0]  entry_create_vsew_8;
+wire    [2 :0]  entry_create_vsew_9;
+wire    [15:0]  entry_fence;
+wire    [15:0]  entry_front_br;
+wire    [15:0]  entry_inst_data_0;
+wire    [15:0]  entry_inst_data_1;
+wire    [15:0]  entry_inst_data_10;
+wire    [15:0]  entry_inst_data_11;
+wire    [15:0]  entry_inst_data_12;
+wire    [15:0]  entry_inst_data_13;
+wire    [15:0]  entry_inst_data_14;
+wire    [15:0]  entry_inst_data_15;
+wire    [15:0]  entry_inst_data_2;
+wire    [15:0]  entry_inst_data_3;
+wire    [15:0]  entry_inst_data_4;
+wire    [15:0]  entry_inst_data_5;
+wire    [15:0]  entry_inst_data_6;
+wire    [15:0]  entry_inst_data_7;
+wire    [15:0]  entry_inst_data_8;
+wire    [15:0]  entry_inst_data_9;
+wire    [2 :0]  entry_split0_type_0;
+wire    [2 :0]  entry_split0_type_1;
+wire    [2 :0]  entry_split0_type_10;
+wire    [2 :0]  entry_split0_type_11;
+wire    [2 :0]  entry_split0_type_12;
+wire    [2 :0]  entry_split0_type_13;
+wire    [2 :0]  entry_split0_type_14;
+wire    [2 :0]  entry_split0_type_15;
+wire    [2 :0]  entry_split0_type_2;
+wire    [2 :0]  entry_split0_type_3;
+wire    [2 :0]  entry_split0_type_4;
+wire    [2 :0]  entry_split0_type_5;
+wire    [2 :0]  entry_split0_type_6;
+wire    [2 :0]  entry_split0_type_7;
+wire    [2 :0]  entry_split0_type_8;
+wire    [2 :0]  entry_split0_type_9;
+wire    [2 :0]  entry_split1_type_0;
+wire    [2 :0]  entry_split1_type_1;
+wire    [2 :0]  entry_split1_type_10;
+wire    [2 :0]  entry_split1_type_11;
+wire    [2 :0]  entry_split1_type_12;
+wire    [2 :0]  entry_split1_type_13;
+wire    [2 :0]  entry_split1_type_14;
+wire    [2 :0]  entry_split1_type_15;
+wire    [2 :0]  entry_split1_type_2;
+wire    [2 :0]  entry_split1_type_3;
+wire    [2 :0]  entry_split1_type_4;
+wire    [2 :0]  entry_split1_type_5;
+wire    [2 :0]  entry_split1_type_6;
+wire    [2 :0]  entry_split1_type_7;
+wire    [2 :0]  entry_split1_type_8;
+wire    [2 :0]  entry_split1_type_9;
+wire    [7 :0]  entry_vl_0;
+wire    [7 :0]  entry_vl_1;
+wire    [7 :0]  entry_vl_10;
+wire    [7 :0]  entry_vl_11;
+wire    [7 :0]  entry_vl_12;
+wire    [7 :0]  entry_vl_13;
+wire    [7 :0]  entry_vl_14;
+wire    [7 :0]  entry_vl_15;
+wire    [7 :0]  entry_vl_2;
+wire    [7 :0]  entry_vl_3;
+wire    [7 :0]  entry_vl_4;
+wire    [7 :0]  entry_vl_5;
+wire    [7 :0]  entry_vl_6;
+wire    [7 :0]  entry_vl_7;
+wire    [7 :0]  entry_vl_8;
+wire    [7 :0]  entry_vl_9;
+wire    [15:0]  entry_vld;
+wire    [1 :0]  entry_vlmul_0;
+wire    [1 :0]  entry_vlmul_1;
+wire    [1 :0]  entry_vlmul_10;
+wire    [1 :0]  entry_vlmul_11;
+wire    [1 :0]  entry_vlmul_12;
+wire    [1 :0]  entry_vlmul_13;
+wire    [1 :0]  entry_vlmul_14;
+wire    [1 :0]  entry_vlmul_15;
+wire    [1 :0]  entry_vlmul_2;
+wire    [1 :0]  entry_vlmul_3;
+wire    [1 :0]  entry_vlmul_4;
+wire    [1 :0]  entry_vlmul_5;
+wire    [1 :0]  entry_vlmul_6;
+wire    [1 :0]  entry_vlmul_7;
+wire    [1 :0]  entry_vlmul_8;
+wire    [1 :0]  entry_vlmul_9;
+wire    [15:0]  entry_vsetvli;
+wire    [2 :0]  entry_vsew_0;
+wire    [2 :0]  entry_vsew_1;
+wire    [2 :0]  entry_vsew_10;
+wire    [2 :0]  entry_vsew_11;
+wire    [2 :0]  entry_vsew_12;
+wire    [2 :0]  entry_vsew_13;
+wire    [2 :0]  entry_vsew_14;
+wire    [2 :0]  entry_vsew_15;
+wire    [2 :0]  entry_vsew_2;
+wire    [2 :0]  entry_vsew_3;
+wire    [2 :0]  entry_vsew_4;
+wire    [2 :0]  entry_vsew_5;
+wire    [2 :0]  entry_vsew_6;
+wire    [2 :0]  entry_vsew_7;
+wire    [2 :0]  entry_vsew_8;
+wire    [2 :0]  entry_vsew_9;
+wire            fill_not_under_rule;
+wire            fill_state_enter;
+wire            forever_cpuclk;
+wire            front_br_bht_result;
+wire            front_br_body_fill_finish;
+wire            front_br_body_not_filled;
+wire            front_br_body_num_update;
+wire            front_br_body_num_update_clk;
+wire            front_br_body_num_update_clk_en;
+wire            front_br_check;
+wire            front_br_inst_32;
+wire            front_br_more_than_one;
+wire    [3 :0]  front_br_offset;
+wire            front_br_offset_less_16;
+wire            front_br_oversize;
+wire    [38:0]  front_br_pc;
+wire            front_br_sel_array_clk;
+wire            front_br_sel_array_clk_en;
+wire            front_br_sel_array_record;
+wire    [1 :0]  front_br_sel_array_result_pre;
+wire            front_br_sel_array_update;
+wire            front_br_taken;
+wire            front_br_under_rule;
+wire            front_branch_state;
+wire            front_buffer_update_clk;
+wire            front_buffer_update_clk_en;
+wire            front_cache_active_state_enter;
+wire    [3 :0]  front_cur_num;
+wire            front_entry_body_filled_update;
+wire            front_entry_body_filled_update_gateclk_en;
+wire            front_entry_update;
+wire            front_fill_con_br_check;
+wire            front_fill_enter;
+wire            front_fill_enter_gateclk_en;
+wire            front_fill_not_under_rule;
+wire            front_fill_state;
+wire    [31:0]  front_pre_array_result;
+wire    [3 :0]  front_target_num;
+wire            front_update_br_taken;
+wire    [38:0]  front_update_cur_pc;
+wire            front_update_inst_32;
+wire    [15:0]  front_update_next_pointer;
+wire    [3 :0]  front_update_offset;
+wire            front_update_pre_clk;
+wire            front_update_pre_clk_en;
+wire            front_update_pre_vld;
+wire    [38:0]  front_update_target_pc;
+wire    [15:0]  h0_data;
+wire    [2 :0]  h0_split0_type;
+wire    [2 :0]  h0_split1_type;
+wire    [7 :0]  h0_vl;
+wire    [1 :0]  h0_vlmul;
+wire    [2 :0]  h0_vsew;
+wire    [15:0]  h1_data;
+wire    [2 :0]  h1_split0_type;
+wire    [2 :0]  h1_split1_type;
+wire    [7 :0]  h1_vl;
+wire    [1 :0]  h1_vlmul;
+wire    [2 :0]  h1_vsew;
+wire    [15:0]  h2_data;
+wire    [2 :0]  h2_split0_type;
+wire    [2 :0]  h2_split1_type;
+wire    [7 :0]  h2_vl;
+wire    [1 :0]  h2_vlmul;
+wire    [2 :0]  h2_vsew;
+wire    [15:0]  h3_data;
+wire    [2 :0]  h3_split0_type;
+wire    [2 :0]  h3_split1_type;
+wire    [7 :0]  h3_vl;
+wire    [1 :0]  h3_vlmul;
+wire    [2 :0]  h3_vsew;
+wire    [15:0]  h4_data;
+wire    [2 :0]  h4_split0_type;
+wire    [2 :0]  h4_split1_type;
+wire    [7 :0]  h4_vl;
+wire    [1 :0]  h4_vlmul;
+wire    [2 :0]  h4_vsew;
+wire    [15:0]  h5_data;
+wire    [2 :0]  h5_split0_type;
+wire    [2 :0]  h5_split1_type;
+wire    [7 :0]  h5_vl;
+wire    [1 :0]  h5_vlmul;
+wire    [2 :0]  h5_vsew;
+wire    [15:0]  h6_data;
+wire    [2 :0]  h6_split0_type;
+wire    [2 :0]  h6_split1_type;
+wire    [7 :0]  h6_vl;
+wire    [1 :0]  h6_vlmul;
+wire    [2 :0]  h6_vsew;
+wire    [15:0]  h7_data;
+wire    [2 :0]  h7_split0_type;
+wire    [2 :0]  h7_split1_type;
+wire    [7 :0]  h7_vl;
+wire    [1 :0]  h7_vlmul;
+wire    [2 :0]  h7_vsew;
+wire    [15:0]  h8_data;
+wire    [2 :0]  h8_split0_type;
+wire    [2 :0]  h8_split1_type;
+wire    [7 :0]  h8_vl;
+wire    [1 :0]  h8_vlmul;
+wire    [2 :0]  h8_vsew;
+wire    [3 :0]  half_vld_num;
+wire    [8 :0]  hn_32_start;
+wire    [7 :0]  hn_auipc;
+wire    [8 :0]  hn_back_br;
+wire    [8 :0]  hn_bkpta;
+wire    [8 :0]  hn_bkptb;
+wire    [7 :0]  hn_chgflw;
+wire    [7 :0]  hn_con_br;
+wire    [8 :0]  hn_create_vld;
+wire    [8 :0]  hn_create_vld_pre;
+wire    [8 :0]  hn_fence;
+wire    [8 :0]  hn_front_br;
+wire    [8 :0]  hn_vsetvli;
+wire            ibctrl_lbuf_bju_mispred;
+wire            ibctrl_lbuf_create_vld;
+wire            ibctrl_lbuf_flush;
+wire            ibctrl_lbuf_retire_vld;
+wire    [1 :0]  ibdp_lbuf_bht_sel_array_result;
+wire    [38:0]  ibdp_lbuf_con_br_cur_pc;
+wire    [3 :0]  ibdp_lbuf_con_br_half_num;
+wire            ibdp_lbuf_con_br_inst_32;
+wire    [20:0]  ibdp_lbuf_con_br_offset;
+wire            ibdp_lbuf_con_br_taken;
+wire    [7 :0]  ibdp_lbuf_con_br_vl;
+wire    [1 :0]  ibdp_lbuf_con_br_vlmul;
+wire    [2 :0]  ibdp_lbuf_con_br_vsew;
+wire            ibdp_lbuf_h0_32_start;
+wire            ibdp_lbuf_h0_bkpta;
+wire            ibdp_lbuf_h0_bkptb;
+wire            ibdp_lbuf_h0_con_br;
+wire    [15:0]  ibdp_lbuf_h0_data;
+wire            ibdp_lbuf_h0_fence;
+wire    [2 :0]  ibdp_lbuf_h0_split0_type;
+wire    [2 :0]  ibdp_lbuf_h0_split1_type;
+wire    [7 :0]  ibdp_lbuf_h0_vl;
+wire            ibdp_lbuf_h0_vld;
+wire    [1 :0]  ibdp_lbuf_h0_vlmul;
+wire            ibdp_lbuf_h0_vsetvli;
+wire    [2 :0]  ibdp_lbuf_h0_vsew;
+wire    [15:0]  ibdp_lbuf_h1_data;
+wire    [2 :0]  ibdp_lbuf_h1_split0_type;
+wire    [2 :0]  ibdp_lbuf_h1_split1_type;
+wire    [7 :0]  ibdp_lbuf_h1_vl;
+wire    [1 :0]  ibdp_lbuf_h1_vlmul;
+wire    [2 :0]  ibdp_lbuf_h1_vsew;
+wire    [15:0]  ibdp_lbuf_h2_data;
+wire    [2 :0]  ibdp_lbuf_h2_split0_type;
+wire    [2 :0]  ibdp_lbuf_h2_split1_type;
+wire    [7 :0]  ibdp_lbuf_h2_vl;
+wire    [1 :0]  ibdp_lbuf_h2_vlmul;
+wire    [2 :0]  ibdp_lbuf_h2_vsew;
+wire    [15:0]  ibdp_lbuf_h3_data;
+wire    [2 :0]  ibdp_lbuf_h3_split0_type;
+wire    [2 :0]  ibdp_lbuf_h3_split1_type;
+wire    [7 :0]  ibdp_lbuf_h3_vl;
+wire    [1 :0]  ibdp_lbuf_h3_vlmul;
+wire    [2 :0]  ibdp_lbuf_h3_vsew;
+wire    [15:0]  ibdp_lbuf_h4_data;
+wire    [2 :0]  ibdp_lbuf_h4_split0_type;
+wire    [2 :0]  ibdp_lbuf_h4_split1_type;
+wire    [7 :0]  ibdp_lbuf_h4_vl;
+wire    [1 :0]  ibdp_lbuf_h4_vlmul;
+wire    [2 :0]  ibdp_lbuf_h4_vsew;
+wire    [15:0]  ibdp_lbuf_h5_data;
+wire    [2 :0]  ibdp_lbuf_h5_split0_type;
+wire    [2 :0]  ibdp_lbuf_h5_split1_type;
+wire    [7 :0]  ibdp_lbuf_h5_vl;
+wire    [1 :0]  ibdp_lbuf_h5_vlmul;
+wire    [2 :0]  ibdp_lbuf_h5_vsew;
+wire    [15:0]  ibdp_lbuf_h6_data;
+wire    [2 :0]  ibdp_lbuf_h6_split0_type;
+wire    [2 :0]  ibdp_lbuf_h6_split1_type;
+wire    [7 :0]  ibdp_lbuf_h6_vl;
+wire    [1 :0]  ibdp_lbuf_h6_vlmul;
+wire    [2 :0]  ibdp_lbuf_h6_vsew;
+wire    [15:0]  ibdp_lbuf_h7_data;
+wire    [2 :0]  ibdp_lbuf_h7_split0_type;
+wire    [2 :0]  ibdp_lbuf_h7_split1_type;
+wire    [7 :0]  ibdp_lbuf_h7_vl;
+wire    [1 :0]  ibdp_lbuf_h7_vlmul;
+wire    [2 :0]  ibdp_lbuf_h7_vsew;
+wire    [15:0]  ibdp_lbuf_h8_data;
+wire    [2 :0]  ibdp_lbuf_h8_split0_type;
+wire    [2 :0]  ibdp_lbuf_h8_split1_type;
+wire    [7 :0]  ibdp_lbuf_h8_vl;
+wire    [1 :0]  ibdp_lbuf_h8_vlmul;
+wire    [2 :0]  ibdp_lbuf_h8_vsew;
+wire    [3 :0]  ibdp_lbuf_half_vld_num;
+wire    [7 :0]  ibdp_lbuf_hn_32_start;
+wire    [7 :0]  ibdp_lbuf_hn_auipc;
+wire    [7 :0]  ibdp_lbuf_hn_bkpta;
+wire    [7 :0]  ibdp_lbuf_hn_bkptb;
+wire    [7 :0]  ibdp_lbuf_hn_chgflw;
+wire    [7 :0]  ibdp_lbuf_hn_con_br;
+wire    [7 :0]  ibdp_lbuf_hn_fence;
+wire    [7 :0]  ibdp_lbuf_hn_vld;
+wire    [7 :0]  ibdp_lbuf_hn_vsetvli;
+wire            ibuf_empty;
+wire            ibuf_lbuf_empty;
+wire            idle_cache_state_enter;
+wire            ifctrl_lbuf_ins_inv_on;
+wire            ifctrl_lbuf_inv_req;
+wire            ins_inv_on;
+wire            inst_auipc;
+wire            inst_other_chgflw;
+wire    [7 :0]  ipdp_lbuf_vl_reg;
+wire    [1 :0]  ipdp_lbuf_vlmul_reg;
+wire    [2 :0]  ipdp_lbuf_vsew_reg;
+wire            iu_ifu_bht_check_vld;
+wire            iu_ifu_bht_condbr_taken;
+wire            iu_ifu_chgflw_vld;
+wire    [38:0]  iu_ifu_cur_pc;
+wire            lbuf_addrgen_active_state;
+wire            lbuf_addrgen_cache_state;
+wire            lbuf_addrgen_chgflw_mask;
+wire            lbuf_bht_active_state;
+wire            lbuf_bht_con_br_taken;
+wire            lbuf_bht_con_br_vld;
+wire            lbuf_chgflw_clk;
+wire            lbuf_chgflw_clk_en;
+wire            lbuf_chgflw_record_clk;
+wire            lbuf_chgflw_record_clk_en;
+wire    [15:0]  lbuf_create_pointer0;
+wire    [15:0]  lbuf_create_pointer1;
+wire    [15:0]  lbuf_create_pointer2;
+wire    [15:0]  lbuf_create_pointer3;
+wire    [15:0]  lbuf_create_pointer4;
+wire    [15:0]  lbuf_create_pointer5;
+wire    [15:0]  lbuf_create_pointer6;
+wire    [15:0]  lbuf_create_pointer7;
+wire    [15:0]  lbuf_create_pointer8;
+wire            lbuf_create_pointer_update_clk;
+wire            lbuf_create_pointer_update_clk_en;
+wire            lbuf_create_vld;
+wire            lbuf_cur_entry_num_clk;
+wire            lbuf_cur_entry_num_clk_en;
+wire    [3 :0]  lbuf_cur_entry_num_pre;
+wire            lbuf_cur_pc_update_clk;
+wire            lbuf_cur_pc_update_clk_en;
+wire    [5 :0]  lbuf_debug_st;
+wire            lbuf_fill_state;
+wire            lbuf_flush;
+wire            lbuf_ibctrl_active_idle_flush;
+wire    [1 :0]  lbuf_ibctrl_chgflw_pred;
+wire            lbuf_ibctrl_chgflw_vld;
+wire            lbuf_ibctrl_lbuf_active;
+wire            lbuf_ibctrl_stall;
+wire    [31:0]  lbuf_ibdp_inst0;
+wire            lbuf_ibdp_inst0_bkpta;
+wire            lbuf_ibdp_inst0_bkptb;
+wire            lbuf_ibdp_inst0_fence;
+wire    [14:0]  lbuf_ibdp_inst0_pc;
+wire            lbuf_ibdp_inst0_split0;
+wire            lbuf_ibdp_inst0_split1;
+wire            lbuf_ibdp_inst0_valid;
+wire    [7 :0]  lbuf_ibdp_inst0_vl;
+wire    [1 :0]  lbuf_ibdp_inst0_vlmul;
+wire    [2 :0]  lbuf_ibdp_inst0_vsew;
+wire    [31:0]  lbuf_ibdp_inst1;
+wire            lbuf_ibdp_inst1_bkpta;
+wire            lbuf_ibdp_inst1_bkptb;
+wire            lbuf_ibdp_inst1_fence;
+wire    [14:0]  lbuf_ibdp_inst1_pc;
+wire            lbuf_ibdp_inst1_split0;
+wire            lbuf_ibdp_inst1_split1;
+wire            lbuf_ibdp_inst1_valid;
+wire    [7 :0]  lbuf_ibdp_inst1_vl;
+wire    [1 :0]  lbuf_ibdp_inst1_vlmul;
+wire    [2 :0]  lbuf_ibdp_inst1_vsew;
+wire    [31:0]  lbuf_ibdp_inst2;
+wire            lbuf_ibdp_inst2_bkpta;
+wire            lbuf_ibdp_inst2_bkptb;
+wire            lbuf_ibdp_inst2_fence;
+wire    [14:0]  lbuf_ibdp_inst2_pc;
+wire            lbuf_ibdp_inst2_split0;
+wire            lbuf_ibdp_inst2_split1;
+wire            lbuf_ibdp_inst2_valid;
+wire    [7 :0]  lbuf_ibdp_inst2_vl;
+wire    [1 :0]  lbuf_ibdp_inst2_vlmul;
+wire    [2 :0]  lbuf_ibdp_inst2_vsew;
+wire            lbuf_ipdp_lbuf_active;
+wire    [7 :0]  lbuf_ipdp_updt_vl;
+wire    [1 :0]  lbuf_ipdp_updt_vlmul;
+wire    [2 :0]  lbuf_ipdp_updt_vsew;
+wire            lbuf_ipdp_vtype_updt_vld;
+wire    [38:0]  lbuf_pc_add_1;
+wire    [38:0]  lbuf_pc_add_2;
+wire    [38:0]  lbuf_pc_add_3;
+wire    [38:0]  lbuf_pc_add_4;
+wire    [38:0]  lbuf_pc_add_5;
+wire    [38:0]  lbuf_pc_add_6;
+wire            lbuf_pcfifo_if_create_select;
+wire    [1 :0]  lbuf_pcfifo_if_inst_bht_pre_result;
+wire    [1 :0]  lbuf_pcfifo_if_inst_bht_sel_result;
+wire    [38:0]  lbuf_pcfifo_if_inst_cur_pc;
+wire            lbuf_pcfifo_if_inst_pc_oper;
+wire    [38:0]  lbuf_pcfifo_if_inst_target_pc;
+wire    [21:0]  lbuf_pcfifo_if_inst_vghr;
+wire            lbuf_pcgen_active;
+wire            lbuf_pcgen_vld_mask;
+wire            lbuf_pop_branch_vld;
+wire    [38:0]  lbuf_pop_con_br_cur_pc;
+wire            lbuf_pop_con_br_inst;
+wire            lbuf_pop_con_br_taken;
+wire            lbuf_pop_front_br;
+wire            lbuf_pop_inst0_br_mask_vld;
+wire            lbuf_pop_inst0_con_br;
+wire    [7 :0]  lbuf_pop_inst0_vl;
+wire    [1 :0]  lbuf_pop_inst0_vlmul;
+wire    [2 :0]  lbuf_pop_inst0_vsew;
+wire            lbuf_pop_inst1_br_mask_vld;
+wire            lbuf_pop_inst1_con_br;
+wire    [7 :0]  lbuf_pop_inst1_vl;
+wire    [1 :0]  lbuf_pop_inst1_vlmul;
+wire    [2 :0]  lbuf_pop_inst1_vsew;
+wire            lbuf_pop_inst2_br_mask_vld;
+wire            lbuf_pop_inst2_con_br;
+wire    [7 :0]  lbuf_pop_inst2_vl;
+wire    [1 :0]  lbuf_pop_inst2_vlmul;
+wire    [2 :0]  lbuf_pop_inst2_vsew;
+wire            lbuf_pop_not_taken_back_br;
+wire            lbuf_pop_not_taken_front_br;
+wire    [1 :0]  lbuf_pop_pre_result;
+wire    [1 :0]  lbuf_pop_sel_result;
+wire    [15:0]  lbuf_retire_pointer0;
+wire    [15:0]  lbuf_retire_pointer1;
+wire    [15:0]  lbuf_retire_pointer2;
+wire    [15:0]  lbuf_retire_pointer3;
+wire    [15:0]  lbuf_retire_pointer4;
+wire    [15:0]  lbuf_retire_pointer5;
+wire            lbuf_retire_pointer_update_clk;
+wire            lbuf_retire_pointer_update_clk_en;
+wire            lbuf_retire_vld;
+wire            lbuf_sm_clk;
+wire            lbuf_sm_clk_en;
+wire            lbuf_stop_fetch_chgflw_gateclk_en;
+wire            lbuf_stop_fetch_chgflw_vld_pre;
+wire    [7 :0]  lbuf_stop_fetch_vl_pre;
+wire    [1 :0]  lbuf_stop_fetch_vlmul_pre;
+wire    [2 :0]  lbuf_stop_fetch_vsew_pre;
+wire    [3 :0]  lbuf_target_entry_num;
+wire            lbuf_vld_mask;
+wire            loop_buffer_full;
+wire            loop_end_br_not_taken;
+wire    [38:0]  loop_start_pc;
+wire            new_entry_ban;
+wire            new_entry_filled;
+wire    [38:0]  new_entry_pc;
+wire    [1 :0]  new_entry_pred_mode;
+wire    [3 :0]  new_entry_start_num;
+wire            new_entry_valid;
+wire            new_record_entry_out_loop;
+wire            old_entry_ban;
+wire            old_entry_filled;
+wire    [38:0]  old_entry_pc;
+wire    [1 :0]  old_entry_pred_mode;
+wire            old_entry_valid;
+wire            pad_yy_icg_scan_en;
+wire            pop_h0_32_start;
+wire            pop_h0_back_br;
+wire            pop_h0_bkpta;
+wire            pop_h0_bkptb;
+wire            pop_h0_br;
+wire    [15:0]  pop_h0_data;
+wire            pop_h0_fence;
+wire            pop_h0_front_br;
+wire    [2 :0]  pop_h0_split0_type;
+wire    [2 :0]  pop_h0_split1_type;
+wire    [7 :0]  pop_h0_vl;
+wire            pop_h0_vld;
+wire    [1 :0]  pop_h0_vlmul;
+wire            pop_h0_vsetvli;
+wire    [2 :0]  pop_h0_vsew;
+wire            pop_h1_32_start;
+wire            pop_h1_back_br;
+wire            pop_h1_bkpta;
+wire            pop_h1_bkptb;
+wire            pop_h1_br;
+wire    [15:0]  pop_h1_data;
+wire            pop_h1_fence;
+wire            pop_h1_front_br;
+wire    [2 :0]  pop_h1_split0_type;
+wire    [2 :0]  pop_h1_split1_type;
+wire    [7 :0]  pop_h1_vl;
+wire            pop_h1_vld;
+wire    [1 :0]  pop_h1_vlmul;
+wire            pop_h1_vsetvli;
+wire    [2 :0]  pop_h1_vsew;
+wire            pop_h2_32_start;
+wire            pop_h2_back_br;
+wire            pop_h2_bkpta;
+wire            pop_h2_bkptb;
+wire            pop_h2_br;
+wire    [15:0]  pop_h2_data;
+wire            pop_h2_fence;
+wire            pop_h2_front_br;
+wire    [2 :0]  pop_h2_split0_type;
+wire    [2 :0]  pop_h2_split1_type;
+wire    [7 :0]  pop_h2_vl;
+wire            pop_h2_vld;
+wire    [1 :0]  pop_h2_vlmul;
+wire            pop_h2_vsetvli;
+wire    [2 :0]  pop_h2_vsew;
+wire            pop_h3_32_start;
+wire            pop_h3_back_br;
+wire            pop_h3_bkpta;
+wire            pop_h3_bkptb;
+wire            pop_h3_br;
+wire    [15:0]  pop_h3_data;
+wire            pop_h3_fence;
+wire            pop_h3_front_br;
+wire    [2 :0]  pop_h3_split0_type;
+wire    [2 :0]  pop_h3_split1_type;
+wire    [7 :0]  pop_h3_vl;
+wire            pop_h3_vld;
+wire    [1 :0]  pop_h3_vlmul;
+wire            pop_h3_vsetvli;
+wire    [2 :0]  pop_h3_vsew;
+wire            pop_h4_32_start;
+wire            pop_h4_back_br;
+wire            pop_h4_bkpta;
+wire            pop_h4_bkptb;
+wire            pop_h4_br;
+wire    [15:0]  pop_h4_data;
+wire            pop_h4_fence;
+wire            pop_h4_front_br;
+wire    [2 :0]  pop_h4_split0_type;
+wire    [2 :0]  pop_h4_split1_type;
+wire    [7 :0]  pop_h4_vl;
+wire            pop_h4_vld;
+wire    [1 :0]  pop_h4_vlmul;
+wire            pop_h4_vsetvli;
+wire    [2 :0]  pop_h4_vsew;
+wire    [15:0]  pop_h5_data;
+wire    [31:0]  pre_ntaken_result;
+wire    [31:0]  pre_taken_result;
+wire            record_fifo_bit_clk;
+wire            record_fifo_bit_clk_en;
+wire            record_fifo_bit_update;
+wire            record_fifo_entry_ban_update;
+wire            record_fifo_entry_ban_update_gateclk_en;
+wire            record_fifo_entry_clk;
+wire            record_fifo_entry_clk_en;
+wire            record_fifo_entry_filled_update;
+wire            record_fifo_update;
+wire            record_fifo_update_gateclk_en;
+wire    [1 :0]  sel_array_result;
+wire            taken_front_branch_enter;
+wire    [13:0]  vghr;
 
 
 parameter PC_WIDTH  = 40;
@@ -1228,14 +1228,14 @@ parameter FRONT_FILL   = 6'b010000;
 parameter FRONT_CACHE  = 6'b100000;
 
 //--------------------FSM of Loop Buffer--------------------
-//IDLE         : Wait for the back branch 
+//IDLE         : Wait for the back branch
 //FILL         : Fill the Loop Buffer Entry
 //ACTIVE       : Send Inst out from lbuf
 //FRONT_FILL   : Fill the front branch body
 //FRONT_BRANCH : Record the front branch information
 //CACHE        : Wait for loop end back br record finish
-//               And IBUF Empty 
-                                             
+//               And IBUF Empty
+
 //==========================================================
 //                 Gate Clk of LBUF SM
 //==========================================================
@@ -1257,13 +1257,13 @@ gated_clk_cell  x_lbuf_sm_clk (
 //           .local_en       (lbuf_sm_clk_en),//Local Condition @59
 //           .module_en      (cp0_ifu_icg_en) @60
 //         ); @61
-assign lbuf_sm_clk_en = (lbuf_cur_state[5:0] != IDLE) || 
+assign lbuf_sm_clk_en = (lbuf_cur_state[5:0] != IDLE) ||
                         back_br_taken;
 //-----------------state machine update---------------------
 //  1.when reset, turn to IDLE
 //  2.when rtu/vector flush or expt || bju mispred
 //    turn to IDLE
-//  3.when lbuf_en not valid, turn to IDLE   
+//  3.when lbuf_en not valid, turn to IDLE
 always @(posedge lbuf_sm_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -1351,127 +1351,127 @@ end
 //back_br_hit_record_fifo_fill
 //IDLE state, if cur back br hit filled entry
 //turn to ACTIVE state
-assign back_br_hit_record_fifo_fill = ibctrl_lbuf_create_vld && 
+assign back_br_hit_record_fifo_fill = ibctrl_lbuf_create_vld &&
                                       (
-                                        back_br_hit_filled_old_entry || 
+                                        back_br_hit_filled_old_entry ||
                                         back_br_hit_filled_new_entry
                                       );
-assign back_br_hit_filled_old_entry = back_br_taken && 
-                                     (back_br_pc[PC_WIDTH-2:0] == old_entry_pc[PC_WIDTH-2:0]) && 
+assign back_br_hit_filled_old_entry = back_br_taken &&
+                                     (back_br_pc[PC_WIDTH-2:0] == old_entry_pc[PC_WIDTH-2:0]) &&
                                      (cur_pred_mode[1:0] == old_entry_pred_mode[1:0]) &&
-                                      old_entry_filled && 
-                                     !old_entry_ban && 
+                                      old_entry_filled &&
+                                     !old_entry_ban &&
                                       old_entry_valid;
-assign back_br_hit_filled_new_entry = back_br_taken && 
-                                     (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) && 
+assign back_br_hit_filled_new_entry = back_br_taken &&
+                                     (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) &&
                                      (cur_pred_mode[1:0] == new_entry_pred_mode[1:0]) &&
-                                      new_entry_filled && 
-                                     !new_entry_ban && 
+                                      new_entry_filled &&
+                                     !new_entry_ban &&
                                       new_entry_valid;
 //back_br_hit_record_fifo_unfill
 //IDLE state, if cur back br hit unfill entry
 //turn to FILL state
-assign back_br_hit_record_fifo_unfill = ibctrl_lbuf_create_vld && 
+assign back_br_hit_record_fifo_unfill = ibctrl_lbuf_create_vld &&
                                         (
-                                          back_br_hit_unfill_old_entry || 
+                                          back_br_hit_unfill_old_entry ||
                                           back_br_hit_unfill_new_entry
                                         );
-assign back_br_hit_unfill_old_entry   = back_br_taken && 
-                                       (back_br_pc[PC_WIDTH-2:0] == old_entry_pc[PC_WIDTH-2:0]) && 
-                                       !old_entry_filled && 
-                                       !old_entry_ban && 
+assign back_br_hit_unfill_old_entry   = back_br_taken &&
+                                       (back_br_pc[PC_WIDTH-2:0] == old_entry_pc[PC_WIDTH-2:0]) &&
+                                       !old_entry_filled &&
+                                       !old_entry_ban &&
                                        old_entry_valid;
-assign back_br_hit_unfill_new_entry   = back_br_taken && 
-                                       (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) && 
-                                       !new_entry_filled && 
-                                       !new_entry_ban && 
+assign back_br_hit_unfill_new_entry   = back_br_taken &&
+                                       (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) &&
+                                       !new_entry_filled &&
+                                       !new_entry_ban &&
                                        new_entry_valid;
 //back_br_hit_lbuf_end
 //On FILL state, if cur back branch hit new enry pc
 //Means Loop body fill finish
-assign back_br_hit_lbuf_end          = back_br_taken && 
-                                       (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) && 
+assign back_br_hit_lbuf_end          = back_br_taken &&
+                                       (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) &&
                                        lbuf_create_vld;
-assign back_br_hit_not_jump_lbuf_end = !back_br_taken && 
-                                       (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) && 
+assign back_br_hit_not_jump_lbuf_end = !back_br_taken &&
+                                       (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) &&
                                        lbuf_create_vld;
 //lbuf_pop_not_taken_back_br
 //On Active state, back br hit loop end while not jump
-assign lbuf_pop_not_taken_back_br = lbuf_retire_vld && 
-                                    !back_br_bht_result && 
+assign lbuf_pop_not_taken_back_br = lbuf_retire_vld &&
+                                    !back_br_bht_result &&
                                     (
                                       (
-                                        lbuf_pop_inst0_valid && 
+                                        lbuf_pop_inst0_valid &&
                                         lbuf_pop_inst0_back_br
-                                      ) || 
+                                      ) ||
                                       (
-                                        lbuf_pop_inst1_valid && 
-                                        lbuf_pop_inst1_back_br && 
+                                        lbuf_pop_inst1_valid &&
+                                        lbuf_pop_inst1_back_br &&
                                         !lbuf_pop_inst0_br
-                                      ) || 
+                                      ) ||
                                       (
-                                        lbuf_pop_inst2_valid && 
-                                        lbuf_pop_inst2_back_br && 
-                                        !lbuf_pop_inst0_br && 
+                                        lbuf_pop_inst2_valid &&
+                                        lbuf_pop_inst2_back_br &&
+                                        !lbuf_pop_inst0_br &&
                                         !lbuf_pop_inst1_br
                                       )
                                     );
 //front_br_under_rule
-assign front_br_under_rule  = front_br_check && 
-                              !front_br_oversize && 
+assign front_br_under_rule  = front_br_check &&
+                              !front_br_oversize &&
                               lbuf_create_vld;
 //front_br_body_not_filled
 //if current front branch body not filled
 //turn to front_fill state to fill front branch body
-assign front_br_body_not_filled = !front_entry_body_filled && 
-                                  front_entry_vld && 
+assign front_br_body_not_filled = !front_entry_body_filled &&
+                                  front_entry_vld &&
                                   lbuf_pop_not_taken_front_br;
-assign lbuf_pop_not_taken_front_br = lbuf_retire_vld && 
-                                     !front_br_bht_result && 
+assign lbuf_pop_not_taken_front_br = lbuf_retire_vld &&
+                                     !front_br_bht_result &&
                                      (
                                        (
-                                         lbuf_pop_inst0_valid && 
+                                         lbuf_pop_inst0_valid &&
                                          lbuf_pop_inst0_front_br
-                                       ) || 
+                                       ) ||
                                        (
-                                         lbuf_pop_inst1_valid && 
-                                         lbuf_pop_inst1_front_br && 
+                                         lbuf_pop_inst1_valid &&
+                                         lbuf_pop_inst1_front_br &&
                                          !lbuf_pop_inst0_br
-                                       ) || 
+                                       ) ||
                                        (
-                                         lbuf_pop_inst2_valid && 
-                                         lbuf_pop_inst2_front_br && 
-                                         !lbuf_pop_inst0_br && 
+                                         lbuf_pop_inst2_valid &&
+                                         lbuf_pop_inst2_front_br &&
+                                         !lbuf_pop_inst0_br &&
                                          !lbuf_pop_inst1_br
                                        )
                                      );
 //front_br_body_fill_finish
-//front_br_body_fill_finish means the remain number of 
+//front_br_body_fill_finish means the remain number of
 //front branch body to be filled is zero
 assign front_br_body_fill_finish = (front_br_body_num[3:0] == 4'b0000);
 //fill_not_under_rule
 //fill inst into lbuf not under rule
-assign fill_not_under_rule = lbuf_create_vld && 
+assign fill_not_under_rule = lbuf_create_vld &&
                              (
-                               inst_other_chgflw || 
-                               inst_auipc || 
-                               back_br_not_loop_end || 
-                               front_br_more_than_one || 
-                               loop_buffer_full || 
-                               loop_end_br_not_taken || 
+                               inst_other_chgflw ||
+                               inst_auipc ||
+                               back_br_not_loop_end ||
+                               front_br_more_than_one ||
+                               loop_buffer_full ||
+                               loop_end_br_not_taken ||
                                front_br_check && front_br_oversize
                              );
 //front_fill_not_under_rule
 //fill inst into lbuf not under rule
-assign front_fill_not_under_rule = lbuf_create_vld && 
+assign front_fill_not_under_rule = lbuf_create_vld &&
                                    (
-                                     inst_other_chgflw || 
-                                     inst_auipc || 
-                                     front_fill_con_br_check 
-                                   ) || 
-                                   back_br_hit_not_jump_lbuf_end;                              
+                                     inst_other_chgflw ||
+                                     inst_auipc ||
+                                     front_fill_con_br_check
+                                   ) ||
+                                   back_br_hit_not_jump_lbuf_end;
 //ibuf_empty
-//FILL/FRONT_FILL state : 
+//FILL/FRONT_FILL state :
 //fill lbuf and ibuf at the same time
 //if ibuf not empty, lbuf does not send inst out
 assign ibuf_empty = ibuf_lbuf_empty;
@@ -1482,7 +1482,7 @@ assign ibuf_empty = ibuf_lbuf_empty;
 //lbuf_create_vld
 //Mean the data send from IB stage to LBUF is valid
 //And LBUF State Machine transfer and write in logic will be valid
-assign lbuf_create_vld           = ibctrl_lbuf_create_vld && 
+assign lbuf_create_vld           = ibctrl_lbuf_create_vld &&
                                    (
                                      lbuf_cur_state[0] || //(lbuf_cur_state[5:0] == FILL)
                                      lbuf_cur_state[4]    //(lbuf_cur_state[5:0] == FRONT_FILL)
@@ -1509,39 +1509,39 @@ assign front_fill_con_br_check   = (lbuf_cur_state[5:0] == FRONT_FILL)
                                  ? (ibdp_lbuf_h0_vld)
                                    ? |(hn_con_br[7:0] & front_vld_mask[7:0])
                                    : |(hn_con_br[7:0] & front_vld_mask[8:1])
-                                 : (|hn_con_br[7:0]); 
+                                 : (|hn_con_br[7:0]);
 //Back Branch Information
-assign back_br_taken          = (|hn_con_br[7:0]) && 
+assign back_br_taken          = (|hn_con_br[7:0]) &&
                                 con_br_offset[37] && //negetive offset
                                 con_br_taken;
-assign back_br_check          = (|hn_con_br[7:0]) && 
+assign back_br_check          = (|hn_con_br[7:0]) &&
                                 con_br_offset[37];
 assign back_br_inst_32        = ibdp_lbuf_con_br_inst_32;
 assign back_br_pc[PC_WIDTH-2:0]     = con_br_cur_pc[PC_WIDTH-2:0];
 assign back_br_tar_pc[PC_WIDTH-2:0] = con_br_cur_pc[PC_WIDTH-2:0] + con_br_offset[PC_WIDTH-2:0];
 
-assign back_br_offset[3:0]    = (~con_br_offset[3:0]) + 4'b1;                           
+assign back_br_offset[3:0]    = (~con_br_offset[3:0]) + 4'b1;
 assign back_br_offset_less_15 = (&con_br_offset[PC_WIDTH-2:4]) && //<-16
                                 (con_br_offset[3:0] != 4'b0000) && //-16
                                 (con_br_offset[3:0] != 4'b0001); //-15
 assign back_br_offset_less_16 = (&con_br_offset[PC_WIDTH-2:4]) && //<-16
                                 (con_br_offset[3:0] != 4'b0000); //-16
-                                     
+
 //Front Branch Information
-assign front_br_taken    = (|hn_con_br[7:0]) && 
+assign front_br_taken    = (|hn_con_br[7:0]) &&
                            !con_br_offset[37] && //posetive offset
                            con_br_taken;
-assign front_br_check    = (|hn_con_br[7:0]) && 
-                           !con_br_offset[37]; 
+assign front_br_check    = (|hn_con_br[7:0]) &&
+                           !con_br_offset[37];
 assign front_br_inst_32 = ibdp_lbuf_con_br_inst_32;
-assign front_br_pc[PC_WIDTH-2:0] = con_br_cur_pc[PC_WIDTH-2:0]; 
+assign front_br_pc[PC_WIDTH-2:0] = con_br_cur_pc[PC_WIDTH-2:0];
 
 assign front_br_offset[3:0]    = con_br_offset[3:0];
 assign front_br_offset_less_16 = !(|con_br_offset[PC_WIDTH-2:4]); //>16
 
 assign front_cur_num[3:0]    = lbuf_cur_entry_num[3:0] + con_br_half_num[3:0];
 assign front_target_num[3:0] = front_cur_num[3:0] + front_br_offset[3:0];
-assign front_br_oversize     = !front_br_offset_less_16 || 
+assign front_br_oversize     = !front_br_offset_less_16 ||
                                (front_target_num[3:0] < front_cur_num[3:0]) || //Over add
                                (front_target_num[3:0] > back_entry_start_num[3:0]);
 //Other Signal Generate
@@ -1554,14 +1554,14 @@ assign inst_auipc              = (lbuf_cur_state[5:0] == FRONT_FILL)
                                ? (ibdp_lbuf_h0_vld)
                                  ? |(hn_auipc[7:0] & front_vld_mask[7:0])
                                  : |(hn_auipc[7:0] & front_vld_mask[8:1])
-                               : (|hn_auipc[7:0]);                               
-assign back_br_not_loop_end    = back_br_check && 
-                                 (back_br_pc[PC_WIDTH-2:0] != new_entry_pc[PC_WIDTH-2:0]); 
-assign loop_end_br_not_taken   = back_br_check && 
-                                 (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) && 
+                               : (|hn_auipc[7:0]);
+assign back_br_not_loop_end    = back_br_check &&
+                                 (back_br_pc[PC_WIDTH-2:0] != new_entry_pc[PC_WIDTH-2:0]);
+assign loop_end_br_not_taken   = back_br_check &&
+                                 (back_br_pc[PC_WIDTH-2:0] == new_entry_pc[PC_WIDTH-2:0]) &&
                                  !back_br_taken;
-assign front_br_more_than_one  = front_br_check && front_entry_vld; 
-assign lbuf_target_entry_num[3:0] = lbuf_cur_entry_num[3:0] + half_vld_num[3:0];                              
+assign front_br_more_than_one  = front_br_check && front_entry_vld;
+assign lbuf_target_entry_num[3:0] = lbuf_cur_entry_num[3:0] + half_vld_num[3:0];
 assign loop_buffer_full           = lbuf_target_entry_num[3:0] < lbuf_cur_entry_num[3:0]; //Over add
 
 assign cur_pred_mode[1:0]      = {cp0_ifu_vsetvli_pred_disable,cp0_ifu_vsetvli_pred_mode};
@@ -1589,8 +1589,8 @@ begin
 end
 assign lbuf_fill_state = (lbuf_cur_state[5:0] == FILL);
 
-assign lbuf_cur_entry_num_pre[3:0] = (front_br_taken) 
-                                   ? front_target_num[3:0] 
+assign lbuf_cur_entry_num_pre[3:0] = (front_br_taken)
+                                   ? front_target_num[3:0]
                                    : lbuf_target_entry_num[3:0];
 
 //Gate Clk
@@ -1612,9 +1612,9 @@ gated_clk_cell  x_lbuf_cur_entry_num_clk (
 //           .local_en       (lbuf_cur_entry_num_clk_en),//Local Condition @391
 //           .module_en      (cp0_ifu_icg_en) @392
 //         ); @393
-assign lbuf_cur_entry_num_clk_en = lbuf_flush || 
-                                   lbuf_fill_state || 
-                                   fill_state_enter;  
+assign lbuf_cur_entry_num_clk_en = lbuf_flush ||
+                                   lbuf_fill_state ||
+                                   fill_state_enter;
 //==========================================================
 //                  Loop Record FIFO
 //==========================================================
@@ -1624,34 +1624,34 @@ assign lbuf_cur_entry_num_clk_en = lbuf_flush ||
 
 //---------------------Signal for FSM-----------------------
 assign old_entry_filled   = (record_fifo_bit)
-                          ? record_fifo_entry1_filled 
+                          ? record_fifo_entry1_filled
                           : record_fifo_entry0_filled;
 assign old_entry_ban      = (record_fifo_bit)
-                          ? record_fifo_entry1_ban 
+                          ? record_fifo_entry1_ban
                           : record_fifo_entry0_ban;
 assign old_entry_valid    = (record_fifo_bit)
-                          ? record_fifo_entry1_valid 
+                          ? record_fifo_entry1_valid
                           : record_fifo_entry0_valid;
 assign old_entry_pc[PC_WIDTH-2:0] = (record_fifo_bit)
-                                  ? record_fifo_entry1_pc[PC_WIDTH-2:0] 
-                                  : record_fifo_entry0_pc[PC_WIDTH-2:0];  
+                                  ? record_fifo_entry1_pc[PC_WIDTH-2:0]
+                                  : record_fifo_entry0_pc[PC_WIDTH-2:0];
 
 assign old_entry_pred_mode[1:0]   = (record_fifo_bit)
                                   ? record_fifo_entry1_pred_mode[1:0]
                                   : record_fifo_entry0_pred_mode[1:0];
 
 assign new_entry_filled   = (!record_fifo_bit)
-                          ? record_fifo_entry1_filled 
+                          ? record_fifo_entry1_filled
                           : record_fifo_entry0_filled;
 assign new_entry_ban      = (!record_fifo_bit)
-                          ? record_fifo_entry1_ban 
+                          ? record_fifo_entry1_ban
                           : record_fifo_entry0_ban;
 assign new_entry_valid    = (!record_fifo_bit)
-                          ? record_fifo_entry1_valid 
+                          ? record_fifo_entry1_valid
                           : record_fifo_entry0_valid;
 assign new_entry_pc[PC_WIDTH-2:0] = (!record_fifo_bit)
-                                  ? record_fifo_entry1_pc[PC_WIDTH-2:0] 
-                                  : record_fifo_entry0_pc[PC_WIDTH-2:0];                           
+                                  ? record_fifo_entry1_pc[PC_WIDTH-2:0]
+                                  : record_fifo_entry0_pc[PC_WIDTH-2:0];
 
 assign new_entry_pred_mode[1:0]   = (!record_fifo_bit)
                                   ? record_fifo_entry1_pred_mode[1:0]
@@ -1663,7 +1663,7 @@ assign new_entry_start_num[3:0] = (back_br_hit_unfill_new_entry)
                                   : record_fifo_entry0_offset[3:0]
                                 : (record_fifo_bit)
                                   ? record_fifo_entry1_offset[3:0]
-                                  : record_fifo_entry0_offset[3:0];                
+                                  : record_fifo_entry0_offset[3:0];
 
 //---------------------Entry0 Register----------------------
 //Gate Clk
@@ -1685,11 +1685,11 @@ gated_clk_cell  x_record_fifo_entry_clk (
 //           .local_en       (record_fifo_entry_clk_en),//Local Condition @454
 //           .module_en      (cp0_ifu_icg_en) @455
 //         ); @456
-assign record_fifo_entry_clk_en = record_fifo_update_gateclk_en || 
-                                  record_fifo_entry_ban_update_gateclk_en || 
-                                  //record_fifo_entry_filled_update || 
-                                  record_fifo_update_flop || 
-                                  //fill_state_enter || 
+assign record_fifo_entry_clk_en = record_fifo_update_gateclk_en ||
+                                  record_fifo_entry_ban_update_gateclk_en ||
+                                  //record_fifo_entry_filled_update ||
+                                  record_fifo_update_flop ||
+                                  //fill_state_enter ||
                                   lbuf_flush;
 
 always @(posedge record_fifo_entry_clk or negedge cpurst_b)
@@ -1750,9 +1750,9 @@ end
 
 always @ (posedge record_fifo_entry_clk or negedge cpurst_b)
 begin
-  if (~cpurst_b) 
+  if (~cpurst_b)
     record_fifo_entry0_pred_mode[1:0] <= 2'b0;
-  else if (lbuf_flush) 
+  else if (lbuf_flush)
     record_fifo_entry0_pred_mode[1:0] <= 2'b0;
   else if (record_fifo_entry_filled_update && record_fifo_bit)
     record_fifo_entry0_pred_mode[1:0] <= {cp0_ifu_vsetvli_pred_disable,cp0_ifu_vsetvli_pred_mode};
@@ -1819,9 +1819,9 @@ end
 
 always @ (posedge record_fifo_entry_clk or negedge cpurst_b)
 begin
-  if (~cpurst_b) 
+  if (~cpurst_b)
     record_fifo_entry1_pred_mode[1:0] <= 2'b0;
-  else if (lbuf_flush) 
+  else if (lbuf_flush)
     record_fifo_entry1_pred_mode[1:0] <= 2'b0;
   else if (record_fifo_entry_filled_update && !record_fifo_bit)
     record_fifo_entry1_pred_mode[1:0] <= {cp0_ifu_vsetvli_pred_disable,cp0_ifu_vsetvli_pred_mode};
@@ -1829,7 +1829,7 @@ begin
     record_fifo_entry1_pred_mode[1:0] <= record_fifo_entry1_pred_mode[1:0];
 end
 
-//------------------------FIFO Bit--------------------------                                
+//------------------------FIFO Bit--------------------------
 //Gate Clk
 // &Instance("gated_clk_cell","x_record_fifo_bit_clk"); @603
 gated_clk_cell  x_record_fifo_bit_clk (
@@ -1849,9 +1849,9 @@ gated_clk_cell  x_record_fifo_bit_clk (
 //           .local_en       (record_fifo_bit_clk_en),//Local Condition @608
 //           .module_en      (cp0_ifu_icg_en) @609
 //         ); @610
-assign record_fifo_bit_clk_en = record_fifo_bit_update || 
-                                lbuf_flush; 
-                                 
+assign record_fifo_bit_clk_en = record_fifo_bit_update ||
+                                lbuf_flush;
+
 always @(posedge record_fifo_bit_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -1872,86 +1872,86 @@ end
 //3.new back_br not hit any entry
 //  a.entry not valid
 //  b.pc not hit
-assign record_fifo_update = ibctrl_lbuf_create_vld && 
-                            cp0_ifu_lbuf_en && 
-                            back_br_taken && 
+assign record_fifo_update = ibctrl_lbuf_create_vld &&
+                            cp0_ifu_lbuf_en &&
+                            back_br_taken &&
                             (
-                              back_br_offset_less_15 && 
-                              back_br_inst_32 || 
-                              back_br_offset_less_16 && 
+                              back_br_offset_less_15 &&
+                              back_br_inst_32 ||
+                              back_br_offset_less_16 &&
                               !back_br_inst_32
-                            ) && 
+                            ) &&
                             (lbuf_cur_state[5:0] == IDLE) &&
                             (
                               (
-                                !(back_br_pc[PC_WIDTH-2:0] == record_fifo_entry0_pc[PC_WIDTH-2:0]) || 
+                                !(back_br_pc[PC_WIDTH-2:0] == record_fifo_entry0_pc[PC_WIDTH-2:0]) ||
                                 !record_fifo_entry0_valid
-                              ) && 
+                              ) &&
                               (
-                                !(back_br_pc[PC_WIDTH-2:0] == record_fifo_entry1_pc[PC_WIDTH-2:0]) || 
+                                !(back_br_pc[PC_WIDTH-2:0] == record_fifo_entry1_pc[PC_WIDTH-2:0]) ||
                                 !record_fifo_entry1_valid
                               )
                             );
-assign record_fifo_update_gateclk_en = ibctrl_lbuf_create_vld && 
-                                       cp0_ifu_lbuf_en && 
-                                       back_br_taken && 
+assign record_fifo_update_gateclk_en = ibctrl_lbuf_create_vld &&
+                                       cp0_ifu_lbuf_en &&
+                                       back_br_taken &&
                                        (lbuf_cur_state[5:0] == IDLE);
-//record_fifo_bit_update                            
+//record_fifo_bit_update
 //record_fifo_bit will be updated when
 //1.record_fifo_update
 //2.new back_br hit old entry
-assign record_fifo_bit_update = ibctrl_lbuf_create_vld && 
-                                cp0_ifu_lbuf_en && 
-                                back_br_taken && 
+assign record_fifo_bit_update = ibctrl_lbuf_create_vld &&
+                                cp0_ifu_lbuf_en &&
+                                back_br_taken &&
                                 (
-                                  back_br_offset_less_15 && 
-                                  back_br_inst_32 || 
-                                  back_br_offset_less_16 && 
+                                  back_br_offset_less_15 &&
+                                  back_br_inst_32 ||
+                                  back_br_offset_less_16 &&
                                   !back_br_inst_32
-                                ) && 
+                                ) &&
                                 (lbuf_cur_state[5:0] == IDLE) &&
                                 (
                                   (
-                                    !(back_br_pc[PC_WIDTH-2:0] == record_fifo_entry0_pc[PC_WIDTH-2:0]) || 
+                                    !(back_br_pc[PC_WIDTH-2:0] == record_fifo_entry0_pc[PC_WIDTH-2:0]) ||
                                     !record_fifo_entry0_valid
-                                  ) && 
+                                  ) &&
                                   (
-                                    !(back_br_pc[PC_WIDTH-2:0] == record_fifo_entry1_pc[PC_WIDTH-2:0]) || 
+                                    !(back_br_pc[PC_WIDTH-2:0] == record_fifo_entry1_pc[PC_WIDTH-2:0]) ||
                                     !record_fifo_entry1_valid
-                                  ) || 
+                                  ) ||
                                   (
-                                    (back_br_pc[PC_WIDTH-2:0] == record_fifo_entry0_pc[PC_WIDTH-2:0]) && 
-                                    record_fifo_entry0_valid && 
-                                    !record_fifo_entry0_ban && 
+                                    (back_br_pc[PC_WIDTH-2:0] == record_fifo_entry0_pc[PC_WIDTH-2:0]) &&
+                                    record_fifo_entry0_valid &&
+                                    !record_fifo_entry0_ban &&
                                     !record_fifo_bit
-                                  ) || 
-                                  (   
-                                    (back_br_pc[PC_WIDTH-2:0] == record_fifo_entry1_pc[PC_WIDTH-2:0]) && 
-                                    record_fifo_entry1_valid && 
-                                    !record_fifo_entry1_ban && 
+                                  ) ||
+                                  (
+                                    (back_br_pc[PC_WIDTH-2:0] == record_fifo_entry1_pc[PC_WIDTH-2:0]) &&
+                                    record_fifo_entry1_valid &&
+                                    !record_fifo_entry1_ban &&
                                     record_fifo_bit
                                   )
                                 );
 //record_fifo_entry_ban_update
-//record_fifo_entry_ban_update will be valid when 
+//record_fifo_entry_ban_update will be valid when
 //1.cur_state = FILL or FRONT_FILL or SUB_FRONT_FILL
 //2.fill not under rule
 //3.The new record back_br is out loop of old record back_br
-assign record_fifo_entry_ban_update = (lbuf_cur_state[5:0] == FILL) && 
-                                       fill_not_under_rule || 
-                                      (lbuf_cur_state[5:0] == FRONT_FILL) && 
-                                       front_fill_not_under_rule || 
+assign record_fifo_entry_ban_update = (lbuf_cur_state[5:0] == FILL) &&
+                                       fill_not_under_rule ||
+                                      (lbuf_cur_state[5:0] == FRONT_FILL) &&
+                                       front_fill_not_under_rule ||
                                        new_record_entry_out_loop;
-assign record_fifo_entry_ban_update_gateclk_en = (lbuf_cur_state[5:0] == FILL) || 
-                                                 (lbuf_cur_state[5:0] == FRONT_FILL) || 
+assign record_fifo_entry_ban_update_gateclk_en = (lbuf_cur_state[5:0] == FILL) ||
+                                                 (lbuf_cur_state[5:0] == FRONT_FILL) ||
                                                   record_fifo_update_flop;
 //new_record_entry_out_loop
 //when The new record back_br is out loop of old record back_br
 //should set the ban bit of new back_br
-//in case of outloop fill flush the filled inner loop                                     
-assign new_record_entry_out_loop    = record_fifo_update_flop && 
-                                      old_entry_valid && 
-                                      (old_entry_pc[PC_WIDTH-2:0] < new_record_cur_pc[PC_WIDTH-2:0]) && 
+//in case of outloop fill flush the filled inner loop
+assign new_record_entry_out_loop    = record_fifo_update_flop &&
+                                      old_entry_valid &&
+                                      (old_entry_pc[PC_WIDTH-2:0] < new_record_cur_pc[PC_WIDTH-2:0]) &&
                                       (old_entry_pc[PC_WIDTH-2:0] > new_record_target_pc[PC_WIDTH-2:0]);
 always @(posedge record_fifo_entry_clk or negedge cpurst_b)
 begin
@@ -1963,7 +1963,7 @@ begin
     record_fifo_update_flop <= 1'b1;
   else
     record_fifo_update_flop <= 1'b0;
-end  
+end
 
 always @(posedge record_fifo_entry_clk or negedge cpurst_b)
 begin
@@ -1993,9 +1993,9 @@ end
 //record_fifo_entry_filled_update will be valid when
 //1.cur_state = FILL
 //2.back_br_hit_lbuf_end(finish fill)
-assign record_fifo_entry_filled_update = (lbuf_cur_state[5:0] == FILL) && 
+assign record_fifo_entry_filled_update = (lbuf_cur_state[5:0] == FILL) &&
                                          back_br_hit_lbuf_end;
-                                          
+
 //==========================================================
 //                 Front Branch Buffer
 //==========================================================
@@ -2018,10 +2018,10 @@ gated_clk_cell  x_front_buffer_update_clk (
 //           .local_en       (front_buffer_update_clk_en),//Local Condition @767
 //           .module_en      (cp0_ifu_icg_en) @768
 //         ); @769
-assign front_buffer_update_clk_en = front_entry_update || 
-                                    front_entry_body_filled_update_gateclk_en || 
-                                    lbuf_flush || 
-                                    fill_state_enter; 
+assign front_buffer_update_clk_en = front_entry_update ||
+                                    front_entry_body_filled_update_gateclk_en ||
+                                    lbuf_flush ||
+                                    fill_state_enter;
 
 //Front branch Buffer Entry0
 always @(posedge front_buffer_update_clk or negedge cpurst_b)
@@ -2033,7 +2033,7 @@ begin
     front_entry_target_pc[PC_WIDTH-2:0] <= {PC_WIDTH-1{1'b0}};
     front_entry_update_pointer[15:0]    <= 16'b1;
     front_entry_next_pointer[15:0]      <= 16'b1;
-    front_entry_inst_32                 <= 1'b0;    
+    front_entry_inst_32                 <= 1'b0;
   end
   else if(lbuf_flush)
   begin
@@ -2042,7 +2042,7 @@ begin
     front_entry_target_pc[PC_WIDTH-2:0] <= {PC_WIDTH-1{1'b0}};
     front_entry_update_pointer[15:0]    <= 16'b1;
     front_entry_next_pointer[15:0]      <= 16'b1;
-    front_entry_inst_32                 <= 1'b0;    
+    front_entry_inst_32                 <= 1'b0;
   end
   else if(fill_state_enter)
   begin
@@ -2051,7 +2051,7 @@ begin
     front_entry_target_pc[PC_WIDTH-2:0] <= {PC_WIDTH-1{1'b0}};
     front_entry_update_pointer[15:0]    <= 16'b1;
     front_entry_next_pointer[15:0]      <= 16'b1;
-    front_entry_inst_32                 <= 1'b0;    
+    front_entry_inst_32                 <= 1'b0;
   end
   else if(front_entry_update)
   begin
@@ -2060,7 +2060,7 @@ begin
     front_entry_target_pc[PC_WIDTH-2:0] <= front_update_target_pc[PC_WIDTH-2:0];
     front_entry_update_pointer[15:0]    <= front_update_pointer[15:0];
     front_entry_next_pointer[15:0]      <= front_update_next_pointer[15:0];
-    front_entry_inst_32                 <= front_update_inst_32;    
+    front_entry_inst_32                 <= front_update_inst_32;
   end
   else
   begin
@@ -2069,7 +2069,7 @@ begin
     front_entry_target_pc[PC_WIDTH-2:0] <= front_entry_target_pc[PC_WIDTH-2:0];
     front_entry_update_pointer[15:0]    <= front_entry_update_pointer[15:0];
     front_entry_next_pointer[15:0]      <= front_entry_next_pointer[15:0];
-    front_entry_inst_32                 <= front_entry_inst_32;    
+    front_entry_inst_32                 <= front_entry_inst_32;
   end
 end
 
@@ -2090,17 +2090,17 @@ end
 
 //fill_state_enter
 //When IDLE turn to FILL state
-assign fill_state_enter               = (lbuf_cur_state[5:0] == IDLE) && 
+assign fill_state_enter               = (lbuf_cur_state[5:0] == IDLE) &&
                                         back_br_hit_record_fifo_unfill;
-assign idle_cache_state_enter         = (lbuf_cur_state[5:0] == IDLE) && 
+assign idle_cache_state_enter         = (lbuf_cur_state[5:0] == IDLE) &&
                                         back_br_hit_record_fifo_fill;
-assign front_cache_active_state_enter = (lbuf_cur_state[5:0] == FRONT_CACHE) && 
+assign front_cache_active_state_enter = (lbuf_cur_state[5:0] == FRONT_CACHE) &&
                                         ibuf_empty;
 //front_entry_update
 //When FILL state turn to FRONT_BRANCH state
 //Record the information of front branch
 //When the cycle after FILL state turn to FRONT_BRANCH state
-//Calculate the front_update_xxx value 
+//Calculate the front_update_xxx value
 //and update it to front entry
 assign front_entry_update = (lbuf_cur_state[5:0] == FRONT_BRANCH);
 //front_entry_body_filled_update
@@ -2108,78 +2108,78 @@ assign front_entry_update = (lbuf_cur_state[5:0] == FRONT_BRANCH);
 //when FILL state && front_branch_under rule && !bht_result, set 1
 //When FILL state && front_branch_under_rule &&  bht_result, set 0
 //When FRONT_BRANCH state fill finish and turn to FILL, set 1
-assign front_entry_body_filled_update = (lbuf_cur_state[5:0] == FILL) && 
-                                        front_br_check && 
-                                        !front_br_taken && 
-                                        lbuf_create_vld || 
-                                        (lbuf_cur_state[5:0] == FRONT_FILL) && 
-                                        front_br_body_fill_finish || 
-                                        (lbuf_cur_state[5:0] == FRONT_CACHE) && 
+assign front_entry_body_filled_update = (lbuf_cur_state[5:0] == FILL) &&
+                                        front_br_check &&
+                                        !front_br_taken &&
+                                        lbuf_create_vld ||
+                                        (lbuf_cur_state[5:0] == FRONT_FILL) &&
+                                        front_br_body_fill_finish ||
+                                        (lbuf_cur_state[5:0] == FRONT_CACHE) &&
                                         front_br_body_fill_finish;
-assign front_entry_body_filled_update_gateclk_en = (lbuf_cur_state[5:0] == FILL) || 
-                                                   (lbuf_cur_state[5:0] == FRONT_FILL) || 
+assign front_entry_body_filled_update_gateclk_en = (lbuf_cur_state[5:0] == FILL) ||
+                                                   (lbuf_cur_state[5:0] == FRONT_FILL) ||
                                                    (lbuf_cur_state[5:0] == FRONT_CACHE);
 
 //-------------------front_update_value---------------------
 assign front_update_br_taken        = front_update_pre_br_taken;
 assign front_update_offset[3:0]     = front_update_pre_offset[3:0];
 assign front_update_cur_pc[PC_WIDTH-2:0]    = front_update_pre_cur_pc[PC_WIDTH-2:0];
-assign front_update_target_pc[PC_WIDTH-2:0] = front_update_pre_cur_pc[PC_WIDTH-2:0] + 
+assign front_update_target_pc[PC_WIDTH-2:0] = front_update_pre_cur_pc[PC_WIDTH-2:0] +
                                               {35'b0, front_update_pre_offset[3:0]};
-assign front_update_inst_32                 = front_update_pre_inst_32;                                    
+assign front_update_inst_32                 = front_update_pre_inst_32;
 // &CombBeg; @879
 always @( front_update_pre_offset[3:0]
        or front_update_pre_pointer[15:0])
 begin
 case(front_update_pre_offset[3:0])
   4'b0000 : front_update_pointer[ENTRY_NUM-1:0] =  front_update_pre_pointer[ENTRY_NUM-1:0];
-  4'b0001 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-2:0], 
+  4'b0001 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-2:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1]};
-  4'b0010 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-3:0], 
+  4'b0010 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-3:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-2]};
-  4'b0011 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-4:0], 
+  4'b0011 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-4:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-3]};
-  4'b0100 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-5:0], 
+  4'b0100 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-5:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-4]};
-  4'b0101 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-6:0], 
+  4'b0101 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-6:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-5]};
-  4'b0110 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-7:0], 
+  4'b0110 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-7:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-6]};
-  4'b0111 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-8:0], 
+  4'b0111 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-8:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-7]};
-  4'b1000 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-9:0], 
+  4'b1000 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-9:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-8]};
-  4'b1001 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-10:0], 
+  4'b1001 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-10:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-9]};
-  4'b1010 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-11:0], 
+  4'b1010 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-11:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-10]};
-  4'b1011 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-12:0], 
+  4'b1011 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-12:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-11]};
-  4'b1100 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-13:0], 
+  4'b1100 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-13:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-12]};
-  4'b1101 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-14:0], 
+  4'b1101 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-14:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-13]};
-  4'b1110 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-15:0], 
+  4'b1110 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-15:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-14]};
-  4'b1111 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-16:0], 
+  4'b1111 : front_update_pointer[ENTRY_NUM-1:0] = {front_update_pre_pointer[ENTRY_NUM-16:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-15]};
   default : front_update_pointer[ENTRY_NUM-1:0] =  front_update_pre_pointer[ENTRY_NUM-1:0];
-endcase  
+endcase
 // &CombEnd; @914
 end
 
 assign front_update_next_pointer[ENTRY_NUM-1:0] = (front_update_inst_32)
-                                                ? {front_update_pre_pointer[ENTRY_NUM-3:0], 
+                                                ? {front_update_pre_pointer[ENTRY_NUM-3:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1:ENTRY_NUM-2]}
-                                                : {front_update_pre_pointer[ENTRY_NUM-2:0], 
+                                                : {front_update_pre_pointer[ENTRY_NUM-2:0],
                                                    front_update_pre_pointer[ENTRY_NUM-1]};
 
 //front_update_pre_vld
 //when FILL state turn to FRONT_BRANCH, record information
 //to front_update_pre register
-assign front_update_pre_vld = (lbuf_cur_state[5:0] == FILL) && 
-                              front_br_check && 
-                              !front_br_oversize && 
+assign front_update_pre_vld = (lbuf_cur_state[5:0] == FILL) &&
+                              front_br_check &&
+                              !front_br_oversize &&
                               ibctrl_lbuf_create_vld;
 always @(posedge front_update_pre_clk or negedge cpurst_b)
 begin
@@ -2205,7 +2205,7 @@ begin
     front_update_pre_offset[3:0]            <= front_br_offset[3:0];
     front_update_pre_cur_pc[PC_WIDTH-2:0]   <= front_br_pc[PC_WIDTH-2:0];
     front_update_pre_pointer[ENTRY_NUM-1:0] <= lbuf_front_br_pointer_pre[ENTRY_NUM-1:0];
-    front_update_pre_inst_32                <= front_br_inst_32; 
+    front_update_pre_inst_32                <= front_br_inst_32;
   end
   else
   begin
@@ -2213,10 +2213,10 @@ begin
     front_update_pre_offset[3:0]            <= front_update_pre_offset[3:0];
     front_update_pre_cur_pc[PC_WIDTH-2:0]   <= front_update_pre_cur_pc[PC_WIDTH-2:0];
     front_update_pre_pointer[ENTRY_NUM-1:0] <= front_update_pre_pointer[ENTRY_NUM-1:0];
-    front_update_pre_inst_32                <= front_update_pre_inst_32; 
+    front_update_pre_inst_32                <= front_update_pre_inst_32;
   end
 end
-    
+
 //Gate Clk
 // &Instance("gated_clk_cell","x_front_update_pre_clk"); @966
 gated_clk_cell  x_front_update_pre_clk (
@@ -2236,7 +2236,7 @@ gated_clk_cell  x_front_update_pre_clk (
 //           .local_en       (front_update_pre_clk_en),//Local Condition @971
 //           .module_en      (cp0_ifu_icg_en) @972
 //         ); @973
-assign front_update_pre_clk_en = lbuf_flush || 
+assign front_update_pre_clk_en = lbuf_flush ||
                                  front_update_pre_vld;
 
 //front_update_pre_branch_half_num means
@@ -2247,27 +2247,27 @@ always @( lbuf_create_pointer[15:0]
 begin
 case(con_br_half_num[3:0])
   4'b0000 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] =  lbuf_create_pointer[ENTRY_NUM-1:0];
-  4'b0001 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-2:0], 
+  4'b0001 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-2:0],
                                                         lbuf_create_pointer[ENTRY_NUM-1]};
-  4'b0010 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-3:0], 
+  4'b0010 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-3:0],
                                                         lbuf_create_pointer[ENTRY_NUM-1:ENTRY_NUM-2]};
-  4'b0011 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-4:0], 
+  4'b0011 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-4:0],
                                                         lbuf_create_pointer[ENTRY_NUM-1:ENTRY_NUM-3]};
-  4'b0100 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-5:0], 
+  4'b0100 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-5:0],
                                                         lbuf_create_pointer[ENTRY_NUM-1:ENTRY_NUM-4]};
-  4'b0101 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-6:0], 
+  4'b0101 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-6:0],
                                                         lbuf_create_pointer[ENTRY_NUM-1:ENTRY_NUM-5]};
-  4'b0110 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-7:0], 
+  4'b0110 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-7:0],
                                                         lbuf_create_pointer[ENTRY_NUM-1:ENTRY_NUM-6]};
-  4'b0111 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-8:0], 
+  4'b0111 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-8:0],
                                                         lbuf_create_pointer[ENTRY_NUM-1:ENTRY_NUM-7]};
-  4'b1000 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-9:0], 
+  4'b1000 : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-9:0],
                                                         lbuf_create_pointer[ENTRY_NUM-1:ENTRY_NUM-8]};
   default : lbuf_front_br_pointer_pre[ENTRY_NUM-1:0] =  lbuf_create_pointer[ENTRY_NUM-1:0];
 endcase
 // &CombEnd; @1000
 end
-                                    
+
 //==========================================================
 //                Front Br Body Number
 //==========================================================
@@ -2287,16 +2287,16 @@ always @( front_br_body_num[3:0]
 begin
 if(front_branch_state && front_update_br_taken)
   front_br_body_num_pre[3:0] = (front_update_inst_32)
-                             ? (front_update_offset[3:0] - 4'b0010) 
+                             ? (front_update_offset[3:0] - 4'b0010)
                              : (front_update_offset[3:0] - 4'b0001);
 else if(front_fill_state && lbuf_create_vld)
-  front_br_body_num_pre[3:0] = (half_vld_num[3:0] < front_br_body_num[3:0]) 
-                             ? (front_br_body_num[3:0] - half_vld_num[3:0]) 
+  front_br_body_num_pre[3:0] = (half_vld_num[3:0] < front_br_body_num[3:0])
+                             ? (front_br_body_num[3:0] - half_vld_num[3:0])
                              : 4'b0;
 else if(front_fill_enter)
   front_br_body_num_pre[3:0] = front_br_body_num_record[3:0];
 else
-  front_br_body_num_pre[3:0] = front_br_body_num[3:0]; 
+  front_br_body_num_pre[3:0] = front_br_body_num[3:0];
 // &CombEnd; @1020
 end
 
@@ -2324,10 +2324,10 @@ begin
     front_br_body_num[3:0] <= front_br_body_num[3:0];
 end
 
-assign front_br_body_num_update = (front_branch_state && 
-                                   front_update_br_taken) || 
-                                  (front_fill_state && 
-                                   lbuf_create_vld) || 
+assign front_br_body_num_update = (front_branch_state &&
+                                   front_update_br_taken) ||
+                                  (front_fill_state &&
+                                   lbuf_create_vld) ||
                                    front_fill_enter;
 //Gate clk
 // &Instance("gated_clk_cell","x_front_br_body_num_update_clk"); @1052
@@ -2348,9 +2348,9 @@ gated_clk_cell  x_front_br_body_num_update_clk (
 //           .local_en       (front_br_body_num_update_clk_en),//Local Condition @1057
 //           .module_en      (cp0_ifu_icg_en) @1058
 //         ); @1059
-assign front_br_body_num_update_clk_en = front_branch_state || 
-                                         front_fill_state || 
-                                         front_fill_enter || 
+assign front_br_body_num_update_clk_en = front_branch_state ||
+                                         front_fill_state ||
+                                         front_fill_enter ||
                                          lbuf_flush;
 
 // &CombBeg; @1065
@@ -2372,7 +2372,7 @@ endcase
 end
 
 assign front_branch_state        = (lbuf_cur_state[5:0] == FRONT_BRANCH);
-assign front_fill_state          = (lbuf_cur_state[5:0] == FRONT_FILL);  
+assign front_fill_state          = (lbuf_cur_state[5:0] == FRONT_FILL);
 
 //==========================================================
 //                 Back Branch Buffer
@@ -2396,9 +2396,9 @@ gated_clk_cell  x_back_buffer_update_clk (
 //           .local_en       (back_buffer_update_clk_en),//Local Condition @1092
 //           .module_en      (cp0_ifu_icg_en) @1093
 //         ); @1094
-assign back_buffer_update_clk_en = back_entry_update || 
-                                   lbuf_flush || 
-                                   fill_state_enter; 
+assign back_buffer_update_clk_en = back_entry_update ||
+                                   lbuf_flush ||
+                                   fill_state_enter;
 
 //Back branch Buffer Entry
 always @(posedge back_buffer_update_clk or negedge cpurst_b)
@@ -2450,7 +2450,7 @@ end
 //record information into back_update_pre_xxx register
 //When the first cycle of CACHE
 //Update back_entry_xxx
-assign back_entry_update = (lbuf_cur_state[5:0] == CACHE) && 
+assign back_entry_update = (lbuf_cur_state[5:0] == CACHE) &&
                            back_update_pre_vld_flop;
 always @(posedge back_update_pre_clk or negedge cpurst_b)
 begin
@@ -2461,16 +2461,16 @@ begin
   else
     back_update_pre_vld_flop <= back_update_pre_vld;
 end
-                         
+
 //-----------------back update value------------------------
 assign back_update_cur_pc[PC_WIDTH-2:0]    = back_update_pre_cur_pc[PC_WIDTH-2:0];
 assign back_update_target_pc[PC_WIDTH-2:0] = back_update_pre_tar_pc[PC_WIDTH-2:0];
-assign back_update_inst_32                 = back_update_pre_inst_32;                                  
+assign back_update_inst_32                 = back_update_pre_inst_32;
 
 //back_update_pre_vld
 //when FILL state turn to CACHE, record information
 //to back_update_pre register
-assign back_update_pre_vld = (lbuf_cur_state[5:0] == FILL) && 
+assign back_update_pre_vld = (lbuf_cur_state[5:0] == FILL) &&
                               back_br_hit_lbuf_end;
 always @(posedge back_update_pre_clk or negedge cpurst_b)
 begin
@@ -2499,7 +2499,7 @@ begin
     back_update_pre_inst_32              <= back_update_pre_inst_32;
   end
 end
-    
+
 //Gate Clk
 // &Instance("gated_clk_cell","x_back_update_pre_clk"); @1200
 gated_clk_cell  x_back_update_pre_clk (
@@ -2519,9 +2519,9 @@ gated_clk_cell  x_back_update_pre_clk (
 //           .local_en       (back_update_pre_clk_en),//Local Condition @1205
 //           .module_en      (cp0_ifu_icg_en) @1206
 //         ); @1207
-assign back_update_pre_clk_en = lbuf_flush || 
-                                back_update_pre_vld_flop || 
-                                (lbuf_cur_state[5:0] == FILL) && 
+assign back_update_pre_clk_en = lbuf_flush ||
+                                back_update_pre_vld_flop ||
+                                (lbuf_cur_state[5:0] == FILL) &&
                                 back_br_taken;
 
 //==========================================================
@@ -3226,8 +3226,8 @@ ct_ifu_lbuf_entry  x_ct_ifu_lbuf_entry_15 (
 
 //hn_xxx source signal prepare
 //hn_create_vld
-assign hn_create_vld_pre[8:0] = (ibdp_lbuf_h0_vld) 
-                              ? ({ibdp_lbuf_h0_vld, ibdp_lbuf_hn_vld[7:0]}) 
+assign hn_create_vld_pre[8:0] = (ibdp_lbuf_h0_vld)
+                              ? ({ibdp_lbuf_h0_vld, ibdp_lbuf_hn_vld[7:0]})
                               : ({ibdp_lbuf_hn_vld[7:0], 1'b0});
 assign hn_create_vld[8:0]     = (lbuf_cur_state[5:0] == FRONT_FILL)
                               ? (hn_create_vld_pre[8:0] & front_vld_mask[8:0])
@@ -3247,15 +3247,15 @@ assign hn_32_start[8:0]       = (ibdp_lbuf_h0_vld)
 //hn_fence
 assign hn_fence[8:0]          = (ibdp_lbuf_h0_vld)
                               ? ({ibdp_lbuf_h0_fence, ibdp_lbuf_hn_fence[7:0]})
-                              : ({ibdp_lbuf_hn_fence[7:0], 1'b0});                               
+                              : ({ibdp_lbuf_hn_fence[7:0], 1'b0});
 //hn_bkpta
 assign hn_bkpta[8:0]          = (ibdp_lbuf_h0_vld)
                               ? ({ibdp_lbuf_h0_bkpta, ibdp_lbuf_hn_bkpta[7:0]})
-                              : ({ibdp_lbuf_hn_bkpta[7:0], 1'b0});                               
+                              : ({ibdp_lbuf_hn_bkpta[7:0], 1'b0});
 //hn_bkptb
 assign hn_bkptb[8:0]          = (ibdp_lbuf_h0_vld)
                               ? ({ibdp_lbuf_h0_bkptb, ibdp_lbuf_hn_bkptb[7:0]})
-                              : ({ibdp_lbuf_hn_bkptb[7:0], 1'b0});                               
+                              : ({ibdp_lbuf_hn_bkptb[7:0], 1'b0});
 assign hn_vsetvli[8:0]        = (ibdp_lbuf_h0_vld)
                               ? ({ibdp_lbuf_h0_vsetvli,ibdp_lbuf_hn_vsetvli[7:0]})
                               : ({ibdp_lbuf_hn_vsetvli[7:0],1'b0});
@@ -3405,7 +3405,7 @@ assign h8_split0_type[2:0]    = (ibdp_lbuf_h0_vld)
                               ? ibdp_lbuf_h8_split0_type[2:0]
                               : 3'b0;
 
-//hn_split1_type                          
+//hn_split1_type
 assign h0_split1_type[2:0]    = (ibdp_lbuf_h0_vld)
                               ? ibdp_lbuf_h0_split1_type[2:0]
                               : ibdp_lbuf_h1_split1_type[2:0];
@@ -3437,1072 +3437,1072 @@ assign h8_split1_type[2:0]    = (ibdp_lbuf_h0_vld)
 
 //entry_create[n]
 assign entry_create[15:0]        = (
-                                     (lbuf_create_pointer0[15:0] & {16{hn_create_vld[8]}}) | 
-                                     (lbuf_create_pointer1[15:0] & {16{hn_create_vld[7]}}) |  
-                                     (lbuf_create_pointer2[15:0] & {16{hn_create_vld[6]}}) |  
-                                     (lbuf_create_pointer3[15:0] & {16{hn_create_vld[5]}}) |  
-                                     (lbuf_create_pointer4[15:0] & {16{hn_create_vld[4]}}) |  
-                                     (lbuf_create_pointer5[15:0] & {16{hn_create_vld[3]}}) |  
-                                     (lbuf_create_pointer6[15:0] & {16{hn_create_vld[2]}}) |  
-                                     (lbuf_create_pointer7[15:0] & {16{hn_create_vld[1]}}) |  
+                                     (lbuf_create_pointer0[15:0] & {16{hn_create_vld[8]}}) |
+                                     (lbuf_create_pointer1[15:0] & {16{hn_create_vld[7]}}) |
+                                     (lbuf_create_pointer2[15:0] & {16{hn_create_vld[6]}}) |
+                                     (lbuf_create_pointer3[15:0] & {16{hn_create_vld[5]}}) |
+                                     (lbuf_create_pointer4[15:0] & {16{hn_create_vld[4]}}) |
+                                     (lbuf_create_pointer5[15:0] & {16{hn_create_vld[3]}}) |
+                                     (lbuf_create_pointer6[15:0] & {16{hn_create_vld[2]}}) |
+                                     (lbuf_create_pointer7[15:0] & {16{hn_create_vld[1]}}) |
                                      (lbuf_create_pointer8[15:0] & {16{hn_create_vld[0]}})
                                    ) & {16{lbuf_create_vld}};
 assign entry_create_clk_en[15:0] = (
-                                     (lbuf_create_pointer0[15:0] & {16{hn_create_vld[8]}}) | 
-                                     (lbuf_create_pointer1[15:0] & {16{hn_create_vld[7]}}) |  
-                                     (lbuf_create_pointer2[15:0] & {16{hn_create_vld[6]}}) |  
-                                     (lbuf_create_pointer3[15:0] & {16{hn_create_vld[5]}}) |  
-                                     (lbuf_create_pointer4[15:0] & {16{hn_create_vld[4]}}) |  
-                                     (lbuf_create_pointer5[15:0] & {16{hn_create_vld[3]}}) |  
-                                     (lbuf_create_pointer6[15:0] & {16{hn_create_vld[2]}}) |  
-                                     (lbuf_create_pointer7[15:0] & {16{hn_create_vld[1]}}) |  
+                                     (lbuf_create_pointer0[15:0] & {16{hn_create_vld[8]}}) |
+                                     (lbuf_create_pointer1[15:0] & {16{hn_create_vld[7]}}) |
+                                     (lbuf_create_pointer2[15:0] & {16{hn_create_vld[6]}}) |
+                                     (lbuf_create_pointer3[15:0] & {16{hn_create_vld[5]}}) |
+                                     (lbuf_create_pointer4[15:0] & {16{hn_create_vld[4]}}) |
+                                     (lbuf_create_pointer5[15:0] & {16{hn_create_vld[3]}}) |
+                                     (lbuf_create_pointer6[15:0] & {16{hn_create_vld[2]}}) |
+                                     (lbuf_create_pointer7[15:0] & {16{hn_create_vld[1]}}) |
                                      (lbuf_create_pointer8[15:0] & {16{hn_create_vld[0]}})
                                    ) & {16{lbuf_cur_state[0] | lbuf_cur_state[4]}};
-                          
+
 //entry_create_front_br[n]
-assign entry_create_front_br[15:0]   = (lbuf_create_pointer0[15:0] & {16{hn_front_br[8]}}) | 
-                                       (lbuf_create_pointer1[15:0] & {16{hn_front_br[7]}}) | 
-                                       (lbuf_create_pointer2[15:0] & {16{hn_front_br[6]}}) | 
-                                       (lbuf_create_pointer3[15:0] & {16{hn_front_br[5]}}) | 
-                                       (lbuf_create_pointer4[15:0] & {16{hn_front_br[4]}}) | 
-                                       (lbuf_create_pointer5[15:0] & {16{hn_front_br[3]}}) | 
-                                       (lbuf_create_pointer6[15:0] & {16{hn_front_br[2]}}) | 
-                                       (lbuf_create_pointer7[15:0] & {16{hn_front_br[1]}}) | 
-                                       (lbuf_create_pointer8[15:0] & {16{hn_front_br[0]}}); 
+assign entry_create_front_br[15:0]   = (lbuf_create_pointer0[15:0] & {16{hn_front_br[8]}}) |
+                                       (lbuf_create_pointer1[15:0] & {16{hn_front_br[7]}}) |
+                                       (lbuf_create_pointer2[15:0] & {16{hn_front_br[6]}}) |
+                                       (lbuf_create_pointer3[15:0] & {16{hn_front_br[5]}}) |
+                                       (lbuf_create_pointer4[15:0] & {16{hn_front_br[4]}}) |
+                                       (lbuf_create_pointer5[15:0] & {16{hn_front_br[3]}}) |
+                                       (lbuf_create_pointer6[15:0] & {16{hn_front_br[2]}}) |
+                                       (lbuf_create_pointer7[15:0] & {16{hn_front_br[1]}}) |
+                                       (lbuf_create_pointer8[15:0] & {16{hn_front_br[0]}});
 
 //entry_create_back_br[n]
-assign entry_create_back_br[15:0]    = (lbuf_create_pointer0[15:0] & {16{hn_back_br[8]}}) | 
-                                       (lbuf_create_pointer1[15:0] & {16{hn_back_br[7]}}) | 
-                                       (lbuf_create_pointer2[15:0] & {16{hn_back_br[6]}}) | 
-                                       (lbuf_create_pointer3[15:0] & {16{hn_back_br[5]}}) | 
-                                       (lbuf_create_pointer4[15:0] & {16{hn_back_br[4]}}) | 
-                                       (lbuf_create_pointer5[15:0] & {16{hn_back_br[3]}}) | 
-                                       (lbuf_create_pointer6[15:0] & {16{hn_back_br[2]}}) | 
-                                       (lbuf_create_pointer7[15:0] & {16{hn_back_br[1]}}) | 
-                                       (lbuf_create_pointer8[15:0] & {16{hn_back_br[0]}}); 
+assign entry_create_back_br[15:0]    = (lbuf_create_pointer0[15:0] & {16{hn_back_br[8]}}) |
+                                       (lbuf_create_pointer1[15:0] & {16{hn_back_br[7]}}) |
+                                       (lbuf_create_pointer2[15:0] & {16{hn_back_br[6]}}) |
+                                       (lbuf_create_pointer3[15:0] & {16{hn_back_br[5]}}) |
+                                       (lbuf_create_pointer4[15:0] & {16{hn_back_br[4]}}) |
+                                       (lbuf_create_pointer5[15:0] & {16{hn_back_br[3]}}) |
+                                       (lbuf_create_pointer6[15:0] & {16{hn_back_br[2]}}) |
+                                       (lbuf_create_pointer7[15:0] & {16{hn_back_br[1]}}) |
+                                       (lbuf_create_pointer8[15:0] & {16{hn_back_br[0]}});
 
 //entry_create_32_start[n]
-assign entry_create_32_start[15:0]   = (lbuf_create_pointer0[15:0] & {16{hn_32_start[8]}}) | 
-                                       (lbuf_create_pointer1[15:0] & {16{hn_32_start[7]}}) | 
-                                       (lbuf_create_pointer2[15:0] & {16{hn_32_start[6]}}) | 
-                                       (lbuf_create_pointer3[15:0] & {16{hn_32_start[5]}}) | 
-                                       (lbuf_create_pointer4[15:0] & {16{hn_32_start[4]}}) | 
-                                       (lbuf_create_pointer5[15:0] & {16{hn_32_start[3]}}) | 
-                                       (lbuf_create_pointer6[15:0] & {16{hn_32_start[2]}}) | 
-                                       (lbuf_create_pointer7[15:0] & {16{hn_32_start[1]}}) | 
+assign entry_create_32_start[15:0]   = (lbuf_create_pointer0[15:0] & {16{hn_32_start[8]}}) |
+                                       (lbuf_create_pointer1[15:0] & {16{hn_32_start[7]}}) |
+                                       (lbuf_create_pointer2[15:0] & {16{hn_32_start[6]}}) |
+                                       (lbuf_create_pointer3[15:0] & {16{hn_32_start[5]}}) |
+                                       (lbuf_create_pointer4[15:0] & {16{hn_32_start[4]}}) |
+                                       (lbuf_create_pointer5[15:0] & {16{hn_32_start[3]}}) |
+                                       (lbuf_create_pointer6[15:0] & {16{hn_32_start[2]}}) |
+                                       (lbuf_create_pointer7[15:0] & {16{hn_32_start[1]}}) |
                                        (lbuf_create_pointer8[15:0] & {16{hn_32_start[0]}});
-                                     
+
 //entry_create_fence[n]
-assign entry_create_fence[15:0]      = (lbuf_create_pointer0[15:0] & {16{hn_fence[8]}}) | 
-                                       (lbuf_create_pointer1[15:0] & {16{hn_fence[7]}}) | 
-                                       (lbuf_create_pointer2[15:0] & {16{hn_fence[6]}}) | 
-                                       (lbuf_create_pointer3[15:0] & {16{hn_fence[5]}}) | 
-                                       (lbuf_create_pointer4[15:0] & {16{hn_fence[4]}}) | 
-                                       (lbuf_create_pointer5[15:0] & {16{hn_fence[3]}}) | 
-                                       (lbuf_create_pointer6[15:0] & {16{hn_fence[2]}}) | 
-                                       (lbuf_create_pointer7[15:0] & {16{hn_fence[1]}}) | 
+assign entry_create_fence[15:0]      = (lbuf_create_pointer0[15:0] & {16{hn_fence[8]}}) |
+                                       (lbuf_create_pointer1[15:0] & {16{hn_fence[7]}}) |
+                                       (lbuf_create_pointer2[15:0] & {16{hn_fence[6]}}) |
+                                       (lbuf_create_pointer3[15:0] & {16{hn_fence[5]}}) |
+                                       (lbuf_create_pointer4[15:0] & {16{hn_fence[4]}}) |
+                                       (lbuf_create_pointer5[15:0] & {16{hn_fence[3]}}) |
+                                       (lbuf_create_pointer6[15:0] & {16{hn_fence[2]}}) |
+                                       (lbuf_create_pointer7[15:0] & {16{hn_fence[1]}}) |
                                        (lbuf_create_pointer8[15:0] & {16{hn_fence[0]}});
-                                     
+
 //entry_create_bkpta[n]
-assign entry_create_bkpta[15:0]      = (lbuf_create_pointer0[15:0] & {16{hn_bkpta[8]}}) | 
-                                       (lbuf_create_pointer1[15:0] & {16{hn_bkpta[7]}}) | 
-                                       (lbuf_create_pointer2[15:0] & {16{hn_bkpta[6]}}) | 
-                                       (lbuf_create_pointer3[15:0] & {16{hn_bkpta[5]}}) | 
-                                       (lbuf_create_pointer4[15:0] & {16{hn_bkpta[4]}}) | 
-                                       (lbuf_create_pointer5[15:0] & {16{hn_bkpta[3]}}) | 
-                                       (lbuf_create_pointer6[15:0] & {16{hn_bkpta[2]}}) | 
-                                       (lbuf_create_pointer7[15:0] & {16{hn_bkpta[1]}}) | 
+assign entry_create_bkpta[15:0]      = (lbuf_create_pointer0[15:0] & {16{hn_bkpta[8]}}) |
+                                       (lbuf_create_pointer1[15:0] & {16{hn_bkpta[7]}}) |
+                                       (lbuf_create_pointer2[15:0] & {16{hn_bkpta[6]}}) |
+                                       (lbuf_create_pointer3[15:0] & {16{hn_bkpta[5]}}) |
+                                       (lbuf_create_pointer4[15:0] & {16{hn_bkpta[4]}}) |
+                                       (lbuf_create_pointer5[15:0] & {16{hn_bkpta[3]}}) |
+                                       (lbuf_create_pointer6[15:0] & {16{hn_bkpta[2]}}) |
+                                       (lbuf_create_pointer7[15:0] & {16{hn_bkpta[1]}}) |
                                        (lbuf_create_pointer8[15:0] & {16{hn_bkpta[0]}});
 //entry_create_bkptb[n]
-assign entry_create_bkptb[15:0]      = (lbuf_create_pointer0[15:0] & {16{hn_bkptb[8]}}) | 
-                                       (lbuf_create_pointer1[15:0] & {16{hn_bkptb[7]}}) | 
-                                       (lbuf_create_pointer2[15:0] & {16{hn_bkptb[6]}}) | 
-                                       (lbuf_create_pointer3[15:0] & {16{hn_bkptb[5]}}) | 
-                                       (lbuf_create_pointer4[15:0] & {16{hn_bkptb[4]}}) | 
-                                       (lbuf_create_pointer5[15:0] & {16{hn_bkptb[3]}}) | 
-                                       (lbuf_create_pointer6[15:0] & {16{hn_bkptb[2]}}) | 
-                                       (lbuf_create_pointer7[15:0] & {16{hn_bkptb[1]}}) | 
+assign entry_create_bkptb[15:0]      = (lbuf_create_pointer0[15:0] & {16{hn_bkptb[8]}}) |
+                                       (lbuf_create_pointer1[15:0] & {16{hn_bkptb[7]}}) |
+                                       (lbuf_create_pointer2[15:0] & {16{hn_bkptb[6]}}) |
+                                       (lbuf_create_pointer3[15:0] & {16{hn_bkptb[5]}}) |
+                                       (lbuf_create_pointer4[15:0] & {16{hn_bkptb[4]}}) |
+                                       (lbuf_create_pointer5[15:0] & {16{hn_bkptb[3]}}) |
+                                       (lbuf_create_pointer6[15:0] & {16{hn_bkptb[2]}}) |
+                                       (lbuf_create_pointer7[15:0] & {16{hn_bkptb[1]}}) |
                                        (lbuf_create_pointer8[15:0] & {16{hn_bkptb[0]}});
 //entry_create_vsetvli[n]
-assign entry_create_vsetvli[15:0]    = (lbuf_create_pointer0[15:0] & {16{hn_vsetvli[8]}}) | 
-                                       (lbuf_create_pointer1[15:0] & {16{hn_vsetvli[7]}}) | 
-                                       (lbuf_create_pointer2[15:0] & {16{hn_vsetvli[6]}}) | 
-                                       (lbuf_create_pointer3[15:0] & {16{hn_vsetvli[5]}}) | 
-                                       (lbuf_create_pointer4[15:0] & {16{hn_vsetvli[4]}}) | 
-                                       (lbuf_create_pointer5[15:0] & {16{hn_vsetvli[3]}}) | 
-                                       (lbuf_create_pointer6[15:0] & {16{hn_vsetvli[2]}}) | 
-                                       (lbuf_create_pointer7[15:0] & {16{hn_vsetvli[1]}}) | 
+assign entry_create_vsetvli[15:0]    = (lbuf_create_pointer0[15:0] & {16{hn_vsetvli[8]}}) |
+                                       (lbuf_create_pointer1[15:0] & {16{hn_vsetvli[7]}}) |
+                                       (lbuf_create_pointer2[15:0] & {16{hn_vsetvli[6]}}) |
+                                       (lbuf_create_pointer3[15:0] & {16{hn_vsetvli[5]}}) |
+                                       (lbuf_create_pointer4[15:0] & {16{hn_vsetvli[4]}}) |
+                                       (lbuf_create_pointer5[15:0] & {16{hn_vsetvli[3]}}) |
+                                       (lbuf_create_pointer6[15:0] & {16{hn_vsetvli[2]}}) |
+                                       (lbuf_create_pointer7[15:0] & {16{hn_vsetvli[1]}}) |
                                        (lbuf_create_pointer8[15:0] & {16{hn_vsetvli[0]}});
 
 
 //entry_create_inst_data_n
-assign entry_create_inst_data_0[15:0]  = ({16{lbuf_create_pointer0[ 0]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 0]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 0]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 0]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 0]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 0]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 0]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 0]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_0[15:0]  = ({16{lbuf_create_pointer0[ 0]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 0]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 0]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 0]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 0]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 0]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 0]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 0]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 0]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_1[15:0]  = ({16{lbuf_create_pointer0[ 1]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 1]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 1]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 1]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 1]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 1]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 1]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 1]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_1[15:0]  = ({16{lbuf_create_pointer0[ 1]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 1]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 1]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 1]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 1]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 1]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 1]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 1]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 1]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_2[15:0]  = ({16{lbuf_create_pointer0[ 2]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 2]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 2]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 2]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 2]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 2]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 2]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 2]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_2[15:0]  = ({16{lbuf_create_pointer0[ 2]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 2]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 2]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 2]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 2]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 2]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 2]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 2]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 2]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_3[15:0]  = ({16{lbuf_create_pointer0[ 3]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 3]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 3]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 3]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 3]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 3]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 3]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 3]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_3[15:0]  = ({16{lbuf_create_pointer0[ 3]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 3]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 3]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 3]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 3]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 3]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 3]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 3]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 3]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_4[15:0]  = ({16{lbuf_create_pointer0[ 4]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 4]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 4]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 4]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 4]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 4]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 4]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 4]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_4[15:0]  = ({16{lbuf_create_pointer0[ 4]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 4]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 4]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 4]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 4]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 4]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 4]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 4]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 4]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_5[15:0]  = ({16{lbuf_create_pointer0[ 5]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 5]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 5]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 5]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 5]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 5]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 5]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 5]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_5[15:0]  = ({16{lbuf_create_pointer0[ 5]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 5]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 5]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 5]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 5]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 5]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 5]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 5]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 5]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_6[15:0]  = ({16{lbuf_create_pointer0[ 6]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 6]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 6]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 6]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 6]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 6]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 6]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 6]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_6[15:0]  = ({16{lbuf_create_pointer0[ 6]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 6]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 6]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 6]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 6]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 6]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 6]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 6]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 6]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_7[15:0]  = ({16{lbuf_create_pointer0[ 7]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 7]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 7]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 7]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 7]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 7]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 7]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 7]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_7[15:0]  = ({16{lbuf_create_pointer0[ 7]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 7]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 7]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 7]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 7]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 7]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 7]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 7]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 7]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_8[15:0]  = ({16{lbuf_create_pointer0[ 8]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 8]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 8]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 8]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 8]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 8]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 8]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 8]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_8[15:0]  = ({16{lbuf_create_pointer0[ 8]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 8]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 8]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 8]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 8]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 8]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 8]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 8]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 8]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_9[15:0]  = ({16{lbuf_create_pointer0[ 9]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[ 9]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[ 9]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[ 9]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[ 9]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[ 9]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[ 9]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[ 9]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_9[15:0]  = ({16{lbuf_create_pointer0[ 9]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[ 9]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[ 9]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[ 9]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[ 9]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[ 9]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[ 9]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[ 9]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[ 9]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_10[15:0] = ({16{lbuf_create_pointer0[10]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[10]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[10]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[10]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[10]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[10]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[10]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[10]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_10[15:0] = ({16{lbuf_create_pointer0[10]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[10]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[10]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[10]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[10]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[10]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[10]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[10]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[10]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_11[15:0] = ({16{lbuf_create_pointer0[11]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[11]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[11]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[11]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[11]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[11]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[11]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[11]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_11[15:0] = ({16{lbuf_create_pointer0[11]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[11]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[11]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[11]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[11]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[11]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[11]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[11]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[11]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_12[15:0] = ({16{lbuf_create_pointer0[12]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[12]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[12]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[12]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[12]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[12]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[12]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[12]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_12[15:0] = ({16{lbuf_create_pointer0[12]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[12]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[12]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[12]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[12]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[12]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[12]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[12]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[12]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_13[15:0] = ({16{lbuf_create_pointer0[13]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[13]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[13]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[13]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[13]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[13]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[13]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[13]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_13[15:0] = ({16{lbuf_create_pointer0[13]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[13]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[13]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[13]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[13]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[13]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[13]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[13]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[13]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_14[15:0] = ({16{lbuf_create_pointer0[14]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[14]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[14]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[14]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[14]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[14]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[14]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[14]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_14[15:0] = ({16{lbuf_create_pointer0[14]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[14]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[14]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[14]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[14]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[14]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[14]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[14]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[14]}} & h8_data[15:0]);
 
-assign entry_create_inst_data_15[15:0] = ({16{lbuf_create_pointer0[15]}} & h0_data[15:0]) | 
-                                         ({16{lbuf_create_pointer1[15]}} & h1_data[15:0]) | 
-                                         ({16{lbuf_create_pointer2[15]}} & h2_data[15:0]) | 
-                                         ({16{lbuf_create_pointer3[15]}} & h3_data[15:0]) | 
-                                         ({16{lbuf_create_pointer4[15]}} & h4_data[15:0]) | 
-                                         ({16{lbuf_create_pointer5[15]}} & h5_data[15:0]) | 
-                                         ({16{lbuf_create_pointer6[15]}} & h6_data[15:0]) | 
-                                         ({16{lbuf_create_pointer7[15]}} & h7_data[15:0]) | 
+assign entry_create_inst_data_15[15:0] = ({16{lbuf_create_pointer0[15]}} & h0_data[15:0]) |
+                                         ({16{lbuf_create_pointer1[15]}} & h1_data[15:0]) |
+                                         ({16{lbuf_create_pointer2[15]}} & h2_data[15:0]) |
+                                         ({16{lbuf_create_pointer3[15]}} & h3_data[15:0]) |
+                                         ({16{lbuf_create_pointer4[15]}} & h4_data[15:0]) |
+                                         ({16{lbuf_create_pointer5[15]}} & h5_data[15:0]) |
+                                         ({16{lbuf_create_pointer6[15]}} & h6_data[15:0]) |
+                                         ({16{lbuf_create_pointer7[15]}} & h7_data[15:0]) |
                                          ({16{lbuf_create_pointer8[15]}} & h8_data[15:0]);
 
 
 //entry_create_vlmul_n
-assign entry_create_vlmul_0[1:0] = ({2{lbuf_create_pointer0[ 0]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 0]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 0]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 0]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 0]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 0]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 0]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 0]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_0[1:0] = ({2{lbuf_create_pointer0[ 0]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 0]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 0]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 0]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 0]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 0]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 0]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 0]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 0]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_1[1:0] = ({2{lbuf_create_pointer0[ 1]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 1]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 1]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 1]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 1]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 1]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 1]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 1]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_1[1:0] = ({2{lbuf_create_pointer0[ 1]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 1]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 1]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 1]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 1]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 1]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 1]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 1]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 1]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_2[1:0] = ({2{lbuf_create_pointer0[ 2]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 2]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 2]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 2]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 2]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 2]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 2]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 2]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_2[1:0] = ({2{lbuf_create_pointer0[ 2]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 2]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 2]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 2]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 2]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 2]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 2]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 2]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 2]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_3[1:0] = ({2{lbuf_create_pointer0[ 3]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 3]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 3]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 3]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 3]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 3]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 3]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 3]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_3[1:0] = ({2{lbuf_create_pointer0[ 3]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 3]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 3]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 3]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 3]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 3]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 3]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 3]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 3]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_4[1:0] = ({2{lbuf_create_pointer0[ 4]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 4]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 4]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 4]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 4]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 4]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 4]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 4]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_4[1:0] = ({2{lbuf_create_pointer0[ 4]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 4]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 4]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 4]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 4]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 4]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 4]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 4]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 4]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_5[1:0] = ({2{lbuf_create_pointer0[ 5]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 5]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 5]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 5]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 5]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 5]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 5]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 5]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_5[1:0] = ({2{lbuf_create_pointer0[ 5]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 5]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 5]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 5]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 5]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 5]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 5]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 5]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 5]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_6[1:0] = ({2{lbuf_create_pointer0[ 6]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 6]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 6]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 6]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 6]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 6]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 6]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 6]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_6[1:0] = ({2{lbuf_create_pointer0[ 6]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 6]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 6]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 6]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 6]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 6]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 6]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 6]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 6]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_7[1:0] = ({2{lbuf_create_pointer0[ 7]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 7]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 7]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 7]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 7]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 7]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 7]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 7]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_7[1:0] = ({2{lbuf_create_pointer0[ 7]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 7]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 7]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 7]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 7]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 7]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 7]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 7]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 7]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_8[1:0] = ({2{lbuf_create_pointer0[ 8]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 8]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 8]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 8]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 8]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 8]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 8]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 8]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_8[1:0] = ({2{lbuf_create_pointer0[ 8]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 8]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 8]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 8]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 8]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 8]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 8]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 8]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 8]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_9[1:0] = ({2{lbuf_create_pointer0[ 9]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[ 9]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[ 9]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[ 9]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[ 9]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[ 9]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[ 9]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[ 9]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_9[1:0] = ({2{lbuf_create_pointer0[ 9]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[ 9]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[ 9]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[ 9]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[ 9]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[ 9]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[ 9]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[ 9]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[ 9]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_10[1:0]= ({2{lbuf_create_pointer0[10]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[10]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[10]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[10]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[10]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[10]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[10]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[10]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_10[1:0]= ({2{lbuf_create_pointer0[10]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[10]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[10]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[10]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[10]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[10]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[10]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[10]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[10]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_11[1:0]= ({2{lbuf_create_pointer0[11]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[11]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[11]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[11]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[11]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[11]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[11]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[11]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_11[1:0]= ({2{lbuf_create_pointer0[11]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[11]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[11]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[11]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[11]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[11]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[11]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[11]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[11]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_12[1:0]= ({2{lbuf_create_pointer0[12]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[12]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[12]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[12]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[12]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[12]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[12]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[12]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_12[1:0]= ({2{lbuf_create_pointer0[12]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[12]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[12]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[12]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[12]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[12]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[12]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[12]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[12]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_13[1:0]= ({2{lbuf_create_pointer0[13]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[13]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[13]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[13]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[13]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[13]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[13]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[13]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_13[1:0]= ({2{lbuf_create_pointer0[13]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[13]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[13]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[13]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[13]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[13]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[13]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[13]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[13]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_14[1:0]= ({2{lbuf_create_pointer0[14]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[14]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[14]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[14]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[14]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[14]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[14]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[14]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_14[1:0]= ({2{lbuf_create_pointer0[14]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[14]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[14]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[14]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[14]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[14]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[14]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[14]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[14]}} & h8_vlmul[1:0]);
 
-assign entry_create_vlmul_15[1:0]= ({2{lbuf_create_pointer0[15]}} & h0_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer1[15]}} & h1_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer2[15]}} & h2_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer3[15]}} & h3_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer4[15]}} & h4_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer5[15]}} & h5_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer6[15]}} & h6_vlmul[1:0]) | 
-                                   ({2{lbuf_create_pointer7[15]}} & h7_vlmul[1:0]) | 
+assign entry_create_vlmul_15[1:0]= ({2{lbuf_create_pointer0[15]}} & h0_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer1[15]}} & h1_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer2[15]}} & h2_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer3[15]}} & h3_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer4[15]}} & h4_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer5[15]}} & h5_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer6[15]}} & h6_vlmul[1:0]) |
+                                   ({2{lbuf_create_pointer7[15]}} & h7_vlmul[1:0]) |
                                    ({2{lbuf_create_pointer8[15]}} & h8_vlmul[1:0]);
 
 //entry_create_vsew_n
-assign entry_create_vsew_0[2:0] = ({3{lbuf_create_pointer0[ 0]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 0]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 0]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 0]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 0]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 0]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 0]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 0]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_0[2:0] = ({3{lbuf_create_pointer0[ 0]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 0]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 0]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 0]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 0]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 0]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 0]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 0]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 0]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_1[2:0] = ({3{lbuf_create_pointer0[ 1]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 1]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 1]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 1]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 1]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 1]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 1]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 1]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_1[2:0] = ({3{lbuf_create_pointer0[ 1]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 1]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 1]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 1]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 1]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 1]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 1]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 1]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 1]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_2[2:0] = ({3{lbuf_create_pointer0[ 2]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 2]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 2]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 2]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 2]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 2]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 2]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 2]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_2[2:0] = ({3{lbuf_create_pointer0[ 2]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 2]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 2]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 2]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 2]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 2]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 2]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 2]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 2]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_3[2:0] = ({3{lbuf_create_pointer0[ 3]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 3]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 3]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 3]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 3]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 3]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 3]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 3]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_3[2:0] = ({3{lbuf_create_pointer0[ 3]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 3]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 3]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 3]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 3]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 3]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 3]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 3]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 3]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_4[2:0] = ({3{lbuf_create_pointer0[ 4]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 4]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 4]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 4]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 4]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 4]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 4]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 4]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_4[2:0] = ({3{lbuf_create_pointer0[ 4]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 4]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 4]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 4]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 4]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 4]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 4]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 4]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 4]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_5[2:0] = ({3{lbuf_create_pointer0[ 5]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 5]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 5]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 5]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 5]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 5]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 5]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 5]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_5[2:0] = ({3{lbuf_create_pointer0[ 5]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 5]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 5]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 5]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 5]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 5]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 5]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 5]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 5]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_6[2:0] = ({3{lbuf_create_pointer0[ 6]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 6]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 6]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 6]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 6]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 6]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 6]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 6]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_6[2:0] = ({3{lbuf_create_pointer0[ 6]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 6]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 6]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 6]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 6]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 6]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 6]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 6]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 6]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_7[2:0] = ({3{lbuf_create_pointer0[ 7]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 7]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 7]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 7]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 7]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 7]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 7]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 7]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_7[2:0] = ({3{lbuf_create_pointer0[ 7]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 7]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 7]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 7]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 7]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 7]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 7]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 7]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 7]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_8[2:0] = ({3{lbuf_create_pointer0[ 8]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 8]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 8]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 8]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 8]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 8]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 8]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 8]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_8[2:0] = ({3{lbuf_create_pointer0[ 8]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 8]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 8]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 8]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 8]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 8]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 8]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 8]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 8]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_9[2:0] = ({3{lbuf_create_pointer0[ 9]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[ 9]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[ 9]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[ 9]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[ 9]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[ 9]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[ 9]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[ 9]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_9[2:0] = ({3{lbuf_create_pointer0[ 9]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[ 9]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[ 9]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[ 9]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[ 9]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[ 9]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[ 9]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[ 9]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[ 9]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_10[2:0]= ({3{lbuf_create_pointer0[10]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[10]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[10]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[10]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[10]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[10]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[10]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[10]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_10[2:0]= ({3{lbuf_create_pointer0[10]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[10]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[10]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[10]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[10]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[10]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[10]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[10]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[10]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_11[2:0]= ({3{lbuf_create_pointer0[11]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[11]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[11]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[11]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[11]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[11]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[11]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[11]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_11[2:0]= ({3{lbuf_create_pointer0[11]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[11]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[11]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[11]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[11]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[11]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[11]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[11]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[11]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_12[2:0]= ({3{lbuf_create_pointer0[12]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[12]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[12]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[12]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[12]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[12]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[12]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[12]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_12[2:0]= ({3{lbuf_create_pointer0[12]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[12]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[12]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[12]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[12]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[12]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[12]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[12]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[12]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_13[2:0]= ({3{lbuf_create_pointer0[13]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[13]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[13]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[13]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[13]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[13]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[13]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[13]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_13[2:0]= ({3{lbuf_create_pointer0[13]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[13]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[13]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[13]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[13]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[13]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[13]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[13]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[13]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_14[2:0]= ({3{lbuf_create_pointer0[14]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[14]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[14]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[14]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[14]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[14]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[14]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[14]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_14[2:0]= ({3{lbuf_create_pointer0[14]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[14]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[14]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[14]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[14]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[14]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[14]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[14]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[14]}} & h8_vsew[2:0]);
 
-assign entry_create_vsew_15[2:0]= ({3{lbuf_create_pointer0[15]}} & h0_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer1[15]}} & h1_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer2[15]}} & h2_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer3[15]}} & h3_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer4[15]}} & h4_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer5[15]}} & h5_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer6[15]}} & h6_vsew[2:0]) | 
-                                  ({3{lbuf_create_pointer7[15]}} & h7_vsew[2:0]) | 
+assign entry_create_vsew_15[2:0]= ({3{lbuf_create_pointer0[15]}} & h0_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer1[15]}} & h1_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer2[15]}} & h2_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer3[15]}} & h3_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer4[15]}} & h4_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer5[15]}} & h5_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer6[15]}} & h6_vsew[2:0]) |
+                                  ({3{lbuf_create_pointer7[15]}} & h7_vsew[2:0]) |
                                   ({3{lbuf_create_pointer8[15]}} & h8_vsew[2:0]);
 
 
 //entry_create_vl_n
-assign entry_create_vl_0[7:0]   = ({8{lbuf_create_pointer0[ 0]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 0]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 0]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 0]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 0]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 0]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 0]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 0]}} & h7_vl[7:0]) | 
+assign entry_create_vl_0[7:0]   = ({8{lbuf_create_pointer0[ 0]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 0]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 0]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 0]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 0]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 0]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 0]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 0]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 0]}} & h8_vl[7:0]);
 
-assign entry_create_vl_1[7:0]   = ({8{lbuf_create_pointer0[ 1]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 1]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 1]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 1]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 1]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 1]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 1]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 1]}} & h7_vl[7:0]) | 
+assign entry_create_vl_1[7:0]   = ({8{lbuf_create_pointer0[ 1]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 1]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 1]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 1]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 1]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 1]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 1]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 1]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 1]}} & h8_vl[7:0]);
 
-assign entry_create_vl_2[7:0]   = ({8{lbuf_create_pointer0[ 2]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 2]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 2]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 2]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 2]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 2]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 2]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 2]}} & h7_vl[7:0]) | 
+assign entry_create_vl_2[7:0]   = ({8{lbuf_create_pointer0[ 2]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 2]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 2]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 2]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 2]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 2]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 2]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 2]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 2]}} & h8_vl[7:0]);
 
-assign entry_create_vl_3[7:0]   = ({8{lbuf_create_pointer0[ 3]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 3]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 3]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 3]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 3]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 3]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 3]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 3]}} & h7_vl[7:0]) | 
+assign entry_create_vl_3[7:0]   = ({8{lbuf_create_pointer0[ 3]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 3]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 3]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 3]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 3]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 3]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 3]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 3]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 3]}} & h8_vl[7:0]);
 
-assign entry_create_vl_4[7:0]   = ({8{lbuf_create_pointer0[ 4]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 4]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 4]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 4]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 4]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 4]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 4]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 4]}} & h7_vl[7:0]) | 
+assign entry_create_vl_4[7:0]   = ({8{lbuf_create_pointer0[ 4]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 4]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 4]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 4]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 4]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 4]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 4]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 4]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 4]}} & h8_vl[7:0]);
 
-assign entry_create_vl_5[7:0]   = ({8{lbuf_create_pointer0[ 5]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 5]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 5]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 5]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 5]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 5]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 5]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 5]}} & h7_vl[7:0]) | 
+assign entry_create_vl_5[7:0]   = ({8{lbuf_create_pointer0[ 5]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 5]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 5]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 5]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 5]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 5]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 5]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 5]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 5]}} & h8_vl[7:0]);
 
-assign entry_create_vl_6[7:0]   = ({8{lbuf_create_pointer0[ 6]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 6]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 6]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 6]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 6]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 6]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 6]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 6]}} & h7_vl[7:0]) | 
+assign entry_create_vl_6[7:0]   = ({8{lbuf_create_pointer0[ 6]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 6]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 6]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 6]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 6]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 6]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 6]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 6]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 6]}} & h8_vl[7:0]);
 
-assign entry_create_vl_7[7:0]   = ({8{lbuf_create_pointer0[ 7]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 7]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 7]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 7]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 7]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 7]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 7]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 7]}} & h7_vl[7:0]) | 
+assign entry_create_vl_7[7:0]   = ({8{lbuf_create_pointer0[ 7]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 7]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 7]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 7]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 7]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 7]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 7]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 7]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 7]}} & h8_vl[7:0]);
 
-assign entry_create_vl_8[7:0]   = ({8{lbuf_create_pointer0[ 8]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 8]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 8]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 8]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 8]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 8]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 8]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 8]}} & h7_vl[7:0]) | 
+assign entry_create_vl_8[7:0]   = ({8{lbuf_create_pointer0[ 8]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 8]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 8]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 8]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 8]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 8]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 8]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 8]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 8]}} & h8_vl[7:0]);
 
-assign entry_create_vl_9[7:0]   = ({8{lbuf_create_pointer0[ 9]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[ 9]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[ 9]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[ 9]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[ 9]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[ 9]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[ 9]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[ 9]}} & h7_vl[7:0]) | 
+assign entry_create_vl_9[7:0]   = ({8{lbuf_create_pointer0[ 9]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[ 9]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[ 9]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[ 9]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[ 9]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[ 9]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[ 9]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[ 9]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[ 9]}} & h8_vl[7:0]);
 
-assign entry_create_vl_10[7:0]  = ({8{lbuf_create_pointer0[10]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[10]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[10]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[10]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[10]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[10]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[10]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[10]}} & h7_vl[7:0]) | 
+assign entry_create_vl_10[7:0]  = ({8{lbuf_create_pointer0[10]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[10]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[10]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[10]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[10]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[10]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[10]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[10]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[10]}} & h8_vl[7:0]);
 
-assign entry_create_vl_11[7:0]  = ({8{lbuf_create_pointer0[11]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[11]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[11]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[11]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[11]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[11]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[11]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[11]}} & h7_vl[7:0]) | 
+assign entry_create_vl_11[7:0]  = ({8{lbuf_create_pointer0[11]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[11]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[11]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[11]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[11]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[11]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[11]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[11]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[11]}} & h8_vl[7:0]);
 
-assign entry_create_vl_12[7:0]  = ({8{lbuf_create_pointer0[12]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[12]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[12]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[12]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[12]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[12]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[12]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[12]}} & h7_vl[7:0]) | 
+assign entry_create_vl_12[7:0]  = ({8{lbuf_create_pointer0[12]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[12]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[12]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[12]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[12]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[12]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[12]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[12]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[12]}} & h8_vl[7:0]);
 
-assign entry_create_vl_13[7:0]  = ({8{lbuf_create_pointer0[13]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[13]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[13]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[13]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[13]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[13]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[13]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[13]}} & h7_vl[7:0]) | 
+assign entry_create_vl_13[7:0]  = ({8{lbuf_create_pointer0[13]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[13]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[13]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[13]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[13]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[13]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[13]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[13]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[13]}} & h8_vl[7:0]);
 
-assign entry_create_vl_14[7:0]  = ({8{lbuf_create_pointer0[14]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[14]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[14]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[14]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[14]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[14]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[14]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[14]}} & h7_vl[7:0]) | 
+assign entry_create_vl_14[7:0]  = ({8{lbuf_create_pointer0[14]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[14]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[14]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[14]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[14]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[14]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[14]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[14]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[14]}} & h8_vl[7:0]);
 
-assign entry_create_vl_15[7:0]  = ({8{lbuf_create_pointer0[15]}} & h0_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer1[15]}} & h1_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer2[15]}} & h2_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer3[15]}} & h3_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer4[15]}} & h4_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer5[15]}} & h5_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer6[15]}} & h6_vl[7:0]) | 
-                                  ({8{lbuf_create_pointer7[15]}} & h7_vl[7:0]) | 
+assign entry_create_vl_15[7:0]  = ({8{lbuf_create_pointer0[15]}} & h0_vl[7:0]) |
+                                  ({8{lbuf_create_pointer1[15]}} & h1_vl[7:0]) |
+                                  ({8{lbuf_create_pointer2[15]}} & h2_vl[7:0]) |
+                                  ({8{lbuf_create_pointer3[15]}} & h3_vl[7:0]) |
+                                  ({8{lbuf_create_pointer4[15]}} & h4_vl[7:0]) |
+                                  ({8{lbuf_create_pointer5[15]}} & h5_vl[7:0]) |
+                                  ({8{lbuf_create_pointer6[15]}} & h6_vl[7:0]) |
+                                  ({8{lbuf_create_pointer7[15]}} & h7_vl[7:0]) |
                                   ({8{lbuf_create_pointer8[15]}} & h8_vl[7:0]);
 
 
 
 //entry_create_split0_type_n
-assign entry_create_split0_type_0[2:0] = ({3{lbuf_create_pointer0[ 0]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 0]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 0]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 0]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 0]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 0]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 0]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 0]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_0[2:0] = ({3{lbuf_create_pointer0[ 0]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 0]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 0]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 0]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 0]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 0]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 0]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 0]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 0]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_1[2:0] = ({3{lbuf_create_pointer0[ 1]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 1]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 1]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 1]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 1]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 1]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 1]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 1]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_1[2:0] = ({3{lbuf_create_pointer0[ 1]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 1]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 1]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 1]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 1]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 1]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 1]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 1]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 1]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_2[2:0] = ({3{lbuf_create_pointer0[ 2]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 2]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 2]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 2]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 2]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 2]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 2]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 2]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_2[2:0] = ({3{lbuf_create_pointer0[ 2]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 2]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 2]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 2]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 2]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 2]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 2]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 2]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 2]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_3[2:0] = ({3{lbuf_create_pointer0[ 3]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 3]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 3]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 3]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 3]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 3]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 3]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 3]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_3[2:0] = ({3{lbuf_create_pointer0[ 3]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 3]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 3]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 3]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 3]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 3]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 3]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 3]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 3]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_4[2:0] = ({3{lbuf_create_pointer0[ 4]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 4]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 4]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 4]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 4]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 4]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 4]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 4]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_4[2:0] = ({3{lbuf_create_pointer0[ 4]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 4]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 4]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 4]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 4]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 4]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 4]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 4]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 4]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_5[2:0] = ({3{lbuf_create_pointer0[ 5]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 5]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 5]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 5]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 5]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 5]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 5]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 5]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_5[2:0] = ({3{lbuf_create_pointer0[ 5]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 5]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 5]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 5]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 5]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 5]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 5]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 5]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 5]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_6[2:0] = ({3{lbuf_create_pointer0[ 6]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 6]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 6]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 6]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 6]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 6]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 6]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 6]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_6[2:0] = ({3{lbuf_create_pointer0[ 6]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 6]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 6]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 6]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 6]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 6]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 6]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 6]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 6]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_7[2:0] = ({3{lbuf_create_pointer0[ 7]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 7]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 7]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 7]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 7]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 7]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 7]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 7]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_7[2:0] = ({3{lbuf_create_pointer0[ 7]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 7]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 7]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 7]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 7]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 7]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 7]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 7]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 7]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_8[2:0] = ({3{lbuf_create_pointer0[ 8]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 8]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 8]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 8]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 8]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 8]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 8]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 8]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_8[2:0] = ({3{lbuf_create_pointer0[ 8]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 8]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 8]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 8]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 8]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 8]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 8]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 8]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 8]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_9[2:0] = ({3{lbuf_create_pointer0[ 9]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 9]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 9]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 9]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 9]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 9]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 9]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 9]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_9[2:0] = ({3{lbuf_create_pointer0[ 9]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 9]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 9]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 9]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 9]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 9]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 9]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 9]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 9]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_10[2:0]= ({3{lbuf_create_pointer0[10]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[10]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[10]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[10]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[10]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[10]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[10]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[10]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_10[2:0]= ({3{lbuf_create_pointer0[10]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[10]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[10]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[10]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[10]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[10]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[10]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[10]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[10]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_11[2:0]= ({3{lbuf_create_pointer0[11]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[11]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[11]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[11]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[11]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[11]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[11]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[11]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_11[2:0]= ({3{lbuf_create_pointer0[11]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[11]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[11]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[11]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[11]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[11]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[11]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[11]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[11]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_12[2:0]= ({3{lbuf_create_pointer0[12]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[12]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[12]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[12]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[12]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[12]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[12]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[12]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_12[2:0]= ({3{lbuf_create_pointer0[12]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[12]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[12]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[12]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[12]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[12]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[12]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[12]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[12]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_13[2:0]= ({3{lbuf_create_pointer0[13]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[13]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[13]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[13]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[13]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[13]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[13]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[13]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_13[2:0]= ({3{lbuf_create_pointer0[13]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[13]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[13]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[13]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[13]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[13]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[13]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[13]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[13]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_14[2:0]= ({3{lbuf_create_pointer0[14]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[14]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[14]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[14]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[14]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[14]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[14]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[14]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_14[2:0]= ({3{lbuf_create_pointer0[14]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[14]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[14]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[14]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[14]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[14]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[14]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[14]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[14]}} & h8_split0_type[2:0]);
 
-assign entry_create_split0_type_15[2:0]= ({3{lbuf_create_pointer0[15]}} & h0_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[15]}} & h1_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[15]}} & h2_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[15]}} & h3_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[15]}} & h4_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[15]}} & h5_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[15]}} & h6_split0_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[15]}} & h7_split0_type[2:0]) | 
+assign entry_create_split0_type_15[2:0]= ({3{lbuf_create_pointer0[15]}} & h0_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[15]}} & h1_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[15]}} & h2_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[15]}} & h3_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[15]}} & h4_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[15]}} & h5_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[15]}} & h6_split0_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[15]}} & h7_split0_type[2:0]) |
                                          ({3{lbuf_create_pointer8[15]}} & h8_split0_type[2:0]);
 
 //entry_create_split1_type_n
-assign entry_create_split1_type_0[2:0] = ({3{lbuf_create_pointer0[ 0]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 0]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 0]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 0]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 0]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 0]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 0]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 0]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_0[2:0] = ({3{lbuf_create_pointer0[ 0]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 0]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 0]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 0]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 0]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 0]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 0]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 0]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 0]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_1[2:0] = ({3{lbuf_create_pointer0[ 1]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 1]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 1]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 1]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 1]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 1]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 1]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 1]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_1[2:0] = ({3{lbuf_create_pointer0[ 1]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 1]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 1]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 1]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 1]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 1]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 1]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 1]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 1]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_2[2:0] = ({3{lbuf_create_pointer0[ 2]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 2]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 2]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 2]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 2]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 2]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 2]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 2]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_2[2:0] = ({3{lbuf_create_pointer0[ 2]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 2]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 2]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 2]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 2]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 2]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 2]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 2]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 2]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_3[2:0] = ({3{lbuf_create_pointer0[ 3]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 3]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 3]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 3]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 3]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 3]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 3]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 3]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_3[2:0] = ({3{lbuf_create_pointer0[ 3]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 3]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 3]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 3]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 3]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 3]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 3]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 3]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 3]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_4[2:0] = ({3{lbuf_create_pointer0[ 4]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 4]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 4]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 4]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 4]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 4]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 4]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 4]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_4[2:0] = ({3{lbuf_create_pointer0[ 4]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 4]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 4]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 4]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 4]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 4]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 4]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 4]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 4]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_5[2:0] = ({3{lbuf_create_pointer0[ 5]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 5]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 5]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 5]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 5]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 5]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 5]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 5]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_5[2:0] = ({3{lbuf_create_pointer0[ 5]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 5]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 5]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 5]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 5]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 5]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 5]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 5]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 5]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_6[2:0] = ({3{lbuf_create_pointer0[ 6]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 6]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 6]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 6]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 6]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 6]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 6]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 6]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_6[2:0] = ({3{lbuf_create_pointer0[ 6]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 6]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 6]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 6]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 6]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 6]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 6]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 6]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 6]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_7[2:0] = ({3{lbuf_create_pointer0[ 7]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 7]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 7]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 7]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 7]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 7]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 7]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 7]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_7[2:0] = ({3{lbuf_create_pointer0[ 7]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 7]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 7]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 7]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 7]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 7]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 7]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 7]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 7]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_8[2:0] = ({3{lbuf_create_pointer0[ 8]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 8]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 8]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 8]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 8]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 8]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 8]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 8]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_8[2:0] = ({3{lbuf_create_pointer0[ 8]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 8]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 8]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 8]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 8]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 8]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 8]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 8]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 8]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_9[2:0] = ({3{lbuf_create_pointer0[ 9]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[ 9]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[ 9]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[ 9]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[ 9]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[ 9]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[ 9]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[ 9]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_9[2:0] = ({3{lbuf_create_pointer0[ 9]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[ 9]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[ 9]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[ 9]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[ 9]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[ 9]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[ 9]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[ 9]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[ 9]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_10[2:0]= ({3{lbuf_create_pointer0[10]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[10]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[10]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[10]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[10]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[10]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[10]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[10]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_10[2:0]= ({3{lbuf_create_pointer0[10]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[10]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[10]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[10]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[10]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[10]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[10]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[10]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[10]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_11[2:0]= ({3{lbuf_create_pointer0[11]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[11]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[11]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[11]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[11]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[11]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[11]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[11]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_11[2:0]= ({3{lbuf_create_pointer0[11]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[11]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[11]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[11]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[11]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[11]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[11]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[11]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[11]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_12[2:0]= ({3{lbuf_create_pointer0[12]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[12]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[12]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[12]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[12]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[12]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[12]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[12]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_12[2:0]= ({3{lbuf_create_pointer0[12]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[12]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[12]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[12]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[12]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[12]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[12]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[12]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[12]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_13[2:0]= ({3{lbuf_create_pointer0[13]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[13]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[13]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[13]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[13]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[13]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[13]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[13]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_13[2:0]= ({3{lbuf_create_pointer0[13]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[13]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[13]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[13]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[13]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[13]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[13]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[13]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[13]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_14[2:0]= ({3{lbuf_create_pointer0[14]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[14]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[14]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[14]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[14]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[14]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[14]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[14]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_14[2:0]= ({3{lbuf_create_pointer0[14]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[14]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[14]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[14]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[14]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[14]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[14]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[14]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[14]}} & h8_split1_type[2:0]);
 
-assign entry_create_split1_type_15[2:0]= ({3{lbuf_create_pointer0[15]}} & h0_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer1[15]}} & h1_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer2[15]}} & h2_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer3[15]}} & h3_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer4[15]}} & h4_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer5[15]}} & h5_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer6[15]}} & h6_split1_type[2:0]) | 
-                                         ({3{lbuf_create_pointer7[15]}} & h7_split1_type[2:0]) | 
+assign entry_create_split1_type_15[2:0]= ({3{lbuf_create_pointer0[15]}} & h0_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer1[15]}} & h1_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer2[15]}} & h2_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer3[15]}} & h3_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer4[15]}} & h4_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer5[15]}} & h5_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer6[15]}} & h6_split1_type[2:0]) |
+                                         ({3{lbuf_create_pointer7[15]}} & h7_split1_type[2:0]) |
                                          ({3{lbuf_create_pointer8[15]}} & h8_split1_type[2:0]);
 
 //-------------------Entry Pop Logic------------------------
@@ -4514,16 +4514,16 @@ assign entry_create_split1_type_15[2:0]= ({3{lbuf_create_pointer0[15]}} & h0_spl
 //entry_inst_start[n]
 
 //pop_hn_vld
-assign pop_h0_vld         = |(lbuf_retire_pointer0[15:0] & entry_vld[15:0]);  
-assign pop_h1_vld         = |(lbuf_retire_pointer1[15:0] & entry_vld[15:0]); 
-assign pop_h2_vld         = |(lbuf_retire_pointer2[15:0] & entry_vld[15:0]); 
-assign pop_h3_vld         = |(lbuf_retire_pointer3[15:0] & entry_vld[15:0]); 
-assign pop_h4_vld         = |(lbuf_retire_pointer4[15:0] & entry_vld[15:0]); 
+assign pop_h0_vld         = |(lbuf_retire_pointer0[15:0] & entry_vld[15:0]);
+assign pop_h1_vld         = |(lbuf_retire_pointer1[15:0] & entry_vld[15:0]);
+assign pop_h2_vld         = |(lbuf_retire_pointer2[15:0] & entry_vld[15:0]);
+assign pop_h3_vld         = |(lbuf_retire_pointer3[15:0] & entry_vld[15:0]);
+assign pop_h4_vld         = |(lbuf_retire_pointer4[15:0] & entry_vld[15:0]);
 
 //pop_hn_front_br
-assign pop_h0_front_br    = |(lbuf_retire_pointer0[15:0] & entry_front_br[15:0] & entry_vld[15:0]); 
+assign pop_h0_front_br    = |(lbuf_retire_pointer0[15:0] & entry_front_br[15:0] & entry_vld[15:0]);
 assign pop_h1_front_br    = |(lbuf_retire_pointer1[15:0] & entry_front_br[15:0] & entry_vld[15:0]);
-assign pop_h2_front_br    = |(lbuf_retire_pointer2[15:0] & entry_front_br[15:0] & entry_vld[15:0]); 
+assign pop_h2_front_br    = |(lbuf_retire_pointer2[15:0] & entry_front_br[15:0] & entry_vld[15:0]);
 assign pop_h3_front_br    = |(lbuf_retire_pointer3[15:0] & entry_front_br[15:0] & entry_vld[15:0]);
 assign pop_h4_front_br    = |(lbuf_retire_pointer4[15:0] & entry_front_br[15:0] & entry_vld[15:0]);
 
@@ -4535,12 +4535,12 @@ assign pop_h3_back_br     = |(lbuf_retire_pointer3[15:0] & entry_back_br[15:0] &
 assign pop_h4_back_br     = |(lbuf_retire_pointer4[15:0] & entry_back_br[15:0] & entry_vld[15:0]);
 
 //pop_hn_32_start
-assign pop_h0_32_start    = |(lbuf_retire_pointer0[15:0] & entry_32_start[15:0] & entry_vld[15:0]);  
+assign pop_h0_32_start    = |(lbuf_retire_pointer0[15:0] & entry_32_start[15:0] & entry_vld[15:0]);
 assign pop_h1_32_start    = |(lbuf_retire_pointer1[15:0] & entry_32_start[15:0] & entry_vld[15:0]);
 assign pop_h2_32_start    = |(lbuf_retire_pointer2[15:0] & entry_32_start[15:0] & entry_vld[15:0]);
 assign pop_h3_32_start    = |(lbuf_retire_pointer3[15:0] & entry_32_start[15:0] & entry_vld[15:0]);
-assign pop_h4_32_start    = |(lbuf_retire_pointer4[15:0] & entry_32_start[15:0] & entry_vld[15:0]); 
-  
+assign pop_h4_32_start    = |(lbuf_retire_pointer4[15:0] & entry_32_start[15:0] & entry_vld[15:0]);
+
 //pop_hn_fence
 assign pop_h0_fence          = |(lbuf_retire_pointer0[15:0] & entry_fence[15:0]);
 assign pop_h1_fence          = |(lbuf_retire_pointer1[15:0] & entry_fence[15:0]);
@@ -4549,14 +4549,14 @@ assign pop_h3_fence          = |(lbuf_retire_pointer3[15:0] & entry_fence[15:0])
 assign pop_h4_fence          = |(lbuf_retire_pointer4[15:0] & entry_fence[15:0]);
 
 //pop_hn_bkpta
-assign pop_h0_bkpta          = |(lbuf_retire_pointer0[15:0] & entry_bkpta[15:0]); 
-assign pop_h1_bkpta          = |(lbuf_retire_pointer1[15:0] & entry_bkpta[15:0]); 
-assign pop_h2_bkpta          = |(lbuf_retire_pointer2[15:0] & entry_bkpta[15:0]); 
-assign pop_h3_bkpta          = |(lbuf_retire_pointer3[15:0] & entry_bkpta[15:0]); 
-assign pop_h4_bkpta          = |(lbuf_retire_pointer4[15:0] & entry_bkpta[15:0]); 
+assign pop_h0_bkpta          = |(lbuf_retire_pointer0[15:0] & entry_bkpta[15:0]);
+assign pop_h1_bkpta          = |(lbuf_retire_pointer1[15:0] & entry_bkpta[15:0]);
+assign pop_h2_bkpta          = |(lbuf_retire_pointer2[15:0] & entry_bkpta[15:0]);
+assign pop_h3_bkpta          = |(lbuf_retire_pointer3[15:0] & entry_bkpta[15:0]);
+assign pop_h4_bkpta          = |(lbuf_retire_pointer4[15:0] & entry_bkpta[15:0]);
 
 //pop_hn_bkptb
-assign pop_h0_bkptb          = |(lbuf_retire_pointer0[15:0] & entry_bkptb[15:0]); 
+assign pop_h0_bkptb          = |(lbuf_retire_pointer0[15:0] & entry_bkptb[15:0]);
 assign pop_h1_bkptb          = |(lbuf_retire_pointer1[15:0] & entry_bkptb[15:0]);
 assign pop_h2_bkptb          = |(lbuf_retire_pointer2[15:0] & entry_bkptb[15:0]);
 assign pop_h3_bkptb          = |(lbuf_retire_pointer3[15:0] & entry_bkptb[15:0]);
@@ -4570,546 +4570,546 @@ assign pop_h3_vsetvli        = |(lbuf_retire_pointer3[15:0] & entry_vsetvli[15:0
 assign pop_h4_vsetvli        = |(lbuf_retire_pointer4[15:0] & entry_vsetvli[15:0]);
 
 //pop_hn_data[15:0]
-assign pop_h0_data[15:0]  = ({16{lbuf_retire_pointer0[ 0]}} & entry_inst_data_0[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 1]}} & entry_inst_data_1[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 2]}} & entry_inst_data_2[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 3]}} & entry_inst_data_3[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 4]}} & entry_inst_data_4[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 5]}} & entry_inst_data_5[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 6]}} & entry_inst_data_6[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 7]}} & entry_inst_data_7[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 8]}} & entry_inst_data_8[15:0])  | 
-                            ({16{lbuf_retire_pointer0[ 9]}} & entry_inst_data_9[15:0])  | 
-                            ({16{lbuf_retire_pointer0[10]}} & entry_inst_data_10[15:0]) | 
-                            ({16{lbuf_retire_pointer0[11]}} & entry_inst_data_11[15:0]) | 
-                            ({16{lbuf_retire_pointer0[12]}} & entry_inst_data_12[15:0]) | 
-                            ({16{lbuf_retire_pointer0[13]}} & entry_inst_data_13[15:0]) | 
-                            ({16{lbuf_retire_pointer0[14]}} & entry_inst_data_14[15:0]) | 
-                            ({16{lbuf_retire_pointer0[15]}} & entry_inst_data_15[15:0]); 
+assign pop_h0_data[15:0]  = ({16{lbuf_retire_pointer0[ 0]}} & entry_inst_data_0[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 1]}} & entry_inst_data_1[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 2]}} & entry_inst_data_2[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 3]}} & entry_inst_data_3[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 4]}} & entry_inst_data_4[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 5]}} & entry_inst_data_5[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 6]}} & entry_inst_data_6[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 7]}} & entry_inst_data_7[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 8]}} & entry_inst_data_8[15:0])  |
+                            ({16{lbuf_retire_pointer0[ 9]}} & entry_inst_data_9[15:0])  |
+                            ({16{lbuf_retire_pointer0[10]}} & entry_inst_data_10[15:0]) |
+                            ({16{lbuf_retire_pointer0[11]}} & entry_inst_data_11[15:0]) |
+                            ({16{lbuf_retire_pointer0[12]}} & entry_inst_data_12[15:0]) |
+                            ({16{lbuf_retire_pointer0[13]}} & entry_inst_data_13[15:0]) |
+                            ({16{lbuf_retire_pointer0[14]}} & entry_inst_data_14[15:0]) |
+                            ({16{lbuf_retire_pointer0[15]}} & entry_inst_data_15[15:0]);
 
-assign pop_h1_data[15:0]  = ({16{lbuf_retire_pointer1[ 0]}} & entry_inst_data_0[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 1]}} & entry_inst_data_1[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 2]}} & entry_inst_data_2[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 3]}} & entry_inst_data_3[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 4]}} & entry_inst_data_4[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 5]}} & entry_inst_data_5[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 6]}} & entry_inst_data_6[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 7]}} & entry_inst_data_7[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 8]}} & entry_inst_data_8[15:0])  | 
-                            ({16{lbuf_retire_pointer1[ 9]}} & entry_inst_data_9[15:0])  | 
-                            ({16{lbuf_retire_pointer1[10]}} & entry_inst_data_10[15:0]) | 
-                            ({16{lbuf_retire_pointer1[11]}} & entry_inst_data_11[15:0]) | 
-                            ({16{lbuf_retire_pointer1[12]}} & entry_inst_data_12[15:0]) | 
-                            ({16{lbuf_retire_pointer1[13]}} & entry_inst_data_13[15:0]) | 
-                            ({16{lbuf_retire_pointer1[14]}} & entry_inst_data_14[15:0]) | 
-                            ({16{lbuf_retire_pointer1[15]}} & entry_inst_data_15[15:0]); 
+assign pop_h1_data[15:0]  = ({16{lbuf_retire_pointer1[ 0]}} & entry_inst_data_0[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 1]}} & entry_inst_data_1[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 2]}} & entry_inst_data_2[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 3]}} & entry_inst_data_3[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 4]}} & entry_inst_data_4[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 5]}} & entry_inst_data_5[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 6]}} & entry_inst_data_6[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 7]}} & entry_inst_data_7[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 8]}} & entry_inst_data_8[15:0])  |
+                            ({16{lbuf_retire_pointer1[ 9]}} & entry_inst_data_9[15:0])  |
+                            ({16{lbuf_retire_pointer1[10]}} & entry_inst_data_10[15:0]) |
+                            ({16{lbuf_retire_pointer1[11]}} & entry_inst_data_11[15:0]) |
+                            ({16{lbuf_retire_pointer1[12]}} & entry_inst_data_12[15:0]) |
+                            ({16{lbuf_retire_pointer1[13]}} & entry_inst_data_13[15:0]) |
+                            ({16{lbuf_retire_pointer1[14]}} & entry_inst_data_14[15:0]) |
+                            ({16{lbuf_retire_pointer1[15]}} & entry_inst_data_15[15:0]);
 
-assign pop_h2_data[15:0]  = ({16{lbuf_retire_pointer2[ 0]}} & entry_inst_data_0[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 1]}} & entry_inst_data_1[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 2]}} & entry_inst_data_2[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 3]}} & entry_inst_data_3[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 4]}} & entry_inst_data_4[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 5]}} & entry_inst_data_5[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 6]}} & entry_inst_data_6[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 7]}} & entry_inst_data_7[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 8]}} & entry_inst_data_8[15:0])  | 
-                            ({16{lbuf_retire_pointer2[ 9]}} & entry_inst_data_9[15:0])  | 
-                            ({16{lbuf_retire_pointer2[10]}} & entry_inst_data_10[15:0]) | 
-                            ({16{lbuf_retire_pointer2[11]}} & entry_inst_data_11[15:0]) | 
-                            ({16{lbuf_retire_pointer2[12]}} & entry_inst_data_12[15:0]) | 
-                            ({16{lbuf_retire_pointer2[13]}} & entry_inst_data_13[15:0]) | 
-                            ({16{lbuf_retire_pointer2[14]}} & entry_inst_data_14[15:0]) | 
-                            ({16{lbuf_retire_pointer2[15]}} & entry_inst_data_15[15:0]); 
+assign pop_h2_data[15:0]  = ({16{lbuf_retire_pointer2[ 0]}} & entry_inst_data_0[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 1]}} & entry_inst_data_1[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 2]}} & entry_inst_data_2[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 3]}} & entry_inst_data_3[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 4]}} & entry_inst_data_4[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 5]}} & entry_inst_data_5[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 6]}} & entry_inst_data_6[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 7]}} & entry_inst_data_7[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 8]}} & entry_inst_data_8[15:0])  |
+                            ({16{lbuf_retire_pointer2[ 9]}} & entry_inst_data_9[15:0])  |
+                            ({16{lbuf_retire_pointer2[10]}} & entry_inst_data_10[15:0]) |
+                            ({16{lbuf_retire_pointer2[11]}} & entry_inst_data_11[15:0]) |
+                            ({16{lbuf_retire_pointer2[12]}} & entry_inst_data_12[15:0]) |
+                            ({16{lbuf_retire_pointer2[13]}} & entry_inst_data_13[15:0]) |
+                            ({16{lbuf_retire_pointer2[14]}} & entry_inst_data_14[15:0]) |
+                            ({16{lbuf_retire_pointer2[15]}} & entry_inst_data_15[15:0]);
 
-assign pop_h3_data[15:0]  = ({16{lbuf_retire_pointer3[ 0]}} & entry_inst_data_0[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 1]}} & entry_inst_data_1[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 2]}} & entry_inst_data_2[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 3]}} & entry_inst_data_3[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 4]}} & entry_inst_data_4[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 5]}} & entry_inst_data_5[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 6]}} & entry_inst_data_6[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 7]}} & entry_inst_data_7[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 8]}} & entry_inst_data_8[15:0])  | 
-                            ({16{lbuf_retire_pointer3[ 9]}} & entry_inst_data_9[15:0])  | 
-                            ({16{lbuf_retire_pointer3[10]}} & entry_inst_data_10[15:0]) | 
-                            ({16{lbuf_retire_pointer3[11]}} & entry_inst_data_11[15:0]) | 
-                            ({16{lbuf_retire_pointer3[12]}} & entry_inst_data_12[15:0]) | 
-                            ({16{lbuf_retire_pointer3[13]}} & entry_inst_data_13[15:0]) | 
-                            ({16{lbuf_retire_pointer3[14]}} & entry_inst_data_14[15:0]) | 
-                            ({16{lbuf_retire_pointer3[15]}} & entry_inst_data_15[15:0]); 
+assign pop_h3_data[15:0]  = ({16{lbuf_retire_pointer3[ 0]}} & entry_inst_data_0[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 1]}} & entry_inst_data_1[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 2]}} & entry_inst_data_2[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 3]}} & entry_inst_data_3[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 4]}} & entry_inst_data_4[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 5]}} & entry_inst_data_5[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 6]}} & entry_inst_data_6[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 7]}} & entry_inst_data_7[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 8]}} & entry_inst_data_8[15:0])  |
+                            ({16{lbuf_retire_pointer3[ 9]}} & entry_inst_data_9[15:0])  |
+                            ({16{lbuf_retire_pointer3[10]}} & entry_inst_data_10[15:0]) |
+                            ({16{lbuf_retire_pointer3[11]}} & entry_inst_data_11[15:0]) |
+                            ({16{lbuf_retire_pointer3[12]}} & entry_inst_data_12[15:0]) |
+                            ({16{lbuf_retire_pointer3[13]}} & entry_inst_data_13[15:0]) |
+                            ({16{lbuf_retire_pointer3[14]}} & entry_inst_data_14[15:0]) |
+                            ({16{lbuf_retire_pointer3[15]}} & entry_inst_data_15[15:0]);
 
-assign pop_h4_data[15:0]  = ({16{lbuf_retire_pointer4[ 0]}} & entry_inst_data_0[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 1]}} & entry_inst_data_1[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 2]}} & entry_inst_data_2[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 3]}} & entry_inst_data_3[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 4]}} & entry_inst_data_4[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 5]}} & entry_inst_data_5[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 6]}} & entry_inst_data_6[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 7]}} & entry_inst_data_7[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 8]}} & entry_inst_data_8[15:0])  | 
-                            ({16{lbuf_retire_pointer4[ 9]}} & entry_inst_data_9[15:0])  | 
-                            ({16{lbuf_retire_pointer4[10]}} & entry_inst_data_10[15:0]) | 
-                            ({16{lbuf_retire_pointer4[11]}} & entry_inst_data_11[15:0]) | 
-                            ({16{lbuf_retire_pointer4[12]}} & entry_inst_data_12[15:0]) | 
-                            ({16{lbuf_retire_pointer4[13]}} & entry_inst_data_13[15:0]) | 
-                            ({16{lbuf_retire_pointer4[14]}} & entry_inst_data_14[15:0]) | 
-                            ({16{lbuf_retire_pointer4[15]}} & entry_inst_data_15[15:0]); 
+assign pop_h4_data[15:0]  = ({16{lbuf_retire_pointer4[ 0]}} & entry_inst_data_0[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 1]}} & entry_inst_data_1[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 2]}} & entry_inst_data_2[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 3]}} & entry_inst_data_3[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 4]}} & entry_inst_data_4[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 5]}} & entry_inst_data_5[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 6]}} & entry_inst_data_6[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 7]}} & entry_inst_data_7[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 8]}} & entry_inst_data_8[15:0])  |
+                            ({16{lbuf_retire_pointer4[ 9]}} & entry_inst_data_9[15:0])  |
+                            ({16{lbuf_retire_pointer4[10]}} & entry_inst_data_10[15:0]) |
+                            ({16{lbuf_retire_pointer4[11]}} & entry_inst_data_11[15:0]) |
+                            ({16{lbuf_retire_pointer4[12]}} & entry_inst_data_12[15:0]) |
+                            ({16{lbuf_retire_pointer4[13]}} & entry_inst_data_13[15:0]) |
+                            ({16{lbuf_retire_pointer4[14]}} & entry_inst_data_14[15:0]) |
+                            ({16{lbuf_retire_pointer4[15]}} & entry_inst_data_15[15:0]);
 
-assign pop_h5_data[15:0]  = ({16{lbuf_retire_pointer5[ 0]}} & entry_inst_data_0[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 1]}} & entry_inst_data_1[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 2]}} & entry_inst_data_2[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 3]}} & entry_inst_data_3[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 4]}} & entry_inst_data_4[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 5]}} & entry_inst_data_5[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 6]}} & entry_inst_data_6[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 7]}} & entry_inst_data_7[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 8]}} & entry_inst_data_8[15:0])  | 
-                            ({16{lbuf_retire_pointer5[ 9]}} & entry_inst_data_9[15:0])  | 
-                            ({16{lbuf_retire_pointer5[10]}} & entry_inst_data_10[15:0]) | 
-                            ({16{lbuf_retire_pointer5[11]}} & entry_inst_data_11[15:0]) | 
-                            ({16{lbuf_retire_pointer5[12]}} & entry_inst_data_12[15:0]) | 
-                            ({16{lbuf_retire_pointer5[13]}} & entry_inst_data_13[15:0]) | 
-                            ({16{lbuf_retire_pointer5[14]}} & entry_inst_data_14[15:0]) | 
+assign pop_h5_data[15:0]  = ({16{lbuf_retire_pointer5[ 0]}} & entry_inst_data_0[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 1]}} & entry_inst_data_1[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 2]}} & entry_inst_data_2[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 3]}} & entry_inst_data_3[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 4]}} & entry_inst_data_4[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 5]}} & entry_inst_data_5[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 6]}} & entry_inst_data_6[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 7]}} & entry_inst_data_7[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 8]}} & entry_inst_data_8[15:0])  |
+                            ({16{lbuf_retire_pointer5[ 9]}} & entry_inst_data_9[15:0])  |
+                            ({16{lbuf_retire_pointer5[10]}} & entry_inst_data_10[15:0]) |
+                            ({16{lbuf_retire_pointer5[11]}} & entry_inst_data_11[15:0]) |
+                            ({16{lbuf_retire_pointer5[12]}} & entry_inst_data_12[15:0]) |
+                            ({16{lbuf_retire_pointer5[13]}} & entry_inst_data_13[15:0]) |
+                            ({16{lbuf_retire_pointer5[14]}} & entry_inst_data_14[15:0]) |
                             ({16{lbuf_retire_pointer5[15]}} & entry_inst_data_15[15:0]);
 
 
 //pop_hn_vlmul[1:0]
-assign pop_h0_vlmul[1:0]  = ({2{lbuf_retire_pointer0[ 0]}} & entry_vlmul_0[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 1]}} & entry_vlmul_1[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 2]}} & entry_vlmul_2[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 3]}} & entry_vlmul_3[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 4]}} & entry_vlmul_4[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 5]}} & entry_vlmul_5[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 6]}} & entry_vlmul_6[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 7]}} & entry_vlmul_7[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 8]}} & entry_vlmul_8[1:0])  | 
-                            ({2{lbuf_retire_pointer0[ 9]}} & entry_vlmul_9[1:0])  | 
-                            ({2{lbuf_retire_pointer0[10]}} & entry_vlmul_10[1:0]) | 
-                            ({2{lbuf_retire_pointer0[11]}} & entry_vlmul_11[1:0]) | 
-                            ({2{lbuf_retire_pointer0[12]}} & entry_vlmul_12[1:0]) | 
-                            ({2{lbuf_retire_pointer0[13]}} & entry_vlmul_13[1:0]) | 
-                            ({2{lbuf_retire_pointer0[14]}} & entry_vlmul_14[1:0]) | 
-                            ({2{lbuf_retire_pointer0[15]}} & entry_vlmul_15[1:0]); 
+assign pop_h0_vlmul[1:0]  = ({2{lbuf_retire_pointer0[ 0]}} & entry_vlmul_0[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 1]}} & entry_vlmul_1[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 2]}} & entry_vlmul_2[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 3]}} & entry_vlmul_3[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 4]}} & entry_vlmul_4[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 5]}} & entry_vlmul_5[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 6]}} & entry_vlmul_6[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 7]}} & entry_vlmul_7[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 8]}} & entry_vlmul_8[1:0])  |
+                            ({2{lbuf_retire_pointer0[ 9]}} & entry_vlmul_9[1:0])  |
+                            ({2{lbuf_retire_pointer0[10]}} & entry_vlmul_10[1:0]) |
+                            ({2{lbuf_retire_pointer0[11]}} & entry_vlmul_11[1:0]) |
+                            ({2{lbuf_retire_pointer0[12]}} & entry_vlmul_12[1:0]) |
+                            ({2{lbuf_retire_pointer0[13]}} & entry_vlmul_13[1:0]) |
+                            ({2{lbuf_retire_pointer0[14]}} & entry_vlmul_14[1:0]) |
+                            ({2{lbuf_retire_pointer0[15]}} & entry_vlmul_15[1:0]);
 
-assign pop_h1_vlmul[1:0]  = ({2{lbuf_retire_pointer1[ 0]}} & entry_vlmul_0[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 1]}} & entry_vlmul_1[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 2]}} & entry_vlmul_2[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 3]}} & entry_vlmul_3[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 4]}} & entry_vlmul_4[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 5]}} & entry_vlmul_5[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 6]}} & entry_vlmul_6[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 7]}} & entry_vlmul_7[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 8]}} & entry_vlmul_8[1:0])  | 
-                            ({2{lbuf_retire_pointer1[ 9]}} & entry_vlmul_9[1:0])  | 
-                            ({2{lbuf_retire_pointer1[10]}} & entry_vlmul_10[1:0]) | 
-                            ({2{lbuf_retire_pointer1[11]}} & entry_vlmul_11[1:0]) | 
-                            ({2{lbuf_retire_pointer1[12]}} & entry_vlmul_12[1:0]) | 
-                            ({2{lbuf_retire_pointer1[13]}} & entry_vlmul_13[1:0]) | 
-                            ({2{lbuf_retire_pointer1[14]}} & entry_vlmul_14[1:0]) | 
-                            ({2{lbuf_retire_pointer1[15]}} & entry_vlmul_15[1:0]); 
+assign pop_h1_vlmul[1:0]  = ({2{lbuf_retire_pointer1[ 0]}} & entry_vlmul_0[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 1]}} & entry_vlmul_1[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 2]}} & entry_vlmul_2[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 3]}} & entry_vlmul_3[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 4]}} & entry_vlmul_4[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 5]}} & entry_vlmul_5[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 6]}} & entry_vlmul_6[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 7]}} & entry_vlmul_7[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 8]}} & entry_vlmul_8[1:0])  |
+                            ({2{lbuf_retire_pointer1[ 9]}} & entry_vlmul_9[1:0])  |
+                            ({2{lbuf_retire_pointer1[10]}} & entry_vlmul_10[1:0]) |
+                            ({2{lbuf_retire_pointer1[11]}} & entry_vlmul_11[1:0]) |
+                            ({2{lbuf_retire_pointer1[12]}} & entry_vlmul_12[1:0]) |
+                            ({2{lbuf_retire_pointer1[13]}} & entry_vlmul_13[1:0]) |
+                            ({2{lbuf_retire_pointer1[14]}} & entry_vlmul_14[1:0]) |
+                            ({2{lbuf_retire_pointer1[15]}} & entry_vlmul_15[1:0]);
 
-assign pop_h2_vlmul[1:0]  = ({2{lbuf_retire_pointer2[ 0]}} & entry_vlmul_0[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 1]}} & entry_vlmul_1[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 2]}} & entry_vlmul_2[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 3]}} & entry_vlmul_3[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 4]}} & entry_vlmul_4[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 5]}} & entry_vlmul_5[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 6]}} & entry_vlmul_6[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 7]}} & entry_vlmul_7[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 8]}} & entry_vlmul_8[1:0])  | 
-                            ({2{lbuf_retire_pointer2[ 9]}} & entry_vlmul_9[1:0])  | 
-                            ({2{lbuf_retire_pointer2[10]}} & entry_vlmul_10[1:0]) | 
-                            ({2{lbuf_retire_pointer2[11]}} & entry_vlmul_11[1:0]) | 
-                            ({2{lbuf_retire_pointer2[12]}} & entry_vlmul_12[1:0]) | 
-                            ({2{lbuf_retire_pointer2[13]}} & entry_vlmul_13[1:0]) | 
-                            ({2{lbuf_retire_pointer2[14]}} & entry_vlmul_14[1:0]) | 
-                            ({2{lbuf_retire_pointer2[15]}} & entry_vlmul_15[1:0]); 
+assign pop_h2_vlmul[1:0]  = ({2{lbuf_retire_pointer2[ 0]}} & entry_vlmul_0[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 1]}} & entry_vlmul_1[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 2]}} & entry_vlmul_2[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 3]}} & entry_vlmul_3[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 4]}} & entry_vlmul_4[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 5]}} & entry_vlmul_5[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 6]}} & entry_vlmul_6[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 7]}} & entry_vlmul_7[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 8]}} & entry_vlmul_8[1:0])  |
+                            ({2{lbuf_retire_pointer2[ 9]}} & entry_vlmul_9[1:0])  |
+                            ({2{lbuf_retire_pointer2[10]}} & entry_vlmul_10[1:0]) |
+                            ({2{lbuf_retire_pointer2[11]}} & entry_vlmul_11[1:0]) |
+                            ({2{lbuf_retire_pointer2[12]}} & entry_vlmul_12[1:0]) |
+                            ({2{lbuf_retire_pointer2[13]}} & entry_vlmul_13[1:0]) |
+                            ({2{lbuf_retire_pointer2[14]}} & entry_vlmul_14[1:0]) |
+                            ({2{lbuf_retire_pointer2[15]}} & entry_vlmul_15[1:0]);
 
-assign pop_h3_vlmul[1:0]  = ({2{lbuf_retire_pointer3[ 0]}} & entry_vlmul_0[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 1]}} & entry_vlmul_1[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 2]}} & entry_vlmul_2[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 3]}} & entry_vlmul_3[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 4]}} & entry_vlmul_4[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 5]}} & entry_vlmul_5[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 6]}} & entry_vlmul_6[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 7]}} & entry_vlmul_7[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 8]}} & entry_vlmul_8[1:0])  | 
-                            ({2{lbuf_retire_pointer3[ 9]}} & entry_vlmul_9[1:0])  | 
-                            ({2{lbuf_retire_pointer3[10]}} & entry_vlmul_10[1:0]) | 
-                            ({2{lbuf_retire_pointer3[11]}} & entry_vlmul_11[1:0]) | 
-                            ({2{lbuf_retire_pointer3[12]}} & entry_vlmul_12[1:0]) | 
-                            ({2{lbuf_retire_pointer3[13]}} & entry_vlmul_13[1:0]) | 
-                            ({2{lbuf_retire_pointer3[14]}} & entry_vlmul_14[1:0]) | 
-                            ({2{lbuf_retire_pointer3[15]}} & entry_vlmul_15[1:0]); 
+assign pop_h3_vlmul[1:0]  = ({2{lbuf_retire_pointer3[ 0]}} & entry_vlmul_0[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 1]}} & entry_vlmul_1[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 2]}} & entry_vlmul_2[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 3]}} & entry_vlmul_3[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 4]}} & entry_vlmul_4[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 5]}} & entry_vlmul_5[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 6]}} & entry_vlmul_6[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 7]}} & entry_vlmul_7[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 8]}} & entry_vlmul_8[1:0])  |
+                            ({2{lbuf_retire_pointer3[ 9]}} & entry_vlmul_9[1:0])  |
+                            ({2{lbuf_retire_pointer3[10]}} & entry_vlmul_10[1:0]) |
+                            ({2{lbuf_retire_pointer3[11]}} & entry_vlmul_11[1:0]) |
+                            ({2{lbuf_retire_pointer3[12]}} & entry_vlmul_12[1:0]) |
+                            ({2{lbuf_retire_pointer3[13]}} & entry_vlmul_13[1:0]) |
+                            ({2{lbuf_retire_pointer3[14]}} & entry_vlmul_14[1:0]) |
+                            ({2{lbuf_retire_pointer3[15]}} & entry_vlmul_15[1:0]);
 
-assign pop_h4_vlmul[1:0]  = ({2{lbuf_retire_pointer4[ 0]}} & entry_vlmul_0[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 1]}} & entry_vlmul_1[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 2]}} & entry_vlmul_2[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 3]}} & entry_vlmul_3[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 4]}} & entry_vlmul_4[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 5]}} & entry_vlmul_5[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 6]}} & entry_vlmul_6[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 7]}} & entry_vlmul_7[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 8]}} & entry_vlmul_8[1:0])  | 
-                            ({2{lbuf_retire_pointer4[ 9]}} & entry_vlmul_9[1:0])  | 
-                            ({2{lbuf_retire_pointer4[10]}} & entry_vlmul_10[1:0]) | 
-                            ({2{lbuf_retire_pointer4[11]}} & entry_vlmul_11[1:0]) | 
-                            ({2{lbuf_retire_pointer4[12]}} & entry_vlmul_12[1:0]) | 
-                            ({2{lbuf_retire_pointer4[13]}} & entry_vlmul_13[1:0]) | 
-                            ({2{lbuf_retire_pointer4[14]}} & entry_vlmul_14[1:0]) | 
-                            ({2{lbuf_retire_pointer4[15]}} & entry_vlmul_15[1:0]); 
+assign pop_h4_vlmul[1:0]  = ({2{lbuf_retire_pointer4[ 0]}} & entry_vlmul_0[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 1]}} & entry_vlmul_1[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 2]}} & entry_vlmul_2[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 3]}} & entry_vlmul_3[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 4]}} & entry_vlmul_4[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 5]}} & entry_vlmul_5[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 6]}} & entry_vlmul_6[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 7]}} & entry_vlmul_7[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 8]}} & entry_vlmul_8[1:0])  |
+                            ({2{lbuf_retire_pointer4[ 9]}} & entry_vlmul_9[1:0])  |
+                            ({2{lbuf_retire_pointer4[10]}} & entry_vlmul_10[1:0]) |
+                            ({2{lbuf_retire_pointer4[11]}} & entry_vlmul_11[1:0]) |
+                            ({2{lbuf_retire_pointer4[12]}} & entry_vlmul_12[1:0]) |
+                            ({2{lbuf_retire_pointer4[13]}} & entry_vlmul_13[1:0]) |
+                            ({2{lbuf_retire_pointer4[14]}} & entry_vlmul_14[1:0]) |
+                            ({2{lbuf_retire_pointer4[15]}} & entry_vlmul_15[1:0]);
 
 
 //pop_hn_vsew[2:0]
-assign pop_h0_vsew[2:0]  = ({3{lbuf_retire_pointer0[ 0]}} & entry_vsew_0[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 1]}} & entry_vsew_1[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 2]}} & entry_vsew_2[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 3]}} & entry_vsew_3[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 4]}} & entry_vsew_4[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 5]}} & entry_vsew_5[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 6]}} & entry_vsew_6[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 7]}} & entry_vsew_7[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 8]}} & entry_vsew_8[2:0])  | 
-                           ({3{lbuf_retire_pointer0[ 9]}} & entry_vsew_9[2:0])  | 
-                           ({3{lbuf_retire_pointer0[10]}} & entry_vsew_10[2:0]) | 
-                           ({3{lbuf_retire_pointer0[11]}} & entry_vsew_11[2:0]) | 
-                           ({3{lbuf_retire_pointer0[12]}} & entry_vsew_12[2:0]) | 
-                           ({3{lbuf_retire_pointer0[13]}} & entry_vsew_13[2:0]) | 
-                           ({3{lbuf_retire_pointer0[14]}} & entry_vsew_14[2:0]) | 
-                           ({3{lbuf_retire_pointer0[15]}} & entry_vsew_15[2:0]); 
+assign pop_h0_vsew[2:0]  = ({3{lbuf_retire_pointer0[ 0]}} & entry_vsew_0[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 1]}} & entry_vsew_1[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 2]}} & entry_vsew_2[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 3]}} & entry_vsew_3[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 4]}} & entry_vsew_4[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 5]}} & entry_vsew_5[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 6]}} & entry_vsew_6[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 7]}} & entry_vsew_7[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 8]}} & entry_vsew_8[2:0])  |
+                           ({3{lbuf_retire_pointer0[ 9]}} & entry_vsew_9[2:0])  |
+                           ({3{lbuf_retire_pointer0[10]}} & entry_vsew_10[2:0]) |
+                           ({3{lbuf_retire_pointer0[11]}} & entry_vsew_11[2:0]) |
+                           ({3{lbuf_retire_pointer0[12]}} & entry_vsew_12[2:0]) |
+                           ({3{lbuf_retire_pointer0[13]}} & entry_vsew_13[2:0]) |
+                           ({3{lbuf_retire_pointer0[14]}} & entry_vsew_14[2:0]) |
+                           ({3{lbuf_retire_pointer0[15]}} & entry_vsew_15[2:0]);
 
-assign pop_h1_vsew[2:0]  = ({3{lbuf_retire_pointer1[ 0]}} & entry_vsew_0[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 1]}} & entry_vsew_1[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 2]}} & entry_vsew_2[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 3]}} & entry_vsew_3[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 4]}} & entry_vsew_4[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 5]}} & entry_vsew_5[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 6]}} & entry_vsew_6[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 7]}} & entry_vsew_7[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 8]}} & entry_vsew_8[2:0])  | 
-                           ({3{lbuf_retire_pointer1[ 9]}} & entry_vsew_9[2:0])  | 
-                           ({3{lbuf_retire_pointer1[10]}} & entry_vsew_10[2:0]) | 
-                           ({3{lbuf_retire_pointer1[11]}} & entry_vsew_11[2:0]) | 
-                           ({3{lbuf_retire_pointer1[12]}} & entry_vsew_12[2:0]) | 
-                           ({3{lbuf_retire_pointer1[13]}} & entry_vsew_13[2:0]) | 
-                           ({3{lbuf_retire_pointer1[14]}} & entry_vsew_14[2:0]) | 
-                           ({3{lbuf_retire_pointer1[15]}} & entry_vsew_15[2:0]); 
+assign pop_h1_vsew[2:0]  = ({3{lbuf_retire_pointer1[ 0]}} & entry_vsew_0[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 1]}} & entry_vsew_1[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 2]}} & entry_vsew_2[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 3]}} & entry_vsew_3[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 4]}} & entry_vsew_4[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 5]}} & entry_vsew_5[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 6]}} & entry_vsew_6[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 7]}} & entry_vsew_7[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 8]}} & entry_vsew_8[2:0])  |
+                           ({3{lbuf_retire_pointer1[ 9]}} & entry_vsew_9[2:0])  |
+                           ({3{lbuf_retire_pointer1[10]}} & entry_vsew_10[2:0]) |
+                           ({3{lbuf_retire_pointer1[11]}} & entry_vsew_11[2:0]) |
+                           ({3{lbuf_retire_pointer1[12]}} & entry_vsew_12[2:0]) |
+                           ({3{lbuf_retire_pointer1[13]}} & entry_vsew_13[2:0]) |
+                           ({3{lbuf_retire_pointer1[14]}} & entry_vsew_14[2:0]) |
+                           ({3{lbuf_retire_pointer1[15]}} & entry_vsew_15[2:0]);
 
-assign pop_h2_vsew[2:0]  = ({3{lbuf_retire_pointer2[ 0]}} & entry_vsew_0[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 1]}} & entry_vsew_1[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 2]}} & entry_vsew_2[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 3]}} & entry_vsew_3[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 4]}} & entry_vsew_4[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 5]}} & entry_vsew_5[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 6]}} & entry_vsew_6[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 7]}} & entry_vsew_7[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 8]}} & entry_vsew_8[2:0])  | 
-                           ({3{lbuf_retire_pointer2[ 9]}} & entry_vsew_9[2:0])  | 
-                           ({3{lbuf_retire_pointer2[10]}} & entry_vsew_10[2:0]) | 
-                           ({3{lbuf_retire_pointer2[11]}} & entry_vsew_11[2:0]) | 
-                           ({3{lbuf_retire_pointer2[12]}} & entry_vsew_12[2:0]) | 
-                           ({3{lbuf_retire_pointer2[13]}} & entry_vsew_13[2:0]) | 
-                           ({3{lbuf_retire_pointer2[14]}} & entry_vsew_14[2:0]) | 
-                           ({3{lbuf_retire_pointer2[15]}} & entry_vsew_15[2:0]); 
+assign pop_h2_vsew[2:0]  = ({3{lbuf_retire_pointer2[ 0]}} & entry_vsew_0[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 1]}} & entry_vsew_1[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 2]}} & entry_vsew_2[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 3]}} & entry_vsew_3[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 4]}} & entry_vsew_4[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 5]}} & entry_vsew_5[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 6]}} & entry_vsew_6[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 7]}} & entry_vsew_7[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 8]}} & entry_vsew_8[2:0])  |
+                           ({3{lbuf_retire_pointer2[ 9]}} & entry_vsew_9[2:0])  |
+                           ({3{lbuf_retire_pointer2[10]}} & entry_vsew_10[2:0]) |
+                           ({3{lbuf_retire_pointer2[11]}} & entry_vsew_11[2:0]) |
+                           ({3{lbuf_retire_pointer2[12]}} & entry_vsew_12[2:0]) |
+                           ({3{lbuf_retire_pointer2[13]}} & entry_vsew_13[2:0]) |
+                           ({3{lbuf_retire_pointer2[14]}} & entry_vsew_14[2:0]) |
+                           ({3{lbuf_retire_pointer2[15]}} & entry_vsew_15[2:0]);
 
-assign pop_h3_vsew[2:0]  = ({3{lbuf_retire_pointer3[ 0]}} & entry_vsew_0[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 1]}} & entry_vsew_1[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 2]}} & entry_vsew_2[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 3]}} & entry_vsew_3[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 4]}} & entry_vsew_4[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 5]}} & entry_vsew_5[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 6]}} & entry_vsew_6[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 7]}} & entry_vsew_7[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 8]}} & entry_vsew_8[2:0])  | 
-                           ({3{lbuf_retire_pointer3[ 9]}} & entry_vsew_9[2:0])  | 
-                           ({3{lbuf_retire_pointer3[10]}} & entry_vsew_10[2:0]) | 
-                           ({3{lbuf_retire_pointer3[11]}} & entry_vsew_11[2:0]) | 
-                           ({3{lbuf_retire_pointer3[12]}} & entry_vsew_12[2:0]) | 
-                           ({3{lbuf_retire_pointer3[13]}} & entry_vsew_13[2:0]) | 
-                           ({3{lbuf_retire_pointer3[14]}} & entry_vsew_14[2:0]) | 
-                           ({3{lbuf_retire_pointer3[15]}} & entry_vsew_15[2:0]); 
+assign pop_h3_vsew[2:0]  = ({3{lbuf_retire_pointer3[ 0]}} & entry_vsew_0[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 1]}} & entry_vsew_1[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 2]}} & entry_vsew_2[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 3]}} & entry_vsew_3[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 4]}} & entry_vsew_4[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 5]}} & entry_vsew_5[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 6]}} & entry_vsew_6[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 7]}} & entry_vsew_7[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 8]}} & entry_vsew_8[2:0])  |
+                           ({3{lbuf_retire_pointer3[ 9]}} & entry_vsew_9[2:0])  |
+                           ({3{lbuf_retire_pointer3[10]}} & entry_vsew_10[2:0]) |
+                           ({3{lbuf_retire_pointer3[11]}} & entry_vsew_11[2:0]) |
+                           ({3{lbuf_retire_pointer3[12]}} & entry_vsew_12[2:0]) |
+                           ({3{lbuf_retire_pointer3[13]}} & entry_vsew_13[2:0]) |
+                           ({3{lbuf_retire_pointer3[14]}} & entry_vsew_14[2:0]) |
+                           ({3{lbuf_retire_pointer3[15]}} & entry_vsew_15[2:0]);
 
-assign pop_h4_vsew[2:0]  = ({3{lbuf_retire_pointer4[ 0]}} & entry_vsew_0[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 1]}} & entry_vsew_1[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 2]}} & entry_vsew_2[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 3]}} & entry_vsew_3[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 4]}} & entry_vsew_4[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 5]}} & entry_vsew_5[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 6]}} & entry_vsew_6[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 7]}} & entry_vsew_7[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 8]}} & entry_vsew_8[2:0])  | 
-                           ({3{lbuf_retire_pointer4[ 9]}} & entry_vsew_9[2:0])  | 
-                           ({3{lbuf_retire_pointer4[10]}} & entry_vsew_10[2:0]) | 
-                           ({3{lbuf_retire_pointer4[11]}} & entry_vsew_11[2:0]) | 
-                           ({3{lbuf_retire_pointer4[12]}} & entry_vsew_12[2:0]) | 
-                           ({3{lbuf_retire_pointer4[13]}} & entry_vsew_13[2:0]) | 
-                           ({3{lbuf_retire_pointer4[14]}} & entry_vsew_14[2:0]) | 
-                           ({3{lbuf_retire_pointer4[15]}} & entry_vsew_15[2:0]); 
+assign pop_h4_vsew[2:0]  = ({3{lbuf_retire_pointer4[ 0]}} & entry_vsew_0[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 1]}} & entry_vsew_1[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 2]}} & entry_vsew_2[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 3]}} & entry_vsew_3[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 4]}} & entry_vsew_4[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 5]}} & entry_vsew_5[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 6]}} & entry_vsew_6[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 7]}} & entry_vsew_7[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 8]}} & entry_vsew_8[2:0])  |
+                           ({3{lbuf_retire_pointer4[ 9]}} & entry_vsew_9[2:0])  |
+                           ({3{lbuf_retire_pointer4[10]}} & entry_vsew_10[2:0]) |
+                           ({3{lbuf_retire_pointer4[11]}} & entry_vsew_11[2:0]) |
+                           ({3{lbuf_retire_pointer4[12]}} & entry_vsew_12[2:0]) |
+                           ({3{lbuf_retire_pointer4[13]}} & entry_vsew_13[2:0]) |
+                           ({3{lbuf_retire_pointer4[14]}} & entry_vsew_14[2:0]) |
+                           ({3{lbuf_retire_pointer4[15]}} & entry_vsew_15[2:0]);
 
 //pop_hn_vl[7:0]
-assign pop_h0_vl[7:0]    = ({8{lbuf_retire_pointer0[ 0]}} & entry_vl_0[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 1]}} & entry_vl_1[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 2]}} & entry_vl_2[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 3]}} & entry_vl_3[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 4]}} & entry_vl_4[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 5]}} & entry_vl_5[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 6]}} & entry_vl_6[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 7]}} & entry_vl_7[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 8]}} & entry_vl_8[7:0])  | 
-                           ({8{lbuf_retire_pointer0[ 9]}} & entry_vl_9[7:0])  | 
-                           ({8{lbuf_retire_pointer0[10]}} & entry_vl_10[7:0]) | 
-                           ({8{lbuf_retire_pointer0[11]}} & entry_vl_11[7:0]) | 
-                           ({8{lbuf_retire_pointer0[12]}} & entry_vl_12[7:0]) | 
-                           ({8{lbuf_retire_pointer0[13]}} & entry_vl_13[7:0]) | 
-                           ({8{lbuf_retire_pointer0[14]}} & entry_vl_14[7:0]) | 
-                           ({8{lbuf_retire_pointer0[15]}} & entry_vl_15[7:0]); 
+assign pop_h0_vl[7:0]    = ({8{lbuf_retire_pointer0[ 0]}} & entry_vl_0[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 1]}} & entry_vl_1[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 2]}} & entry_vl_2[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 3]}} & entry_vl_3[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 4]}} & entry_vl_4[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 5]}} & entry_vl_5[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 6]}} & entry_vl_6[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 7]}} & entry_vl_7[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 8]}} & entry_vl_8[7:0])  |
+                           ({8{lbuf_retire_pointer0[ 9]}} & entry_vl_9[7:0])  |
+                           ({8{lbuf_retire_pointer0[10]}} & entry_vl_10[7:0]) |
+                           ({8{lbuf_retire_pointer0[11]}} & entry_vl_11[7:0]) |
+                           ({8{lbuf_retire_pointer0[12]}} & entry_vl_12[7:0]) |
+                           ({8{lbuf_retire_pointer0[13]}} & entry_vl_13[7:0]) |
+                           ({8{lbuf_retire_pointer0[14]}} & entry_vl_14[7:0]) |
+                           ({8{lbuf_retire_pointer0[15]}} & entry_vl_15[7:0]);
 
-assign pop_h1_vl[7:0]    = ({8{lbuf_retire_pointer1[ 0]}} & entry_vl_0[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 1]}} & entry_vl_1[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 2]}} & entry_vl_2[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 3]}} & entry_vl_3[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 4]}} & entry_vl_4[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 5]}} & entry_vl_5[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 6]}} & entry_vl_6[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 7]}} & entry_vl_7[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 8]}} & entry_vl_8[7:0])  | 
-                           ({8{lbuf_retire_pointer1[ 9]}} & entry_vl_9[7:0])  | 
-                           ({8{lbuf_retire_pointer1[10]}} & entry_vl_10[7:0]) | 
-                           ({8{lbuf_retire_pointer1[11]}} & entry_vl_11[7:0]) | 
-                           ({8{lbuf_retire_pointer1[12]}} & entry_vl_12[7:0]) | 
-                           ({8{lbuf_retire_pointer1[13]}} & entry_vl_13[7:0]) | 
-                           ({8{lbuf_retire_pointer1[14]}} & entry_vl_14[7:0]) | 
-                           ({8{lbuf_retire_pointer1[15]}} & entry_vl_15[7:0]); 
+assign pop_h1_vl[7:0]    = ({8{lbuf_retire_pointer1[ 0]}} & entry_vl_0[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 1]}} & entry_vl_1[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 2]}} & entry_vl_2[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 3]}} & entry_vl_3[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 4]}} & entry_vl_4[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 5]}} & entry_vl_5[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 6]}} & entry_vl_6[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 7]}} & entry_vl_7[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 8]}} & entry_vl_8[7:0])  |
+                           ({8{lbuf_retire_pointer1[ 9]}} & entry_vl_9[7:0])  |
+                           ({8{lbuf_retire_pointer1[10]}} & entry_vl_10[7:0]) |
+                           ({8{lbuf_retire_pointer1[11]}} & entry_vl_11[7:0]) |
+                           ({8{lbuf_retire_pointer1[12]}} & entry_vl_12[7:0]) |
+                           ({8{lbuf_retire_pointer1[13]}} & entry_vl_13[7:0]) |
+                           ({8{lbuf_retire_pointer1[14]}} & entry_vl_14[7:0]) |
+                           ({8{lbuf_retire_pointer1[15]}} & entry_vl_15[7:0]);
 
-assign pop_h2_vl[7:0]    = ({8{lbuf_retire_pointer2[ 0]}} & entry_vl_0[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 1]}} & entry_vl_1[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 2]}} & entry_vl_2[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 3]}} & entry_vl_3[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 4]}} & entry_vl_4[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 5]}} & entry_vl_5[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 6]}} & entry_vl_6[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 7]}} & entry_vl_7[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 8]}} & entry_vl_8[7:0])  | 
-                           ({8{lbuf_retire_pointer2[ 9]}} & entry_vl_9[7:0])  | 
-                           ({8{lbuf_retire_pointer2[10]}} & entry_vl_10[7:0]) | 
-                           ({8{lbuf_retire_pointer2[11]}} & entry_vl_11[7:0]) | 
-                           ({8{lbuf_retire_pointer2[12]}} & entry_vl_12[7:0]) | 
-                           ({8{lbuf_retire_pointer2[13]}} & entry_vl_13[7:0]) | 
-                           ({8{lbuf_retire_pointer2[14]}} & entry_vl_14[7:0]) | 
-                           ({8{lbuf_retire_pointer2[15]}} & entry_vl_15[7:0]); 
+assign pop_h2_vl[7:0]    = ({8{lbuf_retire_pointer2[ 0]}} & entry_vl_0[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 1]}} & entry_vl_1[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 2]}} & entry_vl_2[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 3]}} & entry_vl_3[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 4]}} & entry_vl_4[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 5]}} & entry_vl_5[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 6]}} & entry_vl_6[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 7]}} & entry_vl_7[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 8]}} & entry_vl_8[7:0])  |
+                           ({8{lbuf_retire_pointer2[ 9]}} & entry_vl_9[7:0])  |
+                           ({8{lbuf_retire_pointer2[10]}} & entry_vl_10[7:0]) |
+                           ({8{lbuf_retire_pointer2[11]}} & entry_vl_11[7:0]) |
+                           ({8{lbuf_retire_pointer2[12]}} & entry_vl_12[7:0]) |
+                           ({8{lbuf_retire_pointer2[13]}} & entry_vl_13[7:0]) |
+                           ({8{lbuf_retire_pointer2[14]}} & entry_vl_14[7:0]) |
+                           ({8{lbuf_retire_pointer2[15]}} & entry_vl_15[7:0]);
 
-assign pop_h3_vl[7:0]    = ({8{lbuf_retire_pointer3[ 0]}} & entry_vl_0[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 1]}} & entry_vl_1[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 2]}} & entry_vl_2[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 3]}} & entry_vl_3[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 4]}} & entry_vl_4[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 5]}} & entry_vl_5[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 6]}} & entry_vl_6[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 7]}} & entry_vl_7[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 8]}} & entry_vl_8[7:0])  | 
-                           ({8{lbuf_retire_pointer3[ 9]}} & entry_vl_9[7:0])  | 
-                           ({8{lbuf_retire_pointer3[10]}} & entry_vl_10[7:0]) | 
-                           ({8{lbuf_retire_pointer3[11]}} & entry_vl_11[7:0]) | 
-                           ({8{lbuf_retire_pointer3[12]}} & entry_vl_12[7:0]) | 
-                           ({8{lbuf_retire_pointer3[13]}} & entry_vl_13[7:0]) | 
-                           ({8{lbuf_retire_pointer3[14]}} & entry_vl_14[7:0]) | 
-                           ({8{lbuf_retire_pointer3[15]}} & entry_vl_15[7:0]); 
+assign pop_h3_vl[7:0]    = ({8{lbuf_retire_pointer3[ 0]}} & entry_vl_0[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 1]}} & entry_vl_1[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 2]}} & entry_vl_2[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 3]}} & entry_vl_3[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 4]}} & entry_vl_4[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 5]}} & entry_vl_5[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 6]}} & entry_vl_6[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 7]}} & entry_vl_7[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 8]}} & entry_vl_8[7:0])  |
+                           ({8{lbuf_retire_pointer3[ 9]}} & entry_vl_9[7:0])  |
+                           ({8{lbuf_retire_pointer3[10]}} & entry_vl_10[7:0]) |
+                           ({8{lbuf_retire_pointer3[11]}} & entry_vl_11[7:0]) |
+                           ({8{lbuf_retire_pointer3[12]}} & entry_vl_12[7:0]) |
+                           ({8{lbuf_retire_pointer3[13]}} & entry_vl_13[7:0]) |
+                           ({8{lbuf_retire_pointer3[14]}} & entry_vl_14[7:0]) |
+                           ({8{lbuf_retire_pointer3[15]}} & entry_vl_15[7:0]);
 
-assign pop_h4_vl[7:0]    = ({8{lbuf_retire_pointer4[ 0]}} & entry_vl_0[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 1]}} & entry_vl_1[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 2]}} & entry_vl_2[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 3]}} & entry_vl_3[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 4]}} & entry_vl_4[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 5]}} & entry_vl_5[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 6]}} & entry_vl_6[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 7]}} & entry_vl_7[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 8]}} & entry_vl_8[7:0])  | 
-                           ({8{lbuf_retire_pointer4[ 9]}} & entry_vl_9[7:0])  | 
-                           ({8{lbuf_retire_pointer4[10]}} & entry_vl_10[7:0]) | 
-                           ({8{lbuf_retire_pointer4[11]}} & entry_vl_11[7:0]) | 
-                           ({8{lbuf_retire_pointer4[12]}} & entry_vl_12[7:0]) | 
-                           ({8{lbuf_retire_pointer4[13]}} & entry_vl_13[7:0]) | 
-                           ({8{lbuf_retire_pointer4[14]}} & entry_vl_14[7:0]) | 
-                           ({8{lbuf_retire_pointer4[15]}} & entry_vl_15[7:0]); 
+assign pop_h4_vl[7:0]    = ({8{lbuf_retire_pointer4[ 0]}} & entry_vl_0[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 1]}} & entry_vl_1[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 2]}} & entry_vl_2[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 3]}} & entry_vl_3[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 4]}} & entry_vl_4[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 5]}} & entry_vl_5[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 6]}} & entry_vl_6[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 7]}} & entry_vl_7[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 8]}} & entry_vl_8[7:0])  |
+                           ({8{lbuf_retire_pointer4[ 9]}} & entry_vl_9[7:0])  |
+                           ({8{lbuf_retire_pointer4[10]}} & entry_vl_10[7:0]) |
+                           ({8{lbuf_retire_pointer4[11]}} & entry_vl_11[7:0]) |
+                           ({8{lbuf_retire_pointer4[12]}} & entry_vl_12[7:0]) |
+                           ({8{lbuf_retire_pointer4[13]}} & entry_vl_13[7:0]) |
+                           ({8{lbuf_retire_pointer4[14]}} & entry_vl_14[7:0]) |
+                           ({8{lbuf_retire_pointer4[15]}} & entry_vl_15[7:0]);
 
 
 //pop_hn_split0_type[2:0]
-assign pop_h0_split0_type[2:0]  = ({3{lbuf_retire_pointer0[ 0]}} & entry_split0_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 1]}} & entry_split0_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 2]}} & entry_split0_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 3]}} & entry_split0_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 4]}} & entry_split0_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 5]}} & entry_split0_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 6]}} & entry_split0_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 7]}} & entry_split0_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 8]}} & entry_split0_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 9]}} & entry_split0_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[10]}} & entry_split0_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[11]}} & entry_split0_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[12]}} & entry_split0_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[13]}} & entry_split0_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[14]}} & entry_split0_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[15]}} & entry_split0_type_15[2:0]); 
+assign pop_h0_split0_type[2:0]  = ({3{lbuf_retire_pointer0[ 0]}} & entry_split0_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 1]}} & entry_split0_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 2]}} & entry_split0_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 3]}} & entry_split0_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 4]}} & entry_split0_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 5]}} & entry_split0_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 6]}} & entry_split0_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 7]}} & entry_split0_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 8]}} & entry_split0_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 9]}} & entry_split0_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer0[10]}} & entry_split0_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer0[11]}} & entry_split0_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer0[12]}} & entry_split0_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer0[13]}} & entry_split0_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer0[14]}} & entry_split0_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer0[15]}} & entry_split0_type_15[2:0]);
 
-assign pop_h1_split0_type[2:0]  = ({3{lbuf_retire_pointer1[ 0]}} & entry_split0_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 1]}} & entry_split0_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 2]}} & entry_split0_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 3]}} & entry_split0_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 4]}} & entry_split0_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 5]}} & entry_split0_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 6]}} & entry_split0_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 7]}} & entry_split0_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 8]}} & entry_split0_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 9]}} & entry_split0_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[10]}} & entry_split0_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[11]}} & entry_split0_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[12]}} & entry_split0_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[13]}} & entry_split0_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[14]}} & entry_split0_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[15]}} & entry_split0_type_15[2:0]); 
+assign pop_h1_split0_type[2:0]  = ({3{lbuf_retire_pointer1[ 0]}} & entry_split0_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 1]}} & entry_split0_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 2]}} & entry_split0_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 3]}} & entry_split0_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 4]}} & entry_split0_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 5]}} & entry_split0_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 6]}} & entry_split0_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 7]}} & entry_split0_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 8]}} & entry_split0_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 9]}} & entry_split0_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer1[10]}} & entry_split0_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer1[11]}} & entry_split0_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer1[12]}} & entry_split0_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer1[13]}} & entry_split0_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer1[14]}} & entry_split0_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer1[15]}} & entry_split0_type_15[2:0]);
 
-assign pop_h2_split0_type[2:0]  = ({3{lbuf_retire_pointer2[ 0]}} & entry_split0_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 1]}} & entry_split0_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 2]}} & entry_split0_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 3]}} & entry_split0_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 4]}} & entry_split0_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 5]}} & entry_split0_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 6]}} & entry_split0_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 7]}} & entry_split0_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 8]}} & entry_split0_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 9]}} & entry_split0_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[10]}} & entry_split0_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[11]}} & entry_split0_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[12]}} & entry_split0_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[13]}} & entry_split0_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[14]}} & entry_split0_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[15]}} & entry_split0_type_15[2:0]); 
+assign pop_h2_split0_type[2:0]  = ({3{lbuf_retire_pointer2[ 0]}} & entry_split0_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 1]}} & entry_split0_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 2]}} & entry_split0_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 3]}} & entry_split0_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 4]}} & entry_split0_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 5]}} & entry_split0_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 6]}} & entry_split0_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 7]}} & entry_split0_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 8]}} & entry_split0_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 9]}} & entry_split0_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer2[10]}} & entry_split0_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer2[11]}} & entry_split0_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer2[12]}} & entry_split0_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer2[13]}} & entry_split0_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer2[14]}} & entry_split0_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer2[15]}} & entry_split0_type_15[2:0]);
 
-assign pop_h3_split0_type[2:0]  = ({3{lbuf_retire_pointer3[ 0]}} & entry_split0_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 1]}} & entry_split0_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 2]}} & entry_split0_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 3]}} & entry_split0_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 4]}} & entry_split0_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 5]}} & entry_split0_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 6]}} & entry_split0_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 7]}} & entry_split0_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 8]}} & entry_split0_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 9]}} & entry_split0_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[10]}} & entry_split0_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[11]}} & entry_split0_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[12]}} & entry_split0_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[13]}} & entry_split0_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[14]}} & entry_split0_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[15]}} & entry_split0_type_15[2:0]); 
+assign pop_h3_split0_type[2:0]  = ({3{lbuf_retire_pointer3[ 0]}} & entry_split0_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 1]}} & entry_split0_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 2]}} & entry_split0_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 3]}} & entry_split0_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 4]}} & entry_split0_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 5]}} & entry_split0_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 6]}} & entry_split0_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 7]}} & entry_split0_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 8]}} & entry_split0_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 9]}} & entry_split0_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer3[10]}} & entry_split0_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer3[11]}} & entry_split0_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer3[12]}} & entry_split0_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer3[13]}} & entry_split0_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer3[14]}} & entry_split0_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer3[15]}} & entry_split0_type_15[2:0]);
 
-assign pop_h4_split0_type[2:0]  = ({3{lbuf_retire_pointer4[ 0]}} & entry_split0_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 1]}} & entry_split0_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 2]}} & entry_split0_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 3]}} & entry_split0_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 4]}} & entry_split0_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 5]}} & entry_split0_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 6]}} & entry_split0_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 7]}} & entry_split0_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 8]}} & entry_split0_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 9]}} & entry_split0_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[10]}} & entry_split0_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[11]}} & entry_split0_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[12]}} & entry_split0_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[13]}} & entry_split0_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[14]}} & entry_split0_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[15]}} & entry_split0_type_15[2:0]); 
+assign pop_h4_split0_type[2:0]  = ({3{lbuf_retire_pointer4[ 0]}} & entry_split0_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 1]}} & entry_split0_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 2]}} & entry_split0_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 3]}} & entry_split0_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 4]}} & entry_split0_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 5]}} & entry_split0_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 6]}} & entry_split0_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 7]}} & entry_split0_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 8]}} & entry_split0_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 9]}} & entry_split0_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer4[10]}} & entry_split0_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer4[11]}} & entry_split0_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer4[12]}} & entry_split0_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer4[13]}} & entry_split0_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer4[14]}} & entry_split0_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer4[15]}} & entry_split0_type_15[2:0]);
 
 //pop_hn_split1_type[2:0]
-assign pop_h0_split1_type[2:0]  = ({3{lbuf_retire_pointer0[ 0]}} & entry_split1_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 1]}} & entry_split1_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 2]}} & entry_split1_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 3]}} & entry_split1_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 4]}} & entry_split1_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 5]}} & entry_split1_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 6]}} & entry_split1_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 7]}} & entry_split1_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 8]}} & entry_split1_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[ 9]}} & entry_split1_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer0[10]}} & entry_split1_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[11]}} & entry_split1_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[12]}} & entry_split1_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[13]}} & entry_split1_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[14]}} & entry_split1_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer0[15]}} & entry_split1_type_15[2:0]); 
+assign pop_h0_split1_type[2:0]  = ({3{lbuf_retire_pointer0[ 0]}} & entry_split1_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 1]}} & entry_split1_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 2]}} & entry_split1_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 3]}} & entry_split1_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 4]}} & entry_split1_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 5]}} & entry_split1_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 6]}} & entry_split1_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 7]}} & entry_split1_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 8]}} & entry_split1_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer0[ 9]}} & entry_split1_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer0[10]}} & entry_split1_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer0[11]}} & entry_split1_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer0[12]}} & entry_split1_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer0[13]}} & entry_split1_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer0[14]}} & entry_split1_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer0[15]}} & entry_split1_type_15[2:0]);
 
-assign pop_h1_split1_type[2:0]  = ({3{lbuf_retire_pointer1[ 0]}} & entry_split1_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 1]}} & entry_split1_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 2]}} & entry_split1_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 3]}} & entry_split1_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 4]}} & entry_split1_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 5]}} & entry_split1_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 6]}} & entry_split1_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 7]}} & entry_split1_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 8]}} & entry_split1_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[ 9]}} & entry_split1_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer1[10]}} & entry_split1_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[11]}} & entry_split1_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[12]}} & entry_split1_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[13]}} & entry_split1_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[14]}} & entry_split1_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer1[15]}} & entry_split1_type_15[2:0]); 
+assign pop_h1_split1_type[2:0]  = ({3{lbuf_retire_pointer1[ 0]}} & entry_split1_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 1]}} & entry_split1_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 2]}} & entry_split1_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 3]}} & entry_split1_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 4]}} & entry_split1_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 5]}} & entry_split1_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 6]}} & entry_split1_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 7]}} & entry_split1_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 8]}} & entry_split1_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer1[ 9]}} & entry_split1_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer1[10]}} & entry_split1_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer1[11]}} & entry_split1_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer1[12]}} & entry_split1_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer1[13]}} & entry_split1_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer1[14]}} & entry_split1_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer1[15]}} & entry_split1_type_15[2:0]);
 
-assign pop_h2_split1_type[2:0]  = ({3{lbuf_retire_pointer2[ 0]}} & entry_split1_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 1]}} & entry_split1_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 2]}} & entry_split1_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 3]}} & entry_split1_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 4]}} & entry_split1_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 5]}} & entry_split1_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 6]}} & entry_split1_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 7]}} & entry_split1_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 8]}} & entry_split1_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[ 9]}} & entry_split1_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer2[10]}} & entry_split1_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[11]}} & entry_split1_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[12]}} & entry_split1_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[13]}} & entry_split1_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[14]}} & entry_split1_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer2[15]}} & entry_split1_type_15[2:0]); 
+assign pop_h2_split1_type[2:0]  = ({3{lbuf_retire_pointer2[ 0]}} & entry_split1_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 1]}} & entry_split1_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 2]}} & entry_split1_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 3]}} & entry_split1_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 4]}} & entry_split1_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 5]}} & entry_split1_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 6]}} & entry_split1_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 7]}} & entry_split1_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 8]}} & entry_split1_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer2[ 9]}} & entry_split1_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer2[10]}} & entry_split1_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer2[11]}} & entry_split1_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer2[12]}} & entry_split1_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer2[13]}} & entry_split1_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer2[14]}} & entry_split1_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer2[15]}} & entry_split1_type_15[2:0]);
 
-assign pop_h3_split1_type[2:0]  = ({3{lbuf_retire_pointer3[ 0]}} & entry_split1_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 1]}} & entry_split1_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 2]}} & entry_split1_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 3]}} & entry_split1_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 4]}} & entry_split1_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 5]}} & entry_split1_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 6]}} & entry_split1_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 7]}} & entry_split1_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 8]}} & entry_split1_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[ 9]}} & entry_split1_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer3[10]}} & entry_split1_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[11]}} & entry_split1_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[12]}} & entry_split1_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[13]}} & entry_split1_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[14]}} & entry_split1_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer3[15]}} & entry_split1_type_15[2:0]); 
+assign pop_h3_split1_type[2:0]  = ({3{lbuf_retire_pointer3[ 0]}} & entry_split1_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 1]}} & entry_split1_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 2]}} & entry_split1_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 3]}} & entry_split1_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 4]}} & entry_split1_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 5]}} & entry_split1_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 6]}} & entry_split1_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 7]}} & entry_split1_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 8]}} & entry_split1_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer3[ 9]}} & entry_split1_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer3[10]}} & entry_split1_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer3[11]}} & entry_split1_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer3[12]}} & entry_split1_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer3[13]}} & entry_split1_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer3[14]}} & entry_split1_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer3[15]}} & entry_split1_type_15[2:0]);
 
-assign pop_h4_split1_type[2:0]  = ({3{lbuf_retire_pointer4[ 0]}} & entry_split1_type_0[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 1]}} & entry_split1_type_1[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 2]}} & entry_split1_type_2[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 3]}} & entry_split1_type_3[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 4]}} & entry_split1_type_4[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 5]}} & entry_split1_type_5[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 6]}} & entry_split1_type_6[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 7]}} & entry_split1_type_7[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 8]}} & entry_split1_type_8[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[ 9]}} & entry_split1_type_9[2:0])  | 
-                                  ({3{lbuf_retire_pointer4[10]}} & entry_split1_type_10[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[11]}} & entry_split1_type_11[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[12]}} & entry_split1_type_12[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[13]}} & entry_split1_type_13[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[14]}} & entry_split1_type_14[2:0]) | 
-                                  ({3{lbuf_retire_pointer4[15]}} & entry_split1_type_15[2:0]); 
+assign pop_h4_split1_type[2:0]  = ({3{lbuf_retire_pointer4[ 0]}} & entry_split1_type_0[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 1]}} & entry_split1_type_1[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 2]}} & entry_split1_type_2[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 3]}} & entry_split1_type_3[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 4]}} & entry_split1_type_4[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 5]}} & entry_split1_type_5[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 6]}} & entry_split1_type_6[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 7]}} & entry_split1_type_7[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 8]}} & entry_split1_type_8[2:0])  |
+                                  ({3{lbuf_retire_pointer4[ 9]}} & entry_split1_type_9[2:0])  |
+                                  ({3{lbuf_retire_pointer4[10]}} & entry_split1_type_10[2:0]) |
+                                  ({3{lbuf_retire_pointer4[11]}} & entry_split1_type_11[2:0]) |
+                                  ({3{lbuf_retire_pointer4[12]}} & entry_split1_type_12[2:0]) |
+                                  ({3{lbuf_retire_pointer4[13]}} & entry_split1_type_13[2:0]) |
+                                  ({3{lbuf_retire_pointer4[14]}} & entry_split1_type_14[2:0]) |
+                                  ({3{lbuf_retire_pointer4[15]}} & entry_split1_type_15[2:0]);
 
 //==========================================================
 //                Create Pointer Logic
 //==========================================================
 
-//According to the number of Half Word Pipedown, 
+//According to the number of Half Word Pipedown,
 //Pre generate create pointer
 // &CombBeg; @3176
 always @( lbuf_create_pointer[15:0]
@@ -5159,10 +5159,10 @@ gated_clk_cell  x_lbuf_create_pointer_update_clk (
 //           .local_en       (lbuf_create_pointer_update_clk_en),//Local Condition @3207
 //           .module_en      (cp0_ifu_icg_en) @3208
 //         ); @3209
-assign lbuf_create_pointer_update_clk_en = lbuf_flush || 
-                                           lbuf_create_vld || 
-                                           fill_state_enter || 
-                                           front_fill_enter_gateclk_en || 
+assign lbuf_create_pointer_update_clk_en = lbuf_flush ||
+                                           lbuf_create_vld ||
+                                           fill_state_enter ||
+                                           front_fill_enter_gateclk_en ||
                                            taken_front_branch_enter;
 //Update Logic
 always @(posedge lbuf_create_pointer_update_clk or negedge cpurst_b)
@@ -5182,22 +5182,22 @@ begin
   else
     lbuf_create_pointer[ENTRY_NUM-1:0] <= lbuf_create_pointer[ENTRY_NUM-1:0];
 end
-assign taken_front_branch_enter = (lbuf_cur_state[5:0] == FRONT_BRANCH) && 
+assign taken_front_branch_enter = (lbuf_cur_state[5:0] == FRONT_BRANCH) &&
                                   front_update_br_taken;
-assign front_fill_enter         = (lbuf_cur_state[5:0] == ACTIVE) && 
+assign front_fill_enter         = (lbuf_cur_state[5:0] == ACTIVE) &&
                                   front_br_body_not_filled;
-assign front_fill_enter_gateclk_en = (lbuf_cur_state[5:0] == ACTIVE) && 
-                                     (!front_entry_body_filled && 
-                                       front_entry_vld && 
-                                       lbuf_retire_vld && 
-                                      !front_br_bht_result && 
-                                      (lbuf_pop_inst0_front_br || 
-                                       lbuf_pop_inst1_front_br || 
+assign front_fill_enter_gateclk_en = (lbuf_cur_state[5:0] == ACTIVE) &&
+                                     (!front_entry_body_filled &&
+                                       front_entry_vld &&
+                                       lbuf_retire_vld &&
+                                      !front_br_bht_result &&
+                                      (lbuf_pop_inst0_front_br ||
+                                       lbuf_pop_inst1_front_br ||
                                        lbuf_pop_inst2_front_br)
                                      );
 
 //There are most 9 Half will be wrote into lbuf
-//Thus need 9 create pointer to point different entry 
+//Thus need 9 create pointer to point different entry
 assign lbuf_create_pointer0[ENTRY_NUM-1:0] = lbuf_create_pointer[ENTRY_NUM-1:0];
 assign lbuf_create_pointer1[ENTRY_NUM-1:0] = {lbuf_create_pointer[ENTRY_NUM-2:0],
                                               lbuf_create_pointer[ENTRY_NUM-1]};
@@ -5281,21 +5281,21 @@ else
 end
 
 assign lbuf_pop_branch_vld = (
-                               lbuf_pop_inst0_br && 
-                               inst0_bht_result && 
+                               lbuf_pop_inst0_br &&
+                               inst0_bht_result &&
                                lbuf_pop_inst0_valid
-                             ) || 
+                             ) ||
                              (
-                               lbuf_pop_inst1_br && 
-                               inst1_bht_result && 
-                               lbuf_pop_inst1_valid && 
+                               lbuf_pop_inst1_br &&
+                               inst1_bht_result &&
+                               lbuf_pop_inst1_valid &&
                                !lbuf_pop_inst0_br
-                             ) || 
+                             ) ||
                              (
-                               lbuf_pop_inst2_br && 
-                               inst2_bht_result && 
-                               lbuf_pop_inst2_valid && 
-                               !lbuf_pop_inst0_br && 
+                               lbuf_pop_inst2_br &&
+                               inst2_bht_result &&
+                               lbuf_pop_inst2_valid &&
+                               !lbuf_pop_inst0_br &&
                                !lbuf_pop_inst1_br //deal with inst0 br not jmp, inst1 br jmp
                              );
 
@@ -5306,13 +5306,13 @@ always @( lbuf_pop3_half_num[2:0]
        or lbuf_retire_pointer[15:0])
 begin
 case(lbuf_pop3_half_num[2:0])
-  3'b011  : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-4:0], 
+  3'b011  : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-4:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1:ENTRY_NUM-3]};
-  3'b100  : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-5:0], 
+  3'b100  : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-5:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1:ENTRY_NUM-4]};
-  3'b101  : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-6:0], 
+  3'b101  : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-6:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1:ENTRY_NUM-5]};
-  3'b110  : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-7:0], 
+  3'b110  : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-7:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1:ENTRY_NUM-6]};
   default : lbuf_retire_pointer_pop3_pre[ENTRY_NUM-1:0] =  lbuf_retire_pointer[ENTRY_NUM-1:0];
 endcase
@@ -5324,11 +5324,11 @@ always @( lbuf_pop2_half_num[2:0]
        or lbuf_retire_pointer[15:0])
 begin
 case(lbuf_pop2_half_num[2:0])
-  3'b010  : lbuf_retire_pointer_pop2_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-3:0], 
+  3'b010  : lbuf_retire_pointer_pop2_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-3:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1:ENTRY_NUM-2]};
-  3'b011  : lbuf_retire_pointer_pop2_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-4:0], 
+  3'b011  : lbuf_retire_pointer_pop2_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-4:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1:ENTRY_NUM-3]};
-  3'b100  : lbuf_retire_pointer_pop2_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-5:0], 
+  3'b100  : lbuf_retire_pointer_pop2_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-5:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1:ENTRY_NUM-4]};
   default : lbuf_retire_pointer_pop2_pre[ENTRY_NUM-1:0] =  lbuf_retire_pointer[ENTRY_NUM-1:0];
 endcase
@@ -5340,20 +5340,20 @@ always @( lbuf_retire_pointer[15:0]
        or lbuf_pop1_half_num[2:0])
 begin
 case(lbuf_pop1_half_num[2:0])
-  3'b001  : lbuf_retire_pointer_pop1_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-2:0], 
+  3'b001  : lbuf_retire_pointer_pop1_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-2:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1]};
-  3'b010  : lbuf_retire_pointer_pop1_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-3:0], 
+  3'b010  : lbuf_retire_pointer_pop1_pre[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-3:0],
                                                            lbuf_retire_pointer[ENTRY_NUM-1:ENTRY_NUM-2]};
   default : lbuf_retire_pointer_pop1_pre[ENTRY_NUM-1:0] =  lbuf_retire_pointer[ENTRY_NUM-1:0];
 endcase
 // &CombEnd; @3360
 end
 
-assign lbuf_pop_inst2_br_mask_vld = lbuf_pop_inst2_valid && 
-                                    !lbuf_pop_inst1_br   && 
+assign lbuf_pop_inst2_br_mask_vld = lbuf_pop_inst2_valid &&
+                                    !lbuf_pop_inst1_br   &&
                                     !lbuf_pop_inst0_br;
-assign lbuf_pop_inst1_br_mask_vld = lbuf_pop_inst1_valid && 
-                                    !lbuf_pop_inst0_br; 
+assign lbuf_pop_inst1_br_mask_vld = lbuf_pop_inst1_valid &&
+                                    !lbuf_pop_inst0_br;
 assign lbuf_pop_inst0_br_mask_vld = lbuf_pop_inst0_valid;
 
 // &CombBeg; @3369
@@ -5396,10 +5396,10 @@ gated_clk_cell  x_lbuf_retire_pointer_update_clk (
 //           .local_en       (lbuf_retire_pointer_update_clk_en),//Local Condition @3387
 //           .module_en      (cp0_ifu_icg_en) @3388
 //         ); @3389
-assign lbuf_retire_pointer_update_clk_en = lbuf_flush || 
-                                           lbuf_retire_vld || 
-                                           fill_state_enter || 
-                                           idle_cache_state_enter || 
+assign lbuf_retire_pointer_update_clk_en = lbuf_flush ||
+                                           lbuf_retire_vld ||
+                                           fill_state_enter ||
+                                           idle_cache_state_enter ||
                                            front_cache_active_state_enter;
 
 always @(posedge lbuf_retire_pointer_update_clk or negedge cpurst_b)
@@ -5422,7 +5422,7 @@ end
 assign lbuf_retire_vld = ibctrl_lbuf_retire_vld;
 
 //There are most 6 Half will be wrote out from lbuf
-//Thus need 6 retire pointer to point different entry 
+//Thus need 6 retire pointer to point different entry
 assign lbuf_retire_pointer0[ENTRY_NUM-1:0] =  lbuf_retire_pointer[ENTRY_NUM-1:0];
 assign lbuf_retire_pointer1[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-2:0],
                                               lbuf_retire_pointer[ENTRY_NUM-1]};
@@ -5439,16 +5439,16 @@ assign lbuf_retire_pointer5[ENTRY_NUM-1:0] = {lbuf_retire_pointer[ENTRY_NUM-6:0]
 //            LBUF POP Data trans into inst
 //==========================================================
 //Prepare Inst Start and Inst 32 Information
-assign pop_h0_br       = pop_h0_front_br || 
-                         pop_h0_back_br; 
-assign pop_h1_br       = pop_h1_front_br || 
-                         pop_h1_back_br; 
-assign pop_h2_br       = pop_h2_front_br || 
-                         pop_h2_back_br; 
-assign pop_h3_br       = pop_h3_front_br || 
-                         pop_h3_back_br; 
-assign pop_h4_br       = pop_h4_front_br || 
-                         pop_h4_back_br; 
+assign pop_h0_br       = pop_h0_front_br ||
+                         pop_h0_back_br;
+assign pop_h1_br       = pop_h1_front_br ||
+                         pop_h1_back_br;
+assign pop_h2_br       = pop_h2_front_br ||
+                         pop_h2_back_br;
+assign pop_h3_br       = pop_h3_front_br ||
+                         pop_h3_back_br;
+assign pop_h4_br       = pop_h4_front_br ||
+                         pop_h4_back_br;
 
 //6 Half Word into 3 Inst
 // &CombBeg; @3445
@@ -5940,21 +5940,21 @@ casez({pop_h0_32_start,pop_h1_32_start,pop_h2_32_start,
                   lbuf_pop_inst0_valid            =  1'b0;
                   lbuf_pop_inst0_data[31:0]       = 32'b0;
                   lbuf_pop_inst0_br               =  1'b0;
-                  lbuf_pop_inst1_valid            =  1'b0; 
-                  lbuf_pop_inst1_data[31:0]       = 32'b0; 
+                  lbuf_pop_inst1_valid            =  1'b0;
+                  lbuf_pop_inst1_data[31:0]       = 32'b0;
                   lbuf_pop_inst1_br               =  1'b0;
-                  lbuf_pop_inst2_valid            =  1'b0; 
-                  lbuf_pop_inst2_data[31:0]       = 32'b0; 
+                  lbuf_pop_inst2_valid            =  1'b0;
+                  lbuf_pop_inst2_data[31:0]       = 32'b0;
                   lbuf_pop_inst2_br               =  1'b0;
-                  lbuf_pop3_half_num[2:0]         =  3'b0; 
-                  lbuf_pop2_half_num[2:0]         =  3'b0; 
-                  lbuf_pop1_half_num[2:0]         =  3'b0; 
-                  lbuf_pop_inst0_front_br         =  1'b0; 
-                  lbuf_pop_inst0_back_br          =  1'b0; 
-                  lbuf_pop_inst1_front_br         =  1'b0; 
-                  lbuf_pop_inst1_back_br          =  1'b0; 
-                  lbuf_pop_inst2_front_br         =  1'b0; 
-                  lbuf_pop_inst2_back_br          =  1'b0; 
+                  lbuf_pop3_half_num[2:0]         =  3'b0;
+                  lbuf_pop2_half_num[2:0]         =  3'b0;
+                  lbuf_pop1_half_num[2:0]         =  3'b0;
+                  lbuf_pop_inst0_front_br         =  1'b0;
+                  lbuf_pop_inst0_back_br          =  1'b0;
+                  lbuf_pop_inst1_front_br         =  1'b0;
+                  lbuf_pop_inst1_back_br          =  1'b0;
+                  lbuf_pop_inst2_front_br         =  1'b0;
+                  lbuf_pop_inst2_back_br          =  1'b0;
                   lbuf_pop_inst0_vsetvli          =  1'b0;
                   lbuf_pop_inst1_vsetvli          =  1'b0;
                   lbuf_pop_inst2_vsetvli          =  1'b0;
@@ -5967,7 +5967,7 @@ casez({pop_h0_32_start,pop_h1_32_start,pop_h2_32_start,
                   lbuf_pop_inst2_fence            =  1'b0;
                   lbuf_pop_inst2_bkpta            =  1'b0;
                   lbuf_pop_inst2_bkptb            =  1'b0;
-                  lbuf_pop_inst0_vlmul_pre[1:0]   =  2'b0; 
+                  lbuf_pop_inst0_vlmul_pre[1:0]   =  2'b0;
                   lbuf_pop_inst0_vsew_pre[2:0]    =  3'b0;
                   lbuf_pop_inst0_vl_pre[7:0]      =  8'b0;
                   lbuf_pop_inst1_vlmul_pre[1:0]   =  2'b0;
@@ -6064,10 +6064,10 @@ always @( lbuf_pop3_half_num[2:0]
        or lbuf_pc_add_5[38:0])
 begin
 case(lbuf_pop3_half_num[2:0])
-  3'b011   : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_pc_add_3[PC_WIDTH-2:0]; 
-  3'b100   : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_pc_add_4[PC_WIDTH-2:0]; 
-  3'b101   : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_pc_add_5[PC_WIDTH-2:0]; 
-  3'b110   : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_pc_add_6[PC_WIDTH-2:0]; 
+  3'b011   : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_pc_add_3[PC_WIDTH-2:0];
+  3'b100   : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_pc_add_4[PC_WIDTH-2:0];
+  3'b101   : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_pc_add_5[PC_WIDTH-2:0];
+  3'b110   : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_pc_add_6[PC_WIDTH-2:0];
   default  : lbuf_pc_pop3_pre[PC_WIDTH-2:0] = lbuf_cur_pc[PC_WIDTH-2:0];
 endcase
 // &CombEnd; @3948
@@ -6081,7 +6081,7 @@ always @( lbuf_pc_add_4[38:0]
        or lbuf_pc_add_3[38:0])
 begin
 case(lbuf_pop2_half_num[2:0])
-  3'b010   : lbuf_pc_pop2_pre[PC_WIDTH-2:0] = lbuf_pc_add_2[PC_WIDTH-2:0];  
+  3'b010   : lbuf_pc_pop2_pre[PC_WIDTH-2:0] = lbuf_pc_add_2[PC_WIDTH-2:0];
   3'b011   : lbuf_pc_pop2_pre[PC_WIDTH-2:0] = lbuf_pc_add_3[PC_WIDTH-2:0];
   3'b100   : lbuf_pc_pop2_pre[PC_WIDTH-2:0] = lbuf_pc_add_4[PC_WIDTH-2:0];
   default  : lbuf_pc_pop2_pre[PC_WIDTH-2:0] = lbuf_cur_pc[PC_WIDTH-2:0];
@@ -6096,8 +6096,8 @@ always @( lbuf_cur_pc[38:0]
        or lbuf_pop1_half_num[2:0])
 begin
 case(lbuf_pop1_half_num[2:0])
-  3'b001   : lbuf_pc_pop1_pre[PC_WIDTH-2:0] = lbuf_pc_add_1[PC_WIDTH-2:0]; 
-  3'b010   : lbuf_pc_pop1_pre[PC_WIDTH-2:0] = lbuf_pc_add_2[PC_WIDTH-2:0]; 
+  3'b001   : lbuf_pc_pop1_pre[PC_WIDTH-2:0] = lbuf_pc_add_1[PC_WIDTH-2:0];
+  3'b010   : lbuf_pc_pop1_pre[PC_WIDTH-2:0] = lbuf_pc_add_2[PC_WIDTH-2:0];
   default  : lbuf_pc_pop1_pre[PC_WIDTH-2:0] = lbuf_cur_pc[PC_WIDTH-2:0];
 endcase
 // &CombEnd; @3965
@@ -6143,9 +6143,9 @@ gated_clk_cell  x_lbuf_cur_pc_update_clk (
 //           .local_en       (lbuf_cur_pc_update_clk_en),//Local Condition @3985
 //           .module_en      (cp0_ifu_icg_en) @3986
 //         ); @3987
-assign lbuf_cur_pc_update_clk_en = lbuf_flush || 
-                                   lbuf_retire_vld || 
-                                   fill_state_enter || 
+assign lbuf_cur_pc_update_clk_en = lbuf_flush ||
+                                   lbuf_retire_vld ||
+                                   fill_state_enter ||
                                    active_state_enter;
 
 always @(posedge lbuf_cur_pc_update_clk or negedge cpurst_b)
@@ -6167,7 +6167,7 @@ begin
 end
 
 //from CACHE state turn to ACTIVE state
-assign active_state_enter = ((lbuf_cur_state[5:0] == CACHE) || (lbuf_cur_state[5:0] == FRONT_CACHE)) && 
+assign active_state_enter = ((lbuf_cur_state[5:0] == CACHE) || (lbuf_cur_state[5:0] == FRONT_CACHE)) &&
                             ibuf_empty;
 //loop start pc is the value which will be updated into back br target pc
 //active_state_enter when fill state & back br hit loop end
@@ -6186,12 +6186,12 @@ assign lbuf_pc_add_6[PC_WIDTH-2:0] = lbuf_cur_pc[PC_WIDTH-2:0] + 38'd6;
 //==========================================================
 // &Force("bus","iu_ifu_cur_pc",38,0); @4029
 //Loop Buffer need BHT result :
-//1.Fill state, record sel array information 
+//1.Fill state, record sel array information
 //  and maintain sel array result by loop buffer self
 //2.Pre Array result read from BHT directly
 
 //Information from BHT
-assign pre_taken_result[31:0]  = bht_lbuf_pre_taken_result[31:0]; 
+assign pre_taken_result[31:0]  = bht_lbuf_pre_taken_result[31:0];
 assign pre_ntaken_result[31:0] = bht_lbuf_pre_ntaken_result[31:0];
 assign vghr[13:0]              = bht_lbuf_vghr[13:0];
 //need ip stage flop sel_array_result to ib stage loop buffer
@@ -6200,10 +6200,10 @@ assign sel_array_result[1:0]   = ibdp_lbuf_bht_sel_array_result[1:0];
 //---------------------Front_br----------------------------
 //Select Array Get from taken array and not taken array
 assign front_pre_array_result[31:0]  = (front_br_sel_array_result[1])
-                                     ? pre_taken_result[31:0] 
+                                     ? pre_taken_result[31:0]
                                      : pre_ntaken_result[31:0];
 
-//Get front_br final BHT result                               
+//Get front_br final BHT result
 // &CombBeg; @4049
 always @( front_pre_array_result[31:26]
        or front_pre_array_result[1:0]
@@ -6239,7 +6239,7 @@ end
 assign front_br_bht_result = front_br_bht_pre_result[1];
 
 //Front Br maintain Select Array Value by itself
-//And not use BHT Select Array result 
+//And not use BHT Select Array result
 //Because for sequence con_br, read Select Array can not meet timing requie
 always @(posedge front_br_sel_array_clk or negedge cpurst_b)
 begin
@@ -6276,44 +6276,44 @@ gated_clk_cell  x_front_br_sel_array_clk (
 //           .local_en       (front_br_sel_array_clk_en),//Local Condition @4097
 //           .module_en      (cp0_ifu_icg_en) @4098
 //         ); @4099
-assign front_br_sel_array_clk_en = lbuf_flush || 
-                                   fill_state_enter || 
-                                   front_br_sel_array_record || 
+assign front_br_sel_array_clk_en = lbuf_flush ||
+                                   fill_state_enter ||
+                                   front_br_sel_array_record ||
                                    front_br_sel_array_update;
-  
-assign front_br_sel_array_record = (lbuf_cur_state[5:0] == FILL) && 
-                                   front_br_check && 
+
+assign front_br_sel_array_record = (lbuf_cur_state[5:0] == FILL) &&
+                                   front_br_check &&
                                    lbuf_create_vld;
 
 assign front_br_sel_array_result_pre[1:0] = (iu_ifu_bht_condbr_taken)
-                                           ? front_br_sel_array_result[1:0] + 2'b01 
+                                           ? front_br_sel_array_result[1:0] + 2'b01
                                            : front_br_sel_array_result[1:0] - 2'b01;
 
-assign front_br_sel_array_update  = iu_ifu_bht_check_vld && 
-                                    (iu_ifu_cur_pc[PC_WIDTH-2:0] == front_entry_cur_pc[PC_WIDTH-2:0]) && 
+assign front_br_sel_array_update  = iu_ifu_bht_check_vld &&
+                                    (iu_ifu_cur_pc[PC_WIDTH-2:0] == front_entry_cur_pc[PC_WIDTH-2:0]) &&
                                     !( ( (front_br_sel_array_result[1:0] == 2'b00) && //saturated
                                          !iu_ifu_bht_condbr_taken
-                                       ) || 
+                                       ) ||
                                        ( (front_br_sel_array_result[1:0] == 2'b11) && //saturated
                                          iu_ifu_bht_condbr_taken
-                                       ) || 
+                                       ) ||
                                        ( (front_br_sel_array_result[1] == 1'b0) && //bi-mode logic
-                                         iu_ifu_bht_condbr_taken && 
+                                         iu_ifu_bht_condbr_taken &&
                                          !iu_ifu_chgflw_vld
-                                       ) || 
+                                       ) ||
                                        ( (front_br_sel_array_result[1] == 1'b1) && //bi-mode logic
-                                         !iu_ifu_bht_condbr_taken && 
+                                         !iu_ifu_bht_condbr_taken &&
                                          !iu_ifu_chgflw_vld
                                        )
-                                     );  
+                                     );
 
 //---------------------back_br-----------------------------
 //Select Array Get from taken array and not taken array
 assign back_pre_array_result[31:0]  = (back_br_sel_array_result[1])
-                                    ? pre_taken_result[31:0] 
+                                    ? pre_taken_result[31:0]
                                     : pre_ntaken_result[31:0];
 
-//Get back_br final BHT result                               
+//Get back_br final BHT result
 // &CombBeg; @4138
 always @( back_pre_array_result[13:8]
        or back_pre_array_result[31:14]
@@ -6348,7 +6348,7 @@ assign back_br_bht_result = back_br_bht_pre_result[1];
 assign ins_inv_on         = ifctrl_lbuf_ins_inv_on;
 
 //back br maintain Select Array Value by itself
-//And not use BHT Select Array result 
+//And not use BHT Select Array result
 //Because for sequence con_br, read Select Array can not meet timing requie
 always @(posedge back_br_sel_array_clk or negedge cpurst_b)
 begin
@@ -6385,33 +6385,33 @@ gated_clk_cell  x_back_br_sel_array_clk (
 //           .local_en       (back_br_sel_array_clk_en),//Local Condition @4187
 //           .module_en      (cp0_ifu_icg_en) @4188
 //         ); @4189
-assign back_br_sel_array_clk_en = lbuf_flush || 
-                                  fill_state_enter || 
-                                  back_br_sel_array_record || 
+assign back_br_sel_array_clk_en = lbuf_flush ||
+                                  fill_state_enter ||
+                                  back_br_sel_array_record ||
                                   back_br_sel_array_update;
 
-assign back_br_sel_array_record = (lbuf_cur_state[5:0] == FILL) && 
-                                  back_br_check && 
+assign back_br_sel_array_record = (lbuf_cur_state[5:0] == FILL) &&
+                                  back_br_check &&
                                   lbuf_create_vld;
-  
+
 assign back_br_sel_array_result_pre[1:0] = (iu_ifu_bht_condbr_taken)
-                                          ? back_br_sel_array_result[1:0] + 2'b01 
+                                          ? back_br_sel_array_result[1:0] + 2'b01
                                           : back_br_sel_array_result[1:0] - 2'b01;
 
-assign back_br_sel_array_update  = iu_ifu_bht_check_vld && 
-                                   (iu_ifu_cur_pc[PC_WIDTH-2:0] == back_entry_cur_pc[PC_WIDTH-2:0]) && 
+assign back_br_sel_array_update  = iu_ifu_bht_check_vld &&
+                                   (iu_ifu_cur_pc[PC_WIDTH-2:0] == back_entry_cur_pc[PC_WIDTH-2:0]) &&
                                    !( ( (back_br_sel_array_result[1:0] == 2'b00) && //saturated
                                         !iu_ifu_bht_condbr_taken
-                                      ) || 
+                                      ) ||
                                       ( (back_br_sel_array_result[1:0] == 2'b11) && //saturated
                                         iu_ifu_bht_condbr_taken
-                                      ) || 
+                                      ) ||
                                       ( (back_br_sel_array_result[1] == 1'b0) && //bi-mode logic
-                                        iu_ifu_bht_condbr_taken && 
+                                        iu_ifu_bht_condbr_taken &&
                                         !iu_ifu_chgflw_vld
-                                      ) || 
+                                      ) ||
                                       ( (back_br_sel_array_result[1] == 1'b1) && //bi-mode logic
-                                        !iu_ifu_bht_condbr_taken && 
+                                        !iu_ifu_bht_condbr_taken &&
                                         !iu_ifu_chgflw_vld
                                       )
                                     );
@@ -6458,13 +6458,13 @@ end
 //==========================================================
 //                Interface to BHT
 //==========================================================
-assign lbuf_bht_con_br_vld    = cp0_ifu_lbuf_en && 
-                                lbuf_pop_con_br_inst && 
+assign lbuf_bht_con_br_vld    = cp0_ifu_lbuf_en &&
+                                lbuf_pop_con_br_inst &&
                                 lbuf_retire_vld;
 assign lbuf_bht_con_br_taken  = lbuf_pop_con_br_taken;
 assign lbuf_bht_active_state  = lbuf_cur_state[3];
-assign lbuf_pop_con_br_inst   = lbuf_pop_inst0_con_br || 
-                                lbuf_pop_inst1_con_br || 
+assign lbuf_pop_con_br_inst   = lbuf_pop_inst0_con_br ||
+                                lbuf_pop_inst1_con_br ||
                                 lbuf_pop_inst2_con_br;
 assign lbuf_pop_inst0_con_br  = lbuf_pop_inst0_br && lbuf_pop_inst0_valid;
 assign lbuf_pop_inst1_con_br  = lbuf_pop_inst1_br && lbuf_pop_inst1_valid;
@@ -6500,7 +6500,7 @@ begin
     active_ctc_record <= 1'b0;
   else if(lbuf_cur_state[3] && ifctrl_lbuf_inv_req)
     active_ctc_record <= 1'b1;
-  else 
+  else
     active_ctc_record <= active_ctc_record;
 end
 
@@ -6526,16 +6526,16 @@ gated_clk_cell  x_lbuf_chgflw_clk (
 //           .local_en       (lbuf_chgflw_clk_en),//Local Condition @4303
 //           .module_en      (cp0_ifu_icg_en) @4304
 //         ); @4305
-assign lbuf_chgflw_clk_en = (lbuf_cur_state[5:0] == FILL) || 
-                            (lbuf_cur_state[5:0] == FRONT_FILL) || 
-                            (lbuf_cur_state[5:0] == ACTIVE) || 
+assign lbuf_chgflw_clk_en = (lbuf_cur_state[5:0] == FILL) ||
+                            (lbuf_cur_state[5:0] == FRONT_FILL) ||
+                            (lbuf_cur_state[5:0] == ACTIVE) ||
                             (lbuf_cur_state[5:0] == IDLE) &&
                             back_br_taken &&
-                            cp0_ifu_lbuf_en || 
-                            lbuf_stop_fetch_chgflw_vld || 
-                            active_idle_chgflw_vld || 
-                            active_front_fill_chgflw_vld || 
-                            iu_ifu_chgflw_vld || 
+                            cp0_ifu_lbuf_en ||
+                            lbuf_stop_fetch_chgflw_vld ||
+                            active_idle_chgflw_vld ||
+                            active_front_fill_chgflw_vld ||
+                            iu_ifu_chgflw_vld ||
                             lbuf_flush;
 
 always @(posedge lbuf_chgflw_clk or negedge cpurst_b)
@@ -6569,15 +6569,15 @@ begin
 end
 
 //chgflw control signal
-assign active_idle_chgflw_vld_pre       = (lbuf_cur_state[5:0] == ACTIVE) && 
+assign active_idle_chgflw_vld_pre       = (lbuf_cur_state[5:0] == ACTIVE) &&
                                            lbuf_pop_not_taken_back_br;
-assign active_front_fill_chgflw_vld_pre = (lbuf_cur_state[5:0] == ACTIVE) && 
-                                           front_br_body_not_filled; 
-assign lbuf_stop_fetch_chgflw_vld_pre   = (lbuf_cur_state[5:0] == FILL) && 
-                                          back_br_hit_lbuf_end && 
-                                          !fill_not_under_rule || 
-                                          (lbuf_cur_state[5:0] == FRONT_FILL) && 
-                                          back_br_hit_lbuf_end && 
+assign active_front_fill_chgflw_vld_pre = (lbuf_cur_state[5:0] == ACTIVE) &&
+                                           front_br_body_not_filled;
+assign lbuf_stop_fetch_chgflw_vld_pre   = (lbuf_cur_state[5:0] == FILL) &&
+                                          back_br_hit_lbuf_end &&
+                                          !fill_not_under_rule ||
+                                          (lbuf_cur_state[5:0] == FRONT_FILL) &&
+                                          back_br_hit_lbuf_end &&
                                           !front_fill_not_under_rule ||
                                           (lbuf_cur_state[5:0] == IDLE) &&
                                           cp0_ifu_lbuf_en &&
@@ -6606,32 +6606,32 @@ gated_clk_cell  x_lbuf_chgflw_record_clk (
 //           .local_en       (lbuf_chgflw_record_clk_en),//Local Condition @4373
 //           .module_en      (cp0_ifu_icg_en) @4374
 //         ); @4375
-assign lbuf_chgflw_record_clk_en = lbuf_flush || 
-                                   iu_ifu_chgflw_vld || 
-                                   active_front_fill_chgflw_gateclk_en || 
-                                   active_idle_chgflw_gateclk_en || 
+assign lbuf_chgflw_record_clk_en = lbuf_flush ||
+                                   iu_ifu_chgflw_vld ||
+                                   active_front_fill_chgflw_gateclk_en ||
+                                   active_idle_chgflw_gateclk_en ||
                                    lbuf_stop_fetch_chgflw_gateclk_en;
 
-//gateclk en 
-assign active_idle_chgflw_gateclk_en = (lbuf_cur_state[5:0] == ACTIVE) && 
-//                                       (lbuf_retire_vld && 
-                                       (!back_br_bht_result && 
-                                        (lbuf_pop_inst0_back_br || 
-                                         lbuf_pop_inst1_back_br || 
+//gateclk en
+assign active_idle_chgflw_gateclk_en = (lbuf_cur_state[5:0] == ACTIVE) &&
+//                                       (lbuf_retire_vld &&
+                                       (!back_br_bht_result &&
+                                        (lbuf_pop_inst0_back_br ||
+                                         lbuf_pop_inst1_back_br ||
                                          lbuf_pop_inst2_back_br)
                                        );
-assign active_front_fill_chgflw_gateclk_en = (lbuf_cur_state[5:0] == ACTIVE) && 
-                                             (!front_entry_body_filled && 
-                                              front_entry_vld && 
-//                                              lbuf_retire_vld && 
-                                              !front_br_bht_result && 
-                                              (lbuf_pop_inst0_front_br || 
-                                               lbuf_pop_inst1_front_br || 
+assign active_front_fill_chgflw_gateclk_en = (lbuf_cur_state[5:0] == ACTIVE) &&
+                                             (!front_entry_body_filled &&
+                                              front_entry_vld &&
+//                                              lbuf_retire_vld &&
+                                              !front_br_bht_result &&
+                                              (lbuf_pop_inst0_front_br ||
+                                               lbuf_pop_inst1_front_br ||
                                                lbuf_pop_inst2_front_br)
                                              );
-assign lbuf_stop_fetch_chgflw_gateclk_en = (lbuf_cur_state[5:0] == FILL) && 
-                                            back_br_hit_lbuf_end || 
-                                           (lbuf_cur_state[5:0] == FRONT_FILL) && 
+assign lbuf_stop_fetch_chgflw_gateclk_en = (lbuf_cur_state[5:0] == FILL) &&
+                                            back_br_hit_lbuf_end ||
+                                           (lbuf_cur_state[5:0] == FRONT_FILL) &&
                                             back_br_hit_lbuf_end ||
                                            (lbuf_cur_state[5:0] == IDLE) &&
                                             cp0_ifu_lbuf_en &&
@@ -6649,7 +6649,7 @@ begin
     lbuf_ibctrl_chgflw_pc[PC_WIDTH-2:0] <= active_idle_chgflw_pc_pre[PC_WIDTH-2:0];
   else if(active_front_fill_chgflw_vld_pre)
     lbuf_ibctrl_chgflw_pc[PC_WIDTH-2:0] <= active_front_fill_chgflw_pc_pre[PC_WIDTH-2:0];
-  else 
+  else
     lbuf_ibctrl_chgflw_pc[PC_WIDTH-2:0] <= lbuf_ibctrl_chgflw_pc[PC_WIDTH-2:0];
 end
 // &Force("output","lbuf_ibctrl_chgflw_pc"); @4422
@@ -6680,7 +6680,7 @@ begin
     lbuf_ibctrl_chgflw_vsew[2:0]  <= active_front_fill_vsew_pre[2:0];
     lbuf_ibctrl_chgflw_vl[7:0]    <= active_front_fill_vl_pre[7:0];
   end
-  else 
+  else
   begin
     lbuf_ibctrl_chgflw_vlmul[1:0] <= lbuf_ibctrl_chgflw_vlmul[1:0];
     lbuf_ibctrl_chgflw_vsew[2:0]  <= lbuf_ibctrl_chgflw_vsew[2:0];
@@ -6700,7 +6700,7 @@ assign active_front_fill_chgflw_pc_pre[PC_WIDTH-2:0] = (front_entry_inst_32)
                                                      : (front_entry_cur_pc[PC_WIDTH-2:0] + 38'd1);
 
 //chgflw vlmul prepare
-assign active_idle_vlmul_pre[1:0]       = (lbuf_pop_inst2_valid) 
+assign active_idle_vlmul_pre[1:0]       = (lbuf_pop_inst2_valid)
                                         ? lbuf_pop_inst2_vlmul[1:0]
                                         : (lbuf_pop_inst1_valid)
                                           ? lbuf_pop_inst1_vlmul[1:0]
@@ -6713,7 +6713,7 @@ assign active_front_fill_vlmul_pre[1:0] = (lbuf_pop_inst2_valid)
 assign lbuf_stop_fetch_vlmul_pre[1:0]   = ibdp_lbuf_con_br_vlmul[1:0];
 
 //chgflw vsew prepare
-assign active_idle_vsew_pre[2:0]        = (lbuf_pop_inst2_valid) 
+assign active_idle_vsew_pre[2:0]        = (lbuf_pop_inst2_valid)
                                          ? lbuf_pop_inst2_vsew[2:0]
                                          : (lbuf_pop_inst1_valid)
                                            ? lbuf_pop_inst1_vsew[2:0]
@@ -6726,7 +6726,7 @@ assign active_front_fill_vsew_pre[2:0]  = (lbuf_pop_inst2_valid)
 assign lbuf_stop_fetch_vsew_pre[2:0]    = ibdp_lbuf_con_br_vsew[2:0];
 
 //chgflw vl prepare
-assign active_idle_vl_pre[7:0]          = (lbuf_pop_inst2_valid) 
+assign active_idle_vl_pre[7:0]          = (lbuf_pop_inst2_valid)
                                          ? lbuf_pop_inst2_vl[7:0]
                                          : (lbuf_pop_inst1_valid)
                                            ? lbuf_pop_inst1_vl[7:0]
@@ -6751,10 +6751,10 @@ assign lbuf_ibctrl_active_idle_flush = active_idle_chgflw_vld && active_ctc_reco
 assign lbuf_ibctrl_chgflw_pred[1:0]  = (lbuf_stop_fetch_chgflw_vld)
                                      ? 2'b00
                                      : 2'b11;
-assign lbuf_ibctrl_chgflw_vld        = cp0_ifu_lbuf_en && 
+assign lbuf_ibctrl_chgflw_vld        = cp0_ifu_lbuf_en &&
                                        (
-                                         lbuf_stop_fetch_chgflw_vld || 
-                                         active_idle_chgflw_vld || 
+                                         lbuf_stop_fetch_chgflw_vld ||
+                                         active_idle_chgflw_vld ||
                                          active_front_fill_chgflw_vld
                                        );
 
@@ -6763,8 +6763,8 @@ assign lbuf_ibctrl_chgflw_vld        = cp0_ifu_lbuf_en &&
 //               Infor send to PCFIFO_IF
 //==========================================================
 assign lbuf_pcfifo_if_create_select            = (lbuf_cur_state[3]); //ACTIVE
-assign lbuf_pcfifo_if_inst_pc_oper             = lbuf_pop_con_br_inst && 
-                                                 cp0_ifu_lbuf_en && 
+assign lbuf_pcfifo_if_inst_pc_oper             = lbuf_pop_con_br_inst &&
+                                                 cp0_ifu_lbuf_en &&
                                                  lbuf_retire_vld;
 assign lbuf_pcfifo_if_inst_cur_pc[PC_WIDTH-2:0]    = lbuf_pop_con_br_cur_pc[PC_WIDTH-2:0];
 assign lbuf_pcfifo_if_inst_target_pc[PC_WIDTH-2:0] = {PC_WIDTH-1{1'b0}};
@@ -6773,24 +6773,24 @@ assign lbuf_pcfifo_if_inst_bht_pre_result[1:0] = lbuf_pop_pre_result[1:0];
 assign lbuf_pcfifo_if_inst_bht_sel_result[1:0] = lbuf_pop_sel_result[1:0];
 //lbuf_pop_front_br
 assign lbuf_pop_front_br = (
-                             lbuf_pop_inst0_front_br && 
+                             lbuf_pop_inst0_front_br &&
                              lbuf_pop_inst0_valid
-                           ) || 
+                           ) ||
                            (
-                             lbuf_pop_inst1_front_br && 
-                             lbuf_pop_inst1_valid    && 
+                             lbuf_pop_inst1_front_br &&
+                             lbuf_pop_inst1_valid    &&
                              !lbuf_pop_inst0_br
-                           ) || 
+                           ) ||
                            (
-                             lbuf_pop_inst2_front_br && 
-                             lbuf_pop_inst2_valid    && 
-                             !lbuf_pop_inst0_br      && 
+                             lbuf_pop_inst2_front_br &&
+                             lbuf_pop_inst2_valid    &&
+                             !lbuf_pop_inst0_br      &&
                              !lbuf_pop_inst1_br
                            );
 assign lbuf_pop_con_br_cur_pc[PC_WIDTH-2:0] = (lbuf_pop_front_br)
-                                            ? front_entry_cur_pc[PC_WIDTH-2:0] 
+                                            ? front_entry_cur_pc[PC_WIDTH-2:0]
                                             : back_entry_cur_pc[PC_WIDTH-2:0];
-assign lbuf_pop_pre_result[1:0]     = (lbuf_pop_front_br) 
+assign lbuf_pop_pre_result[1:0]     = (lbuf_pop_front_br)
                                     ? front_br_bht_pre_result[1:0]
                                     : back_br_bht_pre_result[1:0];
 assign lbuf_pop_sel_result[1:0]     = (lbuf_pop_front_br)
@@ -6807,11 +6807,11 @@ assign lbuf_addrgen_chgflw_mask  = cp0_ifu_lbuf_en &&
                                    ((lbuf_cur_state[5:0] == IDLE) &&
                                      back_br_hit_record_fifo_fill &&
                                      !ins_inv_on ||
-                                    (lbuf_cur_state[5:0] == FILL) && 
-                                     back_br_hit_lbuf_end && 
-                                     !fill_not_under_rule || 
-                                     (lbuf_cur_state[5:0] == FRONT_FILL) && 
-                                      back_br_hit_lbuf_end && 
+                                    (lbuf_cur_state[5:0] == FILL) &&
+                                     back_br_hit_lbuf_end &&
+                                     !fill_not_under_rule ||
+                                     (lbuf_cur_state[5:0] == FRONT_FILL) &&
+                                      back_br_hit_lbuf_end &&
                                      !front_fill_not_under_rule
                                    );
 
@@ -6846,18 +6846,18 @@ assign lbuf_pop_inst2_vl[7:0]    = (lbuf_pop_inst2_vsetvli)
                                  ? lbuf_pop_inst2_vl_pre[7:0]
                                  : lbuf_pop_inst1_vl[7:0];
 
-assign lbuf_ibdp_inst0_valid    = lbuf_pop_inst0_br_mask_vld && 
-                                  cp0_ifu_lbuf_en && 
+assign lbuf_ibdp_inst0_valid    = lbuf_pop_inst0_br_mask_vld &&
+                                  cp0_ifu_lbuf_en &&
                                   lbuf_retire_vld;
-assign lbuf_ibdp_inst0[31:0]    = lbuf_pop_inst0_data[31:0]; 
+assign lbuf_ibdp_inst0[31:0]    = lbuf_pop_inst0_data[31:0];
 assign lbuf_ibdp_inst0_pc[14:0] = lbuf_pop_inst0_pc[14:0];
-assign lbuf_ibdp_inst1_valid    = lbuf_pop_inst1_br_mask_vld && 
-                                  cp0_ifu_lbuf_en && 
+assign lbuf_ibdp_inst1_valid    = lbuf_pop_inst1_br_mask_vld &&
+                                  cp0_ifu_lbuf_en &&
                                   lbuf_retire_vld;
-assign lbuf_ibdp_inst1[31:0]    = lbuf_pop_inst1_data[31:0]; 
+assign lbuf_ibdp_inst1[31:0]    = lbuf_pop_inst1_data[31:0];
 assign lbuf_ibdp_inst1_pc[14:0] = lbuf_pop_inst1_pc[14:0];
-assign lbuf_ibdp_inst2_valid    = lbuf_pop_inst2_br_mask_vld && 
-                                  cp0_ifu_lbuf_en && 
+assign lbuf_ibdp_inst2_valid    = lbuf_pop_inst2_br_mask_vld &&
+                                  cp0_ifu_lbuf_en &&
                                   lbuf_retire_vld;
 assign lbuf_ibdp_inst2[31:0]    = lbuf_pop_inst2_data[31:0];
 assign lbuf_ibdp_inst2_pc[14:0] = lbuf_pop_inst2_pc[14:0];
@@ -6911,18 +6911,18 @@ assign lbuf_ipdp_vtype_updt_vld  = lbuf_retire_vld
                                 && (lbuf_pop_inst0_br_mask_vld && lbuf_pop_inst0_vsetvli
                                     || lbuf_pop_inst1_br_mask_vld && lbuf_pop_inst1_vsetvli
                                     || lbuf_pop_inst2_br_mask_vld && lbuf_pop_inst2_vsetvli);
-assign lbuf_ipdp_updt_vlmul[1:0] = (lbuf_pop_inst2_br_mask_vld) 
+assign lbuf_ipdp_updt_vlmul[1:0] = (lbuf_pop_inst2_br_mask_vld)
                                  ? lbuf_pop_inst2_vlmul[1:0]
                                  : (lbuf_pop_inst1_br_mask_vld)
                                    ? lbuf_pop_inst1_vlmul[1:0]
                                    : lbuf_pop_inst0_vlmul[1:0];
-assign lbuf_ipdp_updt_vsew[2:0]  = (lbuf_pop_inst2_br_mask_vld) 
+assign lbuf_ipdp_updt_vsew[2:0]  = (lbuf_pop_inst2_br_mask_vld)
                                  ? lbuf_pop_inst2_vsew[2:0]
                                  : (lbuf_pop_inst1_br_mask_vld)
                                    ? lbuf_pop_inst1_vsew[2:0]
                                    : lbuf_pop_inst0_vsew[2:0];
 
-assign lbuf_ipdp_updt_vl[7:0]    = (lbuf_pop_inst2_br_mask_vld) 
+assign lbuf_ipdp_updt_vl[7:0]    = (lbuf_pop_inst2_br_mask_vld)
                                  ? lbuf_pop_inst2_vl[7:0]
                                  : (lbuf_pop_inst1_br_mask_vld)
                                    ? lbuf_pop_inst1_vl[7:0]
@@ -6932,13 +6932,13 @@ assign lbuf_ipdp_updt_vl[7:0]    = (lbuf_pop_inst2_br_mask_vld)
 //                Inst send to pcgen
 //==========================================================
 //lbuf_active_to_other_state_vld_mask
-assign lbuf_vld_mask       = cp0_ifu_lbuf_en && 
+assign lbuf_vld_mask       = cp0_ifu_lbuf_en &&
                              (
-                               (lbuf_cur_state[5:0] == ACTIVE) && 
+                               (lbuf_cur_state[5:0] == ACTIVE) &&
                                (
-                                 active_idle_chgflw_vld_pre || 
+                                 active_idle_chgflw_vld_pre ||
                                  active_front_fill_chgflw_vld_pre
-                               ) || 
+                               ) ||
                                lbuf_stop_fetch_chgflw_vld_pre
                              );
 assign lbuf_pcgen_vld_mask = lbuf_vld_mask;

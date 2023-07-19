@@ -40,7 +40,7 @@ input  [WIDTH-1:0] fifo_create_data;
 input              pad_yy_icg_scan_en;
 input              fifo_icg_en;
 
-output [WIDTH-1:0] fifo_pop_data;         
+output [WIDTH-1:0] fifo_pop_data;
 output             fifo_pop_data_vld;
 output             fifo_full;
 output             fifo_empty;
@@ -96,15 +96,15 @@ end
 
 assign fifo_pop_sel[DEPTH-1:0] = {{(DEPTH-1){1'b0}},1'b1} << fifo_pop_ptr[PTR_W-1:0];
 
-assign fifo_entry_create[DEPTH-1:0] = 
+assign fifo_entry_create[DEPTH-1:0] =
                   {DEPTH{fifo_create_en}} & fifo_create_ptr[DEPTH-1:0];
-assign fifo_entry_create_dp[DEPTH-1:0] = 
+assign fifo_entry_create_dp[DEPTH-1:0] =
                   {DEPTH{fifo_create_en_dp}} & fifo_create_ptr[DEPTH-1:0];
-assign fifo_entry_pop[DEPTH-1:0]   = 
+assign fifo_entry_pop[DEPTH-1:0]   =
                   {DEPTH{fifo_pop_en}} & fifo_pop_sel[DEPTH-1:0];
 
 genvar i;
-generate 
+generate
 for(i=0; i<DEPTH; i=i+1) begin: DFIFO_VLD_GEN
 always@(posedge ctrl_clk or negedge rst_b)
 begin
@@ -116,7 +116,7 @@ begin
     fifo_entry_vld[i] <= 1'b0;
 end
 end
-endgenerate 
+endgenerate
 
 generate
 for(i=0; i<DEPTH; i=i+1) begin: DFIFO_GATED_CLK_GEN
@@ -132,7 +132,7 @@ gated_clk_cell x_entry_gated_clk(
 end
 endgenerate
 
-generate 
+generate
 for(i=0; i<DEPTH; i=i+1) begin: DFIFO_CONT_GEN
 always@(posedge entry_clk[i] or negedge rst_b)
 begin
@@ -140,7 +140,7 @@ begin
     fifo_entry_cont[i][WIDTH-1:0] <= {WIDTH{1'b0}};
   else if (fifo_entry_create_dp[i])
     fifo_entry_cont[i][WIDTH-1:0] <= fifo_create_data[WIDTH-1:0];
-  else  
+  else
     fifo_entry_cont[i][WIDTH-1:0] <= fifo_entry_cont[i][WIDTH-1:0];
 end
 end

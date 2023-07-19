@@ -26,17 +26,17 @@ create_power_domain PD_CPU -elements x_cpu_sub_system_axi
 ## TOPLEVEL CONNECTIONS
 #######################
 # VDD
-create_supply_port VDD 
+create_supply_port VDD
 create_supply_net  VDD   -domain PD_TOP
 connect_supply_net VDD   -ports VDD
 
-create_supply_port VSS 
+create_supply_port VSS
 create_supply_net  VSS   -domain PD_TOP
 create_supply_net  VSS   -domain PD_CPU -reuse
 connect_supply_net VSS   -ports VSS
 
 # VDDG
-create_supply_port VDD_CPU 
+create_supply_port VDD_CPU
 create_supply_net  VDD_CPU   -domain PD_TOP
 create_supply_net  VDD_CPU   -domain PD_CPU -reuse
 connect_supply_net VDD_CPU   -ports VDD_CPU
@@ -48,7 +48,7 @@ set_domain_supply_net PD_TOP  -primary_power_net VDD        -primary_ground_net 
 set_domain_supply_net PD_CPU  -primary_power_net VDD_CPU_SW -primary_ground_net VSS
 
 
-## PD_CPU power domain SETUP 
+## PD_CPU power domain SETUP
 ########################################
 create_power_switch cpu_sw \
   -domain PD_CPU \
@@ -93,7 +93,7 @@ set_isolation_control pd_cpu_iso_out_0 \
 #   -clamp_value 1 \
 #   -applies_to outputs \
 #   -elements x_cpu_sub_system_axi/tdt_dm_pad_ndmreset_n \
-# 
+#
 # set_isolation_control pd_cpu_iso_out_1 \
 #   -domain PD_CPU \
 #   -isolation_signal pmu_cpu_iso_out \

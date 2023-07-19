@@ -67,303 +67,303 @@ module ct_idu_id_decd(
 );
 
 // &Ports; @28
-input           cp0_idu_cskyee;                 
-input   [2 :0]  cp0_idu_frm;                    
-input   [1 :0]  cp0_idu_fs;                     
-input           cp0_idu_vill;                   
-input   [1 :0]  cp0_idu_vs;                     
-input   [6 :0]  cp0_idu_vstart;                 
-input           cp0_idu_zero_delay_move_disable; 
-input           cp0_yy_hyper;                   
-input   [31:0]  x_inst;                         
-input   [7 :0]  x_vl;                           
-input   [1 :0]  x_vlmul;                        
-input   [1 :0]  x_vsew;                         
-output  [4 :0]  x_dst_reg;                      
-output          x_dst_vld;                      
-output          x_dst_x0;                       
-output          x_dste_vld;                     
-output  [4 :0]  x_dstf_reg;                     
-output          x_dstf_vld;                     
-output  [4 :0]  x_dstv_reg;                     
-output          x_dstv_vld;                     
-output  [2 :0]  x_fence_type;                   
-output          x_fmla;                         
-output          x_fmov;                         
-output          x_illegal;                      
-output  [9 :0]  x_inst_type;                    
-output          x_length;                       
-output          x_mla;                          
-output          x_mov;                          
-output  [9 :0]  x_split_long_type;              
-output  [6 :0]  x_split_short_type;             
-output  [4 :0]  x_src0_reg;                     
-output          x_src0_vld;                     
-output  [4 :0]  x_src1_reg;                     
-output          x_src1_vld;                     
-output          x_src2_vld;                     
-output  [4 :0]  x_srcf0_reg;                    
-output          x_srcf0_vld;                    
-output  [4 :0]  x_srcf1_reg;                    
-output          x_srcf1_vld;                    
-output  [4 :0]  x_srcf2_reg;                    
-output          x_srcf2_vld;                    
-output  [4 :0]  x_srcv0_reg;                    
-output          x_srcv0_vld;                    
-output  [4 :0]  x_srcv1_reg;                    
-output          x_srcv1_vld;                    
-output          x_srcv2_vld;                    
-output          x_srcvm_vld;                    
-output          x_vmb;                          
-output          x_vmla;                         
+input           cp0_idu_cskyee;
+input   [2 :0]  cp0_idu_frm;
+input   [1 :0]  cp0_idu_fs;
+input           cp0_idu_vill;
+input   [1 :0]  cp0_idu_vs;
+input   [6 :0]  cp0_idu_vstart;
+input           cp0_idu_zero_delay_move_disable;
+input           cp0_yy_hyper;
+input   [31:0]  x_inst;
+input   [7 :0]  x_vl;
+input   [1 :0]  x_vlmul;
+input   [1 :0]  x_vsew;
+output  [4 :0]  x_dst_reg;
+output          x_dst_vld;
+output          x_dst_x0;
+output          x_dste_vld;
+output  [4 :0]  x_dstf_reg;
+output          x_dstf_vld;
+output  [4 :0]  x_dstv_reg;
+output          x_dstv_vld;
+output  [2 :0]  x_fence_type;
+output          x_fmla;
+output          x_fmov;
+output          x_illegal;
+output  [9 :0]  x_inst_type;
+output          x_length;
+output          x_mla;
+output          x_mov;
+output  [9 :0]  x_split_long_type;
+output  [6 :0]  x_split_short_type;
+output  [4 :0]  x_src0_reg;
+output          x_src0_vld;
+output  [4 :0]  x_src1_reg;
+output          x_src1_vld;
+output          x_src2_vld;
+output  [4 :0]  x_srcf0_reg;
+output          x_srcf0_vld;
+output  [4 :0]  x_srcf1_reg;
+output          x_srcf1_vld;
+output  [4 :0]  x_srcf2_reg;
+output          x_srcf2_vld;
+output  [4 :0]  x_srcv0_reg;
+output          x_srcv0_vld;
+output  [4 :0]  x_srcv1_reg;
+output          x_srcv1_vld;
+output          x_srcv2_vld;
+output          x_srcvm_vld;
+output          x_vmb;
+output          x_vmla;
 
 // &Regs; @29
-reg             decd_16_dst_vld;                
-reg             decd_16_dstf_vld;               
-reg             decd_16_illegal;                
-reg     [9 :0]  decd_16_inst_type;              
-reg             decd_16_src0_vld;               
-reg             decd_16_src1_vld;               
-reg             decd_16_srcf1_vld;              
-reg             decd_16_srcf2_vld;              
-reg             decd_32_dst_vld;                
-reg             decd_32_dste_vld;               
-reg             decd_32_dstf_vld;               
-reg             decd_32_dstv_vld;               
-reg             decd_32_illegal;                
-reg     [9 :0]  decd_32_inst_type;              
-reg             decd_32_src0_vld;               
-reg             decd_32_src1_vld;               
-reg             decd_32_srcf0_vld;              
-reg             decd_32_srcf1_vld;              
-reg             decd_32_srcf2_vld;              
-reg             decd_32_srcv0_vld;              
-reg             decd_32_srcv2_vld;              
-reg             decd_cache_illegal;             
-reg     [9 :0]  decd_cache_inst_type;           
-reg             decd_cache_src0_vld;            
-reg             decd_code_illegal;              
-reg             decd_fp0_dst_vld;               
-reg             decd_fp0_dste_vld;              
-reg             decd_fp0_dstf_vld;              
-reg             decd_fp0_illegal;               
-reg     [9 :0]  decd_fp0_inst_type;             
-reg             decd_fp0_src0_vld;              
-reg             decd_fp0_srcf0_vld;             
-reg             decd_fp0_srcf1_vld;             
-reg             decd_fp1_dst_vld;               
-reg             decd_fp1_dste_vld;              
-reg             decd_fp1_dstf_vld;              
-reg             decd_fp1_illegal;               
-reg     [9 :0]  decd_fp1_inst_type;             
-reg             decd_fp1_src0_vld;              
-reg             decd_fp1_srcf0_vld;             
-reg             decd_fp1_srcf1_vld;             
-reg             decd_fp1_srcf2_vld;             
-reg             decd_fp_dst_vld;                
-reg             decd_fp_dste_vld;               
-reg             decd_fp_dstf_vld;               
-reg             decd_fp_inst_illegal;           
-reg     [9 :0]  decd_fp_inst_type;              
-reg             decd_fp_src0_vld;               
-reg             decd_fp_src1_vld;               
-reg             decd_fp_srcf0_vld;              
-reg             decd_fp_srcf1_vld;              
-reg             decd_fp_srcf2_vld;              
-reg             decd_perf_dst_vld;              
-reg             decd_perf_dstf_vld;             
-reg             decd_perf_illegal;              
-reg     [9 :0]  decd_perf_inst_type;            
-reg             decd_perf_src0_vld;             
-reg             decd_perf_src1_vld;             
-reg             decd_perf_src2_vld;             
-reg             decd_perf_srcf1_vld;            
-reg             decd_perf_srcf2_vld;            
-reg             decd_v_dst_vld;                 
-reg             decd_v_dste_vld;                
-reg             decd_v_dstf_vld;                
-reg             decd_v_dstv_vld;                
-reg     [9 :0]  decd_v_inst_type;               
-reg             decd_v_src0_vld;                
-reg             decd_v_src1_vld;                
-reg             decd_v_src2_vld;                
-reg             decd_v_srcf0_vld;               
-reg             decd_v_srcf1_vld;               
-reg             decd_v_srcf2_vld;               
-reg             decd_v_srcv0_vld;               
-reg             decd_v_srcv1_vld;               
-reg             decd_v_srcv2_vld;               
-reg             decd_vec_dst_vld;               
-reg             decd_vec_dste_vld;              
-reg             decd_vec_dstf_vld;              
-reg             decd_vec_dstv_vld;              
-reg             decd_vec_illegal;               
-reg     [9 :0]  decd_vec_inst_type;             
-reg             decd_vec_src0_vld;              
-reg             decd_vec_src1_vld;              
-reg             decd_vec_src2_vld;              
-reg             decd_vec_srcf0_vld;             
-reg             decd_vec_srcf1_vld;             
-reg             decd_vec_srcf2_vld;             
-reg             decd_vec_srcv0_vld;             
-reg             decd_vec_srcv1_vld;             
-reg             decd_vec_srcv2_vld;             
-reg             x_dst_vld;                      
-reg             x_dste_vld;                     
-reg             x_dstf_vld;                     
-reg             x_dstv_vld;                     
-reg     [9 :0]  x_inst_type;                    
-reg             x_src0_vld;                     
-reg             x_src1_vld;                     
-reg             x_src2_vld;                     
-reg             x_srcf0_vld;                    
-reg             x_srcf1_vld;                    
-reg     [4 :0]  x_srcf2_reg;                    
-reg             x_srcf2_vld;                    
-reg             x_srcv0_vld;                    
-reg             x_srcv1_vld;                    
-reg             x_srcv2_vld;                    
+reg             decd_16_dst_vld;
+reg             decd_16_dstf_vld;
+reg             decd_16_illegal;
+reg     [9 :0]  decd_16_inst_type;
+reg             decd_16_src0_vld;
+reg             decd_16_src1_vld;
+reg             decd_16_srcf1_vld;
+reg             decd_16_srcf2_vld;
+reg             decd_32_dst_vld;
+reg             decd_32_dste_vld;
+reg             decd_32_dstf_vld;
+reg             decd_32_dstv_vld;
+reg             decd_32_illegal;
+reg     [9 :0]  decd_32_inst_type;
+reg             decd_32_src0_vld;
+reg             decd_32_src1_vld;
+reg             decd_32_srcf0_vld;
+reg             decd_32_srcf1_vld;
+reg             decd_32_srcf2_vld;
+reg             decd_32_srcv0_vld;
+reg             decd_32_srcv2_vld;
+reg             decd_cache_illegal;
+reg     [9 :0]  decd_cache_inst_type;
+reg             decd_cache_src0_vld;
+reg             decd_code_illegal;
+reg             decd_fp0_dst_vld;
+reg             decd_fp0_dste_vld;
+reg             decd_fp0_dstf_vld;
+reg             decd_fp0_illegal;
+reg     [9 :0]  decd_fp0_inst_type;
+reg             decd_fp0_src0_vld;
+reg             decd_fp0_srcf0_vld;
+reg             decd_fp0_srcf1_vld;
+reg             decd_fp1_dst_vld;
+reg             decd_fp1_dste_vld;
+reg             decd_fp1_dstf_vld;
+reg             decd_fp1_illegal;
+reg     [9 :0]  decd_fp1_inst_type;
+reg             decd_fp1_src0_vld;
+reg             decd_fp1_srcf0_vld;
+reg             decd_fp1_srcf1_vld;
+reg             decd_fp1_srcf2_vld;
+reg             decd_fp_dst_vld;
+reg             decd_fp_dste_vld;
+reg             decd_fp_dstf_vld;
+reg             decd_fp_inst_illegal;
+reg     [9 :0]  decd_fp_inst_type;
+reg             decd_fp_src0_vld;
+reg             decd_fp_src1_vld;
+reg             decd_fp_srcf0_vld;
+reg             decd_fp_srcf1_vld;
+reg             decd_fp_srcf2_vld;
+reg             decd_perf_dst_vld;
+reg             decd_perf_dstf_vld;
+reg             decd_perf_illegal;
+reg     [9 :0]  decd_perf_inst_type;
+reg             decd_perf_src0_vld;
+reg             decd_perf_src1_vld;
+reg             decd_perf_src2_vld;
+reg             decd_perf_srcf1_vld;
+reg             decd_perf_srcf2_vld;
+reg             decd_v_dst_vld;
+reg             decd_v_dste_vld;
+reg             decd_v_dstf_vld;
+reg             decd_v_dstv_vld;
+reg     [9 :0]  decd_v_inst_type;
+reg             decd_v_src0_vld;
+reg             decd_v_src1_vld;
+reg             decd_v_src2_vld;
+reg             decd_v_srcf0_vld;
+reg             decd_v_srcf1_vld;
+reg             decd_v_srcf2_vld;
+reg             decd_v_srcv0_vld;
+reg             decd_v_srcv1_vld;
+reg             decd_v_srcv2_vld;
+reg             decd_vec_dst_vld;
+reg             decd_vec_dste_vld;
+reg             decd_vec_dstf_vld;
+reg             decd_vec_dstv_vld;
+reg             decd_vec_illegal;
+reg     [9 :0]  decd_vec_inst_type;
+reg             decd_vec_src0_vld;
+reg             decd_vec_src1_vld;
+reg             decd_vec_src2_vld;
+reg             decd_vec_srcf0_vld;
+reg             decd_vec_srcf1_vld;
+reg             decd_vec_srcf2_vld;
+reg             decd_vec_srcv0_vld;
+reg             decd_vec_srcv1_vld;
+reg             decd_vec_srcv2_vld;
+reg             x_dst_vld;
+reg             x_dste_vld;
+reg             x_dstf_vld;
+reg             x_dstv_vld;
+reg     [9 :0]  x_inst_type;
+reg             x_src0_vld;
+reg             x_src1_vld;
+reg             x_src2_vld;
+reg             x_srcf0_vld;
+reg             x_srcf1_vld;
+reg     [4 :0]  x_srcf2_reg;
+reg             x_srcf2_vld;
+reg             x_srcv0_vld;
+reg             x_srcv1_vld;
+reg             x_srcv2_vld;
 
 // &Wires; @30
-wire            cp0_idu_cskyee;                 
-wire    [2 :0]  cp0_idu_frm;                    
-wire    [1 :0]  cp0_idu_fs;                     
-wire            cp0_idu_vill;                   
-wire    [1 :0]  cp0_idu_vs;                     
-wire    [6 :0]  cp0_idu_vstart;                 
-wire            cp0_idu_zero_delay_move_disable; 
-wire            cp0_yy_hyper;                   
-wire            decd_c_illegal;                 
-wire    [4 :0]  decd_dst_reg;                   
-wire            decd_flsu_illegal;              
-wire            decd_fp0_sel;                   
-wire            decd_fp1_sel;                   
-wire            decd_fp_illegal;                
-wire            decd_fp_rounding_illegal;       
-wire            decd_fp_sel;                    
-wire            decd_fs_illegal;                
-wire            decd_i_illegal;                 
-wire            decd_inst_cls;                  
-wire            decd_inst_cls_sp;               
-wire            decd_inst_dst_reg_16bit_3_high; 
-wire            decd_inst_dst_reg_16bit_3_low;  
-wire            decd_inst_dst_reg_16bit_5;      
-wire            decd_inst_dst_reg_32bit;        
-wire            decd_inst_dstf_reg_16bit_low;   
-wire            decd_inst_dstf_reg_32bit;       
-wire            decd_inst_fls;                  
-wire            decd_inst_src0_reg_16bit_3;     
-wire            decd_inst_src0_reg_16bit_5;     
-wire            decd_inst_src0_reg_32bit;       
-wire            decd_inst_src0_reg_cmv;         
-wire            decd_inst_src0_reg_r2;          
-wire            decd_inst_src1_reg_16bit_3;     
-wire            decd_inst_src1_reg_16bit_5;     
-wire            decd_inst_src1_reg_32bit;       
-wire            decd_inst_srcf1_reg_16bit;      
-wire            decd_inst_srcf1_reg_16bit_low;  
-wire            decd_inst_srcf1_reg_32bit;      
-wire            decd_inst_srcf1_reg_32bit_low;  
-wire            decd_inst_vec;                  
-wire            decd_inst_vls;                  
-wire            decd_length;                    
-wire            decd_lsu_illegal;               
-wire            decd_ovlp_illegal;              
-wire    [5 :0]  decd_sel;                       
-wire            decd_size_illegal;              
-wire    [4 :0]  decd_src0_reg;                  
-wire    [4 :0]  decd_src1_reg;                  
-wire            decd_start_illegal;             
-wire            decd_v_illegal;                 
-wire            decd_vec_nop;                   
-wire            decd_vill_illegal;              
-wire            decd_vlsu_illegal;              
-wire            decd_vreg_illegal;              
-wire            decd_vs_illegal;                
-wire            fcvt_f_x_narrow_il;             
-wire            fcvt_f_x_widden;                
-wire            fp_dynamic_rounding_illegal;    
-wire            fp_fs_illegal;                  
-wire            fp_static_rounding_illegal;     
-wire            vec_mfvr_inst;                  
-wire            vlsu_ld_srcv2_vld;              
-wire    [4 :0]  x_dst_reg;                      
-wire            x_dst_x0;                       
-wire    [4 :0]  x_dstf_reg;                     
-wire    [4 :0]  x_dstv_reg;                     
-wire            x_fence;                        
-wire    [2 :0]  x_fence_type;                   
-wire            x_fmla;                         
-wire            x_fmov;                         
-wire            x_illegal;                      
-wire    [31:0]  x_inst;                         
-wire            x_length;                       
-wire            x_mla;                          
-wire            x_mov;                          
-wire    [8 :0]  x_ovlp_ill;                     
-wire    [2 :0]  x_ovlp_illegal;                 
-wire    [3 :0]  x_size_ill_case;                
-wire            x_split;                        
-wire    [9 :0]  x_split_long_type;              
-wire    [2 :0]  x_split_potnt;                  
-wire            x_split_short;                  
-wire    [2 :0]  x_split_short_potnt;            
-wire    [6 :0]  x_split_short_type;             
-wire    [4 :0]  x_src0_reg;                     
-wire    [4 :0]  x_src1_reg;                     
-wire    [4 :0]  x_srcf0_reg;                    
-wire    [4 :0]  x_srcf1_reg;                    
-wire    [4 :0]  x_srcv0_reg;                    
-wire            x_srcv0_srcv1_switch;           
-wire    [4 :0]  x_srcv1_reg;                    
-wire            x_srcv1_srcv2_switch;           
-wire            x_srcvm_vld;                    
-wire            x_vec_fp_ac_fcsr;               
-wire            x_vec_inst;                     
-wire            x_vec_inst_ac_fcsr;             
-wire            x_vec_inst_adc;                 
-wire            x_vec_inst_comp;                
-wire            x_vec_inst_funary;              
-wire            x_vec_inst_mask;                
-wire            x_vec_inst_narr;                
-wire            x_vec_inst_scalar;              
-wire            x_vec_inst_slidedown;           
-wire            x_vec_inst_slideup;             
-wire            x_vec_inst_vcompress;           
-wire            x_vec_inst_vid;                 
-wire            x_vec_inst_viota;               
-wire            x_vec_inst_vred;                
-wire            x_vec_inst_vred_n;              
-wire            x_vec_inst_vred_w;              
-wire            x_vec_inst_vrgather;            
-wire            x_vec_inst_wide;                
-wire            x_vec_inst_wide_w;              
-wire            x_vec_opcfg;                    
-wire            x_vec_opfvf;                    
-wire            x_vec_opfvv;                    
-wire            x_vec_opivi;                    
-wire            x_vec_opivv;                    
-wire            x_vec_opivx;                    
-wire            x_vec_opmvv;                    
-wire            x_vec_opmvx;                    
-wire            x_vec_vfunary0;                 
-wire            x_vec_vfunary1;                 
-wire            x_vec_vmunary0;                 
-wire            x_vfunary0_vld;                 
-wire            x_vfunary0_vld_narr;            
-wire            x_vfunary0_vld_norm;            
-wire            x_vfunary0_vld_wide;            
-wire    [7 :0]  x_vl;                           
-wire    [1 :0]  x_vlmul;                        
-wire            x_vmb;                          
-wire            x_vmla;                         
-wire            x_vmunary0_vld;                 
-wire            x_vreg_dst_norm;                
-wire    [4 :0]  x_vreg_ill;                     
-wire    [2 :0]  x_vreg_illegal;                 
-wire            x_vreg_src0_norm;               
-wire            x_vreg_src1_norm;               
-wire    [1 :0]  x_vsew;                         
+wire            cp0_idu_cskyee;
+wire    [2 :0]  cp0_idu_frm;
+wire    [1 :0]  cp0_idu_fs;
+wire            cp0_idu_vill;
+wire    [1 :0]  cp0_idu_vs;
+wire    [6 :0]  cp0_idu_vstart;
+wire            cp0_idu_zero_delay_move_disable;
+wire            cp0_yy_hyper;
+wire            decd_c_illegal;
+wire    [4 :0]  decd_dst_reg;
+wire            decd_flsu_illegal;
+wire            decd_fp0_sel;
+wire            decd_fp1_sel;
+wire            decd_fp_illegal;
+wire            decd_fp_rounding_illegal;
+wire            decd_fp_sel;
+wire            decd_fs_illegal;
+wire            decd_i_illegal;
+wire            decd_inst_cls;
+wire            decd_inst_cls_sp;
+wire            decd_inst_dst_reg_16bit_3_high;
+wire            decd_inst_dst_reg_16bit_3_low;
+wire            decd_inst_dst_reg_16bit_5;
+wire            decd_inst_dst_reg_32bit;
+wire            decd_inst_dstf_reg_16bit_low;
+wire            decd_inst_dstf_reg_32bit;
+wire            decd_inst_fls;
+wire            decd_inst_src0_reg_16bit_3;
+wire            decd_inst_src0_reg_16bit_5;
+wire            decd_inst_src0_reg_32bit;
+wire            decd_inst_src0_reg_cmv;
+wire            decd_inst_src0_reg_r2;
+wire            decd_inst_src1_reg_16bit_3;
+wire            decd_inst_src1_reg_16bit_5;
+wire            decd_inst_src1_reg_32bit;
+wire            decd_inst_srcf1_reg_16bit;
+wire            decd_inst_srcf1_reg_16bit_low;
+wire            decd_inst_srcf1_reg_32bit;
+wire            decd_inst_srcf1_reg_32bit_low;
+wire            decd_inst_vec;
+wire            decd_inst_vls;
+wire            decd_length;
+wire            decd_lsu_illegal;
+wire            decd_ovlp_illegal;
+wire    [5 :0]  decd_sel;
+wire            decd_size_illegal;
+wire    [4 :0]  decd_src0_reg;
+wire    [4 :0]  decd_src1_reg;
+wire            decd_start_illegal;
+wire            decd_v_illegal;
+wire            decd_vec_nop;
+wire            decd_vill_illegal;
+wire            decd_vlsu_illegal;
+wire            decd_vreg_illegal;
+wire            decd_vs_illegal;
+wire            fcvt_f_x_narrow_il;
+wire            fcvt_f_x_widden;
+wire            fp_dynamic_rounding_illegal;
+wire            fp_fs_illegal;
+wire            fp_static_rounding_illegal;
+wire            vec_mfvr_inst;
+wire            vlsu_ld_srcv2_vld;
+wire    [4 :0]  x_dst_reg;
+wire            x_dst_x0;
+wire    [4 :0]  x_dstf_reg;
+wire    [4 :0]  x_dstv_reg;
+wire            x_fence;
+wire    [2 :0]  x_fence_type;
+wire            x_fmla;
+wire            x_fmov;
+wire            x_illegal;
+wire    [31:0]  x_inst;
+wire            x_length;
+wire            x_mla;
+wire            x_mov;
+wire    [8 :0]  x_ovlp_ill;
+wire    [2 :0]  x_ovlp_illegal;
+wire    [3 :0]  x_size_ill_case;
+wire            x_split;
+wire    [9 :0]  x_split_long_type;
+wire    [2 :0]  x_split_potnt;
+wire            x_split_short;
+wire    [2 :0]  x_split_short_potnt;
+wire    [6 :0]  x_split_short_type;
+wire    [4 :0]  x_src0_reg;
+wire    [4 :0]  x_src1_reg;
+wire    [4 :0]  x_srcf0_reg;
+wire    [4 :0]  x_srcf1_reg;
+wire    [4 :0]  x_srcv0_reg;
+wire            x_srcv0_srcv1_switch;
+wire    [4 :0]  x_srcv1_reg;
+wire            x_srcv1_srcv2_switch;
+wire            x_srcvm_vld;
+wire            x_vec_fp_ac_fcsr;
+wire            x_vec_inst;
+wire            x_vec_inst_ac_fcsr;
+wire            x_vec_inst_adc;
+wire            x_vec_inst_comp;
+wire            x_vec_inst_funary;
+wire            x_vec_inst_mask;
+wire            x_vec_inst_narr;
+wire            x_vec_inst_scalar;
+wire            x_vec_inst_slidedown;
+wire            x_vec_inst_slideup;
+wire            x_vec_inst_vcompress;
+wire            x_vec_inst_vid;
+wire            x_vec_inst_viota;
+wire            x_vec_inst_vred;
+wire            x_vec_inst_vred_n;
+wire            x_vec_inst_vred_w;
+wire            x_vec_inst_vrgather;
+wire            x_vec_inst_wide;
+wire            x_vec_inst_wide_w;
+wire            x_vec_opcfg;
+wire            x_vec_opfvf;
+wire            x_vec_opfvv;
+wire            x_vec_opivi;
+wire            x_vec_opivv;
+wire            x_vec_opivx;
+wire            x_vec_opmvv;
+wire            x_vec_opmvx;
+wire            x_vec_vfunary0;
+wire            x_vec_vfunary1;
+wire            x_vec_vmunary0;
+wire            x_vfunary0_vld;
+wire            x_vfunary0_vld_narr;
+wire            x_vfunary0_vld_norm;
+wire            x_vfunary0_vld_wide;
+wire    [7 :0]  x_vl;
+wire    [1 :0]  x_vlmul;
+wire            x_vmb;
+wire            x_vmla;
+wire            x_vmunary0_vld;
+wire            x_vreg_dst_norm;
+wire    [4 :0]  x_vreg_ill;
+wire    [2 :0]  x_vreg_illegal;
+wire            x_vreg_src0_norm;
+wire            x_vreg_src1_norm;
+wire    [1 :0]  x_vsew;
 
 
 
@@ -439,9 +439,9 @@ assign x_fmla  = ({x_inst[6:4],x_inst[1:0]} == 5'b100_11);
 //==========================================================
 //                 Decode vmla Instruction
 //==========================================================
-assign x_vmla  = x_vec_inst && x_vec_opmvv && 
+assign x_vmla  = x_vec_inst && x_vec_opmvv &&
                 ((x_inst[31:26]==6'b101101) ||  //vmacc
-                 (x_inst[31:26]==6'b101111)) 
+                 (x_inst[31:26]==6'b101111))
               || x_vec_inst && x_vec_opfvv &&
                 (x_inst[31:28] == 4'b1011); //vfmacc
 
@@ -575,7 +575,7 @@ assign x_srcf1_reg[4:0] =
 //----------------------------------------------------------
 //               Scalar FP Source 2 Register Index
 //----------------------------------------------------------
-//perf_inst 
+//perf_inst
 assign decd_inst_vls    = x_inst[6:0]==7'b0001011;
 
 //// no other srcf2_vld inst except st
@@ -606,7 +606,7 @@ endcase
 // &CombEnd; @252
 end
 
-//assign x_srcf2_reg[4:0] = decd_inst_vls ? x_inst[11: 7]: 
+//assign x_srcf2_reg[4:0] = decd_inst_vls ? x_inst[11: 7]:
 //                         (decd_inst_fls ? x_inst[24:20]:x_inst[31:27]);
 //==========================================================
 //            Decode Destination Register Index
@@ -2871,7 +2871,7 @@ assign x_srcv0_srcv1_switch = ((x_inst[31:26]==6'b000010)                     //
                             || (x_inst[31:26]==6'b100110))&& x_vec_opivv      //vasub
                             ||((x_inst[31:26]==6'b101001)                     //vmadd
                             || (x_inst[31:26]==6'b101011))&& x_vec_opmvv      //vnmsub
-                            || (x_inst[31:29]==3'b101   ) && x_vec_opfvv;       //vfmacc 
+                            || (x_inst[31:29]==3'b101   ) && x_vec_opfvv;       //vfmacc
                            // ||((x_inst[31:26]==6'b110010)                     //vwsubu
                            // || (x_inst[31:26]==6'b110011)                     //vwsub
                            // || (x_inst[31:26]==6'b110110)                     //vwsubu.w
@@ -2906,10 +2906,10 @@ assign x_vmunary0_vld = (x_inst[19:15] == 5'b00001) //vmbf
 
 assign x_vfunary0_vld_norm = (x_inst[19:17] == 3'b000);
 
-assign x_vfunary0_vld_wide = (x_inst[19:17] == 3'b010) 
+assign x_vfunary0_vld_wide = (x_inst[19:17] == 3'b010)
                            ||(x_inst[19:15] == 5'b01100);
 
-assign x_vfunary0_vld_narr = (x_inst[19:17] == 3'b100) 
+assign x_vfunary0_vld_narr = (x_inst[19:17] == 3'b100)
                            ||(x_inst[19:15] == 5'b10100);
 
 assign x_vfunary0_vld = x_vfunary0_vld_norm || x_vfunary0_vld_wide || x_vfunary0_vld_narr;
@@ -2923,9 +2923,9 @@ assign x_vec_inst_wide_w=(x_inst[31:28]==4'b1101)                    //.w wide
                       && (x_vec_opmvv || x_vec_opmvx || x_vec_opfvv || x_vec_opfvf);
 
 assign x_vec_inst_wide  =(x_inst[31:30]==2'b11)                     //widen inst
-                      && (x_vec_opivv || x_vec_opivx || x_vec_opmvv 
-                       || x_vec_opmvx || x_vec_opfvv || x_vec_opfvf) 
-                       || x_vec_vfunary0 && (x_inst[19:18]==2'b01)  //widen fcnvt           
+                      && (x_vec_opivv || x_vec_opivx || x_vec_opmvv
+                       || x_vec_opmvx || x_vec_opfvv || x_vec_opfvf)
+                       || x_vec_vfunary0 && (x_inst[19:18]==2'b01)  //widen fcnvt
                       && (x_vec_opfvv);
 
 assign x_vec_inst_mask  = (x_inst[31:30]==2'b01) && (x_vec_opmvv);
@@ -2943,17 +2943,17 @@ assign x_vec_inst_vred   = x_vec_inst_vred_n || x_vec_inst_vred_w;
 
 assign x_vec_inst_comp = (x_inst[31:28]==4'b0100) && x_inst[26]
                       && (x_vec_opivv || x_vec_opivx || x_vec_opivi)
-                      || (x_inst[31:29]==3'b011) 
+                      || (x_inst[31:29]==3'b011)
                       && (x_vec_opivv || x_vec_opivx || x_vec_opivi
-                      ||  x_vec_opfvv || x_vec_opfvf); 
+                      ||  x_vec_opfvv || x_vec_opfvf);
 //----------------------------------------------------------
 //              SRCV0 VREG ILLEGAL JUDGE
 //----------------------------------------------------------
 assign x_vreg_src0_norm  = !x_vec_inst_narr && !x_vec_inst_wide_w
-                        &&!(x_vec_inst_mask && !(x_inst[29:26]==4'b0111)) //not compress inst 
+                        &&!(x_vec_inst_mask && !(x_inst[29:26]==4'b0111)) //not compress inst
                         && !x_vec_inst_scalar;
 
-assign x_vreg_illegal[0]= x_vec_inst_narr   && x_vreg_ill[3] 
+assign x_vreg_illegal[0]= x_vec_inst_narr   && x_vreg_ill[3]
                        || x_vec_inst_wide_w && x_vreg_ill[3]
                        || x_vreg_src0_norm  && x_vreg_ill[0];
 
@@ -2971,7 +2971,7 @@ assign x_vreg_illegal[1] = x_vreg_src1_norm && x_vreg_ill[1];
 //----------------------------------------------------------
 
 assign x_vreg_dst_norm = !x_vec_inst_vred &&!x_vec_inst_wide
-                      &&(!x_vec_inst_mask || x_vec_inst_vcompress 
+                      &&(!x_vec_inst_mask || x_vec_inst_vcompress
                        || x_vec_inst_viota|| x_vec_inst_vid)
                       && !x_vec_inst_scalar
                       && !x_vec_inst_comp;
@@ -3014,11 +3014,11 @@ assign x_vec_inst_adc       =(x_inst[31:28]==4'b0100  ) &&(x_vec_opivv || x_vec_
 //----------------------------------------------------------
 //              SRCV0 OVERLAP ILLEGAL JUDGE
 //----------------------------------------------------------
-assign x_ovlp_illegal[0]= x_vec_inst_narr  && x_ovlp_ill[0] 
+assign x_ovlp_illegal[0]= x_vec_inst_narr  && x_ovlp_ill[0]
                        || x_vec_inst_wide  && !x_vec_inst_wide_w && !x_vec_inst_vred && x_ovlp_ill[0]
                        || x_vec_inst_comp  && x_ovlp_ill[2]
-                       ||(x_vec_inst_viota || x_vec_inst_slideup 
-                       || x_vec_inst_vcompress|| x_vec_inst_vrgather) && x_ovlp_ill[4]; 
+                       ||(x_vec_inst_viota || x_vec_inst_slideup
+                       || x_vec_inst_vcompress|| x_vec_inst_vrgather) && x_ovlp_ill[4];
 
 //----------------------------------------------------------
 //              SRCV1 OVERLAP ILLEGAL JUDGE
@@ -3034,7 +3034,7 @@ assign x_ovlp_illegal[1] =(x_vec_inst_wide  && !x_vec_inst_vred && !(x_vec_vfuna
 
 assign x_ovlp_illegal[2]= x_vec_inst_adc  &&  x_ovlp_ill[6]
                        || x_vec_inst_wide && !x_vec_inst_vred && x_ovlp_ill[7]
-                       ||(x_vec_inst_viota || x_vec_inst_slideup 
+                       ||(x_vec_inst_viota || x_vec_inst_slideup
                        || x_vec_inst_slidedown || x_vec_inst_vrgather) && x_ovlp_ill[7]
                        || x_vec_inst_vid  &&  x_ovlp_ill[8]
                        || x_ovlp_ill[8] && !x_vec_opcfg && !x_vec_inst_mask;
@@ -3078,15 +3078,15 @@ assign x_ovlp_ill[8]  =(x_inst[11: 7]==5'b0) && !x_inst[25] && !(x_vlmul[1:0]==2
 //               LMUL/SEW illegal for widen and narrow
 //----------------------------------------------------------
 assign x_size_ill_case[0] = ((x_vlmul[1:0]==2'b11)||(x_vsew[1:0]==2'b11))
-                           && x_vec_inst_narr || fcvt_f_x_narrow_il; 
+                           && x_vec_inst_narr || fcvt_f_x_narrow_il;
 
-assign x_size_ill_case[1] = ((x_vlmul[1:0]==2'b11)||(x_vsew[1:0]==2'b11)) 
+assign x_size_ill_case[1] = ((x_vlmul[1:0]==2'b11)||(x_vsew[1:0]==2'b11))
                            && x_vec_inst_wide && !x_vec_inst_vred_w;
 
 assign x_size_ill_case[2] = (x_vsew[1:0]==2'b11)
-                           && x_vec_inst_vred_w; 
+                           && x_vec_inst_vred_w;
 
-assign x_size_ill_case[3] = (x_vsew[1:0]==2'b00) 
+assign x_size_ill_case[3] = (x_vsew[1:0]==2'b00)
                          && (x_vec_opfvv&&!fcvt_f_x_widden|| x_vec_opfvf);
 assign fcvt_f_x_widden       = (x_inst[31:26] == 6'b100010) && ((x_inst[18])&&(x_inst[16]) ||
                                 ((x_inst[19] && ~|x_inst[17:16])));
@@ -3109,8 +3109,8 @@ assign x_vec_inst_ac_fcsr =((x_inst[31:28]==4'b1000) //vsaddu vsadd vssubu vssub
                           ||(x_inst[31:28]==4'b1111))  //vwsmaccu vwsmacc vwsmaccsu vwsmaccus
                           &&(x_vec_opivv || x_vec_opivx || x_vec_opivi);
 
-assign x_vec_fp_ac_fcsr   = x_vec_opfvf 
-                         || ((x_inst[31:29] == 3'b000) //vfadd vfsub 
+assign x_vec_fp_ac_fcsr   = x_vec_opfvf
+                         || ((x_inst[31:29] == 3'b000) //vfadd vfsub
                              || (x_inst[31:30] == 2'b11) //vfwadd vfwsub vfwmul vfwmacc...
                              || (x_inst[31:28] == 4'b1001) //vfmul
                              || (x_inst[31:27] == 5'b10000) //vfdiv vfrdiv
@@ -3121,14 +3121,14 @@ assign x_vec_fp_ac_fcsr   = x_vec_opfvf
                              || (x_inst[31:27] == 5'b00110)) //vfmv
                             && x_vec_opfvv;
 
-assign decd_fs_illegal = (cp0_idu_fs[1:0]==2'b0) 
+assign decd_fs_illegal = (cp0_idu_fs[1:0]==2'b0)
                       && (x_vec_inst_ac_fcsr
                           || x_vec_fp_ac_fcsr);
 
 assign decd_fp_rounding_illegal = ((cp0_idu_frm[2:0] == 3'b101) ||
                                    (cp0_idu_frm[2:0] == 3'b110) ||
                                    (cp0_idu_frm[2:0] == 3'b111))
-                               && (x_vec_opfvv || x_vec_opfvf);   
+                               && (x_vec_opfvv || x_vec_opfvf);
 //----------------------------------------------------------
 //               ALL type of VECTOR illegal instructions
 //----------------------------------------------------------
@@ -4457,19 +4457,19 @@ begin
     //initialize decoded information value
     decd_vec_inst_type[TYPE_WIDTH-1:0]    = SPECIAL;
     //operand prepare information: valid, and types
-    decd_vec_src0_vld                     = 1'b0; 
-    decd_vec_src1_vld                     = 1'b0; 
-    decd_vec_src2_vld                     = 1'b0; 
-    decd_vec_dst_vld                      = 1'b0; 
-    decd_vec_srcf0_vld                    = 1'b0;  
-    decd_vec_srcf1_vld                    = 1'b0;  
-    decd_vec_srcf2_vld                    = 1'b0;  
-    decd_vec_dstf_vld                     = 1'b0; 
-    decd_vec_dste_vld                     = 1'b0; 
-    decd_vec_srcv0_vld                    = 1'b0;  
-    decd_vec_srcv1_vld                    = 1'b0;  
-    decd_vec_srcv2_vld                    = 1'b0;  
-    decd_vec_dstv_vld                     = 1'b0; 
+    decd_vec_src0_vld                     = 1'b0;
+    decd_vec_src1_vld                     = 1'b0;
+    decd_vec_src2_vld                     = 1'b0;
+    decd_vec_dst_vld                      = 1'b0;
+    decd_vec_srcf0_vld                    = 1'b0;
+    decd_vec_srcf1_vld                    = 1'b0;
+    decd_vec_srcf2_vld                    = 1'b0;
+    decd_vec_dstf_vld                     = 1'b0;
+    decd_vec_dste_vld                     = 1'b0;
+    decd_vec_srcv0_vld                    = 1'b0;
+    decd_vec_srcv1_vld                    = 1'b0;
+    decd_vec_srcv2_vld                    = 1'b0;
+    decd_vec_dstv_vld                     = 1'b0;
     //illegal instruction
     decd_vec_illegal                      = decd_v_illegal;
   end

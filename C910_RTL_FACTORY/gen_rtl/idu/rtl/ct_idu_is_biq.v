@@ -79,367 +79,367 @@ module ct_idu_is_biq(
 );
 
 // &Ports; @28
-input           cp0_idu_icg_en;                         
-input           cp0_idu_iq_bypass_disable;              
-input           cp0_yy_clk_en;                          
-input           cpurst_b;                               
-input           ctrl_biq_create0_dp_en;                 
-input           ctrl_biq_create0_en;                    
-input           ctrl_biq_create0_gateclk_en;            
-input           ctrl_biq_create1_dp_en;                 
-input           ctrl_biq_create1_en;                    
-input           ctrl_biq_create1_gateclk_en;            
-input           ctrl_biq_rf_lch_fail_vld;               
-input   [23:0]  ctrl_biq_rf_pipe0_alu_reg_fwd_vld;      
-input   [23:0]  ctrl_biq_rf_pipe1_alu_reg_fwd_vld;      
-input           ctrl_biq_rf_pop_vld;                    
-input           ctrl_xx_rf_pipe0_preg_lch_vld_dupx;     
-input           ctrl_xx_rf_pipe1_preg_lch_vld_dupx;     
-input   [81:0]  dp_biq_bypass_data;                     
-input   [81:0]  dp_biq_create0_data;                    
-input   [81:0]  dp_biq_create1_data;                    
-input           dp_biq_create_src0_rdy_for_bypass;      
-input           dp_biq_create_src1_rdy_for_bypass;      
-input   [11:0]  dp_biq_rf_lch_entry;                    
-input   [1 :0]  dp_biq_rf_rdy_clr;                      
-input   [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;           
-input   [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;           
-input           forever_cpuclk;                         
-input           iu_idu_div_inst_vld;                    
-input   [6 :0]  iu_idu_div_preg_dupx;                   
-input   [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;          
-input           iu_idu_ex2_pipe0_wb_preg_vld_dupx;      
-input           iu_idu_ex2_pipe1_mult_inst_vld_dupx;    
-input   [6 :0]  iu_idu_ex2_pipe1_preg_dupx;             
-input   [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;          
-input           iu_idu_ex2_pipe1_wb_preg_vld_dupx;      
-input           lsu_idu_ag_pipe3_load_inst_vld;         
-input   [6 :0]  lsu_idu_ag_pipe3_preg_dupx;             
-input           lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx; 
-input           lsu_idu_dc_pipe3_load_inst_vld_dupx;    
-input   [6 :0]  lsu_idu_dc_pipe3_preg_dupx;             
-input   [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;          
-input           lsu_idu_wb_pipe3_wb_preg_vld_dupx;      
-input           pad_yy_icg_scan_en;                     
-input           rtu_idu_flush_fe;                       
-input           rtu_idu_flush_is;                       
-input           rtu_yy_xx_flush;                        
-input           vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;  
-input   [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;           
-input           vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;  
-input   [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;           
-output  [11:0]  biq_aiq_create0_entry;                  
-output  [11:0]  biq_aiq_create1_entry;                  
-output          biq_ctrl_1_left_updt;                   
-output          biq_ctrl_empty;                         
-output          biq_ctrl_full;                          
-output          biq_ctrl_full_updt;                     
-output          biq_ctrl_full_updt_clk_en;              
-output  [11:0]  biq_dp_issue_entry;                     
-output  [81:0]  biq_dp_issue_read_data;                 
-output  [3 :0]  biq_top_biq_entry_cnt;                  
-output          biq_xx_gateclk_issue_en;                
-output          biq_xx_issue_en;                        
+input           cp0_idu_icg_en;
+input           cp0_idu_iq_bypass_disable;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           ctrl_biq_create0_dp_en;
+input           ctrl_biq_create0_en;
+input           ctrl_biq_create0_gateclk_en;
+input           ctrl_biq_create1_dp_en;
+input           ctrl_biq_create1_en;
+input           ctrl_biq_create1_gateclk_en;
+input           ctrl_biq_rf_lch_fail_vld;
+input   [23:0]  ctrl_biq_rf_pipe0_alu_reg_fwd_vld;
+input   [23:0]  ctrl_biq_rf_pipe1_alu_reg_fwd_vld;
+input           ctrl_biq_rf_pop_vld;
+input           ctrl_xx_rf_pipe0_preg_lch_vld_dupx;
+input           ctrl_xx_rf_pipe1_preg_lch_vld_dupx;
+input   [81:0]  dp_biq_bypass_data;
+input   [81:0]  dp_biq_create0_data;
+input   [81:0]  dp_biq_create1_data;
+input           dp_biq_create_src0_rdy_for_bypass;
+input           dp_biq_create_src1_rdy_for_bypass;
+input   [11:0]  dp_biq_rf_lch_entry;
+input   [1 :0]  dp_biq_rf_rdy_clr;
+input   [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;
+input   [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;
+input           forever_cpuclk;
+input           iu_idu_div_inst_vld;
+input   [6 :0]  iu_idu_div_preg_dupx;
+input   [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;
+input           iu_idu_ex2_pipe0_wb_preg_vld_dupx;
+input           iu_idu_ex2_pipe1_mult_inst_vld_dupx;
+input   [6 :0]  iu_idu_ex2_pipe1_preg_dupx;
+input   [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;
+input           iu_idu_ex2_pipe1_wb_preg_vld_dupx;
+input           lsu_idu_ag_pipe3_load_inst_vld;
+input   [6 :0]  lsu_idu_ag_pipe3_preg_dupx;
+input           lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx;
+input           lsu_idu_dc_pipe3_load_inst_vld_dupx;
+input   [6 :0]  lsu_idu_dc_pipe3_preg_dupx;
+input   [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;
+input           lsu_idu_wb_pipe3_wb_preg_vld_dupx;
+input           pad_yy_icg_scan_en;
+input           rtu_idu_flush_fe;
+input           rtu_idu_flush_is;
+input           rtu_yy_xx_flush;
+input           vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;
+input           vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;
+output  [11:0]  biq_aiq_create0_entry;
+output  [11:0]  biq_aiq_create1_entry;
+output          biq_ctrl_1_left_updt;
+output          biq_ctrl_empty;
+output          biq_ctrl_full;
+output          biq_ctrl_full_updt;
+output          biq_ctrl_full_updt_clk_en;
+output  [11:0]  biq_dp_issue_entry;
+output  [81:0]  biq_dp_issue_read_data;
+output  [3 :0]  biq_top_biq_entry_cnt;
+output          biq_xx_gateclk_issue_en;
+output          biq_xx_issue_en;
 
 // &Regs; @29
-reg     [10:0]  biq_entry0_create_agevec;               
-reg     [81:0]  biq_entry0_create_data;                 
-reg             biq_entry0_create_frz;                  
-reg     [10:0]  biq_entry10_create_agevec;              
-reg     [81:0]  biq_entry10_create_data;                
-reg             biq_entry10_create_frz;                 
-reg     [10:0]  biq_entry11_create_agevec;              
-reg     [81:0]  biq_entry11_create_data;                
-reg             biq_entry11_create_frz;                 
-reg     [10:0]  biq_entry1_create_agevec;               
-reg     [81:0]  biq_entry1_create_data;                 
-reg             biq_entry1_create_frz;                  
-reg     [10:0]  biq_entry2_create_agevec;               
-reg     [81:0]  biq_entry2_create_data;                 
-reg             biq_entry2_create_frz;                  
-reg     [10:0]  biq_entry3_create_agevec;               
-reg     [81:0]  biq_entry3_create_data;                 
-reg             biq_entry3_create_frz;                  
-reg     [10:0]  biq_entry4_create_agevec;               
-reg     [81:0]  biq_entry4_create_data;                 
-reg             biq_entry4_create_frz;                  
-reg     [10:0]  biq_entry5_create_agevec;               
-reg     [81:0]  biq_entry5_create_data;                 
-reg             biq_entry5_create_frz;                  
-reg     [10:0]  biq_entry6_create_agevec;               
-reg     [81:0]  biq_entry6_create_data;                 
-reg             biq_entry6_create_frz;                  
-reg     [10:0]  biq_entry7_create_agevec;               
-reg     [81:0]  biq_entry7_create_data;                 
-reg             biq_entry7_create_frz;                  
-reg     [10:0]  biq_entry8_create_agevec;               
-reg     [81:0]  biq_entry8_create_data;                 
-reg             biq_entry8_create_frz;                  
-reg     [10:0]  biq_entry9_create_agevec;               
-reg     [81:0]  biq_entry9_create_data;                 
-reg             biq_entry9_create_frz;                  
-reg     [3 :0]  biq_entry_cnt;                          
-reg     [11:0]  biq_entry_create0_in;                   
-reg     [11:0]  biq_entry_create1_in;                   
-reg     [81:0]  biq_entry_read_data;                    
+reg     [10:0]  biq_entry0_create_agevec;
+reg     [81:0]  biq_entry0_create_data;
+reg             biq_entry0_create_frz;
+reg     [10:0]  biq_entry10_create_agevec;
+reg     [81:0]  biq_entry10_create_data;
+reg             biq_entry10_create_frz;
+reg     [10:0]  biq_entry11_create_agevec;
+reg     [81:0]  biq_entry11_create_data;
+reg             biq_entry11_create_frz;
+reg     [10:0]  biq_entry1_create_agevec;
+reg     [81:0]  biq_entry1_create_data;
+reg             biq_entry1_create_frz;
+reg     [10:0]  biq_entry2_create_agevec;
+reg     [81:0]  biq_entry2_create_data;
+reg             biq_entry2_create_frz;
+reg     [10:0]  biq_entry3_create_agevec;
+reg     [81:0]  biq_entry3_create_data;
+reg             biq_entry3_create_frz;
+reg     [10:0]  biq_entry4_create_agevec;
+reg     [81:0]  biq_entry4_create_data;
+reg             biq_entry4_create_frz;
+reg     [10:0]  biq_entry5_create_agevec;
+reg     [81:0]  biq_entry5_create_data;
+reg             biq_entry5_create_frz;
+reg     [10:0]  biq_entry6_create_agevec;
+reg     [81:0]  biq_entry6_create_data;
+reg             biq_entry6_create_frz;
+reg     [10:0]  biq_entry7_create_agevec;
+reg     [81:0]  biq_entry7_create_data;
+reg             biq_entry7_create_frz;
+reg     [10:0]  biq_entry8_create_agevec;
+reg     [81:0]  biq_entry8_create_data;
+reg             biq_entry8_create_frz;
+reg     [10:0]  biq_entry9_create_agevec;
+reg     [81:0]  biq_entry9_create_data;
+reg             biq_entry9_create_frz;
+reg     [3 :0]  biq_entry_cnt;
+reg     [11:0]  biq_entry_create0_in;
+reg     [11:0]  biq_entry_create1_in;
+reg     [81:0]  biq_entry_read_data;
 
 // &Wires; @30
-wire    [11:0]  biq_aiq_create0_entry;                  
-wire    [11:0]  biq_aiq_create1_entry;                  
-wire            biq_bypass_dp_en;                       
-wire            biq_bypass_en;                          
-wire            biq_bypass_gateclk_en;                  
-wire            biq_create0_rdy_bypass;                 
-wire            biq_create0_rdy_bypass_dp;              
-wire            biq_create0_rdy_bypass_gateclk;         
-wire            biq_create_bypass_empty;                
-wire            biq_ctrl_1_left_updt;                   
-wire            biq_ctrl_empty;                         
-wire            biq_ctrl_full;                          
-wire            biq_ctrl_full_updt;                     
-wire            biq_ctrl_full_updt_clk_en;              
-wire    [11:0]  biq_dp_issue_entry;                     
-wire    [81:0]  biq_dp_issue_read_data;                 
-wire    [10:0]  biq_entry0_agevec;                      
-wire    [1 :0]  biq_entry0_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry0_alu1_reg_fwd_vld;            
-wire            biq_entry0_create_dp_en;                
-wire            biq_entry0_create_en;                   
-wire            biq_entry0_create_gateclk_en;           
-wire            biq_entry0_frz_clr;                     
-wire            biq_entry0_issue_en;                    
-wire            biq_entry0_pop_cur_entry;               
-wire    [10:0]  biq_entry0_pop_other_entry;             
-wire            biq_entry0_rdy;                         
-wire    [81:0]  biq_entry0_read_data;                   
-wire            biq_entry0_vld;                         
-wire            biq_entry0_vld_with_frz;                
-wire    [10:0]  biq_entry10_agevec;                     
-wire    [1 :0]  biq_entry10_alu0_reg_fwd_vld;           
-wire    [1 :0]  biq_entry10_alu1_reg_fwd_vld;           
-wire            biq_entry10_create_dp_en;               
-wire            biq_entry10_create_en;                  
-wire            biq_entry10_create_gateclk_en;          
-wire            biq_entry10_frz_clr;                    
-wire            biq_entry10_issue_en;                   
-wire            biq_entry10_pop_cur_entry;              
-wire    [10:0]  biq_entry10_pop_other_entry;            
-wire            biq_entry10_rdy;                        
-wire    [81:0]  biq_entry10_read_data;                  
-wire            biq_entry10_vld;                        
-wire            biq_entry10_vld_with_frz;               
-wire    [10:0]  biq_entry11_agevec;                     
-wire    [1 :0]  biq_entry11_alu0_reg_fwd_vld;           
-wire    [1 :0]  biq_entry11_alu1_reg_fwd_vld;           
-wire            biq_entry11_create_dp_en;               
-wire            biq_entry11_create_en;                  
-wire            biq_entry11_create_gateclk_en;          
-wire            biq_entry11_frz_clr;                    
-wire            biq_entry11_issue_en;                   
-wire            biq_entry11_pop_cur_entry;              
-wire    [10:0]  biq_entry11_pop_other_entry;            
-wire            biq_entry11_rdy;                        
-wire    [81:0]  biq_entry11_read_data;                  
-wire            biq_entry11_vld;                        
-wire            biq_entry11_vld_with_frz;               
-wire    [10:0]  biq_entry1_agevec;                      
-wire    [1 :0]  biq_entry1_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry1_alu1_reg_fwd_vld;            
-wire            biq_entry1_create_dp_en;                
-wire            biq_entry1_create_en;                   
-wire            biq_entry1_create_gateclk_en;           
-wire            biq_entry1_frz_clr;                     
-wire            biq_entry1_issue_en;                    
-wire            biq_entry1_pop_cur_entry;               
-wire    [10:0]  biq_entry1_pop_other_entry;             
-wire            biq_entry1_rdy;                         
-wire    [81:0]  biq_entry1_read_data;                   
-wire            biq_entry1_vld;                         
-wire            biq_entry1_vld_with_frz;                
-wire    [10:0]  biq_entry2_agevec;                      
-wire    [1 :0]  biq_entry2_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry2_alu1_reg_fwd_vld;            
-wire            biq_entry2_create_dp_en;                
-wire            biq_entry2_create_en;                   
-wire            biq_entry2_create_gateclk_en;           
-wire            biq_entry2_frz_clr;                     
-wire            biq_entry2_issue_en;                    
-wire            biq_entry2_pop_cur_entry;               
-wire    [10:0]  biq_entry2_pop_other_entry;             
-wire            biq_entry2_rdy;                         
-wire    [81:0]  biq_entry2_read_data;                   
-wire            biq_entry2_vld;                         
-wire            biq_entry2_vld_with_frz;                
-wire    [10:0]  biq_entry3_agevec;                      
-wire    [1 :0]  biq_entry3_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry3_alu1_reg_fwd_vld;            
-wire            biq_entry3_create_dp_en;                
-wire            biq_entry3_create_en;                   
-wire            biq_entry3_create_gateclk_en;           
-wire            biq_entry3_frz_clr;                     
-wire            biq_entry3_issue_en;                    
-wire            biq_entry3_pop_cur_entry;               
-wire    [10:0]  biq_entry3_pop_other_entry;             
-wire            biq_entry3_rdy;                         
-wire    [81:0]  biq_entry3_read_data;                   
-wire            biq_entry3_vld;                         
-wire            biq_entry3_vld_with_frz;                
-wire    [10:0]  biq_entry4_agevec;                      
-wire    [1 :0]  biq_entry4_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry4_alu1_reg_fwd_vld;            
-wire            biq_entry4_create_dp_en;                
-wire            biq_entry4_create_en;                   
-wire            biq_entry4_create_gateclk_en;           
-wire            biq_entry4_frz_clr;                     
-wire            biq_entry4_issue_en;                    
-wire            biq_entry4_pop_cur_entry;               
-wire    [10:0]  biq_entry4_pop_other_entry;             
-wire            biq_entry4_rdy;                         
-wire    [81:0]  biq_entry4_read_data;                   
-wire            biq_entry4_vld;                         
-wire            biq_entry4_vld_with_frz;                
-wire    [10:0]  biq_entry5_agevec;                      
-wire    [1 :0]  biq_entry5_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry5_alu1_reg_fwd_vld;            
-wire            biq_entry5_create_dp_en;                
-wire            biq_entry5_create_en;                   
-wire            biq_entry5_create_gateclk_en;           
-wire            biq_entry5_frz_clr;                     
-wire            biq_entry5_issue_en;                    
-wire            biq_entry5_pop_cur_entry;               
-wire    [10:0]  biq_entry5_pop_other_entry;             
-wire            biq_entry5_rdy;                         
-wire    [81:0]  biq_entry5_read_data;                   
-wire            biq_entry5_vld;                         
-wire            biq_entry5_vld_with_frz;                
-wire    [10:0]  biq_entry6_agevec;                      
-wire    [1 :0]  biq_entry6_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry6_alu1_reg_fwd_vld;            
-wire            biq_entry6_create_dp_en;                
-wire            biq_entry6_create_en;                   
-wire            biq_entry6_create_gateclk_en;           
-wire            biq_entry6_frz_clr;                     
-wire            biq_entry6_issue_en;                    
-wire            biq_entry6_pop_cur_entry;               
-wire    [10:0]  biq_entry6_pop_other_entry;             
-wire            biq_entry6_rdy;                         
-wire    [81:0]  biq_entry6_read_data;                   
-wire            biq_entry6_vld;                         
-wire            biq_entry6_vld_with_frz;                
-wire    [10:0]  biq_entry7_agevec;                      
-wire    [1 :0]  biq_entry7_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry7_alu1_reg_fwd_vld;            
-wire            biq_entry7_create_dp_en;                
-wire            biq_entry7_create_en;                   
-wire            biq_entry7_create_gateclk_en;           
-wire            biq_entry7_frz_clr;                     
-wire            biq_entry7_issue_en;                    
-wire            biq_entry7_pop_cur_entry;               
-wire    [10:0]  biq_entry7_pop_other_entry;             
-wire            biq_entry7_rdy;                         
-wire    [81:0]  biq_entry7_read_data;                   
-wire            biq_entry7_vld;                         
-wire            biq_entry7_vld_with_frz;                
-wire    [10:0]  biq_entry8_agevec;                      
-wire    [1 :0]  biq_entry8_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry8_alu1_reg_fwd_vld;            
-wire            biq_entry8_create_dp_en;                
-wire            biq_entry8_create_en;                   
-wire            biq_entry8_create_gateclk_en;           
-wire            biq_entry8_frz_clr;                     
-wire            biq_entry8_issue_en;                    
-wire            biq_entry8_pop_cur_entry;               
-wire    [10:0]  biq_entry8_pop_other_entry;             
-wire            biq_entry8_rdy;                         
-wire    [81:0]  biq_entry8_read_data;                   
-wire            biq_entry8_vld;                         
-wire            biq_entry8_vld_with_frz;                
-wire    [10:0]  biq_entry9_agevec;                      
-wire    [1 :0]  biq_entry9_alu0_reg_fwd_vld;            
-wire    [1 :0]  biq_entry9_alu1_reg_fwd_vld;            
-wire            biq_entry9_create_dp_en;                
-wire            biq_entry9_create_en;                   
-wire            biq_entry9_create_gateclk_en;           
-wire            biq_entry9_frz_clr;                     
-wire            biq_entry9_issue_en;                    
-wire            biq_entry9_pop_cur_entry;               
-wire    [10:0]  biq_entry9_pop_other_entry;             
-wire            biq_entry9_rdy;                         
-wire    [81:0]  biq_entry9_read_data;                   
-wire            biq_entry9_vld;                         
-wire            biq_entry9_vld_with_frz;                
-wire    [3 :0]  biq_entry_cnt_create;                   
-wire            biq_entry_cnt_create_0;                 
-wire            biq_entry_cnt_create_1;                 
-wire            biq_entry_cnt_create_2;                 
-wire            biq_entry_cnt_pop_0;                    
-wire            biq_entry_cnt_pop_1;                    
-wire    [3 :0]  biq_entry_cnt_updt_val;                 
-wire            biq_entry_cnt_updt_vld;                 
-wire    [11:0]  biq_entry_create0_agevec;               
-wire    [11:0]  biq_entry_create1_agevec;               
-wire    [11:0]  biq_entry_create_dp_en;                 
-wire    [11:0]  biq_entry_create_en;                    
-wire    [11:0]  biq_entry_create_gateclk_en;            
-wire    [11:0]  biq_entry_create_sel;                   
-wire    [11:0]  biq_entry_issue_en;                     
-wire    [11:0]  biq_entry_ready;                        
-wire    [11:0]  biq_entry_vld;                          
-wire    [11:0]  biq_older_entry_ready;                  
-wire    [3 :0]  biq_top_biq_entry_cnt;                  
-wire            biq_xx_gateclk_issue_en;                
-wire            biq_xx_issue_en;                        
-wire            cnt_clk;                                
-wire            cnt_clk_en;                             
-wire            cp0_idu_icg_en;                         
-wire            cp0_idu_iq_bypass_disable;              
-wire            cp0_yy_clk_en;                          
-wire            cpurst_b;                               
-wire            ctrl_biq_create0_dp_en;                 
-wire            ctrl_biq_create0_en;                    
-wire            ctrl_biq_create0_gateclk_en;            
-wire            ctrl_biq_create1_dp_en;                 
-wire            ctrl_biq_create1_en;                    
-wire            ctrl_biq_create1_gateclk_en;            
-wire            ctrl_biq_rf_lch_fail_vld;               
-wire    [23:0]  ctrl_biq_rf_pipe0_alu_reg_fwd_vld;      
-wire    [23:0]  ctrl_biq_rf_pipe1_alu_reg_fwd_vld;      
-wire            ctrl_biq_rf_pop_vld;                    
-wire            ctrl_xx_rf_pipe0_preg_lch_vld_dupx;     
-wire            ctrl_xx_rf_pipe1_preg_lch_vld_dupx;     
-wire    [81:0]  dp_biq_bypass_data;                     
-wire    [81:0]  dp_biq_create0_data;                    
-wire    [81:0]  dp_biq_create1_data;                    
-wire            dp_biq_create_src0_rdy_for_bypass;      
-wire            dp_biq_create_src1_rdy_for_bypass;      
-wire    [11:0]  dp_biq_rf_lch_entry;                    
-wire    [1 :0]  dp_biq_rf_rdy_clr;                      
-wire    [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;           
-wire    [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;           
-wire            forever_cpuclk;                         
-wire            iu_idu_div_inst_vld;                    
-wire    [6 :0]  iu_idu_div_preg_dupx;                   
-wire    [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;          
-wire            iu_idu_ex2_pipe0_wb_preg_vld_dupx;      
-wire            iu_idu_ex2_pipe1_mult_inst_vld_dupx;    
-wire    [6 :0]  iu_idu_ex2_pipe1_preg_dupx;             
-wire    [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;          
-wire            iu_idu_ex2_pipe1_wb_preg_vld_dupx;      
-wire            lsu_idu_ag_pipe3_load_inst_vld;         
-wire    [6 :0]  lsu_idu_ag_pipe3_preg_dupx;             
-wire            lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx; 
-wire            lsu_idu_dc_pipe3_load_inst_vld_dupx;    
-wire    [6 :0]  lsu_idu_dc_pipe3_preg_dupx;             
-wire    [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;          
-wire            lsu_idu_wb_pipe3_wb_preg_vld_dupx;      
-wire            pad_yy_icg_scan_en;                     
-wire            rtu_idu_flush_fe;                       
-wire            rtu_idu_flush_is;                       
-wire            rtu_yy_xx_flush;                        
-wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;  
-wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;           
-wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;  
-wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;           
+wire    [11:0]  biq_aiq_create0_entry;
+wire    [11:0]  biq_aiq_create1_entry;
+wire            biq_bypass_dp_en;
+wire            biq_bypass_en;
+wire            biq_bypass_gateclk_en;
+wire            biq_create0_rdy_bypass;
+wire            biq_create0_rdy_bypass_dp;
+wire            biq_create0_rdy_bypass_gateclk;
+wire            biq_create_bypass_empty;
+wire            biq_ctrl_1_left_updt;
+wire            biq_ctrl_empty;
+wire            biq_ctrl_full;
+wire            biq_ctrl_full_updt;
+wire            biq_ctrl_full_updt_clk_en;
+wire    [11:0]  biq_dp_issue_entry;
+wire    [81:0]  biq_dp_issue_read_data;
+wire    [10:0]  biq_entry0_agevec;
+wire    [1 :0]  biq_entry0_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry0_alu1_reg_fwd_vld;
+wire            biq_entry0_create_dp_en;
+wire            biq_entry0_create_en;
+wire            biq_entry0_create_gateclk_en;
+wire            biq_entry0_frz_clr;
+wire            biq_entry0_issue_en;
+wire            biq_entry0_pop_cur_entry;
+wire    [10:0]  biq_entry0_pop_other_entry;
+wire            biq_entry0_rdy;
+wire    [81:0]  biq_entry0_read_data;
+wire            biq_entry0_vld;
+wire            biq_entry0_vld_with_frz;
+wire    [10:0]  biq_entry10_agevec;
+wire    [1 :0]  biq_entry10_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry10_alu1_reg_fwd_vld;
+wire            biq_entry10_create_dp_en;
+wire            biq_entry10_create_en;
+wire            biq_entry10_create_gateclk_en;
+wire            biq_entry10_frz_clr;
+wire            biq_entry10_issue_en;
+wire            biq_entry10_pop_cur_entry;
+wire    [10:0]  biq_entry10_pop_other_entry;
+wire            biq_entry10_rdy;
+wire    [81:0]  biq_entry10_read_data;
+wire            biq_entry10_vld;
+wire            biq_entry10_vld_with_frz;
+wire    [10:0]  biq_entry11_agevec;
+wire    [1 :0]  biq_entry11_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry11_alu1_reg_fwd_vld;
+wire            biq_entry11_create_dp_en;
+wire            biq_entry11_create_en;
+wire            biq_entry11_create_gateclk_en;
+wire            biq_entry11_frz_clr;
+wire            biq_entry11_issue_en;
+wire            biq_entry11_pop_cur_entry;
+wire    [10:0]  biq_entry11_pop_other_entry;
+wire            biq_entry11_rdy;
+wire    [81:0]  biq_entry11_read_data;
+wire            biq_entry11_vld;
+wire            biq_entry11_vld_with_frz;
+wire    [10:0]  biq_entry1_agevec;
+wire    [1 :0]  biq_entry1_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry1_alu1_reg_fwd_vld;
+wire            biq_entry1_create_dp_en;
+wire            biq_entry1_create_en;
+wire            biq_entry1_create_gateclk_en;
+wire            biq_entry1_frz_clr;
+wire            biq_entry1_issue_en;
+wire            biq_entry1_pop_cur_entry;
+wire    [10:0]  biq_entry1_pop_other_entry;
+wire            biq_entry1_rdy;
+wire    [81:0]  biq_entry1_read_data;
+wire            biq_entry1_vld;
+wire            biq_entry1_vld_with_frz;
+wire    [10:0]  biq_entry2_agevec;
+wire    [1 :0]  biq_entry2_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry2_alu1_reg_fwd_vld;
+wire            biq_entry2_create_dp_en;
+wire            biq_entry2_create_en;
+wire            biq_entry2_create_gateclk_en;
+wire            biq_entry2_frz_clr;
+wire            biq_entry2_issue_en;
+wire            biq_entry2_pop_cur_entry;
+wire    [10:0]  biq_entry2_pop_other_entry;
+wire            biq_entry2_rdy;
+wire    [81:0]  biq_entry2_read_data;
+wire            biq_entry2_vld;
+wire            biq_entry2_vld_with_frz;
+wire    [10:0]  biq_entry3_agevec;
+wire    [1 :0]  biq_entry3_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry3_alu1_reg_fwd_vld;
+wire            biq_entry3_create_dp_en;
+wire            biq_entry3_create_en;
+wire            biq_entry3_create_gateclk_en;
+wire            biq_entry3_frz_clr;
+wire            biq_entry3_issue_en;
+wire            biq_entry3_pop_cur_entry;
+wire    [10:0]  biq_entry3_pop_other_entry;
+wire            biq_entry3_rdy;
+wire    [81:0]  biq_entry3_read_data;
+wire            biq_entry3_vld;
+wire            biq_entry3_vld_with_frz;
+wire    [10:0]  biq_entry4_agevec;
+wire    [1 :0]  biq_entry4_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry4_alu1_reg_fwd_vld;
+wire            biq_entry4_create_dp_en;
+wire            biq_entry4_create_en;
+wire            biq_entry4_create_gateclk_en;
+wire            biq_entry4_frz_clr;
+wire            biq_entry4_issue_en;
+wire            biq_entry4_pop_cur_entry;
+wire    [10:0]  biq_entry4_pop_other_entry;
+wire            biq_entry4_rdy;
+wire    [81:0]  biq_entry4_read_data;
+wire            biq_entry4_vld;
+wire            biq_entry4_vld_with_frz;
+wire    [10:0]  biq_entry5_agevec;
+wire    [1 :0]  biq_entry5_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry5_alu1_reg_fwd_vld;
+wire            biq_entry5_create_dp_en;
+wire            biq_entry5_create_en;
+wire            biq_entry5_create_gateclk_en;
+wire            biq_entry5_frz_clr;
+wire            biq_entry5_issue_en;
+wire            biq_entry5_pop_cur_entry;
+wire    [10:0]  biq_entry5_pop_other_entry;
+wire            biq_entry5_rdy;
+wire    [81:0]  biq_entry5_read_data;
+wire            biq_entry5_vld;
+wire            biq_entry5_vld_with_frz;
+wire    [10:0]  biq_entry6_agevec;
+wire    [1 :0]  biq_entry6_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry6_alu1_reg_fwd_vld;
+wire            biq_entry6_create_dp_en;
+wire            biq_entry6_create_en;
+wire            biq_entry6_create_gateclk_en;
+wire            biq_entry6_frz_clr;
+wire            biq_entry6_issue_en;
+wire            biq_entry6_pop_cur_entry;
+wire    [10:0]  biq_entry6_pop_other_entry;
+wire            biq_entry6_rdy;
+wire    [81:0]  biq_entry6_read_data;
+wire            biq_entry6_vld;
+wire            biq_entry6_vld_with_frz;
+wire    [10:0]  biq_entry7_agevec;
+wire    [1 :0]  biq_entry7_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry7_alu1_reg_fwd_vld;
+wire            biq_entry7_create_dp_en;
+wire            biq_entry7_create_en;
+wire            biq_entry7_create_gateclk_en;
+wire            biq_entry7_frz_clr;
+wire            biq_entry7_issue_en;
+wire            biq_entry7_pop_cur_entry;
+wire    [10:0]  biq_entry7_pop_other_entry;
+wire            biq_entry7_rdy;
+wire    [81:0]  biq_entry7_read_data;
+wire            biq_entry7_vld;
+wire            biq_entry7_vld_with_frz;
+wire    [10:0]  biq_entry8_agevec;
+wire    [1 :0]  biq_entry8_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry8_alu1_reg_fwd_vld;
+wire            biq_entry8_create_dp_en;
+wire            biq_entry8_create_en;
+wire            biq_entry8_create_gateclk_en;
+wire            biq_entry8_frz_clr;
+wire            biq_entry8_issue_en;
+wire            biq_entry8_pop_cur_entry;
+wire    [10:0]  biq_entry8_pop_other_entry;
+wire            biq_entry8_rdy;
+wire    [81:0]  biq_entry8_read_data;
+wire            biq_entry8_vld;
+wire            biq_entry8_vld_with_frz;
+wire    [10:0]  biq_entry9_agevec;
+wire    [1 :0]  biq_entry9_alu0_reg_fwd_vld;
+wire    [1 :0]  biq_entry9_alu1_reg_fwd_vld;
+wire            biq_entry9_create_dp_en;
+wire            biq_entry9_create_en;
+wire            biq_entry9_create_gateclk_en;
+wire            biq_entry9_frz_clr;
+wire            biq_entry9_issue_en;
+wire            biq_entry9_pop_cur_entry;
+wire    [10:0]  biq_entry9_pop_other_entry;
+wire            biq_entry9_rdy;
+wire    [81:0]  biq_entry9_read_data;
+wire            biq_entry9_vld;
+wire            biq_entry9_vld_with_frz;
+wire    [3 :0]  biq_entry_cnt_create;
+wire            biq_entry_cnt_create_0;
+wire            biq_entry_cnt_create_1;
+wire            biq_entry_cnt_create_2;
+wire            biq_entry_cnt_pop_0;
+wire            biq_entry_cnt_pop_1;
+wire    [3 :0]  biq_entry_cnt_updt_val;
+wire            biq_entry_cnt_updt_vld;
+wire    [11:0]  biq_entry_create0_agevec;
+wire    [11:0]  biq_entry_create1_agevec;
+wire    [11:0]  biq_entry_create_dp_en;
+wire    [11:0]  biq_entry_create_en;
+wire    [11:0]  biq_entry_create_gateclk_en;
+wire    [11:0]  biq_entry_create_sel;
+wire    [11:0]  biq_entry_issue_en;
+wire    [11:0]  biq_entry_ready;
+wire    [11:0]  biq_entry_vld;
+wire    [11:0]  biq_older_entry_ready;
+wire    [3 :0]  biq_top_biq_entry_cnt;
+wire            biq_xx_gateclk_issue_en;
+wire            biq_xx_issue_en;
+wire            cnt_clk;
+wire            cnt_clk_en;
+wire            cp0_idu_icg_en;
+wire            cp0_idu_iq_bypass_disable;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            ctrl_biq_create0_dp_en;
+wire            ctrl_biq_create0_en;
+wire            ctrl_biq_create0_gateclk_en;
+wire            ctrl_biq_create1_dp_en;
+wire            ctrl_biq_create1_en;
+wire            ctrl_biq_create1_gateclk_en;
+wire            ctrl_biq_rf_lch_fail_vld;
+wire    [23:0]  ctrl_biq_rf_pipe0_alu_reg_fwd_vld;
+wire    [23:0]  ctrl_biq_rf_pipe1_alu_reg_fwd_vld;
+wire            ctrl_biq_rf_pop_vld;
+wire            ctrl_xx_rf_pipe0_preg_lch_vld_dupx;
+wire            ctrl_xx_rf_pipe1_preg_lch_vld_dupx;
+wire    [81:0]  dp_biq_bypass_data;
+wire    [81:0]  dp_biq_create0_data;
+wire    [81:0]  dp_biq_create1_data;
+wire            dp_biq_create_src0_rdy_for_bypass;
+wire            dp_biq_create_src1_rdy_for_bypass;
+wire    [11:0]  dp_biq_rf_lch_entry;
+wire    [1 :0]  dp_biq_rf_rdy_clr;
+wire    [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;
+wire    [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;
+wire            forever_cpuclk;
+wire            iu_idu_div_inst_vld;
+wire    [6 :0]  iu_idu_div_preg_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;
+wire            iu_idu_ex2_pipe0_wb_preg_vld_dupx;
+wire            iu_idu_ex2_pipe1_mult_inst_vld_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe1_preg_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;
+wire            iu_idu_ex2_pipe1_wb_preg_vld_dupx;
+wire            lsu_idu_ag_pipe3_load_inst_vld;
+wire    [6 :0]  lsu_idu_ag_pipe3_preg_dupx;
+wire            lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx;
+wire            lsu_idu_dc_pipe3_load_inst_vld_dupx;
+wire    [6 :0]  lsu_idu_dc_pipe3_preg_dupx;
+wire    [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;
+wire            lsu_idu_wb_pipe3_wb_preg_vld_dupx;
+wire            pad_yy_icg_scan_en;
+wire            rtu_idu_flush_fe;
+wire            rtu_idu_flush_is;
+wire            rtu_yy_xx_flush;
+wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;
+wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;
 
 
 parameter BIQ_WIDTH             = 82;
@@ -806,7 +806,7 @@ begin
     biq_entry1_create_frz          = 1'b0;
     biq_entry1_create_agevec[10:0] = {biq_entry_create1_agevec[11:2],
                                        biq_entry_create1_agevec[0]};
-    biq_entry1_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry1_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @344
@@ -834,7 +834,7 @@ begin
     biq_entry2_create_frz          = 1'b0;
     biq_entry2_create_agevec[10:0] = {biq_entry_create1_agevec[11:3],
                                        biq_entry_create1_agevec[1:0]};
-    biq_entry2_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry2_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @362
@@ -862,7 +862,7 @@ begin
     biq_entry3_create_frz          = 1'b0;
     biq_entry3_create_agevec[10:0] = {biq_entry_create1_agevec[11:4],
                                        biq_entry_create1_agevec[2:0]};
-    biq_entry3_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry3_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @380
@@ -890,7 +890,7 @@ begin
     biq_entry4_create_frz          = 1'b0;
     biq_entry4_create_agevec[10:0] = {biq_entry_create1_agevec[11:5],
                                        biq_entry_create1_agevec[3:0]};
-    biq_entry4_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry4_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @398
@@ -918,7 +918,7 @@ begin
     biq_entry5_create_frz          = 1'b0;
     biq_entry5_create_agevec[10:0] = {biq_entry_create1_agevec[11:6],
                                        biq_entry_create1_agevec[4:0]};
-    biq_entry5_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry5_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @416
@@ -946,7 +946,7 @@ begin
     biq_entry6_create_frz          = 1'b0;
     biq_entry6_create_agevec[10:0] = {biq_entry_create1_agevec[11:7],
                                        biq_entry_create1_agevec[5:0]};
-    biq_entry6_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry6_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @434
@@ -974,7 +974,7 @@ begin
     biq_entry7_create_frz          = 1'b0;
     biq_entry7_create_agevec[10:0] = {biq_entry_create1_agevec[11:8],
                                        biq_entry_create1_agevec[6:0]};
-    biq_entry7_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry7_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @452
@@ -1002,7 +1002,7 @@ begin
     biq_entry8_create_frz          = 1'b0;
     biq_entry8_create_agevec[10:0] = {biq_entry_create1_agevec[11:9],
                                        biq_entry_create1_agevec[7:0]};
-    biq_entry8_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry8_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @470
@@ -1030,7 +1030,7 @@ begin
     biq_entry9_create_frz          = 1'b0;
     biq_entry9_create_agevec[10:0] = {biq_entry_create1_agevec[11:10],
                                        biq_entry_create1_agevec[8:0]};
-    biq_entry9_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry9_create_data[BIQ_WIDTH-1:0] =
        dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @488
@@ -1058,7 +1058,7 @@ begin
     biq_entry10_create_frz          = 1'b0;
     biq_entry10_create_agevec[10:0] = {biq_entry_create1_agevec[11],
                                         biq_entry_create1_agevec[9:0]};
-    biq_entry10_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry10_create_data[BIQ_WIDTH-1:0] =
         dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @506
@@ -1082,7 +1082,7 @@ begin
   else begin
     biq_entry11_create_frz          = 1'b0;
     biq_entry11_create_agevec[10:0] = biq_entry_create1_agevec[10:0];
-    biq_entry11_create_data[BIQ_WIDTH-1:0] = 
+    biq_entry11_create_data[BIQ_WIDTH-1:0] =
         dp_biq_create1_data[BIQ_WIDTH-1:0];
   end
 // &CombEnd; @522
@@ -1209,7 +1209,7 @@ assign biq_dp_issue_entry[11:0] = (biq_create_bypass_empty)
 
 //-----------------issue data path selection----------------
 //issue data path will select oldest ready entry in issue queue
-//if no instruction valid, the data path will always select bypass 
+//if no instruction valid, the data path will always select bypass
 //data path
 // &CombBeg; @647
 always @( biq_entry3_read_data[81:0]
@@ -1258,7 +1258,7 @@ begin
 end
 
 //if no entry valid, select bypass path
-assign biq_dp_issue_read_data[BIQ_WIDTH-1:0] = 
+assign biq_dp_issue_read_data[BIQ_WIDTH-1:0] =
          (biq_create_bypass_empty)
          ? dp_biq_bypass_data[BIQ_WIDTH-1:0]
          : biq_entry_read_data[BIQ_WIDTH-1:0];
@@ -1270,31 +1270,31 @@ assign biq_dp_issue_read_data[BIQ_WIDTH-1:0] =
 //pop when rf launch pass
 assign {biq_entry0_pop_other_entry[10:0],
         biq_entry0_pop_cur_entry}          = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry1_pop_other_entry[10:1],  
+assign {biq_entry1_pop_other_entry[10:1],
         biq_entry1_pop_cur_entry,
         biq_entry1_pop_other_entry[0]}     = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry2_pop_other_entry[10:2],  
+assign {biq_entry2_pop_other_entry[10:2],
         biq_entry2_pop_cur_entry,
         biq_entry2_pop_other_entry[1:0]}   = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry3_pop_other_entry[10:3],  
+assign {biq_entry3_pop_other_entry[10:3],
         biq_entry3_pop_cur_entry,
         biq_entry3_pop_other_entry[2:0]}   = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry4_pop_other_entry[10:4],  
+assign {biq_entry4_pop_other_entry[10:4],
         biq_entry4_pop_cur_entry,
         biq_entry4_pop_other_entry[3:0]}   = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry5_pop_other_entry[10:5],  
+assign {biq_entry5_pop_other_entry[10:5],
         biq_entry5_pop_cur_entry,
         biq_entry5_pop_other_entry[4:0]}   = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry6_pop_other_entry[10:6],  
+assign {biq_entry6_pop_other_entry[10:6],
         biq_entry6_pop_cur_entry,
         biq_entry6_pop_other_entry[5:0]}   = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry7_pop_other_entry[10:7],  
+assign {biq_entry7_pop_other_entry[10:7],
         biq_entry7_pop_cur_entry,
         biq_entry7_pop_other_entry[6:0]}   = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry8_pop_other_entry[10:8],  
+assign {biq_entry8_pop_other_entry[10:8],
         biq_entry8_pop_cur_entry,
         biq_entry8_pop_other_entry[7:0]}   = dp_biq_rf_lch_entry[11:0];
-assign {biq_entry9_pop_other_entry[10:9],  
+assign {biq_entry9_pop_other_entry[10:9],
         biq_entry9_pop_cur_entry,
         biq_entry9_pop_other_entry[8:0]}   = dp_biq_rf_lch_entry[11:0];
 assign {biq_entry10_pop_other_entry[10],
@@ -1309,25 +1309,25 @@ assign biq_entry0_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[0];
 assign biq_entry1_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[1];
-assign biq_entry2_frz_clr      = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry2_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[2];
-assign biq_entry3_frz_clr      = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry3_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[3];
-assign biq_entry4_frz_clr      = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry4_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[4];
-assign biq_entry5_frz_clr      = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry5_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[5];
-assign biq_entry6_frz_clr      = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry6_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[6];
-assign biq_entry7_frz_clr      = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry7_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[7];
-assign biq_entry8_frz_clr      = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry8_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[8];
-assign biq_entry9_frz_clr      = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry9_frz_clr      = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[9];
-assign biq_entry10_frz_clr     = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry10_frz_clr     = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[10];
-assign biq_entry11_frz_clr     = ctrl_biq_rf_lch_fail_vld 
+assign biq_entry11_frz_clr     = ctrl_biq_rf_lch_fail_vld
                                  && dp_biq_rf_lch_entry[11];
 
 //==========================================================

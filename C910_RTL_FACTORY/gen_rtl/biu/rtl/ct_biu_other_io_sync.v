@@ -66,131 +66,131 @@ module ct_biu_other_io_sync(
 );
 
 // &Ports; @23
-input   [15 :0]  biu_csr_op;           
-input            biu_csr_sel;          
-input   [63 :0]  biu_csr_wdata;        
-input            coreclk;              
-input            cp0_biu_icg_en;       
-input   [1  :0]  cp0_biu_lpmd_b;       
-input            cpurst_b;             
-input            forever_coreclk;      
-input   [1  :0]  had_biu_jdb_pm;       
-input   [3  :0]  hpcp_biu_cnt_en;      
-input            pad_biu_csr_cmplt;    
-input   [127:0]  pad_biu_csr_rdata;    
-input            pad_biu_dbgrq_b;      
-input   [3  :0]  pad_biu_hpcp_l2of_int; 
-input            pad_biu_me_int;       
-input            pad_biu_ms_int;       
-input            pad_biu_mt_int;       
-input            pad_biu_se_int;       
-input            pad_biu_ss_int;       
-input            pad_biu_st_int;       
-input   [2  :0]  pad_core_hartid;      
-input   [39 :0]  pad_core_rvba;        
-input   [39 :0]  pad_xx_apb_base;      
-input   [63 :0]  pad_xx_time;          
-input            pad_yy_icg_scan_en;   
-output  [39 :0]  biu_cp0_apb_base;     
-output  [2  :0]  biu_cp0_coreid;       
-output           biu_cp0_me_int;       
-output           biu_cp0_ms_int;       
-output           biu_cp0_mt_int;       
-output  [39 :0]  biu_cp0_rvba;         
-output           biu_cp0_se_int;       
-output           biu_cp0_ss_int;       
-output           biu_cp0_st_int;       
-output           biu_csr_cmplt;        
-output  [127:0]  biu_csr_rdata;        
-output  [1  :0]  biu_had_coreid;       
-output           biu_had_sdb_req_b;    
-output  [3  :0]  biu_hpcp_l2of_int;    
-output  [63 :0]  biu_hpcp_time;        
-output           biu_mmu_smp_disable;  
-output  [3  :0]  biu_pad_cnt_en;       
-output           biu_pad_csr_sel;      
-output  [79 :0]  biu_pad_csr_wdata;    
-output           biu_pad_jdb_pm;       
-output           biu_pad_lpmd_b;       
-output           biu_xx_dbg_wakeup;    
-output           biu_xx_int_wakeup;    
-output           biu_xx_normal_work;   
-output           biu_xx_pmp_sel;       
+input   [15 :0]  biu_csr_op;
+input            biu_csr_sel;
+input   [63 :0]  biu_csr_wdata;
+input            coreclk;
+input            cp0_biu_icg_en;
+input   [1  :0]  cp0_biu_lpmd_b;
+input            cpurst_b;
+input            forever_coreclk;
+input   [1  :0]  had_biu_jdb_pm;
+input   [3  :0]  hpcp_biu_cnt_en;
+input            pad_biu_csr_cmplt;
+input   [127:0]  pad_biu_csr_rdata;
+input            pad_biu_dbgrq_b;
+input   [3  :0]  pad_biu_hpcp_l2of_int;
+input            pad_biu_me_int;
+input            pad_biu_ms_int;
+input            pad_biu_mt_int;
+input            pad_biu_se_int;
+input            pad_biu_ss_int;
+input            pad_biu_st_int;
+input   [2  :0]  pad_core_hartid;
+input   [39 :0]  pad_core_rvba;
+input   [39 :0]  pad_xx_apb_base;
+input   [63 :0]  pad_xx_time;
+input            pad_yy_icg_scan_en;
+output  [39 :0]  biu_cp0_apb_base;
+output  [2  :0]  biu_cp0_coreid;
+output           biu_cp0_me_int;
+output           biu_cp0_ms_int;
+output           biu_cp0_mt_int;
+output  [39 :0]  biu_cp0_rvba;
+output           biu_cp0_se_int;
+output           biu_cp0_ss_int;
+output           biu_cp0_st_int;
+output           biu_csr_cmplt;
+output  [127:0]  biu_csr_rdata;
+output  [1  :0]  biu_had_coreid;
+output           biu_had_sdb_req_b;
+output  [3  :0]  biu_hpcp_l2of_int;
+output  [63 :0]  biu_hpcp_time;
+output           biu_mmu_smp_disable;
+output  [3  :0]  biu_pad_cnt_en;
+output           biu_pad_csr_sel;
+output  [79 :0]  biu_pad_csr_wdata;
+output           biu_pad_jdb_pm;
+output           biu_pad_lpmd_b;
+output           biu_xx_dbg_wakeup;
+output           biu_xx_int_wakeup;
+output           biu_xx_normal_work;
+output           biu_xx_pmp_sel;
 
 // &Regs; @24
-reg     [39 :0]  biu_cp0_apb_base;     
-reg     [39 :0]  biu_cp0_rvba;         
-reg              biu_csr_cmplt;        
-reg     [127:0]  biu_csr_rdata;        
-reg              biu_csr_sel_ff;       
-reg     [3  :0]  biu_hpcp_l2of_int;    
-reg     [63 :0]  biu_hpcp_time;        
-reg     [3  :0]  biu_pad_cnt_en;       
-reg              biu_pad_csr_sel;      
-reg     [79 :0]  biu_pad_csr_wdata;    
-reg              biu_pad_jdb_pm;       
-reg              biu_pad_lpmd_b;       
-reg              cp0_me_int_ff1;       
-reg              cp0_me_int_ff2;       
-reg              cp0_ms_int_ff1;       
-reg              cp0_ms_int_ff2;       
-reg              cp0_mt_int_ff1;       
-reg              cp0_mt_int_ff2;       
-reg              cp0_se_int_ff1;       
-reg              cp0_se_int_ff2;       
-reg              cp0_ss_int_ff1;       
-reg              cp0_ss_int_ff2;       
-reg              cp0_st_int_ff1;       
-reg              cp0_st_int_ff2;       
-reg              had_sdb_req_b_ff1;    
-reg              had_sdb_req_b_ff2;    
+reg     [39 :0]  biu_cp0_apb_base;
+reg     [39 :0]  biu_cp0_rvba;
+reg              biu_csr_cmplt;
+reg     [127:0]  biu_csr_rdata;
+reg              biu_csr_sel_ff;
+reg     [3  :0]  biu_hpcp_l2of_int;
+reg     [63 :0]  biu_hpcp_time;
+reg     [3  :0]  biu_pad_cnt_en;
+reg              biu_pad_csr_sel;
+reg     [79 :0]  biu_pad_csr_wdata;
+reg              biu_pad_jdb_pm;
+reg              biu_pad_lpmd_b;
+reg              cp0_me_int_ff1;
+reg              cp0_me_int_ff2;
+reg              cp0_ms_int_ff1;
+reg              cp0_ms_int_ff2;
+reg              cp0_mt_int_ff1;
+reg              cp0_mt_int_ff2;
+reg              cp0_se_int_ff1;
+reg              cp0_se_int_ff2;
+reg              cp0_ss_int_ff1;
+reg              cp0_ss_int_ff2;
+reg              cp0_st_int_ff1;
+reg              cp0_st_int_ff2;
+reg              had_sdb_req_b_ff1;
+reg              had_sdb_req_b_ff2;
 
 // &Wires; @25
-wire    [2  :0]  biu_cp0_coreid;       
-wire             biu_cp0_me_int;       
-wire             biu_cp0_ms_int;       
-wire             biu_cp0_mt_int;       
-wire             biu_cp0_se_int;       
-wire             biu_cp0_ss_int;       
-wire             biu_cp0_st_int;       
-wire    [15 :0]  biu_csr_op;           
-wire    [79 :0]  biu_csr_req_data;     
-wire             biu_csr_sel;          
-wire    [63 :0]  biu_csr_wdata;        
-wire    [1  :0]  biu_had_coreid;       
-wire             biu_had_sdb_req_b;    
-wire             biu_mmu_smp_disable;  
-wire             biu_xx_dbg_wakeup;    
-wire             biu_xx_int_wakeup;    
-wire             biu_xx_normal_work;   
-wire             biu_xx_pmp_sel;       
-wire             coreclk;              
-wire             cp0_biu_icg_en;       
-wire    [1  :0]  cp0_biu_lpmd_b;       
-wire             cpurst_b;             
-wire             csr_sel_pulse;        
-wire             forever_coreclk;      
-wire    [1  :0]  had_biu_jdb_pm;       
-wire    [3  :0]  hpcp_biu_cnt_en;      
-wire             l2reg_iclk;           
-wire             l2reg_iclk_en;        
-wire             l2reg_oclk;           
-wire             l2reg_oclk_en;        
-wire             pad_biu_csr_cmplt;    
-wire    [127:0]  pad_biu_csr_rdata;    
-wire             pad_biu_dbgrq_b;      
-wire    [3  :0]  pad_biu_hpcp_l2of_int; 
-wire             pad_biu_me_int;       
-wire             pad_biu_ms_int;       
-wire             pad_biu_mt_int;       
-wire             pad_biu_se_int;       
-wire             pad_biu_ss_int;       
-wire             pad_biu_st_int;       
-wire    [2  :0]  pad_core_hartid;      
-wire    [39 :0]  pad_core_rvba;        
-wire    [39 :0]  pad_xx_apb_base;      
-wire    [63 :0]  pad_xx_time;          
-wire             pad_yy_icg_scan_en;   
+wire    [2  :0]  biu_cp0_coreid;
+wire             biu_cp0_me_int;
+wire             biu_cp0_ms_int;
+wire             biu_cp0_mt_int;
+wire             biu_cp0_se_int;
+wire             biu_cp0_ss_int;
+wire             biu_cp0_st_int;
+wire    [15 :0]  biu_csr_op;
+wire    [79 :0]  biu_csr_req_data;
+wire             biu_csr_sel;
+wire    [63 :0]  biu_csr_wdata;
+wire    [1  :0]  biu_had_coreid;
+wire             biu_had_sdb_req_b;
+wire             biu_mmu_smp_disable;
+wire             biu_xx_dbg_wakeup;
+wire             biu_xx_int_wakeup;
+wire             biu_xx_normal_work;
+wire             biu_xx_pmp_sel;
+wire             coreclk;
+wire             cp0_biu_icg_en;
+wire    [1  :0]  cp0_biu_lpmd_b;
+wire             cpurst_b;
+wire             csr_sel_pulse;
+wire             forever_coreclk;
+wire    [1  :0]  had_biu_jdb_pm;
+wire    [3  :0]  hpcp_biu_cnt_en;
+wire             l2reg_iclk;
+wire             l2reg_iclk_en;
+wire             l2reg_oclk;
+wire             l2reg_oclk_en;
+wire             pad_biu_csr_cmplt;
+wire    [127:0]  pad_biu_csr_rdata;
+wire             pad_biu_dbgrq_b;
+wire    [3  :0]  pad_biu_hpcp_l2of_int;
+wire             pad_biu_me_int;
+wire             pad_biu_ms_int;
+wire             pad_biu_mt_int;
+wire             pad_biu_se_int;
+wire             pad_biu_ss_int;
+wire             pad_biu_st_int;
+wire    [2  :0]  pad_core_hartid;
+wire    [39 :0]  pad_core_rvba;
+wire    [39 :0]  pad_xx_apb_base;
+wire    [63 :0]  pad_xx_time;
+wire             pad_yy_icg_scan_en;
 
 //=========================================
 //           CIU ID
@@ -233,7 +233,7 @@ assign biu_xx_pmp_sel = 1'b0;
 //==============================================================================
 // L2C CSR and RAM REQ/ACK signals
 //==============================================================================
-assign l2reg_oclk_en = biu_csr_sel | biu_csr_sel_ff;          
+assign l2reg_oclk_en = biu_csr_sel | biu_csr_sel_ff;
 // &Instance("gated_clk_cell", "x_ct_l2reg_out_gated_clk"); @143
 gated_clk_cell  x_ct_l2reg_out_gated_clk (
   .clk_in             (coreclk           ),
@@ -275,7 +275,7 @@ always@(posedge l2reg_oclk or negedge cpurst_b)
 begin
   if (!cpurst_b)
     biu_csr_sel_ff <= 1'b0;
-  else 
+  else
     biu_csr_sel_ff <= biu_csr_sel;
 end
 
@@ -363,7 +363,7 @@ assign biu_xx_int_wakeup = cp0_me_int_ff2 | cp0_mt_int_ff2 | cp0_ms_int_ff2 |
                            cp0_se_int_ff2 | cp0_st_int_ff2 | cp0_ss_int_ff2;
 
 //=========================================
-//  input: debug request 
+//  input: debug request
 //=========================================
 always@(posedge forever_coreclk or negedge cpurst_b)
 begin
@@ -382,7 +382,7 @@ assign biu_had_sdb_req_b = had_sdb_req_b_ff2;
 assign biu_xx_dbg_wakeup = !had_sdb_req_b_ff2;
 
 //=========================================
-//  hpcp_timer 
+//  hpcp_timer
 //=========================================
 
 always@(posedge coreclk)
@@ -423,7 +423,7 @@ always@(posedge forever_coreclk or negedge cpurst_b)
 begin
   if (!cpurst_b)
     biu_pad_cnt_en[3:0] <= 4'b0;
-  else 
+  else
     biu_pad_cnt_en[3:0] <= hpcp_biu_cnt_en[3:0];
 end
 

@@ -26,8 +26,8 @@ CSRC = $(wildcard *.c)
 OBJECTS = $(SSRC:%.S=%.o) $(sSRC:%.s=%.o) $(CSRC:%.c=%.o)
 
 
-FLAG_ABI = 
-# FLAG_MARCH = -mtune=c920 
+FLAG_ABI =
+# FLAG_MARCH = -mtune=c920
 FLAG_MARCH = -mtune=c910
 #CPU_ARCH_FLAG_0 => CPU Arch: c910
 ifeq (${CPU_ARCH_FLAG_0}, c910)
@@ -37,7 +37,7 @@ else
   FLAG_MARCH += -march=rv64imafdcvxtheadc
   FLAG_ABI   = -mabi=lp64dv
 endif
-CFLAGS = ${FLAG_MARCH} ${FLAG_ABI} 
+CFLAGS = ${FLAG_MARCH} ${FLAG_ABI}
 
 
 ifeq (${CASENAME}, coremark)
@@ -83,7 +83,7 @@ HEXFLAGS	= -O srec
 	${CC} -c ${CFLAGS} -o $@ $<
 
 ${FILE}.elf : ${OBJECTS} linker.lcf
-	${CC} ${LINKFLAGS} ${LINKLIBS} ${OBJECTS} -o $@ -lm 
+	${CC} ${LINKFLAGS} ${LINKLIBS} ${OBJECTS} -o $@ -lm
 
 ${FILE}.obj : ${FILE}.elf
 	${OBJDUMP} ${OBJDUMPFLAGS} $< > $@
@@ -95,7 +95,7 @@ FILE_HEX = ${FILE}.hex
 ${FILE}.hex : ${FILE}.elf
 	${OBJCOPY} ${HEXFLAGS} $< ${INST_HEX} -j .text*  -j .rodata* -j .eh_frame*
 	${OBJCOPY} ${HEXFLAGS} $< ${DATA_HEX} -j .data*  -j .bss -j .COMMON
-	${OBJCOPY} ${HEXFLAGS} $< $@ 
+	${OBJCOPY} ${HEXFLAGS} $< $@
 
 INST_PAT = inst.pat
 DATA_PAT = data.pat
@@ -115,7 +115,7 @@ all : ${FILE}.pat ${FILE}.hex ${FILE}.elf ${FILE}.obj
 
 #---------------------------------------------------------------------
 # clean some medium code and .pat
-.PHONY :clean 
+.PHONY :clean
 clean:
 	rm -rf *.o *.pat *.elf *.obj *.hex
 

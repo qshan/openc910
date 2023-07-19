@@ -27,32 +27,32 @@ module ct_fspu_ctrl(
 );
 
 // &Ports; @23
-input          cp0_vfpu_icg_en;       
-input          cp0_yy_clk_en;         
-input          cpurst_b;              
-input   [2:0]  dp_vfalu_ex1_pipex_sel; 
-input          forever_cpuclk;        
-input          pad_yy_icg_scan_en;    
-output         ex1_pipedown;          
-output         ex2_pipedown;          
-output         ex3_pipedown;          
+input          cp0_vfpu_icg_en;
+input          cp0_yy_clk_en;
+input          cpurst_b;
+input   [2:0]  dp_vfalu_ex1_pipex_sel;
+input          forever_cpuclk;
+input          pad_yy_icg_scan_en;
+output         ex1_pipedown;
+output         ex2_pipedown;
+output         ex3_pipedown;
 
 // &Regs; @24
-reg            ex2_pipedown;          
-reg            ex3_pipedown;          
+reg            ex2_pipedown;
+reg            ex3_pipedown;
 
 // &Wires; @25
-wire           cp0_vfpu_icg_en;       
-wire           cp0_yy_clk_en;         
-wire           cpurst_b;              
-wire    [2:0]  dp_vfalu_ex1_pipex_sel; 
-wire           ex1_pipedown;          
-wire           ex1_vld_clk;           
-wire           ex1_vld_clk_en;        
-wire           ex2_vld_clk;           
-wire           ex2_vld_clk_en;        
-wire           forever_cpuclk;        
-wire           pad_yy_icg_scan_en;    
+wire           cp0_vfpu_icg_en;
+wire           cp0_yy_clk_en;
+wire           cpurst_b;
+wire    [2:0]  dp_vfalu_ex1_pipex_sel;
+wire           ex1_pipedown;
+wire           ex1_vld_clk;
+wire           ex1_vld_clk_en;
+wire           ex2_vld_clk;
+wire           ex2_vld_clk_en;
+wire           forever_cpuclk;
+wire           pad_yy_icg_scan_en;
 
 
 //EX1 Control

@@ -126,221 +126,221 @@ module axi_interconnect128(
 );
 
 
-input            aclk;             
-input   [39 :0]  araddr;           
-input            aresetn;          
-input            arready_s0;       
-input            arready_s1;       
-input            arready_s2;       
-input            arready_s3;       
-input            arvalid;          
-input   [39 :0]  awaddr;           
-input   [7  :0]  awid;             
-input            awready_s0;       
-input            awready_s1;       
-input            awready_s2;       
-input            awready_s3;       
-input            awvalid;          
-input   [7  :0]  bid_s0;           
-input   [7  :0]  bid_s1;           
-input   [7  :0]  bid_s2;           
-input   [7  :0]  bid_s3;           
-input            bready;           
-input   [1  :0]  bresp_s0;         
-input   [1  :0]  bresp_s1;         
-input   [1  :0]  bresp_s2;         
-input   [1  :0]  bresp_s3;         
-input            bvalid_s0;        
-input            bvalid_s1;        
-input            bvalid_s2;        
-input            bvalid_s3;        
-input   [127:0]  rdata_s0;         
-input   [127:0]  rdata_s1;         
-input   [127:0]  rdata_s2;         
-input   [127:0]  rdata_s3;         
-input   [7  :0]  rid_s0;           
-input   [7  :0]  rid_s1;           
-input   [7  :0]  rid_s2;           
-input   [7  :0]  rid_s3;           
-input            rlast_s0;         
-input            rlast_s1;         
-input            rlast_s2;         
-input            rlast_s3;         
-input            rready;           
-input   [1  :0]  rresp_s0;         
-input   [1  :0]  rresp_s1;         
-input   [1  :0]  rresp_s2;         
-input   [1  :0]  rresp_s3;         
-input            rvalid_s0;        
-input            rvalid_s1;        
-input            rvalid_s2;        
-input            rvalid_s3;        
-input   [7  :0]  wid;              
-input            wlast;            
-input            wready_s0;        
-input            wready_s1;        
-input            wready_s2;        
-input            wready_s3;        
-input            wvalid;           
-output           arready;          
-output           arvalid_s0;       
-output           arvalid_s1;       
-output           arvalid_s2;       
-output           arvalid_s3;       
-output           awready;          
-output           awvalid_s0;       
-output           awvalid_s1;       
-output           awvalid_s2;       
-output           awvalid_s3;       
-output  [7  :0]  bid;              
-output           bready_s0;        
-output           bready_s1;        
-output           bready_s2;        
-output           bready_s3;        
-output  [1  :0]  bresp;            
-output           bvalid;           
-output  [127:0]  rdata;            
-output  [7  :0]  rid;              
-output           rlast;            
-output           rready_s0;        
-output           rready_s1;        
-output           rready_s2;        
-output           rready_s3;        
-output  [1  :0]  rresp;            
-output           rvalid;           
-output           wready;           
-output           wvalid_s0;        
-output           wvalid_s1;        
-output           wvalid_s2;        
-output           wvalid_s3;        
+input            aclk;
+input   [39 :0]  araddr;
+input            aresetn;
+input            arready_s0;
+input            arready_s1;
+input            arready_s2;
+input            arready_s3;
+input            arvalid;
+input   [39 :0]  awaddr;
+input   [7  :0]  awid;
+input            awready_s0;
+input            awready_s1;
+input            awready_s2;
+input            awready_s3;
+input            awvalid;
+input   [7  :0]  bid_s0;
+input   [7  :0]  bid_s1;
+input   [7  :0]  bid_s2;
+input   [7  :0]  bid_s3;
+input            bready;
+input   [1  :0]  bresp_s0;
+input   [1  :0]  bresp_s1;
+input   [1  :0]  bresp_s2;
+input   [1  :0]  bresp_s3;
+input            bvalid_s0;
+input            bvalid_s1;
+input            bvalid_s2;
+input            bvalid_s3;
+input   [127:0]  rdata_s0;
+input   [127:0]  rdata_s1;
+input   [127:0]  rdata_s2;
+input   [127:0]  rdata_s3;
+input   [7  :0]  rid_s0;
+input   [7  :0]  rid_s1;
+input   [7  :0]  rid_s2;
+input   [7  :0]  rid_s3;
+input            rlast_s0;
+input            rlast_s1;
+input            rlast_s2;
+input            rlast_s3;
+input            rready;
+input   [1  :0]  rresp_s0;
+input   [1  :0]  rresp_s1;
+input   [1  :0]  rresp_s2;
+input   [1  :0]  rresp_s3;
+input            rvalid_s0;
+input            rvalid_s1;
+input            rvalid_s2;
+input            rvalid_s3;
+input   [7  :0]  wid;
+input            wlast;
+input            wready_s0;
+input            wready_s1;
+input            wready_s2;
+input            wready_s3;
+input            wvalid;
+output           arready;
+output           arvalid_s0;
+output           arvalid_s1;
+output           arvalid_s2;
+output           arvalid_s3;
+output           awready;
+output           awvalid_s0;
+output           awvalid_s1;
+output           awvalid_s2;
+output           awvalid_s3;
+output  [7  :0]  bid;
+output           bready_s0;
+output           bready_s1;
+output           bready_s2;
+output           bready_s3;
+output  [1  :0]  bresp;
+output           bvalid;
+output  [127:0]  rdata;
+output  [7  :0]  rid;
+output           rlast;
+output           rready_s0;
+output           rready_s1;
+output           rready_s2;
+output           rready_s3;
+output  [1  :0]  rresp;
+output           rvalid;
+output           wready;
+output           wvalid_s0;
+output           wvalid_s1;
+output           wvalid_s2;
+output           wvalid_s3;
 
 
-reg              arready;          
-reg     [39 :0]  awaddr_sel_store0; 
-reg     [39 :0]  awaddr_sel_store1; 
-reg     [39 :0]  awaddr_sel_store2; 
-reg     [39 :0]  awaddr_sel_store3; 
-reg     [39 :0]  awaddr_store;     
-reg     [7  :0]  awid_sel_store0;  
-reg     [7  :0]  awid_sel_store1;  
-reg     [7  :0]  awid_sel_store2;  
-reg     [7  :0]  awid_sel_store3;  
-reg              awready;          
-reg     [7  :0]  bid;              
-reg     [1  :0]  bresp;            
-reg              bvalid;           
-reg     [127:0]  rdata;            
-reg              read_done0;       
-reg              read_done1;       
-reg              read_done2;       
-reg              read_done3;       
-reg     [7  :0]  rid;              
-reg              rlast;            
-reg     [1  :0]  rresp;            
-reg              rvalid;           
-reg              wready;           
+reg              arready;
+reg     [39 :0]  awaddr_sel_store0;
+reg     [39 :0]  awaddr_sel_store1;
+reg     [39 :0]  awaddr_sel_store2;
+reg     [39 :0]  awaddr_sel_store3;
+reg     [39 :0]  awaddr_store;
+reg     [7  :0]  awid_sel_store0;
+reg     [7  :0]  awid_sel_store1;
+reg     [7  :0]  awid_sel_store2;
+reg     [7  :0]  awid_sel_store3;
+reg              awready;
+reg     [7  :0]  bid;
+reg     [1  :0]  bresp;
+reg              bvalid;
+reg     [127:0]  rdata;
+reg              read_done0;
+reg              read_done1;
+reg              read_done2;
+reg              read_done3;
+reg     [7  :0]  rid;
+reg              rlast;
+reg     [1  :0]  rresp;
+reg              rvalid;
+reg              wready;
 
 
-wire             aclk;             
-wire    [39 :0]  araddr;           
-wire             aresetn;          
-wire             arready_s0;       
-wire             arready_s1;       
-wire             arready_s2;       
-wire             arready_s3;       
-wire             arsel0;           
-wire             arsel1;           
-wire             arsel2;           
-wire             arsel3;           
-wire             arvalid;          
-wire             arvalid_s0;       
-wire             arvalid_s1;       
-wire             arvalid_s2;       
-wire             arvalid_s3;       
-wire    [39 :0]  awaddr;           
-wire    [7  :0]  awid;             
-wire             awready_s0;       
-wire             awready_s1;       
-wire             awready_s2;       
-wire             awready_s3;       
-wire             awsel0;           
-wire             awsel1;           
-wire             awsel2;           
-wire             awsel3;           
-wire             awvalid;          
-wire             awvalid_s0;       
-wire             awvalid_s1;       
-wire             awvalid_s2;       
-wire             awvalid_s3;       
-wire    [7  :0]  bid_s0;           
-wire    [7  :0]  bid_s1;           
-wire    [7  :0]  bid_s2;           
-wire    [7  :0]  bid_s3;           
-wire             bready;           
-wire             bready_s0;        
-wire             bready_s1;        
-wire             bready_s2;        
-wire             bready_s3;        
-wire    [1  :0]  bresp_s0;         
-wire    [1  :0]  bresp_s1;         
-wire    [1  :0]  bresp_s2;         
-wire    [1  :0]  bresp_s3;         
-wire             bsel0;            
-wire             bsel1;            
-wire             bsel2;            
-wire             bsel3;            
-wire             bvalid_s0;        
-wire             bvalid_s1;        
-wire             bvalid_s2;        
-wire             bvalid_s3;        
-wire             clr_store0;       
-wire             clr_store1;       
-wire             clr_store2;       
-wire             clr_store3;       
-wire    [127:0]  rdata_s0;         
-wire    [127:0]  rdata_s1;         
-wire    [127:0]  rdata_s2;         
-wire    [127:0]  rdata_s3;         
-wire    [7  :0]  rid_s0;           
-wire    [7  :0]  rid_s1;           
-wire    [7  :0]  rid_s2;           
-wire    [7  :0]  rid_s3;           
-wire             rlast_s0;         
-wire             rlast_s1;         
-wire             rlast_s2;         
-wire             rlast_s3;         
-wire             rready;           
-wire             rready_s0;        
-wire             rready_s1;        
-wire             rready_s2;        
-wire             rready_s3;        
-wire    [1  :0]  rresp_s0;         
-wire    [1  :0]  rresp_s1;         
-wire    [1  :0]  rresp_s2;         
-wire    [1  :0]  rresp_s3;         
-wire             rsel0;            
-wire             rsel1;            
-wire             rsel2;            
-wire             rsel3;            
-wire             rvalid_s0;        
-wire             rvalid_s1;        
-wire             rvalid_s2;        
-wire             rvalid_s3;        
-wire    [7  :0]  wid;              
-wire             wlast;            
-wire             wready_s0;        
-wire             wready_s1;        
-wire             wready_s2;        
-wire             wready_s3;        
-wire             wsel0;            
-wire             wsel1;            
-wire             wsel2;            
-wire             wsel3;            
-wire             wvalid;           
-wire             wvalid_s0;        
-wire             wvalid_s1;        
-wire             wvalid_s2;        
-wire             wvalid_s3;        
+wire             aclk;
+wire    [39 :0]  araddr;
+wire             aresetn;
+wire             arready_s0;
+wire             arready_s1;
+wire             arready_s2;
+wire             arready_s3;
+wire             arsel0;
+wire             arsel1;
+wire             arsel2;
+wire             arsel3;
+wire             arvalid;
+wire             arvalid_s0;
+wire             arvalid_s1;
+wire             arvalid_s2;
+wire             arvalid_s3;
+wire    [39 :0]  awaddr;
+wire    [7  :0]  awid;
+wire             awready_s0;
+wire             awready_s1;
+wire             awready_s2;
+wire             awready_s3;
+wire             awsel0;
+wire             awsel1;
+wire             awsel2;
+wire             awsel3;
+wire             awvalid;
+wire             awvalid_s0;
+wire             awvalid_s1;
+wire             awvalid_s2;
+wire             awvalid_s3;
+wire    [7  :0]  bid_s0;
+wire    [7  :0]  bid_s1;
+wire    [7  :0]  bid_s2;
+wire    [7  :0]  bid_s3;
+wire             bready;
+wire             bready_s0;
+wire             bready_s1;
+wire             bready_s2;
+wire             bready_s3;
+wire    [1  :0]  bresp_s0;
+wire    [1  :0]  bresp_s1;
+wire    [1  :0]  bresp_s2;
+wire    [1  :0]  bresp_s3;
+wire             bsel0;
+wire             bsel1;
+wire             bsel2;
+wire             bsel3;
+wire             bvalid_s0;
+wire             bvalid_s1;
+wire             bvalid_s2;
+wire             bvalid_s3;
+wire             clr_store0;
+wire             clr_store1;
+wire             clr_store2;
+wire             clr_store3;
+wire    [127:0]  rdata_s0;
+wire    [127:0]  rdata_s1;
+wire    [127:0]  rdata_s2;
+wire    [127:0]  rdata_s3;
+wire    [7  :0]  rid_s0;
+wire    [7  :0]  rid_s1;
+wire    [7  :0]  rid_s2;
+wire    [7  :0]  rid_s3;
+wire             rlast_s0;
+wire             rlast_s1;
+wire             rlast_s2;
+wire             rlast_s3;
+wire             rready;
+wire             rready_s0;
+wire             rready_s1;
+wire             rready_s2;
+wire             rready_s3;
+wire    [1  :0]  rresp_s0;
+wire    [1  :0]  rresp_s1;
+wire    [1  :0]  rresp_s2;
+wire    [1  :0]  rresp_s3;
+wire             rsel0;
+wire             rsel1;
+wire             rsel2;
+wire             rsel3;
+wire             rvalid_s0;
+wire             rvalid_s1;
+wire             rvalid_s2;
+wire             rvalid_s3;
+wire    [7  :0]  wid;
+wire             wlast;
+wire             wready_s0;
+wire             wready_s1;
+wire             wready_s2;
+wire             wready_s3;
+wire             wsel0;
+wire             wsel1;
+wire             wsel2;
+wire             wsel3;
+wire             wvalid;
+wire             wvalid_s0;
+wire             wvalid_s1;
+wire             wvalid_s2;
+wire             wvalid_s3;
 
 
 
@@ -379,7 +379,7 @@ wire             wvalid_s3;
 
 
 
-  
+
   assign awvalid_s0 = awsel0 & awvalid;
   assign awvalid_s1 = awsel1 & awvalid;
   assign awvalid_s2 = awsel2 & awvalid;
@@ -504,7 +504,7 @@ end
 
 
 
-  
+
   assign wvalid_s0 = wsel0 & wvalid;
   assign wvalid_s1 = wsel1 & wvalid;
   assign wvalid_s2 = wsel2 & wvalid;
@@ -565,7 +565,7 @@ begin
                     bvalid = bvalid_s0;
                     bid[7:0] = bid_s0[7:0];
                     bresp[1:0] = bresp_s0[1:0];
-                  end 
+                  end
         4'b0010: begin
                     bvalid = bvalid_s1;
                     bid[7:0] = bid_s1[7:0];
@@ -604,7 +604,7 @@ end
 
 
 
-  
+
   assign arvalid_s0 = arsel0 & arvalid;
   assign arvalid_s1 = arsel1 & arvalid;
   assign arvalid_s2 = arsel2 & arvalid;
@@ -644,7 +644,7 @@ end
   end
 
   assign rsel0 = (!read_done1)&&(!read_done2)&&(!read_done3)&&rvalid_s0;
-  
+
   always @(posedge aclk or negedge aresetn)
   begin
     if(!aresetn)
@@ -658,21 +658,21 @@ end
 
   assign rsel1 = (!read_done0)&&(!read_done2)&&(!read_done3)&&rvalid_s1
                  &&((!rvalid_s0) || read_done1);
-  
+
   always @(posedge aclk or negedge aresetn)
   begin
     if(!aresetn)
         read_done2 <= 1'b0;
     else if(rvalid_s2 && rready && rlast_s2)
         read_done2 <= 1'b0;
-    else if(rvalid_s2 && (!rvalid_s0) && (!rvalid_s1) 
+    else if(rvalid_s2 && (!rvalid_s0) && (!rvalid_s1)
            && (!read_done0) && (!read_done1) && (!read_done3))
         read_done2 <= 1'b1;
   end
 
   assign rsel2 = (!read_done1)&&(!read_done0)&&(!read_done3)&&rvalid_s2
                  &&((!rvalid_s0)&&(!rvalid_s1) || read_done2);
-  
+
   always @(posedge aclk or negedge aresetn)
   begin
     if(!aresetn)
@@ -686,7 +686,7 @@ end
 
   assign rsel3 = (!read_done1)&&(!read_done0)&&(!read_done2)&&rvalid_s3
                  &&((!rvalid_s0)&&(!rvalid_s1)&&(!rvalid_s2) || read_done3);
-  
+
   assign rready_s0 = rsel0 & rready;
   assign rready_s1 = rsel1 & rready;
   assign rready_s2 = rsel2 & rready;
@@ -725,35 +725,35 @@ begin
                     rdata[127:0] = rdata_s0[127:0];
                     rresp[1:0] = rresp_s0[1:0];
                     rlast = rlast_s0;
-                  end 
+                  end
         4'b0010: begin
                     rvalid = rvalid_s1;
                     rid[7:0] = rid_s1[7:0];
                     rdata[127:0] = rdata_s1[127:0];
                     rresp[1:0] = rresp_s1[1:0];
                     rlast = rlast_s1;
-                  end 
+                  end
         4'b0100: begin
                     rvalid = rvalid_s2;
                     rid[7:0] = rid_s2[7:0];
                     rdata[127:0] = rdata_s2[127:0];
                     rresp[1:0] = rresp_s2[1:0];
                     rlast = rlast_s2;
-                  end 
+                  end
         4'b1000: begin
                     rvalid = rvalid_s3;
                     rid[7:0] = rid_s3[7:0];
                     rdata[127:0] = rdata_s3[127:0];
                     rresp[1:0] = rresp_s3[1:0];
                     rlast = rlast_s3;
-                  end 
+                  end
         default:  begin
                     rvalid = 1'b0;
                     rid[7:0] = 8'b0;
                     rdata[127:0] = 128'b0;
                     rresp[1:0] = 2'b0;
                     rlast = 1'b0;
-                  end 
+                  end
       endcase
 
 end

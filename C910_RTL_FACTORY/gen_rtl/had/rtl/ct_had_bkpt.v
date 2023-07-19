@@ -47,95 +47,95 @@ module ct_had_bkpt(
 );
 
 // &Ports; @24
-input   [1 :0]  cp0_yy_priv_mode;          
-input           cpuclk;                    
-input           cpurst_b;                  
-input           ctrl_bkpt_en;              
-input           ctrl_bkpt_en_raw;          
-input           inst_bkpt_dbgreq;          
-input           ir_xx_mbc_reg_sel;         
-input   [63:0]  ir_xx_wdata;               
-input   [4 :0]  regs_xx_bc;                
-input           regs_xx_nirven;            
-input           rtu_had_bkpt_data_st;      
-input           rtu_had_data_bkpt_vld;     
-input           rtu_had_inst_bkpt_inst_vld; 
-input           rtu_had_inst_bkpt_vld;     
-input           rtu_had_inst_split;        
-input           rtu_had_xx_mbkpt_chgflow;  
-input           rtu_had_xx_mbkpt_data_ack; 
-input           rtu_had_xx_mbkpt_inst_ack; 
-input           rtu_had_xx_split_inst;     
-input           rtu_yy_xx_dbgon;           
-input           rtu_yy_xx_flush;           
-input           rtu_yy_xx_retire0_normal;  
-input           x_sm_xx_update_dr_en;      
-output          bkpt_ctrl_data_req;        
-output          bkpt_ctrl_data_req_raw;    
-output          bkpt_ctrl_inst_req;        
-output          bkpt_ctrl_inst_req_raw;    
-output          bkpt_ctrl_xx_ack;          
-output  [7 :0]  bkpt_regs_mbc;             
+input   [1 :0]  cp0_yy_priv_mode;
+input           cpuclk;
+input           cpurst_b;
+input           ctrl_bkpt_en;
+input           ctrl_bkpt_en_raw;
+input           inst_bkpt_dbgreq;
+input           ir_xx_mbc_reg_sel;
+input   [63:0]  ir_xx_wdata;
+input   [4 :0]  regs_xx_bc;
+input           regs_xx_nirven;
+input           rtu_had_bkpt_data_st;
+input           rtu_had_data_bkpt_vld;
+input           rtu_had_inst_bkpt_inst_vld;
+input           rtu_had_inst_bkpt_vld;
+input           rtu_had_inst_split;
+input           rtu_had_xx_mbkpt_chgflow;
+input           rtu_had_xx_mbkpt_data_ack;
+input           rtu_had_xx_mbkpt_inst_ack;
+input           rtu_had_xx_split_inst;
+input           rtu_yy_xx_dbgon;
+input           rtu_yy_xx_flush;
+input           rtu_yy_xx_retire0_normal;
+input           x_sm_xx_update_dr_en;
+output          bkpt_ctrl_data_req;
+output          bkpt_ctrl_data_req_raw;
+output          bkpt_ctrl_inst_req;
+output          bkpt_ctrl_inst_req_raw;
+output          bkpt_ctrl_xx_ack;
+output  [7 :0]  bkpt_regs_mbc;
 
 // &Regs; @25
-reg     [7 :0]  bkpt_counter;              
-reg             changeflow_inst_bkpt_ff;   
-reg             data_bkpt_pending;         
-reg             data_bkpt_vld_f;           
-reg             inst_bkpt_inst_vld_f;      
-reg             inst_bkpt_vld_f;           
-reg             load_data_bkpt_ff;         
-reg             normal_data_bkpt_ff;       
-reg             normal_inst_bkpt_ff;       
-reg             st_data_bkpt_ff;           
+reg     [7 :0]  bkpt_counter;
+reg             changeflow_inst_bkpt_ff;
+reg             data_bkpt_pending;
+reg             data_bkpt_vld_f;
+reg             inst_bkpt_inst_vld_f;
+reg             inst_bkpt_vld_f;
+reg             load_data_bkpt_ff;
+reg             normal_data_bkpt_ff;
+reg             normal_inst_bkpt_ff;
+reg             st_data_bkpt_ff;
 
 // &Wires; @26
-wire            bkpt_counter_dec_1;        
-wire            bkpt_counter_eq_0;         
-wire            bkpt_counter_eq_0_raw;     
-wire            bkpt_counter_eq_1;         
-wire            bkpt_ctrl_data_req;        
-wire            bkpt_ctrl_data_req_raw;    
-wire            bkpt_ctrl_inst_req;        
-wire            bkpt_ctrl_inst_req_raw;    
-wire            bkpt_ctrl_xx_ack;          
-wire    [7 :0]  bkpt_regs_mbc;             
-wire            changeflow_inst_bkpt;      
-wire    [1 :0]  cp0_yy_priv_mode;          
-wire            cpuclk;                    
-wire            cpurst_b;                  
-wire            ctrl_bkpt_en;              
-wire            ctrl_bkpt_en_raw;          
-wire            data_bkpt_occur;           
-wire            data_bkpt_req_raw;         
-wire            data_bkpt_vld;             
-wire            inst_bkpt_dbgreq;          
-wire            inst_bkpt_occur;           
-wire            inst_bkpt_req_raw;         
-wire            inst_bkpt_vld;             
-wire            ir_xx_mbc_reg_sel;         
-wire    [63:0]  ir_xx_wdata;               
-wire            load_data_bkpt;            
-wire            normal_data_bkpt;          
-wire            normal_inst_bkpt;          
-wire            priv_mode;                 
-wire    [4 :0]  regs_xx_bc;                
-wire            regs_xx_nirven;            
-wire            rtu_had_bkpt_data_st;      
-wire            rtu_had_data_bkpt_vld;     
-wire            rtu_had_inst_bkpt_inst_vld; 
-wire            rtu_had_inst_bkpt_vld;     
-wire            rtu_had_inst_split;        
-wire            rtu_had_xx_mbkpt_chgflow;  
-wire            rtu_had_xx_mbkpt_data_ack; 
-wire            rtu_had_xx_mbkpt_inst_ack; 
-wire            rtu_had_xx_split_inst;     
-wire            rtu_yy_xx_dbgon;           
-wire            rtu_yy_xx_flush;           
-wire            rtu_yy_xx_retire0_normal;  
-wire            st_data_bkpt;              
-wire            user_mode;                 
-wire            x_sm_xx_update_dr_en;      
+wire            bkpt_counter_dec_1;
+wire            bkpt_counter_eq_0;
+wire            bkpt_counter_eq_0_raw;
+wire            bkpt_counter_eq_1;
+wire            bkpt_ctrl_data_req;
+wire            bkpt_ctrl_data_req_raw;
+wire            bkpt_ctrl_inst_req;
+wire            bkpt_ctrl_inst_req_raw;
+wire            bkpt_ctrl_xx_ack;
+wire    [7 :0]  bkpt_regs_mbc;
+wire            changeflow_inst_bkpt;
+wire    [1 :0]  cp0_yy_priv_mode;
+wire            cpuclk;
+wire            cpurst_b;
+wire            ctrl_bkpt_en;
+wire            ctrl_bkpt_en_raw;
+wire            data_bkpt_occur;
+wire            data_bkpt_req_raw;
+wire            data_bkpt_vld;
+wire            inst_bkpt_dbgreq;
+wire            inst_bkpt_occur;
+wire            inst_bkpt_req_raw;
+wire            inst_bkpt_vld;
+wire            ir_xx_mbc_reg_sel;
+wire    [63:0]  ir_xx_wdata;
+wire            load_data_bkpt;
+wire            normal_data_bkpt;
+wire            normal_inst_bkpt;
+wire            priv_mode;
+wire    [4 :0]  regs_xx_bc;
+wire            regs_xx_nirven;
+wire            rtu_had_bkpt_data_st;
+wire            rtu_had_data_bkpt_vld;
+wire            rtu_had_inst_bkpt_inst_vld;
+wire            rtu_had_inst_bkpt_vld;
+wire            rtu_had_inst_split;
+wire            rtu_had_xx_mbkpt_chgflow;
+wire            rtu_had_xx_mbkpt_data_ack;
+wire            rtu_had_xx_mbkpt_inst_ack;
+wire            rtu_had_xx_split_inst;
+wire            rtu_yy_xx_dbgon;
+wire            rtu_yy_xx_flush;
+wire            rtu_yy_xx_retire0_normal;
+wire            st_data_bkpt;
+wire            user_mode;
+wire            x_sm_xx_update_dr_en;
 
 
 //==============================================================================
@@ -149,13 +149,13 @@ wire            x_sm_xx_update_dr_en;
 //              control bits of HCR
 //   level three: memory bkpt request
 //     1. memory bkpt vld
-//     2. bkpt_counter equal zero or one (corner case) 
+//     2. bkpt_counter equal zero or one (corner case)
 //     3. not in debug mode
 //   level four: memory bkpt debug request: (implemented in ctrl module)
 //     1. current memory bkpt request meet SQC condition
 //
 // In naming methodology, the names for every levels are
-//   level one -- inst_bkpt_occur, data_bkpt_occur 
+//   level one -- inst_bkpt_occur, data_bkpt_occur
 //   level two -- inst_bkpt_vld, data_bkpt_vld
 //   level three -- bkpt_ctrl_req
 //   level four -- mem_bkpt_debug_req
@@ -232,7 +232,7 @@ assign data_bkpt_vld = data_bkpt_occur && normal_data_bkpt_ff
 //   2. bkpt counter doesn't equal to zero;
 //   3. not in debug mode.
 // memory bkpt counter decrease 2 condition(AND):
-//   1. both inst_bkpt and data_bkpt are valid; 
+//   1. both inst_bkpt and data_bkpt are valid;
 //   2. bkpt counter doesn't equal to zero or one;
 //   3. not in debug mode.
 //   4. highest  level or in untrusted world while medium  level
@@ -254,12 +254,12 @@ always @(posedge cpuclk or negedge cpurst_b)
 begin
   if (!cpurst_b)
     inst_bkpt_inst_vld_f <= 1'b0;
-  else 
+  else
     inst_bkpt_inst_vld_f <= rtu_had_inst_bkpt_inst_vld;
 end
 
-assign bkpt_counter_dec_1 = (inst_bkpt_vld_f && !rtu_had_xx_split_inst || 
-                             data_bkpt_vld_f) && 
+assign bkpt_counter_dec_1 = (inst_bkpt_vld_f && !rtu_had_xx_split_inst ||
+                             data_bkpt_vld_f) &&
                              ctrl_bkpt_en &&
                              rtu_yy_xx_retire0_normal &&
                             !bkpt_counter_eq_0 &&
@@ -280,10 +280,10 @@ begin
   else
     bkpt_counter[7:0] <= bkpt_counter[7:0];
 end
-    
+
 assign bkpt_counter_eq_0 = bkpt_counter[7:0] == 8'b0;
 assign bkpt_counter_eq_1 = bkpt_counter[7:0] == 8'b1;
-    
+
 assign bkpt_regs_mbc[7:0] = bkpt_counter[7:0];
 
 assign bkpt_counter_eq_0_raw = bkpt_counter_dec_1 ? bkpt_counter_eq_1 : bkpt_counter_eq_0;
@@ -296,7 +296,7 @@ assign bkpt_counter_eq_0_raw = bkpt_counter_dec_1 ? bkpt_counter_eq_1 : bkpt_cou
 // 1. bkpt counter equals to one;
 // 2. inst_bkpt_vld and data_bkpt_vld both vld;
 //==========================================================
-assign bkpt_ctrl_xx_ack   = rtu_had_xx_mbkpt_inst_ack && bkpt_counter_eq_0 && ctrl_bkpt_en || 
+assign bkpt_ctrl_xx_ack   = rtu_had_xx_mbkpt_inst_ack && bkpt_counter_eq_0 && ctrl_bkpt_en ||
                             rtu_had_xx_mbkpt_data_ack && bkpt_counter_eq_0 && ctrl_bkpt_en;
 
 assign bkpt_ctrl_inst_req = bkpt_counter_eq_0 && inst_bkpt_vld_f && !rtu_yy_xx_dbgon && ctrl_bkpt_en && inst_bkpt_inst_vld_f;
@@ -306,7 +306,7 @@ assign inst_bkpt_req_raw = bkpt_counter_eq_0_raw && inst_bkpt_vld && !rtu_yy_xx_
 assign data_bkpt_req_raw = bkpt_counter_eq_0_raw && data_bkpt_vld && !rtu_yy_xx_dbgon && ctrl_bkpt_en_raw && rtu_had_inst_bkpt_inst_vld;
 
 assign bkpt_ctrl_inst_req_raw = inst_bkpt_req_raw;
-assign bkpt_ctrl_data_req_raw = data_bkpt_req_raw && !rtu_had_inst_split || 
+assign bkpt_ctrl_data_req_raw = data_bkpt_req_raw && !rtu_had_inst_split ||
                                 data_bkpt_pending && !rtu_had_inst_split && rtu_had_inst_bkpt_inst_vld;
 
 always @(posedge cpuclk or negedge cpurst_b)

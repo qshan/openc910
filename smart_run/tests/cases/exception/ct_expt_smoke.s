@@ -20,26 +20,26 @@ limitations under the License.
 
 #*************Following is the generated instructions*****************
 .macro SETMEXP EXP_CODE, HANDLER_BEGIN,HANDLER_END
-  sd   t0, -24(sp)   #address cann't be changed 
+  sd   t0, -24(sp)   #address cann't be changed
   sd   t1, -32(sp)   #it relates to crt0.s
 
   la   t1, vector_table
   addi t0,x0,\EXP_CODE
   slli t0,t0,0x3
-  add  t1,t1,t0 
-  
+  add  t1,t1,t0
+
   la   t0, \HANDLER_BEGIN
-  sd   t0, 0(t1) 
+  sd   t0, 0(t1)
 
   ld   t1, -32(sp)
   ld   t0, -24(sp)
-  j    \HANDLER_END 
+  j    \HANDLER_END
 
   ld   a4, -16(sp)
 .endm
 
 .macro MMU_PTW_4K VPN, PPN, FLAG, THEADFLAG
-  #backup regs 
+  #backup regs
   addi	x2, x2, -88
   sd	x9, 0(x2)
   sd	x10, 8(x2)
@@ -52,18 +52,18 @@ limitations under the License.
   sd	x17, 64(x2)
   sd	x18, 72(x2)
   sd	x19, 80(x2)
-   
+
   # get PPN from satp in x9
   csrr  x9, satp
   li    x10, 0xfffffffffff
   and   x9, x9, x10
-  
+
   # get VPN2 in x10
   li    x10, \VPN
   li    x11, 0x7fc0000
   and   x10,x10,x11
-  srli  x10, x10, 18    
-   
+  srli  x10, x10, 18
+
   # cfig first-level page
   # level-1 page, entry addr:{ppn,VPN2,3'b0} in x15
   slli  x14, x9, 12
@@ -77,13 +77,13 @@ limitations under the License.
   li    x13, 0xc1
   or    x13, x13, x14
   sd    x13, 0(x15)
-  
+
   # cfig level-2 page
   # get VPN1 in x16
   li    x11, \VPN
   li    x13, 0x3fe00
   and   x16, x11, x13
-  srli  x16, x16, 9  
+  srli  x16, x16, 9
   # level-2 page, entry addr:{pte.ppn,VPN1,3'b0} in x17
   slli  x13, x12, 12
   slli  x17, x16, 3
@@ -92,15 +92,15 @@ limitations under the License.
   # level-3 base addr in x18: PPN+2+2^9+{vpn2,vpn1}
   li    x11, 0x200
   addi  x11, x11, 2
-  add   x11, x11, x9  
+  add   x11, x11, x9
   li    x10, \VPN
   srli  x10, x10, 9
   add   x18, x11, x10
-  slli  x19, x18, 10 
+  slli  x19, x18, 10
   li    x13, 0xc1
   or    x19, x19, x13
   sd    x19, 0(x17)
-  
+
   # cfig level-3 page
   # get VPN0 in x12
   li    x11, \VPN
@@ -119,7 +119,7 @@ limitations under the License.
   or    x11, x11, x12
   or    x11, x11, x13
   sd    x11, 0(x17)
-   
+
   #restore regs
   ld	x9, 0(x2)
   ld	x10, 8(x2)
@@ -133,17 +133,17 @@ limitations under the License.
   ld	x18, 72(x2)
   ld	x19, 80(x2)
   addi	x2, x2, 88
-  # fence 
+  # fence
   fence
 .endm
-	
+
 
 .text
 .align 6
 .global main
 main:
       csrr	x10, mhartid
-      bnez	x10, TEST_WFI 
+      bnez	x10, TEST_WFI
       nop
 .global MMU_CFG
   csrr  x9,satp
@@ -505,7 +505,7 @@ TEST_PASS:
      jr   x1
 .global TEST_FAIL
 TEST_FAIL:
-    la   x1, __fail 
+    la   x1, __fail
     jr   x1
 .global TEST_WFI
 TEST_WFI:

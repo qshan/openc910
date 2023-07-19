@@ -45,46 +45,46 @@ module ct_idu_rf_prf_vregfile(
 );
 
 // &Ports; @26
-input   [5 :0]  dp_prf_rf_pipe5_srcv0_vreg;     
-input   [5 :0]  dp_prf_rf_pipe6_srcv0_vreg;     
-input   [5 :0]  dp_prf_rf_pipe6_srcv1_vreg;     
-input   [5 :0]  dp_prf_rf_pipe6_srcv2_vreg;     
-input   [5 :0]  dp_prf_rf_pipe6_srcvm_vreg;     
-input   [5 :0]  dp_prf_rf_pipe7_srcv0_vreg;     
-input   [5 :0]  dp_prf_rf_pipe7_srcv1_vreg;     
-input   [5 :0]  dp_prf_rf_pipe7_srcv2_vreg;     
-input   [5 :0]  dp_prf_rf_pipe7_srcvm_vreg;     
-input   [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;  
-input   [63:0]  lsu_idu_wb_pipe3_wb_vreg_expand; 
-input           lsu_idu_wb_pipe3_wb_vreg_vld;   
-input   [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data; 
-input   [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_expand; 
-input           vfpu_idu_ex5_pipe6_wb_vreg_vld; 
-input   [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data; 
-input   [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_expand; 
-input           vfpu_idu_ex5_pipe7_wb_vreg_vld; 
-output  [63:0]  prf_dp_rf_pipe5_srcv0_vreg_data; 
-output  [63:0]  prf_dp_rf_pipe6_srcv0_vreg_data; 
-output  [63:0]  prf_dp_rf_pipe6_srcv1_vreg_data; 
-output  [63:0]  prf_dp_rf_pipe6_srcv2_vreg_data; 
-output  [63:0]  prf_dp_rf_pipe6_srcvm_vreg_data; 
-output  [63:0]  prf_dp_rf_pipe7_srcv0_vreg_data; 
-output  [63:0]  prf_dp_rf_pipe7_srcv1_vreg_data; 
-output  [63:0]  prf_dp_rf_pipe7_srcv2_vreg_data; 
-output  [63:0]  prf_dp_rf_pipe7_srcvm_vreg_data; 
+input   [5 :0]  dp_prf_rf_pipe5_srcv0_vreg;
+input   [5 :0]  dp_prf_rf_pipe6_srcv0_vreg;
+input   [5 :0]  dp_prf_rf_pipe6_srcv1_vreg;
+input   [5 :0]  dp_prf_rf_pipe6_srcv2_vreg;
+input   [5 :0]  dp_prf_rf_pipe6_srcvm_vreg;
+input   [5 :0]  dp_prf_rf_pipe7_srcv0_vreg;
+input   [5 :0]  dp_prf_rf_pipe7_srcv1_vreg;
+input   [5 :0]  dp_prf_rf_pipe7_srcv2_vreg;
+input   [5 :0]  dp_prf_rf_pipe7_srcvm_vreg;
+input   [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;
+input   [63:0]  lsu_idu_wb_pipe3_wb_vreg_expand;
+input           lsu_idu_wb_pipe3_wb_vreg_vld;
+input   [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data;
+input   [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_expand;
+input           vfpu_idu_ex5_pipe6_wb_vreg_vld;
+input   [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data;
+input   [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_expand;
+input           vfpu_idu_ex5_pipe7_wb_vreg_vld;
+output  [63:0]  prf_dp_rf_pipe5_srcv0_vreg_data;
+output  [63:0]  prf_dp_rf_pipe6_srcv0_vreg_data;
+output  [63:0]  prf_dp_rf_pipe6_srcv1_vreg_data;
+output  [63:0]  prf_dp_rf_pipe6_srcv2_vreg_data;
+output  [63:0]  prf_dp_rf_pipe6_srcvm_vreg_data;
+output  [63:0]  prf_dp_rf_pipe7_srcv0_vreg_data;
+output  [63:0]  prf_dp_rf_pipe7_srcv1_vreg_data;
+output  [63:0]  prf_dp_rf_pipe7_srcv2_vreg_data;
+output  [63:0]  prf_dp_rf_pipe7_srcvm_vreg_data;
 
 // &Regs; @27
 
 // &Wires; @28
-wire    [63:0]  prf_dp_rf_pipe5_srcv0_vreg_data; 
-wire    [63:0]  prf_dp_rf_pipe6_srcv0_vreg_data; 
-wire    [63:0]  prf_dp_rf_pipe6_srcv1_vreg_data; 
-wire    [63:0]  prf_dp_rf_pipe6_srcv2_vreg_data; 
-wire    [63:0]  prf_dp_rf_pipe6_srcvm_vreg_data; 
-wire    [63:0]  prf_dp_rf_pipe7_srcv0_vreg_data; 
-wire    [63:0]  prf_dp_rf_pipe7_srcv1_vreg_data; 
-wire    [63:0]  prf_dp_rf_pipe7_srcv2_vreg_data; 
-wire    [63:0]  prf_dp_rf_pipe7_srcvm_vreg_data; 
+wire    [63:0]  prf_dp_rf_pipe5_srcv0_vreg_data;
+wire    [63:0]  prf_dp_rf_pipe6_srcv0_vreg_data;
+wire    [63:0]  prf_dp_rf_pipe6_srcv1_vreg_data;
+wire    [63:0]  prf_dp_rf_pipe6_srcv2_vreg_data;
+wire    [63:0]  prf_dp_rf_pipe6_srcvm_vreg_data;
+wire    [63:0]  prf_dp_rf_pipe7_srcv0_vreg_data;
+wire    [63:0]  prf_dp_rf_pipe7_srcv1_vreg_data;
+wire    [63:0]  prf_dp_rf_pipe7_srcv2_vreg_data;
+wire    [63:0]  prf_dp_rf_pipe7_srcvm_vreg_data;
 
 
 

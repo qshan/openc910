@@ -19,7 +19,7 @@ limitations under the License.
     FILE = $fopen("run_case.report","w"); \
     $fdisplay(FILE,"TEST FAIL");   \
     #100; \
-    $finish; 
+    $finish;
 
 module debug_read_write_memory(
 );
@@ -45,7 +45,7 @@ open_event;
     write_hadreg_corea(`hcr,32'h8000);                 //set DR
     wait_debug_mode_corea;
     write_hadreg_corea(`hcr,32'h0);                    //clear DR
-    write_hadreg_corea(`event_outen,32'h0); 
+    write_hadreg_corea(`event_outen,32'h0);
 
 
 
@@ -166,7 +166,7 @@ open_event;
       $display("#####################################################");
 
       FILE = $fopen("run_case.report","w");
-      $fdisplay(FILE,"TEST PASS");   
+      $fdisplay(FILE,"TEST PASS");
       #100;
 
       $finish;

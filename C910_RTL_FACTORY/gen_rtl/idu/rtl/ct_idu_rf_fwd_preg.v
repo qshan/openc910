@@ -39,53 +39,53 @@ module ct_idu_rf_fwd_preg(
 );
 
 // &Ports; @27
-input   [6 :0]  iu_idu_ex1_pipe0_fwd_preg;     
-input   [63:0]  iu_idu_ex1_pipe0_fwd_preg_data; 
-input           iu_idu_ex1_pipe0_fwd_preg_vld; 
-input   [6 :0]  iu_idu_ex1_pipe1_fwd_preg;     
-input   [63:0]  iu_idu_ex1_pipe1_fwd_preg_data; 
-input           iu_idu_ex1_pipe1_fwd_preg_vld; 
-input   [6 :0]  iu_idu_ex2_pipe0_wb_preg;      
-input   [63:0]  iu_idu_ex2_pipe0_wb_preg_data; 
-input           iu_idu_ex2_pipe0_wb_preg_vld;  
-input   [6 :0]  iu_idu_ex2_pipe1_wb_preg;      
-input   [63:0]  iu_idu_ex2_pipe1_wb_preg_data; 
-input           iu_idu_ex2_pipe1_wb_preg_vld;  
-input   [6 :0]  lsu_idu_da_pipe3_fwd_preg;     
-input   [63:0]  lsu_idu_da_pipe3_fwd_preg_data; 
-input           lsu_idu_da_pipe3_fwd_preg_vld; 
-input   [6 :0]  lsu_idu_wb_pipe3_wb_preg;      
-input   [63:0]  lsu_idu_wb_pipe3_wb_preg_data; 
-input           lsu_idu_wb_pipe3_wb_preg_vld;  
-input   [6 :0]  x_src_reg;                     
-output  [63:0]  x_src_data;                    
-output          x_src_no_fwd;                  
+input   [6 :0]  iu_idu_ex1_pipe0_fwd_preg;
+input   [63:0]  iu_idu_ex1_pipe0_fwd_preg_data;
+input           iu_idu_ex1_pipe0_fwd_preg_vld;
+input   [6 :0]  iu_idu_ex1_pipe1_fwd_preg;
+input   [63:0]  iu_idu_ex1_pipe1_fwd_preg_data;
+input           iu_idu_ex1_pipe1_fwd_preg_vld;
+input   [6 :0]  iu_idu_ex2_pipe0_wb_preg;
+input   [63:0]  iu_idu_ex2_pipe0_wb_preg_data;
+input           iu_idu_ex2_pipe0_wb_preg_vld;
+input   [6 :0]  iu_idu_ex2_pipe1_wb_preg;
+input   [63:0]  iu_idu_ex2_pipe1_wb_preg_data;
+input           iu_idu_ex2_pipe1_wb_preg_vld;
+input   [6 :0]  lsu_idu_da_pipe3_fwd_preg;
+input   [63:0]  lsu_idu_da_pipe3_fwd_preg_data;
+input           lsu_idu_da_pipe3_fwd_preg_vld;
+input   [6 :0]  lsu_idu_wb_pipe3_wb_preg;
+input   [63:0]  lsu_idu_wb_pipe3_wb_preg_data;
+input           lsu_idu_wb_pipe3_wb_preg_vld;
+input   [6 :0]  x_src_reg;
+output  [63:0]  x_src_data;
+output          x_src_no_fwd;
 
 // &Regs; @28
-reg     [63:0]  x_src_data;                    
+reg     [63:0]  x_src_data;
 
 // &Wires; @29
-wire    [5 :0]  fwd_src_sel;                   
-wire    [6 :0]  iu_idu_ex1_pipe0_fwd_preg;     
-wire    [63:0]  iu_idu_ex1_pipe0_fwd_preg_data; 
-wire            iu_idu_ex1_pipe0_fwd_preg_vld; 
-wire    [6 :0]  iu_idu_ex1_pipe1_fwd_preg;     
-wire    [63:0]  iu_idu_ex1_pipe1_fwd_preg_data; 
-wire            iu_idu_ex1_pipe1_fwd_preg_vld; 
-wire    [6 :0]  iu_idu_ex2_pipe0_wb_preg;      
-wire    [63:0]  iu_idu_ex2_pipe0_wb_preg_data; 
-wire            iu_idu_ex2_pipe0_wb_preg_vld;  
-wire    [6 :0]  iu_idu_ex2_pipe1_wb_preg;      
-wire    [63:0]  iu_idu_ex2_pipe1_wb_preg_data; 
-wire            iu_idu_ex2_pipe1_wb_preg_vld;  
-wire    [6 :0]  lsu_idu_da_pipe3_fwd_preg;     
-wire    [63:0]  lsu_idu_da_pipe3_fwd_preg_data; 
-wire            lsu_idu_da_pipe3_fwd_preg_vld; 
-wire    [6 :0]  lsu_idu_wb_pipe3_wb_preg;      
-wire    [63:0]  lsu_idu_wb_pipe3_wb_preg_data; 
-wire            lsu_idu_wb_pipe3_wb_preg_vld;  
-wire            x_src_no_fwd;                  
-wire    [6 :0]  x_src_reg;                     
+wire    [5 :0]  fwd_src_sel;
+wire    [6 :0]  iu_idu_ex1_pipe0_fwd_preg;
+wire    [63:0]  iu_idu_ex1_pipe0_fwd_preg_data;
+wire            iu_idu_ex1_pipe0_fwd_preg_vld;
+wire    [6 :0]  iu_idu_ex1_pipe1_fwd_preg;
+wire    [63:0]  iu_idu_ex1_pipe1_fwd_preg_data;
+wire            iu_idu_ex1_pipe1_fwd_preg_vld;
+wire    [6 :0]  iu_idu_ex2_pipe0_wb_preg;
+wire    [63:0]  iu_idu_ex2_pipe0_wb_preg_data;
+wire            iu_idu_ex2_pipe0_wb_preg_vld;
+wire    [6 :0]  iu_idu_ex2_pipe1_wb_preg;
+wire    [63:0]  iu_idu_ex2_pipe1_wb_preg_data;
+wire            iu_idu_ex2_pipe1_wb_preg_vld;
+wire    [6 :0]  lsu_idu_da_pipe3_fwd_preg;
+wire    [63:0]  lsu_idu_da_pipe3_fwd_preg_data;
+wire            lsu_idu_da_pipe3_fwd_preg_vld;
+wire    [6 :0]  lsu_idu_wb_pipe3_wb_preg;
+wire    [63:0]  lsu_idu_wb_pipe3_wb_preg_data;
+wire            lsu_idu_wb_pipe3_wb_preg_vld;
+wire            x_src_no_fwd;
+wire    [6 :0]  x_src_reg;
 
 
 
@@ -101,9 +101,9 @@ assign fwd_src_sel[2] = iu_idu_ex1_pipe1_fwd_preg_vld
                         && (x_src_reg[6:0] == iu_idu_ex1_pipe1_fwd_preg[6:0]);
 assign fwd_src_sel[3] = iu_idu_ex2_pipe1_wb_preg_vld
                         && (x_src_reg[6:0] == iu_idu_ex2_pipe1_wb_preg[6:0]);
-assign fwd_src_sel[4] = lsu_idu_da_pipe3_fwd_preg_vld 
+assign fwd_src_sel[4] = lsu_idu_da_pipe3_fwd_preg_vld
                         && (x_src_reg[6:0] == lsu_idu_da_pipe3_fwd_preg[6:0]);
-assign fwd_src_sel[5] = lsu_idu_wb_pipe3_wb_preg_vld 
+assign fwd_src_sel[5] = lsu_idu_wb_pipe3_wb_preg_vld
                         && (x_src_reg[6:0] == lsu_idu_wb_pipe3_wb_preg[6:0]);
 
 assign x_src_no_fwd = !(|fwd_src_sel[5:0]);

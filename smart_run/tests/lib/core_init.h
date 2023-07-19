@@ -22,12 +22,12 @@ limitations under the License.
 .endm
 
 .macro FAIL
-  la   x1, __fail 
+  la   x1, __fail
   jr   x1
-.endm  
+.endm
 
 .macro MMU_PTW_1G VPN, PPN, FLAG, THEADFLAG
-  #backup regs 
+  #backup regs
   addi	x2, x2, -56
   sd	x9, 0(x2)
   sd	x10, 8(x2)
@@ -36,18 +36,18 @@ limitations under the License.
   sd	x13, 32(x2)
   sd	x14, 40(x2)
   sd	x15, 48(x2)
-   
+
   # get PPN from satp in x9
   csrr  x9, satp
   li    x10, 0xfffffffffff
   and   x9, x9, x10
-  
+
   # get VPN2 in x10
   li    x10, \VPN
   li    x11, 0x7fc0000
   and   x10,x10,x11
-  srli  x10, x10, 18    
-   
+  srli  x10, x10, 18
+
   # cfig first-level page
   # level-1 page, entry addr:{ppn,VPN2,3'b0} in x15
   slli  x14, x9, 12
@@ -62,7 +62,7 @@ limitations under the License.
   or    x11, x11, x12
   or    x11, x11, x13
   sd    x11, 0(x15)
-  
+
   #restore regs
   ld	x9, 0(x2)
   ld	x10, 8(x2)
@@ -72,13 +72,13 @@ limitations under the License.
   ld	x14, 40(x2)
   ld	x15, 48(x2)
   addi	x2, x2, 56
-  # fence 
+  # fence
   fence
 .endm
 
 
 .macro MMU_PTW_2M VPN, PPN, FLAG, THEADFLAG
-  #backup regs 
+  #backup regs
   addi	x2, x2, -88
   sd	x9, 0(x2)
   sd	x10, 8(x2)
@@ -91,18 +91,18 @@ limitations under the License.
   sd	x17, 64(x2)
   sd	x18, 72(x2)
   sd	x19, 80(x2)
-   
+
   # get PPN from satp in x9
   csrr  x9, satp
   li    x10, 0xfffffffffff
   and   x9, x9, x10
-  
+
   # get VPN2 in x10
   li    x10, \VPN
   li    x11, 0x7fc0000
   and   x10,x10,x11
-  srli  x10, x10, 18    
-   
+  srli  x10, x10, 18
+
   # cfig first-level page
   # level-1 page, entry addr:{ppn,VPN2,3'b0} in x15
   slli  x14, x9, 12
@@ -116,13 +116,13 @@ limitations under the License.
   li    x13, 0xc1
   or    x13, x13, x14
   sd    x13, 0(x15)
-  
+
   # cfig level-2 page
   # get VPN1 in x16
   li    x11, \VPN
   li    x13, 0x3fe00
   and   x16, x11, x13
-  srli  x16, x16, 9  
+  srli  x16, x16, 9
   # level-2 page, entry addr:{pte.ppn,VPN1,3'b0} in x17
   slli  x13, x12, 12
   slli  x17, x16, 3
@@ -136,7 +136,7 @@ limitations under the License.
   or    x11, x11, x12
   or    x11, x11, x13
   sd    x11, 0(x17)
-  
+
   #restore regs
   ld	x9, 0(x2)
   ld	x10, 8(x2)
@@ -150,7 +150,7 @@ limitations under the License.
   ld	x18, 72(x2)
   ld	x19, 80(x2)
   addi	x2, x2, 88
-  # fence 
+  # fence
   fence
 .endm
 

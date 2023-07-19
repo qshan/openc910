@@ -21,49 +21,49 @@ module ct_mmu_sysmap(
 );
 
 // &Ports; @29
-input   [27:0]  mmu_sysmap_pa_y; 
-output  [4 :0]  sysmap_mmu_flg_y; 
-output  [7 :0]  sysmap_mmu_hit_y; 
+input   [27:0]  mmu_sysmap_pa_y;
+output  [4 :0]  sysmap_mmu_flg_y;
+output  [7 :0]  sysmap_mmu_hit_y;
 
 // &Regs; @30
-reg     [4 :0]  sysmap_mmu_flg_y; 
+reg     [4 :0]  sysmap_mmu_flg_y;
 
 // &Wires; @31
-wire            addr_ge_bottom0; 
-wire            addr_ge_bottom1; 
-wire            addr_ge_bottom2; 
-wire            addr_ge_bottom3; 
-wire            addr_ge_bottom4; 
-wire            addr_ge_bottom5; 
-wire            addr_ge_bottom6; 
-wire            addr_ge_bottom7; 
-wire            addr_ge_upaddr0; 
-wire            addr_ge_upaddr1; 
-wire            addr_ge_upaddr2; 
-wire            addr_ge_upaddr3; 
-wire            addr_ge_upaddr4; 
-wire            addr_ge_upaddr5; 
-wire            addr_ge_upaddr6; 
-wire            addr_ge_upaddr7; 
-wire    [27:0]  mmu_sysmap_pa_y; 
-wire            sysmap_comp_hit0; 
-wire            sysmap_comp_hit1; 
-wire            sysmap_comp_hit2; 
-wire            sysmap_comp_hit3; 
-wire            sysmap_comp_hit4; 
-wire            sysmap_comp_hit5; 
-wire            sysmap_comp_hit6; 
-wire            sysmap_comp_hit7; 
-wire    [7 :0]  sysmap_hit;      
-wire            sysmap_mmu_hit0; 
-wire            sysmap_mmu_hit1; 
-wire            sysmap_mmu_hit2; 
-wire            sysmap_mmu_hit3; 
-wire            sysmap_mmu_hit4; 
-wire            sysmap_mmu_hit5; 
-wire            sysmap_mmu_hit6; 
-wire            sysmap_mmu_hit7; 
-wire    [7 :0]  sysmap_mmu_hit_y; 
+wire            addr_ge_bottom0;
+wire            addr_ge_bottom1;
+wire            addr_ge_bottom2;
+wire            addr_ge_bottom3;
+wire            addr_ge_bottom4;
+wire            addr_ge_bottom5;
+wire            addr_ge_bottom6;
+wire            addr_ge_bottom7;
+wire            addr_ge_upaddr0;
+wire            addr_ge_upaddr1;
+wire            addr_ge_upaddr2;
+wire            addr_ge_upaddr3;
+wire            addr_ge_upaddr4;
+wire            addr_ge_upaddr5;
+wire            addr_ge_upaddr6;
+wire            addr_ge_upaddr7;
+wire    [27:0]  mmu_sysmap_pa_y;
+wire            sysmap_comp_hit0;
+wire            sysmap_comp_hit1;
+wire            sysmap_comp_hit2;
+wire            sysmap_comp_hit3;
+wire            sysmap_comp_hit4;
+wire            sysmap_comp_hit5;
+wire            sysmap_comp_hit6;
+wire            sysmap_comp_hit7;
+wire    [7 :0]  sysmap_hit;
+wire            sysmap_mmu_hit0;
+wire            sysmap_mmu_hit1;
+wire            sysmap_mmu_hit2;
+wire            sysmap_mmu_hit3;
+wire            sysmap_mmu_hit4;
+wire            sysmap_mmu_hit5;
+wire            sysmap_mmu_hit6;
+wire            sysmap_mmu_hit7;
+wire    [7 :0]  sysmap_mmu_hit_y;
 
 
 parameter ADDR_WIDTH = `PA_WIDTH-12;
@@ -151,20 +151,20 @@ ct_mmu_sysmap_hit  x_ct_mmu_sysmap_hit_7 (
 
 
 // &Force("nonport", "addr_ge_upaddr7"); @61
-assign {addr_ge_bottom7, addr_ge_bottom6, 
+assign {addr_ge_bottom7, addr_ge_bottom6,
         addr_ge_bottom5, addr_ge_bottom4,
         addr_ge_bottom3, addr_ge_bottom2,
-        addr_ge_bottom1, addr_ge_bottom0} = 
-       {addr_ge_upaddr6, addr_ge_upaddr5, 
+        addr_ge_bottom1, addr_ge_bottom0} =
+       {addr_ge_upaddr6, addr_ge_upaddr5,
         addr_ge_upaddr4, addr_ge_upaddr3,
         addr_ge_upaddr2, addr_ge_upaddr1,
         addr_ge_upaddr0, 1'b1};
 
 
-assign sysmap_hit[7:0] = {sysmap_mmu_hit7, sysmap_mmu_hit6, 
+assign sysmap_hit[7:0] = {sysmap_mmu_hit7, sysmap_mmu_hit6,
                           sysmap_mmu_hit5, sysmap_mmu_hit4,
                           sysmap_mmu_hit3, sysmap_mmu_hit2,
-                          sysmap_mmu_hit1, sysmap_mmu_hit0}; 
+                          sysmap_mmu_hit1, sysmap_mmu_hit0};
 
 // &CombBeg; @77
 always @( sysmap_hit[7:0])

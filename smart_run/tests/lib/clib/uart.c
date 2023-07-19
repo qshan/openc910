@@ -34,7 +34,7 @@ limitations under the License.
 #define LCR_STOP_BIT1           0xfb   /* 1 stop bit */
 #define LCR_STOP_BIT2           0x04  /* 1.5 stop bit */
 
-#define CK_LSR_PFE              0x80     
+#define CK_LSR_PFE              0x80
 #define CK_LSR_TEMT             0x40
 #define CK_LSR_THRE             0x40
 #define	CK_LSR_BI               0x10
@@ -99,7 +99,7 @@ void ck_uart_set_wordsize(p_ck_uart_device uart_device, t_ck_uart_wordsize words
             break;
         default:
             break;
-    }			
+    }
 } /* }}} */
 
 void ck_uart_set_stopbit(p_ck_uart_device uart_device, t_ck_uart_stopbit stopbit)

@@ -31,72 +31,72 @@ module ct_vfdsu_srt_radix16_bound_table(
 );
 
 // &Ports; @23
-input   [6 :0]  bound_sel;           
-input           sqrt_first_round;    
-input           sqrt_secd_round;     
-input           sqrt_secd_round_sign; 
-output  [11:0]  digit_bound_1;       
-output  [11:0]  digit_bound_2;       
-output  [11:0]  digit_bound_3;       
-output  [11:0]  digit_bound_4;       
-output  [11:0]  digit_bound_5;       
-output  [11:0]  digit_bound_6;       
-output  [11:0]  digit_bound_7;       
-output  [11:0]  digit_bound_8;       
-output  [11:0]  digit_bound_9;       
+input   [6 :0]  bound_sel;
+input           sqrt_first_round;
+input           sqrt_secd_round;
+input           sqrt_secd_round_sign;
+output  [11:0]  digit_bound_1;
+output  [11:0]  digit_bound_2;
+output  [11:0]  digit_bound_3;
+output  [11:0]  digit_bound_4;
+output  [11:0]  digit_bound_5;
+output  [11:0]  digit_bound_6;
+output  [11:0]  digit_bound_7;
+output  [11:0]  digit_bound_8;
+output  [11:0]  digit_bound_9;
 
 // &Regs; @24
-reg     [11:0]  ori_digit_bound_1;   
-reg     [11:0]  ori_digit_bound_2;   
-reg     [11:0]  ori_digit_bound_3;   
-reg     [11:0]  ori_digit_bound_4;   
-reg     [11:0]  ori_digit_bound_5;   
-reg     [11:0]  ori_digit_bound_6;   
-reg     [11:0]  ori_digit_bound_7;   
-reg     [11:0]  ori_digit_bound_8;   
-reg     [11:0]  ori_digit_bound_9;   
-reg     [11:0]  sqrt_digit_boundm2_1; 
-reg     [11:0]  sqrt_digit_boundm2_2; 
-reg     [11:0]  sqrt_digit_boundm2_3; 
-reg     [11:0]  sqrt_digit_boundm2_4; 
-reg     [11:0]  sqrt_digit_boundm2_5; 
-reg     [11:0]  sqrt_digit_boundm2_6; 
-reg     [11:0]  sqrt_digit_boundm2_7; 
-reg     [11:0]  sqrt_digit_boundm2_8; 
-reg     [11:0]  sqrt_digit_boundm2_9; 
-reg     [11:0]  sqrt_digit_boundp2_1; 
-reg     [11:0]  sqrt_digit_boundp2_2; 
-reg     [11:0]  sqrt_digit_boundp2_3; 
-reg     [11:0]  sqrt_digit_boundp2_4; 
-reg     [11:0]  sqrt_digit_boundp2_5; 
-reg     [11:0]  sqrt_digit_boundp2_6; 
-reg     [11:0]  sqrt_digit_boundp2_7; 
-reg     [11:0]  sqrt_digit_boundp2_8; 
-reg     [11:0]  sqrt_digit_boundp2_9; 
+reg     [11:0]  ori_digit_bound_1;
+reg     [11:0]  ori_digit_bound_2;
+reg     [11:0]  ori_digit_bound_3;
+reg     [11:0]  ori_digit_bound_4;
+reg     [11:0]  ori_digit_bound_5;
+reg     [11:0]  ori_digit_bound_6;
+reg     [11:0]  ori_digit_bound_7;
+reg     [11:0]  ori_digit_bound_8;
+reg     [11:0]  ori_digit_bound_9;
+reg     [11:0]  sqrt_digit_boundm2_1;
+reg     [11:0]  sqrt_digit_boundm2_2;
+reg     [11:0]  sqrt_digit_boundm2_3;
+reg     [11:0]  sqrt_digit_boundm2_4;
+reg     [11:0]  sqrt_digit_boundm2_5;
+reg     [11:0]  sqrt_digit_boundm2_6;
+reg     [11:0]  sqrt_digit_boundm2_7;
+reg     [11:0]  sqrt_digit_boundm2_8;
+reg     [11:0]  sqrt_digit_boundm2_9;
+reg     [11:0]  sqrt_digit_boundp2_1;
+reg     [11:0]  sqrt_digit_boundp2_2;
+reg     [11:0]  sqrt_digit_boundp2_3;
+reg     [11:0]  sqrt_digit_boundp2_4;
+reg     [11:0]  sqrt_digit_boundp2_5;
+reg     [11:0]  sqrt_digit_boundp2_6;
+reg     [11:0]  sqrt_digit_boundp2_7;
+reg     [11:0]  sqrt_digit_boundp2_8;
+reg     [11:0]  sqrt_digit_boundp2_9;
 
 // &Wires; @25
-wire    [6 :0]  bound_sel;           
-wire    [11:0]  digit_bound_1;       
-wire    [11:0]  digit_bound_2;       
-wire    [11:0]  digit_bound_3;       
-wire    [11:0]  digit_bound_4;       
-wire    [11:0]  digit_bound_5;       
-wire    [11:0]  digit_bound_6;       
-wire    [11:0]  digit_bound_7;       
-wire    [11:0]  digit_bound_8;       
-wire    [11:0]  digit_bound_9;       
-wire    [11:0]  sqrt_digit_bound2_1; 
-wire    [11:0]  sqrt_digit_bound2_2; 
-wire    [11:0]  sqrt_digit_bound2_3; 
-wire    [11:0]  sqrt_digit_bound2_4; 
-wire    [11:0]  sqrt_digit_bound2_5; 
-wire    [11:0]  sqrt_digit_bound2_6; 
-wire    [11:0]  sqrt_digit_bound2_7; 
-wire    [11:0]  sqrt_digit_bound2_8; 
-wire    [11:0]  sqrt_digit_bound2_9; 
-wire            sqrt_first_round;    
-wire            sqrt_secd_round;     
-wire            sqrt_secd_round_sign; 
+wire    [6 :0]  bound_sel;
+wire    [11:0]  digit_bound_1;
+wire    [11:0]  digit_bound_2;
+wire    [11:0]  digit_bound_3;
+wire    [11:0]  digit_bound_4;
+wire    [11:0]  digit_bound_5;
+wire    [11:0]  digit_bound_6;
+wire    [11:0]  digit_bound_7;
+wire    [11:0]  digit_bound_8;
+wire    [11:0]  digit_bound_9;
+wire    [11:0]  sqrt_digit_bound2_1;
+wire    [11:0]  sqrt_digit_bound2_2;
+wire    [11:0]  sqrt_digit_bound2_3;
+wire    [11:0]  sqrt_digit_bound2_4;
+wire    [11:0]  sqrt_digit_bound2_5;
+wire    [11:0]  sqrt_digit_bound2_6;
+wire    [11:0]  sqrt_digit_bound2_7;
+wire    [11:0]  sqrt_digit_bound2_8;
+wire    [11:0]  sqrt_digit_bound2_9;
+wire            sqrt_first_round;
+wire            sqrt_secd_round;
+wire            sqrt_secd_round_sign;
 
 
 // &CombBeg; @27
@@ -1132,34 +1132,34 @@ assign sqrt_digit_bound2_6[11:0] = sqrt_secd_round_sign ? sqrt_digit_boundm2_6[1
 assign sqrt_digit_bound2_7[11:0] = sqrt_secd_round_sign ? sqrt_digit_boundm2_7[11:0] : sqrt_digit_boundp2_7[11:0];
 assign sqrt_digit_bound2_8[11:0] = sqrt_secd_round_sign ? sqrt_digit_boundm2_8[11:0] : sqrt_digit_boundp2_8[11:0];
 assign sqrt_digit_bound2_9[11:0] = sqrt_secd_round_sign ? sqrt_digit_boundm2_9[11:0] : sqrt_digit_boundp2_9[11:0];
-                                                
 
-assign digit_bound_1[11:0] = sqrt_first_round ? 12'h2 : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_1[11:0] 
+
+assign digit_bound_1[11:0] = sqrt_first_round ? 12'h2 :
+                                                sqrt_secd_round ? sqrt_digit_bound2_1[11:0]
                                                                  : ori_digit_bound_1[11:0]; //-2
-assign digit_bound_2[11:0] = sqrt_first_round ? 12'h10 : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_2[11:0] 
+assign digit_bound_2[11:0] = sqrt_first_round ? 12'h10 :
+                                                sqrt_secd_round ? sqrt_digit_bound2_2[11:0]
                                                                 : ori_digit_bound_2[11:0]; //-16
-assign digit_bound_3[11:0] = sqrt_first_round ? 12'h35 : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_3[11:0] 
+assign digit_bound_3[11:0] = sqrt_first_round ? 12'h35 :
+                                                sqrt_secd_round ? sqrt_digit_bound2_3[11:0]
                                                                 : ori_digit_bound_3[11:0]; //-53
-assign digit_bound_4[11:0] = sqrt_first_round ? 12'h5f : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_4[11:0] 
+assign digit_bound_4[11:0] = sqrt_first_round ? 12'h5f :
+                                                sqrt_secd_round ? sqrt_digit_bound2_4[11:0]
                                                                 : ori_digit_bound_4[11:0]; //-95
-assign digit_bound_5[11:0] = sqrt_first_round ? 12'ha0 : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_5[11:0] 
+assign digit_bound_5[11:0] = sqrt_first_round ? 12'ha0 :
+                                                sqrt_secd_round ? sqrt_digit_bound2_5[11:0]
                                                                 : ori_digit_bound_5[11:0]; //-160
-assign digit_bound_6[11:0] = sqrt_first_round ? 12'hf0 : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_6[11:0] 
+assign digit_bound_6[11:0] = sqrt_first_round ? 12'hf0 :
+                                                sqrt_secd_round ? sqrt_digit_bound2_6[11:0]
                                                                 : ori_digit_bound_6[11:0];    //-240
-assign digit_bound_7[11:0] = sqrt_first_round ? 12'h14f : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_7[11:0] 
+assign digit_bound_7[11:0] = sqrt_first_round ? 12'h14f :
+                                                sqrt_secd_round ? sqrt_digit_bound2_7[11:0]
                                                                 : ori_digit_bound_7[11:0]; //-335
-assign digit_bound_8[11:0] = sqrt_first_round ? 12'h1c2 : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_8[11:0] 
+assign digit_bound_8[11:0] = sqrt_first_round ? 12'h1c2 :
+                                                sqrt_secd_round ? sqrt_digit_bound2_8[11:0]
                                                                 : ori_digit_bound_8[11:0]; //-450
-assign digit_bound_9[11:0] = sqrt_first_round ? 12'h23a : 
-                                                sqrt_secd_round ? sqrt_digit_bound2_9[11:0] 
+assign digit_bound_9[11:0] = sqrt_first_round ? 12'h23a :
+                                                sqrt_secd_round ? sqrt_digit_bound2_9[11:0]
                                                                 : ori_digit_bound_9[11:0]; //-570
 // &ModuleEnd; @1080
 endmodule

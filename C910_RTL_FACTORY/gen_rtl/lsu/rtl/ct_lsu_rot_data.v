@@ -21,26 +21,26 @@ module ct_lsu_rot_data(
 );
 
 // &Ports; @24
-input   [127:0]  data_in;        
-input   [7  :0]  rot_sel;        
-output  [127:0]  data_settle_out; 
+input   [127:0]  data_in;
+input   [7  :0]  rot_sel;
+output  [127:0]  data_settle_out;
 
 // &Regs; @25
-reg     [63 :0]  data_settle;    
+reg     [63 :0]  data_settle;
 
 // &Wires; @26
-wire    [63 :0]  data;           
-wire    [127:0]  data_in;        
-wire    [63 :0]  data_rot0;      
-wire    [63 :0]  data_rot1;      
-wire    [63 :0]  data_rot2;      
-wire    [63 :0]  data_rot3;      
-wire    [63 :0]  data_rot4;      
-wire    [63 :0]  data_rot5;      
-wire    [63 :0]  data_rot6;      
-wire    [63 :0]  data_rot7;      
-wire    [127:0]  data_settle_out; 
-wire    [7  :0]  rot_sel;        
+wire    [63 :0]  data;
+wire    [127:0]  data_in;
+wire    [63 :0]  data_rot0;
+wire    [63 :0]  data_rot1;
+wire    [63 :0]  data_rot2;
+wire    [63 :0]  data_rot3;
+wire    [63 :0]  data_rot4;
+wire    [63 :0]  data_rot5;
+wire    [63 :0]  data_rot6;
+wire    [63 :0]  data_rot7;
+wire    [127:0]  data_settle_out;
+wire    [7  :0]  rot_sel;
 
 
 // &CombBeg; @48

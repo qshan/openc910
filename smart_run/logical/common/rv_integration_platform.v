@@ -122,7 +122,7 @@ module rv_integration_platform
 
 
 ///////////////////////////////////////////////////
-// Input/Output Declarations 
+// Input/Output Declarations
 ///////////////////////////////////////////////////
 input                  axim_clk_en                              ;
 input                  pad_biu_arready                          ;
@@ -225,7 +225,7 @@ output     [39 : 0]    core1_pad_retire2_pc                     ;
 
 
 ///////////////////////////////////////////////////
-// Wire Declarations 
+// Wire Declarations
 ///////////////////////////////////////////////////
 wire                   axim_clk_en                              ;
 wire                   pad_biu_arready                          ;
@@ -328,7 +328,7 @@ wire       [39 : 0]    core1_pad_retire2_pc                     ;
 
 
 ///////////////////////////////////////////////////
-// Module Instantiation 
+// Module Instantiation
 ///////////////////////////////////////////////////
 openC910 x_cpu_top(
     .axim_clk_en                                  (axim_clk_en                              ),

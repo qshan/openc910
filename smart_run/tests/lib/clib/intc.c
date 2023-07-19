@@ -24,7 +24,7 @@ void ck_intc_init()
 {
 	int *picr = APB_BASE;
         *picr = 0x0;
-        
+
         // Write NIER
         int *piser = INTC_BASE + 0x10;
         *piser = 0x3f;

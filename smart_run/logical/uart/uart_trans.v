@@ -51,48 +51,48 @@ module uart_trans(
 );
 
 
-input   [1:0]  ctrl_trans_data_length; 
-input          ctrl_trans_parity_bit; 
-input          ctrl_trans_parity_en;  
-input   [7:0]  ctrl_trans_shift_data; 
-input          ctrl_trans_stop_length; 
-input          ctrl_trans_thr_vld;    
-input          rst_b;                 
-input          sys_clk;               
-input          trans_clk_en;          
-output         s_out;                 
-output         trans_ctrl_busy;       
-output         trans_ctrl_thr_read;   
-output         trans_ctrl_thsr_empty; 
+input   [1:0]  ctrl_trans_data_length;
+input          ctrl_trans_parity_bit;
+input          ctrl_trans_parity_en;
+input   [7:0]  ctrl_trans_shift_data;
+input          ctrl_trans_stop_length;
+input          ctrl_trans_thr_vld;
+input          rst_b;
+input          sys_clk;
+input          trans_clk_en;
+output         s_out;
+output         trans_ctrl_busy;
+output         trans_ctrl_thr_read;
+output         trans_ctrl_thsr_empty;
 
 
-reg     [2:0]  conter;                
-reg     [4:0]  cur_state;             
-reg     [4:0]  next_state;            
-reg            parity_cout;           
-reg            s_out;                 
-reg            thsr_empty;            
-reg            trans_ctrl_thr_read;   
-reg     [7:0]  trans_shift_reg;       
+reg     [2:0]  conter;
+reg     [4:0]  cur_state;
+reg     [4:0]  next_state;
+reg            parity_cout;
+reg            s_out;
+reg            thsr_empty;
+reg            trans_ctrl_thr_read;
+reg     [7:0]  trans_shift_reg;
 
 
-wire    [1:0]  ctrl_trans_data_length; 
-wire           ctrl_trans_parity_bit; 
-wire           ctrl_trans_parity_en;  
-wire    [7:0]  ctrl_trans_shift_data; 
-wire           ctrl_trans_stop_length; 
-wire           ctrl_trans_thr_vld;    
-wire           data_over;             
-wire           parity_bit;            
-wire           rst_b;                 
-wire           stop_over;             
-wire           sys_clk;               
-wire           thsr_shift_over;       
-wire           thsr_wen;              
-wire           trans_clk_en;          
-wire           trans_ctrl_busy;       
-wire           trans_ctrl_thsr_empty; 
-wire           trans_enable;          
+wire    [1:0]  ctrl_trans_data_length;
+wire           ctrl_trans_parity_bit;
+wire           ctrl_trans_parity_en;
+wire    [7:0]  ctrl_trans_shift_data;
+wire           ctrl_trans_stop_length;
+wire           ctrl_trans_thr_vld;
+wire           data_over;
+wire           parity_bit;
+wire           rst_b;
+wire           stop_over;
+wire           sys_clk;
+wire           thsr_shift_over;
+wire           thsr_wen;
+wire           trans_clk_en;
+wire           trans_ctrl_busy;
+wire           trans_ctrl_thsr_empty;
+wire           trans_enable;
 
 
 parameter IDLE   = 5'b00001,
@@ -125,11 +125,11 @@ begin
 s_out           = 1'b1;
 next_state[4:0] = IDLE;
 case(cur_state[4:0])
-  IDLE: 
+  IDLE:
   begin
     if(trans_enable)
       next_state[4:0] = START;
-  end  
+  end
   START:
   begin
     s_out           = 1'b0;
@@ -174,20 +174,20 @@ begin
  else if(trans_clk_en)
  begin
    if(data_over || stop_over)
-     conter[2:0] <= 2'b0;   
+     conter[2:0] <= 2'b0;
    else if((cur_state[2]) ||(cur_state[4]))
      conter[2:0] <= conter[2:0] + 1'b1;
  end
 end
 
 assign data_over        = (conter[2:0] == {1'b1,ctrl_trans_data_length[1:0]});
-assign stop_over        = (cur_state[4]) && (conter[2:0] == {2'b0,ctrl_trans_stop_length}); 
+assign stop_over        = (cur_state[4]) && (conter[2:0] == {2'b0,ctrl_trans_stop_length});
 
 
 
 
 
-assign trans_ctrl_busy            = !(cur_state[0]); 
+assign trans_ctrl_busy            = !(cur_state[0]);
 
 
 
@@ -237,7 +237,7 @@ begin
   begin
   if( thsr_wen )
     trans_ctrl_thr_read <= 1'b1;
-  else 
+  else
     trans_ctrl_thr_read <= 1'b0;
   end
 end
@@ -252,12 +252,12 @@ begin
    if(cur_state[1])
      parity_cout <= 1'b0;
    else if( (cur_state[2]))
-     parity_cout  <= parity_cout ^ trans_shift_reg[0]; 
+     parity_cout  <= parity_cout ^ trans_shift_reg[0];
   end
 end
 
 assign parity_bit = ~(parity_cout ^ ctrl_trans_parity_bit);
-  
+
 
 endmodule
 

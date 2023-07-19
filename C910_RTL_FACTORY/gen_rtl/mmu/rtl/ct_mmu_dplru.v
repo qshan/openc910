@@ -45,226 +45,226 @@ module ct_mmu_dplru(
 );
 
 // &Ports; @24
-input           cp0_mmu_icg_en;         
-input           cpurst_b;               
-input           entry0_vld;             
-input           entry10_vld;            
-input           entry11_vld;            
-input           entry12_vld;            
-input           entry13_vld;            
-input           entry14_vld;            
-input           entry15_vld;            
-input           entry1_vld;             
-input           entry2_vld;             
-input           entry3_vld;             
-input           entry4_vld;             
-input           entry5_vld;             
-input           entry6_vld;             
-input           entry7_vld;             
-input           entry8_vld;             
-input           entry9_vld;             
-input           forever_cpuclk;         
-input           pad_yy_icg_scan_en;     
-input   [15:0]  utlb_plru_read_hit0;    
-input   [15:0]  utlb_plru_read_hit1;    
-input           utlb_plru_read_hit_vld0; 
-input           utlb_plru_read_hit_vld1; 
-input           utlb_plru_refill_on;    
-input           utlb_plru_refill_vld;   
-output  [15:0]  plru_dutlb_ref_num;     
+input           cp0_mmu_icg_en;
+input           cpurst_b;
+input           entry0_vld;
+input           entry10_vld;
+input           entry11_vld;
+input           entry12_vld;
+input           entry13_vld;
+input           entry14_vld;
+input           entry15_vld;
+input           entry1_vld;
+input           entry2_vld;
+input           entry3_vld;
+input           entry4_vld;
+input           entry5_vld;
+input           entry6_vld;
+input           entry7_vld;
+input           entry8_vld;
+input           entry9_vld;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input   [15:0]  utlb_plru_read_hit0;
+input   [15:0]  utlb_plru_read_hit1;
+input           utlb_plru_read_hit_vld0;
+input           utlb_plru_read_hit_vld1;
+input           utlb_plru_refill_on;
+input           utlb_plru_refill_vld;
+output  [15:0]  plru_dutlb_ref_num;
 
 // &Regs; @25
-reg     [3 :0]  hit_num_flop0;          
-reg     [3 :0]  hit_num_flop1;          
-reg     [3 :0]  hit_num_index0;         
-reg     [3 :0]  hit_num_index1;         
-reg             p00;                    
-reg             p10;                    
-reg             p11;                    
-reg             p20;                    
-reg             p21;                    
-reg             p22;                    
-reg             p23;                    
-reg             p30;                    
-reg             p31;                    
-reg             p32;                    
-reg             p33;                    
-reg             p34;                    
-reg             p35;                    
-reg             p36;                    
-reg             p37;                    
-reg     [3 :0]  refill_num_index;       
-reg     [15:0]  refill_num_onehot;      
-reg     [3 :0]  write_num;              
+reg     [3 :0]  hit_num_flop0;
+reg     [3 :0]  hit_num_flop1;
+reg     [3 :0]  hit_num_index0;
+reg     [3 :0]  hit_num_index1;
+reg             p00;
+reg             p10;
+reg             p11;
+reg             p20;
+reg             p21;
+reg             p22;
+reg             p23;
+reg             p30;
+reg             p31;
+reg             p32;
+reg             p33;
+reg             p34;
+reg             p35;
+reg             p36;
+reg             p37;
+reg     [3 :0]  refill_num_index;
+reg     [15:0]  refill_num_onehot;
+reg     [3 :0]  write_num;
 
 // &Wires; @26
-wire            cp0_mmu_icg_en;         
-wire            cpurst_b;               
-wire            entry0_vld;             
-wire            entry10_vld;            
-wire            entry11_vld;            
-wire            entry12_vld;            
-wire            entry13_vld;            
-wire            entry14_vld;            
-wire            entry15_vld;            
-wire            entry1_vld;             
-wire            entry2_vld;             
-wire            entry3_vld;             
-wire            entry4_vld;             
-wire            entry5_vld;             
-wire            entry6_vld;             
-wire            entry7_vld;             
-wire            entry8_vld;             
-wire            entry9_vld;             
-wire            forever_cpuclk;         
-wire    [15:0]  hit_num_onehot0;        
-wire    [15:0]  hit_num_onehot1;        
-wire            lru_clk;                
-wire            lru_clk_en;             
-wire            p00_read_updt;          
-wire            p00_read_updt_val;      
-wire            p00_write_updt;         
-wire            p00_write_updt_val;     
-wire            p10_rdupdt_by_va0;      
-wire            p10_rdupdt_by_va01;     
-wire            p10_rdupdt_by_va1;      
-wire            p10_read_updt0;         
-wire            p10_read_updt1;         
-wire            p10_read_updt_val0;     
-wire            p10_read_updt_val1;     
-wire            p10_write_updt;         
-wire            p10_write_updt_val;     
-wire            p11_rdupdt_by_va0;      
-wire            p11_rdupdt_by_va01;     
-wire            p11_rdupdt_by_va1;      
-wire            p11_read_updt0;         
-wire            p11_read_updt1;         
-wire            p11_read_updt_val0;     
-wire            p11_read_updt_val1;     
-wire            p11_write_updt;         
-wire            p11_write_updt_val;     
-wire            p20_rdupdt_by_va0;      
-wire            p20_rdupdt_by_va01;     
-wire            p20_rdupdt_by_va1;      
-wire            p20_read_updt0;         
-wire            p20_read_updt1;         
-wire            p20_read_updt_val0;     
-wire            p20_read_updt_val1;     
-wire            p20_write_updt;         
-wire            p20_write_updt_val;     
-wire            p21_rdupdt_by_va0;      
-wire            p21_rdupdt_by_va01;     
-wire            p21_rdupdt_by_va1;      
-wire            p21_read_updt0;         
-wire            p21_read_updt1;         
-wire            p21_read_updt_val0;     
-wire            p21_read_updt_val1;     
-wire            p21_write_updt;         
-wire            p21_write_updt_val;     
-wire            p22_rdupdt_by_va0;      
-wire            p22_rdupdt_by_va01;     
-wire            p22_rdupdt_by_va1;      
-wire            p22_read_updt0;         
-wire            p22_read_updt1;         
-wire            p22_read_updt_val0;     
-wire            p22_read_updt_val1;     
-wire            p22_write_updt;         
-wire            p22_write_updt_val;     
-wire            p23_rdupdt_by_va0;      
-wire            p23_rdupdt_by_va01;     
-wire            p23_rdupdt_by_va1;      
-wire            p23_read_updt0;         
-wire            p23_read_updt1;         
-wire            p23_read_updt_val0;     
-wire            p23_read_updt_val1;     
-wire            p23_write_updt;         
-wire            p23_write_updt_val;     
-wire            p30_rdupdt_by_va0;      
-wire            p30_rdupdt_by_va01;     
-wire            p30_rdupdt_by_va1;      
-wire            p30_read_updt0;         
-wire            p30_read_updt1;         
-wire            p30_read_updt_val0;     
-wire            p30_read_updt_val1;     
-wire            p30_write_updt;         
-wire            p30_write_updt_val;     
-wire            p31_rdupdt_by_va0;      
-wire            p31_rdupdt_by_va01;     
-wire            p31_rdupdt_by_va1;      
-wire            p31_read_updt0;         
-wire            p31_read_updt1;         
-wire            p31_read_updt_val0;     
-wire            p31_read_updt_val1;     
-wire            p31_write_updt;         
-wire            p31_write_updt_val;     
-wire            p32_rdupdt_by_va0;      
-wire            p32_rdupdt_by_va01;     
-wire            p32_rdupdt_by_va1;      
-wire            p32_read_updt0;         
-wire            p32_read_updt1;         
-wire            p32_read_updt_val0;     
-wire            p32_read_updt_val1;     
-wire            p32_write_updt;         
-wire            p32_write_updt_val;     
-wire            p33_rdupdt_by_va0;      
-wire            p33_rdupdt_by_va01;     
-wire            p33_rdupdt_by_va1;      
-wire            p33_read_updt0;         
-wire            p33_read_updt1;         
-wire            p33_read_updt_val0;     
-wire            p33_read_updt_val1;     
-wire            p33_write_updt;         
-wire            p33_write_updt_val;     
-wire            p34_rdupdt_by_va0;      
-wire            p34_rdupdt_by_va01;     
-wire            p34_rdupdt_by_va1;      
-wire            p34_read_updt0;         
-wire            p34_read_updt1;         
-wire            p34_read_updt_val0;     
-wire            p34_read_updt_val1;     
-wire            p34_write_updt;         
-wire            p34_write_updt_val;     
-wire            p35_rdupdt_by_va0;      
-wire            p35_rdupdt_by_va01;     
-wire            p35_rdupdt_by_va1;      
-wire            p35_read_updt0;         
-wire            p35_read_updt1;         
-wire            p35_read_updt_val0;     
-wire            p35_read_updt_val1;     
-wire            p35_write_updt;         
-wire            p35_write_updt_val;     
-wire            p36_rdupdt_by_va0;      
-wire            p36_rdupdt_by_va01;     
-wire            p36_rdupdt_by_va1;      
-wire            p36_read_updt0;         
-wire            p36_read_updt1;         
-wire            p36_read_updt_val0;     
-wire            p36_read_updt_val1;     
-wire            p36_write_updt;         
-wire            p36_write_updt_val;     
-wire            p37_rdupdt_by_va0;      
-wire            p37_rdupdt_by_va01;     
-wire            p37_rdupdt_by_va1;      
-wire            p37_read_updt0;         
-wire            p37_read_updt1;         
-wire            p37_read_updt_val0;     
-wire            p37_read_updt_val1;     
-wire            p37_write_updt;         
-wire            p37_write_updt_val;     
-wire            pad_yy_icg_scan_en;     
-wire    [15:0]  plru_dutlb_ref_num;     
-wire    [3 :0]  plru_num;               
-wire            plru_read_updt;         
-wire            plru_read_updt0;        
-wire            plru_read_updt1;        
-wire            plru_write_updt;        
-wire    [15:0]  utlb_plru_read_hit0;    
-wire    [15:0]  utlb_plru_read_hit1;    
-wire            utlb_plru_read_hit_vld0; 
-wire            utlb_plru_read_hit_vld1; 
-wire            utlb_plru_refill_on;    
-wire            utlb_plru_refill_vld;   
-wire    [15:0]  vld_entry_num;          
+wire            cp0_mmu_icg_en;
+wire            cpurst_b;
+wire            entry0_vld;
+wire            entry10_vld;
+wire            entry11_vld;
+wire            entry12_vld;
+wire            entry13_vld;
+wire            entry14_vld;
+wire            entry15_vld;
+wire            entry1_vld;
+wire            entry2_vld;
+wire            entry3_vld;
+wire            entry4_vld;
+wire            entry5_vld;
+wire            entry6_vld;
+wire            entry7_vld;
+wire            entry8_vld;
+wire            entry9_vld;
+wire            forever_cpuclk;
+wire    [15:0]  hit_num_onehot0;
+wire    [15:0]  hit_num_onehot1;
+wire            lru_clk;
+wire            lru_clk_en;
+wire            p00_read_updt;
+wire            p00_read_updt_val;
+wire            p00_write_updt;
+wire            p00_write_updt_val;
+wire            p10_rdupdt_by_va0;
+wire            p10_rdupdt_by_va01;
+wire            p10_rdupdt_by_va1;
+wire            p10_read_updt0;
+wire            p10_read_updt1;
+wire            p10_read_updt_val0;
+wire            p10_read_updt_val1;
+wire            p10_write_updt;
+wire            p10_write_updt_val;
+wire            p11_rdupdt_by_va0;
+wire            p11_rdupdt_by_va01;
+wire            p11_rdupdt_by_va1;
+wire            p11_read_updt0;
+wire            p11_read_updt1;
+wire            p11_read_updt_val0;
+wire            p11_read_updt_val1;
+wire            p11_write_updt;
+wire            p11_write_updt_val;
+wire            p20_rdupdt_by_va0;
+wire            p20_rdupdt_by_va01;
+wire            p20_rdupdt_by_va1;
+wire            p20_read_updt0;
+wire            p20_read_updt1;
+wire            p20_read_updt_val0;
+wire            p20_read_updt_val1;
+wire            p20_write_updt;
+wire            p20_write_updt_val;
+wire            p21_rdupdt_by_va0;
+wire            p21_rdupdt_by_va01;
+wire            p21_rdupdt_by_va1;
+wire            p21_read_updt0;
+wire            p21_read_updt1;
+wire            p21_read_updt_val0;
+wire            p21_read_updt_val1;
+wire            p21_write_updt;
+wire            p21_write_updt_val;
+wire            p22_rdupdt_by_va0;
+wire            p22_rdupdt_by_va01;
+wire            p22_rdupdt_by_va1;
+wire            p22_read_updt0;
+wire            p22_read_updt1;
+wire            p22_read_updt_val0;
+wire            p22_read_updt_val1;
+wire            p22_write_updt;
+wire            p22_write_updt_val;
+wire            p23_rdupdt_by_va0;
+wire            p23_rdupdt_by_va01;
+wire            p23_rdupdt_by_va1;
+wire            p23_read_updt0;
+wire            p23_read_updt1;
+wire            p23_read_updt_val0;
+wire            p23_read_updt_val1;
+wire            p23_write_updt;
+wire            p23_write_updt_val;
+wire            p30_rdupdt_by_va0;
+wire            p30_rdupdt_by_va01;
+wire            p30_rdupdt_by_va1;
+wire            p30_read_updt0;
+wire            p30_read_updt1;
+wire            p30_read_updt_val0;
+wire            p30_read_updt_val1;
+wire            p30_write_updt;
+wire            p30_write_updt_val;
+wire            p31_rdupdt_by_va0;
+wire            p31_rdupdt_by_va01;
+wire            p31_rdupdt_by_va1;
+wire            p31_read_updt0;
+wire            p31_read_updt1;
+wire            p31_read_updt_val0;
+wire            p31_read_updt_val1;
+wire            p31_write_updt;
+wire            p31_write_updt_val;
+wire            p32_rdupdt_by_va0;
+wire            p32_rdupdt_by_va01;
+wire            p32_rdupdt_by_va1;
+wire            p32_read_updt0;
+wire            p32_read_updt1;
+wire            p32_read_updt_val0;
+wire            p32_read_updt_val1;
+wire            p32_write_updt;
+wire            p32_write_updt_val;
+wire            p33_rdupdt_by_va0;
+wire            p33_rdupdt_by_va01;
+wire            p33_rdupdt_by_va1;
+wire            p33_read_updt0;
+wire            p33_read_updt1;
+wire            p33_read_updt_val0;
+wire            p33_read_updt_val1;
+wire            p33_write_updt;
+wire            p33_write_updt_val;
+wire            p34_rdupdt_by_va0;
+wire            p34_rdupdt_by_va01;
+wire            p34_rdupdt_by_va1;
+wire            p34_read_updt0;
+wire            p34_read_updt1;
+wire            p34_read_updt_val0;
+wire            p34_read_updt_val1;
+wire            p34_write_updt;
+wire            p34_write_updt_val;
+wire            p35_rdupdt_by_va0;
+wire            p35_rdupdt_by_va01;
+wire            p35_rdupdt_by_va1;
+wire            p35_read_updt0;
+wire            p35_read_updt1;
+wire            p35_read_updt_val0;
+wire            p35_read_updt_val1;
+wire            p35_write_updt;
+wire            p35_write_updt_val;
+wire            p36_rdupdt_by_va0;
+wire            p36_rdupdt_by_va01;
+wire            p36_rdupdt_by_va1;
+wire            p36_read_updt0;
+wire            p36_read_updt1;
+wire            p36_read_updt_val0;
+wire            p36_read_updt_val1;
+wire            p36_write_updt;
+wire            p36_write_updt_val;
+wire            p37_rdupdt_by_va0;
+wire            p37_rdupdt_by_va01;
+wire            p37_rdupdt_by_va1;
+wire            p37_read_updt0;
+wire            p37_read_updt1;
+wire            p37_read_updt_val0;
+wire            p37_read_updt_val1;
+wire            p37_write_updt;
+wire            p37_write_updt_val;
+wire            pad_yy_icg_scan_en;
+wire    [15:0]  plru_dutlb_ref_num;
+wire    [3 :0]  plru_num;
+wire            plru_read_updt;
+wire            plru_read_updt0;
+wire            plru_read_updt1;
+wire            plru_write_updt;
+wire    [15:0]  utlb_plru_read_hit0;
+wire    [15:0]  utlb_plru_read_hit1;
+wire            utlb_plru_read_hit_vld0;
+wire            utlb_plru_read_hit_vld1;
+wire            utlb_plru_refill_on;
+wire            utlb_plru_refill_vld;
+wire    [15:0]  vld_entry_num;
 
 
 
@@ -301,7 +301,7 @@ gated_clk_cell  x_dplru_gateclk (
 assign vld_entry_num[15:0] = {entry15_vld, entry14_vld, entry13_vld, entry12_vld,
                               entry11_vld, entry10_vld, entry9_vld,  entry8_vld,
                               entry7_vld,  entry6_vld,  entry5_vld,  entry4_vld,
-                              entry3_vld,  entry2_vld,  entry1_vld,  entry0_vld};  
+                              entry3_vld,  entry2_vld,  entry1_vld,  entry0_vld};
 // &CombBeg; @53
 always @( plru_num[3:0]
        or vld_entry_num[15:0])
@@ -464,13 +464,13 @@ end
 //                P20     P21     P22     P23
 //               /\      /\       /\       /\
 //             0/  \1  0/  \1   0/  \1   0/  \1
-//            P30 P31  P32 P33  P34 P35  P36 P37          
+//            P30 P31  P32 P33  P34 P35  P36 P37
 
 assign plru_write_updt = utlb_plru_refill_vld;
 assign plru_read_updt0 = utlb_plru_read_hit_vld0
                             && (hit_num_flop0[3:0] != hit_num_index0[3:0]);
 assign plru_read_updt1 = utlb_plru_read_hit_vld1
-                            && (hit_num_flop1[3:0] != hit_num_index1[3:0]); 
+                            && (hit_num_flop1[3:0] != hit_num_index1[3:0]);
 assign plru_read_updt  = plru_read_updt0 || plru_read_updt1;
 
 //----------------------------------------------------------
@@ -503,7 +503,7 @@ assign p10_write_updt     = plru_write_updt && !refill_num_index[3];
 assign p10_read_updt0     = plru_read_updt0 && !hit_num_index0[3];
 assign p10_read_updt1     = plru_read_updt1 && !hit_num_index1[3];
 
-assign p10_write_updt_val = (refill_num_index[3:2] == 2'b00); 
+assign p10_write_updt_val = (refill_num_index[3:2] == 2'b00);
 assign p10_read_updt_val0 = (hit_num_index0[3:2] == 2'b00);
 assign p10_read_updt_val1 = (hit_num_index1[3:2] == 2'b00);
 
@@ -669,7 +669,7 @@ begin
   else if(p23_rdupdt_by_va0 || p23_rdupdt_by_va01)
     p23 <= p23_read_updt_val0;
   else if(p23_rdupdt_by_va1)
-    p23 <= p23_read_updt_val1; 
+    p23 <= p23_read_updt_val1;
 end
 
 
@@ -725,7 +725,7 @@ assign p31_rdupdt_by_va01 = (p31_read_updt0 &&  p31_read_updt1)
 always @(posedge lru_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    p31 <= 1'b0; 
+    p31 <= 1'b0;
   else if(p31_write_updt)
     p31 <= p31_write_updt_val;
   else if(p31_rdupdt_by_va0 || p31_rdupdt_by_va01)
@@ -733,7 +733,7 @@ begin
   else if(p31_rdupdt_by_va1)
     p31 <= p31_read_updt_val1;
 end
-  
+
 //Path 32
 assign p32_write_updt     = plru_write_updt
                          && (refill_num_index[3:1] == 3'b010);
@@ -754,15 +754,15 @@ assign p32_rdupdt_by_va01 = (p32_read_updt0 &&  p32_read_updt1)
 always @(posedge lru_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    p32 <= 1'b0; 
+    p32 <= 1'b0;
   else if(p32_write_updt)
     p32 <= p32_write_updt_val;
   else if(p32_rdupdt_by_va0 || p32_rdupdt_by_va01)
     p32 <= p32_read_updt_val0;
   else if(p32_rdupdt_by_va1)
     p32 <= p32_read_updt_val1;
-end 
-  
+end
+
 //Path 33
 assign p33_write_updt     = plru_write_updt
                          && (refill_num_index[3:1] == 3'b011);
@@ -783,15 +783,15 @@ assign p33_rdupdt_by_va01 = (p33_read_updt0 &&  p33_read_updt1)
 always @(posedge lru_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    p33 <= 1'b0; 
+    p33 <= 1'b0;
   else if(p33_write_updt)
     p33 <= p33_write_updt_val;
   else if(p33_rdupdt_by_va0 || p33_rdupdt_by_va01)
     p33 <= p33_read_updt_val0;
   else if(p33_rdupdt_by_va1)
     p33 <= p33_read_updt_val1;
-end 
-  
+end
+
 //Path 34
 assign p34_write_updt     = plru_write_updt
                          && (refill_num_index[3:1] == 3'b100);
@@ -812,15 +812,15 @@ assign p34_rdupdt_by_va01 = (p34_read_updt0 &&  p34_read_updt1)
 always @(posedge lru_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    p34 <= 1'b0; 
+    p34 <= 1'b0;
   else if(p34_write_updt)
     p34 <= p34_write_updt_val;
   else if(p34_rdupdt_by_va0 || p34_rdupdt_by_va01)
     p34 <= p34_read_updt_val0;
   else if(p34_rdupdt_by_va1)
     p34 <= p34_read_updt_val1;
-end 
-  
+end
+
 //Path 35
 assign p35_write_updt     = plru_write_updt
                          && (refill_num_index[3:1] == 3'b101);
@@ -842,15 +842,15 @@ assign p35_rdupdt_by_va01 = (p35_read_updt0 &&  p35_read_updt1)
 always @(posedge lru_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    p35 <= 1'b0; 
+    p35 <= 1'b0;
   else if(p35_write_updt)
     p35 <= p35_write_updt_val;
   else if(p35_rdupdt_by_va0 || p35_rdupdt_by_va01)
     p35 <= p35_read_updt_val0;
   else if(p35_rdupdt_by_va1)
     p35 <= p35_rdupdt_by_va1;
-end 
-  
+end
+
 //Path 36
 assign p36_write_updt     = plru_write_updt
                          && (refill_num_index[3:1] == 3'b110);
@@ -871,15 +871,15 @@ assign p36_rdupdt_by_va01 = (p36_read_updt0 &&  p36_read_updt1)
 always @(posedge lru_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    p36 <= 1'b0; 
+    p36 <= 1'b0;
   else if(p36_write_updt)
     p36 <= p36_write_updt_val;
   else if(p36_rdupdt_by_va0 || p36_rdupdt_by_va01)
     p36 <= p36_read_updt_val0;
   else if(p36_rdupdt_by_va1)
     p36 <= p36_read_updt_val1;
-end 
-  
+end
+
 //Path 37
 assign p37_write_updt     = plru_write_updt
                          && (refill_num_index[3:1] == 3'b111);
@@ -900,16 +900,16 @@ assign p37_rdupdt_by_va01 = (p37_read_updt0 &&  p37_read_updt1)
 always @(posedge lru_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-    p37 <= 1'b0; 
+    p37 <= 1'b0;
   else if(p37_write_updt)
     p37 <= p37_write_updt_val;
   else if(p37_rdupdt_by_va0 || p37_rdupdt_by_va01)
     p37 <= p37_read_updt_val0;
   else if(p37_rdupdt_by_va1)
     p37 <= p37_read_updt_val1;
-end 
-  
-  
+end
+
+
 //----------------------------------------------------------
 //                  uTLB Replacement Algorithm
 //----------------------------------------------------------

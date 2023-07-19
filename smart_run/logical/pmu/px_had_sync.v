@@ -22,28 +22,28 @@ module px_had_sync(
 );
 
 // &Ports; @22
-input        clk1;         
-input        clk2;         
-input        rst1_b;       
-input        rst2_b;       
-input        sync_in;      
-output       sync_out;     
+input        clk1;
+input        clk2;
+input        rst1_b;
+input        rst2_b;
+input        sync_in;
+output       sync_out;
 
 // &Regs; @23
-reg          sync_ff1_clk1; 
-reg          sync_ff2_clk1; 
-reg          sync_ff3_clk1; 
-reg          sync_ff_clk2; 
+reg          sync_ff1_clk1;
+reg          sync_ff2_clk1;
+reg          sync_ff3_clk1;
+reg          sync_ff_clk2;
 
 // &Wires; @24
-wire         clk1;         
-wire         clk2;         
-wire         rst1_b;       
-wire         rst2_b;       
-wire         sync_in;      
-wire         sync_out;     
+wire         clk1;
+wire         clk2;
+wire         rst1_b;
+wire         rst2_b;
+wire         sync_in;
+wire         sync_out;
 
-  
+
 
 //==============================================================================
 // sync logic from clk2 to clk1
@@ -70,7 +70,7 @@ begin
   else begin
     sync_ff1_clk1 <= sync_ff_clk2;
     sync_ff2_clk1 <= sync_ff1_clk1;
-  end   
+  end
 end
 
 // generates a pulse signal in clk1 domain

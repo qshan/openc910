@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-  
+
 // &ModuleBeg; @24
 module ct_had_regs(
   bkpt_regs_mbca,
@@ -120,274 +120,274 @@ module ct_had_regs(
 );
 
 // &Ports; @25
-input   [7 :0]  bkpt_regs_mbca;         
-input   [7 :0]  bkpt_regs_mbcb;         
-input   [31:0]  cp0_had_cpuid_0;        
-input   [1 :0]  cp0_had_lpmd_b;         
-input           cpuclk;                 
-input           cpurst_b;               
-input           ctrl_regs_bkpta_vld;    
-input           ctrl_regs_bkptb_vld;    
-input           ctrl_regs_exit_dbg;     
-input           ctrl_regs_freeze_pcfifo; 
-input           ctrl_regs_set_sqa;      
-input           ctrl_regs_set_sqb;      
-input           ctrl_regs_update_adro;  
-input           ctrl_regs_update_dro;   
-input           ctrl_regs_update_mbo;   
-input           ctrl_regs_update_pro;   
-input           ctrl_regs_update_swo;   
-input           ctrl_regs_update_to;    
-input   [63:0]  dbgfifo_regs_data;      
-input   [63:0]  ddc_regs_daddr;         
-input   [63:0]  ddc_regs_ddata;         
-input           ddc_regs_ffy;           
-input   [31:0]  ddc_regs_ir;            
-input           ddc_regs_update_csr;    
-input           ddc_regs_update_wbbr;   
-input   [63:0]  ddc_regs_wbbr;          
-input           ddc_xx_update_ir;       
-input           idu_had_iq_empty;       
-input           idu_had_pipe_stall;     
-input           idu_had_pipeline_empty; 
-input   [63:0]  idu_had_wb_data;        
-input           idu_had_wb_vld;         
-input           ifu_had_no_inst;        
-input           ifu_had_no_op;          
-input           ifu_had_reset_on;       
-input           ir_xx_baba_reg_sel;     
-input           ir_xx_babb_reg_sel;     
-input           ir_xx_bama_reg_sel;     
-input           ir_xx_bamb_reg_sel;     
-input           ir_xx_csr_reg_sel;      
-input           ir_xx_daddr_reg_sel;    
-input           ir_xx_dbgfifo_reg_sel;  
-input           ir_xx_ddata_reg_sel;    
-input           ir_xx_eventie_reg_sel;  
-input           ir_xx_eventoe_reg_sel;  
-input           ir_xx_hcr_reg_sel;      
-input           ir_xx_hsr_reg_sel;      
-input           ir_xx_id_reg_sel;       
-input           ir_xx_ir_reg_sel;       
-input           ir_xx_mbca_reg_sel;     
-input           ir_xx_mbcb_reg_sel;     
-input           ir_xx_mbir_reg_sel;     
-input           ir_xx_otc_reg_sel;      
-input           ir_xx_pc_reg_sel;       
-input           ir_xx_pcfifo_reg_sel;   
-input           ir_xx_pipefifo_reg_sel; 
-input           ir_xx_pipesel_reg_sel;  
-input           ir_xx_wbbr_reg_sel;     
-input   [63:0]  ir_xx_wdata;            
-input           lsu_had_no_op;          
-input           mmu_xx_mmu_en;          
-input   [63:0]  pcfifo_regs_data;       
-input   [63:0]  pipefifo_regs_data;     
-input   [31:0]  pipesel_regs_data;      
-input           rtu_had_inst_exe_dead;  
-input           rtu_had_inst_not_wb;    
-input           rtu_had_rob_empty;      
-input           rtu_had_xx_dbg_ack_pc;  
-input   [38:0]  rtu_had_xx_pc;          
-input           rtu_yy_xx_dbgon;        
-input   [7 :0]  trace_regs_otc;         
-input           x_sm_xx_update_dr_en;   
-output  [1 :0]  had_biu_jdb_pm;         
-output  [63:0]  had_idu_wbbr_data;      
-output          had_idu_wbbr_vld;       
-output  [31:0]  had_ifu_ir;             
-output  [38:0]  had_ifu_pc;             
-output  [39:0]  had_yy_xx_bkpta_base;   
-output  [7 :0]  had_yy_xx_bkpta_mask;   
-output          had_yy_xx_bkpta_rc;     
-output  [39:0]  had_yy_xx_bkptb_base;   
-output  [7 :0]  had_yy_xx_bkptb_mask;   
-output          had_yy_xx_bkptb_rc;     
-output          regs_ctrl_adr;          
-output          regs_ctrl_dr;           
-output          regs_ctrl_fdb;          
-output          regs_ctrl_frzc;         
-output          regs_ctrl_pcfifo_frozen; 
-output  [1 :0]  regs_ctrl_pm;           
-output          regs_ctrl_sqa;          
-output          regs_ctrl_sqb;          
-output  [1 :0]  regs_ctrl_sqc;          
-output          regs_ctrl_tme;          
-output          regs_event_enter_ie;    
-output          regs_event_enter_oe;    
-output          regs_event_exit_ie;     
-output          regs_event_exit_oe;     
-output  [4 :0]  regs_xx_bca;            
-output  [4 :0]  regs_xx_bcb;            
-output          regs_xx_ddc_en;         
-output          regs_xx_nirven;         
-output  [63:0]  x_regs_serial_data;     
+input   [7 :0]  bkpt_regs_mbca;
+input   [7 :0]  bkpt_regs_mbcb;
+input   [31:0]  cp0_had_cpuid_0;
+input   [1 :0]  cp0_had_lpmd_b;
+input           cpuclk;
+input           cpurst_b;
+input           ctrl_regs_bkpta_vld;
+input           ctrl_regs_bkptb_vld;
+input           ctrl_regs_exit_dbg;
+input           ctrl_regs_freeze_pcfifo;
+input           ctrl_regs_set_sqa;
+input           ctrl_regs_set_sqb;
+input           ctrl_regs_update_adro;
+input           ctrl_regs_update_dro;
+input           ctrl_regs_update_mbo;
+input           ctrl_regs_update_pro;
+input           ctrl_regs_update_swo;
+input           ctrl_regs_update_to;
+input   [63:0]  dbgfifo_regs_data;
+input   [63:0]  ddc_regs_daddr;
+input   [63:0]  ddc_regs_ddata;
+input           ddc_regs_ffy;
+input   [31:0]  ddc_regs_ir;
+input           ddc_regs_update_csr;
+input           ddc_regs_update_wbbr;
+input   [63:0]  ddc_regs_wbbr;
+input           ddc_xx_update_ir;
+input           idu_had_iq_empty;
+input           idu_had_pipe_stall;
+input           idu_had_pipeline_empty;
+input   [63:0]  idu_had_wb_data;
+input           idu_had_wb_vld;
+input           ifu_had_no_inst;
+input           ifu_had_no_op;
+input           ifu_had_reset_on;
+input           ir_xx_baba_reg_sel;
+input           ir_xx_babb_reg_sel;
+input           ir_xx_bama_reg_sel;
+input           ir_xx_bamb_reg_sel;
+input           ir_xx_csr_reg_sel;
+input           ir_xx_daddr_reg_sel;
+input           ir_xx_dbgfifo_reg_sel;
+input           ir_xx_ddata_reg_sel;
+input           ir_xx_eventie_reg_sel;
+input           ir_xx_eventoe_reg_sel;
+input           ir_xx_hcr_reg_sel;
+input           ir_xx_hsr_reg_sel;
+input           ir_xx_id_reg_sel;
+input           ir_xx_ir_reg_sel;
+input           ir_xx_mbca_reg_sel;
+input           ir_xx_mbcb_reg_sel;
+input           ir_xx_mbir_reg_sel;
+input           ir_xx_otc_reg_sel;
+input           ir_xx_pc_reg_sel;
+input           ir_xx_pcfifo_reg_sel;
+input           ir_xx_pipefifo_reg_sel;
+input           ir_xx_pipesel_reg_sel;
+input           ir_xx_wbbr_reg_sel;
+input   [63:0]  ir_xx_wdata;
+input           lsu_had_no_op;
+input           mmu_xx_mmu_en;
+input   [63:0]  pcfifo_regs_data;
+input   [63:0]  pipefifo_regs_data;
+input   [31:0]  pipesel_regs_data;
+input           rtu_had_inst_exe_dead;
+input           rtu_had_inst_not_wb;
+input           rtu_had_rob_empty;
+input           rtu_had_xx_dbg_ack_pc;
+input   [38:0]  rtu_had_xx_pc;
+input           rtu_yy_xx_dbgon;
+input   [7 :0]  trace_regs_otc;
+input           x_sm_xx_update_dr_en;
+output  [1 :0]  had_biu_jdb_pm;
+output  [63:0]  had_idu_wbbr_data;
+output          had_idu_wbbr_vld;
+output  [31:0]  had_ifu_ir;
+output  [38:0]  had_ifu_pc;
+output  [39:0]  had_yy_xx_bkpta_base;
+output  [7 :0]  had_yy_xx_bkpta_mask;
+output          had_yy_xx_bkpta_rc;
+output  [39:0]  had_yy_xx_bkptb_base;
+output  [7 :0]  had_yy_xx_bkptb_mask;
+output          had_yy_xx_bkptb_rc;
+output          regs_ctrl_adr;
+output          regs_ctrl_dr;
+output          regs_ctrl_fdb;
+output          regs_ctrl_frzc;
+output          regs_ctrl_pcfifo_frozen;
+output  [1 :0]  regs_ctrl_pm;
+output          regs_ctrl_sqa;
+output          regs_ctrl_sqb;
+output  [1 :0]  regs_ctrl_sqc;
+output          regs_ctrl_tme;
+output          regs_event_enter_ie;
+output          regs_event_enter_oe;
+output          regs_event_exit_ie;
+output          regs_event_exit_oe;
+output  [4 :0]  regs_xx_bca;
+output  [4 :0]  regs_xx_bcb;
+output          regs_xx_ddc_en;
+output          regs_xx_nirven;
+output  [63:0]  x_regs_serial_data;
 
 // &Regs; @26
-reg             adro;                   
-reg     [63:0]  baba_reg;               
-reg     [63:0]  babb_reg;               
-reg     [7 :0]  bama_reg;               
-reg     [7 :0]  bamb_reg;               
-reg             bus_dead;               
-reg             dro;                    
-reg             event_ent_ie;           
-reg             event_ent_oe;           
-reg             event_exit_ie;          
-reg             event_exit_oe;          
-reg             exe_dead;               
-reg             fdb;                    
-reg             ffy;                    
-reg             frzo;                   
-reg             hcr_adr;                
-reg     [4 :0]  hcr_bca;                
-reg     [4 :0]  hcr_bcb;                
-reg             hcr_ddcen;              
-reg             hcr_dr;                 
-reg             hcr_frzc;               
-reg             hcr_idre;               
-reg             hcr_nicven;             
-reg             hcr_rca;                
-reg             hcr_rcb;                
-reg     [1 :0]  hcr_sqc;                
-reg             hcr_tme;                
-reg             idu_stall;              
-reg             ifu_dead;               
-reg             inst_not_wb;            
-reg             iq_not_empty;           
-reg     [31:0]  ir_reg;                 
-reg     [1 :0]  mbir_idx;               
-reg             mbo;                    
-reg     [63:0]  pc;                     
-reg     [1 :0]  pm;                     
-reg             pro;                    
-reg             ps;                     
-reg             rob_not_empty;          
-reg             sqa;                    
-reg             sqb;                    
-reg             swo;                    
-reg             to;                     
-reg     [63:0]  wbbr_reg;               
-reg     [63:0]  x_regs_serial_data;     
+reg             adro;
+reg     [63:0]  baba_reg;
+reg     [63:0]  babb_reg;
+reg     [7 :0]  bama_reg;
+reg     [7 :0]  bamb_reg;
+reg             bus_dead;
+reg             dro;
+reg             event_ent_ie;
+reg             event_ent_oe;
+reg             event_exit_ie;
+reg             event_exit_oe;
+reg             exe_dead;
+reg             fdb;
+reg             ffy;
+reg             frzo;
+reg             hcr_adr;
+reg     [4 :0]  hcr_bca;
+reg     [4 :0]  hcr_bcb;
+reg             hcr_ddcen;
+reg             hcr_dr;
+reg             hcr_frzc;
+reg             hcr_idre;
+reg             hcr_nicven;
+reg             hcr_rca;
+reg             hcr_rcb;
+reg     [1 :0]  hcr_sqc;
+reg             hcr_tme;
+reg             idu_stall;
+reg             ifu_dead;
+reg             inst_not_wb;
+reg             iq_not_empty;
+reg     [31:0]  ir_reg;
+reg     [1 :0]  mbir_idx;
+reg             mbo;
+reg     [63:0]  pc;
+reg     [1 :0]  pm;
+reg             pro;
+reg             ps;
+reg             rob_not_empty;
+reg             sqa;
+reg             sqb;
+reg             swo;
+reg             to;
+reg     [63:0]  wbbr_reg;
+reg     [63:0]  x_regs_serial_data;
 
 // &Wires; @27
-wire            biu_idle;               
-wire    [7 :0]  bkpt_regs_mbca;         
-wire    [7 :0]  bkpt_regs_mbcb;         
-wire    [31:0]  cp0_had_cpuid_0;        
-wire    [1 :0]  cp0_had_lpmd_b;         
-wire            cpu_idle;               
-wire            cpuclk;                 
-wire            cpurst_b;               
-wire    [15:0]  csr_reg;                
-wire            ctrl_regs_bkpta_vld;    
-wire            ctrl_regs_bkptb_vld;    
-wire            ctrl_regs_exit_dbg;     
-wire            ctrl_regs_freeze_pcfifo; 
-wire            ctrl_regs_set_sqa;      
-wire            ctrl_regs_set_sqb;      
-wire            ctrl_regs_update_adro;  
-wire            ctrl_regs_update_dro;   
-wire            ctrl_regs_update_mbo;   
-wire            ctrl_regs_update_pro;   
-wire            ctrl_regs_update_swo;   
-wire            ctrl_regs_update_to;    
-wire    [63:0]  dbgfifo_regs_data;      
-wire    [63:0]  ddc_regs_daddr;         
-wire    [63:0]  ddc_regs_ddata;         
-wire            ddc_regs_ffy;           
-wire    [31:0]  ddc_regs_ir;            
-wire            ddc_regs_update_csr;    
-wire            ddc_regs_update_wbbr;   
-wire    [63:0]  ddc_regs_wbbr;          
-wire            ddc_xx_update_ir;       
-wire    [31:0]  event_ie_reg;           
-wire    [31:0]  event_oe_reg;           
-wire    [1 :0]  had_biu_jdb_pm;         
-wire    [63:0]  had_idu_wbbr_data;      
-wire            had_idu_wbbr_vld;       
-wire    [31:0]  had_ifu_ir;             
-wire    [38:0]  had_ifu_pc;             
-wire    [39:0]  had_yy_xx_bkpta_base;   
-wire    [7 :0]  had_yy_xx_bkpta_mask;   
-wire            had_yy_xx_bkpta_rc;     
-wire    [39:0]  had_yy_xx_bkptb_base;   
-wire    [7 :0]  had_yy_xx_bkptb_mask;   
-wire            had_yy_xx_bkptb_rc;     
-wire            hcr_jtgr_int_en;        
-wire            hcr_jtgw_int_en;        
-wire    [31:0]  hcr_reg;                
-wire            hcr_wen;                
-wire    [31:0]  hsr_reg;                
-wire    [31:0]  id_reg;                 
-wire            idu_had_iq_empty;       
-wire            idu_had_pipe_stall;     
-wire            idu_had_pipeline_empty; 
-wire    [63:0]  idu_had_wb_data;        
-wire            idu_had_wb_vld;         
-wire            ifu_had_no_inst;        
-wire            ifu_had_no_op;          
-wire            ifu_had_reset_on;       
-wire            ir_xx_baba_reg_sel;     
-wire            ir_xx_babb_reg_sel;     
-wire            ir_xx_bama_reg_sel;     
-wire            ir_xx_bamb_reg_sel;     
-wire            ir_xx_csr_reg_sel;      
-wire            ir_xx_daddr_reg_sel;    
-wire            ir_xx_dbgfifo_reg_sel;  
-wire            ir_xx_ddata_reg_sel;    
-wire            ir_xx_eventie_reg_sel;  
-wire            ir_xx_eventoe_reg_sel;  
-wire            ir_xx_hcr_reg_sel;      
-wire            ir_xx_hsr_reg_sel;      
-wire            ir_xx_id_reg_sel;       
-wire            ir_xx_ir_reg_sel;       
-wire            ir_xx_mbca_reg_sel;     
-wire            ir_xx_mbcb_reg_sel;     
-wire            ir_xx_mbir_reg_sel;     
-wire            ir_xx_otc_reg_sel;      
-wire            ir_xx_pc_reg_sel;       
-wire            ir_xx_pcfifo_reg_sel;   
-wire            ir_xx_pipefifo_reg_sel; 
-wire            ir_xx_pipesel_reg_sel;  
-wire            ir_xx_wbbr_reg_sel;     
-wire    [63:0]  ir_xx_wdata;            
-wire            lsu_had_no_op;          
-wire    [31:0]  mbir_reg;               
-wire            mmu_xx_mmu_en;          
-wire    [63:0]  pc_reg;                 
-wire            pc_wen;                 
-wire    [63:0]  pcfifo_regs_data;       
-wire    [63:0]  pipefifo_regs_data;     
-wire    [31:0]  pipesel_regs_data;      
-wire            regs_ctrl_adr;          
-wire            regs_ctrl_dr;           
-wire            regs_ctrl_fdb;          
-wire            regs_ctrl_frzc;         
-wire            regs_ctrl_pcfifo_frozen; 
-wire    [1 :0]  regs_ctrl_pm;           
-wire            regs_ctrl_sqa;          
-wire            regs_ctrl_sqb;          
-wire    [1 :0]  regs_ctrl_sqc;          
-wire            regs_ctrl_tme;          
-wire    [63:0]  regs_data_out;          
-wire            regs_event_enter_ie;    
-wire            regs_event_enter_oe;    
-wire            regs_event_exit_ie;     
-wire            regs_event_exit_oe;     
-wire    [4 :0]  regs_xx_bca;            
-wire    [4 :0]  regs_xx_bcb;            
-wire            regs_xx_ddc_en;         
-wire            regs_xx_nirven;         
-wire            rtu_had_inst_exe_dead;  
-wire            rtu_had_inst_not_wb;    
-wire            rtu_had_rob_empty;      
-wire            rtu_had_xx_dbg_ack_pc;  
-wire    [38:0]  rtu_had_xx_pc;          
-wire            rtu_yy_xx_dbgon;        
-wire            sm_xx_update_dr_en;     
-wire    [7 :0]  trace_regs_otc;         
-wire            x_sm_xx_update_dr_en;   
+wire            biu_idle;
+wire    [7 :0]  bkpt_regs_mbca;
+wire    [7 :0]  bkpt_regs_mbcb;
+wire    [31:0]  cp0_had_cpuid_0;
+wire    [1 :0]  cp0_had_lpmd_b;
+wire            cpu_idle;
+wire            cpuclk;
+wire            cpurst_b;
+wire    [15:0]  csr_reg;
+wire            ctrl_regs_bkpta_vld;
+wire            ctrl_regs_bkptb_vld;
+wire            ctrl_regs_exit_dbg;
+wire            ctrl_regs_freeze_pcfifo;
+wire            ctrl_regs_set_sqa;
+wire            ctrl_regs_set_sqb;
+wire            ctrl_regs_update_adro;
+wire            ctrl_regs_update_dro;
+wire            ctrl_regs_update_mbo;
+wire            ctrl_regs_update_pro;
+wire            ctrl_regs_update_swo;
+wire            ctrl_regs_update_to;
+wire    [63:0]  dbgfifo_regs_data;
+wire    [63:0]  ddc_regs_daddr;
+wire    [63:0]  ddc_regs_ddata;
+wire            ddc_regs_ffy;
+wire    [31:0]  ddc_regs_ir;
+wire            ddc_regs_update_csr;
+wire            ddc_regs_update_wbbr;
+wire    [63:0]  ddc_regs_wbbr;
+wire            ddc_xx_update_ir;
+wire    [31:0]  event_ie_reg;
+wire    [31:0]  event_oe_reg;
+wire    [1 :0]  had_biu_jdb_pm;
+wire    [63:0]  had_idu_wbbr_data;
+wire            had_idu_wbbr_vld;
+wire    [31:0]  had_ifu_ir;
+wire    [38:0]  had_ifu_pc;
+wire    [39:0]  had_yy_xx_bkpta_base;
+wire    [7 :0]  had_yy_xx_bkpta_mask;
+wire            had_yy_xx_bkpta_rc;
+wire    [39:0]  had_yy_xx_bkptb_base;
+wire    [7 :0]  had_yy_xx_bkptb_mask;
+wire            had_yy_xx_bkptb_rc;
+wire            hcr_jtgr_int_en;
+wire            hcr_jtgw_int_en;
+wire    [31:0]  hcr_reg;
+wire            hcr_wen;
+wire    [31:0]  hsr_reg;
+wire    [31:0]  id_reg;
+wire            idu_had_iq_empty;
+wire            idu_had_pipe_stall;
+wire            idu_had_pipeline_empty;
+wire    [63:0]  idu_had_wb_data;
+wire            idu_had_wb_vld;
+wire            ifu_had_no_inst;
+wire            ifu_had_no_op;
+wire            ifu_had_reset_on;
+wire            ir_xx_baba_reg_sel;
+wire            ir_xx_babb_reg_sel;
+wire            ir_xx_bama_reg_sel;
+wire            ir_xx_bamb_reg_sel;
+wire            ir_xx_csr_reg_sel;
+wire            ir_xx_daddr_reg_sel;
+wire            ir_xx_dbgfifo_reg_sel;
+wire            ir_xx_ddata_reg_sel;
+wire            ir_xx_eventie_reg_sel;
+wire            ir_xx_eventoe_reg_sel;
+wire            ir_xx_hcr_reg_sel;
+wire            ir_xx_hsr_reg_sel;
+wire            ir_xx_id_reg_sel;
+wire            ir_xx_ir_reg_sel;
+wire            ir_xx_mbca_reg_sel;
+wire            ir_xx_mbcb_reg_sel;
+wire            ir_xx_mbir_reg_sel;
+wire            ir_xx_otc_reg_sel;
+wire            ir_xx_pc_reg_sel;
+wire            ir_xx_pcfifo_reg_sel;
+wire            ir_xx_pipefifo_reg_sel;
+wire            ir_xx_pipesel_reg_sel;
+wire            ir_xx_wbbr_reg_sel;
+wire    [63:0]  ir_xx_wdata;
+wire            lsu_had_no_op;
+wire    [31:0]  mbir_reg;
+wire            mmu_xx_mmu_en;
+wire    [63:0]  pc_reg;
+wire            pc_wen;
+wire    [63:0]  pcfifo_regs_data;
+wire    [63:0]  pipefifo_regs_data;
+wire    [31:0]  pipesel_regs_data;
+wire            regs_ctrl_adr;
+wire            regs_ctrl_dr;
+wire            regs_ctrl_fdb;
+wire            regs_ctrl_frzc;
+wire            regs_ctrl_pcfifo_frozen;
+wire    [1 :0]  regs_ctrl_pm;
+wire            regs_ctrl_sqa;
+wire            regs_ctrl_sqb;
+wire    [1 :0]  regs_ctrl_sqc;
+wire            regs_ctrl_tme;
+wire    [63:0]  regs_data_out;
+wire            regs_event_enter_ie;
+wire            regs_event_enter_oe;
+wire            regs_event_exit_ie;
+wire            regs_event_exit_oe;
+wire    [4 :0]  regs_xx_bca;
+wire    [4 :0]  regs_xx_bcb;
+wire            regs_xx_ddc_en;
+wire            regs_xx_nirven;
+wire            rtu_had_inst_exe_dead;
+wire            rtu_had_inst_not_wb;
+wire            rtu_had_rob_empty;
+wire            rtu_had_xx_dbg_ack_pc;
+wire    [38:0]  rtu_had_xx_pc;
+wire            rtu_yy_xx_dbgon;
+wire            sm_xx_update_dr_en;
+wire    [7 :0]  trace_regs_otc;
+wire            x_sm_xx_update_dr_en;
 
 
 //==========================================================
@@ -436,13 +436,13 @@ assign id_reg[15:12] = 4'd2;  // BKPT_NUM
 assign id_reg[11:8]  = 4'b1011;
 
 // HAD_VER as ISA version,0000:6xx, 0001:810p, 0010: 8xx, 0011:902, 0100: 960
-assign id_reg[7:4]   = 4'b0100; 
+assign id_reg[7:4]   = 4'b0100;
 
 assign id_reg[3:0]   = 4'b0011;
 
 assign sm_xx_update_dr_en = x_sm_xx_update_dr_en;
 //==========================================================
-// BABA -- Base Address of Breakpoint A  
+// BABA -- Base Address of Breakpoint A
 //==========================================================
 
 always @(posedge cpuclk or negedge cpurst_b)
@@ -456,7 +456,7 @@ begin
 end
 
 //==========================================================
-// BABB -- Base Address of Breakpoint B 
+// BABB -- Base Address of Breakpoint B
 //==========================================================
 
 always @(posedge cpuclk or negedge cpurst_b)
@@ -470,7 +470,7 @@ begin
 end
 
 //==========================================================
-// BAMA -- Base Address Mask of Breakpoint A 
+// BAMA -- Base Address Mask of Breakpoint A
 //==========================================================
 // reset BAMA to zero for low power design
 
@@ -485,7 +485,7 @@ begin
 end
 
 //==========================================================
-// BAMB -- Base Address Mask of Breakpoint B 
+// BAMB -- Base Address Mask of Breakpoint B
 //==========================================================
 // reset BAMB to zero for low power design
 
@@ -619,7 +619,7 @@ assign hcr_wen = sm_xx_update_dr_en && ir_xx_hcr_reg_sel;
 
 always @(posedge cpuclk or negedge cpurst_b)
 begin
-  if (!cpurst_b) begin 
+  if (!cpurst_b) begin
     hcr_nicven      <= 1'b0;
     hcr_adr         <= 1'b0;
     hcr_ddcen       <= 1'b0;
@@ -672,7 +672,7 @@ begin
     bus_dead       <= 1'b0;
     ifu_dead       <= 1'b0;
     exe_dead       <= 1'b0;
-  end 
+  end
   else if (rtu_had_xx_dbg_ack_pc) begin
     inst_not_wb    <= rtu_had_inst_not_wb;
     rob_not_empty  <= !rtu_had_rob_empty;
@@ -724,7 +724,7 @@ begin
   else
     dro <= dro;
 end
-  
+
 // MBO: memory bkpt
 always @(posedge cpuclk or negedge cpurst_b)
 begin
@@ -760,11 +760,11 @@ begin
     to <= 1'b1;
   else if (ctrl_regs_exit_dbg)
     to <= 1'b0;
-  else 
+  else
     to <= to;
 end
 
-// FRZO: 
+// FRZO:
 always @(posedge cpuclk or negedge cpurst_b)
 begin
   if (!cpurst_b)
@@ -814,7 +814,7 @@ begin
     pm[1:0] <= 2'b10;
   else if (!cp0_had_lpmd_b[1] || !cp0_had_lpmd_b[0])
     pm[1:0] <= 2'b01;
-  else 
+  else
     pm[1:0] <= 2'b00;
 end
 
@@ -830,7 +830,7 @@ begin
   else
     pro <= pro;
 end
-assign hsr_reg[31:0] = {11'b0,                         
+assign hsr_reg[31:0] = {11'b0,
                         idu_stall, iq_not_empty, rob_not_empty, inst_not_wb,
                         pro, bus_dead, ifu_dead, exe_dead, ps, 2'b0, adro, dro, mbo, swo,
                         to, frzo, sqb, sqa, pm[1:0]};
@@ -893,7 +893,7 @@ assign regs_xx_bcb[4:0]   = hcr_reg[10:6];
 
 assign regs_xx_bca[4:0]   = hcr_reg[4:0];
 
-assign regs_xx_nirven     = hcr_reg[31]; 
+assign regs_xx_nirven     = hcr_reg[31];
 
 //==========================================================
 // Control signal from event regs
@@ -968,7 +968,7 @@ assign regs_data_out[DATAW-1:0] =
   | {DATAW{ir_xx_pipefifo_reg_sel}} & pipefifo_regs_data[DATAW-1:0]
   | {DATAW{ir_xx_pipesel_reg_sel}}  & {{DATAW-32{1'b0}},pipesel_regs_data[31:0]};
 
-always @(posedge cpuclk) 
+always @(posedge cpuclk)
 begin
   x_regs_serial_data[DATAW-1:0] <= regs_data_out[DATAW-1:0];
 end

@@ -22,28 +22,28 @@ module ct_pmp_comp_hit(
 );
 
 // &Ports; @25
-input   [1 :0]  addr_match_mode_x;   
-input           mmu_addr_ge_bottom_x; 
-input   [27:0]  mmu_pmp_pa_y;        
-input   [28:0]  pmpaddr_x_value;     
-output          mmu_addr_ge_upaddr_x; 
-output          pmp_mmu_hit_x;       
+input   [1 :0]  addr_match_mode_x;
+input           mmu_addr_ge_bottom_x;
+input   [27:0]  mmu_pmp_pa_y;
+input   [28:0]  pmpaddr_x_value;
+output          mmu_addr_ge_upaddr_x;
+output          pmp_mmu_hit_x;
 
 // &Regs; @26
-reg     [27:0]  addr_mask;           
-reg             pmp_mmu_hit_x;       
+reg     [27:0]  addr_mask;
+reg             pmp_mmu_hit_x;
 
 // &Wires; @27
-wire    [1 :0]  addr_match_mode_x;   
-wire            mmu_addr_ge_bottom_x; 
-wire            mmu_addr_ge_upaddr_x; 
-wire            mmu_addr_ls_top;     
-wire    [28:0]  mmu_comp_adder;      
-wire            mmu_na4_addr_match;  
-wire            mmu_napot_addr_match; 
-wire    [27:0]  mmu_pmp_pa_y;        
-wire            mmu_tor_addr_match;  
-wire    [28:0]  pmpaddr_x_value;     
+wire    [1 :0]  addr_match_mode_x;
+wire            mmu_addr_ge_bottom_x;
+wire            mmu_addr_ge_upaddr_x;
+wire            mmu_addr_ls_top;
+wire    [28:0]  mmu_comp_adder;
+wire            mmu_na4_addr_match;
+wire            mmu_napot_addr_match;
+wire    [27:0]  mmu_pmp_pa_y;
+wire            mmu_tor_addr_match;
+wire    [28:0]  pmpaddr_x_value;
 
 
 parameter ADDR_WIDTH = `PA_WIDTH-12;
@@ -52,7 +52,7 @@ parameter ADDR_WIDTH = `PA_WIDTH-12;
 //==========================================================
 //                Address Matching Logic
 //==========================================================
-//Compare access address by four address-matching mode,and 
+//Compare access address by four address-matching mode,and
 //generate address hit information for read uint(mmu)
 // &CombBeg; @37
 always @( addr_match_mode_x[1:0]
@@ -62,17 +62,17 @@ always @( addr_match_mode_x[1:0]
 begin
   case(addr_match_mode_x[1:0])
     2'b00:   pmp_mmu_hit_x = 1'b0;                 //OFF
-    2'b01:   pmp_mmu_hit_x = mmu_tor_addr_match;   //TOR 
+    2'b01:   pmp_mmu_hit_x = mmu_tor_addr_match;   //TOR
     2'b10:   pmp_mmu_hit_x = mmu_na4_addr_match;   //NA4
     2'b11:   pmp_mmu_hit_x = mmu_napot_addr_match; //NAPOT
-    default: pmp_mmu_hit_x = 1'b0; 
+    default: pmp_mmu_hit_x = 1'b0;
   endcase
 // &CombEnd; @45
 end
 
 
 //1. TOR mode : pmpaddr_x_value[i-1]<= addr < pmpaddr_x_value[i]
-assign mmu_comp_adder[ADDR_WIDTH:0] = {1'b0,mmu_pmp_pa_y[ADDR_WIDTH-1:0]} - 
+assign mmu_comp_adder[ADDR_WIDTH:0] = {1'b0,mmu_pmp_pa_y[ADDR_WIDTH-1:0]} -
                                       {1'b0,pmpaddr_x_value[ADDR_WIDTH:1]};
 assign mmu_addr_ls_top      = mmu_comp_adder[ADDR_WIDTH];
 assign mmu_tor_addr_match   = mmu_addr_ge_bottom_x && mmu_addr_ls_top;

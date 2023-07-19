@@ -116,405 +116,405 @@ module ct_mmu_jtlb(
 );
 
 // &Ports; @27
-input   [2  :0]  arb_jtlb_acc_type;       
-input   [3  :0]  arb_jtlb_bank_sel;       
-input            arb_jtlb_cmp_with_va;    
-input   [41 :0]  arb_jtlb_data_din;       
-input   [3  :0]  arb_jtlb_fifo_din;       
-input            arb_jtlb_fifo_write;     
-input   [8  :0]  arb_jtlb_idx;            
-input            arb_jtlb_req;            
-input   [47 :0]  arb_jtlb_tag_din;        
-input   [26 :0]  arb_jtlb_vpn;            
-input            arb_jtlb_write;          
-input   [1  :0]  arb_top_cur_st;          
-input            cp0_mmu_icg_en;          
-input            cp0_mmu_maee;            
-input   [1  :0]  cp0_mmu_mpp;             
-input            cp0_mmu_mprv;            
-input            cp0_mmu_mxr;             
-input            cp0_mmu_ptw_en;          
-input            cp0_mmu_sum;             
-input   [1  :0]  cp0_yy_priv_mode;        
-input            cpurst_b;                
-input            dutlb_xx_mmu_off;        
-input            forever_cpuclk;          
-input   [27 :0]  lsu_mmu_va2;             
-input            lsu_mmu_va2_vld;         
-input            pad_yy_icg_scan_en;      
-input   [3  :0]  pmp_mmu_flg4;            
-input   [26 :0]  ptw_arb_vpn;             
-input            ptw_jtlb_dmiss;          
-input            ptw_jtlb_imiss;          
-input            ptw_jtlb_pmiss;          
-input            ptw_jtlb_ref_acc_err;    
-input            ptw_jtlb_ref_cmplt;      
-input            ptw_jtlb_ref_data_vld;   
-input   [13 :0]  ptw_jtlb_ref_flg;        
-input            ptw_jtlb_ref_pgflt;      
-input   [2  :0]  ptw_jtlb_ref_pgs;        
-input   [27 :0]  ptw_jtlb_ref_ppn;        
-input   [15 :0]  regs_jtlb_cur_asid;      
-input   [4  :0]  sysmap_mmu_flg4;         
-input   [15 :0]  tlboper_jtlb_asid;       
-input            tlboper_jtlb_asid_sel;   
-input            tlboper_jtlb_cmp_noasid; 
-input   [15 :0]  tlboper_jtlb_inv_asid;   
-input            tlboper_jtlb_tlbwr_on;   
-input   [2  :0]  tlboper_xx_pgs;          
-input            tlboper_xx_pgs_en;       
-output           jtlb_arb_cmp_va;         
-output           jtlb_arb_par_clr;        
-output           jtlb_arb_pfu_cmplt;      
-output  [26 :0]  jtlb_arb_pfu_vpn;        
-output           jtlb_arb_sel_1g;         
-output           jtlb_arb_sel_2m;         
-output           jtlb_arb_sel_4k;         
-output           jtlb_arb_tc_miss;        
-output  [2  :0]  jtlb_arb_type;           
-output  [26 :0]  jtlb_arb_vpn;            
-output           jtlb_dutlb_acc_err;      
-output           jtlb_dutlb_pgflt;        
-output           jtlb_dutlb_ref_cmplt;    
-output           jtlb_dutlb_ref_pavld;    
-output           jtlb_iutlb_acc_err;      
-output           jtlb_iutlb_pgflt;        
-output           jtlb_iutlb_ref_cmplt;    
-output           jtlb_iutlb_ref_pavld;    
-output           jtlb_ptw_req;            
-output  [2  :0]  jtlb_ptw_type;           
-output  [26 :0]  jtlb_ptw_vpn;            
-output           jtlb_regs_hit;           
-output           jtlb_regs_hit_mult;      
-output  [10 :0]  jtlb_regs_tlbp_hit_index; 
-output           jtlb_tlboper_asid_hit;   
-output           jtlb_tlboper_cmplt;      
-output  [3  :0]  jtlb_tlboper_fifo;       
-output           jtlb_tlboper_read_idle;  
-output  [3  :0]  jtlb_tlboper_sel;        
-output           jtlb_tlboper_va_hit;     
-output  [15 :0]  jtlb_tlbr_asid;          
-output  [13 :0]  jtlb_tlbr_flg;           
-output           jtlb_tlbr_g;             
-output  [2  :0]  jtlb_tlbr_pgs;           
-output  [27 :0]  jtlb_tlbr_ppn;           
-output  [26 :0]  jtlb_tlbr_vpn;           
-output  [1  :0]  jtlb_top_cur_st;         
-output           jtlb_top_utlb_pavld;     
-output  [13 :0]  jtlb_utlb_ref_flg;       
-output  [2  :0]  jtlb_utlb_ref_pgs;       
-output  [27 :0]  jtlb_utlb_ref_ppn;       
-output  [26 :0]  jtlb_utlb_ref_vpn;       
-output  [11 :0]  jtlb_xx_fifo;            
-output           jtlb_xx_tc_read;         
-output  [27 :0]  mmu_lsu_pa2;             
-output           mmu_lsu_pa2_err;         
-output           mmu_lsu_pa2_vld;         
-output           mmu_lsu_sec2;            
-output           mmu_lsu_share2;          
-output  [27 :0]  mmu_pmp_pa4;             
-output  [27 :0]  mmu_sysmap_pa4;          
+input   [2  :0]  arb_jtlb_acc_type;
+input   [3  :0]  arb_jtlb_bank_sel;
+input            arb_jtlb_cmp_with_va;
+input   [41 :0]  arb_jtlb_data_din;
+input   [3  :0]  arb_jtlb_fifo_din;
+input            arb_jtlb_fifo_write;
+input   [8  :0]  arb_jtlb_idx;
+input            arb_jtlb_req;
+input   [47 :0]  arb_jtlb_tag_din;
+input   [26 :0]  arb_jtlb_vpn;
+input            arb_jtlb_write;
+input   [1  :0]  arb_top_cur_st;
+input            cp0_mmu_icg_en;
+input            cp0_mmu_maee;
+input   [1  :0]  cp0_mmu_mpp;
+input            cp0_mmu_mprv;
+input            cp0_mmu_mxr;
+input            cp0_mmu_ptw_en;
+input            cp0_mmu_sum;
+input   [1  :0]  cp0_yy_priv_mode;
+input            cpurst_b;
+input            dutlb_xx_mmu_off;
+input            forever_cpuclk;
+input   [27 :0]  lsu_mmu_va2;
+input            lsu_mmu_va2_vld;
+input            pad_yy_icg_scan_en;
+input   [3  :0]  pmp_mmu_flg4;
+input   [26 :0]  ptw_arb_vpn;
+input            ptw_jtlb_dmiss;
+input            ptw_jtlb_imiss;
+input            ptw_jtlb_pmiss;
+input            ptw_jtlb_ref_acc_err;
+input            ptw_jtlb_ref_cmplt;
+input            ptw_jtlb_ref_data_vld;
+input   [13 :0]  ptw_jtlb_ref_flg;
+input            ptw_jtlb_ref_pgflt;
+input   [2  :0]  ptw_jtlb_ref_pgs;
+input   [27 :0]  ptw_jtlb_ref_ppn;
+input   [15 :0]  regs_jtlb_cur_asid;
+input   [4  :0]  sysmap_mmu_flg4;
+input   [15 :0]  tlboper_jtlb_asid;
+input            tlboper_jtlb_asid_sel;
+input            tlboper_jtlb_cmp_noasid;
+input   [15 :0]  tlboper_jtlb_inv_asid;
+input            tlboper_jtlb_tlbwr_on;
+input   [2  :0]  tlboper_xx_pgs;
+input            tlboper_xx_pgs_en;
+output           jtlb_arb_cmp_va;
+output           jtlb_arb_par_clr;
+output           jtlb_arb_pfu_cmplt;
+output  [26 :0]  jtlb_arb_pfu_vpn;
+output           jtlb_arb_sel_1g;
+output           jtlb_arb_sel_2m;
+output           jtlb_arb_sel_4k;
+output           jtlb_arb_tc_miss;
+output  [2  :0]  jtlb_arb_type;
+output  [26 :0]  jtlb_arb_vpn;
+output           jtlb_dutlb_acc_err;
+output           jtlb_dutlb_pgflt;
+output           jtlb_dutlb_ref_cmplt;
+output           jtlb_dutlb_ref_pavld;
+output           jtlb_iutlb_acc_err;
+output           jtlb_iutlb_pgflt;
+output           jtlb_iutlb_ref_cmplt;
+output           jtlb_iutlb_ref_pavld;
+output           jtlb_ptw_req;
+output  [2  :0]  jtlb_ptw_type;
+output  [26 :0]  jtlb_ptw_vpn;
+output           jtlb_regs_hit;
+output           jtlb_regs_hit_mult;
+output  [10 :0]  jtlb_regs_tlbp_hit_index;
+output           jtlb_tlboper_asid_hit;
+output           jtlb_tlboper_cmplt;
+output  [3  :0]  jtlb_tlboper_fifo;
+output           jtlb_tlboper_read_idle;
+output  [3  :0]  jtlb_tlboper_sel;
+output           jtlb_tlboper_va_hit;
+output  [15 :0]  jtlb_tlbr_asid;
+output  [13 :0]  jtlb_tlbr_flg;
+output           jtlb_tlbr_g;
+output  [2  :0]  jtlb_tlbr_pgs;
+output  [27 :0]  jtlb_tlbr_ppn;
+output  [26 :0]  jtlb_tlbr_vpn;
+output  [1  :0]  jtlb_top_cur_st;
+output           jtlb_top_utlb_pavld;
+output  [13 :0]  jtlb_utlb_ref_flg;
+output  [2  :0]  jtlb_utlb_ref_pgs;
+output  [27 :0]  jtlb_utlb_ref_ppn;
+output  [26 :0]  jtlb_utlb_ref_vpn;
+output  [11 :0]  jtlb_xx_fifo;
+output           jtlb_xx_tc_read;
+output  [27 :0]  mmu_lsu_pa2;
+output           mmu_lsu_pa2_err;
+output           mmu_lsu_pa2_vld;
+output           mmu_lsu_sec2;
+output           mmu_lsu_share2;
+output  [27 :0]  mmu_pmp_pa4;
+output  [27 :0]  mmu_sysmap_pa4;
 
 // &Regs; @28
-reg     [1  :0]  pfu_cur_st;              
-reg     [1  :0]  pfu_nxt_st;              
-reg              pfu_off_chk;             
-reg     [27 :0]  pfu_pa_buf;              
-reg              pfu_sec_buf;             
-reg              pfu_share_buf;           
-reg     [2  :0]  read_cur_st;             
-reg     [2  :0]  read_nxt_st;             
-reg     [2  :0]  ta_acc_type;             
-reg              ta_cmp_va;               
-reg     [11 :0]  ta_jtlb_fifo_upd;        
-reg              ta_vld;                  
-reg     [26 :0]  ta_vpn;                  
-reg     [3  :0]  ta_way_sel;              
-reg              ta_wen;                  
-reg     [2  :0]  tc_acc_type;             
-reg              tc_cmp_va;               
-reg     [11 :0]  tc_jtlb_fifo;            
-reg              tc_vld;                  
-reg     [26 :0]  tc_vpn;                  
-reg     [15 :0]  tc_way0_asid;            
-reg     [13 :0]  tc_way0_flg;             
-reg              tc_way0_g;               
-reg              tc_way0_hit_kid0;        
-reg              tc_way0_hit_kid1;        
-reg              tc_way0_hit_kid2;        
-reg              tc_way0_hit_kid3;        
-reg              tc_way0_hit_kid4;        
-reg              tc_way0_hit_kid5;        
-reg     [2  :0]  tc_way0_pgs;             
-reg     [27 :0]  tc_way0_ppn;             
-reg     [26 :0]  tc_way0_vpn;             
-reg     [15 :0]  tc_way1_asid;            
-reg     [13 :0]  tc_way1_flg;             
-reg              tc_way1_g;               
-reg              tc_way1_hit_kid0;        
-reg              tc_way1_hit_kid1;        
-reg              tc_way1_hit_kid2;        
-reg              tc_way1_hit_kid3;        
-reg              tc_way1_hit_kid4;        
-reg              tc_way1_hit_kid5;        
-reg     [2  :0]  tc_way1_pgs;             
-reg     [27 :0]  tc_way1_ppn;             
-reg     [26 :0]  tc_way1_vpn;             
-reg     [15 :0]  tc_way2_asid;            
-reg     [13 :0]  tc_way2_flg;             
-reg              tc_way2_g;               
-reg              tc_way2_hit_kid0;        
-reg              tc_way2_hit_kid1;        
-reg              tc_way2_hit_kid2;        
-reg              tc_way2_hit_kid3;        
-reg              tc_way2_hit_kid4;        
-reg              tc_way2_hit_kid5;        
-reg     [2  :0]  tc_way2_pgs;             
-reg     [27 :0]  tc_way2_ppn;             
-reg     [26 :0]  tc_way2_vpn;             
-reg     [15 :0]  tc_way3_asid;            
-reg     [13 :0]  tc_way3_flg;             
-reg              tc_way3_g;               
-reg              tc_way3_hit_kid0;        
-reg              tc_way3_hit_kid1;        
-reg              tc_way3_hit_kid2;        
-reg              tc_way3_hit_kid3;        
-reg              tc_way3_hit_kid4;        
-reg              tc_way3_hit_kid5;        
-reg     [2  :0]  tc_way3_pgs;             
-reg     [27 :0]  tc_way3_ppn;             
-reg     [26 :0]  tc_way3_vpn;             
-reg     [3  :0]  tc_way_sel;              
-reg              tc_wen;                  
+reg     [1  :0]  pfu_cur_st;
+reg     [1  :0]  pfu_nxt_st;
+reg              pfu_off_chk;
+reg     [27 :0]  pfu_pa_buf;
+reg              pfu_sec_buf;
+reg              pfu_share_buf;
+reg     [2  :0]  read_cur_st;
+reg     [2  :0]  read_nxt_st;
+reg     [2  :0]  ta_acc_type;
+reg              ta_cmp_va;
+reg     [11 :0]  ta_jtlb_fifo_upd;
+reg              ta_vld;
+reg     [26 :0]  ta_vpn;
+reg     [3  :0]  ta_way_sel;
+reg              ta_wen;
+reg     [2  :0]  tc_acc_type;
+reg              tc_cmp_va;
+reg     [11 :0]  tc_jtlb_fifo;
+reg              tc_vld;
+reg     [26 :0]  tc_vpn;
+reg     [15 :0]  tc_way0_asid;
+reg     [13 :0]  tc_way0_flg;
+reg              tc_way0_g;
+reg              tc_way0_hit_kid0;
+reg              tc_way0_hit_kid1;
+reg              tc_way0_hit_kid2;
+reg              tc_way0_hit_kid3;
+reg              tc_way0_hit_kid4;
+reg              tc_way0_hit_kid5;
+reg     [2  :0]  tc_way0_pgs;
+reg     [27 :0]  tc_way0_ppn;
+reg     [26 :0]  tc_way0_vpn;
+reg     [15 :0]  tc_way1_asid;
+reg     [13 :0]  tc_way1_flg;
+reg              tc_way1_g;
+reg              tc_way1_hit_kid0;
+reg              tc_way1_hit_kid1;
+reg              tc_way1_hit_kid2;
+reg              tc_way1_hit_kid3;
+reg              tc_way1_hit_kid4;
+reg              tc_way1_hit_kid5;
+reg     [2  :0]  tc_way1_pgs;
+reg     [27 :0]  tc_way1_ppn;
+reg     [26 :0]  tc_way1_vpn;
+reg     [15 :0]  tc_way2_asid;
+reg     [13 :0]  tc_way2_flg;
+reg              tc_way2_g;
+reg              tc_way2_hit_kid0;
+reg              tc_way2_hit_kid1;
+reg              tc_way2_hit_kid2;
+reg              tc_way2_hit_kid3;
+reg              tc_way2_hit_kid4;
+reg              tc_way2_hit_kid5;
+reg     [2  :0]  tc_way2_pgs;
+reg     [27 :0]  tc_way2_ppn;
+reg     [26 :0]  tc_way2_vpn;
+reg     [15 :0]  tc_way3_asid;
+reg     [13 :0]  tc_way3_flg;
+reg              tc_way3_g;
+reg              tc_way3_hit_kid0;
+reg              tc_way3_hit_kid1;
+reg              tc_way3_hit_kid2;
+reg              tc_way3_hit_kid3;
+reg              tc_way3_hit_kid4;
+reg              tc_way3_hit_kid5;
+reg     [2  :0]  tc_way3_pgs;
+reg     [27 :0]  tc_way3_ppn;
+reg     [26 :0]  tc_way3_vpn;
+reg     [3  :0]  tc_way_sel;
+reg              tc_wen;
 
 // &Wires; @29
-wire    [2  :0]  arb_jtlb_acc_type;       
-wire    [3  :0]  arb_jtlb_bank_sel;       
-wire             arb_jtlb_cmp_with_va;    
-wire    [41 :0]  arb_jtlb_data_din;       
-wire    [3  :0]  arb_jtlb_fifo_din;       
-wire             arb_jtlb_fifo_write;     
-wire    [8  :0]  arb_jtlb_idx;            
-wire             arb_jtlb_req;            
-wire    [47 :0]  arb_jtlb_tag_din;        
-wire    [26 :0]  arb_jtlb_vpn;            
-wire             arb_jtlb_write;          
-wire    [1  :0]  arb_top_cur_st;          
-wire    [15 :0]  asid_for_va_hit;         
-wire             cp0_mach_mode;           
-wire             cp0_mmu_icg_en;          
-wire             cp0_mmu_maee;            
-wire    [1  :0]  cp0_mmu_mpp;             
-wire             cp0_mmu_mprv;            
-wire             cp0_mmu_mxr;             
-wire             cp0_mmu_ptw_en;          
-wire             cp0_mmu_sum;             
-wire    [1  :0]  cp0_priv_mode;           
-wire             cp0_supv_mode;           
-wire             cp0_user_mode;           
-wire    [1  :0]  cp0_yy_priv_mode;        
-wire             cpurst_b;                
-wire             dutlb_xx_mmu_off;        
-wire             forever_cpuclk;          
-wire             jtlb_arb_cmp_va;         
-wire             jtlb_arb_par_clr;        
-wire             jtlb_arb_pfu_cmplt;      
-wire    [26 :0]  jtlb_arb_pfu_vpn;        
-wire             jtlb_arb_sel_1g;         
-wire             jtlb_arb_sel_2m;         
-wire             jtlb_arb_sel_4k;         
-wire             jtlb_arb_tc_miss;        
-wire    [2  :0]  jtlb_arb_type;           
-wire    [26 :0]  jtlb_arb_vpn;            
-wire             jtlb_clk;                
-wire             jtlb_clk_en;             
-wire    [2  :0]  jtlb_cur_pgs;            
-wire             jtlb_data_cen0;          
-wire             jtlb_data_cen1;          
-wire    [83 :0]  jtlb_data_din;           
-wire    [83 :0]  jtlb_data_dout0;         
-wire    [83 :0]  jtlb_data_dout1;         
-wire    [7  :0]  jtlb_data_idx;           
-wire    [3  :0]  jtlb_data_wen;           
-wire             jtlb_dutlb_acc_err;      
-wire             jtlb_dutlb_pgflt;        
-wire             jtlb_dutlb_ref_cmplt;    
-wire             jtlb_dutlb_ref_pavld;    
-wire             jtlb_iutlb_acc_err;      
-wire             jtlb_iutlb_pgflt;        
-wire             jtlb_iutlb_ref_cmplt;    
-wire             jtlb_iutlb_ref_pavld;    
-wire             jtlb_pfu_acc_fault;      
-wire             jtlb_pfu_cmplt;          
-wire             jtlb_pfu_deny;           
-wire             jtlb_pfu_flag_fault;     
-wire    [27 :0]  jtlb_pfu_pa;             
-wire             jtlb_pfu_sec;            
-wire             jtlb_pfu_share;          
-wire             jtlb_ptw_req;            
-wire    [2  :0]  jtlb_ptw_type;           
-wire    [26 :0]  jtlb_ptw_vpn;            
-wire             jtlb_regs_hit;           
-wire             jtlb_regs_hit_mult;      
-wire    [10 :0]  jtlb_regs_tlbp_hit_index; 
-wire             jtlb_tag_cen;            
-wire    [195:0]  jtlb_tag_din;            
-wire    [195:0]  jtlb_tag_dout;           
-wire    [7  :0]  jtlb_tag_idx;            
-wire    [4  :0]  jtlb_tag_wen;            
-wire             jtlb_tlboper_asid_hit;   
-wire             jtlb_tlboper_cmplt;      
-wire    [3  :0]  jtlb_tlboper_fifo;       
-wire             jtlb_tlboper_read_idle;  
-wire    [3  :0]  jtlb_tlboper_sel;        
-wire             jtlb_tlboper_va_hit;     
-wire    [15 :0]  jtlb_tlbr_asid;          
-wire    [13 :0]  jtlb_tlbr_flg;           
-wire             jtlb_tlbr_g;             
-wire    [2  :0]  jtlb_tlbr_pgs;           
-wire    [27 :0]  jtlb_tlbr_ppn;           
-wire    [26 :0]  jtlb_tlbr_vpn;           
-wire    [1  :0]  jtlb_top_cur_st;         
-wire             jtlb_top_utlb_pavld;     
-wire    [13 :0]  jtlb_utlb_ref_flg;       
-wire    [2  :0]  jtlb_utlb_ref_pgs;       
-wire    [27 :0]  jtlb_utlb_ref_ppn;       
-wire    [26 :0]  jtlb_utlb_ref_vpn;       
-wire    [11 :0]  jtlb_xx_fifo;            
-wire             jtlb_xx_tc_read;         
-wire    [27 :0]  lsu_mmu_va2;             
-wire             lsu_mmu_va2_vld;         
-wire    [27 :0]  mmu_lsu_pa2;             
-wire             mmu_lsu_pa2_err;         
-wire             mmu_lsu_pa2_vld;         
-wire             mmu_lsu_sec2;            
-wire             mmu_lsu_share2;          
-wire    [27 :0]  mmu_pmp_pa4;             
-wire    [27 :0]  mmu_sysmap_pa4;          
-wire    [26 :0]  pa_offset;               
-wire             pad_yy_icg_scan_en;      
-wire             pfu_deny_st;             
-wire             pfu_idle_st;             
-wire             pfu_ok_st;               
-wire    [3  :0]  pmp_mmu_flg4;            
-wire    [26 :0]  ptw_arb_vpn;             
-wire             ptw_jtlb_dmiss;          
-wire             ptw_jtlb_imiss;          
-wire             ptw_jtlb_pmiss;          
-wire             ptw_jtlb_ref_acc_err;    
-wire             ptw_jtlb_ref_cmplt;      
-wire             ptw_jtlb_ref_data_vld;   
-wire    [13 :0]  ptw_jtlb_ref_flg;        
-wire             ptw_jtlb_ref_pgflt;      
-wire    [2  :0]  ptw_jtlb_ref_pgs;        
-wire    [27 :0]  ptw_jtlb_ref_ppn;        
-wire    [27 :0]  ptw_pa2;                 
-wire             read_cur_1g;             
-wire             read_cur_2m;             
-wire             read_cur_4k;             
-wire             read_cur_idle;           
-wire             read_fail_2m;            
-wire             read_fail_4k;            
-wire    [13 :0]  ref_flg;                 
-wire    [2  :0]  ref_pgs;                 
-wire    [27 :0]  ref_ppn;                 
-wire    [26 :0]  ref_vpn;                 
-wire    [15 :0]  regs_jtlb_cur_asid;      
-wire    [4  :0]  sysmap_mmu_flg4;         
-wire    [3  :0]  ta_idx_sel;              
-wire    [3  :0]  ta_jtlb_fifo;            
-wire    [41 :0]  ta_jtlb_way0_data;       
-wire    [47 :0]  ta_jtlb_way0_tag;        
-wire    [41 :0]  ta_jtlb_way1_data;       
-wire    [47 :0]  ta_jtlb_way1_tag;        
-wire    [41 :0]  ta_jtlb_way2_data;       
-wire    [47 :0]  ta_jtlb_way2_tag;        
-wire    [41 :0]  ta_jtlb_way3_data;       
-wire    [47 :0]  ta_jtlb_way3_tag;        
-wire    [26 :0]  ta_vpn_1g;               
-wire    [26 :0]  ta_vpn_2m;               
-wire    [26 :0]  ta_vpn_4k;               
-wire    [26 :0]  ta_vpn_masked;           
-wire    [15 :0]  ta_way0_asid;            
-wire             ta_way0_g;               
-wire             ta_way0_hit_kid0;        
-wire             ta_way0_hit_kid1;        
-wire             ta_way0_hit_kid2;        
-wire             ta_way0_hit_kid3;        
-wire             ta_way0_hit_kid4;        
-wire             ta_way0_hit_kid5;        
-wire    [2  :0]  ta_way0_pgs;             
-wire             ta_way0_vld;             
-wire    [26 :0]  ta_way0_vpn;             
-wire    [15 :0]  ta_way1_asid;            
-wire             ta_way1_g;               
-wire             ta_way1_hit_kid0;        
-wire             ta_way1_hit_kid1;        
-wire             ta_way1_hit_kid2;        
-wire             ta_way1_hit_kid3;        
-wire             ta_way1_hit_kid4;        
-wire             ta_way1_hit_kid5;        
-wire    [2  :0]  ta_way1_pgs;             
-wire             ta_way1_vld;             
-wire    [26 :0]  ta_way1_vpn;             
-wire    [15 :0]  ta_way2_asid;            
-wire             ta_way2_g;               
-wire             ta_way2_hit_kid0;        
-wire             ta_way2_hit_kid1;        
-wire             ta_way2_hit_kid2;        
-wire             ta_way2_hit_kid3;        
-wire             ta_way2_hit_kid4;        
-wire             ta_way2_hit_kid5;        
-wire    [2  :0]  ta_way2_pgs;             
-wire             ta_way2_vld;             
-wire    [26 :0]  ta_way2_vpn;             
-wire    [15 :0]  ta_way3_asid;            
-wire             ta_way3_g;               
-wire             ta_way3_hit_kid0;        
-wire             ta_way3_hit_kid1;        
-wire             ta_way3_hit_kid2;        
-wire             ta_way3_hit_kid3;        
-wire             ta_way3_hit_kid4;        
-wire             ta_way3_hit_kid5;        
-wire    [2  :0]  ta_way3_pgs;             
-wire             ta_way3_vld;             
-wire    [26 :0]  ta_way3_vpn;             
-wire             tag_fifo_wen;            
-wire    [3  :0]  tag_way_wen;             
-wire    [13 :0]  tc_hit_flg;              
-wire    [1  :0]  tc_hit_idx;              
-wire    [27 :0]  tc_hit_ppn;              
-wire    [2  :0]  tc_hit_sum;              
-wire    [15 :0]  tc_idx_asid;             
-wire             tc_idx_g;                
-wire    [2  :0]  tc_idx_pgs;              
-wire    [26 :0]  tc_idx_vpn;              
-wire             tc_pa_vld;               
-wire             tc_par_fail;             
-wire             tc_tlb_hit;              
-wire             tc_tlb_hit_mult;         
-wire             tc_tlb_miss;             
-wire             tc_tlb_miss_fin;         
-wire             tc_utlb_cmplt;           
-wire    [26 :0]  tc_vpn_1g;               
-wire    [26 :0]  tc_vpn_2m;               
-wire    [26 :0]  tc_vpn_4k;               
-wire    [26 :0]  tc_vpn_masked;           
-wire             tc_way0_hit;             
-wire             tc_way0_sel;             
-wire             tc_way1_hit;             
-wire             tc_way1_sel;             
-wire             tc_way2_hit;             
-wire             tc_way2_sel;             
-wire             tc_way3_hit;             
-wire             tc_way3_sel;             
-wire    [15 :0]  tlboper_jtlb_asid;       
-wire             tlboper_jtlb_asid_sel;   
-wire             tlboper_jtlb_cmp_noasid; 
-wire    [15 :0]  tlboper_jtlb_inv_asid;   
-wire             tlboper_jtlb_tlbwr_on;   
-wire    [2  :0]  tlboper_xx_pgs;          
-wire             tlboper_xx_pgs_en;       
+wire    [2  :0]  arb_jtlb_acc_type;
+wire    [3  :0]  arb_jtlb_bank_sel;
+wire             arb_jtlb_cmp_with_va;
+wire    [41 :0]  arb_jtlb_data_din;
+wire    [3  :0]  arb_jtlb_fifo_din;
+wire             arb_jtlb_fifo_write;
+wire    [8  :0]  arb_jtlb_idx;
+wire             arb_jtlb_req;
+wire    [47 :0]  arb_jtlb_tag_din;
+wire    [26 :0]  arb_jtlb_vpn;
+wire             arb_jtlb_write;
+wire    [1  :0]  arb_top_cur_st;
+wire    [15 :0]  asid_for_va_hit;
+wire             cp0_mach_mode;
+wire             cp0_mmu_icg_en;
+wire             cp0_mmu_maee;
+wire    [1  :0]  cp0_mmu_mpp;
+wire             cp0_mmu_mprv;
+wire             cp0_mmu_mxr;
+wire             cp0_mmu_ptw_en;
+wire             cp0_mmu_sum;
+wire    [1  :0]  cp0_priv_mode;
+wire             cp0_supv_mode;
+wire             cp0_user_mode;
+wire    [1  :0]  cp0_yy_priv_mode;
+wire             cpurst_b;
+wire             dutlb_xx_mmu_off;
+wire             forever_cpuclk;
+wire             jtlb_arb_cmp_va;
+wire             jtlb_arb_par_clr;
+wire             jtlb_arb_pfu_cmplt;
+wire    [26 :0]  jtlb_arb_pfu_vpn;
+wire             jtlb_arb_sel_1g;
+wire             jtlb_arb_sel_2m;
+wire             jtlb_arb_sel_4k;
+wire             jtlb_arb_tc_miss;
+wire    [2  :0]  jtlb_arb_type;
+wire    [26 :0]  jtlb_arb_vpn;
+wire             jtlb_clk;
+wire             jtlb_clk_en;
+wire    [2  :0]  jtlb_cur_pgs;
+wire             jtlb_data_cen0;
+wire             jtlb_data_cen1;
+wire    [83 :0]  jtlb_data_din;
+wire    [83 :0]  jtlb_data_dout0;
+wire    [83 :0]  jtlb_data_dout1;
+wire    [7  :0]  jtlb_data_idx;
+wire    [3  :0]  jtlb_data_wen;
+wire             jtlb_dutlb_acc_err;
+wire             jtlb_dutlb_pgflt;
+wire             jtlb_dutlb_ref_cmplt;
+wire             jtlb_dutlb_ref_pavld;
+wire             jtlb_iutlb_acc_err;
+wire             jtlb_iutlb_pgflt;
+wire             jtlb_iutlb_ref_cmplt;
+wire             jtlb_iutlb_ref_pavld;
+wire             jtlb_pfu_acc_fault;
+wire             jtlb_pfu_cmplt;
+wire             jtlb_pfu_deny;
+wire             jtlb_pfu_flag_fault;
+wire    [27 :0]  jtlb_pfu_pa;
+wire             jtlb_pfu_sec;
+wire             jtlb_pfu_share;
+wire             jtlb_ptw_req;
+wire    [2  :0]  jtlb_ptw_type;
+wire    [26 :0]  jtlb_ptw_vpn;
+wire             jtlb_regs_hit;
+wire             jtlb_regs_hit_mult;
+wire    [10 :0]  jtlb_regs_tlbp_hit_index;
+wire             jtlb_tag_cen;
+wire    [195:0]  jtlb_tag_din;
+wire    [195:0]  jtlb_tag_dout;
+wire    [7  :0]  jtlb_tag_idx;
+wire    [4  :0]  jtlb_tag_wen;
+wire             jtlb_tlboper_asid_hit;
+wire             jtlb_tlboper_cmplt;
+wire    [3  :0]  jtlb_tlboper_fifo;
+wire             jtlb_tlboper_read_idle;
+wire    [3  :0]  jtlb_tlboper_sel;
+wire             jtlb_tlboper_va_hit;
+wire    [15 :0]  jtlb_tlbr_asid;
+wire    [13 :0]  jtlb_tlbr_flg;
+wire             jtlb_tlbr_g;
+wire    [2  :0]  jtlb_tlbr_pgs;
+wire    [27 :0]  jtlb_tlbr_ppn;
+wire    [26 :0]  jtlb_tlbr_vpn;
+wire    [1  :0]  jtlb_top_cur_st;
+wire             jtlb_top_utlb_pavld;
+wire    [13 :0]  jtlb_utlb_ref_flg;
+wire    [2  :0]  jtlb_utlb_ref_pgs;
+wire    [27 :0]  jtlb_utlb_ref_ppn;
+wire    [26 :0]  jtlb_utlb_ref_vpn;
+wire    [11 :0]  jtlb_xx_fifo;
+wire             jtlb_xx_tc_read;
+wire    [27 :0]  lsu_mmu_va2;
+wire             lsu_mmu_va2_vld;
+wire    [27 :0]  mmu_lsu_pa2;
+wire             mmu_lsu_pa2_err;
+wire             mmu_lsu_pa2_vld;
+wire             mmu_lsu_sec2;
+wire             mmu_lsu_share2;
+wire    [27 :0]  mmu_pmp_pa4;
+wire    [27 :0]  mmu_sysmap_pa4;
+wire    [26 :0]  pa_offset;
+wire             pad_yy_icg_scan_en;
+wire             pfu_deny_st;
+wire             pfu_idle_st;
+wire             pfu_ok_st;
+wire    [3  :0]  pmp_mmu_flg4;
+wire    [26 :0]  ptw_arb_vpn;
+wire             ptw_jtlb_dmiss;
+wire             ptw_jtlb_imiss;
+wire             ptw_jtlb_pmiss;
+wire             ptw_jtlb_ref_acc_err;
+wire             ptw_jtlb_ref_cmplt;
+wire             ptw_jtlb_ref_data_vld;
+wire    [13 :0]  ptw_jtlb_ref_flg;
+wire             ptw_jtlb_ref_pgflt;
+wire    [2  :0]  ptw_jtlb_ref_pgs;
+wire    [27 :0]  ptw_jtlb_ref_ppn;
+wire    [27 :0]  ptw_pa2;
+wire             read_cur_1g;
+wire             read_cur_2m;
+wire             read_cur_4k;
+wire             read_cur_idle;
+wire             read_fail_2m;
+wire             read_fail_4k;
+wire    [13 :0]  ref_flg;
+wire    [2  :0]  ref_pgs;
+wire    [27 :0]  ref_ppn;
+wire    [26 :0]  ref_vpn;
+wire    [15 :0]  regs_jtlb_cur_asid;
+wire    [4  :0]  sysmap_mmu_flg4;
+wire    [3  :0]  ta_idx_sel;
+wire    [3  :0]  ta_jtlb_fifo;
+wire    [41 :0]  ta_jtlb_way0_data;
+wire    [47 :0]  ta_jtlb_way0_tag;
+wire    [41 :0]  ta_jtlb_way1_data;
+wire    [47 :0]  ta_jtlb_way1_tag;
+wire    [41 :0]  ta_jtlb_way2_data;
+wire    [47 :0]  ta_jtlb_way2_tag;
+wire    [41 :0]  ta_jtlb_way3_data;
+wire    [47 :0]  ta_jtlb_way3_tag;
+wire    [26 :0]  ta_vpn_1g;
+wire    [26 :0]  ta_vpn_2m;
+wire    [26 :0]  ta_vpn_4k;
+wire    [26 :0]  ta_vpn_masked;
+wire    [15 :0]  ta_way0_asid;
+wire             ta_way0_g;
+wire             ta_way0_hit_kid0;
+wire             ta_way0_hit_kid1;
+wire             ta_way0_hit_kid2;
+wire             ta_way0_hit_kid3;
+wire             ta_way0_hit_kid4;
+wire             ta_way0_hit_kid5;
+wire    [2  :0]  ta_way0_pgs;
+wire             ta_way0_vld;
+wire    [26 :0]  ta_way0_vpn;
+wire    [15 :0]  ta_way1_asid;
+wire             ta_way1_g;
+wire             ta_way1_hit_kid0;
+wire             ta_way1_hit_kid1;
+wire             ta_way1_hit_kid2;
+wire             ta_way1_hit_kid3;
+wire             ta_way1_hit_kid4;
+wire             ta_way1_hit_kid5;
+wire    [2  :0]  ta_way1_pgs;
+wire             ta_way1_vld;
+wire    [26 :0]  ta_way1_vpn;
+wire    [15 :0]  ta_way2_asid;
+wire             ta_way2_g;
+wire             ta_way2_hit_kid0;
+wire             ta_way2_hit_kid1;
+wire             ta_way2_hit_kid2;
+wire             ta_way2_hit_kid3;
+wire             ta_way2_hit_kid4;
+wire             ta_way2_hit_kid5;
+wire    [2  :0]  ta_way2_pgs;
+wire             ta_way2_vld;
+wire    [26 :0]  ta_way2_vpn;
+wire    [15 :0]  ta_way3_asid;
+wire             ta_way3_g;
+wire             ta_way3_hit_kid0;
+wire             ta_way3_hit_kid1;
+wire             ta_way3_hit_kid2;
+wire             ta_way3_hit_kid3;
+wire             ta_way3_hit_kid4;
+wire             ta_way3_hit_kid5;
+wire    [2  :0]  ta_way3_pgs;
+wire             ta_way3_vld;
+wire    [26 :0]  ta_way3_vpn;
+wire             tag_fifo_wen;
+wire    [3  :0]  tag_way_wen;
+wire    [13 :0]  tc_hit_flg;
+wire    [1  :0]  tc_hit_idx;
+wire    [27 :0]  tc_hit_ppn;
+wire    [2  :0]  tc_hit_sum;
+wire    [15 :0]  tc_idx_asid;
+wire             tc_idx_g;
+wire    [2  :0]  tc_idx_pgs;
+wire    [26 :0]  tc_idx_vpn;
+wire             tc_pa_vld;
+wire             tc_par_fail;
+wire             tc_tlb_hit;
+wire             tc_tlb_hit_mult;
+wire             tc_tlb_miss;
+wire             tc_tlb_miss_fin;
+wire             tc_utlb_cmplt;
+wire    [26 :0]  tc_vpn_1g;
+wire    [26 :0]  tc_vpn_2m;
+wire    [26 :0]  tc_vpn_4k;
+wire    [26 :0]  tc_vpn_masked;
+wire             tc_way0_hit;
+wire             tc_way0_sel;
+wire             tc_way1_hit;
+wire             tc_way1_sel;
+wire             tc_way2_hit;
+wire             tc_way2_sel;
+wire             tc_way3_hit;
+wire             tc_way3_sel;
+wire    [15 :0]  tlboper_jtlb_asid;
+wire             tlboper_jtlb_asid_sel;
+wire             tlboper_jtlb_cmp_noasid;
+wire    [15 :0]  tlboper_jtlb_inv_asid;
+wire             tlboper_jtlb_tlbwr_on;
+wire    [2  :0]  tlboper_xx_pgs;
+wire             tlboper_xx_pgs_en;
 
 
 parameter VPN_WIDTH  = 39-12;  // VPN
@@ -525,11 +525,11 @@ parameter ASID_WIDTH = 16;     // Flags
 parameter PTE_LEVEL  = 3;      // Page Table Label
 
 // VPN width per level
-parameter VPN_PERLEL = VPN_WIDTH/PTE_LEVEL; 
+parameter VPN_PERLEL = VPN_WIDTH/PTE_LEVEL;
 
 // Valid + VPN + ASID + PageSize + Global
-parameter TAG_WIDTH  = 1+VPN_WIDTH+ASID_WIDTH+PGS_WIDTH+1;  
-parameter DATA_WIDTH = PPN_WIDTH+FLG_WIDTH;  
+parameter TAG_WIDTH  = 1+VPN_WIDTH+ASID_WIDTH+PGS_WIDTH+1;
+parameter DATA_WIDTH = PPN_WIDTH+FLG_WIDTH;
 
 //parameter WAY_NUM = 4;
 
@@ -538,7 +538,7 @@ parameter DATA_WIDTH = PPN_WIDTH+FLG_WIDTH;
 //==========================================================
 assign jtlb_clk_en = arb_jtlb_req || ta_vld || tc_vld || !read_cur_idle
                   || !pfu_idle_st || ptw_jtlb_ref_cmplt
-                  || lsu_mmu_va2_vld && dutlb_xx_mmu_off; 
+                  || lsu_mmu_va2_vld && dutlb_xx_mmu_off;
 // &Instance("gated_clk_cell", "x_jtlb_gateclk"); @53
 gated_clk_cell  x_jtlb_gateclk (
   .clk_in             (forever_cpuclk    ),
@@ -578,7 +578,7 @@ assign jtlb_data_cen0     = arb_jtlb_req && (|arb_jtlb_bank_sel[1:0]);
 assign jtlb_data_cen1     = arb_jtlb_req && (|arb_jtlb_bank_sel[3:2]);
 
 //data wen
-assign jtlb_data_wen[3:0] = {4{arb_jtlb_write}} & arb_jtlb_bank_sel[3:0]; 
+assign jtlb_data_wen[3:0] = {4{arb_jtlb_write}} & arb_jtlb_bank_sel[3:0];
 
 
 //==========================================================
@@ -600,7 +600,7 @@ assign jtlb_tag_din[(TAG_WIDTH*4)+3:0] = {arb_jtlb_fifo_din[3:0],
                                           arb_jtlb_tag_din[TAG_WIDTH-1:0]};
 
 assign jtlb_data_din[(DATA_WIDTH*2)-1:0] = {arb_jtlb_data_din[DATA_WIDTH-1:0],
-                                            arb_jtlb_data_din[DATA_WIDTH-1:0]}; 
+                                            arb_jtlb_data_din[DATA_WIDTH-1:0]};
 
 //==========================================================
 //                  jTLB Memory Instance
@@ -715,7 +715,7 @@ assign ta_vpn_masked[VPN_WIDTH-1:0] = {VPN_WIDTH{jtlb_cur_pgs[0]}} & ta_vpn_4k[V
                                     | {VPN_WIDTH{jtlb_cur_pgs[2]}} & ta_vpn_1g[VPN_WIDTH-1:0];
 assign jtlb_cur_pgs[PGS_WIDTH-1:0] = tlboper_xx_pgs_en ? tlboper_xx_pgs[2:0]
                                                        : {read_cur_1g, read_cur_2m, read_cur_4k};
-assign asid_for_va_hit[ASID_WIDTH-1:0] = tlboper_jtlb_asid_sel   
+assign asid_for_va_hit[ASID_WIDTH-1:0] = tlboper_jtlb_asid_sel
                                        ? tlboper_jtlb_asid[ASID_WIDTH-1:0]
                                        : regs_jtlb_cur_asid[ASID_WIDTH-1:0];
 
@@ -760,7 +760,7 @@ assign ta_way0_hit_kid4 = (ta_way0_asid[ASID_WIDTH-1:VPN_PERLEL*1]  == asid_for_
 assign ta_way0_hit_kid5 =  ta_way0_g || tlboper_jtlb_cmp_noasid;
 
 
-assign ta_idx_sel[3:0]  = ta_way_sel[3:0] & {4{!ta_cmp_va}}; 
+assign ta_idx_sel[3:0]  = ta_way_sel[3:0] & {4{!ta_cmp_va}};
 
 //==============================================================================
 //                  Compare for Hit --- TC stage (TLB Compare)
@@ -873,7 +873,7 @@ begin
   end
 end
 
-assign tc_way3_hit = tc_way3_hit_kid0 && tc_way3_hit_kid1 && tc_way3_hit_kid2 
+assign tc_way3_hit = tc_way3_hit_kid0 && tc_way3_hit_kid1 && tc_way3_hit_kid2
                  && (tc_way3_hit_kid3 && tc_way3_hit_kid4 || tc_way3_hit_kid5);
 
 assign tc_way2_hit = tc_way2_hit_kid0 && tc_way2_hit_kid1 && tc_way2_hit_kid2
@@ -1046,7 +1046,7 @@ begin
     read_cur_st[2:0] <= READ_IDLE;
   else
     read_cur_st[2:0] <= read_nxt_st[2:0];
-end 
+end
 
 // &CombBeg; @679
 always @( read_cur_st
@@ -1096,11 +1096,11 @@ case (read_cur_st)
     else
       read_nxt_st[2:0] = READ_1G;
   end
-  READ_4K_FAIL: 
+  READ_4K_FAIL:
     read_nxt_st[2:0] = READ_2M;
-  READ_2M_FAIL: 
+  READ_2M_FAIL:
     read_nxt_st[2:0] = READ_1G;
-  default: 
+  default:
     read_nxt_st[2:0] = READ_IDLE;
 endcase
 // &CombEnd @726
@@ -1125,7 +1125,7 @@ assign jtlb_arb_type[2:0]          = tc_acc_type[2:0];
 //                  Result Generation
 //==========================================================
 assign tc_hit_sum[2:0] = {2'b0,tc_way3_hit} + {2'b0,tc_way2_hit}
-                       + {2'b0,tc_way1_hit} + {2'b0,tc_way0_hit}; 
+                       + {2'b0,tc_way1_hit} + {2'b0,tc_way0_hit};
 
 assign tc_tlb_miss     = (tc_hit_sum[2:0] == 3'b000);
 //assign tc_tlb_hit_raw  = (tc_hit_sum[2:0] == 3'b001);
@@ -1160,8 +1160,8 @@ assign tc_idx_asid[ASID_WIDTH-1:0] = {ASID_WIDTH{tc_way_sel[3]}} & tc_way3_asid[
                                    | {ASID_WIDTH{tc_way_sel[1]}} & tc_way1_asid[ASID_WIDTH-1:0]
                                    | {ASID_WIDTH{tc_way_sel[0]}} & tc_way0_asid[ASID_WIDTH-1:0];
 assign tc_idx_g          =     tc_way_sel[3]   & tc_way3_g
-                         |     tc_way_sel[2]   & tc_way2_g 
-                         |     tc_way_sel[1]   & tc_way1_g 
+                         |     tc_way_sel[2]   & tc_way2_g
+                         |     tc_way_sel[1]   & tc_way1_g
                          |     tc_way_sel[0]   & tc_way0_g;
 
 assign tc_hit_ppn[PPN_WIDTH-1:0] = {PPN_WIDTH{tc_way3_sel}} & tc_way3_ppn[PPN_WIDTH-1:0]
@@ -1179,9 +1179,9 @@ assign tc_hit_flg[FLG_WIDTH-1:0]  = {FLG_WIDTH{tc_way3_sel}} & tc_way3_flg[FLG_W
 assign jtlb_arb_par_clr = tc_par_fail;
 
 //----------------------------------------------------------
-//                  Req to PTW 
+//                  Req to PTW
 //----------------------------------------------------------
-assign jtlb_ptw_req = tc_vld && cp0_mmu_ptw_en && tc_tlb_miss_fin 
+assign jtlb_ptw_req = tc_vld && cp0_mmu_ptw_en && tc_tlb_miss_fin
                    && {tc_acc_type[1] || tc_acc_type[2]};
 assign jtlb_ptw_vpn[VPN_WIDTH-1:0] = tc_vpn[VPN_WIDTH-1:0];
 assign jtlb_ptw_type[2:0] = tc_acc_type[2:0];
@@ -1197,7 +1197,7 @@ assign jtlb_tlboper_cmplt = tc_vld && (tc_acc_type[2:0] == 3'b001);
 assign jtlb_tlboper_read_idle = read_cur_idle;
 
 // for tlbp
-assign jtlb_regs_hit                 = tc_tlb_hit; 
+assign jtlb_regs_hit                 = tc_tlb_hit;
 assign jtlb_regs_hit_mult            = tc_tlb_hit_mult;
 
 assign tc_vpn_4k[VPN_WIDTH-1:0] =  tc_vpn[VPN_WIDTH-1:0];
@@ -1233,10 +1233,10 @@ assign jtlb_tlboper_va_hit = tc_way3_hit || tc_way2_hit || tc_way1_hit || tc_way
 assign tc_utlb_cmplt        = tc_vld && !tc_par_fail
                            && (!cp0_mmu_ptw_en && read_cur_1g
                               || !tc_tlb_miss);
-assign jtlb_iutlb_ref_cmplt = tc_utlb_cmplt     
+assign jtlb_iutlb_ref_cmplt = tc_utlb_cmplt
                                  && (tc_acc_type[2:0] == 3'b011)
                            || ptw_jtlb_ref_cmplt
-                                 && ptw_jtlb_imiss; 
+                                 && ptw_jtlb_imiss;
 
 assign jtlb_iutlb_ref_pavld = tc_pa_vld
                                  && (tc_acc_type[2:0] == 3'b011)
@@ -1254,7 +1254,7 @@ assign jtlb_iutlb_pgflt     = ptw_jtlb_ref_pgflt
                                  && (tc_acc_type[2:0] == 3'b011);
 
 
-assign jtlb_dutlb_ref_cmplt = tc_utlb_cmplt 
+assign jtlb_dutlb_ref_cmplt = tc_utlb_cmplt
                                  && (tc_acc_type[1:0] == 2'b10)
                            || ptw_jtlb_ref_cmplt
                                  && ptw_jtlb_dmiss;
@@ -1266,7 +1266,7 @@ assign jtlb_dutlb_ref_pavld = tc_pa_vld
 
 assign jtlb_dutlb_pgflt     = ptw_jtlb_ref_pgflt
                                  && ptw_jtlb_dmiss
-                           || tc_vld && tc_tlb_hit_mult 
+                           || tc_vld && tc_tlb_hit_mult
                                  && (tc_acc_type[1:0] == 2'b10)
                            || tc_vld && !cp0_mmu_ptw_en && tc_tlb_miss_fin
                                  && (tc_acc_type[1:0] == 2'b10);
@@ -1289,7 +1289,7 @@ begin
     pfu_cur_st[1:0] <= PFU_IDLE;
   else
     pfu_cur_st[1:0] <= pfu_nxt_st[1:0];
-end 
+end
 
 // &CombBeg; @918
 always @( jtlb_pfu_acc_fault
@@ -1339,14 +1339,14 @@ begin
     pfu_off_chk <= 1'b1;
   else if(pfu_ok_st || pfu_deny_st)
     pfu_off_chk <= 1'b0;
-end 
+end
 
 assign pfu_idle_st = pfu_cur_st[1:0] == PFU_IDLE;
 assign pfu_deny_st = pfu_cur_st[1:0] == PFU_DENY;
 assign pfu_ok_st   = pfu_cur_st[1:0] == PFU_OK;
 
 assign jtlb_pfu_cmplt     = tc_vld && (tc_tlb_hit
-                                    || tc_tlb_hit_mult 
+                                    || tc_tlb_hit_mult
                                     || !cp0_mmu_ptw_en && tc_tlb_miss_fin)
                                  && (tc_acc_type[2:0] == 3'b100)
                            || ptw_jtlb_ref_cmplt && ptw_jtlb_pmiss
@@ -1361,7 +1361,7 @@ assign jtlb_pfu_flag_fault =  !tc_hit_flg[0]
                            || (cp0_mmu_maee ? (tc_hit_flg[13] || !tc_hit_flg[12])
                                             : (sysmap_mmu_flg4[4] || !sysmap_mmu_flg4[3]));
 
-assign jtlb_pfu_acc_fault = tc_vld && (tc_tlb_hit_mult 
+assign jtlb_pfu_acc_fault = tc_vld && (tc_tlb_hit_mult
                                        || !cp0_mmu_ptw_en && tc_tlb_miss_fin)
                                  && (tc_acc_type[2:0] == 3'b100)
                            || tc_pa_vld && (tc_acc_type[2:0] == 3'b100)
@@ -1369,18 +1369,18 @@ assign jtlb_pfu_acc_fault = tc_vld && (tc_tlb_hit_mult
                            || lsu_mmu_va2_vld && dutlb_xx_mmu_off && (arb_top_cur_st[1:0] == 2'b0)
                               && (sysmap_mmu_flg4[4] || !sysmap_mmu_flg4[3])
                            || ptw_jtlb_ref_cmplt && ptw_jtlb_pmiss
-                              && (ptw_jtlb_ref_flg[13] || !ptw_jtlb_ref_flg[12] 
+                              && (ptw_jtlb_ref_flg[13] || !ptw_jtlb_ref_flg[12]
                                  || ptw_jtlb_ref_pgflt || ptw_jtlb_ref_acc_err);
 
 
 // &Force("bus", "sysmap_mmu_flg4", 4, 0); @994
 assign pa_offset[VPN_WIDTH-1:0]   = lsu_mmu_va2[VPN_WIDTH-1:0];
-assign ptw_pa2[PPN_WIDTH-1:0]     = 
+assign ptw_pa2[PPN_WIDTH-1:0]     =
      {PPN_WIDTH{ref_pgs[2]}} & {ref_ppn[PPN_WIDTH-1:VPN_PERLEL*2], pa_offset[VPN_PERLEL*2-1:0]}
    | {PPN_WIDTH{ref_pgs[1]}} & {ref_ppn[PPN_WIDTH-1:VPN_PERLEL*1], pa_offset[VPN_PERLEL*1-1:0]}
    | {PPN_WIDTH{ref_pgs[0]}} &  ref_ppn[PPN_WIDTH-1:0];
 
-assign jtlb_pfu_pa[PPN_WIDTH-1:0] = dutlb_xx_mmu_off ? lsu_mmu_va2[PPN_WIDTH-1:0] 
+assign jtlb_pfu_pa[PPN_WIDTH-1:0] = dutlb_xx_mmu_off ? lsu_mmu_va2[PPN_WIDTH-1:0]
                                                       : ptw_pa2[PPN_WIDTH-1:0];
 assign jtlb_pfu_sec               = (dutlb_xx_mmu_off || !cp0_mmu_maee) ? sysmap_mmu_flg4[0] : ref_flg[9];
 assign jtlb_pfu_share             = (dutlb_xx_mmu_off || !cp0_mmu_maee) ? sysmap_mmu_flg4[1] : ref_flg[10];
@@ -1440,8 +1440,8 @@ assign ref_ppn[PPN_WIDTH-1:0] = ptw_jtlb_ref_cmplt ? ptw_jtlb_ref_ppn[PPN_WIDTH-
 assign ref_flg[FLG_WIDTH-1:0] = ptw_jtlb_ref_cmplt ? ptw_jtlb_ref_flg[FLG_WIDTH-1:0]
                                                : tc_hit_flg[FLG_WIDTH-1:0];
 
-assign jtlb_utlb_ref_vpn[VPN_WIDTH-1:0] = ref_vpn[VPN_WIDTH-1:0]; 
-assign jtlb_utlb_ref_pgs[PGS_WIDTH-1:0] = ref_pgs[PGS_WIDTH-1:0]; 
+assign jtlb_utlb_ref_vpn[VPN_WIDTH-1:0] = ref_vpn[VPN_WIDTH-1:0];
+assign jtlb_utlb_ref_pgs[PGS_WIDTH-1:0] = ref_pgs[PGS_WIDTH-1:0];
 
 assign jtlb_utlb_ref_ppn[PPN_WIDTH-1:0] = ref_ppn[PPN_WIDTH-1:0];
 assign jtlb_utlb_ref_flg[FLG_WIDTH-1:0] = ref_flg[FLG_WIDTH-1:0];

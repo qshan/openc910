@@ -41,208 +41,208 @@ module ct_ifu_ras(
 );
 
 // &Ports; @23
-input           cp0_ifu_icg_en;                    
-input           cp0_ifu_ras_en;                    
-input           cp0_yy_clk_en;                     
-input   [1 :0]  cp0_yy_priv_mode;                  
-input           cpurst_b;                          
-input           forever_cpuclk;                    
-input           ibctrl_ras_inst_pcall;             
-input           ibctrl_ras_pcall_vld;              
-input           ibctrl_ras_pcall_vld_for_gateclk;  
-input           ibctrl_ras_preturn_vld;            
-input           ibctrl_ras_preturn_vld_for_gateclk; 
-input   [38:0]  ibdp_ras_push_pc;                  
-input           pad_yy_icg_scan_en;                
-input           rtu_ifu_flush;                     
-input   [38:0]  rtu_ifu_retire0_inc_pc;            
-input           rtu_ifu_retire0_mispred;           
-input           rtu_ifu_retire0_pcall;             
-input           rtu_ifu_retire0_preturn;           
-output          ras_ipdp_data_vld;                 
-output  [38:0]  ras_ipdp_pc;                       
-output  [38:0]  ras_l0_btb_pc;                     
-output  [38:0]  ras_l0_btb_push_pc;                
-output          ras_l0_btb_ras_push;               
+input           cp0_ifu_icg_en;
+input           cp0_ifu_ras_en;
+input           cp0_yy_clk_en;
+input   [1 :0]  cp0_yy_priv_mode;
+input           cpurst_b;
+input           forever_cpuclk;
+input           ibctrl_ras_inst_pcall;
+input           ibctrl_ras_pcall_vld;
+input           ibctrl_ras_pcall_vld_for_gateclk;
+input           ibctrl_ras_preturn_vld;
+input           ibctrl_ras_preturn_vld_for_gateclk;
+input   [38:0]  ibdp_ras_push_pc;
+input           pad_yy_icg_scan_en;
+input           rtu_ifu_flush;
+input   [38:0]  rtu_ifu_retire0_inc_pc;
+input           rtu_ifu_retire0_mispred;
+input           rtu_ifu_retire0_pcall;
+input           rtu_ifu_retire0_preturn;
+output          ras_ipdp_data_vld;
+output  [38:0]  ras_ipdp_pc;
+output  [38:0]  ras_l0_btb_pc;
+output  [38:0]  ras_l0_btb_push_pc;
+output          ras_l0_btb_ras_push;
 
 // &Regs; @24
-reg             ras_entry0_filled;                 
-reg     [38:0]  ras_entry0_pc;                     
-reg     [1 :0]  ras_entry0_priv_mode;              
-reg             ras_entry10_filled;                
-reg     [38:0]  ras_entry10_pc;                    
-reg     [1 :0]  ras_entry10_priv_mode;             
-reg             ras_entry11_filled;                
-reg     [38:0]  ras_entry11_pc;                    
-reg     [1 :0]  ras_entry11_priv_mode;             
-reg             ras_entry1_filled;                 
-reg     [38:0]  ras_entry1_pc;                     
-reg     [1 :0]  ras_entry1_priv_mode;              
-reg             ras_entry2_filled;                 
-reg     [38:0]  ras_entry2_pc;                     
-reg     [1 :0]  ras_entry2_priv_mode;              
-reg             ras_entry3_filled;                 
-reg     [38:0]  ras_entry3_pc;                     
-reg     [1 :0]  ras_entry3_priv_mode;              
-reg             ras_entry4_filled;                 
-reg     [38:0]  ras_entry4_pc;                     
-reg     [1 :0]  ras_entry4_priv_mode;              
-reg             ras_entry5_filled;                 
-reg     [38:0]  ras_entry5_pc;                     
-reg     [1 :0]  ras_entry5_priv_mode;              
-reg             ras_entry6_filled;                 
-reg     [38:0]  ras_entry6_pc;                     
-reg     [1 :0]  ras_entry6_priv_mode;              
-reg             ras_entry7_filled;                 
-reg     [38:0]  ras_entry7_pc;                     
-reg     [1 :0]  ras_entry7_priv_mode;              
-reg             ras_entry8_filled;                 
-reg     [38:0]  ras_entry8_pc;                     
-reg     [1 :0]  ras_entry8_priv_mode;              
-reg             ras_entry9_filled;                 
-reg     [38:0]  ras_entry9_pc;                     
-reg     [1 :0]  ras_entry9_priv_mode;              
-reg             ras_filled;                        
-reg     [38:0]  ras_pc_out;                        
-reg     [1 :0]  ras_priv_mode;                     
-reg             rtu_entry0_filled;                 
-reg     [38:0]  rtu_entry0_pc;                     
-reg     [1 :0]  rtu_entry0_priv_mode;              
-reg             rtu_entry1_filled;                 
-reg     [38:0]  rtu_entry1_pc;                     
-reg     [1 :0]  rtu_entry1_priv_mode;              
-reg             rtu_entry2_filled;                 
-reg     [38:0]  rtu_entry2_pc;                     
-reg     [1 :0]  rtu_entry2_priv_mode;              
-reg             rtu_entry3_filled;                 
-reg     [38:0]  rtu_entry3_pc;                     
-reg     [1 :0]  rtu_entry3_priv_mode;              
-reg             rtu_entry4_filled;                 
-reg     [38:0]  rtu_entry4_pc;                     
-reg     [1 :0]  rtu_entry4_priv_mode;              
-reg             rtu_entry5_filled;                 
-reg     [38:0]  rtu_entry5_pc;                     
-reg     [1 :0]  rtu_entry5_priv_mode;              
-reg     [3 :0]  rtu_fifo_ptr;                      
-reg     [4 :0]  rtu_ptr;                           
-reg     [4 :0]  rtu_ptr_pre;                       
-reg     [4 :0]  status_ptr;                        
-reg     [4 :0]  top_ptr;                           
-reg     [4 :0]  top_ptr_pre;                       
+reg             ras_entry0_filled;
+reg     [38:0]  ras_entry0_pc;
+reg     [1 :0]  ras_entry0_priv_mode;
+reg             ras_entry10_filled;
+reg     [38:0]  ras_entry10_pc;
+reg     [1 :0]  ras_entry10_priv_mode;
+reg             ras_entry11_filled;
+reg     [38:0]  ras_entry11_pc;
+reg     [1 :0]  ras_entry11_priv_mode;
+reg             ras_entry1_filled;
+reg     [38:0]  ras_entry1_pc;
+reg     [1 :0]  ras_entry1_priv_mode;
+reg             ras_entry2_filled;
+reg     [38:0]  ras_entry2_pc;
+reg     [1 :0]  ras_entry2_priv_mode;
+reg             ras_entry3_filled;
+reg     [38:0]  ras_entry3_pc;
+reg     [1 :0]  ras_entry3_priv_mode;
+reg             ras_entry4_filled;
+reg     [38:0]  ras_entry4_pc;
+reg     [1 :0]  ras_entry4_priv_mode;
+reg             ras_entry5_filled;
+reg     [38:0]  ras_entry5_pc;
+reg     [1 :0]  ras_entry5_priv_mode;
+reg             ras_entry6_filled;
+reg     [38:0]  ras_entry6_pc;
+reg     [1 :0]  ras_entry6_priv_mode;
+reg             ras_entry7_filled;
+reg     [38:0]  ras_entry7_pc;
+reg     [1 :0]  ras_entry7_priv_mode;
+reg             ras_entry8_filled;
+reg     [38:0]  ras_entry8_pc;
+reg     [1 :0]  ras_entry8_priv_mode;
+reg             ras_entry9_filled;
+reg     [38:0]  ras_entry9_pc;
+reg     [1 :0]  ras_entry9_priv_mode;
+reg             ras_filled;
+reg     [38:0]  ras_pc_out;
+reg     [1 :0]  ras_priv_mode;
+reg             rtu_entry0_filled;
+reg     [38:0]  rtu_entry0_pc;
+reg     [1 :0]  rtu_entry0_priv_mode;
+reg             rtu_entry1_filled;
+reg     [38:0]  rtu_entry1_pc;
+reg     [1 :0]  rtu_entry1_priv_mode;
+reg             rtu_entry2_filled;
+reg     [38:0]  rtu_entry2_pc;
+reg     [1 :0]  rtu_entry2_priv_mode;
+reg             rtu_entry3_filled;
+reg     [38:0]  rtu_entry3_pc;
+reg     [1 :0]  rtu_entry3_priv_mode;
+reg             rtu_entry4_filled;
+reg     [38:0]  rtu_entry4_pc;
+reg     [1 :0]  rtu_entry4_priv_mode;
+reg             rtu_entry5_filled;
+reg     [38:0]  rtu_entry5_pc;
+reg     [1 :0]  rtu_entry5_priv_mode;
+reg     [3 :0]  rtu_fifo_ptr;
+reg     [4 :0]  rtu_ptr;
+reg     [4 :0]  rtu_ptr_pre;
+reg     [4 :0]  status_ptr;
+reg     [4 :0]  top_ptr;
+reg     [4 :0]  top_ptr_pre;
 
 // &Wires; @25
-wire            cp0_ifu_icg_en;                    
-wire            cp0_ifu_ras_en;                    
-wire            cp0_yy_clk_en;                     
-wire    [1 :0]  cp0_yy_priv_mode;                  
-wire            cpurst_b;                          
-wire            entry0_push;                       
-wire            entry10_push;                      
-wire            entry11_push;                      
-wire            entry1_push;                       
-wire            entry2_push;                       
-wire            entry3_push;                       
-wire            entry4_push;                       
-wire            entry5_push;                       
-wire            entry6_push;                       
-wire            entry7_push;                       
-wire            entry8_push;                       
-wire            entry9_push;                       
-wire            forever_cpuclk;                    
-wire            ibctrl_ras_inst_pcall;             
-wire            ibctrl_ras_pcall_vld;              
-wire            ibctrl_ras_pcall_vld_for_gateclk;  
-wire            ibctrl_ras_preturn_vld;            
-wire            ibctrl_ras_preturn_vld_for_gateclk; 
-wire    [38:0]  ibdp_ras_push_pc;                  
-wire            pad_yy_icg_scan_en;                
-wire            ras_empty;                         
-wire            ras_entry0_upd_clk;                
-wire            ras_entry0_upd_clk_en;             
-wire            ras_entry10_upd_clk;               
-wire            ras_entry10_upd_clk_en;            
-wire            ras_entry11_upd_clk;               
-wire            ras_entry11_upd_clk_en;            
-wire            ras_entry1_upd_clk;                
-wire            ras_entry1_upd_clk_en;             
-wire            ras_entry2_upd_clk;                
-wire            ras_entry2_upd_clk_en;             
-wire            ras_entry3_upd_clk;                
-wire            ras_entry3_upd_clk_en;             
-wire            ras_entry4_upd_clk;                
-wire            ras_entry4_upd_clk_en;             
-wire            ras_entry5_upd_clk;                
-wire            ras_entry5_upd_clk_en;             
-wire            ras_entry6_upd_clk;                
-wire            ras_entry6_upd_clk_en;             
-wire            ras_entry7_upd_clk;                
-wire            ras_entry7_upd_clk_en;             
-wire            ras_entry8_upd_clk;                
-wire            ras_entry8_upd_clk_en;             
-wire            ras_entry9_upd_clk;                
-wire            ras_entry9_upd_clk_en;             
-wire            ras_full;                          
-wire            ras_ipdp_data_vld;                 
-wire    [38:0]  ras_ipdp_pc;                       
-wire    [38:0]  ras_l0_btb_pc;                     
-wire    [38:0]  ras_l0_btb_push_pc;                
-wire            ras_l0_btb_ras_push;               
-wire            ras_pop;                           
-wire            ras_push;                          
-wire    [38:0]  ras_push_pc;                       
-wire            rtu_entry0_copy;                   
-wire    [38:0]  rtu_entry0_pre;                    
-wire            rtu_entry0_push;                   
-wire            rtu_entry0_upd_clk;                
-wire            rtu_entry0_upd_clk_en;             
-wire            rtu_entry10_copy;                  
-wire            rtu_entry11_copy;                  
-wire            rtu_entry1_copy;                   
-wire    [38:0]  rtu_entry1_pre;                    
-wire            rtu_entry1_push;                   
-wire            rtu_entry1_upd_clk;                
-wire            rtu_entry1_upd_clk_en;             
-wire            rtu_entry2_copy;                   
-wire    [38:0]  rtu_entry2_pre;                    
-wire            rtu_entry2_push;                   
-wire            rtu_entry2_upd_clk;                
-wire            rtu_entry2_upd_clk_en;             
-wire            rtu_entry3_copy;                   
-wire    [38:0]  rtu_entry3_pre;                    
-wire            rtu_entry3_push;                   
-wire            rtu_entry3_upd_clk;                
-wire            rtu_entry3_upd_clk_en;             
-wire            rtu_entry4_copy;                   
-wire    [38:0]  rtu_entry4_pre;                    
-wire            rtu_entry4_push;                   
-wire            rtu_entry4_upd_clk;                
-wire            rtu_entry4_upd_clk_en;             
-wire            rtu_entry5_copy;                   
-wire    [38:0]  rtu_entry5_pre;                    
-wire            rtu_entry5_push;                   
-wire            rtu_entry5_upd_clk;                
-wire            rtu_entry5_upd_clk_en;             
-wire            rtu_entry6_copy;                   
-wire            rtu_entry7_copy;                   
-wire            rtu_entry8_copy;                   
-wire            rtu_entry9_copy;                   
-wire    [3 :0]  rtu_fifo_ptr_pre;                  
-wire            rtu_fifo_ptr_upd_clk;              
-wire            rtu_fifo_ptr_upd_clk_en;           
-wire            rtu_ifu_flush;                     
-wire    [38:0]  rtu_ifu_retire0_inc_pc;            
-wire            rtu_ifu_retire0_mispred;           
-wire            rtu_ifu_retire0_pcall;             
-wire            rtu_ifu_retire0_preturn;           
-wire            rtu_ptr_upd_clk;                   
-wire            rtu_ptr_upd_clk_en;                
-wire            rtu_ras_empty;                     
-wire    [4 :0]  status_ptr_pre;                    
-wire            status_ptr_upd_clk;                
-wire            status_ptr_upd_clk_en;             
-wire            top_entry_rtu_updt;                
-wire            top_ptr_upd_clk;                   
-wire            top_ptr_upd_clk_en;                
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_ras_en;
+wire            cp0_yy_clk_en;
+wire    [1 :0]  cp0_yy_priv_mode;
+wire            cpurst_b;
+wire            entry0_push;
+wire            entry10_push;
+wire            entry11_push;
+wire            entry1_push;
+wire            entry2_push;
+wire            entry3_push;
+wire            entry4_push;
+wire            entry5_push;
+wire            entry6_push;
+wire            entry7_push;
+wire            entry8_push;
+wire            entry9_push;
+wire            forever_cpuclk;
+wire            ibctrl_ras_inst_pcall;
+wire            ibctrl_ras_pcall_vld;
+wire            ibctrl_ras_pcall_vld_for_gateclk;
+wire            ibctrl_ras_preturn_vld;
+wire            ibctrl_ras_preturn_vld_for_gateclk;
+wire    [38:0]  ibdp_ras_push_pc;
+wire            pad_yy_icg_scan_en;
+wire            ras_empty;
+wire            ras_entry0_upd_clk;
+wire            ras_entry0_upd_clk_en;
+wire            ras_entry10_upd_clk;
+wire            ras_entry10_upd_clk_en;
+wire            ras_entry11_upd_clk;
+wire            ras_entry11_upd_clk_en;
+wire            ras_entry1_upd_clk;
+wire            ras_entry1_upd_clk_en;
+wire            ras_entry2_upd_clk;
+wire            ras_entry2_upd_clk_en;
+wire            ras_entry3_upd_clk;
+wire            ras_entry3_upd_clk_en;
+wire            ras_entry4_upd_clk;
+wire            ras_entry4_upd_clk_en;
+wire            ras_entry5_upd_clk;
+wire            ras_entry5_upd_clk_en;
+wire            ras_entry6_upd_clk;
+wire            ras_entry6_upd_clk_en;
+wire            ras_entry7_upd_clk;
+wire            ras_entry7_upd_clk_en;
+wire            ras_entry8_upd_clk;
+wire            ras_entry8_upd_clk_en;
+wire            ras_entry9_upd_clk;
+wire            ras_entry9_upd_clk_en;
+wire            ras_full;
+wire            ras_ipdp_data_vld;
+wire    [38:0]  ras_ipdp_pc;
+wire    [38:0]  ras_l0_btb_pc;
+wire    [38:0]  ras_l0_btb_push_pc;
+wire            ras_l0_btb_ras_push;
+wire            ras_pop;
+wire            ras_push;
+wire    [38:0]  ras_push_pc;
+wire            rtu_entry0_copy;
+wire    [38:0]  rtu_entry0_pre;
+wire            rtu_entry0_push;
+wire            rtu_entry0_upd_clk;
+wire            rtu_entry0_upd_clk_en;
+wire            rtu_entry10_copy;
+wire            rtu_entry11_copy;
+wire            rtu_entry1_copy;
+wire    [38:0]  rtu_entry1_pre;
+wire            rtu_entry1_push;
+wire            rtu_entry1_upd_clk;
+wire            rtu_entry1_upd_clk_en;
+wire            rtu_entry2_copy;
+wire    [38:0]  rtu_entry2_pre;
+wire            rtu_entry2_push;
+wire            rtu_entry2_upd_clk;
+wire            rtu_entry2_upd_clk_en;
+wire            rtu_entry3_copy;
+wire    [38:0]  rtu_entry3_pre;
+wire            rtu_entry3_push;
+wire            rtu_entry3_upd_clk;
+wire            rtu_entry3_upd_clk_en;
+wire            rtu_entry4_copy;
+wire    [38:0]  rtu_entry4_pre;
+wire            rtu_entry4_push;
+wire            rtu_entry4_upd_clk;
+wire            rtu_entry4_upd_clk_en;
+wire            rtu_entry5_copy;
+wire    [38:0]  rtu_entry5_pre;
+wire            rtu_entry5_push;
+wire            rtu_entry5_upd_clk;
+wire            rtu_entry5_upd_clk_en;
+wire            rtu_entry6_copy;
+wire            rtu_entry7_copy;
+wire            rtu_entry8_copy;
+wire            rtu_entry9_copy;
+wire    [3 :0]  rtu_fifo_ptr_pre;
+wire            rtu_fifo_ptr_upd_clk;
+wire            rtu_fifo_ptr_upd_clk_en;
+wire            rtu_ifu_flush;
+wire    [38:0]  rtu_ifu_retire0_inc_pc;
+wire            rtu_ifu_retire0_mispred;
+wire            rtu_ifu_retire0_pcall;
+wire            rtu_ifu_retire0_preturn;
+wire            rtu_ptr_upd_clk;
+wire            rtu_ptr_upd_clk_en;
+wire            rtu_ras_empty;
+wire    [4 :0]  status_ptr_pre;
+wire            status_ptr_upd_clk;
+wire            status_ptr_upd_clk_en;
+wire            top_entry_rtu_updt;
+wire            top_ptr_upd_clk;
+wire            top_ptr_upd_clk_en;
 
 
 //CK 860 RAS has 12 + 6 Entry
@@ -251,7 +251,7 @@ wire            top_ptr_upd_clk_en;
 
 parameter PC_WIDTH = 40;
 //==========================================================
-//                    RTU RAS Pointer 
+//                    RTU RAS Pointer
 //==========================================================
 //rtu ras pointer is maintained by rtu signal
 //1.when inst pcall retires, this pointer add by one
@@ -310,12 +310,12 @@ gated_clk_cell  x_rtu_ptr_upd_clk (
 //           .local_en       (rtu_ptr_upd_clk_en),//Local Condition @73
 //           .module_en      (cp0_ifu_icg_en) @74
 //         ); @75
-assign rtu_ptr_upd_clk_en = cp0_ifu_ras_en && 
-                            (rtu_ifu_retire0_pcall || 
+assign rtu_ptr_upd_clk_en = cp0_ifu_ras_en &&
+                            (rtu_ifu_retire0_pcall ||
                              rtu_ifu_retire0_preturn);
 
 //==========================================================
-//                    TOP RAS Pointer 
+//                    TOP RAS Pointer
 //==========================================================
 //top ras pointer is maintained by IFU
 //1.when rtu_ifu ras update, load the value of rtu_ptr
@@ -378,13 +378,13 @@ gated_clk_cell  x_top_ptr_upd_clk (
 //           .local_en       (top_ptr_upd_clk_en),//Local Condition @123
 //           .module_en      (cp0_ifu_icg_en) @124
 //         ); @125
-assign top_ptr_upd_clk_en = cp0_ifu_ras_en && 
-                           (top_entry_rtu_updt || 
-                            ibctrl_ras_pcall_vld_for_gateclk || 
+assign top_ptr_upd_clk_en = cp0_ifu_ras_en &&
+                           (top_entry_rtu_updt ||
+                            ibctrl_ras_pcall_vld_for_gateclk ||
                             ibctrl_ras_preturn_vld_for_gateclk);
 
-assign top_entry_rtu_updt = rtu_ifu_retire0_mispred || 
-                            rtu_ifu_flush;  
+assign top_entry_rtu_updt = rtu_ifu_retire0_mispred ||
+                            rtu_ifu_flush;
 //==========================================================
 //                   Status Pointer
 //==========================================================
@@ -395,7 +395,7 @@ assign top_entry_rtu_updt = rtu_ifu_retire0_mispred ||
 //12 will return correctly, and return stack will be empty so the oldest one will
 //get pc from x1 value from iu
 assign status_ptr_pre[4:0] = (status_ptr[3:0] == 4'b1011)
-                           ? {{~status_ptr[4]},4'b0000} 
+                           ? {{~status_ptr[4]},4'b0000}
                            : (status_ptr[4:0] + 1'b1);
 always @(posedge status_ptr_upd_clk or negedge cpurst_b)
 begin
@@ -444,8 +444,8 @@ gated_clk_cell  x_status_ptr_upd_clk (
 //           .local_en       (status_ptr_upd_clk_en),//Local Condition @179
 //           .module_en      (cp0_ifu_icg_en) @180
 //         ); @181
-assign status_ptr_upd_clk_en = cp0_ifu_ras_en && ras_full && ibctrl_ras_pcall_vld_for_gateclk|| 
-                               cp0_ifu_ras_en && ras_full && ibctrl_ras_preturn_vld_for_gateclk  || 
+assign status_ptr_upd_clk_en = cp0_ifu_ras_en && ras_full && ibctrl_ras_pcall_vld_for_gateclk||
+                               cp0_ifu_ras_en && ras_full && ibctrl_ras_preturn_vld_for_gateclk  ||
                                cp0_ifu_ras_en && top_entry_rtu_updt;
 
 //==========================================================
@@ -483,7 +483,7 @@ begin
     rtu_entry0_priv_mode[1:0] <= rtu_entry0_priv_mode[1:0];
 end
 
-assign rtu_entry0_push = (rtu_ptr[3:0] == 4'b0000) || 
+assign rtu_entry0_push = (rtu_ptr[3:0] == 4'b0000) ||
                          (rtu_ptr[3:0] == 4'b0110);
 
 //Gate Clk
@@ -505,8 +505,8 @@ gated_clk_cell  x_rtu_entry0_upd_clk (
 //           .local_en       (rtu_entry0_upd_clk_en),//Local Condition @230
 //           .module_en      (cp0_ifu_icg_en) @231
 //         ); @232
-assign rtu_entry0_upd_clk_en = cp0_ifu_ras_en && 
-                               rtu_ifu_retire0_pcall && 
+assign rtu_entry0_upd_clk_en = cp0_ifu_ras_en &&
+                               rtu_ifu_retire0_pcall &&
                                rtu_entry0_push;
 
 //rtu ras entry1
@@ -540,7 +540,7 @@ begin
 end
 
 
-assign rtu_entry1_push = (rtu_ptr[3:0] == 4'b0001) || 
+assign rtu_entry1_push = (rtu_ptr[3:0] == 4'b0001) ||
                          (rtu_ptr[3:0] == 4'b0111);
 
 //Gate Clk
@@ -562,8 +562,8 @@ gated_clk_cell  x_rtu_entry1_upd_clk (
 //           .local_en       (rtu_entry1_upd_clk_en),//Local Condition @277
 //           .module_en      (cp0_ifu_icg_en) @278
 //         ); @279
-assign rtu_entry1_upd_clk_en = cp0_ifu_ras_en && 
-                               rtu_ifu_retire0_pcall && 
+assign rtu_entry1_upd_clk_en = cp0_ifu_ras_en &&
+                               rtu_ifu_retire0_pcall &&
                                rtu_entry1_push;
 
 //rtu ras entry2
@@ -596,7 +596,7 @@ begin
     rtu_entry2_priv_mode[1:0] <= rtu_entry2_priv_mode[1:0];
 end
 
-assign rtu_entry2_push = (rtu_ptr[3:0] == 4'b0010) || 
+assign rtu_entry2_push = (rtu_ptr[3:0] == 4'b0010) ||
                          (rtu_ptr[3:0] == 4'b1000);
 
 //Gate Clk
@@ -618,8 +618,8 @@ gated_clk_cell  x_rtu_entry2_upd_clk (
 //           .local_en       (rtu_entry2_upd_clk_en),//Local Condition @323
 //           .module_en      (cp0_ifu_icg_en) @324
 //         ); @325
-assign rtu_entry2_upd_clk_en = cp0_ifu_ras_en && 
-                               rtu_ifu_retire0_pcall && 
+assign rtu_entry2_upd_clk_en = cp0_ifu_ras_en &&
+                               rtu_ifu_retire0_pcall &&
                                rtu_entry2_push;
 
 //rtu ras entry3
@@ -652,7 +652,7 @@ begin
     rtu_entry3_priv_mode[1:0] <= rtu_entry3_priv_mode[1:0];
 end
 
-assign rtu_entry3_push = (rtu_ptr[3:0] == 4'b0011) || 
+assign rtu_entry3_push = (rtu_ptr[3:0] == 4'b0011) ||
                          (rtu_ptr[3:0] == 4'b1001);
 
 //Gate Clk
@@ -674,8 +674,8 @@ gated_clk_cell  x_rtu_entry3_upd_clk (
 //           .local_en       (rtu_entry3_upd_clk_en),//Local Condition @369
 //           .module_en      (cp0_ifu_icg_en) @370
 //         ); @371
-assign rtu_entry3_upd_clk_en = cp0_ifu_ras_en && 
-                               rtu_ifu_retire0_pcall && 
+assign rtu_entry3_upd_clk_en = cp0_ifu_ras_en &&
+                               rtu_ifu_retire0_pcall &&
                                rtu_entry3_push;
 
 //rtu ras entry4
@@ -708,7 +708,7 @@ begin
     rtu_entry4_priv_mode[1:0] <= rtu_entry4_priv_mode[1:0];
 end
 
-assign rtu_entry4_push = (rtu_ptr[3:0] == 4'b0100) || 
+assign rtu_entry4_push = (rtu_ptr[3:0] == 4'b0100) ||
                          (rtu_ptr[3:0] == 4'b1010);
 
 //Gate Clk
@@ -730,8 +730,8 @@ gated_clk_cell  x_rtu_entry4_upd_clk (
 //           .local_en       (rtu_entry4_upd_clk_en),//Local Condition @415
 //           .module_en      (cp0_ifu_icg_en) @416
 //         ); @417
-assign rtu_entry4_upd_clk_en = cp0_ifu_ras_en && 
-                               rtu_ifu_retire0_pcall && 
+assign rtu_entry4_upd_clk_en = cp0_ifu_ras_en &&
+                               rtu_ifu_retire0_pcall &&
                                rtu_entry4_push;
 
 //rtu ras entry5
@@ -764,7 +764,7 @@ begin
     rtu_entry5_priv_mode[1:0] <= rtu_entry5_priv_mode[1:0];
 end
 
-assign rtu_entry5_push = (rtu_ptr[3:0] == 4'b0101) || 
+assign rtu_entry5_push = (rtu_ptr[3:0] == 4'b0101) ||
                          (rtu_ptr[3:0] == 4'b1011);
 
 //Gate Clk
@@ -786,8 +786,8 @@ gated_clk_cell  x_rtu_entry5_upd_clk (
 //           .local_en       (rtu_entry5_upd_clk_en),//Local Condition @461
 //           .module_en      (cp0_ifu_icg_en) @462
 //         ); @463
-assign rtu_entry5_upd_clk_en = cp0_ifu_ras_en && 
-                               rtu_ifu_retire0_pcall && 
+assign rtu_entry5_upd_clk_en = cp0_ifu_ras_en &&
+                               rtu_ifu_retire0_pcall &&
                                rtu_entry5_push;
 
 //==========================================================
@@ -805,8 +805,8 @@ begin
     rtu_fifo_ptr[3:0] <= rtu_fifo_ptr_pre[3:0];
 end
 
-assign rtu_fifo_ptr_pre[3:0] = (rtu_ifu_retire0_pcall) 
-                             ? rtu_ptr[3:0] 
+assign rtu_fifo_ptr_pre[3:0] = (rtu_ifu_retire0_pcall)
+                             ? rtu_ptr[3:0]
                              : rtu_fifo_ptr[3:0];
 //Gate Clk
 // &Instance("gated_clk_cell","x_rtu_fifo_ptr_upd_clk"); @487
@@ -827,7 +827,7 @@ gated_clk_cell  x_rtu_fifo_ptr_upd_clk (
 //           .local_en       (rtu_fifo_ptr_upd_clk_en),//Local Condition @492
 //           .module_en      (cp0_ifu_icg_en) @493
 //         ); @494
-assign rtu_fifo_ptr_upd_clk_en = cp0_ifu_ras_en && 
+assign rtu_fifo_ptr_upd_clk_en = cp0_ifu_ras_en &&
                                  rtu_ifu_retire0_pcall;
 
 //top ras fifo entry write in logic
@@ -877,19 +877,19 @@ begin
     ras_entry0_priv_mode[1:0] <= ras_entry0_priv_mode[1:0];
 end
 
-assign rtu_entry0_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall && 
+assign rtu_entry0_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall &&
                                        rtu_entry0_push)
-                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0] 
+                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0]
                                     : rtu_entry0_pc[PC_WIDTH-2:0];
 //only when entry0 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry0_copy = (rtu_fifo_ptr_pre[3:0] == 4'b0101) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0100) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0011) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0010) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0001) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0000);
-assign entry0_push = (top_ptr[3:0] == 4'b0000);    
+assign entry0_push = (top_ptr[3:0] == 4'b0000);
 
 //top ras entry1
 always @(posedge ras_entry1_upd_clk or negedge cpurst_b)
@@ -937,19 +937,19 @@ begin
     ras_entry1_priv_mode[1:0] <= ras_entry1_priv_mode[1:0];
 end
 
-assign rtu_entry1_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall && 
+assign rtu_entry1_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall &&
                                        rtu_entry1_push)
-                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0] 
+                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0]
                                     : rtu_entry1_pc[PC_WIDTH-2:0];
 //only when entry1 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry1_copy = (rtu_fifo_ptr_pre[3:0] == 4'b0110) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0101) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0100) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0011) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0010) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0001);
-assign entry1_push = (top_ptr[3:0] == 4'b0001);    
+assign entry1_push = (top_ptr[3:0] == 4'b0001);
 
 //top ras entry2
 always @(posedge ras_entry2_upd_clk or negedge cpurst_b)
@@ -997,19 +997,19 @@ begin
     ras_entry2_priv_mode[1:0] <= ras_entry2_priv_mode[1:0];
 end
 
-assign rtu_entry2_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall && 
+assign rtu_entry2_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall &&
                                        rtu_entry2_push)
-                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0] 
+                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0]
                                     : rtu_entry2_pc[PC_WIDTH-2:0];
 //only when entry2 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry2_copy = (rtu_fifo_ptr_pre[3:0] == 4'b0111) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0110) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0101) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0100) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0011) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0010);
-assign entry2_push = (top_ptr[3:0] == 4'b0010);    
+assign entry2_push = (top_ptr[3:0] == 4'b0010);
 
 //top ras entry3
 always @(posedge ras_entry3_upd_clk or negedge cpurst_b)
@@ -1057,19 +1057,19 @@ begin
     ras_entry3_priv_mode[1:0] <= ras_entry3_priv_mode[1:0];
 end
 
-assign rtu_entry3_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall && 
+assign rtu_entry3_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall &&
                                        rtu_entry3_push)
-                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0] 
+                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0]
                                     : rtu_entry3_pc[PC_WIDTH-2:0];
 //only when entry3 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry3_copy = (rtu_fifo_ptr_pre[3:0] == 4'b1000) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0111) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0110) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0101) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0100) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0011);
-assign entry3_push = (top_ptr[3:0] == 4'b0011);    
+assign entry3_push = (top_ptr[3:0] == 4'b0011);
 
 //top ras entry4
 always @(posedge ras_entry4_upd_clk or negedge cpurst_b)
@@ -1117,19 +1117,19 @@ begin
     ras_entry4_priv_mode[1:0] <= ras_entry4_priv_mode[1:0];
 end
 
-assign rtu_entry4_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall && 
+assign rtu_entry4_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall &&
                                        rtu_entry4_push)
-                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0] 
+                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0]
                                     : rtu_entry4_pc[PC_WIDTH-2:0];
 //only when entry4 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry4_copy = (rtu_fifo_ptr_pre[3:0] == 4'b1001) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1000) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0111) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0110) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0101) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0100);
-assign entry4_push = (top_ptr[3:0] == 4'b0100);    
+assign entry4_push = (top_ptr[3:0] == 4'b0100);
 
 //top ras entry5
 always @(posedge ras_entry5_upd_clk or negedge cpurst_b)
@@ -1177,19 +1177,19 @@ begin
     ras_entry5_priv_mode[1:0] <= ras_entry5_priv_mode[1:0];
 end
 
-assign rtu_entry5_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall && 
+assign rtu_entry5_pre[PC_WIDTH-2:0] = (rtu_ifu_retire0_pcall &&
                                        rtu_entry5_push)
-                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0] 
+                                    ? rtu_ifu_retire0_inc_pc[PC_WIDTH-2:0]
                                     : rtu_entry5_pc[PC_WIDTH-2:0];
 //only when entry5 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry5_copy = (rtu_fifo_ptr_pre[3:0] == 4'b1010) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1001) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1000) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0111) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0110) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0101);
-assign entry5_push = (top_ptr[3:0] == 4'b0101);    
+assign entry5_push = (top_ptr[3:0] == 4'b0101);
 
 //top ras entry6
 always @(posedge ras_entry6_upd_clk or negedge cpurst_b)
@@ -1238,14 +1238,14 @@ begin
 end
 
 //only when entry6 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry6_copy = (rtu_fifo_ptr_pre[3:0] == 4'b1011) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1010) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1001) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1000) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0111) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0110);
-assign entry6_push = (top_ptr[3:0] == 4'b0110);    
+assign entry6_push = (top_ptr[3:0] == 4'b0110);
 
 //top ras entry7
 always @(posedge ras_entry7_upd_clk or negedge cpurst_b)
@@ -1294,14 +1294,14 @@ begin
 end
 
 //only when entry7 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry7_copy = (rtu_fifo_ptr_pre[3:0] == 4'b0000) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1011) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1010) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1001) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1000) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0111);
-assign entry7_push = (top_ptr[3:0] == 4'b0111);    
+assign entry7_push = (top_ptr[3:0] == 4'b0111);
 
 //top ras entry8
 always @(posedge ras_entry8_upd_clk or negedge cpurst_b)
@@ -1350,14 +1350,14 @@ begin
 end
 
 //only when entry8 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry8_copy = (rtu_fifo_ptr_pre[3:0] == 4'b0001) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0000) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1011) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1010) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1001) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1000);
-assign entry8_push = (top_ptr[3:0] == 4'b1000);    
+assign entry8_push = (top_ptr[3:0] == 4'b1000);
 
 //top ras entry9
 always @(posedge ras_entry9_upd_clk or negedge cpurst_b)
@@ -1406,14 +1406,14 @@ begin
 end
 
 //only when entry9 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry9_copy = (rtu_fifo_ptr_pre[3:0] == 4'b0010) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0001) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b0000) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1011) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1010) ||
                          (rtu_fifo_ptr_pre[3:0] == 4'b1001);
-assign entry9_push = (top_ptr[3:0] == 4'b1001);    
+assign entry9_push = (top_ptr[3:0] == 4'b1001);
 
 //top ras entry10
 always @(posedge ras_entry10_upd_clk or negedge cpurst_b)
@@ -1462,14 +1462,14 @@ begin
 end
 
 //only when entry10 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry10_copy = (rtu_fifo_ptr_pre[3:0] == 4'b0011) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b0010) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b0001) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b0000) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b1011) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b1010);
-assign entry10_push = (top_ptr[3:0] == 4'b1010);    
+assign entry10_push = (top_ptr[3:0] == 4'b1010);
 
 //top ras entry11
 always @(posedge ras_entry11_upd_clk or negedge cpurst_b)
@@ -1518,14 +1518,14 @@ begin
 end
 
 //only when entry11 is the last 6 entry used
-//will it be updated by rtu entry copy value                             
+//will it be updated by rtu entry copy value
 assign rtu_entry11_copy = (rtu_fifo_ptr_pre[3:0] == 4'b0100) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b0011) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b0010) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b0001) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b0000) ||
                           (rtu_fifo_ptr_pre[3:0] == 4'b1011);
-assign entry11_push = (top_ptr[3:0] == 4'b1011);    
+assign entry11_push = (top_ptr[3:0] == 4'b1011);
 
 //----------------ras entry update gate clk-----------------
 //Gate Clk - ras_entry0_upd_clk
@@ -1547,8 +1547,8 @@ gated_clk_cell  x_ras_entry0_upd_clk (
 //           .local_en       (ras_entry0_upd_clk_en),//Local Condition @1202
 //           .module_en      (cp0_ifu_icg_en) @1203
 //         ); @1204
-assign ras_entry0_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry0_copy || 
+assign ras_entry0_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry0_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry0_push);
 
 //Gate Clk - ras_entry1_upd_clk
@@ -1570,8 +1570,8 @@ gated_clk_cell  x_ras_entry1_upd_clk (
 //           .local_en       (ras_entry1_upd_clk_en),//Local Condition @1215
 //           .module_en      (cp0_ifu_icg_en) @1216
 //         ); @1217
-assign ras_entry1_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry1_copy || 
+assign ras_entry1_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry1_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry1_push);
 
 //Gate Clk - ras_entry2_upd_clk
@@ -1593,8 +1593,8 @@ gated_clk_cell  x_ras_entry2_upd_clk (
 //           .local_en       (ras_entry2_upd_clk_en),//Local Condition @1228
 //           .module_en      (cp0_ifu_icg_en) @1229
 //         ); @1230
-assign ras_entry2_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry2_copy || 
+assign ras_entry2_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry2_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry2_push);
 
 //Gate Clk - ras_entry3_upd_clk
@@ -1616,8 +1616,8 @@ gated_clk_cell  x_ras_entry3_upd_clk (
 //           .local_en       (ras_entry3_upd_clk_en),//Local Condition @1241
 //           .module_en      (cp0_ifu_icg_en) @1242
 //         ); @1243
-assign ras_entry3_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry3_copy || 
+assign ras_entry3_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry3_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry3_push);
 
 //Gate Clk - ras_entry4_upd_clk
@@ -1639,8 +1639,8 @@ gated_clk_cell  x_ras_entry4_upd_clk (
 //           .local_en       (ras_entry4_upd_clk_en),//Local Condition @1254
 //           .module_en      (cp0_ifu_icg_en) @1255
 //         ); @1256
-assign ras_entry4_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry4_copy || 
+assign ras_entry4_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry4_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry4_push);
 
 //Gate Clk - ras_entry5_upd_clk
@@ -1662,8 +1662,8 @@ gated_clk_cell  x_ras_entry5_upd_clk (
 //           .local_en       (ras_entry5_upd_clk_en),//Local Condition @1267
 //           .module_en      (cp0_ifu_icg_en) @1268
 //         ); @1269
-assign ras_entry5_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry5_copy || 
+assign ras_entry5_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry5_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry5_push);
 
 //Gate Clk - ras_entry6_upd_clk
@@ -1685,8 +1685,8 @@ gated_clk_cell  x_ras_entry6_upd_clk (
 //           .local_en       (ras_entry6_upd_clk_en),//Local Condition @1280
 //           .module_en      (cp0_ifu_icg_en) @1281
 //         ); @1282
-assign ras_entry6_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry6_copy || 
+assign ras_entry6_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry6_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry6_push);
 
 //Gate Clk - ras_entry7_upd_clk
@@ -1708,8 +1708,8 @@ gated_clk_cell  x_ras_entry7_upd_clk (
 //           .local_en       (ras_entry7_upd_clk_en),//Local Condition @1293
 //           .module_en      (cp0_ifu_icg_en) @1294
 //         ); @1295
-assign ras_entry7_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry7_copy || 
+assign ras_entry7_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry7_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry7_push);
 
 //Gate Clk - ras_entry8_upd_clk
@@ -1731,8 +1731,8 @@ gated_clk_cell  x_ras_entry8_upd_clk (
 //           .local_en       (ras_entry8_upd_clk_en),//Local Condition @1306
 //           .module_en      (cp0_ifu_icg_en) @1307
 //         ); @1308
-assign ras_entry8_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry8_copy || 
+assign ras_entry8_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry8_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry8_push);
 
 //Gate Clk - ras_entry9_upd_clk
@@ -1754,8 +1754,8 @@ gated_clk_cell  x_ras_entry9_upd_clk (
 //           .local_en       (ras_entry9_upd_clk_en),//Local Condition @1319
 //           .module_en      (cp0_ifu_icg_en) @1320
 //         ); @1321
-assign ras_entry9_upd_clk_en = cp0_ifu_ras_en && 
-                               (top_entry_rtu_updt && rtu_entry9_copy || 
+assign ras_entry9_upd_clk_en = cp0_ifu_ras_en &&
+                               (top_entry_rtu_updt && rtu_entry9_copy ||
                                 ibctrl_ras_pcall_vld_for_gateclk && entry9_push);
 
 //Gate Clk - ras_entry10_upd_clk
@@ -1777,8 +1777,8 @@ gated_clk_cell  x_ras_entry10_upd_clk (
 //           .local_en       (ras_entry10_upd_clk_en),//Local Condition @1332
 //           .module_en      (cp0_ifu_icg_en) @1333
 //         ); @1334
-assign ras_entry10_upd_clk_en = cp0_ifu_ras_en && 
-                                (top_entry_rtu_updt && rtu_entry10_copy || 
+assign ras_entry10_upd_clk_en = cp0_ifu_ras_en &&
+                                (top_entry_rtu_updt && rtu_entry10_copy ||
                                  ibctrl_ras_pcall_vld_for_gateclk && entry10_push);
 
 //Gate Clk - ras_entry11_upd_clk
@@ -1800,8 +1800,8 @@ gated_clk_cell  x_ras_entry11_upd_clk (
 //           .local_en       (ras_entry11_upd_clk_en),//Local Condition @1345
 //           .module_en      (cp0_ifu_icg_en) @1346
 //         ); @1347
-assign ras_entry11_upd_clk_en = cp0_ifu_ras_en && 
-                                (top_entry_rtu_updt && rtu_entry11_copy || 
+assign ras_entry11_upd_clk_en = cp0_ifu_ras_en &&
+                                (top_entry_rtu_updt && rtu_entry11_copy ||
                                  ibctrl_ras_pcall_vld_for_gateclk && entry11_push);
 
 //==========================================================
@@ -1908,10 +1908,10 @@ end
 
 
 //ibctrl_ras_pc[PC_WIDTH-2:0] used for created into pcfifo
-assign ras_ipdp_data_vld = (!ras_empty 
-                            && ras_filled 
-                            && (cp0_yy_priv_mode[1:0] == ras_priv_mode[1:0]) 
-                            || ras_push) 
+assign ras_ipdp_data_vld = (!ras_empty
+                            && ras_filled
+                            && (cp0_yy_priv_mode[1:0] == ras_priv_mode[1:0])
+                            || ras_push)
                          && cp0_ifu_ras_en;
 assign ras_ipdp_pc[PC_WIDTH-2:0] = (ibctrl_ras_inst_pcall)
                                  ? ibdp_ras_push_pc[PC_WIDTH-2:0]

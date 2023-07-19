@@ -40,71 +40,71 @@ module ct_lsu_cache_buffer(
 );
 
 // &Ports; @26
-input            cp0_lsu_cb_aclr_dis;            
-input            cp0_lsu_dcache_en;              
-input            cp0_lsu_icg_en;                 
-input            cp0_lsu_no_op_req;              
-input            cp0_yy_clk_en;                  
-input            cpurst_b;                       
-input   [8  :0]  dcache_idx;                     
-input            forever_cpuclk;                 
-input            icc_idle;                       
-input   [127:0]  ld_da_cb_data;                  
-input            ld_da_cb_data_vld;              
-input            ld_da_cb_ecc_cancel;            
-input            ld_da_cb_ld_inst_vld;           
-input   [39 :0]  ld_dc_addr1;                    
-input            ld_dc_cb_addr_create_gateclk_en; 
-input            ld_dc_cb_addr_create_vld;       
-input   [35 :0]  ld_dc_cb_addr_tto4;             
-input            lsu_dcache_ld_xx_gwen;          
-input            pad_yy_icg_scan_en;             
-output  [127:0]  cb_ld_da_data;                  
-output           cb_ld_da_data_vld;              
-output           cb_ld_dc_addr_hit;              
+input            cp0_lsu_cb_aclr_dis;
+input            cp0_lsu_dcache_en;
+input            cp0_lsu_icg_en;
+input            cp0_lsu_no_op_req;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input   [8  :0]  dcache_idx;
+input            forever_cpuclk;
+input            icc_idle;
+input   [127:0]  ld_da_cb_data;
+input            ld_da_cb_data_vld;
+input            ld_da_cb_ecc_cancel;
+input            ld_da_cb_ld_inst_vld;
+input   [39 :0]  ld_dc_addr1;
+input            ld_dc_cb_addr_create_gateclk_en;
+input            ld_dc_cb_addr_create_vld;
+input   [35 :0]  ld_dc_cb_addr_tto4;
+input            lsu_dcache_ld_xx_gwen;
+input            pad_yy_icg_scan_en;
+output  [127:0]  cb_ld_da_data;
+output           cb_ld_da_data_vld;
+output           cb_ld_dc_addr_hit;
 
 // &Regs; @27
-reg     [35 :0]  cb_addr_tto4;                   
-reg     [127:0]  cb_data;                        
-reg              cb_vld;                         
+reg     [35 :0]  cb_addr_tto4;
+reg     [127:0]  cb_data;
+reg              cb_vld;
 
 // &Wires; @28
-wire             cb_addr_clk;                    
-wire             cb_addr_clk_en;                 
-wire             cb_addr_create_gateclk_en;      
-wire             cb_addr_create_vld;             
-wire             cb_addr_hit_idx;                
-wire    [39 :0]  cb_cmp_ld_dc_addr1;             
-wire             cb_create_vld;                  
-wire             cb_data_clk;                    
-wire             cb_data_clk_en;                 
-wire             cb_data_create_vld;             
-wire    [127:0]  cb_ld_da_data;                  
-wire             cb_ld_da_data_vld;              
-wire             cb_ld_dc_addr_hit;              
-wire             cb_pop_vld;                     
-wire             cp0_lsu_cb_aclr_dis;            
-wire             cp0_lsu_dcache_en;              
-wire             cp0_lsu_icg_en;                 
-wire             cp0_lsu_no_op_req;              
-wire             cp0_yy_clk_en;                  
-wire             cpurst_b;                       
-wire    [8  :0]  dcache_idx;                     
-wire             forever_cpuclk;                 
-wire             icc_idle;                       
-wire    [127:0]  ld_da_cb_data;                  
-wire             ld_da_cb_data_vld;              
-wire             ld_da_cb_ecc_cancel;            
-wire             ld_da_cb_ld_inst_vld;           
-wire    [39 :0]  ld_dc_addr1;                    
-wire             ld_dc_cb_addr_create_gateclk_en; 
-wire             ld_dc_cb_addr_create_vld;       
-wire    [35 :0]  ld_dc_cb_addr_tto4;             
-wire             lsu_dcache_ld_xx_gwen;          
-wire             pad_yy_icg_scan_en;             
+wire             cb_addr_clk;
+wire             cb_addr_clk_en;
+wire             cb_addr_create_gateclk_en;
+wire             cb_addr_create_vld;
+wire             cb_addr_hit_idx;
+wire    [39 :0]  cb_cmp_ld_dc_addr1;
+wire             cb_create_vld;
+wire             cb_data_clk;
+wire             cb_data_clk_en;
+wire             cb_data_create_vld;
+wire    [127:0]  cb_ld_da_data;
+wire             cb_ld_da_data_vld;
+wire             cb_ld_dc_addr_hit;
+wire             cb_pop_vld;
+wire             cp0_lsu_cb_aclr_dis;
+wire             cp0_lsu_dcache_en;
+wire             cp0_lsu_icg_en;
+wire             cp0_lsu_no_op_req;
+wire             cp0_yy_clk_en;
+wire             cpurst_b;
+wire    [8  :0]  dcache_idx;
+wire             forever_cpuclk;
+wire             icc_idle;
+wire    [127:0]  ld_da_cb_data;
+wire             ld_da_cb_data_vld;
+wire             ld_da_cb_ecc_cancel;
+wire             ld_da_cb_ld_inst_vld;
+wire    [39 :0]  ld_dc_addr1;
+wire             ld_dc_cb_addr_create_gateclk_en;
+wire             ld_dc_cb_addr_create_vld;
+wire    [35 :0]  ld_dc_cb_addr_tto4;
+wire             lsu_dcache_ld_xx_gwen;
+wire             pad_yy_icg_scan_en;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign cb_addr_clk_en  = cb_addr_create_gateclk_en;
 // &Instance("gated_clk_cell", "x_lsu_cb_addr_gated_clk"); @33
@@ -154,15 +154,15 @@ assign cb_addr_create_gateclk_en  = ld_dc_cb_addr_create_gateclk_en
                                     &&  !cp0_lsu_cb_aclr_dis;
 assign cb_data_create_vld = ld_da_cb_data_vld && !cp0_lsu_cb_aclr_dis;
 assign cb_create_vld      = cb_data_create_vld;
-assign cb_pop_vld         = !cp0_lsu_dcache_en 
-                            || cp0_lsu_cb_aclr_dis 
-                            || ld_da_cb_ld_inst_vld 
+assign cb_pop_vld         = !cp0_lsu_dcache_en
+                            || cp0_lsu_cb_aclr_dis
+                            || ld_da_cb_ld_inst_vld
                                && !ld_da_cb_data_vld
-                            || ld_da_cb_ecc_cancel 
+                            || ld_da_cb_ecc_cancel
                             || lsu_dcache_ld_xx_gwen
                                && cb_addr_hit_idx
                             || cp0_lsu_no_op_req
-                            || !icc_idle;  
+                            || !icc_idle;
 //==========================================================
 //                 Register
 //==========================================================

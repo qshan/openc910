@@ -35,53 +35,53 @@ module ct_had_event(
 );
 
 // &Ports; @24
-input        cpuclk;                
-input        cpurst_b;              
-input        ctrl_event_dbgenter;   
-input        ctrl_event_dbgexit;    
-input        forever_coreclk;       
-input        regs_event_enter_ie;   
-input        regs_event_enter_oe;   
-input        regs_event_exit_ie;    
-input        regs_event_exit_oe;    
-input        rtu_yy_xx_dbgon;       
-input        x_enter_dbg_req_i;     
-input        x_exit_dbg_req_i;      
-output       event_ctrl_enter_dbg;  
-output       event_ctrl_exit_dbg;   
-output       event_ctrl_had_clk_en; 
-output       x_enter_dbg_req_o;     
-output       x_exit_dbg_req_o;      
+input        cpuclk;
+input        cpurst_b;
+input        ctrl_event_dbgenter;
+input        ctrl_event_dbgexit;
+input        forever_coreclk;
+input        regs_event_enter_ie;
+input        regs_event_enter_oe;
+input        regs_event_exit_ie;
+input        regs_event_exit_oe;
+input        rtu_yy_xx_dbgon;
+input        x_enter_dbg_req_i;
+input        x_exit_dbg_req_i;
+output       event_ctrl_enter_dbg;
+output       event_ctrl_exit_dbg;
+output       event_ctrl_had_clk_en;
+output       x_enter_dbg_req_o;
+output       x_exit_dbg_req_o;
 
 // &Regs; @25
-reg          enter_dbg_req_i;       
-reg          enter_dbg_req_o;       
-reg          exit_dbg_req_o;        
-reg          x_enter_dbg_req_i_f;   
-reg          x_enter_dbg_req_i_sync; 
-reg          x_exit_dbg_req_i_f;    
-reg          x_exit_dbg_req_i_sync; 
+reg          enter_dbg_req_i;
+reg          enter_dbg_req_o;
+reg          exit_dbg_req_o;
+reg          x_enter_dbg_req_i_f;
+reg          x_enter_dbg_req_i_sync;
+reg          x_exit_dbg_req_i_f;
+reg          x_exit_dbg_req_i_sync;
 
 // &Wires; @26
-wire         cpuclk;                
-wire         cpurst_b;              
-wire         ctrl_event_dbgenter;   
-wire         ctrl_event_dbgexit;    
-wire         event_ctrl_enter_dbg;  
-wire         event_ctrl_exit_dbg;   
-wire         event_ctrl_had_clk_en; 
-wire         forever_coreclk;       
-wire         regs_event_enter_ie;   
-wire         regs_event_enter_oe;   
-wire         regs_event_exit_ie;    
-wire         regs_event_exit_oe;    
-wire         rtu_yy_xx_dbgon;       
-wire         x_enter_dbg_req_i;     
-wire         x_enter_dbg_req_o;     
-wire         x_enter_dbg_req_o_sync; 
-wire         x_exit_dbg_req_i;      
-wire         x_exit_dbg_req_o;      
-wire         x_exit_dbg_req_o_sync; 
+wire         cpuclk;
+wire         cpurst_b;
+wire         ctrl_event_dbgenter;
+wire         ctrl_event_dbgexit;
+wire         event_ctrl_enter_dbg;
+wire         event_ctrl_exit_dbg;
+wire         event_ctrl_had_clk_en;
+wire         forever_coreclk;
+wire         regs_event_enter_ie;
+wire         regs_event_enter_oe;
+wire         regs_event_exit_ie;
+wire         regs_event_exit_oe;
+wire         rtu_yy_xx_dbgon;
+wire         x_enter_dbg_req_i;
+wire         x_enter_dbg_req_o;
+wire         x_enter_dbg_req_o_sync;
+wire         x_exit_dbg_req_i;
+wire         x_exit_dbg_req_o;
+wire         x_exit_dbg_req_o_sync;
 
 
 //==========================================================

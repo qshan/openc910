@@ -55,185 +55,185 @@ module ct_ifu_sfp(
 );
 
 // &Ports; @23
-input           cp0_ifu_icg_en;                      
-input           cp0_ifu_nsfe;                        
-input           cp0_ifu_vsetvli_pred_disable;        
-input           cp0_ifu_vsetvli_pred_mode;           
-input           cp0_yy_clk_en;                       
-input           cpurst_b;                            
-input           forever_cpuclk;                      
-input           pad_yy_icg_scan_en;                  
-input   [16:0]  pcgen_sfp_pc;                        
-input           rtu_ifu_chgflw_vld;                  
-input   [38:0]  rtu_ifu_retire_inst0_cur_pc;         
-input           rtu_ifu_retire_inst0_load;           
-input           rtu_ifu_retire_inst0_no_spec_hit;    
-input           rtu_ifu_retire_inst0_no_spec_mispred; 
-input           rtu_ifu_retire_inst0_no_spec_miss;   
-input           rtu_ifu_retire_inst0_store;          
-input           rtu_ifu_retire_inst0_vl_hit;         
-input           rtu_ifu_retire_inst0_vl_mispred;     
-input           rtu_ifu_retire_inst0_vl_miss;        
-input           rtu_ifu_retire_inst0_vl_pred;        
-input   [38:0]  rtu_ifu_retire_inst1_cur_pc;         
-input           rtu_ifu_retire_inst1_load;           
-input           rtu_ifu_retire_inst1_no_spec_hit;    
-input           rtu_ifu_retire_inst1_no_spec_mispred; 
-input           rtu_ifu_retire_inst1_no_spec_miss;   
-input           rtu_ifu_retire_inst1_store;          
-input           rtu_ifu_retire_inst1_vl_pred;        
-input   [38:0]  rtu_ifu_retire_inst2_cur_pc;         
-input           rtu_ifu_retire_inst2_load;           
-input           rtu_ifu_retire_inst2_no_spec_hit;    
-input           rtu_ifu_retire_inst2_no_spec_mispred; 
-input           rtu_ifu_retire_inst2_no_spec_miss;   
-input           rtu_ifu_retire_inst2_store;          
-input           rtu_ifu_retire_inst2_vl_pred;        
-output  [2 :0]  sfp_ifdp_hit_pc_lo;                  
-output  [3 :0]  sfp_ifdp_hit_type;                   
-output          sfp_ifdp_pc_hit;                     
+input           cp0_ifu_icg_en;
+input           cp0_ifu_nsfe;
+input           cp0_ifu_vsetvli_pred_disable;
+input           cp0_ifu_vsetvli_pred_mode;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input   [16:0]  pcgen_sfp_pc;
+input           rtu_ifu_chgflw_vld;
+input   [38:0]  rtu_ifu_retire_inst0_cur_pc;
+input           rtu_ifu_retire_inst0_load;
+input           rtu_ifu_retire_inst0_no_spec_hit;
+input           rtu_ifu_retire_inst0_no_spec_mispred;
+input           rtu_ifu_retire_inst0_no_spec_miss;
+input           rtu_ifu_retire_inst0_store;
+input           rtu_ifu_retire_inst0_vl_hit;
+input           rtu_ifu_retire_inst0_vl_mispred;
+input           rtu_ifu_retire_inst0_vl_miss;
+input           rtu_ifu_retire_inst0_vl_pred;
+input   [38:0]  rtu_ifu_retire_inst1_cur_pc;
+input           rtu_ifu_retire_inst1_load;
+input           rtu_ifu_retire_inst1_no_spec_hit;
+input           rtu_ifu_retire_inst1_no_spec_mispred;
+input           rtu_ifu_retire_inst1_no_spec_miss;
+input           rtu_ifu_retire_inst1_store;
+input           rtu_ifu_retire_inst1_vl_pred;
+input   [38:0]  rtu_ifu_retire_inst2_cur_pc;
+input           rtu_ifu_retire_inst2_load;
+input           rtu_ifu_retire_inst2_no_spec_hit;
+input           rtu_ifu_retire_inst2_no_spec_mispred;
+input           rtu_ifu_retire_inst2_no_spec_miss;
+input           rtu_ifu_retire_inst2_store;
+input           rtu_ifu_retire_inst2_vl_pred;
+output  [2 :0]  sfp_ifdp_hit_pc_lo;
+output  [3 :0]  sfp_ifdp_hit_type;
+output          sfp_ifdp_pc_hit;
 
 // &Regs; @24
-reg     [11:0]  entry_write_en;                      
-reg     [2 :0]  sfp_bar_pc_lo;                       
-reg     [11:0]  sfp_entry_fifo;                      
-reg     [2 :0]  sfp_fp_pc_lo;                        
-reg     [1 :0]  sfp_rd_cur_state;                    
-reg     [1 :0]  sfp_rd_next_state;                   
-reg     [16:0]  sfp_sf_pc_record;                    
-reg     [2 :0]  sfp_wr_buf_inst_type;                
-reg     [19:0]  sfp_wr_buf_updt_pc;                  
-reg     [2 :0]  sfp_wr_buf_updt_type;                
-reg     [2 :0]  wr_buf_inst_type_record;             
-reg     [19:0]  wr_buf_updt_pc_record;               
-reg     [2 :0]  wr_buf_updt_type_record;             
-reg             wr_buf_updt_vld;                     
+reg     [11:0]  entry_write_en;
+reg     [2 :0]  sfp_bar_pc_lo;
+reg     [11:0]  sfp_entry_fifo;
+reg     [2 :0]  sfp_fp_pc_lo;
+reg     [1 :0]  sfp_rd_cur_state;
+reg     [1 :0]  sfp_rd_next_state;
+reg     [16:0]  sfp_sf_pc_record;
+reg     [2 :0]  sfp_wr_buf_inst_type;
+reg     [19:0]  sfp_wr_buf_updt_pc;
+reg     [2 :0]  sfp_wr_buf_updt_type;
+reg     [2 :0]  wr_buf_inst_type_record;
+reg     [19:0]  wr_buf_updt_pc_record;
+reg     [2 :0]  wr_buf_updt_type_record;
+reg             wr_buf_updt_vld;
 
 // &Wires; @25
-wire            cp0_ifu_icg_en;                      
-wire            cp0_ifu_nsfe;                        
-wire            cp0_ifu_vsetvli_pred_disable;        
-wire            cp0_ifu_vsetvli_pred_mode;           
-wire            cp0_yy_clk_en;                       
-wire            cpurst_b;                            
-wire    [11:0]  entry_bar_pc_0;                      
-wire    [11:0]  entry_bar_pc_1;                      
-wire    [11:0]  entry_bar_pc_10;                     
-wire    [11:0]  entry_bar_pc_11;                     
-wire    [11:0]  entry_bar_pc_2;                      
-wire    [11:0]  entry_bar_pc_3;                      
-wire    [11:0]  entry_bar_pc_4;                      
-wire    [11:0]  entry_bar_pc_5;                      
-wire    [11:0]  entry_bar_pc_6;                      
-wire    [11:0]  entry_bar_pc_7;                      
-wire    [11:0]  entry_bar_pc_8;                      
-wire    [11:0]  entry_bar_pc_9;                      
-wire            entry_bar_pc_updt_bit;               
-wire    [11:0]  entry_clk_en;                        
-wire    [1 :0]  entry_cnt_0;                         
-wire    [1 :0]  entry_cnt_1;                         
-wire    [1 :0]  entry_cnt_10;                        
-wire    [1 :0]  entry_cnt_11;                        
-wire    [1 :0]  entry_cnt_2;                         
-wire    [1 :0]  entry_cnt_3;                         
-wire    [1 :0]  entry_cnt_4;                         
-wire    [1 :0]  entry_cnt_5;                         
-wire    [1 :0]  entry_cnt_6;                         
-wire    [1 :0]  entry_cnt_7;                         
-wire    [1 :0]  entry_cnt_8;                         
-wire    [1 :0]  entry_cnt_9;                         
-wire            entry_cnt_updt_bit;                  
-wire    [7 :0]  entry_hi_pc_0;                       
-wire    [7 :0]  entry_hi_pc_1;                       
-wire    [7 :0]  entry_hi_pc_10;                      
-wire    [7 :0]  entry_hi_pc_11;                      
-wire    [7 :0]  entry_hi_pc_2;                       
-wire    [7 :0]  entry_hi_pc_3;                       
-wire    [7 :0]  entry_hi_pc_4;                       
-wire    [7 :0]  entry_hi_pc_5;                       
-wire    [7 :0]  entry_hi_pc_6;                       
-wire    [7 :0]  entry_hi_pc_7;                       
-wire    [7 :0]  entry_hi_pc_8;                       
-wire    [7 :0]  entry_hi_pc_9;                       
-wire    [11:0]  entry_sf_pc_0;                       
-wire    [11:0]  entry_sf_pc_1;                       
-wire    [11:0]  entry_sf_pc_10;                      
-wire    [11:0]  entry_sf_pc_11;                      
-wire    [11:0]  entry_sf_pc_2;                       
-wire    [11:0]  entry_sf_pc_3;                       
-wire    [11:0]  entry_sf_pc_4;                       
-wire    [11:0]  entry_sf_pc_5;                       
-wire    [11:0]  entry_sf_pc_6;                       
-wire    [11:0]  entry_sf_pc_7;                       
-wire    [11:0]  entry_sf_pc_8;                       
-wire    [11:0]  entry_sf_pc_9;                       
-wire            entry_sf_pc_updt_bit;                
-wire    [11:0]  entry_type;                          
-wire    [24:0]  entry_write_data;                    
-wire            forever_cpuclk;                      
-wire            pad_yy_icg_scan_en;                  
-wire    [16:0]  pcgen_sfp_pc;                        
-wire            rtu_ifu_chgflw_vld;                  
-wire    [38:0]  rtu_ifu_retire_inst0_cur_pc;         
-wire            rtu_ifu_retire_inst0_load;           
-wire            rtu_ifu_retire_inst0_no_spec_hit;    
-wire            rtu_ifu_retire_inst0_no_spec_mispred; 
-wire            rtu_ifu_retire_inst0_no_spec_miss;   
-wire            rtu_ifu_retire_inst0_store;          
-wire            rtu_ifu_retire_inst0_vl_hit;         
-wire            rtu_ifu_retire_inst0_vl_mispred;     
-wire            rtu_ifu_retire_inst0_vl_miss;        
-wire            rtu_ifu_retire_inst0_vl_pred;        
-wire    [38:0]  rtu_ifu_retire_inst1_cur_pc;         
-wire            rtu_ifu_retire_inst1_load;           
-wire            rtu_ifu_retire_inst1_no_spec_hit;    
-wire            rtu_ifu_retire_inst1_no_spec_mispred; 
-wire            rtu_ifu_retire_inst1_no_spec_miss;   
-wire            rtu_ifu_retire_inst1_store;          
-wire            rtu_ifu_retire_inst1_vl_pred;        
-wire    [38:0]  rtu_ifu_retire_inst2_cur_pc;         
-wire            rtu_ifu_retire_inst2_load;           
-wire            rtu_ifu_retire_inst2_no_spec_hit;    
-wire            rtu_ifu_retire_inst2_no_spec_mispred; 
-wire            rtu_ifu_retire_inst2_no_spec_miss;   
-wire            rtu_ifu_retire_inst2_store;          
-wire            rtu_ifu_retire_inst2_vl_pred;        
-wire    [11:0]  sf_pc_hit_sf_pc;                     
-wire            sfp_bar_hit;                         
-wire    [11:0]  sfp_bar_pc_hit;                      
-wire            sfp_fifo_create_clk;                 
-wire            sfp_fifo_en;                         
-wire    [2 :0]  sfp_hit_pc_lo;                       
-wire    [3 :0]  sfp_hit_type;                        
-wire    [2 :0]  sfp_ifdp_hit_pc_lo;                  
-wire    [3 :0]  sfp_ifdp_hit_type;                   
-wire            sfp_ifdp_pc_hit;                     
-wire            sfp_inst0_updt_vld;                  
-wire            sfp_inst1_updt_vld;                  
-wire            sfp_inst2_updt_vld;                  
-wire    [11:0]  sfp_pc_hi_hit;                       
-wire            sfp_pc_hit;                          
-wire            sfp_sf_hit;                          
-wire            sfp_sf_pc_clk;                       
-wire            sfp_sf_pc_clk_en;                    
-wire    [11:0]  sfp_sf_pc_hit;                       
-wire    [11:0]  sfp_sf_pc_hit_raw;                   
-wire            sfp_sf_pc_updt_vld;                  
-wire            sfp_vl_hit;                          
-wire            sfp_vl_hit_raw;                      
-wire    [11:0]  sfp_vl_pc_hit;                       
-wire    [11:0]  sfp_vl_pc_hit_raw;                   
-wire            sfp_vl_pred_en;                      
-wire            sfp_wr_buf_clk;                      
-wire            sfp_wr_buf_clk_en;                   
-wire            sfp_wr_buf_updt_vld;                 
-wire            sfp_wr_fifo_select;                  
-wire            sfp_wr_fifo_select_for_gate;         
-wire            sfp_wr_record_select;                
-wire            sfp_wr_record_select_for_gate;       
-wire            sfp_wr_sf_pc_select;                 
-wire            sfp_wr_sf_pc_select_for_gate;        
-wire    [11:0]  wr_buf_hit_sf_pc;                    
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_nsfe;
+wire            cp0_ifu_vsetvli_pred_disable;
+wire            cp0_ifu_vsetvli_pred_mode;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [11:0]  entry_bar_pc_0;
+wire    [11:0]  entry_bar_pc_1;
+wire    [11:0]  entry_bar_pc_10;
+wire    [11:0]  entry_bar_pc_11;
+wire    [11:0]  entry_bar_pc_2;
+wire    [11:0]  entry_bar_pc_3;
+wire    [11:0]  entry_bar_pc_4;
+wire    [11:0]  entry_bar_pc_5;
+wire    [11:0]  entry_bar_pc_6;
+wire    [11:0]  entry_bar_pc_7;
+wire    [11:0]  entry_bar_pc_8;
+wire    [11:0]  entry_bar_pc_9;
+wire            entry_bar_pc_updt_bit;
+wire    [11:0]  entry_clk_en;
+wire    [1 :0]  entry_cnt_0;
+wire    [1 :0]  entry_cnt_1;
+wire    [1 :0]  entry_cnt_10;
+wire    [1 :0]  entry_cnt_11;
+wire    [1 :0]  entry_cnt_2;
+wire    [1 :0]  entry_cnt_3;
+wire    [1 :0]  entry_cnt_4;
+wire    [1 :0]  entry_cnt_5;
+wire    [1 :0]  entry_cnt_6;
+wire    [1 :0]  entry_cnt_7;
+wire    [1 :0]  entry_cnt_8;
+wire    [1 :0]  entry_cnt_9;
+wire            entry_cnt_updt_bit;
+wire    [7 :0]  entry_hi_pc_0;
+wire    [7 :0]  entry_hi_pc_1;
+wire    [7 :0]  entry_hi_pc_10;
+wire    [7 :0]  entry_hi_pc_11;
+wire    [7 :0]  entry_hi_pc_2;
+wire    [7 :0]  entry_hi_pc_3;
+wire    [7 :0]  entry_hi_pc_4;
+wire    [7 :0]  entry_hi_pc_5;
+wire    [7 :0]  entry_hi_pc_6;
+wire    [7 :0]  entry_hi_pc_7;
+wire    [7 :0]  entry_hi_pc_8;
+wire    [7 :0]  entry_hi_pc_9;
+wire    [11:0]  entry_sf_pc_0;
+wire    [11:0]  entry_sf_pc_1;
+wire    [11:0]  entry_sf_pc_10;
+wire    [11:0]  entry_sf_pc_11;
+wire    [11:0]  entry_sf_pc_2;
+wire    [11:0]  entry_sf_pc_3;
+wire    [11:0]  entry_sf_pc_4;
+wire    [11:0]  entry_sf_pc_5;
+wire    [11:0]  entry_sf_pc_6;
+wire    [11:0]  entry_sf_pc_7;
+wire    [11:0]  entry_sf_pc_8;
+wire    [11:0]  entry_sf_pc_9;
+wire            entry_sf_pc_updt_bit;
+wire    [11:0]  entry_type;
+wire    [24:0]  entry_write_data;
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
+wire    [16:0]  pcgen_sfp_pc;
+wire            rtu_ifu_chgflw_vld;
+wire    [38:0]  rtu_ifu_retire_inst0_cur_pc;
+wire            rtu_ifu_retire_inst0_load;
+wire            rtu_ifu_retire_inst0_no_spec_hit;
+wire            rtu_ifu_retire_inst0_no_spec_mispred;
+wire            rtu_ifu_retire_inst0_no_spec_miss;
+wire            rtu_ifu_retire_inst0_store;
+wire            rtu_ifu_retire_inst0_vl_hit;
+wire            rtu_ifu_retire_inst0_vl_mispred;
+wire            rtu_ifu_retire_inst0_vl_miss;
+wire            rtu_ifu_retire_inst0_vl_pred;
+wire    [38:0]  rtu_ifu_retire_inst1_cur_pc;
+wire            rtu_ifu_retire_inst1_load;
+wire            rtu_ifu_retire_inst1_no_spec_hit;
+wire            rtu_ifu_retire_inst1_no_spec_mispred;
+wire            rtu_ifu_retire_inst1_no_spec_miss;
+wire            rtu_ifu_retire_inst1_store;
+wire            rtu_ifu_retire_inst1_vl_pred;
+wire    [38:0]  rtu_ifu_retire_inst2_cur_pc;
+wire            rtu_ifu_retire_inst2_load;
+wire            rtu_ifu_retire_inst2_no_spec_hit;
+wire            rtu_ifu_retire_inst2_no_spec_mispred;
+wire            rtu_ifu_retire_inst2_no_spec_miss;
+wire            rtu_ifu_retire_inst2_store;
+wire            rtu_ifu_retire_inst2_vl_pred;
+wire    [11:0]  sf_pc_hit_sf_pc;
+wire            sfp_bar_hit;
+wire    [11:0]  sfp_bar_pc_hit;
+wire            sfp_fifo_create_clk;
+wire            sfp_fifo_en;
+wire    [2 :0]  sfp_hit_pc_lo;
+wire    [3 :0]  sfp_hit_type;
+wire    [2 :0]  sfp_ifdp_hit_pc_lo;
+wire    [3 :0]  sfp_ifdp_hit_type;
+wire            sfp_ifdp_pc_hit;
+wire            sfp_inst0_updt_vld;
+wire            sfp_inst1_updt_vld;
+wire            sfp_inst2_updt_vld;
+wire    [11:0]  sfp_pc_hi_hit;
+wire            sfp_pc_hit;
+wire            sfp_sf_hit;
+wire            sfp_sf_pc_clk;
+wire            sfp_sf_pc_clk_en;
+wire    [11:0]  sfp_sf_pc_hit;
+wire    [11:0]  sfp_sf_pc_hit_raw;
+wire            sfp_sf_pc_updt_vld;
+wire            sfp_vl_hit;
+wire            sfp_vl_hit_raw;
+wire    [11:0]  sfp_vl_pc_hit;
+wire    [11:0]  sfp_vl_pc_hit_raw;
+wire            sfp_vl_pred_en;
+wire            sfp_wr_buf_clk;
+wire            sfp_wr_buf_clk_en;
+wire            sfp_wr_buf_updt_vld;
+wire            sfp_wr_fifo_select;
+wire            sfp_wr_fifo_select_for_gate;
+wire            sfp_wr_record_select;
+wire            sfp_wr_record_select_for_gate;
+wire            sfp_wr_sf_pc_select;
+wire            sfp_wr_sf_pc_select_for_gate;
+wire    [11:0]  wr_buf_hit_sf_pc;
 
 
 // &Force("bus","rtu_ifu_retire_inst0_cur_pc",38,0); @27
@@ -410,7 +410,7 @@ assign sfp_bar_hit      = |sfp_bar_pc_hit[11:0];
 assign sfp_vl_hit_raw   = (|sfp_vl_pc_hit_raw[11:0]) && sfp_vl_pred_en;
 assign sfp_vl_hit       = (|sfp_vl_pc_hit[11:0])     && sfp_vl_pred_en;
 
-assign sfp_pc_hit       = sfp_vl_hit_raw 
+assign sfp_pc_hit       = sfp_vl_hit_raw
                        || sfp_sf_hit && cp0_ifu_nsfe
                        || (sfp_rd_cur_state[1:0] == SF_RD ) && sfp_sf_hit  && cp0_ifu_nsfe
                        || (sfp_rd_cur_state[1:0] == BAR_RD) && sfp_bar_hit && cp0_ifu_nsfe;
@@ -447,14 +447,14 @@ end
 
 //read data
 parameter SF     = 0;
-parameter BAR    = 1; 
+parameter BAR    = 1;
 parameter VL     = 2;
 parameter VL_RAW = 3;
 assign sfp_hit_type[SF]     = sfp_sf_hit || sfp_rd_cur_state[1:0] == SF_RD;
 assign sfp_hit_type[BAR]    = !sfp_sf_hit && sfp_bar_hit && (sfp_rd_cur_state[1:0] == BAR_RD);
 assign sfp_hit_type[VL]     = sfp_vl_hit;
 assign sfp_hit_type[VL_RAW] = sfp_vl_hit_raw;
-assign sfp_hit_pc_lo[2:0]   = (sfp_sf_hit || sfp_rd_cur_state[1:0] == SF_RD || sfp_vl_hit_raw)  
+assign sfp_hit_pc_lo[2:0]   = (sfp_sf_hit || sfp_rd_cur_state[1:0] == SF_RD || sfp_vl_hit_raw)
                             ? sfp_fp_pc_lo[2:0]
                             : sfp_bar_pc_lo[2:0];
 //output to ifdp
@@ -487,11 +487,11 @@ assign sfp_inst0_updt_vld = rtu_ifu_retire_inst0_no_spec_hit
 assign sfp_inst1_updt_vld = rtu_ifu_retire_inst1_no_spec_hit
                          || rtu_ifu_retire_inst1_no_spec_miss
                          || rtu_ifu_retire_inst1_no_spec_mispred
-                         || rtu_ifu_retire_inst1_vl_pred; 
+                         || rtu_ifu_retire_inst1_vl_pred;
 assign sfp_inst2_updt_vld = rtu_ifu_retire_inst2_no_spec_hit
                          || rtu_ifu_retire_inst2_no_spec_miss
                          || rtu_ifu_retire_inst2_no_spec_mispred
-                         || rtu_ifu_retire_inst2_vl_pred; 
+                         || rtu_ifu_retire_inst2_vl_pred;
 // &CombBeg; @248
 always @( rtu_ifu_retire_inst0_vl_hit
        or rtu_ifu_retire_inst2_no_spec_miss
@@ -576,7 +576,7 @@ gated_clk_cell  x_sfp_wr_buf_clk (
 //           .local_en       (sfp_wr_buf_clk_en),//Local Condition @290
 //           .module_en      (cp0_ifu_icg_en) @291
 //         ); @292
-assign sfp_wr_buf_clk_en = sfp_wr_buf_updt_vld 
+assign sfp_wr_buf_clk_en = sfp_wr_buf_updt_vld
                         || wr_buf_updt_vld;
 
 always @(posedge sfp_wr_buf_clk or negedge cpurst_b)
@@ -647,15 +647,15 @@ begin
   else if(sfp_sf_pc_updt_vld)
     sfp_sf_pc_record[16:0] <= sfp_wr_buf_updt_pc[19:3];
  else
-    sfp_sf_pc_record[16:0] <= sfp_sf_pc_record[16:0]; 
+    sfp_sf_pc_record[16:0] <= sfp_sf_pc_record[16:0];
 end
 
 
-assign sfp_sf_pc_updt_vld = sfp_wr_buf_inst_type[1]; 
+assign sfp_sf_pc_updt_vld = sfp_wr_buf_inst_type[1];
 
 //write wbuf to sfp entry
 assign entry_sf_pc_updt_bit  = wr_buf_updt_vld &&
-                             (   wr_buf_inst_type_record[1] && wr_buf_updt_type_record[1] 
+                             (   wr_buf_inst_type_record[1] && wr_buf_updt_type_record[1]
                               || wr_buf_inst_type_record[1] && wr_buf_updt_type_record[0]
                               || wr_buf_inst_type_record[2] && wr_buf_updt_type_record[1]);
 assign entry_bar_pc_updt_bit = wr_buf_updt_vld &&
@@ -665,7 +665,7 @@ assign entry_bar_pc_updt_bit = wr_buf_updt_vld &&
 //st mispred: cnt:clear to zero
 //ld miss   : cnt:2'b1
 //ld mispred: entry hit: cnt-1
-//ld hit    : cnt +1                               
+//ld hit    : cnt +1
 assign entry_cnt_updt_bit    = wr_buf_updt_vld &&
                                   (wr_buf_inst_type_record[1] && wr_buf_updt_type_record[0]
                                 || wr_buf_inst_type_record[2]
@@ -679,7 +679,7 @@ assign entry_cnt_updt_bit    = wr_buf_updt_vld &&
 //2. st mispred : use st pc
 //4. ld hit     : use st entry
 //5. ld mispred : use st entry
-//6. ld miss    : use st entry 
+//6. ld miss    : use st entry
 assign wr_buf_hit_sf_pc[0]  = ({entry_hi_pc_0[7:0] ,entry_sf_pc_0[11:3]}  == wr_buf_updt_pc_record[19:3]);
 assign wr_buf_hit_sf_pc[1]  = ({entry_hi_pc_1[7:0] ,entry_sf_pc_1[11:3]}  == wr_buf_updt_pc_record[19:3]);
 assign wr_buf_hit_sf_pc[2]  = ({entry_hi_pc_2[7:0] ,entry_sf_pc_2[11:3]}  == wr_buf_updt_pc_record[19:3]);
@@ -709,10 +709,10 @@ assign sf_pc_hit_sf_pc[11] = ({entry_hi_pc_11[7:0],entry_sf_pc_11[11:3]} == sfp_
 
 //create entry select
 //store miss
-assign sfp_wr_fifo_select   = wr_buf_updt_type_record[1] 
+assign sfp_wr_fifo_select   = wr_buf_updt_type_record[1]
                            && (|wr_buf_inst_type_record[2:1])
-                           && wr_buf_updt_vld 
-                           && !(|wr_buf_hit_sf_pc[11:0]); 
+                           && wr_buf_updt_vld
+                           && !(|wr_buf_hit_sf_pc[11:0]);
 
 //store mispred
 //store miss && entry hit
@@ -742,18 +742,18 @@ endcase
 end
 
 //for timing consideration,simply gateclk en
-assign sfp_wr_fifo_select_for_gate   = wr_buf_updt_type_record[1] 
+assign sfp_wr_fifo_select_for_gate   = wr_buf_updt_type_record[1]
                                     && (|wr_buf_inst_type_record[2:1])
                                     && wr_buf_updt_vld;
 
-assign sfp_wr_sf_pc_select_for_gate  = wr_buf_updt_type_record[0] 
-                                       && wr_buf_inst_type_record[1] 
+assign sfp_wr_sf_pc_select_for_gate  = wr_buf_updt_type_record[0]
+                                       && wr_buf_inst_type_record[1]
                                        && wr_buf_updt_vld
-                                    || wr_buf_updt_type_record[1] 
-                                       && wr_buf_inst_type_record[1] 
+                                    || wr_buf_updt_type_record[1]
+                                       && wr_buf_inst_type_record[1]
                                        && wr_buf_updt_vld
-                                    || wr_buf_inst_type_record[2] 
-                                       && wr_buf_updt_vld;                           
+                                    || wr_buf_inst_type_record[2]
+                                       && wr_buf_updt_vld;
 assign sfp_wr_record_select_for_gate = sfp_wr_record_select;
 
 assign entry_clk_en[11:0] =

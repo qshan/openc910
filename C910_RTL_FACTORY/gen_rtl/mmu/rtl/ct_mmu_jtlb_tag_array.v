@@ -26,33 +26,33 @@ module ct_mmu_jtlb_tag_array(
 );
 
 // &Ports; @24
-input            cp0_mmu_icg_en;    
-input            forever_cpuclk;    
-input            jtlb_tag_cen;      
-input   [195:0]  jtlb_tag_din;      
-input   [7  :0]  jtlb_tag_idx;      
-input   [4  :0]  jtlb_tag_wen;      
-input            pad_yy_icg_scan_en; 
-output  [195:0]  jtlb_tag_dout;     
+input            cp0_mmu_icg_en;
+input            forever_cpuclk;
+input            jtlb_tag_cen;
+input   [195:0]  jtlb_tag_din;
+input   [7  :0]  jtlb_tag_idx;
+input   [4  :0]  jtlb_tag_wen;
+input            pad_yy_icg_scan_en;
+output  [195:0]  jtlb_tag_dout;
 
 // &Regs; @25
 
 // &Wires; @26
-wire             cp0_mmu_icg_en;    
-wire             forever_cpuclk;    
-wire    [195:0]  jtlb_tag_bwen;     
-wire    [195:0]  jtlb_tag_bwen_b;   
-wire             jtlb_tag_cen;      
-wire             jtlb_tag_cen_b;    
-wire             jtlb_tag_clk;      
-wire             jtlb_tag_clk_en;   
-wire    [195:0]  jtlb_tag_din;      
-wire    [195:0]  jtlb_tag_dout;     
-wire             jtlb_tag_gwen;     
-wire             jtlb_tag_gwen_b;   
-wire    [7  :0]  jtlb_tag_idx;      
-wire    [4  :0]  jtlb_tag_wen;      
-wire             pad_yy_icg_scan_en; 
+wire             cp0_mmu_icg_en;
+wire             forever_cpuclk;
+wire    [195:0]  jtlb_tag_bwen;
+wire    [195:0]  jtlb_tag_bwen_b;
+wire             jtlb_tag_cen;
+wire             jtlb_tag_cen_b;
+wire             jtlb_tag_clk;
+wire             jtlb_tag_clk_en;
+wire    [195:0]  jtlb_tag_din;
+wire    [195:0]  jtlb_tag_dout;
+wire             jtlb_tag_gwen;
+wire             jtlb_tag_gwen_b;
+wire    [7  :0]  jtlb_tag_idx;
+wire    [4  :0]  jtlb_tag_wen;
+wire             pad_yy_icg_scan_en;
 
 
 

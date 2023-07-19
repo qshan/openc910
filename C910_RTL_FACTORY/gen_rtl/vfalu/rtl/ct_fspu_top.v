@@ -32,39 +32,39 @@ module ct_fspu_top(
 );
 
 // &Ports; @24
-input           cp0_vfpu_icg_en;             
-input           cp0_yy_clk_en;               
-input           cpurst_b;                    
-input   [19:0]  dp_vfalu_ex1_pipex_func;     
-input   [63:0]  dp_vfalu_ex1_pipex_mtvr_src0; 
-input   [2 :0]  dp_vfalu_ex1_pipex_sel;      
-input   [63:0]  dp_vfalu_ex1_pipex_srcf0;    
-input   [63:0]  dp_vfalu_ex1_pipex_srcf1;    
-input           forever_cpuclk;              
-input           pad_yy_icg_scan_en;          
-output          fspu_forward_r_vld;          
-output  [63:0]  fspu_forward_result;         
-output  [63:0]  fspu_mfvr_data;              
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input   [19:0]  dp_vfalu_ex1_pipex_func;
+input   [63:0]  dp_vfalu_ex1_pipex_mtvr_src0;
+input   [2 :0]  dp_vfalu_ex1_pipex_sel;
+input   [63:0]  dp_vfalu_ex1_pipex_srcf0;
+input   [63:0]  dp_vfalu_ex1_pipex_srcf1;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+output          fspu_forward_r_vld;
+output  [63:0]  fspu_forward_result;
+output  [63:0]  fspu_mfvr_data;
 
 // &Regs; @25
 
 // &Wires; @26
-wire            cp0_vfpu_icg_en;             
-wire            cp0_yy_clk_en;               
-wire            cpurst_b;                    
-wire    [19:0]  dp_vfalu_ex1_pipex_func;     
-wire    [63:0]  dp_vfalu_ex1_pipex_mtvr_src0; 
-wire    [2 :0]  dp_vfalu_ex1_pipex_sel;      
-wire    [63:0]  dp_vfalu_ex1_pipex_srcf0;    
-wire    [63:0]  dp_vfalu_ex1_pipex_srcf1;    
-wire            ex1_pipedown;                
-wire            ex2_pipedown;                
-wire            ex3_pipedown;                
-wire            forever_cpuclk;              
-wire            fspu_forward_r_vld;          
-wire    [63:0]  fspu_forward_result;         
-wire    [63:0]  fspu_mfvr_data;              
-wire            pad_yy_icg_scan_en;          
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [19:0]  dp_vfalu_ex1_pipex_func;
+wire    [63:0]  dp_vfalu_ex1_pipex_mtvr_src0;
+wire    [2 :0]  dp_vfalu_ex1_pipex_sel;
+wire    [63:0]  dp_vfalu_ex1_pipex_srcf0;
+wire    [63:0]  dp_vfalu_ex1_pipex_srcf1;
+wire            ex1_pipedown;
+wire            ex2_pipedown;
+wire            ex3_pipedown;
+wire            forever_cpuclk;
+wire            fspu_forward_r_vld;
+wire    [63:0]  fspu_forward_result;
+wire    [63:0]  fspu_mfvr_data;
+wire            pad_yy_icg_scan_en;
 
 
 // &Instance("ct_fspu_ctrl"); @28

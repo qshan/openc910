@@ -87,82 +87,82 @@ module apb_bridge(
 );
 
 
-input           harb_apb_hsel;  
-input   [39:0]  harb_xx_haddr;  
-input   [31:0]  harb_xx_hwdata; 
-input           harb_xx_hwrite; 
-input           hclk;           
-input           hrst_b;         
-input   [31:0]  prdata_s1;      
-input   [31:0]  prdata_s2;      
-input   [31:0]  prdata_s3;      
-input   [31:0]  prdata_s4;      
-input   [31:0]  prdata_s5;      
-input   [31:0]  prdata_s6;      
-input   [31:0]  prdata_s7;      
-output  [31:0]  apb_harb_hrdata; 
-output          apb_harb_hready; 
-output  [1 :0]  apb_harb_hresp; 
-output  [39:0]  apb_xx_paddr;   
-output          apb_xx_penable; 
-output  [31:0]  apb_xx_pwdata;  
-output          apb_xx_pwrite;  
-output          psel_s1;        
-output          psel_s2;        
-output          psel_s3;        
-output          psel_s4;        
-output          psel_s5;        
-output          psel_s6;        
-output          psel_s7;        
+input           harb_apb_hsel;
+input   [39:0]  harb_xx_haddr;
+input   [31:0]  harb_xx_hwdata;
+input           harb_xx_hwrite;
+input           hclk;
+input           hrst_b;
+input   [31:0]  prdata_s1;
+input   [31:0]  prdata_s2;
+input   [31:0]  prdata_s3;
+input   [31:0]  prdata_s4;
+input   [31:0]  prdata_s5;
+input   [31:0]  prdata_s6;
+input   [31:0]  prdata_s7;
+output  [31:0]  apb_harb_hrdata;
+output          apb_harb_hready;
+output  [1 :0]  apb_harb_hresp;
+output  [39:0]  apb_xx_paddr;
+output          apb_xx_penable;
+output  [31:0]  apb_xx_pwdata;
+output          apb_xx_pwrite;
+output          psel_s1;
+output          psel_s2;
+output          psel_s3;
+output          psel_s4;
+output          psel_s5;
+output          psel_s6;
+output          psel_s7;
 
 
-reg     [31:0]  apb_harb_hrdata; 
-reg             apb_harb_hready; 
-reg     [39:0]  apb_xx_paddr;   
-reg             apb_xx_penable; 
-reg             apb_xx_psel;    
-reg     [31:0]  apb_xx_pwdata;  
-reg             apb_xx_pwrite;  
-reg     [2 :0]  cur_state;      
-reg     [39:0]  haddr_latch;    
-reg             hwrite_latch;   
-reg     [2 :0]  nxt_state;      
+reg     [31:0]  apb_harb_hrdata;
+reg             apb_harb_hready;
+reg     [39:0]  apb_xx_paddr;
+reg             apb_xx_penable;
+reg             apb_xx_psel;
+reg     [31:0]  apb_xx_pwdata;
+reg             apb_xx_pwrite;
+reg     [2 :0]  cur_state;
+reg     [39:0]  haddr_latch;
+reg             hwrite_latch;
+reg     [2 :0]  nxt_state;
 
 
-wire    [1 :0]  apb_harb_hresp; 
-wire            busy_s1;        
-wire            busy_s2;        
-wire            busy_s3;        
-wire            busy_s4;        
-wire            busy_s5;        
-wire            busy_s6;        
-wire            busy_s7;        
-wire            busy_s8;        
-wire            enable_latch;   
-wire            enable_r_select; 
-wire            harb_apb_hsel;  
-wire    [39:0]  harb_xx_haddr;  
-wire    [31:0]  harb_xx_hwdata; 
-wire            harb_xx_hwrite; 
-wire            hclk;           
-wire            hrst_b;         
-wire            idle_latch;     
-wire            idle_r_select;  
-wire    [31:0]  prdata_s1;      
-wire    [31:0]  prdata_s2;      
-wire    [31:0]  prdata_s3;      
-wire    [31:0]  prdata_s4;      
-wire    [31:0]  prdata_s5;      
-wire    [31:0]  prdata_s6;      
-wire    [31:0]  prdata_s7;      
-wire            psel_s1;        
-wire            psel_s2;        
-wire            psel_s3;        
-wire            psel_s4;        
-wire            psel_s5;        
-wire            psel_s6;        
-wire            psel_s7;        
-wire            psel_s8;        
+wire    [1 :0]  apb_harb_hresp;
+wire            busy_s1;
+wire            busy_s2;
+wire            busy_s3;
+wire            busy_s4;
+wire            busy_s5;
+wire            busy_s6;
+wire            busy_s7;
+wire            busy_s8;
+wire            enable_latch;
+wire            enable_r_select;
+wire            harb_apb_hsel;
+wire    [39:0]  harb_xx_haddr;
+wire    [31:0]  harb_xx_hwdata;
+wire            harb_xx_hwrite;
+wire            hclk;
+wire            hrst_b;
+wire            idle_latch;
+wire            idle_r_select;
+wire    [31:0]  prdata_s1;
+wire    [31:0]  prdata_s2;
+wire    [31:0]  prdata_s3;
+wire    [31:0]  prdata_s4;
+wire    [31:0]  prdata_s5;
+wire    [31:0]  prdata_s6;
+wire    [31:0]  prdata_s7;
+wire            psel_s1;
+wire            psel_s2;
+wire            psel_s3;
+wire            psel_s4;
+wire            psel_s5;
+wire            psel_s6;
+wire            psel_s7;
+wire            psel_s8;
 
 
 
@@ -177,11 +177,11 @@ parameter ENABLE   = 3'b100;
 
 always @(posedge hclk or negedge hrst_b)
 begin
-  if(!hrst_b) 
+  if(!hrst_b)
   begin
     cur_state[2:0] <= IDLE;
   end
-  else 
+  else
   begin
     cur_state[2:0] <= nxt_state[2:0];
   end
@@ -201,9 +201,9 @@ always @( enable_r_select
 begin
 nxt_state[2:0] = IDLE;
 case(cur_state[2:0])
-  IDLE: 
+  IDLE:
   begin
-    if(idle_latch) 
+    if(idle_latch)
     begin
       nxt_state[2:0] = LATCH;
     end
@@ -216,21 +216,21 @@ case(cur_state[2:0])
       nxt_state[2:0] = IDLE;
     end
   end
-  LATCH: 
+  LATCH:
   begin
     nxt_state[2:0] = W_SELECT;
   end
-  W_SELECT: 
+  W_SELECT:
   begin
     nxt_state[2:0] = ENABLE;
   end
-  R_SELECT: 
+  R_SELECT:
   begin
     nxt_state[2:0] = ENABLE;
   end
-  ENABLE: 
+  ENABLE:
   begin
-    if(enable_latch) 
+    if(enable_latch)
     begin
       nxt_state[2:0] = LATCH;
     end
@@ -250,17 +250,17 @@ end
 
 always @(posedge hclk or negedge hrst_b)
 begin
-  if(!hrst_b) 
+  if(!hrst_b)
   begin
     haddr_latch[39:0]  <= 40'b0;
     hwrite_latch       <= 1'b0;
   end
-  else if(nxt_state[2:0]==LATCH) 
+  else if(nxt_state[2:0]==LATCH)
   begin
     haddr_latch[39:0] <= harb_xx_haddr[39:0];
     hwrite_latch      <= harb_xx_hwrite;
   end
-  else 
+  else
   begin
     haddr_latch[39:0] <= haddr_latch[39:0];
     hwrite_latch      <= hwrite_latch;
@@ -269,22 +269,22 @@ end
 
 always @(posedge hclk or negedge hrst_b)
 begin
-  if(!hrst_b) 
+  if(!hrst_b)
   begin
     apb_xx_paddr[39:0]  <= 40'b0;
     apb_xx_pwrite       <= 1'b0;
   end
-  else if(nxt_state[2:0]==W_SELECT) 
+  else if(nxt_state[2:0]==W_SELECT)
   begin
     apb_xx_paddr[39:0]  <= haddr_latch[39:0];
     apb_xx_pwrite       <= hwrite_latch;
   end
-  else if(nxt_state[2:0]==R_SELECT) 
+  else if(nxt_state[2:0]==R_SELECT)
   begin
     apb_xx_paddr[39:0]  <= harb_xx_haddr[39:0];
     apb_xx_pwrite       <= harb_xx_hwrite;
   end
-  else 
+  else
   begin
     apb_xx_paddr[39:0]  <= apb_xx_paddr[39:0];
     apb_xx_pwrite       <= apb_xx_pwrite;
@@ -293,15 +293,15 @@ end
 
 always @(posedge hclk or negedge hrst_b)
 begin
-  if(!hrst_b) 
+  if(!hrst_b)
   begin
     apb_xx_pwdata[31:0] <= 32'b0;
   end
-  else if(nxt_state[2:0]==W_SELECT) 
+  else if(nxt_state[2:0]==W_SELECT)
   begin
     apb_xx_pwdata[31:0] <= harb_xx_hwdata[31:0];
   end
-  else 
+  else
   begin
     apb_xx_pwdata[31:0] <= apb_xx_pwdata[31:0];
   end

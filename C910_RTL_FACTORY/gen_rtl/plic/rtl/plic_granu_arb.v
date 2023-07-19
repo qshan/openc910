@@ -15,7 +15,7 @@ limitations under the License.
 module plic_granu_arb(
   //input
   int_in_prio,
-  int_in_req, 
+  int_in_req,
   int_in_id,
 
   //output
@@ -60,7 +60,7 @@ wire    [SEL_BIT-1:0]           tmp_pos;
 //**********************************************************************
 genvar i;
 genvar j;
-generate 
+generate
   for(i=0;i<SEL_NUM;i=i+1)
   begin: INT_EXP_I
     for(j=0;j<PRIO_NUM;j=j+1)
@@ -73,7 +73,7 @@ endgenerate
 //  secod, reverse the expand priority array, ognized with priority
 //
 //**********************************************************************
-generate 
+generate
   for(i=0;i<SEL_NUM;i=i+1)
   begin:REV_INT_I
     for(j=0;j<PRIO_NUM;j=j+1)
@@ -82,18 +82,18 @@ assign        int_prio_pos_array[j][i] = int_in_exp_prio[i][j];
     end
   end
 endgenerate
-generate 
+generate
   for(j=0;j<PRIO_NUM;j=j+1)
   begin:INT_PRI_1D
 assign      int_prio_pos_1d_bus[j*SEL_NUM+:SEL_NUM] = int_prio_pos_array[j];
   end
 endgenerate
 //**********************************************************************
-//  third, get the valid priority 
+//  third, get the valid priority
 //  and select the highest priority position
 //**********************************************************************
 genvar k;
-generate 
+generate
   for(k=0;k<PRIO_NUM;k=k+1)
   begin:VALID_PRIO
   assign int_valid_prio[k] = |int_prio_pos_array[k];
@@ -109,10 +109,10 @@ prio_sel #(SEL_NUM,PRIO_NUM,PRIO_BIT) x_priority_select(
 
 
 //**********************************************************************
-//  fourth, get the selected int information 
+//  fourth, get the selected int information
 //  and select the highest priority position
 //**********************************************************************
-generate 
+generate
 genvar m;
   for(m=0;m<SEL_NUM;m=m+1)
     begin:FLAT_INT_INFO
@@ -155,8 +155,8 @@ output  [SEL_BIT-1:0]   pos_out;
 
 //wire definition
 
-wire    [SEL-1:0]             tmp_sel; 
-wire    [SEL:0]               tmp_sel2; 
+wire    [SEL-1:0]             tmp_sel;
+wire    [SEL:0]               tmp_sel2;
 wire    [SEL-1:0]             onehot_sel;
 wire    [(SEL+1)*DATA-1:0]    tmp_out;
 wire    [(SEL+1)*SEL_BIT-1:0] tmp_pos_out;
@@ -168,7 +168,7 @@ wire    [SEL:0]               sel_in_exp;
 //**************************************
 assign sel_in_exp[SEL:0]  = {1'b0,sel_in[SEL-1:0]};
 genvar k;
-generate 
+generate
   for(k=0;k<SEL;k=k+1)
   begin:ALL_ONE_SEL
   assign tmp_sel[k] = |sel_in_exp[SEL:k];
@@ -181,7 +181,7 @@ endgenerate
 
 assign tmp_sel2[SEL:0] = {1'b0,tmp_sel[SEL-1:0]};
 genvar m;
-generate 
+generate
   for(m=0;m<SEL;m=m+1)
   begin:ONE_HOT_SEL
   assign onehot_sel[m] = tmp_sel[m] && !tmp_sel2[m+1];
@@ -190,13 +190,13 @@ endgenerate
 assign tmp_out[DATA-1:0] = {DATA{1'b0}};
 assign tmp_pos_out[SEL_BIT-1:0] = {SEL_BIT{1'b0}};
 genvar n;
-generate 
+generate
   for(n=0;n<SEL;n=n+1)
   begin:OUT_SEL
   assign tmp_out[(n+1)*DATA+:DATA] = ({DATA{onehot_sel[n]}} & data_in[n*DATA+:DATA])
                                     | tmp_out[n*DATA+:DATA];
   assign tmp_pos_out[(n+1)*SEL_BIT+:SEL_BIT] = ({SEL_BIT{onehot_sel[n]}} & n)
-                                                | tmp_pos_out[n*SEL_BIT+:SEL_BIT];  
+                                                | tmp_pos_out[n*SEL_BIT+:SEL_BIT];
   end
 endgenerate
 

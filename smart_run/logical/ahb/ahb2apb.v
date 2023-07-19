@@ -59,57 +59,57 @@ module ahb2apb(
 );
 
 
-input   [31 :0]  apb_hrdata;     
-input            apb_hready;     
-input   [1  :0]  apb_hresp;      
-input   [39 :0]  haddr_s2;       
-input   [2  :0]  hburst_s2;      
-input            hmastlock;      
-input   [3  :0]  hprot_s2;       
-input            hsel_s2;        
-input   [2  :0]  hsize_s2;       
-input   [1  :0]  htrans_s2;      
-input   [127:0]  hwdata_s2;      
-input            hwrite_s2;      
-input            pad_cpu_rst_b;  
-input            pll_core_cpuclk; 
-output  [39 :0]  apb_haddr;      
-output  [2  :0]  apb_hburst;     
-output           apb_hsel;       
-output  [2  :0]  apb_hsize;      
-output  [1  :0]  apb_htrans;     
-output  [31 :0]  apb_hwdata;     
-output           apb_hwrite;     
-output  [127:0]  hrdata_s2;      
-output           hready_s2;      
-output  [1  :0]  hresp_s2;       
+input   [31 :0]  apb_hrdata;
+input            apb_hready;
+input   [1  :0]  apb_hresp;
+input   [39 :0]  haddr_s2;
+input   [2  :0]  hburst_s2;
+input            hmastlock;
+input   [3  :0]  hprot_s2;
+input            hsel_s2;
+input   [2  :0]  hsize_s2;
+input   [1  :0]  htrans_s2;
+input   [127:0]  hwdata_s2;
+input            hwrite_s2;
+input            pad_cpu_rst_b;
+input            pll_core_cpuclk;
+output  [39 :0]  apb_haddr;
+output  [2  :0]  apb_hburst;
+output           apb_hsel;
+output  [2  :0]  apb_hsize;
+output  [1  :0]  apb_htrans;
+output  [31 :0]  apb_hwdata;
+output           apb_hwrite;
+output  [127:0]  hrdata_s2;
+output           hready_s2;
+output  [1  :0]  hresp_s2;
 
 
-reg     [31 :0]  apb_hwdata;     
-reg     [127:0]  hrdata_s2;      
-reg     [39 :0]  latch_haddr;    
+reg     [31 :0]  apb_hwdata;
+reg     [127:0]  hrdata_s2;
+reg     [39 :0]  latch_haddr;
 
 
-wire    [39 :0]  apb_haddr;      
-wire    [2  :0]  apb_hburst;     
-wire    [31 :0]  apb_hrdata;     
-wire             apb_hready;     
-wire    [1  :0]  apb_hresp;      
-wire             apb_hsel;       
-wire    [2  :0]  apb_hsize;      
-wire    [1  :0]  apb_htrans;     
-wire             apb_hwrite;     
-wire    [39 :0]  haddr_s2;       
-wire    [2  :0]  hburst_s2;      
-wire             hready_s2;      
-wire    [1  :0]  hresp_s2;       
-wire             hsel_s2;        
-wire    [2  :0]  hsize_s2;       
-wire    [1  :0]  htrans_s2;      
-wire    [127:0]  hwdata_s2;      
-wire             hwrite_s2;      
-wire             pad_cpu_rst_b;  
-wire             pll_core_cpuclk; 
+wire    [39 :0]  apb_haddr;
+wire    [2  :0]  apb_hburst;
+wire    [31 :0]  apb_hrdata;
+wire             apb_hready;
+wire    [1  :0]  apb_hresp;
+wire             apb_hsel;
+wire    [2  :0]  apb_hsize;
+wire    [1  :0]  apb_htrans;
+wire             apb_hwrite;
+wire    [39 :0]  haddr_s2;
+wire    [2  :0]  hburst_s2;
+wire             hready_s2;
+wire    [1  :0]  hresp_s2;
+wire             hsel_s2;
+wire    [2  :0]  hsize_s2;
+wire    [1  :0]  htrans_s2;
+wire    [127:0]  hwdata_s2;
+wire             hwrite_s2;
+wire             pad_cpu_rst_b;
+wire             pll_core_cpuclk;
 
 
 
@@ -138,11 +138,11 @@ begin
   begin
     latch_haddr[39:0] <= 40'b0;
   end
-  else if(apb_hready) 
+  else if(apb_hready)
   begin
     latch_haddr[39:0] <= haddr_s2[39:0];
   end
-  else 
+  else
   begin
     latch_haddr[39:0] <= latch_haddr[39:0];
   end
@@ -154,23 +154,23 @@ always @( hwdata_s2[63:0]
        or latch_haddr[3:2])
 begin
 case(latch_haddr[3:2])
-  2'b00: 
+  2'b00:
   begin
     apb_hwdata[31:0] = hwdata_s2[ 31: 0];
   end
-  2'b01: 
+  2'b01:
   begin
     apb_hwdata[31:0] = hwdata_s2[ 63:32];
   end
-  2'b10: 
+  2'b10:
   begin
     apb_hwdata[31:0] = hwdata_s2[ 95:64];
   end
-  2'b11: 
+  2'b11:
   begin
     apb_hwdata[31:0] = hwdata_s2[127:96];
   end
-  default: 
+  default:
   begin
     apb_hwdata[31:0] = 32'bx;
   end
@@ -183,23 +183,23 @@ always @( latch_haddr[3:2]
        or apb_hrdata[31:0])
 begin
 case(latch_haddr[3:2])
-  2'b00: 
+  2'b00:
   begin
     hrdata_s2[127:0] = {96'b0,apb_hrdata[31:0]};
   end
-  2'b01: 
+  2'b01:
   begin
     hrdata_s2[127:0] = {64'b0,apb_hrdata[31:0],32'b0};
   end
-  2'b10: 
+  2'b10:
   begin
     hrdata_s2[127:0] = {32'b0,apb_hrdata[31:0],64'b0};
   end
-  2'b11: 
+  2'b11:
   begin
     hrdata_s2[127:0] = {      apb_hrdata[31:0],96'b0};
   end
-  default: 
+  default:
   begin
     hrdata_s2[127:0] = 128'bx;
   end

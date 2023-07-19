@@ -27,47 +27,47 @@ module ct_f_spsram_256x7(
 );
 
 // &Ports; @26
-input   [7:0]  A;           
-input          CEN;         
-input          CLK;         
-input   [6:0]  D;           
-input          GWEN;        
-input   [6:0]  WEN;         
-output  [6:0]  Q;           
+input   [7:0]  A;
+input          CEN;
+input          CLK;
+input   [6:0]  D;
+input          GWEN;
+input   [6:0]  WEN;
+output  [6:0]  Q;
 
 // &Regs; @27
-reg     [7:0]  addr_holding; 
+reg     [7:0]  addr_holding;
 
 // &Wires; @28
-wire    [7:0]  A;           
-wire           CEN;         
-wire           CLK;         
-wire    [6:0]  D;           
-wire           GWEN;        
-wire    [6:0]  Q;           
-wire    [6:0]  WEN;         
-wire    [7:0]  addr;        
-wire           ram0_din;    
-wire           ram0_dout;   
-wire           ram0_wen;    
-wire           ram1_din;    
-wire           ram1_dout;   
-wire           ram1_wen;    
-wire           ram2_din;    
-wire           ram2_dout;   
-wire           ram2_wen;    
-wire           ram3_din;    
-wire           ram3_dout;   
-wire           ram3_wen;    
-wire           ram4_din;    
-wire           ram4_dout;   
-wire           ram4_wen;    
-wire           ram5_din;    
-wire           ram5_dout;   
-wire           ram5_wen;    
-wire           ram6_din;    
-wire           ram6_dout;   
-wire           ram6_wen;    
+wire    [7:0]  A;
+wire           CEN;
+wire           CLK;
+wire    [6:0]  D;
+wire           GWEN;
+wire    [6:0]  Q;
+wire    [6:0]  WEN;
+wire    [7:0]  addr;
+wire           ram0_din;
+wire           ram0_dout;
+wire           ram0_wen;
+wire           ram1_din;
+wire           ram1_dout;
+wire           ram1_wen;
+wire           ram2_din;
+wire           ram2_dout;
+wire           ram2_wen;
+wire           ram3_din;
+wire           ram3_dout;
+wire           ram3_wen;
+wire           ram4_din;
+wire           ram4_dout;
+wire           ram4_wen;
+wire           ram5_din;
+wire           ram5_dout;
+wire           ram5_wen;
+wire           ram6_din;
+wire           ram6_dout;
+wire           ram6_wen;
 
 
 parameter ADDR_WIDTH = 8;

@@ -34,29 +34,29 @@ module ct_ifu_icache_tag_array(
   pad_yy_icg_scan_en
 );
 
-input           forever_cpuclk;       
+input           forever_cpuclk;
 input           cp0_ifu_icg_en;
-input   [15:0]  ifu_icache_index;     
-input           ifu_icache_tag_cen_b; 
-input           ifu_icache_tag_clk_en; 
-input   [58:0]  ifu_icache_tag_din;   
-input   [2 :0]  ifu_icache_tag_wen;   
-input           pad_yy_icg_scan_en; 
-output  [58:0]  icache_ifu_tag_dout;  
+input   [15:0]  ifu_icache_index;
+input           ifu_icache_tag_cen_b;
+input           ifu_icache_tag_clk_en;
+input   [58:0]  ifu_icache_tag_din;
+input   [2 :0]  ifu_icache_tag_wen;
+input           pad_yy_icg_scan_en;
+output  [58:0]  icache_ifu_tag_dout;
 
-wire            forever_cpuclk;   
+wire            forever_cpuclk;
 wire            cp0_ifu_icg_en;
-wire    [58:0]  icache_ifu_tag_dout;  
-wire    [15:0]  ifu_icache_index;     
-wire    [58:0]  ifu_icache_tag_bwen;  
-wire            ifu_icache_tag_cen_b; 
-wire            ifu_icache_tag_clk_en; 
-wire    [58:0]  ifu_icache_tag_din;   
-wire            ifu_icache_tag_gwen;  
-wire    [2 :0]  ifu_icache_tag_wen;   
-wire            pad_yy_icg_scan_en; 
-wire            tag_clk;              
-wire            tag_local_en;         
+wire    [58:0]  icache_ifu_tag_dout;
+wire    [15:0]  ifu_icache_index;
+wire    [58:0]  ifu_icache_tag_bwen;
+wire            ifu_icache_tag_cen_b;
+wire            ifu_icache_tag_clk_en;
+wire    [58:0]  ifu_icache_tag_din;
+wire            ifu_icache_tag_gwen;
+wire    [2 :0]  ifu_icache_tag_wen;
+wire            pad_yy_icg_scan_en;
+wire            tag_clk;
+wire            tag_local_en;
 
 
 //Gate Clk
@@ -76,7 +76,7 @@ assign tag_local_en = ifu_icache_tag_clk_en;
 //Support Bit Write
 assign ifu_icache_tag_gwen       = &ifu_icache_tag_wen[2:0];
 assign ifu_icache_tag_bwen[58:0] = {
-                                     ifu_icache_tag_wen[2], 
+                                     ifu_icache_tag_wen[2],
                                      {29{ifu_icache_tag_wen[1]}},
                                      {29{ifu_icache_tag_wen[0]}}
                                    };

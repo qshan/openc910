@@ -31,48 +31,48 @@ module ct_had_ddc_ctrl(
 );
 
 // &Ports; @24
-input          cpuclk;                  
-input          cpurst_b;                
-input          ir_xx_daddr_reg_sel;     
-input          ir_xx_ddata_reg_sel;     
-input          regs_xx_ddc_en;          
-input          rtu_yy_xx_retire0_normal; 
-input          x_sm_xx_update_dr_en;    
-output         ddc_ctrl_dp_addr_gen;    
-output         ddc_ctrl_dp_addr_sel;    
-output         ddc_ctrl_dp_data_sel;    
-output         ddc_regs_update_csr;     
-output         ddc_regs_update_wbbr;    
-output         ddc_xx_update_ir;        
+input          cpuclk;
+input          cpurst_b;
+input          ir_xx_daddr_reg_sel;
+input          ir_xx_ddata_reg_sel;
+input          regs_xx_ddc_en;
+input          rtu_yy_xx_retire0_normal;
+input          x_sm_xx_update_dr_en;
+output         ddc_ctrl_dp_addr_gen;
+output         ddc_ctrl_dp_addr_sel;
+output         ddc_ctrl_dp_data_sel;
+output         ddc_regs_update_csr;
+output         ddc_regs_update_wbbr;
+output         ddc_xx_update_ir;
 
 // &Regs; @25
-reg            addr_ld_finish;          
-reg     [3:0]  cur_st;                  
-reg     [3:0]  nxt_st;                  
+reg            addr_ld_finish;
+reg     [3:0]  cur_st;
+reg     [3:0]  nxt_st;
 
 // &Wires; @26
-wire           addr_ready;              
-wire           cpuclk;                  
-wire           cpurst_b;                
-wire           data_ld_finish;          
-wire           data_ready;              
-wire           ddc_ctrl_dp_addr_gen;    
-wire           ddc_ctrl_dp_addr_sel;    
-wire           ddc_ctrl_dp_data_sel;    
-wire           ddc_ctrl_dp_stw_sel;     
-wire           ddc_regs_update_csr;     
-wire           ddc_regs_update_wbbr;    
-wire           ddc_xx_update_ir;        
-wire           ir_xx_daddr_reg_sel;     
-wire           ir_xx_ddata_reg_sel;     
-wire           regs_xx_ddc_en;          
-wire           rtu_yy_xx_retire0_normal; 
-wire           stw_inst_retire;         
-wire           x_sm_xx_update_dr_en;    
+wire           addr_ready;
+wire           cpuclk;
+wire           cpurst_b;
+wire           data_ld_finish;
+wire           data_ready;
+wire           ddc_ctrl_dp_addr_gen;
+wire           ddc_ctrl_dp_addr_sel;
+wire           ddc_ctrl_dp_data_sel;
+wire           ddc_ctrl_dp_stw_sel;
+wire           ddc_regs_update_csr;
+wire           ddc_regs_update_wbbr;
+wire           ddc_xx_update_ir;
+wire           ir_xx_daddr_reg_sel;
+wire           ir_xx_ddata_reg_sel;
+wire           regs_xx_ddc_en;
+wire           rtu_yy_xx_retire0_normal;
+wire           stw_inst_retire;
+wire           x_sm_xx_update_dr_en;
 
 
 //==============================================================================
-//                           DDC control state machine 
+//                           DDC control state machine
 //==============================================================================
 
 parameter IDLE          = 4'h0;
@@ -84,7 +84,7 @@ parameter STW_WAIT      = 4'h5;
 parameter STW_LD        = 4'h6;
 parameter STW_FINISH    = 4'h7;
 parameter ADDR_GEN      = 4'h8;
-    
+
 always @(posedge cpuclk or negedge cpurst_b)
 begin
   if (!cpurst_b)
@@ -92,7 +92,7 @@ begin
   else
     cur_st[3:0] <= nxt_st[3:0];
 end
-    
+
 // &CombBeg; @50
 always @( addr_ld_finish
        or cur_st[3:0]
@@ -103,7 +103,7 @@ always @( addr_ld_finish
        or data_ld_finish)
 begin
   case(cur_st[3:0])
-    IDLE:      
+    IDLE:
       if (regs_xx_ddc_en)
         nxt_st[3:0] = ADDR_WATI;
       else
@@ -176,7 +176,7 @@ assign stw_inst_retire = rtu_yy_xx_retire0_normal;
 
 // &Force("output", "ddc_ctrl_dp_addr_sel"); @122
 assign ddc_ctrl_dp_addr_sel = cur_st[3:0] == ADDR_LD;
-    
+
 // &Force("output", "ddc_ctrl_dp_data_sel"); @125
 assign ddc_ctrl_dp_data_sel = cur_st[3:0] == DATA_LD;
 
@@ -187,7 +187,7 @@ assign ddc_ctrl_dp_addr_gen = cur_st[3:0] == ADDR_GEN;
 //==========================================================
 //            control signal to regs
 //==========================================================
-    
+
 assign ddc_regs_update_wbbr = ddc_ctrl_dp_addr_sel || ddc_ctrl_dp_data_sel;
 
 assign ddc_regs_update_csr  = ddc_ctrl_dp_addr_sel ||

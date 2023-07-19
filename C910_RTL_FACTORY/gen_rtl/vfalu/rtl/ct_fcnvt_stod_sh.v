@@ -21,16 +21,16 @@ module ct_fcnvt_stod_sh(
 );
 
 // &Ports; @23
-input   [22:0]  stod_sh_src; 
-output  [11:0]  stod_sh_cnt; 
-output  [23:0]  stod_sh_f_v; 
+input   [22:0]  stod_sh_src;
+output  [11:0]  stod_sh_cnt;
+output  [23:0]  stod_sh_f_v;
 
 // &Regs; @24
-reg     [11:0]  stod_sh_cnt; 
-reg     [23:0]  stod_sh_f_v; 
+reg     [11:0]  stod_sh_cnt;
+reg     [23:0]  stod_sh_f_v;
 
 // &Wires; @25
-wire    [22:0]  stod_sh_src; 
+wire    [22:0]  stod_sh_src;
 
 
 // &CombBeg; @27

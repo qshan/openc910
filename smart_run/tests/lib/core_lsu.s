@@ -41,7 +41,7 @@ limitations under the License.
 
  # csrr   x7, mhcr
  # li    x8,0x1
- # slli  x8,x8,0x1 
+ # slli  x8,x8,0x1
  # or    x8,x8,x7
  # csrw   mhcr,x7
 
@@ -89,11 +89,11 @@ limitations under the License.
  # addi    x2, x2, -4
  # st.w   x7, (x2)
  # dcache.cva x2
- # 
+ #
  # mfcr   x7, cr17
- # bclri  x7, 0 
+ # bclri  x7, 0
  # bseti  x7, 1
- # bclri  x7, 2 
+ # bclri  x7, 2
  # bclri  x7, 3
  # bseti  x7, 4
  # mtcr   x7, cr17
@@ -106,7 +106,7 @@ limitations under the License.
 #.macro DATA_CACHE_INV_ADDR ADDR_REG,IMM_REG
 #  mtcr   \ADDR_REG,cr22
 #  mfcr   \IMM_REG,cr17
-#  
+#
 #  bclri  \IMM_REG,0
 #  bseti  \IMM_REG,1
 #  bseti  \IMM_REG,4
@@ -114,13 +114,13 @@ limitations under the License.
 #  bseti  \IMM_REG,6
 #  bclri  \IMM_REG,7
 #
-#  mtcr   \IMM_REG,cr17  
+#  mtcr   \IMM_REG,cr17
 #.endm
 #
 #.macro DATA_CACHE_INV_SETWAY SETWAY_REG,IMM_REG
 #  mtcr   \SETWAY_REG,cr22
 #  mfcr   \IMM_REG,cr17
-#  
+#
 #  bclri  \IMM_REG,0
 #  bseti  \IMM_REG,1
 #  bseti  \IMM_REG,4
@@ -128,7 +128,7 @@ limitations under the License.
 #  bseti  \IMM_REG,6
 #  bseti  \IMM_REG,7
 #
-#  mtcr   \IMM_REG,cr17  
+#  mtcr   \IMM_REG,cr17
 #.endm
 
 .macro DATA_CACHE_CLR
@@ -138,7 +138,7 @@ limitations under the License.
 
   li x7,0x22
   csrw mcor,x7
-  
+
 #  #restore regs
   ld     x7, 0x0(x2)
   addi   x2, x2, 8
@@ -152,7 +152,7 @@ limitations under the License.
 #.macro DATA_CACHE_CLR_ADDR ADDR_REG,IMM_REG
 #  mtcr   \ADDR_REG,cr22
 #  mfcr   \IMM_REG,cr17
-#  
+#
 #  bclri  \IMM_REG,0
 #  bseti  \IMM_REG,1
 #  bclri  \IMM_REG,4
@@ -160,13 +160,13 @@ limitations under the License.
 #  bseti  \IMM_REG,6
 #  bclri  \IMM_REG,7
 #
-#  mtcr   \IMM_REG,cr17 
+#  mtcr   \IMM_REG,cr17
 #.endm
 #
 #.macro DATA_CACHE_CLR_SETWAY SETWAY_REG,IMM_REG
 #  mtcr   \SETWAY_REG,cr22
 #  mfcr   \IMM_REG,cr17
-#  
+#
 #  bclri  \IMM_REG,0
 #  bseti  \IMM_REG,1
 #  bclri  \IMM_REG,4
@@ -174,10 +174,10 @@ limitations under the License.
 #  bseti  \IMM_REG,6
 #  bseti  \IMM_REG,7
 #
-#  mtcr   \IMM_REG,cr17  
+#  mtcr   \IMM_REG,cr17
 #.endm
 
-.macro DATA_CACHE_CLIV 
+.macro DATA_CACHE_CLIV
   #backup regs
   addi    x2, x2, -8
   sd      x7, 0x0(x2)
@@ -191,7 +191,7 @@ limitations under the License.
 
 .endm
 
-.macro DATA_CACHE_CLIV_NBK 
+.macro DATA_CACHE_CLIV_NBK
   li    x30, 0x32
   csrw   mcor,x30
 .endm
@@ -199,7 +199,7 @@ limitations under the License.
 #.macro DATA_CACHE_CLIV_ADDR ADDR_REG,IMM_REG
 #  mtcr   \ADDR_REG,cr22
 #  mfcr   \IMM_REG,cr17
-#  
+#
 #  bclri  \IMM_REG,0
 #  bseti  \IMM_REG,1
 #  bseti  \IMM_REG,4
@@ -207,20 +207,20 @@ limitations under the License.
 #  bseti  \IMM_REG,6
 #  bclri  \IMM_REG,7
 #
-#  mtcr   \IMM_REG,cr17  
+#  mtcr   \IMM_REG,cr17
 #.endm
 
 #.macro DATA_CACHE_CLIV_SETWAY SETWAY_REG,IMM_REG
 #  mtcr   \SETWAY_REG,cr22
 #  mfcr   \IMM_REG,cr17
-#  
+#
 #  bclri  \IMM_REG,0
 #  bseti  \IMM_REG,1
 #  bseti  \IMM_REG,4
 #  bseti  \IMM_REG,5
 #  bseti  \IMM_REG,6
 #  bseti  \IMM_REG,7
-#  mtcr   \IMM_REG,cr17  
+#  mtcr   \IMM_REG,cr17
 #.endm
 
 #Prefetch operation
@@ -229,7 +229,7 @@ limitations under the License.
   addi  x2 , x2, -16
   sd   x7 , 0x0(x2)
   sd   x8 , 0x8(x2)
- 
+
   csrr  x7 , mhint
   li x8,0x1
   slli x8,x8,2 #l1 prefetch
@@ -239,7 +239,7 @@ limitations under the License.
   or x7,x8,x7
 
   csrw  mhint,x7
- 
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)
@@ -251,7 +251,7 @@ limitations under the License.
   addi  x2 , x2, -16
   sd   x7 , 0x0(x2)
   sd   x8 , 0x8(x2)
- 
+
   csrr  x7 , mhint
   li x8,0x1
   slli x8,x8,15 #l1 prefetch
@@ -261,7 +261,7 @@ limitations under the License.
   or x7,x8,x7
 
   csrw  mhint,x7
- 
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)
@@ -279,7 +279,7 @@ limitations under the License.
   addi  x2 , x2, -16
   sd   x7 , 0x0(x2)
   sd   x8 , 0x8(x2)
-  
+
   li  x7, 0xffffffffffff7fff
   csrr x8,mhint
   and x8,x8,x7
@@ -294,12 +294,12 @@ limitations under the License.
 #  #backup regs
 #  subi  x2 , 4
 #  st.w  x7 , (x2,0)
-# 
+#
 #  mfcr  x7 , cr31
 #  bseti x7 , 13
 #  bseti x7 , 14
 #  mtcr  x7 , cr31
-# 
+#
 #  #restore regs
 #  ld.w  x7 , (x2,0)
 #  addi  x2 , 4
@@ -386,23 +386,23 @@ limitations under the License.
   addi x2,x2,16
 .endm
 
-.macro DCACHE_TAG_1BIT_ERR_INJ XN 
+.macro DCACHE_TAG_1BIT_ERR_INJ XN
   li   \XN,0x2
   slli \XN,\XN,29
   ori  \XN,\XN,0x1
 .endm
 
-.macro DCACHE_DATA_1BIT_ERR_INJ XN 
+.macro DCACHE_DATA_1BIT_ERR_INJ XN
   li   \XN,0x3
   slli \XN,\XN,29
   ori  \XN,\XN,0x1
 .endm
-.macro DCACHE_TAG_2BIT_ERR_INJ XN 
+.macro DCACHE_TAG_2BIT_ERR_INJ XN
   li   \XN,0x2
   slli \XN,\XN,29
   ori  \XN,\XN,0x3
 .endm
-.macro DCACHE_DATA_2BIT_ERR_INJ XN 
+.macro DCACHE_DATA_2BIT_ERR_INJ XN
   li   \XN,0x3
   slli \XN,\XN,29
   ori  \XN,\XN,0x3
@@ -419,7 +419,7 @@ limitations under the License.
 
   li   x8, \VLD
   bne x7,x8, \FAIL
-  
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)
@@ -435,7 +435,7 @@ limitations under the License.
   li   x8, 0x7fffffff
   and x7,x8,x7
   csrw mcer,x7
-  
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)
@@ -454,7 +454,7 @@ limitations under the License.
 
   li   x8, \FATAL
   bne x7,x8, \FAIL
-  
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)
@@ -473,7 +473,7 @@ limitations under the License.
 
   li   x8,\FIXCNT
   bne x7,x8,\FAIL
-  
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)
@@ -492,7 +492,7 @@ limitations under the License.
 
   li   x8,\RAMID
   bne x7,x8,\FAIL
-  
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)
@@ -510,7 +510,7 @@ limitations under the License.
 
   li   x8,\ERR_WAY
   bne x7,x8,\FAIL
-  
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)
@@ -529,7 +529,7 @@ limitations under the License.
 
   li   x8,\ERR_INDEX
   bne x7,x8,\FAIL
-  
+
   #restore regs
   ld  x7 , 0x0(x2)
   ld  x8 , 0x8(x2)

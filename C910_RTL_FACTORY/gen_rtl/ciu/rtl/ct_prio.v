@@ -43,8 +43,8 @@ begin
   if (!rst_b)
     {prio[i][NUM-1:0], unused[i][NUM-1:0]} <= {{NUM{1'b0}}, {NUM{1'b1}}} << i;
   else if(|clr_bus[NUM-1:0]) begin
-    prio[i][NUM-1:0] <= (clr_bus[NUM-1:0] == ({{(NUM-1){1'b0}},1'b1}<<i)) 
-                      ? ~clr_bus[NUM-1:0] 
+    prio[i][NUM-1:0] <= (clr_bus[NUM-1:0] == ({{(NUM-1){1'b0}},1'b1}<<i))
+                      ? ~clr_bus[NUM-1:0]
                       : prio[i][NUM-1:0] &~clr_bus[NUM-1:0];
   end
 end

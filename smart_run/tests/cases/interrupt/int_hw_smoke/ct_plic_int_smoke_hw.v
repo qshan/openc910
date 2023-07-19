@@ -26,7 +26,7 @@ module int_mnt();
   force `INTINCFG = 64'h0;
   //iid 16
   force `INTINVLD = 64'h1;
-  
+
   wait (`core0_retire0_pc == 40'he0)
   release `INTINVLD;
   release `INTINCFG;

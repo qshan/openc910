@@ -49,108 +49,108 @@ parameter   SLV_NUM      = 6;
 parameter   SLV_NUM      = 5;
 `endif
 
-input   [26  :0]                ciu_plic_paddr;           
-input                           ciu_plic_penable;         
-input                           ciu_plic_psel;            
-input   [1:0]                   ciu_plic_pprot;            
-input   [31  :0]                ciu_plic_pwdata;          
-input                           ciu_plic_pwrite;    
+input   [26  :0]                ciu_plic_paddr;
+input                           ciu_plic_penable;
+input                           ciu_plic_psel;
+input   [1:0]                   ciu_plic_pprot;
+input   [31  :0]                ciu_plic_pwdata;
+input                           ciu_plic_pwrite;
 `ifdef PLIC_SEC
 input  [7:0]                    ciu_plic_psec;
 input  [HART_NUM*8-1:0]         ciu_plic_core_sec;
 `endif
-input   [INT_NUM-1:0]           pad_plic_int_vld;         
-input   [INT_NUM-1:0]           pad_plic_int_cfg;         
-input                           plic_clk;                 
-input                           plicrst_b;                
+input   [INT_NUM-1:0]           pad_plic_int_vld;
+input   [INT_NUM-1:0]           pad_plic_int_cfg;
+input                           plic_clk;
+input                           plicrst_b;
 input                           pad_yy_icg_scan_en;
 input                           ciu_plic_icg_en;
 
-output  [HART_NUM-1:0]          plic_hartx_mint_req;      
-output  [HART_NUM-1:0]          plic_hartx_sint_req;      
-output  [31  :0]                plic_ciu_prdata;          
-output                          plic_ciu_pready;          
-output                          plic_ciu_pslverr;         
+output  [HART_NUM-1:0]          plic_hartx_mint_req;
+output  [HART_NUM-1:0]          plic_hartx_sint_req;
+output  [31  :0]                plic_ciu_prdata;
+output                          plic_ciu_pready;
+output                          plic_ciu_pslverr;
 
 wire                              ciu_plic_icg_en;
-wire    [HART_NUM-1:0]            plic_hartx_mint_req;      
-wire    [HART_NUM-1:0]            plic_hartx_sint_req;      
-wire    [HART_NUM-1   :0]         arbx_hreg_arb_start_ack;  
-wire    [HART_NUM*ID_NUM-1  :0]   arbx_hreg_claim_id;       
-wire    [HART_NUM-1   :0]         arbx_hreg_claim_mmode;    
-wire    [HART_NUM-1   :0]         arbx_hreg_claim_reg_ready; 
-wire    [17  :0]                  bus_mtx_ict_paddr;        
-wire                              bus_mtx_ict_penable;      
-wire                              bus_mtx_ict_psel;         
+wire    [HART_NUM-1:0]            plic_hartx_mint_req;
+wire    [HART_NUM-1:0]            plic_hartx_sint_req;
+wire    [HART_NUM-1   :0]         arbx_hreg_arb_start_ack;
+wire    [HART_NUM*ID_NUM-1  :0]   arbx_hreg_claim_id;
+wire    [HART_NUM-1   :0]         arbx_hreg_claim_mmode;
+wire    [HART_NUM-1   :0]         arbx_hreg_claim_reg_ready;
+wire    [17  :0]                  bus_mtx_ict_paddr;
+wire                              bus_mtx_ict_penable;
+wire                              bus_mtx_ict_psel;
 wire    [1:0]                     bus_mtx_ict_pprot;
-wire    [31  :0]                  bus_mtx_ict_pwdata;       
-wire                              bus_mtx_ict_pwrite; 
-wire    [12  :0]                  bus_mtx_ie_paddr;         
-wire                              bus_mtx_ie_penable;       
-wire                              bus_mtx_ie_psel;     
+wire    [31  :0]                  bus_mtx_ict_pwdata;
+wire                              bus_mtx_ict_pwrite;
+wire    [12  :0]                  bus_mtx_ie_paddr;
+wire                              bus_mtx_ie_penable;
+wire                              bus_mtx_ie_psel;
 wire    [1:0]                     bus_mtx_ie_pprot;
-wire    [31  :0]                  bus_mtx_ie_pwdata;        
-wire                              bus_mtx_ie_pwrite;        
-wire    [11  :0]                  bus_mtx_ip_paddr;         
-wire                              bus_mtx_ip_penable;       
-wire                              bus_mtx_ip_psel;          
+wire    [31  :0]                  bus_mtx_ie_pwdata;
+wire                              bus_mtx_ie_pwrite;
+wire    [11  :0]                  bus_mtx_ip_paddr;
+wire                              bus_mtx_ip_penable;
+wire                              bus_mtx_ip_psel;
 wire    [1:0]                     bus_mtx_ip_pprot;
-wire    [31  :0]                  bus_mtx_ip_pwdata;        
-wire                              bus_mtx_ip_pwrite;        
-wire    [11  :0]                  bus_mtx_prio_paddr;       
-wire                              bus_mtx_prio_penable;     
-wire                              bus_mtx_prio_psel;        
+wire    [31  :0]                  bus_mtx_ip_pwdata;
+wire                              bus_mtx_ip_pwrite;
+wire    [11  :0]                  bus_mtx_prio_paddr;
+wire                              bus_mtx_prio_penable;
+wire                              bus_mtx_prio_psel;
 wire    [1:0]                     bus_mtx_prio_pprot;
-wire    [31  :0]                  bus_mtx_prio_pwdata;      
-wire                              bus_mtx_prio_pwrite;      
-wire    [26  :0]                  ciu_plic_paddr;           
-wire                              ciu_plic_penable;         
-wire                              ciu_plic_psel;            
-wire    [31  :0]                  ciu_plic_pwdata;          
-wire                              ciu_plic_pwrite;          
-wire    [HART_NUM-1   :0]         hreg_arbx_arb_flush;      
-wire    [HART_NUM-1   :0]         hreg_arbx_arb_start;      
-wire    [HART_NUM-1   :0]         hreg_arbx_mint_claim;      
-wire    [HART_NUM-1   :0]         hreg_arbx_sint_claim;      
-wire    [INT_NUM*HART_NUM-1:0]    hreg_arbx_int_en;         
-wire    [INT_NUM*HART_NUM-1:0]    hreg_arbx_int_mmode;      
-wire    [HART_NUM*PRIO_BIT-1:0]   hreg_arbx_prio_mth;       
-wire    [HART_NUM*PRIO_BIT-1:0]   hreg_arbx_prio_sth;       
-//wire    [ID_NUM-1   :0]           hreg_kid_claim_id;        
-wire    [INT_NUM-1:0]             hreg_kid_claim_vld;       
-wire    [INT_NUM-1:0]             hreg_kid_cmplt_vld;       
-wire    [31  :0]                  ict_bus_mtx_prdata;       
-wire                              ict_bus_mtx_pready;       
-wire                              ict_bus_mtx_pslverr;      
-wire    [31  :0]                  ie_bus_mtx_prdata;        
-wire                              ie_bus_mtx_pready;        
-wire                              ie_bus_mtx_pslverr;       
-wire    [31  :0]                  ip_bus_mtx_prdata;        
-wire                              ip_bus_mtx_pready;        
-wire                              ip_bus_mtx_pslverr;       
-wire                              kid_hreg_new_int_pulse;   
-wire    [INT_NUM*PRIO_BIT-1:0]    kid_yy_int_prio;          
-wire    [INT_NUM-1:0]             kid_yy_int_req;           
-wire    [SLV_NUM*27-1 :0]         mst_base_addr;            
-wire    [SLV_NUM*27-1 :0]         mst_base_addr_msk;        
-wire    [SLV_NUM*27-1 :0]         mst_paddr;                
-wire    [SLV_NUM-1   :0]          mst_penable;              
-wire    [SLV_NUM*32-1 :0]         mst_prdata;               
-wire    [SLV_NUM-1   :0]          mst_pready;               
-wire    [SLV_NUM-1   :0]          mst_psel;                 
+wire    [31  :0]                  bus_mtx_prio_pwdata;
+wire                              bus_mtx_prio_pwrite;
+wire    [26  :0]                  ciu_plic_paddr;
+wire                              ciu_plic_penable;
+wire                              ciu_plic_psel;
+wire    [31  :0]                  ciu_plic_pwdata;
+wire                              ciu_plic_pwrite;
+wire    [HART_NUM-1   :0]         hreg_arbx_arb_flush;
+wire    [HART_NUM-1   :0]         hreg_arbx_arb_start;
+wire    [HART_NUM-1   :0]         hreg_arbx_mint_claim;
+wire    [HART_NUM-1   :0]         hreg_arbx_sint_claim;
+wire    [INT_NUM*HART_NUM-1:0]    hreg_arbx_int_en;
+wire    [INT_NUM*HART_NUM-1:0]    hreg_arbx_int_mmode;
+wire    [HART_NUM*PRIO_BIT-1:0]   hreg_arbx_prio_mth;
+wire    [HART_NUM*PRIO_BIT-1:0]   hreg_arbx_prio_sth;
+//wire    [ID_NUM-1   :0]           hreg_kid_claim_id;
+wire    [INT_NUM-1:0]             hreg_kid_claim_vld;
+wire    [INT_NUM-1:0]             hreg_kid_cmplt_vld;
+wire    [31  :0]                  ict_bus_mtx_prdata;
+wire                              ict_bus_mtx_pready;
+wire                              ict_bus_mtx_pslverr;
+wire    [31  :0]                  ie_bus_mtx_prdata;
+wire                              ie_bus_mtx_pready;
+wire                              ie_bus_mtx_pslverr;
+wire    [31  :0]                  ip_bus_mtx_prdata;
+wire                              ip_bus_mtx_pready;
+wire                              ip_bus_mtx_pslverr;
+wire                              kid_hreg_new_int_pulse;
+wire    [INT_NUM*PRIO_BIT-1:0]    kid_yy_int_prio;
+wire    [INT_NUM-1:0]             kid_yy_int_req;
+wire    [SLV_NUM*27-1 :0]         mst_base_addr;
+wire    [SLV_NUM*27-1 :0]         mst_base_addr_msk;
+wire    [SLV_NUM*27-1 :0]         mst_paddr;
+wire    [SLV_NUM-1   :0]          mst_penable;
+wire    [SLV_NUM*32-1 :0]         mst_prdata;
+wire    [SLV_NUM-1   :0]          mst_pready;
+wire    [SLV_NUM-1   :0]          mst_psel;
 wire    [SLV_NUM*2-1   :0]        mst_pprot;
-wire    [SLV_NUM-1   :0]          mst_pslverr;              
-wire    [SLV_NUM*32-1 :0]         mst_pwdata;               
-wire    [SLV_NUM-1   :0]          mst_pwrite;               
-wire    [INT_NUM-1:0]             pad_plic_int_vld;         
-wire    [31  :0]                  plic_ciu_prdata;          
-wire                              plic_ciu_pready;          
-wire                              plic_ciu_pslverr;         
-wire                              plic_clk;                 
-wire                              plicrst_b;                
-wire    [31  :0]                  prio_bus_mtx_prdata;      
-wire                              prio_bus_mtx_pready;      
-wire                              prio_bus_mtx_pslverr;     
+wire    [SLV_NUM-1   :0]          mst_pslverr;
+wire    [SLV_NUM*32-1 :0]         mst_pwdata;
+wire    [SLV_NUM-1   :0]          mst_pwrite;
+wire    [INT_NUM-1:0]             pad_plic_int_vld;
+wire    [31  :0]                  plic_ciu_prdata;
+wire                              plic_ciu_pready;
+wire                              plic_ciu_pslverr;
+wire                              plic_clk;
+wire                              plicrst_b;
+wire    [31  :0]                  prio_bus_mtx_prdata;
+wire                              prio_bus_mtx_pready;
+wire                              prio_bus_mtx_pslverr;
 wire                              kid_hreg_ip_prio_reg_we;
 wire                              bus_mtx_plic_ctrl_psel;
 wire                              bus_mtx_plic_ctrl_penable;
@@ -164,22 +164,22 @@ wire                              plic_ctrl_pready;
 wire                              ctrl_xx_s_permission_t;
 wire                              ctrl_xx_s_permission_nt;
 wire                              ctrl_xx_amp_mode;
-  
+
 wire                              bus_mtx_ict_psec;
 wire                              bus_mtx_prio_psec;
 wire                              bus_mtx_ip_psec;
 wire                              bus_mtx_ie_psec;
 `ifdef PLIC_SEC
-wire    [11  :0]                  bus_mtx_sec_paddr;         
-wire                              bus_mtx_sec_penable;       
-wire                              bus_mtx_sec_psel;          
+wire    [11  :0]                  bus_mtx_sec_paddr;
+wire                              bus_mtx_sec_penable;
+wire                              bus_mtx_sec_psel;
 wire    [1:0]                     bus_mtx_sec_pprot;
-wire    [31  :0]                  bus_mtx_sec_pwdata;        
+wire    [31  :0]                  bus_mtx_sec_pwdata;
 wire                              bus_mtx_sec_pwrite;
 wire                              bus_mtx_sec_psec;
-wire    [31  :0]                  sec_bus_mtx_prdata;        
-wire                              sec_bus_mtx_pready;        
-wire                              sec_bus_mtx_pslverr;  
+wire    [31  :0]                  sec_bus_mtx_prdata;
+wire                              sec_bus_mtx_pready;
+wire                              sec_bus_mtx_pslverr;
 wire                              plic_core_sec_clk;
 wire                              plic_core_sec_clk_en;
 wire                              core_sec_chg_en;
@@ -246,10 +246,10 @@ assign  bus_mtx_prio_pprot[1:0] = {mst_pprot[11] || ((mst_psec[5] ? ctrl_xx_s_pe
 assign  bus_mtx_ip_pprot[1:0]   = {mst_pprot[9] || ((mst_psec[4] ? ctrl_xx_s_permission_t : ctrl_xx_s_permission_nt)&& mst_pprot[8]),
                                    mst_pprot[8]};
 assign  bus_mtx_ie_pprot[1:0]   = {mst_pprot[7] || ((mst_psec[3] ? ctrl_xx_s_permission_t : ctrl_xx_s_permission_nt)&& mst_pprot[6]),
-                                   mst_pprot[6]};  
+                                   mst_pprot[6]};
 assign  bus_mtx_sec_pprot[1:0]  = mst_pprot[5:4];
 assign  bus_mtx_ict_pprot[1:0]  = {mst_pprot[1] || ((mst_psec[0] ? ctrl_xx_s_permission_t : ctrl_xx_s_permission_nt)&& mst_pprot[0]),
-                                   mst_pprot[0]};  
+                                   mst_pprot[0]};
 assign {bus_mtx_prio_penable,
         bus_mtx_ip_penable,
         bus_mtx_ie_penable,
@@ -332,9 +332,9 @@ plic_sec_busif #(.INT_NUM(INT_NUM),
   .sec_bus_mtx_pready  (sec_bus_mtx_pready   ),
   .sec_bus_mtx_prdata  (sec_bus_mtx_prdata   ),
   .sec_bus_mtx_pslverr (sec_bus_mtx_pslverr  ),
-  .int_sec_infor       (int_sec_infor        )         
+  .int_sec_infor       (int_sec_infor        )
 );
-generate 
+generate
 genvar j;
 for(j=0;j<HART_NUM;j=j+1)
 begin: HART_SEC
@@ -350,7 +350,7 @@ begin
         ctrl_xx_core_sec[HART_NUM-1:0] <= ciu_plic_core_sec_bin[HART_NUM-1:0];
 end
 assign core_sec_chg[HART_NUM:0]  = {1'b0,ciu_plic_core_sec_bin[HART_NUM-1:0] ^ ctrl_xx_core_sec[HART_NUM-1:0]};
-assign core_sec_chg_en  = |core_sec_chg[HART_NUM:0];  
+assign core_sec_chg_en  = |core_sec_chg[HART_NUM:0];
 gated_clk_cell  x_core_sec_gateclk (
   .clk_in               (plic_clk            ),
   .clk_out              (plic_core_sec_clk   ),
@@ -377,9 +377,9 @@ assign  bus_mtx_prio_pprot[1:0] = {mst_pprot[9] || ((mst_psec[4] ? ctrl_xx_s_per
 assign  bus_mtx_ip_pprot[1:0]   = {mst_pprot[7] || ((mst_psec[3] ? ctrl_xx_s_permission_t : ctrl_xx_s_permission_nt) && mst_pprot[6]),
                                    mst_pprot[6]};
 assign  bus_mtx_ie_pprot[1:0]   = {mst_pprot[5] || ((mst_psec[2] ? ctrl_xx_s_permission_t : ctrl_xx_s_permission_nt) && mst_pprot[4]),
-                                   mst_pprot[4]};                                
+                                   mst_pprot[4]};
 assign  bus_mtx_ict_pprot[1:0]  = {mst_pprot[1] || ((mst_psec[1] ? ctrl_xx_s_permission_t : ctrl_xx_s_permission_nt) && mst_pprot[0]),
-                                   mst_pprot[0]};                                
+                                   mst_pprot[0]};
 assign {bus_mtx_prio_penable,
         bus_mtx_ip_penable,
         bus_mtx_ie_penable,
@@ -551,7 +551,7 @@ plic_kid_busif  #(.INT_NUM(INT_NUM),
   .prio_bus_mtx_pslverr   (prio_bus_mtx_pslverr  )
 );
 
-generate 
+generate
 genvar i;
 for(i=0;i<HART_NUM;i=i+1)
 begin: HART_ARB
@@ -580,7 +580,7 @@ plic_hart_arb  #(.INT_NUM(INT_NUM),
   .ctrl_xx_core_sec          (ctrl_xx_core_sec[i]        ),
   .kid_yy_int_prio           (kid_yy_int_prio          ),
   .kid_yy_int_req            (kid_yy_int_req           ),
-  .int_sec_infor             (int_sec_infor            ), 
+  .int_sec_infor             (int_sec_infor            ),
   .plic_clk                  (plic_clk                 ),
   .plicrst_b                 (plicrst_b                )
 );
@@ -642,10 +642,10 @@ bind plic_top plic_cov x_plic_cov(
     .s_per             (`PLIC_TOP.x_plic_ctrl.ctrl_xx_s_permission_t),
     .sint_req          (`PLIC_TOP.plic_hartx_sint_req[HART_NUM-1:0]),
 
-.ciu_plic_paddr          (`PLIC_TOP.ciu_plic_paddr[26:0]),           
-.ciu_plic_penable        (`PLIC_TOP.ciu_plic_penable),   
-.ciu_plic_psel           (`PLIC_TOP.ciu_plic_psel), 
-.ciu_plic_pprot          (`PLIC_TOP.ciu_plic_pprot[1:0]), 
+.ciu_plic_paddr          (`PLIC_TOP.ciu_plic_paddr[26:0]),
+.ciu_plic_penable        (`PLIC_TOP.ciu_plic_penable),
+.ciu_plic_psel           (`PLIC_TOP.ciu_plic_psel),
+.ciu_plic_pprot          (`PLIC_TOP.ciu_plic_pprot[1:0]),
 .ciu_plic_pwrite         (`PLIC_TOP.ciu_plic_pwrite),
 `ifdef PLIC_SEC
 .ciu_plic_psec           (`PLIC_TOP.ciu_plic_psec[7:0]),
@@ -655,7 +655,7 @@ bind plic_top plic_cov x_plic_cov(
 .ctrl_xx_core_sec        (`PLIC_TOP.ctrl_xx_core_sec[HART_NUM-1:0]),
 .ctrl_xx_s_permission_t  (`PLIC_TOP.ctrl_xx_s_permission_t),
 .ctrl_xx_s_permission_nt (`PLIC_TOP.ctrl_xx_s_permission_nt),
-                         
+
 .prio_bus_mtx_pslverr    (`PLIC_TOP.prio_bus_mtx_pslverr),
 .ip_bus_mtx_pslverr      (`PLIC_TOP.ip_bus_mtx_pslverr),
 .ie_bus_mtx_pslverr      (`PLIC_TOP.ie_bus_mtx_pslverr),
@@ -668,7 +668,7 @@ bind plic_top plic_cov x_plic_cov(
 .ict_bus_mtx_pslverr     (`PLIC_TOP.ict_bus_mtx_pslverr),
 
 .ctrl_xx_amp_mode         (`PLIC_TOP.ctrl_xx_amp_mode),
-.ctrl_xx_amp_lock         (`PLIC_TOP.ctrl_xx_amp_lock),   
+.ctrl_xx_amp_lock         (`PLIC_TOP.ctrl_xx_amp_lock),
 .bus_mtx_plic_ctrl_pwdata (`PLIC_TOP.x_plic_ctrl.bus_mtx_plic_ctrl_pwdata[30]),
 `ifdef PLIC_SEC
 .data_flop_32      (`PLIC_TOP.x_plic_sec_busif.INT_SEC[0].x_int_sec_ff.data_flop[31:0]),
@@ -699,7 +699,7 @@ bind plic_top plic_cov x_plic_cov(
 .plic_ciu_pready   (`PLIC_TOP.plic_ciu_pready),
 .plic_ciu_pslverr  (`PLIC_TOP.plic_ciu_pslverr),
 
-.C0_arbx_hreg_claim_id       (`PLIC_TOP.HART_ARB[0].x_plic_hart_arb.arbx_hreg_claim_id[ID_NUM-1:0]),          
+.C0_arbx_hreg_claim_id       (`PLIC_TOP.HART_ARB[0].x_plic_hart_arb.arbx_hreg_claim_id[ID_NUM-1:0]),
 .C0_hart_mie_1d_bus          (`PLIC_TOP.x_plic_hreg_busif.hart_mie_1d_bus[INT_NUM-1:1]),
 .C0_hart_sie_1d_bus          (`PLIC_TOP.x_plic_hreg_busif.hart_sie_1d_bus[INT_NUM-1:1]),
 .C0_hreg_arbx_mint_claim     (`PLIC_TOP.HART_ARB[0].x_plic_hart_arb.hreg_arbx_mint_claim),
@@ -710,7 +710,7 @@ bind plic_top plic_cov x_plic_cov(
 .C0_busif_hart_sclaim_wr_en  (`PLIC_TOP.x_plic_hreg_busif.busif_hart_sclaim_wr_en[0]),
 .hreg_kid_cmplt_id           (`PLIC_TOP.x_plic_hreg_busif.hreg_kid_cmplt_id[ID_NUM-1:0])
 `ifdef PROCESSOR_1
-,                             
+,
 .C1_arbx_hreg_claim_id       (`PLIC_TOP.HART_ARB[1].x_plic_hart_arb.arbx_hreg_claim_id[ID_NUM-1:0]),
 .C1_hart_mie_1d_bus          (`PLIC_TOP.x_plic_hreg_busif.hart_mie_1d_bus[2*INT_NUM-1:INT_NUM]),
 .C1_hart_sie_1d_bus          (`PLIC_TOP.x_plic_hreg_busif.hart_sie_1d_bus[2*INT_NUM-1:INT_NUM]),

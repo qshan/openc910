@@ -52,55 +52,55 @@ module uart_receive(
 );
 
 
-input   [1:0]  ctrl_receive_data_length; 
-input          ctrl_receive_parity_bit; 
-input          ctrl_receive_parity_en;  
-input          ctrl_receive_stop_length; 
-input          ctrl_trans_parity_en;    
-input          receive_clk_en;          
-input          rst_b;                   
-input          s_in;                    
-input          sys_clk;                 
-output         receive_ctrl_busy;       
-output         receive_ctrl_fe;         
-output         receive_ctrl_pe;         
-output  [7:0]  receive_ctrl_rdata;      
-output         receive_ctrl_redata_over; 
+input   [1:0]  ctrl_receive_data_length;
+input          ctrl_receive_parity_bit;
+input          ctrl_receive_parity_en;
+input          ctrl_receive_stop_length;
+input          ctrl_trans_parity_en;
+input          receive_clk_en;
+input          rst_b;
+input          s_in;
+input          sys_clk;
+output         receive_ctrl_busy;
+output         receive_ctrl_fe;
+output         receive_ctrl_pe;
+output  [7:0]  receive_ctrl_rdata;
+output         receive_ctrl_redata_over;
 
 
-reg     [3:0]  counter;                 
-reg     [5:0]  cur_state;               
-reg     [2:0]  da_conter;               
-reg            di_reg1;                 
-reg            di_reg2;                 
-reg            fram_error;              
-reg     [5:0]  next_state;              
-reg            parity_cout;             
-reg     [7:0]  receive_shift_reg;       
-reg            sync1;                   
-reg            sync2;                   
+reg     [3:0]  counter;
+reg     [5:0]  cur_state;
+reg     [2:0]  da_conter;
+reg            di_reg1;
+reg            di_reg2;
+reg            fram_error;
+reg     [5:0]  next_state;
+reg            parity_cout;
+reg     [7:0]  receive_shift_reg;
+reg            sync1;
+reg            sync2;
 
 
-wire           cont_16;                 
-wire           cont_8;                  
-wire    [1:0]  ctrl_receive_data_length; 
-wire           ctrl_receive_parity_bit; 
-wire           ctrl_receive_parity_en;  
-wire           ctrl_receive_stop_length; 
-wire           ctrl_trans_parity_en;    
-wire           data_over;               
-wire           di_rx_in;                
-wire           receive_clk_en;          
-wire           receive_ctrl_busy;       
-wire           receive_ctrl_fe;         
-wire           receive_ctrl_pe;         
-wire    [7:0]  receive_ctrl_rdata;      
-wire           receive_ctrl_redata_over; 
-wire           rst_b;                   
-wire           rx_in;                   
-wire           s_in;                    
-wire           stop_over;               
-wire           sys_clk;                 
+wire           cont_16;
+wire           cont_8;
+wire    [1:0]  ctrl_receive_data_length;
+wire           ctrl_receive_parity_bit;
+wire           ctrl_receive_parity_en;
+wire           ctrl_receive_stop_length;
+wire           ctrl_trans_parity_en;
+wire           data_over;
+wire           di_rx_in;
+wire           receive_clk_en;
+wire           receive_ctrl_busy;
+wire           receive_ctrl_fe;
+wire           receive_ctrl_pe;
+wire    [7:0]  receive_ctrl_rdata;
+wire           receive_ctrl_redata_over;
+wire           rst_b;
+wire           rx_in;
+wire           s_in;
+wire           stop_over;
+wire           sys_clk;
 
 
 parameter IDLE     = 6'b000001,
@@ -122,7 +122,7 @@ end
 
 
 always @(posedge sys_clk or negedge rst_b)
-begin 
+begin
   if(rst_b == 1'b0)
     begin
       sync1 <= 1'b1;
@@ -133,7 +133,7 @@ begin
       sync1 <= s_in;
       sync2 <= sync1;
     end
-end 
+end
 assign rx_in = sync2;
 
 
@@ -142,7 +142,7 @@ assign rx_in = sync2;
 
 
 always @(posedge sys_clk or negedge rst_b)
-begin        
+begin
   if(rst_b == 1'b0)
     begin
       di_reg1 <= 1'b1;
@@ -153,7 +153,7 @@ begin
        di_reg1 <= rx_in;
        di_reg2 <= di_reg1;
      end
-end 
+end
 assign di_rx_in = (rx_in & di_reg1) | (rx_in & di_reg2) | (di_reg1 & di_reg2);
 
 
@@ -185,7 +185,7 @@ case(cur_state[5:0])
       next_state[5:0] = START;
   end
   DATA:
-  begin 
+  begin
    if(cont_16 && data_over)
      next_state[5:0] = ctrl_trans_parity_en ? PARITY : STOP;
    else
@@ -197,9 +197,9 @@ case(cur_state[5:0])
       next_state[5:0] = STOP;
     else
       next_state[5:0] = PARITY;
-  end  
+  end
   STOP:
-  begin      
+  begin
     if(cont_16 && stop_over)
     begin
       next_state[5:0] = CLECT_SIG;
@@ -208,7 +208,7 @@ case(cur_state[5:0])
       next_state[5:0] = STOP;
   end
   CLECT_SIG:
-    next_state[5:0] = IDLE; 
+    next_state[5:0] = IDLE;
   default: next_state[5:0] = IDLE;
 endcase
 
@@ -238,7 +238,7 @@ always@(posedge sys_clk or negedge rst_b)
 begin
   if(!rst_b)
    da_conter[2:0] <= 2'b0;
- else if(receive_clk_en) 
+ else if(receive_clk_en)
  begin
    if((data_over || stop_over)&& cont_16)
     da_conter[2:0] <= 2'b0;
@@ -254,7 +254,7 @@ assign stop_over        = (cur_state[4]) && (da_conter[2:0] == {2'b0,ctrl_receiv
 
 
 always@(posedge sys_clk or negedge rst_b)
-begin 
+begin
   if( !rst_b )
     receive_shift_reg[7:0] <= 8'b0;
   else if(receive_clk_en)
@@ -287,7 +287,7 @@ begin
      else
       parity_cout  <= parity_cout;
     end
-    else if(cur_state[4] || cur_state[5]) 
+    else if(cur_state[4] || cur_state[5])
      parity_cout <= parity_cout;
     else
      parity_cout <= 1'b0;
@@ -317,7 +317,7 @@ end
 
 
 
-assign receive_ctrl_pe  = (~(parity_cout ^ ctrl_receive_parity_bit)) && ctrl_receive_parity_en && (cur_state[5]);  
+assign receive_ctrl_pe  = (~(parity_cout ^ ctrl_receive_parity_bit)) && ctrl_receive_parity_en && (cur_state[5]);
 
 assign receive_ctrl_fe  = fram_error && (cur_state[5]);
 

@@ -36,46 +36,46 @@ module ct_ciu_snb_dp_sel_16(
 );
 
 // &Ports; @19
-input   [23:0]  entry0_age_vect; 
-input   [23:0]  entry10_age_vect; 
-input   [23:0]  entry11_age_vect; 
-input   [23:0]  entry12_age_vect; 
-input   [23:0]  entry13_age_vect; 
-input   [23:0]  entry14_age_vect; 
-input   [23:0]  entry15_age_vect; 
-input   [23:0]  entry1_age_vect; 
-input   [23:0]  entry2_age_vect; 
-input   [23:0]  entry3_age_vect; 
-input   [23:0]  entry4_age_vect; 
-input   [23:0]  entry5_age_vect; 
-input   [23:0]  entry6_age_vect; 
-input   [23:0]  entry7_age_vect; 
-input   [23:0]  entry8_age_vect; 
-input   [23:0]  entry9_age_vect; 
-input   [15:0]  req_vld;         
-output  [15:0]  sel;             
+input   [23:0]  entry0_age_vect;
+input   [23:0]  entry10_age_vect;
+input   [23:0]  entry11_age_vect;
+input   [23:0]  entry12_age_vect;
+input   [23:0]  entry13_age_vect;
+input   [23:0]  entry14_age_vect;
+input   [23:0]  entry15_age_vect;
+input   [23:0]  entry1_age_vect;
+input   [23:0]  entry2_age_vect;
+input   [23:0]  entry3_age_vect;
+input   [23:0]  entry4_age_vect;
+input   [23:0]  entry5_age_vect;
+input   [23:0]  entry6_age_vect;
+input   [23:0]  entry7_age_vect;
+input   [23:0]  entry8_age_vect;
+input   [23:0]  entry9_age_vect;
+input   [15:0]  req_vld;
+output  [15:0]  sel;
 
 // &Regs; @20
 
 // &Wires; @21
-wire    [23:0]  entry0_age_vect; 
-wire    [23:0]  entry10_age_vect; 
-wire    [23:0]  entry11_age_vect; 
-wire    [23:0]  entry12_age_vect; 
-wire    [23:0]  entry13_age_vect; 
-wire    [23:0]  entry14_age_vect; 
-wire    [23:0]  entry15_age_vect; 
-wire    [23:0]  entry1_age_vect; 
-wire    [23:0]  entry2_age_vect; 
-wire    [23:0]  entry3_age_vect; 
-wire    [23:0]  entry4_age_vect; 
-wire    [23:0]  entry5_age_vect; 
-wire    [23:0]  entry6_age_vect; 
-wire    [23:0]  entry7_age_vect; 
-wire    [23:0]  entry8_age_vect; 
-wire    [23:0]  entry9_age_vect; 
-wire    [15:0]  req_vld;         
-wire    [15:0]  sel;             
+wire    [23:0]  entry0_age_vect;
+wire    [23:0]  entry10_age_vect;
+wire    [23:0]  entry11_age_vect;
+wire    [23:0]  entry12_age_vect;
+wire    [23:0]  entry13_age_vect;
+wire    [23:0]  entry14_age_vect;
+wire    [23:0]  entry15_age_vect;
+wire    [23:0]  entry1_age_vect;
+wire    [23:0]  entry2_age_vect;
+wire    [23:0]  entry3_age_vect;
+wire    [23:0]  entry4_age_vect;
+wire    [23:0]  entry5_age_vect;
+wire    [23:0]  entry6_age_vect;
+wire    [23:0]  entry7_age_vect;
+wire    [23:0]  entry8_age_vect;
+wire    [23:0]  entry9_age_vect;
+wire    [15:0]  req_vld;
+wire    [15:0]  sel;
 
 
 // &Force("bus", "entry0_age_vect",23,0); @23

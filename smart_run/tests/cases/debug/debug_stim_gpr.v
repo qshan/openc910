@@ -43,15 +43,15 @@ open_event;
 
 //read gpr
       $display("=================================Read GPR===================================");
-//X0 
+//X0
     write_hadreg_corea(`ir_go_nex,`MV_X0_X0);
     hsr_data_out[12] = 0;
     while(!hsr_data_out[12])
       read_hadreg_corea(`hsr,hsr_data_out);
     read_hadreg_corea(`wbbr,wbbr_data_out);
     $display("Read X0 = 64'h%h!",wbbr_data_out);
-    
-//X1 
+
+//X1
     write_hadreg_corea(`ir_go_nex,`MV_X1_X1);
     hsr_data_out[12] = 0;
     while(!hsr_data_out[12])

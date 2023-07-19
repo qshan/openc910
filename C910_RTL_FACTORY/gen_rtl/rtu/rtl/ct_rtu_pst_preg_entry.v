@@ -59,127 +59,127 @@ module ct_rtu_pst_preg_entry(
 );
 
 // &Ports; @28
-input           cp0_rtu_icg_en;                     
-input           cp0_yy_clk_en;                      
-input           cpurst_b;                           
-input           dealloc_vld_for_gateclk;            
-input           forever_cpuclk;                     
-input   [4 :0]  idu_rtu_pst_dis_inst0_dst_reg;      
-input   [6 :0]  idu_rtu_pst_dis_inst0_preg_iid;     
-input   [6 :0]  idu_rtu_pst_dis_inst0_rel_preg;     
-input   [4 :0]  idu_rtu_pst_dis_inst1_dst_reg;      
-input   [6 :0]  idu_rtu_pst_dis_inst1_preg_iid;     
-input   [6 :0]  idu_rtu_pst_dis_inst1_rel_preg;     
-input   [4 :0]  idu_rtu_pst_dis_inst2_dst_reg;      
-input   [6 :0]  idu_rtu_pst_dis_inst2_preg_iid;     
-input   [6 :0]  idu_rtu_pst_dis_inst2_rel_preg;     
-input   [4 :0]  idu_rtu_pst_dis_inst3_dst_reg;      
-input   [6 :0]  idu_rtu_pst_dis_inst3_preg_iid;     
-input   [6 :0]  idu_rtu_pst_dis_inst3_rel_preg;     
-input           ifu_xx_sync_reset;                  
-input           pad_yy_icg_scan_en;                 
-input           retire_pst_async_flush;             
-input           retire_pst_wb_retire_inst0_preg_vld; 
-input           retire_pst_wb_retire_inst1_preg_vld; 
-input           retire_pst_wb_retire_inst2_preg_vld; 
-input           rob_pst_retire_inst0_gateclk_vld;   
-input   [6 :0]  rob_pst_retire_inst0_iid_updt_val;  
-input           rob_pst_retire_inst1_gateclk_vld;   
-input   [6 :0]  rob_pst_retire_inst1_iid_updt_val;  
-input           rob_pst_retire_inst2_gateclk_vld;   
-input   [6 :0]  rob_pst_retire_inst2_iid_updt_val;  
-input           rtu_yy_xx_flush;                    
-input   [3 :0]  x_create_vld;                       
-input           x_dealloc_mask;                     
-input           x_dealloc_vld;                      
-input           x_release_vld;                      
-input   [4 :0]  x_reset_dst_reg;                    
-input           x_reset_mapped;                     
-input           x_wb_vld;                           
-output          x_cur_state_dealloc;                
-output  [31:0]  x_dreg;                             
-output  [95:0]  x_rel_preg_expand;                  
-output          x_retired_released_wb;              
+input           cp0_rtu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           dealloc_vld_for_gateclk;
+input           forever_cpuclk;
+input   [4 :0]  idu_rtu_pst_dis_inst0_dst_reg;
+input   [6 :0]  idu_rtu_pst_dis_inst0_preg_iid;
+input   [6 :0]  idu_rtu_pst_dis_inst0_rel_preg;
+input   [4 :0]  idu_rtu_pst_dis_inst1_dst_reg;
+input   [6 :0]  idu_rtu_pst_dis_inst1_preg_iid;
+input   [6 :0]  idu_rtu_pst_dis_inst1_rel_preg;
+input   [4 :0]  idu_rtu_pst_dis_inst2_dst_reg;
+input   [6 :0]  idu_rtu_pst_dis_inst2_preg_iid;
+input   [6 :0]  idu_rtu_pst_dis_inst2_rel_preg;
+input   [4 :0]  idu_rtu_pst_dis_inst3_dst_reg;
+input   [6 :0]  idu_rtu_pst_dis_inst3_preg_iid;
+input   [6 :0]  idu_rtu_pst_dis_inst3_rel_preg;
+input           ifu_xx_sync_reset;
+input           pad_yy_icg_scan_en;
+input           retire_pst_async_flush;
+input           retire_pst_wb_retire_inst0_preg_vld;
+input           retire_pst_wb_retire_inst1_preg_vld;
+input           retire_pst_wb_retire_inst2_preg_vld;
+input           rob_pst_retire_inst0_gateclk_vld;
+input   [6 :0]  rob_pst_retire_inst0_iid_updt_val;
+input           rob_pst_retire_inst1_gateclk_vld;
+input   [6 :0]  rob_pst_retire_inst1_iid_updt_val;
+input           rob_pst_retire_inst2_gateclk_vld;
+input   [6 :0]  rob_pst_retire_inst2_iid_updt_val;
+input           rtu_yy_xx_flush;
+input   [3 :0]  x_create_vld;
+input           x_dealloc_mask;
+input           x_dealloc_vld;
+input           x_release_vld;
+input   [4 :0]  x_reset_dst_reg;
+input           x_reset_mapped;
+input           x_wb_vld;
+output          x_cur_state_dealloc;
+output  [31:0]  x_dreg;
+output  [95:0]  x_rel_preg_expand;
+output          x_retired_released_wb;
 
 // &Regs; @29
-reg     [4 :0]  create_dst_reg;                     
-reg     [6 :0]  create_iid;                         
-reg     [6 :0]  create_rel_preg;                    
-reg     [4 :0]  dst_reg;                            
-reg     [6 :0]  iid;                                
-reg     [4 :0]  lifecycle_cur_state;                
-reg     [4 :0]  lifecycle_next_state;               
-reg     [6 :0]  rel_preg;                           
-reg             retire_inst0_iid_match;             
-reg             retire_inst1_iid_match;             
-reg             retire_inst2_iid_match;             
-reg             wb_cur_state;                       
-reg             wb_next_state;                      
+reg     [4 :0]  create_dst_reg;
+reg     [6 :0]  create_iid;
+reg     [6 :0]  create_rel_preg;
+reg     [4 :0]  dst_reg;
+reg     [6 :0]  iid;
+reg     [4 :0]  lifecycle_cur_state;
+reg     [4 :0]  lifecycle_next_state;
+reg     [6 :0]  rel_preg;
+reg             retire_inst0_iid_match;
+reg             retire_inst1_iid_match;
+reg             retire_inst2_iid_match;
+reg             wb_cur_state;
+reg             wb_next_state;
 
 // &Wires; @30
-wire            alloc_clk;                          
-wire            alloc_clk_en;                       
-wire            cp0_rtu_icg_en;                     
-wire            cp0_yy_clk_en;                      
-wire            cpurst_b;                           
-wire            create_vld;                         
-wire            dealloc_vld_for_gateclk;            
-wire    [31:0]  dst_reg_expand;                     
-wire            forever_cpuclk;                     
-wire    [4 :0]  idu_rtu_pst_dis_inst0_dst_reg;      
-wire    [6 :0]  idu_rtu_pst_dis_inst0_preg_iid;     
-wire    [6 :0]  idu_rtu_pst_dis_inst0_rel_preg;     
-wire    [4 :0]  idu_rtu_pst_dis_inst1_dst_reg;      
-wire    [6 :0]  idu_rtu_pst_dis_inst1_preg_iid;     
-wire    [6 :0]  idu_rtu_pst_dis_inst1_rel_preg;     
-wire    [4 :0]  idu_rtu_pst_dis_inst2_dst_reg;      
-wire    [6 :0]  idu_rtu_pst_dis_inst2_preg_iid;     
-wire    [6 :0]  idu_rtu_pst_dis_inst2_rel_preg;     
-wire    [4 :0]  idu_rtu_pst_dis_inst3_dst_reg;      
-wire    [6 :0]  idu_rtu_pst_dis_inst3_preg_iid;     
-wire    [6 :0]  idu_rtu_pst_dis_inst3_rel_preg;     
-wire            ifu_xx_sync_reset;                  
-wire            lifecycle_cur_state_alloc;          
-wire            lifecycle_cur_state_dealloc;        
-wire            lifecycle_cur_state_release;        
-wire            lifecycle_cur_state_retire;         
-wire            pad_yy_icg_scan_en;                 
-wire    [95:0]  rel_preg_expand;                    
-wire            rel_retire_vld;                     
-wire    [4 :0]  reset_lifecycle_state;              
-wire            reset_wb_state;                     
-wire            retire_gateclk_vld;                 
-wire            retire_inst0_iid_match_updt_val;    
-wire            retire_inst1_iid_match_updt_val;    
-wire            retire_inst2_iid_match_updt_val;    
-wire            retire_inst_iid_match_gateclk_en;   
-wire            retire_pst_async_flush;             
-wire            retire_pst_wb_retire_inst0_preg_vld; 
-wire            retire_pst_wb_retire_inst1_preg_vld; 
-wire            retire_pst_wb_retire_inst2_preg_vld; 
-wire            retire_vld;                         
-wire            rob_pst_retire_inst0_gateclk_vld;   
-wire    [6 :0]  rob_pst_retire_inst0_iid_updt_val;  
-wire            rob_pst_retire_inst1_gateclk_vld;   
-wire    [6 :0]  rob_pst_retire_inst1_iid_updt_val;  
-wire            rob_pst_retire_inst2_gateclk_vld;   
-wire    [6 :0]  rob_pst_retire_inst2_iid_updt_val;  
-wire            rtu_yy_xx_flush;                    
-wire            sm_clk;                             
-wire            sm_clk_en;                          
-wire            wb_cur_state_wb;                    
-wire            wb_cur_state_wb_masked;             
-wire    [3 :0]  x_create_vld;                       
-wire            x_cur_state_dealloc;                
-wire            x_dealloc_mask;                     
-wire            x_dealloc_vld;                      
-wire    [31:0]  x_dreg;                             
-wire    [95:0]  x_rel_preg_expand;                  
-wire            x_release_vld;                      
-wire    [4 :0]  x_reset_dst_reg;                    
-wire            x_reset_mapped;                     
-wire            x_retired_released_wb;              
-wire            x_wb_vld;                           
+wire            alloc_clk;
+wire            alloc_clk_en;
+wire            cp0_rtu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            create_vld;
+wire            dealloc_vld_for_gateclk;
+wire    [31:0]  dst_reg_expand;
+wire            forever_cpuclk;
+wire    [4 :0]  idu_rtu_pst_dis_inst0_dst_reg;
+wire    [6 :0]  idu_rtu_pst_dis_inst0_preg_iid;
+wire    [6 :0]  idu_rtu_pst_dis_inst0_rel_preg;
+wire    [4 :0]  idu_rtu_pst_dis_inst1_dst_reg;
+wire    [6 :0]  idu_rtu_pst_dis_inst1_preg_iid;
+wire    [6 :0]  idu_rtu_pst_dis_inst1_rel_preg;
+wire    [4 :0]  idu_rtu_pst_dis_inst2_dst_reg;
+wire    [6 :0]  idu_rtu_pst_dis_inst2_preg_iid;
+wire    [6 :0]  idu_rtu_pst_dis_inst2_rel_preg;
+wire    [4 :0]  idu_rtu_pst_dis_inst3_dst_reg;
+wire    [6 :0]  idu_rtu_pst_dis_inst3_preg_iid;
+wire    [6 :0]  idu_rtu_pst_dis_inst3_rel_preg;
+wire            ifu_xx_sync_reset;
+wire            lifecycle_cur_state_alloc;
+wire            lifecycle_cur_state_dealloc;
+wire            lifecycle_cur_state_release;
+wire            lifecycle_cur_state_retire;
+wire            pad_yy_icg_scan_en;
+wire    [95:0]  rel_preg_expand;
+wire            rel_retire_vld;
+wire    [4 :0]  reset_lifecycle_state;
+wire            reset_wb_state;
+wire            retire_gateclk_vld;
+wire            retire_inst0_iid_match_updt_val;
+wire            retire_inst1_iid_match_updt_val;
+wire            retire_inst2_iid_match_updt_val;
+wire            retire_inst_iid_match_gateclk_en;
+wire            retire_pst_async_flush;
+wire            retire_pst_wb_retire_inst0_preg_vld;
+wire            retire_pst_wb_retire_inst1_preg_vld;
+wire            retire_pst_wb_retire_inst2_preg_vld;
+wire            retire_vld;
+wire            rob_pst_retire_inst0_gateclk_vld;
+wire    [6 :0]  rob_pst_retire_inst0_iid_updt_val;
+wire            rob_pst_retire_inst1_gateclk_vld;
+wire    [6 :0]  rob_pst_retire_inst1_iid_updt_val;
+wire            rob_pst_retire_inst2_gateclk_vld;
+wire    [6 :0]  rob_pst_retire_inst2_iid_updt_val;
+wire            rtu_yy_xx_flush;
+wire            sm_clk;
+wire            sm_clk_en;
+wire            wb_cur_state_wb;
+wire            wb_cur_state_wb_masked;
+wire    [3 :0]  x_create_vld;
+wire            x_cur_state_dealloc;
+wire            x_dealloc_mask;
+wire            x_dealloc_vld;
+wire    [31:0]  x_dreg;
+wire    [95:0]  x_rel_preg_expand;
+wire            x_release_vld;
+wire    [4 :0]  x_reset_dst_reg;
+wire            x_reset_mapped;
+wire            x_retired_released_wb;
+wire            x_wb_vld;
 
 
 parameter DEALLOC    = 5'b00001;
@@ -192,7 +192,7 @@ parameter IDLE       = 1'b0;
 parameter WB         = 1'b1;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign sm_clk_en = rtu_yy_xx_flush
                    || retire_pst_async_flush
@@ -255,7 +255,7 @@ gated_clk_cell  x_alloc_gated_clk (
 assign reset_lifecycle_state[4:0] = (x_reset_mapped) ? RETIRE : DEALLOC;
 
 //----------------------------------------------------------
-//                  FSM of Preg liftcycle                  
+//                  FSM of Preg liftcycle
 //----------------------------------------------------------
 // State Description:
 // DEALLOC    : preg is released and written back, could
@@ -336,7 +336,7 @@ assign x_cur_state_dealloc          = lifecycle_cur_state_dealloc;
 assign reset_wb_state = (x_reset_mapped) ? WB : IDLE;
 
 //----------------------------------------------------------
-//                 FSM of Preg write back                 
+//                 FSM of Preg write back
 //----------------------------------------------------------
 // State Description:
 // IDLE       : preg is not written back
@@ -442,12 +442,12 @@ begin
     iid[6:0]      <= 7'd0;
     dst_reg[4:0]  <= 5'd0;
     rel_preg[6:0] <= 7'd0;
-  end 
+  end
   else if(ifu_xx_sync_reset) begin
     iid[6:0]      <= 7'd0;
     dst_reg[4:0]  <= x_reset_dst_reg[4:0];
     rel_preg[6:0] <= 7'd0;
-  end 
+  end
   else if(create_vld) begin
     iid[6:0]      <= create_iid[6:0];
     dst_reg[4:0]  <= create_dst_reg[4:0];
@@ -468,10 +468,10 @@ assign retire_inst0_iid_match_updt_val =
          lifecycle_cur_state_alloc
          && (iid[6:0] == rob_pst_retire_inst0_iid_updt_val[6:0]);
 assign retire_inst1_iid_match_updt_val =
-         lifecycle_cur_state_alloc 
+         lifecycle_cur_state_alloc
          && (iid[6:0] == rob_pst_retire_inst1_iid_updt_val[6:0]);
 assign retire_inst2_iid_match_updt_val =
-         lifecycle_cur_state_alloc 
+         lifecycle_cur_state_alloc
          && (iid[6:0] == rob_pst_retire_inst2_iid_updt_val[6:0]);
 
 assign retire_inst_iid_match_gateclk_en =
@@ -542,7 +542,7 @@ ct_rtu_expand_96  x_ct_rtu_expand_96_rel_preg (
 //iid match is already AND with cur state alloc
 assign rel_retire_vld = lifecycle_cur_state_alloc && retire_vld;
 
-assign x_rel_preg_expand[95:0] = 
+assign x_rel_preg_expand[95:0] =
          {96{rel_retire_vld}} & rel_preg_expand[95:0];
 
 //==========================================================

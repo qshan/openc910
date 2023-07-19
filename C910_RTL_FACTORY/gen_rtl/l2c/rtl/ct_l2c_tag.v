@@ -156,414 +156,414 @@ module ct_l2c_tag(
 );
 
 // &Ports; @23
-input            ciu_l2c_addr_vld_x;            
-input   [32 :0]  ciu_l2c_addr_x;                
-input   [3  :0]  ciu_l2c_clr_cp_x;              
-input   [2  :0]  ciu_l2c_hpcp_bus_x;            
-input   [2  :0]  ciu_l2c_mid_x;                 
-input   [3  :0]  ciu_l2c_set_cp_x;              
-input   [4  :0]  ciu_l2c_sid_x;                 
-input   [1  :0]  ciu_l2c_src_x;                 
-input   [2  :0]  ciu_l2c_tag_acc_cycle;         
-input            ciu_l2c_tag_setup;             
-input   [12 :0]  ciu_l2c_type_x;                
-input            cmp_dirty_cen;                 
-input   [143:0]  cmp_dirty_din;                 
-input            cmp_dirty_gwen;                
-input   [15 :0]  cmp_dirty_way;                 
-input   [8  :0]  cmp_dirty_wen;                 
-input            cmp_req_vld;                   
-input   [32 :0]  cmp_stage_addr;                
-input            cmp_stage_stall;               
-input            cmp_stage_vld;                 
-input            cmp_stall_by_data;             
-input            cmp_tag_cen;                   
-input            cmp_tag_gwen;                  
-input   [8  :0]  cmp_tag_index;                 
-input   [15 :0]  cmp_tag_wen;                   
-input            cpurst_b;                      
-input   [6  :0]  data_stage_index;              
-input            data_stage_vld;                
-input            forever_cpuclk;                
-input   [15 :0]  icc_dca_way_sel;               
-input            icc_dirty_cen;                 
-input            icc_dirty_gwen;                
-input   [8  :0]  icc_dirty_wen;                 
-input            icc_idle;                      
-input            icc_tag_cen;                   
-input            icc_tag_flop;                  
-input            icc_tag_gwen;                  
-input   [8  :0]  icc_tag_index;                 
-input            icc_tag_req;                   
-input   [143:0]  l2c_dirty_dout;                
-input            l2c_icg_en;                    
-input   [383:0]  l2c_tag_dout;                  
-input            pad_yy_icg_scan_en;            
-input            wb_dirty_cen;                  
-input            wb_dirty_gwen;                 
-input   [15 :0]  wb_dirty_way;                  
-input   [8  :0]  wb_dirty_wen;                  
-input            wb_ecc_rfifo_empty;            
-input            wb_tag_cen;                    
-input            wb_tag_gwen;                   
-input   [8  :0]  wb_tag_index;                  
-input            wb_tag_req;                    
-output  [15 :0]  cmp_refill_ptr;                
-output  [15 :0]  cmp_way_v_hit;                 
-output  [15 :0]  cmp_way_vd_hit;                
-output  [15 :0]  cmp_way_vs_hit;                
-output  [15 :0]  cmp_way_vu_hit;                
-output  [7  :0]  icc_dca_dirty_f;               
-output  [23 :0]  icc_dca_tag_f;                 
-output           l2c_ciu_addr_ready_x;          
-output  [143:0]  l2c_dirty_din;                 
-output           l2c_dirty_gwen;                
-output           l2c_dirty_ram_cen;             
-output  [143:0]  l2c_dirty_wen;                 
-output  [383:0]  l2c_tag_din;                   
-output  [15 :0]  l2c_tag_dirty_fatal_err;       
-output           l2c_tag_gwen;                  
-output  [8  :0]  l2c_tag_index;                 
-output           l2c_tag_ram_cen;               
-output           l2c_tag_ram_clk_en_x;          
-output  [383:0]  l2c_tag_wen;                   
-output  [3  :0]  l2c_way0_cp_dout;              
-output  [7  :0]  l2c_way0_dirty_dout;           
-output  [23 :0]  l2c_way0_tag_dout;             
-output  [3  :0]  l2c_way10_cp_dout;             
-output  [7  :0]  l2c_way10_dirty_dout;          
-output  [23 :0]  l2c_way10_tag_dout;            
-output  [3  :0]  l2c_way11_cp_dout;             
-output  [7  :0]  l2c_way11_dirty_dout;          
-output  [23 :0]  l2c_way11_tag_dout;            
-output  [3  :0]  l2c_way12_cp_dout;             
-output  [7  :0]  l2c_way12_dirty_dout;          
-output  [23 :0]  l2c_way12_tag_dout;            
-output  [3  :0]  l2c_way13_cp_dout;             
-output  [7  :0]  l2c_way13_dirty_dout;          
-output  [23 :0]  l2c_way13_tag_dout;            
-output  [3  :0]  l2c_way14_cp_dout;             
-output  [7  :0]  l2c_way14_dirty_dout;          
-output  [23 :0]  l2c_way14_tag_dout;            
-output  [3  :0]  l2c_way15_cp_dout;             
-output  [7  :0]  l2c_way15_dirty_dout;          
-output  [23 :0]  l2c_way15_tag_dout;            
-output  [3  :0]  l2c_way1_cp_dout;              
-output  [7  :0]  l2c_way1_dirty_dout;           
-output  [23 :0]  l2c_way1_tag_dout;             
-output  [3  :0]  l2c_way2_cp_dout;              
-output  [7  :0]  l2c_way2_dirty_dout;           
-output  [23 :0]  l2c_way2_tag_dout;             
-output  [3  :0]  l2c_way3_cp_dout;              
-output  [7  :0]  l2c_way3_dirty_dout;           
-output  [23 :0]  l2c_way3_tag_dout;             
-output  [3  :0]  l2c_way4_cp_dout;              
-output  [7  :0]  l2c_way4_dirty_dout;           
-output  [23 :0]  l2c_way4_tag_dout;             
-output  [3  :0]  l2c_way5_cp_dout;              
-output  [7  :0]  l2c_way5_dirty_dout;           
-output  [23 :0]  l2c_way5_tag_dout;             
-output  [3  :0]  l2c_way6_cp_dout;              
-output  [7  :0]  l2c_way6_dirty_dout;           
-output  [23 :0]  l2c_way6_tag_dout;             
-output  [3  :0]  l2c_way7_cp_dout;              
-output  [7  :0]  l2c_way7_dirty_dout;           
-output  [23 :0]  l2c_way7_tag_dout;             
-output  [3  :0]  l2c_way8_cp_dout;              
-output  [7  :0]  l2c_way8_dirty_dout;           
-output  [23 :0]  l2c_way8_tag_dout;             
-output  [3  :0]  l2c_way9_cp_dout;              
-output  [7  :0]  l2c_way9_dirty_dout;           
-output  [23 :0]  l2c_way9_tag_dout;             
-output  [15 :0]  l2c_way_dirty;                 
-output  [15 :0]  l2c_way_fifo;                  
-output  [15 :0]  l2c_way_vld;                   
-output           tag_acc_cnt_zero;              
-output           tag_icc_grant;                 
-output           tag_stage_vld;                 
-output           tag_xx_idle;                   
-output           tag_yy_ram_idle;               
-output           ttecc_flop_vld;                
-output  [32 :0]  ttecc_stage_addr;              
-output  [3  :0]  ttecc_stage_clrcp;             
-output           ttecc_stage_fatal_err;         
-output  [2  :0]  ttecc_stage_hpcp_bus;          
-output  [2  :0]  ttecc_stage_mid;               
-output  [3  :0]  ttecc_stage_setcp;             
-output  [4  :0]  ttecc_stage_sid;               
-output  [1  :0]  ttecc_stage_src;               
-output  [12 :0]  ttecc_stage_type;              
-output           ttecc_stage_write_raw;         
+input            ciu_l2c_addr_vld_x;
+input   [32 :0]  ciu_l2c_addr_x;
+input   [3  :0]  ciu_l2c_clr_cp_x;
+input   [2  :0]  ciu_l2c_hpcp_bus_x;
+input   [2  :0]  ciu_l2c_mid_x;
+input   [3  :0]  ciu_l2c_set_cp_x;
+input   [4  :0]  ciu_l2c_sid_x;
+input   [1  :0]  ciu_l2c_src_x;
+input   [2  :0]  ciu_l2c_tag_acc_cycle;
+input            ciu_l2c_tag_setup;
+input   [12 :0]  ciu_l2c_type_x;
+input            cmp_dirty_cen;
+input   [143:0]  cmp_dirty_din;
+input            cmp_dirty_gwen;
+input   [15 :0]  cmp_dirty_way;
+input   [8  :0]  cmp_dirty_wen;
+input            cmp_req_vld;
+input   [32 :0]  cmp_stage_addr;
+input            cmp_stage_stall;
+input            cmp_stage_vld;
+input            cmp_stall_by_data;
+input            cmp_tag_cen;
+input            cmp_tag_gwen;
+input   [8  :0]  cmp_tag_index;
+input   [15 :0]  cmp_tag_wen;
+input            cpurst_b;
+input   [6  :0]  data_stage_index;
+input            data_stage_vld;
+input            forever_cpuclk;
+input   [15 :0]  icc_dca_way_sel;
+input            icc_dirty_cen;
+input            icc_dirty_gwen;
+input   [8  :0]  icc_dirty_wen;
+input            icc_idle;
+input            icc_tag_cen;
+input            icc_tag_flop;
+input            icc_tag_gwen;
+input   [8  :0]  icc_tag_index;
+input            icc_tag_req;
+input   [143:0]  l2c_dirty_dout;
+input            l2c_icg_en;
+input   [383:0]  l2c_tag_dout;
+input            pad_yy_icg_scan_en;
+input            wb_dirty_cen;
+input            wb_dirty_gwen;
+input   [15 :0]  wb_dirty_way;
+input   [8  :0]  wb_dirty_wen;
+input            wb_ecc_rfifo_empty;
+input            wb_tag_cen;
+input            wb_tag_gwen;
+input   [8  :0]  wb_tag_index;
+input            wb_tag_req;
+output  [15 :0]  cmp_refill_ptr;
+output  [15 :0]  cmp_way_v_hit;
+output  [15 :0]  cmp_way_vd_hit;
+output  [15 :0]  cmp_way_vs_hit;
+output  [15 :0]  cmp_way_vu_hit;
+output  [7  :0]  icc_dca_dirty_f;
+output  [23 :0]  icc_dca_tag_f;
+output           l2c_ciu_addr_ready_x;
+output  [143:0]  l2c_dirty_din;
+output           l2c_dirty_gwen;
+output           l2c_dirty_ram_cen;
+output  [143:0]  l2c_dirty_wen;
+output  [383:0]  l2c_tag_din;
+output  [15 :0]  l2c_tag_dirty_fatal_err;
+output           l2c_tag_gwen;
+output  [8  :0]  l2c_tag_index;
+output           l2c_tag_ram_cen;
+output           l2c_tag_ram_clk_en_x;
+output  [383:0]  l2c_tag_wen;
+output  [3  :0]  l2c_way0_cp_dout;
+output  [7  :0]  l2c_way0_dirty_dout;
+output  [23 :0]  l2c_way0_tag_dout;
+output  [3  :0]  l2c_way10_cp_dout;
+output  [7  :0]  l2c_way10_dirty_dout;
+output  [23 :0]  l2c_way10_tag_dout;
+output  [3  :0]  l2c_way11_cp_dout;
+output  [7  :0]  l2c_way11_dirty_dout;
+output  [23 :0]  l2c_way11_tag_dout;
+output  [3  :0]  l2c_way12_cp_dout;
+output  [7  :0]  l2c_way12_dirty_dout;
+output  [23 :0]  l2c_way12_tag_dout;
+output  [3  :0]  l2c_way13_cp_dout;
+output  [7  :0]  l2c_way13_dirty_dout;
+output  [23 :0]  l2c_way13_tag_dout;
+output  [3  :0]  l2c_way14_cp_dout;
+output  [7  :0]  l2c_way14_dirty_dout;
+output  [23 :0]  l2c_way14_tag_dout;
+output  [3  :0]  l2c_way15_cp_dout;
+output  [7  :0]  l2c_way15_dirty_dout;
+output  [23 :0]  l2c_way15_tag_dout;
+output  [3  :0]  l2c_way1_cp_dout;
+output  [7  :0]  l2c_way1_dirty_dout;
+output  [23 :0]  l2c_way1_tag_dout;
+output  [3  :0]  l2c_way2_cp_dout;
+output  [7  :0]  l2c_way2_dirty_dout;
+output  [23 :0]  l2c_way2_tag_dout;
+output  [3  :0]  l2c_way3_cp_dout;
+output  [7  :0]  l2c_way3_dirty_dout;
+output  [23 :0]  l2c_way3_tag_dout;
+output  [3  :0]  l2c_way4_cp_dout;
+output  [7  :0]  l2c_way4_dirty_dout;
+output  [23 :0]  l2c_way4_tag_dout;
+output  [3  :0]  l2c_way5_cp_dout;
+output  [7  :0]  l2c_way5_dirty_dout;
+output  [23 :0]  l2c_way5_tag_dout;
+output  [3  :0]  l2c_way6_cp_dout;
+output  [7  :0]  l2c_way6_dirty_dout;
+output  [23 :0]  l2c_way6_tag_dout;
+output  [3  :0]  l2c_way7_cp_dout;
+output  [7  :0]  l2c_way7_dirty_dout;
+output  [23 :0]  l2c_way7_tag_dout;
+output  [3  :0]  l2c_way8_cp_dout;
+output  [7  :0]  l2c_way8_dirty_dout;
+output  [23 :0]  l2c_way8_tag_dout;
+output  [3  :0]  l2c_way9_cp_dout;
+output  [7  :0]  l2c_way9_dirty_dout;
+output  [23 :0]  l2c_way9_tag_dout;
+output  [15 :0]  l2c_way_dirty;
+output  [15 :0]  l2c_way_fifo;
+output  [15 :0]  l2c_way_vld;
+output           tag_acc_cnt_zero;
+output           tag_icc_grant;
+output           tag_stage_vld;
+output           tag_xx_idle;
+output           tag_yy_ram_idle;
+output           ttecc_flop_vld;
+output  [32 :0]  ttecc_stage_addr;
+output  [3  :0]  ttecc_stage_clrcp;
+output           ttecc_stage_fatal_err;
+output  [2  :0]  ttecc_stage_hpcp_bus;
+output  [2  :0]  ttecc_stage_mid;
+output  [3  :0]  ttecc_stage_setcp;
+output  [4  :0]  ttecc_stage_sid;
+output  [1  :0]  ttecc_stage_src;
+output  [12 :0]  ttecc_stage_type;
+output           ttecc_stage_write_raw;
 
 // &Regs; @24
-reg     [15 :0]  cmp_refill_ptr;                
-reg     [15 :0]  cmp_way_v_hit;                 
-reg     [15 :0]  cmp_way_vd_hit;                
-reg     [15 :0]  cmp_way_vs_hit;                
-reg     [15 :0]  cmp_way_vu_hit;                
-reg              l2c_dirty_cen_flop;            
-reg     [143:0]  l2c_dirty_din;                 
-reg     [143:0]  l2c_dirty_din_flop;            
-reg     [79 :0]  l2c_dirty_dout_flop;           
-reg              l2c_dirty_gwen;                
-reg              l2c_dirty_gwen_flop;           
-reg              l2c_dirty_ram_cen;             
-reg              l2c_dirty_ram_cen_gate;        
-reg     [143:0]  l2c_dirty_wen;                 
-reg     [143:0]  l2c_dirty_wen_flop;            
-reg              l2c_tag_cen_flop;              
-reg     [63 :0]  l2c_tag_cp_dout_flop;          
-reg     [383:0]  l2c_tag_din;                   
-reg     [383:0]  l2c_tag_din_flop;              
-reg              l2c_tag_gwen;                  
-reg              l2c_tag_gwen_flop;             
-reg     [8  :0]  l2c_tag_index;                 
-reg     [8  :0]  l2c_tag_index_flop;            
-reg              l2c_tag_ram_cen;               
-reg              l2c_tag_ram_cen_gate;          
-reg     [383:0]  l2c_tag_wen;                   
-reg     [383:0]  l2c_tag_wen_flop;              
-reg     [23 :0]  l2c_way0_tag_dout;             
-reg     [23 :0]  l2c_way10_tag_dout;            
-reg     [23 :0]  l2c_way11_tag_dout;            
-reg     [23 :0]  l2c_way12_tag_dout;            
-reg     [23 :0]  l2c_way13_tag_dout;            
-reg     [23 :0]  l2c_way14_tag_dout;            
-reg     [23 :0]  l2c_way15_tag_dout;            
-reg     [23 :0]  l2c_way1_tag_dout;             
-reg     [23 :0]  l2c_way2_tag_dout;             
-reg     [23 :0]  l2c_way3_tag_dout;             
-reg     [23 :0]  l2c_way4_tag_dout;             
-reg     [23 :0]  l2c_way5_tag_dout;             
-reg     [23 :0]  l2c_way6_tag_dout;             
-reg     [23 :0]  l2c_way7_tag_dout;             
-reg     [23 :0]  l2c_way8_tag_dout;             
-reg     [23 :0]  l2c_way9_tag_dout;             
-reg     [15 :0]  l2c_way_fifo;                  
-reg     [2  :0]  tag_acc_cnt;                   
-reg     [1  :0]  tag_ram_next_state;            
-reg     [1  :0]  tag_ram_state;                 
-reg     [15 :0]  tag_refill_ptr;                
-reg     [32 :0]  tag_stage_addr;                
-reg     [3  :0]  tag_stage_clrcp;               
-reg     [2  :0]  tag_stage_hpcp_bus;            
-reg     [2  :0]  tag_stage_mid;                 
-reg     [3  :0]  tag_stage_setcp;               
-reg     [4  :0]  tag_stage_sid;                 
-reg     [1  :0]  tag_stage_src;                 
-reg     [12 :0]  tag_stage_type;                
-reg              tag_stage_vld;                 
-reg     [15 :0]  way_fifo_pend_inv;             
+reg     [15 :0]  cmp_refill_ptr;
+reg     [15 :0]  cmp_way_v_hit;
+reg     [15 :0]  cmp_way_vd_hit;
+reg     [15 :0]  cmp_way_vs_hit;
+reg     [15 :0]  cmp_way_vu_hit;
+reg              l2c_dirty_cen_flop;
+reg     [143:0]  l2c_dirty_din;
+reg     [143:0]  l2c_dirty_din_flop;
+reg     [79 :0]  l2c_dirty_dout_flop;
+reg              l2c_dirty_gwen;
+reg              l2c_dirty_gwen_flop;
+reg              l2c_dirty_ram_cen;
+reg              l2c_dirty_ram_cen_gate;
+reg     [143:0]  l2c_dirty_wen;
+reg     [143:0]  l2c_dirty_wen_flop;
+reg              l2c_tag_cen_flop;
+reg     [63 :0]  l2c_tag_cp_dout_flop;
+reg     [383:0]  l2c_tag_din;
+reg     [383:0]  l2c_tag_din_flop;
+reg              l2c_tag_gwen;
+reg              l2c_tag_gwen_flop;
+reg     [8  :0]  l2c_tag_index;
+reg     [8  :0]  l2c_tag_index_flop;
+reg              l2c_tag_ram_cen;
+reg              l2c_tag_ram_cen_gate;
+reg     [383:0]  l2c_tag_wen;
+reg     [383:0]  l2c_tag_wen_flop;
+reg     [23 :0]  l2c_way0_tag_dout;
+reg     [23 :0]  l2c_way10_tag_dout;
+reg     [23 :0]  l2c_way11_tag_dout;
+reg     [23 :0]  l2c_way12_tag_dout;
+reg     [23 :0]  l2c_way13_tag_dout;
+reg     [23 :0]  l2c_way14_tag_dout;
+reg     [23 :0]  l2c_way15_tag_dout;
+reg     [23 :0]  l2c_way1_tag_dout;
+reg     [23 :0]  l2c_way2_tag_dout;
+reg     [23 :0]  l2c_way3_tag_dout;
+reg     [23 :0]  l2c_way4_tag_dout;
+reg     [23 :0]  l2c_way5_tag_dout;
+reg     [23 :0]  l2c_way6_tag_dout;
+reg     [23 :0]  l2c_way7_tag_dout;
+reg     [23 :0]  l2c_way8_tag_dout;
+reg     [23 :0]  l2c_way9_tag_dout;
+reg     [15 :0]  l2c_way_fifo;
+reg     [2  :0]  tag_acc_cnt;
+reg     [1  :0]  tag_ram_next_state;
+reg     [1  :0]  tag_ram_state;
+reg     [15 :0]  tag_refill_ptr;
+reg     [32 :0]  tag_stage_addr;
+reg     [3  :0]  tag_stage_clrcp;
+reg     [2  :0]  tag_stage_hpcp_bus;
+reg     [2  :0]  tag_stage_mid;
+reg     [3  :0]  tag_stage_setcp;
+reg     [4  :0]  tag_stage_sid;
+reg     [1  :0]  tag_stage_src;
+reg     [12 :0]  tag_stage_type;
+reg              tag_stage_vld;
+reg     [15 :0]  way_fifo_pend_inv;
 
 // &Wires; @25
-wire             ciu_l2c_addr_vld_x;            
-wire    [32 :0]  ciu_l2c_addr_x;                
-wire    [3  :0]  ciu_l2c_clr_cp_x;              
-wire    [2  :0]  ciu_l2c_hpcp_bus_x;            
-wire    [2  :0]  ciu_l2c_mid_x;                 
-wire    [3  :0]  ciu_l2c_set_cp_x;              
-wire    [4  :0]  ciu_l2c_sid_x;                 
-wire    [1  :0]  ciu_l2c_src_x;                 
-wire    [2  :0]  ciu_l2c_tag_acc_cycle;         
-wire             ciu_l2c_tag_setup;             
-wire    [12 :0]  ciu_l2c_type_x;                
-wire             ciu_req_dp_vld;                
-wire             ciu_req_vld;                   
-wire             cmp_addr_hit;                  
-wire             cmp_dirty_cen;                 
-wire    [143:0]  cmp_dirty_din;                 
-wire             cmp_dirty_gwen;                
-wire    [15 :0]  cmp_dirty_way;                 
-wire    [8  :0]  cmp_dirty_wen;                 
-wire    [15 :0]  cmp_icc_wb_dirty_way;          
-wire    [8  :0]  cmp_icc_wb_dirty_wen;          
-wire    [15 :0]  cmp_icc_wb_tag_way;            
-wire             cmp_info_clk;                  
-wire             cmp_info_clk_en;               
-wire             cmp_req_vld;                   
-wire    [32 :0]  cmp_stage_addr;                
-wire             cmp_stage_stall;               
-wire             cmp_stage_vld;                 
-wire             cmp_stall_by_data;             
-wire             cmp_tag_cen;                   
-wire             cmp_tag_gwen;                  
-wire    [8  :0]  cmp_tag_index;                 
-wire             cmp_tag_req;                   
-wire    [15 :0]  cmp_tag_wen;                   
-wire             cpurst_b;                      
-wire             data_addr_hit;                 
-wire    [6  :0]  data_stage_index;              
-wire             data_stage_vld;                
-wire    [15 :0]  fifo_dout_after_correct;       
-wire             fifo_way_pend_vld;             
-wire             forever_cpuclk;                
-wire    [7  :0]  icc_dca_dirty_f;               
-wire    [23 :0]  icc_dca_tag_f;                 
-wire    [15 :0]  icc_dca_way_sel;               
-wire             icc_dirty_cen;                 
-wire             icc_dirty_gwen;                
-wire    [8  :0]  icc_dirty_wen;                 
-wire             icc_idle;                      
-wire             icc_tag_cen;                   
-wire             icc_tag_flop;                  
-wire             icc_tag_gwen;                  
-wire    [8  :0]  icc_tag_index;                 
-wire             icc_tag_req;                   
-wire    [15 :0]  icc_wb_dirty_way;              
-wire    [8  :0]  icc_wb_dirty_wen;              
-wire             icc_wb_req;                    
-wire    [8  :0]  icc_wb_tag_index;              
-wire    [15 :0]  icc_wb_tag_way;                
-wire             l2c_ciu_addr_ready_x;          
-wire             l2c_dirty_cen;                 
-wire             l2c_dirty_cen_gate;            
-wire             l2c_dirty_cen_pre;             
-wire    [143:0]  l2c_dirty_din_pre;             
-wire    [143:0]  l2c_dirty_dout;                
-wire             l2c_dirty_gwen_pre;            
-wire    [143:0]  l2c_dirty_wen_pre;             
-wire             l2c_icg_en;                    
-wire             l2c_index_flop_en;             
-wire             l2c_tag_cen;                   
-wire             l2c_tag_cen_gate;              
-wire             l2c_tag_cen_pre;               
-wire    [383:0]  l2c_tag_din_pre;               
-wire    [15 :0]  l2c_tag_dirty_fatal_err;       
-wire    [383:0]  l2c_tag_dout;                  
-wire             l2c_tag_dp_clk;                
-wire             l2c_tag_dp_clk_en;             
-wire             l2c_tag_gwen_pre;              
-wire    [8  :0]  l2c_tag_index_pre;             
-wire             l2c_tag_ram_clk_en_x;          
-wire    [383:0]  l2c_tag_wen_pre;               
-wire    [3  :0]  l2c_way0_cp_dout;              
-wire    [7  :0]  l2c_way0_dirty_dout;           
-wire    [3  :0]  l2c_way10_cp_dout;             
-wire    [7  :0]  l2c_way10_dirty_dout;          
-wire    [3  :0]  l2c_way11_cp_dout;             
-wire    [7  :0]  l2c_way11_dirty_dout;          
-wire    [3  :0]  l2c_way12_cp_dout;             
-wire    [7  :0]  l2c_way12_dirty_dout;          
-wire    [3  :0]  l2c_way13_cp_dout;             
-wire    [7  :0]  l2c_way13_dirty_dout;          
-wire    [3  :0]  l2c_way14_cp_dout;             
-wire    [7  :0]  l2c_way14_dirty_dout;          
-wire    [3  :0]  l2c_way15_cp_dout;             
-wire    [7  :0]  l2c_way15_dirty_dout;          
-wire    [3  :0]  l2c_way1_cp_dout;              
-wire    [7  :0]  l2c_way1_dirty_dout;           
-wire    [3  :0]  l2c_way2_cp_dout;              
-wire    [7  :0]  l2c_way2_dirty_dout;           
-wire    [3  :0]  l2c_way3_cp_dout;              
-wire    [7  :0]  l2c_way3_dirty_dout;           
-wire    [3  :0]  l2c_way4_cp_dout;              
-wire    [7  :0]  l2c_way4_dirty_dout;           
-wire    [3  :0]  l2c_way5_cp_dout;              
-wire    [7  :0]  l2c_way5_dirty_dout;           
-wire    [3  :0]  l2c_way6_cp_dout;              
-wire    [7  :0]  l2c_way6_dirty_dout;           
-wire    [3  :0]  l2c_way7_cp_dout;              
-wire    [7  :0]  l2c_way7_dirty_dout;           
-wire    [3  :0]  l2c_way8_cp_dout;              
-wire    [7  :0]  l2c_way8_dirty_dout;           
-wire    [3  :0]  l2c_way9_cp_dout;              
-wire    [7  :0]  l2c_way9_dirty_dout;           
-wire    [15 :0]  l2c_way_dirty;                 
-wire    [15 :0]  l2c_way_vld;                   
-wire             next_stage_stall;              
-wire             pad_yy_icg_scan_en;            
-wire    [63 :0]  status_cp;                     
-wire    [15 :0]  status_dirty;                  
-wire    [15 :0]  status_fifo;                   
-wire             status_flop_clk;               
-wire             status_flop_clk_en;            
-wire    [15 :0]  status_inv_pend;               
-wire    [15 :0]  status_pend;                   
-wire    [15 :0]  status_shared;                 
-wire    [15 :0]  status_vld;                    
-wire    [15 :0]  status_vld_dirty;              
-wire    [15 :0]  status_vld_shared;             
-wire    [15 :0]  status_vld_unique;             
-wire             tag_acc_cnt_en;                
-wire             tag_acc_cnt_init;              
-wire             tag_acc_cnt_zero;              
-wire             tag_addr_hit;                  
-wire             tag_clk;                       
-wire             tag_clk_en;                    
-wire             tag_flop_clk;                  
-wire             tag_flop_clk_en;               
-wire             tag_icc_grant;                 
-wire             tag_index_flop_clk;            
-wire             tag_ram_idle;                  
-wire             tag_req_vld;                   
-wire             tag_req_vld_gate;              
-wire    [15 :0]  tag_stage_addr_hit;            
-wire             tag_stage_flop_clk;            
-wire             tag_stage_flop_vld;            
-wire             tag_stage_stall;               
-wire    [15 :0]  tag_stage_v_hit;               
-wire    [15 :0]  tag_stage_vd_hit;              
-wire    [15 :0]  tag_stage_vs_hit;              
-wire    [15 :0]  tag_stage_vu_hit;              
-wire             tag_xx_idle;                   
-wire             tag_yy_ram_idle;               
-wire             tecc_addr_hit;                 
-wire             tt_icc_tag_flop;               
-wire             ttecc_flop;                    
-wire             ttecc_flop_vld;                
-wire    [32 :0]  ttecc_stage_addr;              
-wire    [3  :0]  ttecc_stage_clrcp;             
-wire             ttecc_stage_fatal_err;         
-wire             ttecc_stage_flop_vld;          
-wire    [2  :0]  ttecc_stage_hpcp_bus;          
-wire    [2  :0]  ttecc_stage_mid;               
-wire    [3  :0]  ttecc_stage_setcp;             
-wire    [4  :0]  ttecc_stage_sid;               
-wire    [1  :0]  ttecc_stage_src;               
-wire    [12 :0]  ttecc_stage_type;              
-wire             ttecc_stage_write_raw;         
-wire    [7  :0]  way0_dirty_dout_after_correct; 
-wire    [23 :0]  way0_tag_dout_after_correct;   
-wire    [7  :0]  way10_dirty_dout_after_correct; 
-wire    [23 :0]  way10_tag_dout_after_correct;  
-wire    [7  :0]  way11_dirty_dout_after_correct; 
-wire    [23 :0]  way11_tag_dout_after_correct;  
-wire    [7  :0]  way12_dirty_dout_after_correct; 
-wire    [23 :0]  way12_tag_dout_after_correct;  
-wire    [7  :0]  way13_dirty_dout_after_correct; 
-wire    [23 :0]  way13_tag_dout_after_correct;  
-wire    [7  :0]  way14_dirty_dout_after_correct; 
-wire    [23 :0]  way14_tag_dout_after_correct;  
-wire    [7  :0]  way15_dirty_dout_after_correct; 
-wire    [23 :0]  way15_tag_dout_after_correct;  
-wire    [7  :0]  way1_dirty_dout_after_correct; 
-wire    [23 :0]  way1_tag_dout_after_correct;   
-wire    [7  :0]  way2_dirty_dout_after_correct; 
-wire    [23 :0]  way2_tag_dout_after_correct;   
-wire    [7  :0]  way3_dirty_dout_after_correct; 
-wire    [23 :0]  way3_tag_dout_after_correct;   
-wire    [7  :0]  way4_dirty_dout_after_correct; 
-wire    [23 :0]  way4_tag_dout_after_correct;   
-wire    [7  :0]  way5_dirty_dout_after_correct; 
-wire    [23 :0]  way5_tag_dout_after_correct;   
-wire    [7  :0]  way6_dirty_dout_after_correct; 
-wire    [23 :0]  way6_tag_dout_after_correct;   
-wire    [7  :0]  way7_dirty_dout_after_correct; 
-wire    [23 :0]  way7_tag_dout_after_correct;   
-wire    [7  :0]  way8_dirty_dout_after_correct; 
-wire    [23 :0]  way8_tag_dout_after_correct;   
-wire    [7  :0]  way9_dirty_dout_after_correct; 
-wire    [23 :0]  way9_tag_dout_after_correct;   
-wire    [15 :0]  way_fifo;                      
-wire             wb_dirty_cen;                  
-wire             wb_dirty_gwen;                 
-wire    [15 :0]  wb_dirty_way;                  
-wire    [8  :0]  wb_dirty_wen;                  
-wire             wb_ecc_rfifo_empty;            
-wire             wb_tag_cen;                    
-wire             wb_tag_gwen;                   
-wire    [8  :0]  wb_tag_index;                  
-wire             wb_tag_req;                    
+wire             ciu_l2c_addr_vld_x;
+wire    [32 :0]  ciu_l2c_addr_x;
+wire    [3  :0]  ciu_l2c_clr_cp_x;
+wire    [2  :0]  ciu_l2c_hpcp_bus_x;
+wire    [2  :0]  ciu_l2c_mid_x;
+wire    [3  :0]  ciu_l2c_set_cp_x;
+wire    [4  :0]  ciu_l2c_sid_x;
+wire    [1  :0]  ciu_l2c_src_x;
+wire    [2  :0]  ciu_l2c_tag_acc_cycle;
+wire             ciu_l2c_tag_setup;
+wire    [12 :0]  ciu_l2c_type_x;
+wire             ciu_req_dp_vld;
+wire             ciu_req_vld;
+wire             cmp_addr_hit;
+wire             cmp_dirty_cen;
+wire    [143:0]  cmp_dirty_din;
+wire             cmp_dirty_gwen;
+wire    [15 :0]  cmp_dirty_way;
+wire    [8  :0]  cmp_dirty_wen;
+wire    [15 :0]  cmp_icc_wb_dirty_way;
+wire    [8  :0]  cmp_icc_wb_dirty_wen;
+wire    [15 :0]  cmp_icc_wb_tag_way;
+wire             cmp_info_clk;
+wire             cmp_info_clk_en;
+wire             cmp_req_vld;
+wire    [32 :0]  cmp_stage_addr;
+wire             cmp_stage_stall;
+wire             cmp_stage_vld;
+wire             cmp_stall_by_data;
+wire             cmp_tag_cen;
+wire             cmp_tag_gwen;
+wire    [8  :0]  cmp_tag_index;
+wire             cmp_tag_req;
+wire    [15 :0]  cmp_tag_wen;
+wire             cpurst_b;
+wire             data_addr_hit;
+wire    [6  :0]  data_stage_index;
+wire             data_stage_vld;
+wire    [15 :0]  fifo_dout_after_correct;
+wire             fifo_way_pend_vld;
+wire             forever_cpuclk;
+wire    [7  :0]  icc_dca_dirty_f;
+wire    [23 :0]  icc_dca_tag_f;
+wire    [15 :0]  icc_dca_way_sel;
+wire             icc_dirty_cen;
+wire             icc_dirty_gwen;
+wire    [8  :0]  icc_dirty_wen;
+wire             icc_idle;
+wire             icc_tag_cen;
+wire             icc_tag_flop;
+wire             icc_tag_gwen;
+wire    [8  :0]  icc_tag_index;
+wire             icc_tag_req;
+wire    [15 :0]  icc_wb_dirty_way;
+wire    [8  :0]  icc_wb_dirty_wen;
+wire             icc_wb_req;
+wire    [8  :0]  icc_wb_tag_index;
+wire    [15 :0]  icc_wb_tag_way;
+wire             l2c_ciu_addr_ready_x;
+wire             l2c_dirty_cen;
+wire             l2c_dirty_cen_gate;
+wire             l2c_dirty_cen_pre;
+wire    [143:0]  l2c_dirty_din_pre;
+wire    [143:0]  l2c_dirty_dout;
+wire             l2c_dirty_gwen_pre;
+wire    [143:0]  l2c_dirty_wen_pre;
+wire             l2c_icg_en;
+wire             l2c_index_flop_en;
+wire             l2c_tag_cen;
+wire             l2c_tag_cen_gate;
+wire             l2c_tag_cen_pre;
+wire    [383:0]  l2c_tag_din_pre;
+wire    [15 :0]  l2c_tag_dirty_fatal_err;
+wire    [383:0]  l2c_tag_dout;
+wire             l2c_tag_dp_clk;
+wire             l2c_tag_dp_clk_en;
+wire             l2c_tag_gwen_pre;
+wire    [8  :0]  l2c_tag_index_pre;
+wire             l2c_tag_ram_clk_en_x;
+wire    [383:0]  l2c_tag_wen_pre;
+wire    [3  :0]  l2c_way0_cp_dout;
+wire    [7  :0]  l2c_way0_dirty_dout;
+wire    [3  :0]  l2c_way10_cp_dout;
+wire    [7  :0]  l2c_way10_dirty_dout;
+wire    [3  :0]  l2c_way11_cp_dout;
+wire    [7  :0]  l2c_way11_dirty_dout;
+wire    [3  :0]  l2c_way12_cp_dout;
+wire    [7  :0]  l2c_way12_dirty_dout;
+wire    [3  :0]  l2c_way13_cp_dout;
+wire    [7  :0]  l2c_way13_dirty_dout;
+wire    [3  :0]  l2c_way14_cp_dout;
+wire    [7  :0]  l2c_way14_dirty_dout;
+wire    [3  :0]  l2c_way15_cp_dout;
+wire    [7  :0]  l2c_way15_dirty_dout;
+wire    [3  :0]  l2c_way1_cp_dout;
+wire    [7  :0]  l2c_way1_dirty_dout;
+wire    [3  :0]  l2c_way2_cp_dout;
+wire    [7  :0]  l2c_way2_dirty_dout;
+wire    [3  :0]  l2c_way3_cp_dout;
+wire    [7  :0]  l2c_way3_dirty_dout;
+wire    [3  :0]  l2c_way4_cp_dout;
+wire    [7  :0]  l2c_way4_dirty_dout;
+wire    [3  :0]  l2c_way5_cp_dout;
+wire    [7  :0]  l2c_way5_dirty_dout;
+wire    [3  :0]  l2c_way6_cp_dout;
+wire    [7  :0]  l2c_way6_dirty_dout;
+wire    [3  :0]  l2c_way7_cp_dout;
+wire    [7  :0]  l2c_way7_dirty_dout;
+wire    [3  :0]  l2c_way8_cp_dout;
+wire    [7  :0]  l2c_way8_dirty_dout;
+wire    [3  :0]  l2c_way9_cp_dout;
+wire    [7  :0]  l2c_way9_dirty_dout;
+wire    [15 :0]  l2c_way_dirty;
+wire    [15 :0]  l2c_way_vld;
+wire             next_stage_stall;
+wire             pad_yy_icg_scan_en;
+wire    [63 :0]  status_cp;
+wire    [15 :0]  status_dirty;
+wire    [15 :0]  status_fifo;
+wire             status_flop_clk;
+wire             status_flop_clk_en;
+wire    [15 :0]  status_inv_pend;
+wire    [15 :0]  status_pend;
+wire    [15 :0]  status_shared;
+wire    [15 :0]  status_vld;
+wire    [15 :0]  status_vld_dirty;
+wire    [15 :0]  status_vld_shared;
+wire    [15 :0]  status_vld_unique;
+wire             tag_acc_cnt_en;
+wire             tag_acc_cnt_init;
+wire             tag_acc_cnt_zero;
+wire             tag_addr_hit;
+wire             tag_clk;
+wire             tag_clk_en;
+wire             tag_flop_clk;
+wire             tag_flop_clk_en;
+wire             tag_icc_grant;
+wire             tag_index_flop_clk;
+wire             tag_ram_idle;
+wire             tag_req_vld;
+wire             tag_req_vld_gate;
+wire    [15 :0]  tag_stage_addr_hit;
+wire             tag_stage_flop_clk;
+wire             tag_stage_flop_vld;
+wire             tag_stage_stall;
+wire    [15 :0]  tag_stage_v_hit;
+wire    [15 :0]  tag_stage_vd_hit;
+wire    [15 :0]  tag_stage_vs_hit;
+wire    [15 :0]  tag_stage_vu_hit;
+wire             tag_xx_idle;
+wire             tag_yy_ram_idle;
+wire             tecc_addr_hit;
+wire             tt_icc_tag_flop;
+wire             ttecc_flop;
+wire             ttecc_flop_vld;
+wire    [32 :0]  ttecc_stage_addr;
+wire    [3  :0]  ttecc_stage_clrcp;
+wire             ttecc_stage_fatal_err;
+wire             ttecc_stage_flop_vld;
+wire    [2  :0]  ttecc_stage_hpcp_bus;
+wire    [2  :0]  ttecc_stage_mid;
+wire    [3  :0]  ttecc_stage_setcp;
+wire    [4  :0]  ttecc_stage_sid;
+wire    [1  :0]  ttecc_stage_src;
+wire    [12 :0]  ttecc_stage_type;
+wire             ttecc_stage_write_raw;
+wire    [7  :0]  way0_dirty_dout_after_correct;
+wire    [23 :0]  way0_tag_dout_after_correct;
+wire    [7  :0]  way10_dirty_dout_after_correct;
+wire    [23 :0]  way10_tag_dout_after_correct;
+wire    [7  :0]  way11_dirty_dout_after_correct;
+wire    [23 :0]  way11_tag_dout_after_correct;
+wire    [7  :0]  way12_dirty_dout_after_correct;
+wire    [23 :0]  way12_tag_dout_after_correct;
+wire    [7  :0]  way13_dirty_dout_after_correct;
+wire    [23 :0]  way13_tag_dout_after_correct;
+wire    [7  :0]  way14_dirty_dout_after_correct;
+wire    [23 :0]  way14_tag_dout_after_correct;
+wire    [7  :0]  way15_dirty_dout_after_correct;
+wire    [23 :0]  way15_tag_dout_after_correct;
+wire    [7  :0]  way1_dirty_dout_after_correct;
+wire    [23 :0]  way1_tag_dout_after_correct;
+wire    [7  :0]  way2_dirty_dout_after_correct;
+wire    [23 :0]  way2_tag_dout_after_correct;
+wire    [7  :0]  way3_dirty_dout_after_correct;
+wire    [23 :0]  way3_tag_dout_after_correct;
+wire    [7  :0]  way4_dirty_dout_after_correct;
+wire    [23 :0]  way4_tag_dout_after_correct;
+wire    [7  :0]  way5_dirty_dout_after_correct;
+wire    [23 :0]  way5_tag_dout_after_correct;
+wire    [7  :0]  way6_dirty_dout_after_correct;
+wire    [23 :0]  way6_tag_dout_after_correct;
+wire    [7  :0]  way7_dirty_dout_after_correct;
+wire    [23 :0]  way7_tag_dout_after_correct;
+wire    [7  :0]  way8_dirty_dout_after_correct;
+wire    [23 :0]  way8_tag_dout_after_correct;
+wire    [7  :0]  way9_dirty_dout_after_correct;
+wire    [23 :0]  way9_tag_dout_after_correct;
+wire    [15 :0]  way_fifo;
+wire             wb_dirty_cen;
+wire             wb_dirty_gwen;
+wire    [15 :0]  wb_dirty_way;
+wire    [8  :0]  wb_dirty_wen;
+wire             wb_ecc_rfifo_empty;
+wire             wb_tag_cen;
+wire             wb_tag_gwen;
+wire    [8  :0]  wb_tag_index;
+wire             wb_tag_req;
 
 
 parameter TAG_INDEX_LENTH = `L2C_TAG_INDEX_WIDTH;
@@ -593,7 +593,7 @@ assign l2c_ciu_addr_ready_x = ciu_req_vld && !tag_stage_stall;
 
 assign l2c_tag_cen   = (icc_tag_cen   | cmp_tag_cen   | ciu_req_vld | wb_tag_cen)   & !tag_stage_stall;
 assign l2c_dirty_cen = (icc_dirty_cen | cmp_dirty_cen | ciu_req_vld | wb_dirty_cen) & !tag_stage_stall;
- 
+
 assign l2c_tag_cen_gate   = (icc_tag_cen   | cmp_tag_cen   | ciu_req_dp_vld | wb_tag_cen) & tag_ram_idle;
 assign l2c_dirty_cen_gate = (icc_dirty_cen | cmp_dirty_cen | ciu_req_dp_vld | wb_dirty_cen) & tag_ram_idle;
 
@@ -602,13 +602,13 @@ assign l2c_dirty_cen_pre      = ~l2c_dirty_cen;
 //assign l2c_tag_cen_gate_pre   = ~l2c_tag_cen_gate;
 //assign l2c_dirty_cen_gate_pre = ~l2c_dirty_cen_gate;
 
-assign icc_wb_tag_index[TAG_INDEX_LENTH-1:0] = icc_tag_req 
-                                             ? icc_tag_index[TAG_INDEX_LENTH-1:0] 
+assign icc_wb_tag_index[TAG_INDEX_LENTH-1:0] = icc_tag_req
+                                             ? icc_tag_index[TAG_INDEX_LENTH-1:0]
                                              : wb_tag_index[TAG_INDEX_LENTH-1:0];
 
-assign l2c_tag_index_pre[TAG_INDEX_LENTH-1:0] = icc_wb_req 
+assign l2c_tag_index_pre[TAG_INDEX_LENTH-1:0] = icc_wb_req
                                               ? icc_wb_tag_index[TAG_INDEX_LENTH-1:0]
-                                              : cmp_req_vld ? cmp_tag_index[TAG_INDEX_LENTH-1:0] 
+                                              : cmp_req_vld ? cmp_tag_index[TAG_INDEX_LENTH-1:0]
                                                             : ciu_l2c_addr_x[TAG_INDEX_LENTH-1:0];
 
 assign icc_wb_req = icc_tag_req || wb_tag_req;
@@ -638,7 +638,7 @@ assign l2c_tag_wen_pre[16*TAG_TAG_LENTH-1:0] = ~{
                                     {TAG_TAG_LENTH{cmp_icc_wb_tag_way[1]}},
                                     {TAG_TAG_LENTH{cmp_icc_wb_tag_way[0]}}};
 
-assign l2c_tag_din_pre[16*TAG_TAG_LENTH-1:0] = icc_wb_req 
+assign l2c_tag_din_pre[16*TAG_TAG_LENTH-1:0] = icc_wb_req
                                              ? {(16*TAG_TAG_LENTH){1'b0}}
                                              : {16{cmp_stage_addr[L2C_ADDRW-1:L2C_ADDRW-TAG_TAG_LENTH]}};
 
@@ -928,7 +928,7 @@ begin
 end
 
 //output
-assign tag_ram_idle    = (tag_ram_state == TAG_IDLE) | 
+assign tag_ram_idle    = (tag_ram_state == TAG_IDLE) |
                          (tag_ram_state == TAG_BUSY) & tag_acc_cnt_zero;
 assign tag_xx_idle     = tag_ram_state == TAG_IDLE;
 assign tag_stage_stall = (tag_ram_state == TAG_BUSY) & (!tag_acc_cnt_zero | next_stage_stall);
@@ -1001,7 +1001,7 @@ begin
   begin
     tag_stage_addr[L2C_ADDRW-1:0] <= {L2C_ADDRW{1'b0}};
     tag_stage_sid[4:0]            <= 5'b0;
-    tag_stage_type[12:0]          <= 13'b0; 
+    tag_stage_type[12:0]          <= 13'b0;
     tag_stage_src[1:0]            <= 2'b0;
     tag_stage_clrcp[3:0]          <= 4'b0;
     tag_stage_setcp[3:0]          <= 4'b0;
@@ -1075,12 +1075,12 @@ assign tag_stage_vd_hit[15:8] = tag_stage_addr_hit[15:8] & status_vld_dirty[15:8
 // &CombBeg; @690
 // &CombEnd;  @703
 
-assign status_cp[63:0]     = {way15_dirty_dout_after_correct[7:4], 
-                              way14_dirty_dout_after_correct[7:4], 
-                              way13_dirty_dout_after_correct[7:4], 
-                              way12_dirty_dout_after_correct[7:4], 
-                              way11_dirty_dout_after_correct[7:4], 
-                              way10_dirty_dout_after_correct[7:4], 
+assign status_cp[63:0]     = {way15_dirty_dout_after_correct[7:4],
+                              way14_dirty_dout_after_correct[7:4],
+                              way13_dirty_dout_after_correct[7:4],
+                              way12_dirty_dout_after_correct[7:4],
+                              way11_dirty_dout_after_correct[7:4],
+                              way10_dirty_dout_after_correct[7:4],
                               way9_dirty_dout_after_correct[7:4],
                               way8_dirty_dout_after_correct[7:4],
                               way7_dirty_dout_after_correct[7:4],
@@ -1092,12 +1092,12 @@ assign status_cp[63:0]     = {way15_dirty_dout_after_correct[7:4],
                               way1_dirty_dout_after_correct[7:4],
                               way0_dirty_dout_after_correct[7:4]};
 
-assign status_vld[15:0]    = {way15_dirty_dout_after_correct[3], 
-                              way14_dirty_dout_after_correct[3], 
-                              way13_dirty_dout_after_correct[3], 
-                              way12_dirty_dout_after_correct[3], 
-                              way11_dirty_dout_after_correct[3], 
-                              way10_dirty_dout_after_correct[3], 
+assign status_vld[15:0]    = {way15_dirty_dout_after_correct[3],
+                              way14_dirty_dout_after_correct[3],
+                              way13_dirty_dout_after_correct[3],
+                              way12_dirty_dout_after_correct[3],
+                              way11_dirty_dout_after_correct[3],
+                              way10_dirty_dout_after_correct[3],
                               way9_dirty_dout_after_correct[3],
                               way8_dirty_dout_after_correct[3],
                               way7_dirty_dout_after_correct[3],
@@ -1109,12 +1109,12 @@ assign status_vld[15:0]    = {way15_dirty_dout_after_correct[3],
                               way1_dirty_dout_after_correct[3],
                               way0_dirty_dout_after_correct[3]};
 
-assign status_shared[15:0] = {way15_dirty_dout_after_correct[2], 
-                              way14_dirty_dout_after_correct[2], 
-                              way13_dirty_dout_after_correct[2], 
-                              way12_dirty_dout_after_correct[2], 
-                              way11_dirty_dout_after_correct[2], 
-                              way10_dirty_dout_after_correct[2], 
+assign status_shared[15:0] = {way15_dirty_dout_after_correct[2],
+                              way14_dirty_dout_after_correct[2],
+                              way13_dirty_dout_after_correct[2],
+                              way12_dirty_dout_after_correct[2],
+                              way11_dirty_dout_after_correct[2],
+                              way10_dirty_dout_after_correct[2],
                               way9_dirty_dout_after_correct[2],
                               way8_dirty_dout_after_correct[2],
                               way7_dirty_dout_after_correct[2],
@@ -1126,12 +1126,12 @@ assign status_shared[15:0] = {way15_dirty_dout_after_correct[2],
                               way1_dirty_dout_after_correct[2],
                               way0_dirty_dout_after_correct[2]};
 
-assign status_dirty[15:0]  = {way15_dirty_dout_after_correct[1], 
-                              way14_dirty_dout_after_correct[1], 
-                              way13_dirty_dout_after_correct[1], 
-                              way12_dirty_dout_after_correct[1], 
-                              way11_dirty_dout_after_correct[1], 
-                              way10_dirty_dout_after_correct[1], 
+assign status_dirty[15:0]  = {way15_dirty_dout_after_correct[1],
+                              way14_dirty_dout_after_correct[1],
+                              way13_dirty_dout_after_correct[1],
+                              way12_dirty_dout_after_correct[1],
+                              way11_dirty_dout_after_correct[1],
+                              way10_dirty_dout_after_correct[1],
                               way9_dirty_dout_after_correct[1],
                               way8_dirty_dout_after_correct[1],
                               way7_dirty_dout_after_correct[1],
@@ -1143,12 +1143,12 @@ assign status_dirty[15:0]  = {way15_dirty_dout_after_correct[1],
                               way1_dirty_dout_after_correct[1],
                               way0_dirty_dout_after_correct[1]};
 
-assign status_pend[15:0]   = {way15_dirty_dout_after_correct[0], 
-                              way14_dirty_dout_after_correct[0], 
-                              way13_dirty_dout_after_correct[0], 
-                              way12_dirty_dout_after_correct[0], 
-                              way11_dirty_dout_after_correct[0], 
-                              way10_dirty_dout_after_correct[0], 
+assign status_pend[15:0]   = {way15_dirty_dout_after_correct[0],
+                              way14_dirty_dout_after_correct[0],
+                              way13_dirty_dout_after_correct[0],
+                              way12_dirty_dout_after_correct[0],
+                              way11_dirty_dout_after_correct[0],
+                              way10_dirty_dout_after_correct[0],
                               way9_dirty_dout_after_correct[0],
                               way8_dirty_dout_after_correct[0],
                               way7_dirty_dout_after_correct[0],
@@ -1169,7 +1169,7 @@ assign status_vld_dirty[15:0]  =  status_vld[15:0] & status_dirty[15:0];
 assign status_inv_pend[15:0]   = ~status_vld[15:0] & status_pend[15:0];
 
 //refill the entry whose pend is 1 and valid is 0
-//release the entry whose pend is 1 and valid is 0 
+//release the entry whose pend is 1 and valid is 0
 // &CombBeg; @816
 always @( status_inv_pend[15:0])
 begin

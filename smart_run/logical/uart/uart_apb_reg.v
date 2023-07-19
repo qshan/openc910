@@ -69,106 +69,106 @@ module uart_apb_reg(
 );
 
 
-input   [39:0]  apb_uart_paddr;       
-input           apb_uart_penable;     
-input           apb_uart_psel;        
-input   [31:0]  apb_uart_pwdata;      
-input           apb_uart_pwrite;      
-input           ctrl_reg_busy;        
-input           ctrl_reg_fe;          
-input   [3 :0]  ctrl_reg_iid;         
-input           ctrl_reg_iid_vld;     
-input           ctrl_reg_oe;          
-input           ctrl_reg_pe;          
-input   [7 :0]  ctrl_reg_rbr_wdata;   
-input           ctrl_reg_rbr_write_en; 
-input           ctrl_reg_thr_read;    
-input           ctrl_reg_thsr_empty;  
-input           rst_b;                
-input           sys_clk;              
-output  [15:0]  reg_ctrl_dllh_data;   
-output  [2 :0]  reg_ctrl_ier_enable;  
-output  [1 :0]  reg_ctrl_lcr_dls;     
-output          reg_ctrl_lcr_eps;     
-output          reg_ctrl_lcr_pen;     
-output          reg_ctrl_lcr_stop;    
-output          reg_ctrl_lcr_wen;     
-output          reg_ctrl_rbr_vld;     
-output          reg_ctrl_set_dllh_vld; 
-output  [7 :0]  reg_ctrl_thr_data;    
-output          reg_ctrl_thr_vld;     
-output          reg_ctrl_threint_en;  
-output  [31:0]  uart_apb_prdata;      
-output          uart_vic_int;         
+input   [39:0]  apb_uart_paddr;
+input           apb_uart_penable;
+input           apb_uart_psel;
+input   [31:0]  apb_uart_pwdata;
+input           apb_uart_pwrite;
+input           ctrl_reg_busy;
+input           ctrl_reg_fe;
+input   [3 :0]  ctrl_reg_iid;
+input           ctrl_reg_iid_vld;
+input           ctrl_reg_oe;
+input           ctrl_reg_pe;
+input   [7 :0]  ctrl_reg_rbr_wdata;
+input           ctrl_reg_rbr_write_en;
+input           ctrl_reg_thr_read;
+input           ctrl_reg_thsr_empty;
+input           rst_b;
+input           sys_clk;
+output  [15:0]  reg_ctrl_dllh_data;
+output  [2 :0]  reg_ctrl_ier_enable;
+output  [1 :0]  reg_ctrl_lcr_dls;
+output          reg_ctrl_lcr_eps;
+output          reg_ctrl_lcr_pen;
+output          reg_ctrl_lcr_stop;
+output          reg_ctrl_lcr_wen;
+output          reg_ctrl_rbr_vld;
+output          reg_ctrl_set_dllh_vld;
+output  [7 :0]  reg_ctrl_thr_data;
+output          reg_ctrl_thr_vld;
+output          reg_ctrl_threint_en;
+output  [31:0]  uart_apb_prdata;
+output          uart_vic_int;
 
 
-reg             iid_priv_vld;         
-reg             iir_iid_clr_vld;      
-reg     [7 :0]  uart_dlh;             
-reg     [7 :0]  uart_dll;             
-reg     [3 :0]  uart_ier;             
-reg     [3 :0]  uart_iir_iid;         
-reg     [4 :0]  uart_lcr;             
-reg             uart_lcr_dlab;        
-reg             uart_lsr_dr;          
-reg             uart_lsr_fe;          
-reg             uart_lsr_oe;          
-reg             uart_lsr_pe;          
-reg             uart_lsr_thre;        
-reg     [7 :0]  uart_rbr;             
-reg     [7 :0]  uart_reg_data_pre;    
-reg     [7 :0]  uart_thr;             
-reg             uart_usr;             
-reg             uart_vic_int;         
+reg             iid_priv_vld;
+reg             iir_iid_clr_vld;
+reg     [7 :0]  uart_dlh;
+reg     [7 :0]  uart_dll;
+reg     [3 :0]  uart_ier;
+reg     [3 :0]  uart_iir_iid;
+reg     [4 :0]  uart_lcr;
+reg             uart_lcr_dlab;
+reg             uart_lsr_dr;
+reg             uart_lsr_fe;
+reg             uart_lsr_oe;
+reg             uart_lsr_pe;
+reg             uart_lsr_thre;
+reg     [7 :0]  uart_rbr;
+reg     [7 :0]  uart_reg_data_pre;
+reg     [7 :0]  uart_thr;
+reg             uart_usr;
+reg             uart_vic_int;
 
 
-wire            ahb_iir_read_vld;     
-wire            ahb_lsr_read_vld;     
-wire            ahb_rbr_read_vld;     
-wire            ahb_usr_read_vld;     
-wire    [39:0]  apb_uart_paddr;       
-wire            apb_uart_penable;     
-wire            apb_uart_psel;        
-wire    [31:0]  apb_uart_pwdata;      
-wire            apb_uart_pwrite;      
-wire            ctrl_reg_busy;        
-wire            ctrl_reg_fe;          
-wire    [3 :0]  ctrl_reg_iid;         
-wire            ctrl_reg_iid_vld;     
-wire            ctrl_reg_oe;          
-wire            ctrl_reg_pe;          
-wire    [7 :0]  ctrl_reg_rbr_wdata;   
-wire            ctrl_reg_rbr_write_en; 
-wire            ctrl_reg_thr_read;    
-wire            ctrl_reg_thsr_empty;  
-wire            dllh_en;              
-wire    [7 :0]  endian_wdata;         
-wire            iir_iid_write_vld;    
-wire            rd_acc;               
-wire    [15:0]  reg_ctrl_dllh_data;   
-wire    [2 :0]  reg_ctrl_ier_enable;  
-wire    [1 :0]  reg_ctrl_lcr_dls;     
-wire            reg_ctrl_lcr_eps;     
-wire            reg_ctrl_lcr_pen;     
-wire            reg_ctrl_lcr_stop;    
-wire            reg_ctrl_lcr_wen;     
-wire            reg_ctrl_rbr_vld;     
-wire            reg_ctrl_set_dllh_vld; 
-wire    [7 :0]  reg_ctrl_thr_data;    
-wire            reg_ctrl_thr_vld;     
-wire            reg_ctrl_threint_en;  
-wire            rst_b;                
-wire            sys_clk;              
-wire    [31:0]  uart_apb_prdata;      
-wire            uart_dlh_wen;         
-wire            uart_dll_wen;         
-wire            uart_ier_wen;         
-wire            uart_lcr_wen;         
-wire            uart_lsr_temt;        
-wire    [7 :0]  uart_reg_data;        
-wire    [5 :0]  uart_reg_haddr;       
-wire            uart_thr_wen;         
-wire            wr_acc;               
+wire            ahb_iir_read_vld;
+wire            ahb_lsr_read_vld;
+wire            ahb_rbr_read_vld;
+wire            ahb_usr_read_vld;
+wire    [39:0]  apb_uart_paddr;
+wire            apb_uart_penable;
+wire            apb_uart_psel;
+wire    [31:0]  apb_uart_pwdata;
+wire            apb_uart_pwrite;
+wire            ctrl_reg_busy;
+wire            ctrl_reg_fe;
+wire    [3 :0]  ctrl_reg_iid;
+wire            ctrl_reg_iid_vld;
+wire            ctrl_reg_oe;
+wire            ctrl_reg_pe;
+wire    [7 :0]  ctrl_reg_rbr_wdata;
+wire            ctrl_reg_rbr_write_en;
+wire            ctrl_reg_thr_read;
+wire            ctrl_reg_thsr_empty;
+wire            dllh_en;
+wire    [7 :0]  endian_wdata;
+wire            iir_iid_write_vld;
+wire            rd_acc;
+wire    [15:0]  reg_ctrl_dllh_data;
+wire    [2 :0]  reg_ctrl_ier_enable;
+wire    [1 :0]  reg_ctrl_lcr_dls;
+wire            reg_ctrl_lcr_eps;
+wire            reg_ctrl_lcr_pen;
+wire            reg_ctrl_lcr_stop;
+wire            reg_ctrl_lcr_wen;
+wire            reg_ctrl_rbr_vld;
+wire            reg_ctrl_set_dllh_vld;
+wire    [7 :0]  reg_ctrl_thr_data;
+wire            reg_ctrl_thr_vld;
+wire            reg_ctrl_threint_en;
+wire            rst_b;
+wire            sys_clk;
+wire    [31:0]  uart_apb_prdata;
+wire            uart_dlh_wen;
+wire            uart_dll_wen;
+wire            uart_ier_wen;
+wire            uart_lcr_wen;
+wire            uart_lsr_temt;
+wire    [7 :0]  uart_reg_data;
+wire    [5 :0]  uart_reg_haddr;
+wire            uart_thr_wen;
+wire            wr_acc;
 
 
 parameter          RBR = 6'h00;
@@ -264,12 +264,12 @@ parameter          USR = 6'h1f;
 
 assign endian_wdata[7:0]  = apb_uart_pwdata[7:0];
 assign wr_acc  = apb_uart_psel && apb_uart_pwrite && apb_uart_penable;
-assign rd_acc  = apb_uart_psel && !apb_uart_pwrite && apb_uart_penable; 
+assign rd_acc  = apb_uart_psel && !apb_uart_pwrite && apb_uart_penable;
 assign uart_reg_haddr[5:0] = apb_uart_paddr[7:2];
 
 
 
-assign dllh_en      = !uart_usr && uart_lcr_dlab; 
+assign dllh_en      = !uart_usr && uart_lcr_dlab;
 assign uart_dll_wen = dllh_en && wr_acc && (uart_reg_haddr[5:0] == DLL);
 assign uart_dlh_wen = dllh_en && wr_acc && (uart_reg_haddr[5:0] == DLH);
 assign uart_thr_wen = !uart_lcr_dlab && wr_acc && (uart_reg_haddr[5:0] == THR);
@@ -300,7 +300,7 @@ begin
     uart_thr[7:0] <= endian_wdata[7:0];
 end
 
-  
+
 always @(posedge sys_clk or negedge rst_b)
 begin
   if(!rst_b)
@@ -357,14 +357,14 @@ always @( uart_dll[7:0]
 begin
 case(uart_reg_haddr[5:0])
   RBR: uart_reg_data_pre[7:0] = uart_lcr_dlab ? uart_dll[7:0] : uart_rbr[7:0];
-  IER: uart_reg_data_pre[7:0] = uart_lcr_dlab ? uart_dlh[7:0] : {5'b0,uart_ier[2:0]}; 
+  IER: uart_reg_data_pre[7:0] = uart_lcr_dlab ? uart_dlh[7:0] : {5'b0,uart_ier[2:0]};
   IIR: uart_reg_data_pre[7:0] = {4'b0,uart_iir_iid[3:0]};
   LCR: uart_reg_data_pre[7:0] = {uart_lcr_dlab,2'b0,uart_lcr[4:0]};
   LSR: uart_reg_data_pre[7:0] = {1'b0,uart_lsr_temt,uart_lsr_thre,1'b0,
                                uart_lsr_fe,uart_lsr_pe,uart_lsr_oe,uart_lsr_dr};
   USR: uart_reg_data_pre[7:0] = {6'b0,uart_usr};
-  default:uart_reg_data_pre[7:0] = 8'b0;     
- endcase 
+  default:uart_reg_data_pre[7:0] = 8'b0;
+ endcase
 
 end
 
@@ -393,7 +393,7 @@ begin
   if(!rst_b)
     uart_rbr[7:0] <= 8'b0;
   else if(ctrl_reg_rbr_write_en)
-    uart_rbr[7:0] <= ctrl_reg_rbr_wdata[7:0]; 
+    uart_rbr[7:0] <= ctrl_reg_rbr_wdata[7:0];
 end
 
 
@@ -438,12 +438,12 @@ begin
   4'b0100: iir_iid_clr_vld = ahb_rbr_read_vld;
   4'b0110: iir_iid_clr_vld = ahb_lsr_read_vld;
   4'b0111: iir_iid_clr_vld = ahb_usr_read_vld;
-  default: iir_iid_clr_vld = 1'b0;  
+  default: iir_iid_clr_vld = 1'b0;
   endcase
 
 end
 
-  
+
 assign ahb_iir_read_vld = rd_acc && ( uart_reg_haddr[5:0] == IIR );
 assign ahb_lsr_read_vld = rd_acc && ( uart_reg_haddr[5:0] == LSR );
 assign ahb_usr_read_vld = rd_acc && ( uart_reg_haddr[5:0] == USR );
@@ -460,7 +460,7 @@ begin
   begin
     uart_lsr_thre <= 1'b0;
   end
-  else if(ctrl_reg_thr_read)  
+  else if(ctrl_reg_thr_read)
   begin
     uart_lsr_thre <= 1'b1;
   end
@@ -487,7 +487,7 @@ begin
   else if( ahb_lsr_read_vld )
     uart_lsr_fe <= 1'b0;
 end
-  
+
 always @(posedge sys_clk or negedge rst_b)
 begin
   if(!rst_b)
@@ -497,7 +497,7 @@ begin
   else if( ahb_lsr_read_vld )
     uart_lsr_pe <= 1'b0;
 end
- 
+
 always @(posedge sys_clk or negedge rst_b)
 begin
   if(!rst_b)
@@ -517,7 +517,7 @@ begin
   else if(!ctrl_reg_busy)
     uart_usr <= 1'b0;
 end
-   
+
 
 
 

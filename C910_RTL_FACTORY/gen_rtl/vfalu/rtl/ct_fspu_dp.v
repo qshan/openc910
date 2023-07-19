@@ -33,93 +33,93 @@ module ct_fspu_dp(
 );
 
 // &Ports; @23
-input           cp0_vfpu_icg_en;             
-input           cp0_yy_clk_en;               
-input           cpurst_b;                    
-input   [19:0]  dp_vfalu_ex1_pipex_func;     
-input   [63:0]  dp_vfalu_ex1_pipex_mtvr_src0; 
-input   [63:0]  dp_vfalu_ex1_pipex_srcf0;    
-input   [63:0]  dp_vfalu_ex1_pipex_srcf1;    
-input           ex1_pipedown;                
-input           ex2_pipedown;                
-input           ex3_pipedown;                
-input           forever_cpuclk;              
-input           pad_yy_icg_scan_en;          
-output          fspu_forward_r_vld;          
-output  [63:0]  fspu_forward_result;         
-output  [63:0]  fspu_mfvr_data;              
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input   [19:0]  dp_vfalu_ex1_pipex_func;
+input   [63:0]  dp_vfalu_ex1_pipex_mtvr_src0;
+input   [63:0]  dp_vfalu_ex1_pipex_srcf0;
+input   [63:0]  dp_vfalu_ex1_pipex_srcf1;
+input           ex1_pipedown;
+input           ex2_pipedown;
+input           ex3_pipedown;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+output          fspu_forward_r_vld;
+output  [63:0]  fspu_forward_result;
+output  [63:0]  fspu_mfvr_data;
 
 // &Regs; @24
-reg     [63:0]  fspu_ex2_result;             
-reg     [63:0]  fspu_ex3_result;             
+reg     [63:0]  fspu_ex2_result;
+reg     [63:0]  fspu_ex3_result;
 
 // &Wires; @25
-wire            cp0_vfpu_icg_en;             
-wire            cp0_yy_clk_en;               
-wire            cpurst_b;                    
-wire    [63:0]  doub_mtvr_src0;              
-wire    [19:0]  dp_vfalu_ex1_pipex_func;     
-wire    [63:0]  dp_vfalu_ex1_pipex_mtvr_src0; 
-wire    [63:0]  dp_vfalu_ex1_pipex_srcf0;    
-wire    [63:0]  dp_vfalu_ex1_pipex_srcf1;    
-wire            ex1_doub_op_fmv;             
-wire            ex1_double;                  
-wire    [63:0]  ex1_freg_result;             
-wire            ex1_half_op_fmv;             
-wire            ex1_op_class;                
-wire            ex1_op_doub_fmvfx;           
-wire            ex1_op_doub_fsgnj;           
-wire            ex1_op_doub_fsgnjn;          
-wire            ex1_op_doub_fsgnjx;          
-wire            ex1_op_fmvfx;                
-wire            ex1_op_fmvxf;                
-wire            ex1_op_fsgnj;                
-wire            ex1_op_fsgnjn;               
-wire            ex1_op_fsgnjx;               
-wire            ex1_op_half_fmvfx;           
-wire            ex1_op_sing_fmvfx;           
-wire            ex1_op_sing_fsgnj;           
-wire            ex1_op_sing_fsgnjn;          
-wire            ex1_op_sing_fsgnjx;          
-wire            ex1_pipe_clk;                
-wire            ex1_pipe_clk_en;             
-wire            ex1_pipedown;                
-wire    [63:0]  ex1_pipex_src0;              
-wire    [63:0]  ex1_pipex_src1;              
-wire    [63:0]  ex1_result;                  
-wire    [63:0]  ex1_set0_doub_result;        
-wire    [63:0]  ex1_set0_half0_result;       
-wire    [63:0]  ex1_set0_sing0_result;       
-wire            ex1_sing_op_fmv;             
-wire            ex1_single;                  
-wire            ex2_pipe_clk;                
-wire            ex2_pipe_clk_en;             
-wire            ex2_pipedown;                
-wire            ex3_pipedown;                
-wire            forever_cpuclk;              
-wire    [63:0]  fspu_ex3_result_pre;         
-wire            fspu_forward_r_vld;          
-wire    [63:0]  fspu_forward_result;         
-wire    [63:0]  fspu_mfvr_data;              
-wire    [19:0]  func;                        
-wire            pad_yy_icg_scan_en;          
-wire    [63:0]  scalar_int_class_result;     
-wire    [63:0]  scalar_int_mvxf_result;      
-wire    [63:0]  scalar_x_result;             
-wire    [63:0]  set0_doub_result_fclass;     
-wire    [63:0]  set0_doub_result_fmfvr;      
-wire    [15:0]  set0_half0_result_fclass;    
-wire    [63:0]  set0_half0_result_fmfvr;     
-wire    [63:0]  set0_oper0;                  
-wire    [63:0]  set0_oper1;                  
-wire    [31:0]  set0_sing0_result_fclass;    
-wire    [63:0]  set0_sing0_result_fmfvr;     
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire    [63:0]  doub_mtvr_src0;
+wire    [19:0]  dp_vfalu_ex1_pipex_func;
+wire    [63:0]  dp_vfalu_ex1_pipex_mtvr_src0;
+wire    [63:0]  dp_vfalu_ex1_pipex_srcf0;
+wire    [63:0]  dp_vfalu_ex1_pipex_srcf1;
+wire            ex1_doub_op_fmv;
+wire            ex1_double;
+wire    [63:0]  ex1_freg_result;
+wire            ex1_half_op_fmv;
+wire            ex1_op_class;
+wire            ex1_op_doub_fmvfx;
+wire            ex1_op_doub_fsgnj;
+wire            ex1_op_doub_fsgnjn;
+wire            ex1_op_doub_fsgnjx;
+wire            ex1_op_fmvfx;
+wire            ex1_op_fmvxf;
+wire            ex1_op_fsgnj;
+wire            ex1_op_fsgnjn;
+wire            ex1_op_fsgnjx;
+wire            ex1_op_half_fmvfx;
+wire            ex1_op_sing_fmvfx;
+wire            ex1_op_sing_fsgnj;
+wire            ex1_op_sing_fsgnjn;
+wire            ex1_op_sing_fsgnjx;
+wire            ex1_pipe_clk;
+wire            ex1_pipe_clk_en;
+wire            ex1_pipedown;
+wire    [63:0]  ex1_pipex_src0;
+wire    [63:0]  ex1_pipex_src1;
+wire    [63:0]  ex1_result;
+wire    [63:0]  ex1_set0_doub_result;
+wire    [63:0]  ex1_set0_half0_result;
+wire    [63:0]  ex1_set0_sing0_result;
+wire            ex1_sing_op_fmv;
+wire            ex1_single;
+wire            ex2_pipe_clk;
+wire            ex2_pipe_clk_en;
+wire            ex2_pipedown;
+wire            ex3_pipedown;
+wire            forever_cpuclk;
+wire    [63:0]  fspu_ex3_result_pre;
+wire            fspu_forward_r_vld;
+wire    [63:0]  fspu_forward_result;
+wire    [63:0]  fspu_mfvr_data;
+wire    [19:0]  func;
+wire            pad_yy_icg_scan_en;
+wire    [63:0]  scalar_int_class_result;
+wire    [63:0]  scalar_int_mvxf_result;
+wire    [63:0]  scalar_x_result;
+wire    [63:0]  set0_doub_result_fclass;
+wire    [63:0]  set0_doub_result_fmfvr;
+wire    [15:0]  set0_half0_result_fclass;
+wire    [63:0]  set0_half0_result_fmfvr;
+wire    [63:0]  set0_oper0;
+wire    [63:0]  set0_oper1;
+wire    [31:0]  set0_sing0_result_fclass;
+wire    [63:0]  set0_sing0_result_fmfvr;
 
 
 parameter FMV_SI32_F32 = 0;
 parameter FMV_SI64_F64 = 1;
 parameter FMV_F32_SI32 = 2;
-parameter FMV_F64_SI64 = 3; 
+parameter FMV_F64_SI64 = 3;
 parameter FSGNJS       = 4;
 parameter FSGNJD       = 5;
 parameter FSGNJNS      = 6;
@@ -139,7 +139,7 @@ assign ex1_op_fsgnjx   = func[6] && func[2];
 assign ex1_op_fsgnjn   = func[6] && func[1];
 assign ex1_op_fsgnj    = func[6] && func[0];
 assign ex1_op_fmvfx    = func[5] && func[0];
-assign ex1_op_fmvxf    = func[5] && func[2]; 
+assign ex1_op_fmvxf    = func[5] && func[2];
 assign ex1_op_class    = func[18];
 
 assign ex1_op_sing_fsgnjx  = ex1_op_fsgnjx && ex1_single;
@@ -258,7 +258,7 @@ assign ex1_pipex_src1[63:0]  = dp_vfalu_ex1_pipex_srcf1[63:0];
 // &Force("nonport","set1_half3_result_fmfvr"); @250
 
 assign doub_mtvr_src0[63:0]    = ex1_op_fmvfx ? dp_vfalu_ex1_pipex_mtvr_src0[63:0]
-                                              : ex1_pipex_src1[63:0];     
+                                              : ex1_pipex_src1[63:0];
 assign set0_oper0[63:0]        = ex1_pipex_src0[63:0];
 assign set0_oper1[63:0]        = ex1_pipex_src1[63:0];
 assign ex1_doub_op_fmv         = ex1_op_doub_fmvfx;
@@ -311,7 +311,7 @@ ct_fspu_single  x_set0_ct_fspu_single0 (
 // &Connect(.ex1_op_fmvvf(ex1_sing_op_fmv)); @330
 // &Connect(.ex1_scalar(1'b1)); @331
 // &Connect(.check_nan(1'b0)); @332
-//half 0 
+//half 0
 // &ConnRule(s/result/set0_half0_result/); @334
 // &Instance("ct_fspu_half","x_set0_ct_fspu_half0"); @335
 ct_fspu_half  x_set0_ct_fspu_half0 (
@@ -342,17 +342,17 @@ assign scalar_int_mvxf_result[63:0]         = ex1_double ? set0_doub_result_fmfv
                                                          :  set0_half0_result_fmfvr[63:0];
 assign scalar_int_class_result[63:0]        = ex1_double ? set0_doub_result_fclass[63:0] :
                                               ex1_single ? {32'b0,set0_sing0_result_fclass[31:0]}
-                                                         : {48'b0,set0_half0_result_fclass[15:0]} ;  
+                                                         : {48'b0,set0_half0_result_fclass[15:0]} ;
 assign scalar_x_result[63:0]                = {64{ex1_op_class}} & scalar_int_class_result[63:0] |
                                               {64{ex1_op_fmvxf}}   & scalar_int_mvxf_result[63:0];
-                             
+
 //assign pipex_dp_ex1_vfalu_mfvr_data[63:0]   = scalar_x_result[63:0];
 assign fspu_mfvr_data[63:0]                 = scalar_x_result[63:0];
 assign ex1_freg_result[63:0]                = ex1_double ? ex1_set0_doub_result[63:0]  :
                                               ex1_single ? ex1_set0_sing0_result[63:0] :
                                                            ex1_set0_half0_result[63:0];
 assign ex1_result[63:0]                     = ex1_freg_result[63:0];
-  
+
 
 
 //=======================Pipe to EX2========================

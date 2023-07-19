@@ -60,142 +60,142 @@ module ct_lsu_vb_sdb_data_entry(
 );
 
 // &Ports; @28
-input            cp0_lsu_icg_en;                   
-input            cpurst_b;                         
-input            forever_cpuclk;                   
-input   [255:0]  ld_da_data256;                    
-input            ld_da_vb_borrow_vb_x;             
-input            pad_yy_icg_scan_en;               
-input   [1  :0]  sdb_create_data_order;            
-input            sdb_create_en_x;                  
-input   [3  :0]  sdb_entry_data_index;             
-input            sdb_inv_en_x;                     
-input            snq_data_bypass_hit_x;            
-input            snq_vb_bypass_invalid_x;          
-input            snq_vb_bypass_readonce;           
-input            snq_vb_bypass_start_x;            
-input            vb_data_entry_biu_req_success_x;  
-input            vb_data_entry_create_dp_vld_x;    
-input            vb_data_entry_create_gateclk_en_x; 
-input            vb_data_entry_create_vld_x;       
-input            vb_data_entry_wd_sm_grnt_x;       
-input   [1  :0]  vb_rcl_sm_addr_id;                
-input            vb_rcl_sm_data_dcache_dirty;      
-input            vb_rcl_sm_data_set_data_done_x;   
-input            vb_rcl_sm_inv;                    
-input            vb_rcl_sm_lfb_create;             
-input   [3  :0]  vb_wd_sm_data_bias;               
-input            vb_wd_sm_data_pop_req_x;          
-output           sdb_data_vld_x;                   
-output           sdb_entry_avail_x;                
-output  [127:0]  sdb_entry_data_v;                 
-output           sdb_vld_x;                        
-output  [1  :0]  vb_data_entry_addr_id_v;          
-output           vb_data_entry_biu_req_x;          
-output           vb_data_entry_bypass_pop_x;       
-output           vb_data_entry_dirty_x;            
-output           vb_data_entry_inv_x;              
-output           vb_data_entry_lfb_create_x;       
-output           vb_data_entry_normal_pop_x;       
-output           vb_data_entry_req_success_x;      
-output           vb_data_entry_vld_x;              
-output           vb_data_entry_wd_sm_req_x;        
-output  [127:0]  vb_data_entry_write_data128_v;    
-output           vb_sdb_data_entry_vld_x;          
+input            cp0_lsu_icg_en;
+input            cpurst_b;
+input            forever_cpuclk;
+input   [255:0]  ld_da_data256;
+input            ld_da_vb_borrow_vb_x;
+input            pad_yy_icg_scan_en;
+input   [1  :0]  sdb_create_data_order;
+input            sdb_create_en_x;
+input   [3  :0]  sdb_entry_data_index;
+input            sdb_inv_en_x;
+input            snq_data_bypass_hit_x;
+input            snq_vb_bypass_invalid_x;
+input            snq_vb_bypass_readonce;
+input            snq_vb_bypass_start_x;
+input            vb_data_entry_biu_req_success_x;
+input            vb_data_entry_create_dp_vld_x;
+input            vb_data_entry_create_gateclk_en_x;
+input            vb_data_entry_create_vld_x;
+input            vb_data_entry_wd_sm_grnt_x;
+input   [1  :0]  vb_rcl_sm_addr_id;
+input            vb_rcl_sm_data_dcache_dirty;
+input            vb_rcl_sm_data_set_data_done_x;
+input            vb_rcl_sm_inv;
+input            vb_rcl_sm_lfb_create;
+input   [3  :0]  vb_wd_sm_data_bias;
+input            vb_wd_sm_data_pop_req_x;
+output           sdb_data_vld_x;
+output           sdb_entry_avail_x;
+output  [127:0]  sdb_entry_data_v;
+output           sdb_vld_x;
+output  [1  :0]  vb_data_entry_addr_id_v;
+output           vb_data_entry_biu_req_x;
+output           vb_data_entry_bypass_pop_x;
+output           vb_data_entry_dirty_x;
+output           vb_data_entry_inv_x;
+output           vb_data_entry_lfb_create_x;
+output           vb_data_entry_normal_pop_x;
+output           vb_data_entry_req_success_x;
+output           vb_data_entry_vld_x;
+output           vb_data_entry_wd_sm_req_x;
+output  [127:0]  vb_data_entry_write_data128_v;
+output           vb_sdb_data_entry_vld_x;
 
 // &Regs; @29
-reg              sdb_bypass_readonce;              
-reg     [3  :0]  sdb_return_order;                 
-reg     [1  :0]  sdb_start_bias;                   
-reg     [1  :0]  vb_data_entry_addr_id;            
-reg     [511:0]  vb_data_entry_data;               
-reg     [1  :0]  vb_data_entry_data_bias;          
-reg              vb_data_entry_dirty;              
-reg              vb_data_entry_inv;                
-reg              vb_data_entry_lfb_create;         
-reg     [3  :0]  vb_data_entry_next_state;         
-reg     [3  :0]  vb_data_entry_state;              
+reg              sdb_bypass_readonce;
+reg     [3  :0]  sdb_return_order;
+reg     [1  :0]  sdb_start_bias;
+reg     [1  :0]  vb_data_entry_addr_id;
+reg     [511:0]  vb_data_entry_data;
+reg     [1  :0]  vb_data_entry_data_bias;
+reg              vb_data_entry_dirty;
+reg              vb_data_entry_inv;
+reg              vb_data_entry_lfb_create;
+reg     [3  :0]  vb_data_entry_next_state;
+reg     [3  :0]  vb_data_entry_state;
 
 // &Wires; @30
-wire             cp0_lsu_icg_en;                   
-wire             cpurst_b;                         
-wire             forever_cpuclk;                   
-wire    [255:0]  ld_da_data256;                    
-wire             ld_da_vb_borrow_vb;               
-wire             ld_da_vb_borrow_vb_x;             
-wire             pad_yy_icg_scan_en;               
-wire             sdb_bypass_reverse;               
-wire    [1  :0]  sdb_create_data_order;            
-wire             sdb_create_en;                    
-wire             sdb_create_en_x;                  
-wire             sdb_data_vld;                     
-wire             sdb_data_vld_x;                   
-wire             sdb_entry_avail;                  
-wire             sdb_entry_avail_x;                
-wire    [127:0]  sdb_entry_data;                   
-wire    [3  :0]  sdb_entry_data_index;             
-wire    [127:0]  sdb_entry_data_v;                 
-wire             sdb_inv_en;                       
-wire             sdb_inv_en_x;                     
-wire             sdb_vld;                          
-wire             sdb_vld_x;                        
-wire             snq_data_bypass_hit;              
-wire             snq_data_bypass_hit_x;            
-wire             snq_vb_bypass_invalid;            
-wire             snq_vb_bypass_invalid_x;          
-wire             snq_vb_bypass_readonce;           
-wire             snq_vb_bypass_start;              
-wire             snq_vb_bypass_start_x;            
-wire             vb_data_bypass_pop;               
-wire    [1  :0]  vb_data_entry_addr_id_v;          
-wire             vb_data_entry_biu_req;            
-wire             vb_data_entry_biu_req_success;    
-wire             vb_data_entry_biu_req_success_x;  
-wire             vb_data_entry_biu_req_x;          
-wire             vb_data_entry_bypass_pop_x;       
-wire             vb_data_entry_clk;                
-wire             vb_data_entry_clk_en;             
-wire             vb_data_entry_create_clk;         
-wire             vb_data_entry_create_clk_en;      
-wire             vb_data_entry_create_dp_vld;      
-wire             vb_data_entry_create_dp_vld_x;    
-wire             vb_data_entry_create_gateclk_en;  
-wire             vb_data_entry_create_gateclk_en_x; 
-wire             vb_data_entry_create_vld;         
-wire             vb_data_entry_create_vld_x;       
-wire             vb_data_entry_data0_clk;          
-wire             vb_data_entry_data0_clk_en;       
-wire             vb_data_entry_data1_clk;          
-wire             vb_data_entry_data1_clk_en;       
-wire             vb_data_entry_dirty_x;            
-wire             vb_data_entry_inv_x;              
-wire             vb_data_entry_lfb_create_x;       
-wire             vb_data_entry_normal_pop_x;       
-wire             vb_data_entry_pass_data0_vld;     
-wire             vb_data_entry_pass_data1_vld;     
-wire             vb_data_entry_pop_vld;            
-wire             vb_data_entry_req_success;        
-wire             vb_data_entry_req_success_x;      
-wire             vb_data_entry_vld;                
-wire             vb_data_entry_vld_x;              
-wire             vb_data_entry_wd_sm_grnt;         
-wire             vb_data_entry_wd_sm_grnt_x;       
-wire             vb_data_entry_wd_sm_req;          
-wire             vb_data_entry_wd_sm_req_x;        
-wire    [127:0]  vb_data_entry_write_data128;      
-wire    [127:0]  vb_data_entry_write_data128_v;    
-wire             vb_data_normal_pop;               
-wire    [1  :0]  vb_rcl_sm_addr_id;                
-wire             vb_rcl_sm_data_dcache_dirty;      
-wire             vb_rcl_sm_data_set_data_done;     
-wire             vb_rcl_sm_data_set_data_done_x;   
-wire             vb_rcl_sm_inv;                    
-wire             vb_rcl_sm_lfb_create;             
-wire             vb_sdb_data_entry_vld;            
-wire             vb_sdb_data_entry_vld_x;          
-wire    [3  :0]  vb_wd_sm_data_bias;               
-wire             vb_wd_sm_data_pop_req;            
-wire             vb_wd_sm_data_pop_req_x;          
+wire             cp0_lsu_icg_en;
+wire             cpurst_b;
+wire             forever_cpuclk;
+wire    [255:0]  ld_da_data256;
+wire             ld_da_vb_borrow_vb;
+wire             ld_da_vb_borrow_vb_x;
+wire             pad_yy_icg_scan_en;
+wire             sdb_bypass_reverse;
+wire    [1  :0]  sdb_create_data_order;
+wire             sdb_create_en;
+wire             sdb_create_en_x;
+wire             sdb_data_vld;
+wire             sdb_data_vld_x;
+wire             sdb_entry_avail;
+wire             sdb_entry_avail_x;
+wire    [127:0]  sdb_entry_data;
+wire    [3  :0]  sdb_entry_data_index;
+wire    [127:0]  sdb_entry_data_v;
+wire             sdb_inv_en;
+wire             sdb_inv_en_x;
+wire             sdb_vld;
+wire             sdb_vld_x;
+wire             snq_data_bypass_hit;
+wire             snq_data_bypass_hit_x;
+wire             snq_vb_bypass_invalid;
+wire             snq_vb_bypass_invalid_x;
+wire             snq_vb_bypass_readonce;
+wire             snq_vb_bypass_start;
+wire             snq_vb_bypass_start_x;
+wire             vb_data_bypass_pop;
+wire    [1  :0]  vb_data_entry_addr_id_v;
+wire             vb_data_entry_biu_req;
+wire             vb_data_entry_biu_req_success;
+wire             vb_data_entry_biu_req_success_x;
+wire             vb_data_entry_biu_req_x;
+wire             vb_data_entry_bypass_pop_x;
+wire             vb_data_entry_clk;
+wire             vb_data_entry_clk_en;
+wire             vb_data_entry_create_clk;
+wire             vb_data_entry_create_clk_en;
+wire             vb_data_entry_create_dp_vld;
+wire             vb_data_entry_create_dp_vld_x;
+wire             vb_data_entry_create_gateclk_en;
+wire             vb_data_entry_create_gateclk_en_x;
+wire             vb_data_entry_create_vld;
+wire             vb_data_entry_create_vld_x;
+wire             vb_data_entry_data0_clk;
+wire             vb_data_entry_data0_clk_en;
+wire             vb_data_entry_data1_clk;
+wire             vb_data_entry_data1_clk_en;
+wire             vb_data_entry_dirty_x;
+wire             vb_data_entry_inv_x;
+wire             vb_data_entry_lfb_create_x;
+wire             vb_data_entry_normal_pop_x;
+wire             vb_data_entry_pass_data0_vld;
+wire             vb_data_entry_pass_data1_vld;
+wire             vb_data_entry_pop_vld;
+wire             vb_data_entry_req_success;
+wire             vb_data_entry_req_success_x;
+wire             vb_data_entry_vld;
+wire             vb_data_entry_vld_x;
+wire             vb_data_entry_wd_sm_grnt;
+wire             vb_data_entry_wd_sm_grnt_x;
+wire             vb_data_entry_wd_sm_req;
+wire             vb_data_entry_wd_sm_req_x;
+wire    [127:0]  vb_data_entry_write_data128;
+wire    [127:0]  vb_data_entry_write_data128_v;
+wire             vb_data_normal_pop;
+wire    [1  :0]  vb_rcl_sm_addr_id;
+wire             vb_rcl_sm_data_dcache_dirty;
+wire             vb_rcl_sm_data_set_data_done;
+wire             vb_rcl_sm_data_set_data_done_x;
+wire             vb_rcl_sm_inv;
+wire             vb_rcl_sm_lfb_create;
+wire             vb_sdb_data_entry_vld;
+wire             vb_sdb_data_entry_vld_x;
+wire    [3  :0]  vb_wd_sm_data_bias;
+wire             vb_wd_sm_data_pop_req;
+wire             vb_wd_sm_data_pop_req_x;
 
 
 parameter IDLE            = 4'b0000,
@@ -210,7 +210,7 @@ parameter IDLE            = 4'b0000,
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 //-----------entry gateclk--------------
 //normal gateclk ,open when create || entry_vld
@@ -487,10 +487,10 @@ assign vb_data_entry_write_data128[127:0] = {128{vb_wd_sm_data_bias[0]}}  & vb_d
 //==========================================================
 //                 Snoop signal
 //==========================================================
-assign vb_sdb_data_entry_vld = |vb_data_entry_state[3:2]; 
+assign vb_sdb_data_entry_vld = |vb_data_entry_state[3:2];
 
-assign sdb_vld         = !vb_data_entry_state[3] && vb_data_entry_state[2]; 
-assign sdb_data_vld    = (vb_data_entry_state[3:0] == REQ_CD_CHANNEL); 
+assign sdb_vld         = !vb_data_entry_state[3] && vb_data_entry_state[2];
+assign sdb_data_vld    = (vb_data_entry_state[3:0] == REQ_CD_CHANNEL);
 assign sdb_entry_avail = !vb_sdb_data_entry_vld && !vb_data_entry_create_vld;
 
 //snoop data
@@ -524,7 +524,7 @@ assign vb_data_bypass_pop = (vb_data_entry_state[3:0] == WAIT_REQ)
 
 //when req data success,should ack addr entry not bypass
 assign vb_data_normal_pop = (vb_data_entry_state[3:0] == GRNT_WRITE_DATA)
-                            && vb_data_entry_pop_vld; 
+                            && vb_data_entry_pop_vld;
 //==========================================================
 //                 Generate interface
 //==========================================================

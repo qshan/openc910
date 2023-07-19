@@ -40,60 +40,60 @@ module ct_ebiu_cawt_entry(
 );
 
 // &Ports; @25
-input           cawt_create_dp_en_x;        
-input           cawt_create_en_x;           
-input           cawt_ctrl_clk;              
-input           cawt_pop_en_x;              
-input           ciu_icg_en;                 
-input           cpurst_b;                   
-input   [39:0]  ebiuif_ebiu_araddr;         
-input           forever_cpuclk;             
-input           pad_yy_icg_scan_en;         
-input   [7 :0]  snb0_yy_snpext_index;       
-input   [7 :0]  snb1_yy_snpext_index;       
-input   [39:0]  vb_ebiu_awaddr;             
-input   [2 :0]  vb_ebiu_mid;                
-output          ca_rd_addr_hit_cawt_x;      
-output          ca_wr_addr_hit_cawt_x;      
-output          cawt_piu0_sel_x;            
-output          cawt_piu1_sel_x;            
-output          cawt_piu2_sel_x;            
-output          cawt_piu3_sel_x;            
-output          cawt_vld_x;                 
-output          snb0_snpext_addr_hit_cawt_x; 
-output          snb1_snpext_addr_hit_cawt_x; 
+input           cawt_create_dp_en_x;
+input           cawt_create_en_x;
+input           cawt_ctrl_clk;
+input           cawt_pop_en_x;
+input           ciu_icg_en;
+input           cpurst_b;
+input   [39:0]  ebiuif_ebiu_araddr;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input   [7 :0]  snb0_yy_snpext_index;
+input   [7 :0]  snb1_yy_snpext_index;
+input   [39:0]  vb_ebiu_awaddr;
+input   [2 :0]  vb_ebiu_mid;
+output          ca_rd_addr_hit_cawt_x;
+output          ca_wr_addr_hit_cawt_x;
+output          cawt_piu0_sel_x;
+output          cawt_piu1_sel_x;
+output          cawt_piu2_sel_x;
+output          cawt_piu3_sel_x;
+output          cawt_vld_x;
+output          snb0_snpext_addr_hit_cawt_x;
+output          snb1_snpext_addr_hit_cawt_x;
 
 // &Regs; @26
-reg     [7 :0]  cawt_addr;                  
-reg     [2 :0]  cawt_mid;                   
-reg             cawt_vld;                   
+reg     [7 :0]  cawt_addr;
+reg     [2 :0]  cawt_mid;
+reg             cawt_vld;
 
 // &Wires; @27
-wire            ca_rd_addr_hit_cawt_x;      
-wire            ca_wr_addr_hit_cawt_x;      
-wire            cawt_clk;                   
-wire            cawt_clk_en;                
-wire            cawt_create_dp_en_x;        
-wire            cawt_create_en_x;           
-wire            cawt_ctrl_clk;              
-wire    [3 :0]  cawt_mid_sel;               
-wire            cawt_piu0_sel_x;            
-wire            cawt_piu1_sel_x;            
-wire            cawt_piu2_sel_x;            
-wire            cawt_piu3_sel_x;            
-wire            cawt_pop_en_x;              
-wire            cawt_vld_x;                 
-wire            ciu_icg_en;                 
-wire            cpurst_b;                   
-wire    [39:0]  ebiuif_ebiu_araddr;         
-wire            forever_cpuclk;             
-wire            pad_yy_icg_scan_en;         
-wire            snb0_snpext_addr_hit_cawt_x; 
-wire    [7 :0]  snb0_yy_snpext_index;       
-wire            snb1_snpext_addr_hit_cawt_x; 
-wire    [7 :0]  snb1_yy_snpext_index;       
-wire    [39:0]  vb_ebiu_awaddr;             
-wire    [2 :0]  vb_ebiu_mid;                
+wire            ca_rd_addr_hit_cawt_x;
+wire            ca_wr_addr_hit_cawt_x;
+wire            cawt_clk;
+wire            cawt_clk_en;
+wire            cawt_create_dp_en_x;
+wire            cawt_create_en_x;
+wire            cawt_ctrl_clk;
+wire    [3 :0]  cawt_mid_sel;
+wire            cawt_piu0_sel_x;
+wire            cawt_piu1_sel_x;
+wire            cawt_piu2_sel_x;
+wire            cawt_piu3_sel_x;
+wire            cawt_pop_en_x;
+wire            cawt_vld_x;
+wire            ciu_icg_en;
+wire            cpurst_b;
+wire    [39:0]  ebiuif_ebiu_araddr;
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
+wire            snb0_snpext_addr_hit_cawt_x;
+wire    [7 :0]  snb0_yy_snpext_index;
+wire            snb1_snpext_addr_hit_cawt_x;
+wire    [7 :0]  snb1_yy_snpext_index;
+wire    [39:0]  vb_ebiu_awaddr;
+wire    [2 :0]  vb_ebiu_mid;
 
 
 parameter ADDRW = `PA_WIDTH;
@@ -102,7 +102,7 @@ parameter ADDRW = `PA_WIDTH;
 //     CA Write Table CA_WT(WT)
 //1. CA_WT : non-cacheable write
 //entry content:
-//| vld | addr 
+//| vld | addr
 //======================================
 //CA_WT vld
 
@@ -110,9 +110,9 @@ always @(posedge cawt_ctrl_clk or negedge cpurst_b)
 begin
   if(~cpurst_b)
     cawt_vld   <= 1'b0;
-  else if(cawt_create_en_x) 
+  else if(cawt_create_en_x)
     cawt_vld <= 1'b1;
-  else if(cawt_pop_en_x) 
+  else if(cawt_pop_en_x)
     cawt_vld <= 1'b0;
 end
 

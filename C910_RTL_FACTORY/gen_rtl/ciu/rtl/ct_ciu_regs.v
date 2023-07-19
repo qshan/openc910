@@ -69,172 +69,172 @@ module ct_ciu_regs(
 );
 
 // &Ports; @23
-input           core0_fifo_rst_b;          
-input           core1_fifo_rst_b;          
-input           cpurst_b;                  
-input           forever_cpuclk;            
-input   [3 :0]  l2cif0_regs_read_acc_inc;  
-input   [3 :0]  l2cif0_regs_read_miss_inc; 
-input   [3 :0]  l2cif0_regs_write_acc_inc; 
-input   [3 :0]  l2cif0_regs_write_miss_inc; 
-input   [3 :0]  l2cif1_regs_read_acc_inc;  
-input   [3 :0]  l2cif1_regs_read_miss_inc; 
-input   [3 :0]  l2cif1_regs_write_acc_inc; 
-input   [3 :0]  l2cif1_regs_write_miss_inc; 
-input           pad_yy_icg_scan_en;        
-input   [3 :0]  piu0_regs_hpcp_cnt_en;     
-input   [15:0]  piu0_regs_op;              
-input           piu0_regs_sel;             
-input   [63:0]  piu0_regs_wdata;           
-input   [3 :0]  piu1_regs_hpcp_cnt_en;     
-input   [15:0]  piu1_regs_op;              
-input           piu1_regs_sel;             
-input   [63:0]  piu1_regs_wdata;           
-input   [15:0]  piu2_regs_op;              
-input           piu2_regs_sel;             
-input   [63:0]  piu2_regs_wdata;           
-input   [15:0]  piu3_regs_op;              
-input           piu3_regs_sel;             
-input   [63:0]  piu3_regs_wdata;           
-output          ciu_apbif_had_pctrace_inv; 
-output          ciu_chr2_bar_dis;          
-output          ciu_chr2_dvm_dis;          
-output          ciu_chr2_sf_dis;           
-output          ciu_global_icg_en;         
-output          ciu_icg_en;                
-output  [2 :0]  ciu_l2c_data_latency;      
-output          ciu_l2c_data_setup;        
-output  [1 :0]  ciu_l2c_iprf;              
-output          ciu_l2c_rst_req;           
-output  [2 :0]  ciu_l2c_tag_latency;       
-output          ciu_l2c_tag_setup;         
-output          ciu_l2c_tprf;              
-output          ciu_so_ostd_dis;           
-output          ciu_sysio_icg_en;          
-output  [3 :0]  ciu_xx_smpen;              
-output          l2c_icg_en;                
-output          l2c_plic_ecc_int_vld;      
-output          regs_apbif_icg_en;         
-output          regs_piu0_cmplt;           
-output  [3 :0]  regs_piu0_hpcp_l2of_int;   
-output          regs_piu1_cmplt;           
-output  [3 :0]  regs_piu1_hpcp_l2of_int;   
-output          regs_piu2_cmplt;           
-output          regs_piu3_cmplt;           
-output  [63:0]  regs_piux_rdata;           
+input           core0_fifo_rst_b;
+input           core1_fifo_rst_b;
+input           cpurst_b;
+input           forever_cpuclk;
+input   [3 :0]  l2cif0_regs_read_acc_inc;
+input   [3 :0]  l2cif0_regs_read_miss_inc;
+input   [3 :0]  l2cif0_regs_write_acc_inc;
+input   [3 :0]  l2cif0_regs_write_miss_inc;
+input   [3 :0]  l2cif1_regs_read_acc_inc;
+input   [3 :0]  l2cif1_regs_read_miss_inc;
+input   [3 :0]  l2cif1_regs_write_acc_inc;
+input   [3 :0]  l2cif1_regs_write_miss_inc;
+input           pad_yy_icg_scan_en;
+input   [3 :0]  piu0_regs_hpcp_cnt_en;
+input   [15:0]  piu0_regs_op;
+input           piu0_regs_sel;
+input   [63:0]  piu0_regs_wdata;
+input   [3 :0]  piu1_regs_hpcp_cnt_en;
+input   [15:0]  piu1_regs_op;
+input           piu1_regs_sel;
+input   [63:0]  piu1_regs_wdata;
+input   [15:0]  piu2_regs_op;
+input           piu2_regs_sel;
+input   [63:0]  piu2_regs_wdata;
+input   [15:0]  piu3_regs_op;
+input           piu3_regs_sel;
+input   [63:0]  piu3_regs_wdata;
+output          ciu_apbif_had_pctrace_inv;
+output          ciu_chr2_bar_dis;
+output          ciu_chr2_dvm_dis;
+output          ciu_chr2_sf_dis;
+output          ciu_global_icg_en;
+output          ciu_icg_en;
+output  [2 :0]  ciu_l2c_data_latency;
+output          ciu_l2c_data_setup;
+output  [1 :0]  ciu_l2c_iprf;
+output          ciu_l2c_rst_req;
+output  [2 :0]  ciu_l2c_tag_latency;
+output          ciu_l2c_tag_setup;
+output          ciu_l2c_tprf;
+output          ciu_so_ostd_dis;
+output          ciu_sysio_icg_en;
+output  [3 :0]  ciu_xx_smpen;
+output          l2c_icg_en;
+output          l2c_plic_ecc_int_vld;
+output          regs_apbif_icg_en;
+output          regs_piu0_cmplt;
+output  [3 :0]  regs_piu0_hpcp_l2of_int;
+output          regs_piu1_cmplt;
+output  [3 :0]  regs_piu1_hpcp_l2of_int;
+output          regs_piu2_cmplt;
+output          regs_piu3_cmplt;
+output  [63:0]  regs_piux_rdata;
 
 // &Regs; @24
-reg     [10:0]  chr2_data;                 
-reg     [2 :0]  ciu_ccr2_dltncy;           
-reg             ciu_ccr2_dsetup;           
-reg     [1 :0]  ciu_ccr2_iprf;             
-reg     [2 :0]  ciu_ccr2_tltncy;           
-reg             ciu_ccr2_tprf;             
-reg             ciu_ccr2_tsetup;           
-reg     [63:0]  private_csr_value;         
-reg     [1 :0]  regs_cur_state;            
-reg     [63:0]  regs_dout;                 
-reg     [1 :0]  regs_next_state;           
-reg     [11:0]  regs_op;                   
-reg     [63:0]  regs_rdata;                
-reg     [3 :0]  regs_sel;                  
-reg     [3 :0]  regs_sel_ff;               
-reg     [63:0]  regs_wdata;                
-reg             rvba_rst;                  
+reg     [10:0]  chr2_data;
+reg     [2 :0]  ciu_ccr2_dltncy;
+reg             ciu_ccr2_dsetup;
+reg     [1 :0]  ciu_ccr2_iprf;
+reg     [2 :0]  ciu_ccr2_tltncy;
+reg             ciu_ccr2_tprf;
+reg             ciu_ccr2_tsetup;
+reg     [63:0]  private_csr_value;
+reg     [1 :0]  regs_cur_state;
+reg     [63:0]  regs_dout;
+reg     [1 :0]  regs_next_state;
+reg     [11:0]  regs_op;
+reg     [63:0]  regs_rdata;
+reg     [3 :0]  regs_sel;
+reg     [3 :0]  regs_sel_ff;
+reg     [63:0]  regs_wdata;
+reg             rvba_rst;
 
 // &Wires; @25
-wire            ccr2_clk;                  
-wire            ccr2_clk_en;               
-wire            ccr2_wen;                  
-wire            chr2_clk;                  
-wire            chr2_clk_en;               
-wire            ciu_apbif_had_pctrace_inv; 
-wire    [63:0]  ciu_ccr2;                  
-wire            ciu_ccr2_eccen;            
-wire    [63:0]  ciu_cer2;                  
-wire    [63:0]  ciu_chr2;                  
-wire            ciu_chr2_bar_dis;          
-wire            ciu_chr2_dvm_dis;          
-wire            ciu_chr2_sf_dis;           
-wire    [63:0]  ciu_eir2;                  
-wire            ciu_global_icg_en;         
-wire            ciu_icg_en;                
-wire    [2 :0]  ciu_l2c_data_latency;      
-wire            ciu_l2c_data_setup;        
-wire    [1 :0]  ciu_l2c_iprf;              
-wire            ciu_l2c_rst_req;           
-wire    [2 :0]  ciu_l2c_tag_latency;       
-wire            ciu_l2c_tag_setup;         
-wire            ciu_l2c_tprf;              
-wire            ciu_so_ostd_dis;           
-wire            ciu_sysio_icg_en;          
-wire    [3 :0]  ciu_xx_smpen;              
-wire    [63:0]  core0_csr_value;           
-wire            core0_fifo_rst_b;          
-wire    [3 :0]  core0_hpcp_cnt_en;         
-wire    [3 :0]  core0_l2of_int;            
-wire    [63:0]  core1_csr_value;           
-wire            core1_fifo_rst_b;          
-wire    [3 :0]  core1_hpcp_cnt_en;         
-wire    [3 :0]  core1_l2of_int;            
-wire    [63:0]  core2_csr_value;           
-wire    [63:0]  core3_csr_value;           
-wire            cpurst_b;                  
-wire            ctrl_clk;                  
-wire            ctrl_clk_en;               
-wire            forever_cpuclk;            
-wire            hint2_wen;                 
-wire            l2c_icg_en;                
-wire            l2c_plic_ecc_int_vld;      
-wire    [3 :0]  l2cif0_regs_read_acc_inc;  
-wire    [3 :0]  l2cif0_regs_read_miss_inc; 
-wire    [3 :0]  l2cif0_regs_write_acc_inc; 
-wire    [3 :0]  l2cif0_regs_write_miss_inc; 
-wire    [3 :0]  l2cif1_regs_read_acc_inc;  
-wire    [3 :0]  l2cif1_regs_read_miss_inc; 
-wire    [3 :0]  l2cif1_regs_write_acc_inc; 
-wire    [3 :0]  l2cif1_regs_write_miss_inc; 
-wire            pad_yy_icg_scan_en;        
-wire    [3 :0]  piu0_regs_hpcp_cnt_en;     
-wire    [15:0]  piu0_regs_op;              
-wire            piu0_regs_sel;             
-wire    [63:0]  piu0_regs_wdata;           
-wire    [3 :0]  piu1_regs_hpcp_cnt_en;     
-wire    [15:0]  piu1_regs_op;              
-wire            piu1_regs_sel;             
-wire    [63:0]  piu1_regs_wdata;           
-wire    [15:0]  piu2_regs_op;              
-wire            piu2_regs_sel;             
-wire    [63:0]  piu2_regs_wdata;           
-wire    [15:0]  piu3_regs_op;              
-wire            piu3_regs_sel;             
-wire    [63:0]  piu3_regs_wdata;           
-wire            rdata_clk;                 
-wire            rdata_clk_en;              
-wire            regs_apbif_icg_en;         
-wire            regs_csrrc;                
-wire            regs_csrrs;                
-wire            regs_csrrw;                
-wire            regs_cur_idle;             
-wire            regs_cur_read;             
-wire            regs_cur_write;            
-wire    [3 :0]  regs_idx;                  
-wire    [3 :0]  regs_l2of_wen;             
-wire            regs_piu0_cmplt;           
-wire    [3 :0]  regs_piu0_hpcp_l2of_int;   
-wire            regs_piu1_cmplt;           
-wire    [3 :0]  regs_piu1_hpcp_l2of_int;   
-wire            regs_piu2_cmplt;           
-wire            regs_piu3_cmplt;           
-wire            regs_piu_cmplt;            
-wire    [63:0]  regs_piux_rdata;           
-wire            regs_req_vld;              
-wire    [3 :0]  regs_sel_final;            
-wire    [3 :0]  regs_sel_raw;              
-wire    [63:0]  regs_wdata_final;          
-wire            regs_wen;                  
-wire            regs_write;                
-wire    [3 :0]  smpen;                     
+wire            ccr2_clk;
+wire            ccr2_clk_en;
+wire            ccr2_wen;
+wire            chr2_clk;
+wire            chr2_clk_en;
+wire            ciu_apbif_had_pctrace_inv;
+wire    [63:0]  ciu_ccr2;
+wire            ciu_ccr2_eccen;
+wire    [63:0]  ciu_cer2;
+wire    [63:0]  ciu_chr2;
+wire            ciu_chr2_bar_dis;
+wire            ciu_chr2_dvm_dis;
+wire            ciu_chr2_sf_dis;
+wire    [63:0]  ciu_eir2;
+wire            ciu_global_icg_en;
+wire            ciu_icg_en;
+wire    [2 :0]  ciu_l2c_data_latency;
+wire            ciu_l2c_data_setup;
+wire    [1 :0]  ciu_l2c_iprf;
+wire            ciu_l2c_rst_req;
+wire    [2 :0]  ciu_l2c_tag_latency;
+wire            ciu_l2c_tag_setup;
+wire            ciu_l2c_tprf;
+wire            ciu_so_ostd_dis;
+wire            ciu_sysio_icg_en;
+wire    [3 :0]  ciu_xx_smpen;
+wire    [63:0]  core0_csr_value;
+wire            core0_fifo_rst_b;
+wire    [3 :0]  core0_hpcp_cnt_en;
+wire    [3 :0]  core0_l2of_int;
+wire    [63:0]  core1_csr_value;
+wire            core1_fifo_rst_b;
+wire    [3 :0]  core1_hpcp_cnt_en;
+wire    [3 :0]  core1_l2of_int;
+wire    [63:0]  core2_csr_value;
+wire    [63:0]  core3_csr_value;
+wire            cpurst_b;
+wire            ctrl_clk;
+wire            ctrl_clk_en;
+wire            forever_cpuclk;
+wire            hint2_wen;
+wire            l2c_icg_en;
+wire            l2c_plic_ecc_int_vld;
+wire    [3 :0]  l2cif0_regs_read_acc_inc;
+wire    [3 :0]  l2cif0_regs_read_miss_inc;
+wire    [3 :0]  l2cif0_regs_write_acc_inc;
+wire    [3 :0]  l2cif0_regs_write_miss_inc;
+wire    [3 :0]  l2cif1_regs_read_acc_inc;
+wire    [3 :0]  l2cif1_regs_read_miss_inc;
+wire    [3 :0]  l2cif1_regs_write_acc_inc;
+wire    [3 :0]  l2cif1_regs_write_miss_inc;
+wire            pad_yy_icg_scan_en;
+wire    [3 :0]  piu0_regs_hpcp_cnt_en;
+wire    [15:0]  piu0_regs_op;
+wire            piu0_regs_sel;
+wire    [63:0]  piu0_regs_wdata;
+wire    [3 :0]  piu1_regs_hpcp_cnt_en;
+wire    [15:0]  piu1_regs_op;
+wire            piu1_regs_sel;
+wire    [63:0]  piu1_regs_wdata;
+wire    [15:0]  piu2_regs_op;
+wire            piu2_regs_sel;
+wire    [63:0]  piu2_regs_wdata;
+wire    [15:0]  piu3_regs_op;
+wire            piu3_regs_sel;
+wire    [63:0]  piu3_regs_wdata;
+wire            rdata_clk;
+wire            rdata_clk_en;
+wire            regs_apbif_icg_en;
+wire            regs_csrrc;
+wire            regs_csrrs;
+wire            regs_csrrw;
+wire            regs_cur_idle;
+wire            regs_cur_read;
+wire            regs_cur_write;
+wire    [3 :0]  regs_idx;
+wire    [3 :0]  regs_l2of_wen;
+wire            regs_piu0_cmplt;
+wire    [3 :0]  regs_piu0_hpcp_l2of_int;
+wire            regs_piu1_cmplt;
+wire    [3 :0]  regs_piu1_hpcp_l2of_int;
+wire            regs_piu2_cmplt;
+wire            regs_piu3_cmplt;
+wire            regs_piu_cmplt;
+wire    [63:0]  regs_piux_rdata;
+wire            regs_req_vld;
+wire    [3 :0]  regs_sel_final;
+wire    [3 :0]  regs_sel_raw;
+wire    [63:0]  regs_wdata_final;
+wire            regs_wen;
+wire            regs_write;
+wire    [3 :0]  smpen;
 
 
 parameter CCR2  = 4'h0;
@@ -272,11 +272,11 @@ assign regs_sel_raw[3:0] = {piu3_regs_sel,piu2_regs_sel,piu1_regs_sel,piu0_regs_
 always @( regs_sel_raw[3:0])
 begin
   casez(regs_sel_raw[3:0])
-    4'b1??? : regs_sel[3:0] = 4'b1000; 
+    4'b1??? : regs_sel[3:0] = 4'b1000;
     4'b01?? : regs_sel[3:0] = 4'b0100;
-    4'b001? : regs_sel[3:0] = 4'b0010; 
-    4'b0001 : regs_sel[3:0] = 4'b0001; 
-    default : regs_sel[3:0] = 4'b0000; 
+    4'b001? : regs_sel[3:0] = 4'b0010;
+    4'b0001 : regs_sel[3:0] = 4'b0001;
+    default : regs_sel[3:0] = 4'b0000;
   endcase
 // &CombEnd; @66
 end
@@ -331,7 +331,7 @@ always@(posedge ctrl_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)
     regs_cur_state[1:0] <= IDLE;
-  else 
+  else
     regs_cur_state[1:0] <= regs_next_state[1:0];
 end
 
@@ -344,7 +344,7 @@ begin
     IDLE: begin
       if (regs_req_vld)
         regs_next_state = READ;
-      else 
+      else
         regs_next_state = IDLE;
     end
     READ: begin
@@ -408,10 +408,10 @@ always @( core1_csr_value[63:0]
        or regs_sel_final[3:0])
 begin
   case(regs_sel_final[3:0])
-    4'b0001 : private_csr_value[63:0] = core0_csr_value[63:0]; 
-    4'b0010 : private_csr_value[63:0] = core1_csr_value[63:0]; 
-    4'b0100 : private_csr_value[63:0] = core2_csr_value[63:0]; 
-    4'b1000 : private_csr_value[63:0] = core3_csr_value[63:0]; 
+    4'b0001 : private_csr_value[63:0] = core0_csr_value[63:0];
+    4'b0010 : private_csr_value[63:0] = core1_csr_value[63:0];
+    4'b0100 : private_csr_value[63:0] = core2_csr_value[63:0];
+    4'b1000 : private_csr_value[63:0] = core3_csr_value[63:0];
     default : private_csr_value[63:0] = 64'b0;
   endcase
 // &CombEnd; @171
@@ -437,11 +437,11 @@ always @(posedge chr2_clk or negedge cpurst_b)
 begin
   if(~cpurst_b)
     chr2_data[10:0] <= 11'b0;
-  else if (hint2_wen) 
+  else if (hint2_wen)
     chr2_data[10:0] <= regs_wdata_final[10:0];
 end
 
-assign ciu_chr2[63:0] = {53'b0, chr2_data[10:0]}; 
+assign ciu_chr2[63:0] = {53'b0, chr2_data[10:0]};
 
 assign ciu_icg_en           = chr2_data[1];
 assign l2c_icg_en           = chr2_data[6];
@@ -462,7 +462,7 @@ assign ciu_so_ostd_dis      = chr2_data[10];
 assign ciu_eir2[63:0] = 64'b0;
 
 //======================================
-//          CCR2 
+//          CCR2
 //reg content:
 //| 31 |30-29|28:26|  25  |24-22 |21-20|
 //|TPRF| IPRF| res |TSETUP|TLTNCY| res |
@@ -563,10 +563,10 @@ assign ciu_l2c_tprf              = ciu_ccr2_tprf;
 assign ciu_l2c_tag_latency[2:0]  = ciu_ccr2_tltncy[2:0];
 assign ciu_l2c_data_latency[2:0] = ciu_ccr2_dltncy[2:0];
 assign ciu_l2c_tag_setup         = ciu_ccr2_tsetup;
-assign ciu_l2c_data_setup        = ciu_ccr2_dsetup; 
+assign ciu_l2c_data_setup        = ciu_ccr2_dsetup;
 
 //======================================
-//          CER2 
+//          CER2
 // | 31      |
 // | ECC_ERR |
 //======================================

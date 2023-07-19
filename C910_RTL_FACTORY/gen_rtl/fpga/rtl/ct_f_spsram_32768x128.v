@@ -62,7 +62,7 @@ generate
     assign ram_wen_vec[i] = !CEN & !WEN[i]  & !GWEN;
   end
 endgenerate
-generate 
+generate
   for(i=0; i<DATA_WIDTH; i=i+1) begin: RAM_INSTANCE
     fpga_ram #(WRAP_SIZE,ADDR_WIDTH) ram_instance(
       .PortAClk (CLK),

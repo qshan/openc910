@@ -37,57 +37,57 @@ module ct_ifu_sfp_entry(
 );
 
 // &Ports; @23
-input           cp0_ifu_icg_en;       
-input           cp0_ifu_nsfe;         
-input           cp0_yy_clk_en;        
-input           cpurst_b;             
-input           entry_bar_pc_updt_bit; 
-input           entry_clk_en_x;       
-input           entry_cnt_updt_bit;   
-input           entry_sf_pc_updt_bit; 
-input   [24:0]  entry_write_data;     
-input           entry_write_en_x;     
-input           forever_cpuclk;       
-input           pad_yy_icg_scan_en;   
-input           rtu_ifu_chgflw_vld;   
-input           sfp_vl_pred_en;       
-output  [11:0]  entry_bar_pc_v;       
-output  [1 :0]  entry_cnt_v;          
-output  [7 :0]  entry_hi_pc_v;        
-output  [11:0]  entry_sf_pc_v;        
-output          entry_type_x;         
+input           cp0_ifu_icg_en;
+input           cp0_ifu_nsfe;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           entry_bar_pc_updt_bit;
+input           entry_clk_en_x;
+input           entry_cnt_updt_bit;
+input           entry_sf_pc_updt_bit;
+input   [24:0]  entry_write_data;
+input           entry_write_en_x;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input           rtu_ifu_chgflw_vld;
+input           sfp_vl_pred_en;
+output  [11:0]  entry_bar_pc_v;
+output  [1 :0]  entry_cnt_v;
+output  [7 :0]  entry_hi_pc_v;
+output  [11:0]  entry_sf_pc_v;
+output          entry_type_x;
 
 // &Regs; @24
-reg     [11:0]  entry_bar_pc_v;       
-reg     [1 :0]  entry_cnt_pre;        
-reg     [1 :0]  entry_cnt_v;          
-reg     [7 :0]  entry_hi_pc_v;        
-reg             entry_miss_state;     
-reg     [11:0]  entry_sf_pc_v;        
-reg             entry_type_x;         
+reg     [11:0]  entry_bar_pc_v;
+reg     [1 :0]  entry_cnt_pre;
+reg     [1 :0]  entry_cnt_v;
+reg     [7 :0]  entry_hi_pc_v;
+reg             entry_miss_state;
+reg     [11:0]  entry_sf_pc_v;
+reg             entry_type_x;
 
 // &Wires; @25
-wire    [1 :0]  cnt_add;              
-wire    [1 :0]  cnt_sub;              
-wire            cp0_ifu_icg_en;       
-wire            cp0_ifu_nsfe;         
-wire            cp0_yy_clk_en;        
-wire            cpurst_b;             
-wire            entry_bar_pc_updt_bit; 
-wire            entry_bar_pc_updt_en; 
-wire            entry_clk_en_x;       
-wire            entry_cnt_updt_bit;   
-wire            entry_cnt_updt_en;    
-wire            entry_sf_pc_updt_bit; 
-wire            entry_sf_pc_updt_en;  
-wire    [24:0]  entry_write_data;     
-wire            entry_write_en_x;     
-wire            forever_cpuclk;       
-wire            pad_yy_icg_scan_en;   
-wire            rtu_ifu_chgflw_vld;   
-wire            sfp_entry_clk;        
-wire            sfp_entry_clk_en;     
-wire            sfp_vl_pred_en;       
+wire    [1 :0]  cnt_add;
+wire    [1 :0]  cnt_sub;
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_nsfe;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            entry_bar_pc_updt_bit;
+wire            entry_bar_pc_updt_en;
+wire            entry_clk_en_x;
+wire            entry_cnt_updt_bit;
+wire            entry_cnt_updt_en;
+wire            entry_sf_pc_updt_bit;
+wire            entry_sf_pc_updt_en;
+wire    [24:0]  entry_write_data;
+wire            entry_write_en_x;
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
+wire            rtu_ifu_chgflw_vld;
+wire            sfp_entry_clk;
+wire            sfp_entry_clk_en;
+wire            sfp_vl_pred_en;
 
 
 //==========================================================
@@ -117,14 +117,14 @@ assign sfp_entry_clk_en = entry_clk_en_x
                        && (cp0_ifu_nsfe || sfp_vl_pred_en);
 
 
-assign entry_sf_pc_updt_en = entry_sf_pc_updt_bit 
+assign entry_sf_pc_updt_en = entry_sf_pc_updt_bit
                           && entry_write_en_x
                           && (cp0_ifu_nsfe || sfp_vl_pred_en);
 
 always @(posedge sfp_entry_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
-  begin 
+  begin
     entry_hi_pc_v[7:0]  <= 8'b0;
     entry_sf_pc_v[11:0] <= 12'b0;
     entry_type_x        <= 1'b0;
@@ -159,7 +159,7 @@ begin
 end
 
 
-assign entry_bar_pc_updt_en = entry_bar_pc_updt_bit 
+assign entry_bar_pc_updt_en = entry_bar_pc_updt_bit
                            && entry_write_en_x
                            && (cp0_ifu_nsfe || sfp_vl_pred_en);
 
@@ -204,7 +204,7 @@ assign cnt_sub[1:0] = (entry_cnt_v[1:0] == 2'b00)
                     ?  2'b00
                     :  entry_cnt_v[1:0] - 2'b01;
 
-assign entry_cnt_updt_en = entry_cnt_updt_bit 
+assign entry_cnt_updt_en = entry_cnt_updt_bit
                         && entry_write_en_x
                         && (cp0_ifu_nsfe || sfp_vl_pred_en);
 

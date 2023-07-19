@@ -70,12 +70,12 @@ limitations under the License.
  *                              [0]: wic_ctl_en
  *  0x4                       counter_load
  *  0x8                       lp_mode_sel
- *                              [4]: pwr_off 
+ *                              [4]: pwr_off
  *                              [3]: ret_pwr_off
  *                              [2]: clk_off
  *                              [1]: clk_slow
  *                              [0]: normal
- *                             
+ *
 */
 #define SMART_PMU_BASE_ADDR        ((unsigned int *) 0x10016000)
 #define SMART_PMU_CTRL_REG_ADDR    ((unsigned int *) 0x10016000)
@@ -98,9 +98,9 @@ int main (void)
   unsigned int vt_addr;
   volatile unsigned int* vt_addr_ptr;
   volatile unsigned int int_tmp;
-  volatile unsigned int csr_mexstatus_val; 
-  volatile unsigned int mie_meie_val; 
-  
+  volatile unsigned int csr_mexstatus_val;
+  volatile unsigned int mie_meie_val;
+
   // Disable Interrupt and Cache globally
   asm(
     "csrci mstatus, 0x8\n\t"
@@ -113,7 +113,7 @@ int main (void)
 
   printf("\n Disable APB timers ... \n");
 
-  // Disable and clear the four timers connected to 
+  // Disable and clear the four timers connected to
   // the PLIC external interrupt pins
   *(SMART_TIMER_1_CTRL) = 0x2;
   *(SMART_TIMER_2_CTRL) = 0x2;
@@ -125,7 +125,7 @@ int main (void)
   int_tmp = *(SMART_TIMER_CLEAR_ALL);   // Clear all the pending INT
 
   printf("\n Reprogram some vector table entries ... \n");
-  // Program the vector table 
+  // Program the vector table
   asm(
     "la %[addr], vector_table+128\n\t"
     : [addr]"=r"(vt_addr)
@@ -141,16 +141,16 @@ int main (void)
   printf("   11  Entry Addr: %0x, mem val: %0x \n", vt_addr_ptr + 22, *(vt_addr_ptr + 22));
 
   printf("\n Config PLIC ... \n");
-  *(PLIC_CORE0_INT_PRIO + 18)  = 0x1f; 
-  *(PLIC_CORE0_INT_MIE)       |= 1UL << 18; 
+  *(PLIC_CORE0_INT_PRIO + 18)  = 0x1f;
+  *(PLIC_CORE0_INT_MIE)       |= 1UL << 18;
   *(PLIC_CORE0_INT_MTH + 18)   = 0x0;
 
   printf("\n Enable interrupt globally  ... \n");
   mie_meie_val = 1UL << 11;
   asm(
     // enable cpu int
-    "csrsi mstatus, 0x8\n\t"	
-    // enable mie.meie   
+    "csrsi mstatus, 0x8\n\t"
+    // enable mie.meie
     "csrs mie, %[mie_set_mask_val]\n\t"
     :
     : [mie_set_mask_val]"r"(mie_meie_val)
@@ -182,7 +182,7 @@ int main (void)
   // Config PMU lp_mode_sel = clk_slow
   *(SMART_PMU_LP_MODE_SEL_ADDR) = 0x2;
   // Enable WIC event to trigger wakeup
-  *(SMART_PMU_CTRL_REG_ADDR)    = 0x1; 
+  *(SMART_PMU_CTRL_REG_ADDR)    = 0x1;
 
   // Config and enable Timer 1
   printf("   Enable APB timer 1 to interrupt the CPU in 8000 cycles \n");
@@ -202,7 +202,7 @@ int main (void)
   // Config PMU lp_mode_sel = clk_off
   *(SMART_PMU_LP_MODE_SEL_ADDR) = 0x4;
   // Enable WIC event to trigger wakeup
-  *(SMART_PMU_CTRL_REG_ADDR)    = 0x1; 
+  *(SMART_PMU_CTRL_REG_ADDR)    = 0x1;
 
   // Config and enable Timer 1
   printf("   Enable APB timer 1 to interrupt the CPU in 8000 cycles \n");
@@ -222,7 +222,7 @@ int main (void)
   // Config PMU lp_mode_sel = ret_pwr_off
   *(SMART_PMU_LP_MODE_SEL_ADDR)  = 0x8;
   // Enable WIC event to trigger wakeup
-  *(SMART_PMU_CTRL_REG_ADDR)     = 0x1; 
+  *(SMART_PMU_CTRL_REG_ADDR)     = 0x1;
 
   // Config and enable Timer 1
   printf("   Enable APB timer 1 to interrupt the CPU in 8000 cycles \n");

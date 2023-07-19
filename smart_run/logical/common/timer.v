@@ -48,56 +48,56 @@ module timer(
 );
 
 
-input   [15:0]  paddr;                 
-input           pclk;                  
-input           penable;               
-input           presetn;               
-input           psel;                  
+input   [15:0]  paddr;
+input           pclk;
+input           penable;
+input           presetn;
+input           psel;
 input   [31:0]  pwdata;
 input           pwrite;
-output  [31:0]  prdata;                
-output  [3 :0]  timer_int;             
+output  [31:0]  prdata;
+output  [3 :0]  timer_int;
 
 
-reg     [31:0]  prdata;                
-reg     [2 :0]  timer_1_control_reg;   
-reg     [31:0]  timer_1_load_count;    
-reg             timer_1_raw_int_status; 
-reg     [2 :0]  timer_2_control_reg;   
-reg     [31:0]  timer_2_load_count;    
-reg             timer_2_raw_int_status; 
-reg     [2 :0]  timer_3_control_reg;   
-reg     [31:0]  timer_3_load_count;    
-reg             timer_3_raw_int_status; 
-reg     [2 :0]  timer_4_control_reg;   
-reg     [31:0]  timer_4_load_count;    
-reg             timer_4_raw_int_status; 
+reg     [31:0]  prdata;
+reg     [2 :0]  timer_1_control_reg;
+reg     [31:0]  timer_1_load_count;
+reg             timer_1_raw_int_status;
+reg     [2 :0]  timer_2_control_reg;
+reg     [31:0]  timer_2_load_count;
+reg             timer_2_raw_int_status;
+reg     [2 :0]  timer_3_control_reg;
+reg     [31:0]  timer_3_load_count;
+reg             timer_3_raw_int_status;
+reg     [2 :0]  timer_4_control_reg;
+reg     [31:0]  timer_4_load_count;
+reg             timer_4_raw_int_status;
 
 
-wire    [15:0]  paddr;                 
-wire            pclk;                  
-wire            presetn;               
-wire            psel;                  
-wire    [31:0]  pwdata;                
-wire            pwrite;  
-wire    [31:0]  timer_1_current_value; 
-wire            timer_1_int_clear;     
-wire            timer_1_int_status;    
-wire            timer_1_interrupt;     
-wire    [31:0]  timer_2_current_value; 
-wire            timer_2_int_clear;     
-wire            timer_2_int_status;    
-wire            timer_2_interrupt;     
-wire    [31:0]  timer_3_current_value; 
-wire            timer_3_int_clear;     
-wire            timer_3_int_status;    
-wire            timer_3_interrupt;     
-wire    [31:0]  timer_4_current_value; 
-wire            timer_4_int_clear;     
-wire            timer_4_int_status;    
-wire            timer_4_interrupt;     
-wire    [3 :0]  timer_int;             
-wire            timers_int_clear;      
+wire    [15:0]  paddr;
+wire            pclk;
+wire            presetn;
+wire            psel;
+wire    [31:0]  pwdata;
+wire            pwrite;
+wire    [31:0]  timer_1_current_value;
+wire            timer_1_int_clear;
+wire            timer_1_int_status;
+wire            timer_1_interrupt;
+wire    [31:0]  timer_2_current_value;
+wire            timer_2_int_clear;
+wire            timer_2_int_status;
+wire            timer_2_interrupt;
+wire    [31:0]  timer_3_current_value;
+wire            timer_3_int_clear;
+wire            timer_3_int_status;
+wire            timer_3_interrupt;
+wire    [31:0]  timer_4_current_value;
+wire            timer_4_int_clear;
+wire            timer_4_int_status;
+wire            timer_4_interrupt;
+wire    [3 :0]  timer_int;
+wire            timers_int_clear;
 
 
 
@@ -245,7 +245,7 @@ begin
     end
   end
 end
-    
+
 
 
 
@@ -518,27 +518,27 @@ module counter(
 );
 
 
-input           pclk;               
-input           presetn;            
-input           timer_enable;       
-input   [31:0]  timer_load_count;   
-input           timer_mode;         
-output          interrupt;          
-output  [31:0]  timer_current_value; 
+input           pclk;
+input           presetn;
+input           timer_enable;
+input   [31:0]  timer_load_count;
+input           timer_mode;
+output          interrupt;
+output  [31:0]  timer_current_value;
 
 
-reg     [31:0]  counter;            
-reg             interrupt;          
-reg             timer_enable_flop;  
+reg     [31:0]  counter;
+reg             interrupt;
+reg             timer_enable_flop;
 
 
-wire            load_cnt_en;        
-wire            pclk;               
-wire            presetn;            
-wire    [31:0]  timer_current_value; 
-wire            timer_enable;       
-wire    [31:0]  timer_load_count;   
-wire            timer_mode;         
+wire            load_cnt_en;
+wire            pclk;
+wire            presetn;
+wire    [31:0]  timer_current_value;
+wire            timer_enable;
+wire    [31:0]  timer_load_count;
+wire            timer_mode;
 
 
 
@@ -571,7 +571,7 @@ begin
     begin
       counter[31:0]<=timer_load_count[31:0];
     end
-    else 
+    else
     begin
       counter[31:0]<=32'hffffffff;
     end

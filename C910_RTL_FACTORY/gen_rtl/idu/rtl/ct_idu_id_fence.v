@@ -52,100 +52,100 @@ module ct_idu_id_fence(
 );
 
 // &Ports; @28
-input            cp0_idu_icg_en;               
-input            cp0_yy_clk_en;                
-input            cpurst_b;                     
-input            ctrl_fence_id_inst_vld;       
-input            ctrl_fence_id_stall;          
-input            ctrl_fence_ir_pipe_empty;     
-input            ctrl_fence_is_pipe_empty;     
-input            dp_fence_id_bkpta_inst;       
-input            dp_fence_id_bkptb_inst;       
-input   [2  :0]  dp_fence_id_fence_type;       
-input   [31 :0]  dp_fence_id_inst;             
-input   [14 :0]  dp_fence_id_pc;               
-input   [7  :0]  dp_fence_id_vl;               
-input            dp_fence_id_vl_pred;          
-input   [1  :0]  dp_fence_id_vlmul;            
-input   [2  :0]  dp_fence_id_vsew;             
-input            forever_cpuclk;               
-input            iu_idu_div_busy;              
-input            iu_yy_xx_cancel;              
-input            pad_yy_icg_scan_en;           
-input            rtu_idu_flush_fe;             
-input            rtu_idu_pst_empty;            
-input            rtu_idu_rob_empty;            
-output           fence_ctrl_id_stall;          
-output           fence_ctrl_inst0_vld;         
-output           fence_ctrl_inst1_vld;         
-output           fence_ctrl_inst2_vld;         
-output  [177:0]  fence_dp_inst0_data;          
-output  [177:0]  fence_dp_inst1_data;          
-output  [177:0]  fence_dp_inst2_data;          
-output  [2  :0]  fence_top_cur_state;          
-output           idu_had_pipeline_empty;       
-output           idu_hpcp_fence_sync_vld;      
-output           idu_rtu_fence_idle;           
+input            cp0_idu_icg_en;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            ctrl_fence_id_inst_vld;
+input            ctrl_fence_id_stall;
+input            ctrl_fence_ir_pipe_empty;
+input            ctrl_fence_is_pipe_empty;
+input            dp_fence_id_bkpta_inst;
+input            dp_fence_id_bkptb_inst;
+input   [2  :0]  dp_fence_id_fence_type;
+input   [31 :0]  dp_fence_id_inst;
+input   [14 :0]  dp_fence_id_pc;
+input   [7  :0]  dp_fence_id_vl;
+input            dp_fence_id_vl_pred;
+input   [1  :0]  dp_fence_id_vlmul;
+input   [2  :0]  dp_fence_id_vsew;
+input            forever_cpuclk;
+input            iu_idu_div_busy;
+input            iu_yy_xx_cancel;
+input            pad_yy_icg_scan_en;
+input            rtu_idu_flush_fe;
+input            rtu_idu_pst_empty;
+input            rtu_idu_rob_empty;
+output           fence_ctrl_id_stall;
+output           fence_ctrl_inst0_vld;
+output           fence_ctrl_inst1_vld;
+output           fence_ctrl_inst2_vld;
+output  [177:0]  fence_dp_inst0_data;
+output  [177:0]  fence_dp_inst1_data;
+output  [177:0]  fence_dp_inst2_data;
+output  [2  :0]  fence_top_cur_state;
+output           idu_had_pipeline_empty;
+output           idu_hpcp_fence_sync_vld;
+output           idu_rtu_fence_idle;
 
 // &Regs; @29
-reg     [2  :0]  fence_cur_state;              
-reg     [177:0]  fence_dp_inst0_data;          
-reg     [177:0]  fence_dp_inst1_data;          
-reg     [177:0]  fence_dp_inst2_data;          
-reg     [177:0]  fence_inst0_cp0_data;         
-reg     [177:0]  fence_inst0_data;             
-reg     [177:0]  fence_inst0_fence_data;       
-reg     [177:0]  fence_inst0_sync_data;        
-reg     [177:0]  fence_inst1_fence_data;       
-reg     [177:0]  fence_inst2_sync_data;        
-reg     [2  :0]  fence_next_state;             
+reg     [2  :0]  fence_cur_state;
+reg     [177:0]  fence_dp_inst0_data;
+reg     [177:0]  fence_dp_inst1_data;
+reg     [177:0]  fence_dp_inst2_data;
+reg     [177:0]  fence_inst0_cp0_data;
+reg     [177:0]  fence_inst0_data;
+reg     [177:0]  fence_inst0_fence_data;
+reg     [177:0]  fence_inst0_sync_data;
+reg     [177:0]  fence_inst1_fence_data;
+reg     [177:0]  fence_inst2_sync_data;
+reg     [2  :0]  fence_next_state;
 
 // &Wires; @30
-wire             cp0_idu_icg_en;               
-wire             cp0_yy_clk_en;                
-wire             cpurst_b;                     
-wire             ctrl_fence_id_inst_vld;       
-wire             ctrl_fence_id_stall;          
-wire             ctrl_fence_ir_pipe_empty;     
-wire             ctrl_fence_is_pipe_empty;     
-wire             dp_fence_id_bkpta_inst;       
-wire             dp_fence_id_bkptb_inst;       
-wire    [2  :0]  dp_fence_id_fence_type;       
-wire    [31 :0]  dp_fence_id_inst;             
-wire    [14 :0]  dp_fence_id_pc;               
-wire    [7  :0]  dp_fence_id_vl;               
-wire             dp_fence_id_vl_pred;          
-wire    [1  :0]  dp_fence_id_vlmul;            
-wire    [2  :0]  dp_fence_id_vsew;             
-wire             fence_clk;                    
-wire             fence_clk_en;                 
-wire             fence_ctrl_id_stall;          
-wire             fence_ctrl_inst0_vld;         
-wire             fence_ctrl_inst1_vld;         
-wire             fence_ctrl_inst2_vld;         
-wire    [31 :0]  fence_inst0_bar_opcode;       
-wire             fence_inst0_cp0_csri;         
-wire             fence_inst0_cp0_csrr;         
-wire             fence_inst0_fence_fencei;     
-wire             fence_inst0_fence_sfence_asid; 
-wire             fence_inst0_fence_sfence_va;  
-wire    [177:0]  fence_inst1_data;             
-wire    [177:0]  fence_inst2_data;             
-wire    [31 :0]  fence_inst2_sync_opcode;      
-wire             fence_pipedown;               
-wire             fence_pipeline_empty;         
-wire             fence_sm_start;               
-wire    [2  :0]  fence_top_cur_state;          
-wire             forever_cpuclk;               
-wire             idu_had_pipeline_empty;       
-wire             idu_hpcp_fence_sync_vld;      
-wire             idu_rtu_fence_idle;           
-wire             iu_idu_div_busy;              
-wire             iu_yy_xx_cancel;              
-wire             pad_yy_icg_scan_en;           
-wire             rtu_idu_flush_fe;             
-wire             rtu_idu_pst_empty;            
-wire             rtu_idu_rob_empty;            
+wire             cp0_idu_icg_en;
+wire             cp0_yy_clk_en;
+wire             cpurst_b;
+wire             ctrl_fence_id_inst_vld;
+wire             ctrl_fence_id_stall;
+wire             ctrl_fence_ir_pipe_empty;
+wire             ctrl_fence_is_pipe_empty;
+wire             dp_fence_id_bkpta_inst;
+wire             dp_fence_id_bkptb_inst;
+wire    [2  :0]  dp_fence_id_fence_type;
+wire    [31 :0]  dp_fence_id_inst;
+wire    [14 :0]  dp_fence_id_pc;
+wire    [7  :0]  dp_fence_id_vl;
+wire             dp_fence_id_vl_pred;
+wire    [1  :0]  dp_fence_id_vlmul;
+wire    [2  :0]  dp_fence_id_vsew;
+wire             fence_clk;
+wire             fence_clk_en;
+wire             fence_ctrl_id_stall;
+wire             fence_ctrl_inst0_vld;
+wire             fence_ctrl_inst1_vld;
+wire             fence_ctrl_inst2_vld;
+wire    [31 :0]  fence_inst0_bar_opcode;
+wire             fence_inst0_cp0_csri;
+wire             fence_inst0_cp0_csrr;
+wire             fence_inst0_fence_fencei;
+wire             fence_inst0_fence_sfence_asid;
+wire             fence_inst0_fence_sfence_va;
+wire    [177:0]  fence_inst1_data;
+wire    [177:0]  fence_inst2_data;
+wire    [31 :0]  fence_inst2_sync_opcode;
+wire             fence_pipedown;
+wire             fence_pipeline_empty;
+wire             fence_sm_start;
+wire    [2  :0]  fence_top_cur_state;
+wire             forever_cpuclk;
+wire             idu_had_pipeline_empty;
+wire             idu_hpcp_fence_sync_vld;
+wire             idu_rtu_fence_idle;
+wire             iu_idu_div_busy;
+wire             iu_yy_xx_cancel;
+wire             pad_yy_icg_scan_en;
+wire             rtu_idu_flush_fe;
+wire             rtu_idu_pst_empty;
+wire             rtu_idu_rob_empty;
 
 
 
@@ -222,7 +222,7 @@ parameter PIPE7    = 10'b0100000000;
 parameter SPECIAL  = 10'b1000000000;
 
 //==========================================================
-//                    Fence instructions 
+//                    Fence instructions
 //==========================================================
 parameter IDLE        = 3'b000;
 parameter WAIT_ISSUE  = 3'b001;
@@ -231,7 +231,7 @@ parameter WAIT_CMPLT  = 3'b011;
 parameter POP_INST    = 3'b100;
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign fence_clk_en = fence_sm_start
                       || (fence_cur_state[2:0] != IDLE);

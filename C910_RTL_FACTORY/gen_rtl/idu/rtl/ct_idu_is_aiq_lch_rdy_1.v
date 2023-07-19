@@ -29,35 +29,35 @@ module ct_idu_is_aiq_lch_rdy_1(
 );
 
 // &Ports; @25
-input          cpurst_b;           
-input          vld;                
-input          x_create_dp_en;     
-input   [1:0]  x_create_entry;     
-input          x_create_lch_rdy;   
-input          y_clk;              
-input          y_create0_dp_en;    
-input          y_create0_src_match; 
-input          y_create1_dp_en;    
-input          y_create1_src_match; 
-output         x_read_lch_rdy;     
+input          cpurst_b;
+input          vld;
+input          x_create_dp_en;
+input   [1:0]  x_create_entry;
+input          x_create_lch_rdy;
+input          y_clk;
+input          y_create0_dp_en;
+input          y_create0_src_match;
+input          y_create1_dp_en;
+input          y_create1_src_match;
+output         x_read_lch_rdy;
 
 // &Regs; @26
-reg            lch_rdy;            
-reg            x_read_lch_rdy;     
+reg            lch_rdy;
+reg            x_read_lch_rdy;
 
 // &Wires; @27
-wire           cpurst_b;           
-wire           lch_rdy_create0_en; 
-wire           lch_rdy_create1_en; 
-wire           vld;                
-wire           x_create_dp_en;     
-wire    [1:0]  x_create_entry;     
-wire           x_create_lch_rdy;   
-wire           y_clk;              
-wire           y_create0_dp_en;    
-wire           y_create0_src_match; 
-wire           y_create1_dp_en;    
-wire           y_create1_src_match; 
+wire           cpurst_b;
+wire           lch_rdy_create0_en;
+wire           lch_rdy_create1_en;
+wire           vld;
+wire           x_create_dp_en;
+wire    [1:0]  x_create_entry;
+wire           x_create_lch_rdy;
+wire           y_clk;
+wire           y_create0_dp_en;
+wire           y_create0_src_match;
+wire           y_create1_dp_en;
+wire           y_create1_src_match;
 
 
 

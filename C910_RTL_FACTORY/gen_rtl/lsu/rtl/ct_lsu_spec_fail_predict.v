@@ -37,80 +37,80 @@ module ct_lsu_spec_fail_predict(
 );
 
 // &Ports; @25
-input           cp0_lsu_icg_en;                     
-input           cpurst_b;                           
-input           forever_cpuclk;                     
-input   [35:0]  ld_da_sf_addr_tto4;                 
-input   [15:0]  ld_da_sf_bytes_vld;                 
-input           ld_da_sf_spec_chk_req;              
-input           pad_yy_icg_scan_en;                 
-input           rtu_lsu_spec_fail_flush;            
-input   [6 :0]  rtu_lsu_spec_fail_iid;              
-input           rtu_yy_xx_flush;                    
-input   [35:0]  st_da_sf_addr_tto4;                 
-input   [15:0]  st_da_sf_bytes_vld;                 
-input   [6 :0]  st_da_sf_iid;                       
-input           st_da_sf_no_spec_miss;              
-input           st_da_sf_no_spec_miss_gate;         
-input           st_da_sf_spec_chk;                  
-input           st_da_sf_spec_chk_gate;             
-output          sf_spec_hit;                        
-output          sf_spec_mark;                       
+input           cp0_lsu_icg_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input   [35:0]  ld_da_sf_addr_tto4;
+input   [15:0]  ld_da_sf_bytes_vld;
+input           ld_da_sf_spec_chk_req;
+input           pad_yy_icg_scan_en;
+input           rtu_lsu_spec_fail_flush;
+input   [6 :0]  rtu_lsu_spec_fail_iid;
+input           rtu_yy_xx_flush;
+input   [35:0]  st_da_sf_addr_tto4;
+input   [15:0]  st_da_sf_bytes_vld;
+input   [6 :0]  st_da_sf_iid;
+input           st_da_sf_no_spec_miss;
+input           st_da_sf_no_spec_miss_gate;
+input           st_da_sf_spec_chk;
+input           st_da_sf_spec_chk_gate;
+output          sf_spec_hit;
+output          sf_spec_mark;
 
 // &Regs; @26
-reg     [15:0]  sf_mispred_chk_bytes_vld;           
-reg     [3 :0]  sf_mispred_chk_clr_counter;         
-reg     [35:0]  sf_mispred_chk_st_addr_tto4;        
-reg     [6 :0]  sf_mispred_chk_st_iid;              
-reg             sf_mispred_chk_vld;                 
-reg     [3 :0]  sf_start_clr_counter;               
-reg             sf_start_pre;                       
-reg     [35:0]  sf_start_st_addr_tto4;              
-reg     [15:0]  sf_start_st_bytes_vld;              
-reg     [6 :0]  sf_start_st_iid;                    
-reg             sf_start_vld;                       
+reg     [15:0]  sf_mispred_chk_bytes_vld;
+reg     [3 :0]  sf_mispred_chk_clr_counter;
+reg     [35:0]  sf_mispred_chk_st_addr_tto4;
+reg     [6 :0]  sf_mispred_chk_st_iid;
+reg             sf_mispred_chk_vld;
+reg     [3 :0]  sf_start_clr_counter;
+reg             sf_start_pre;
+reg     [35:0]  sf_start_st_addr_tto4;
+reg     [15:0]  sf_start_st_bytes_vld;
+reg     [6 :0]  sf_start_st_iid;
+reg             sf_start_vld;
 
 // &Wires; @27
-wire            cp0_lsu_icg_en;                     
-wire            cpurst_b;                           
-wire            forever_cpuclk;                     
-wire    [35:0]  ld_da_sf_addr_tto4;                 
-wire    [15:0]  ld_da_sf_bytes_vld;                 
-wire            ld_da_sf_spec_chk_req;              
-wire            ld_hit_sf_mispred_chk;              
-wire            ld_hit_sf_start;                    
-wire            ld_mark_clr;                        
-wire            ld_spec_hit_clr;                    
-wire            pad_yy_icg_scan_en;                 
-wire            rtu_lsu_spec_fail_flush;            
-wire    [6 :0]  rtu_lsu_spec_fail_iid;              
-wire            rtu_yy_xx_flush;                    
-wire            sf_clk;                             
-wire            sf_clk_en;                          
-wire            sf_mispred_chk_abnormal_clr;        
-wire            sf_mispred_chk_clr_counter_max;     
-wire            sf_mispred_chk_iid_newer_than_st_da; 
-wire            sf_mispred_chk_info_up;             
-wire            sf_mispred_chk_start;               
-wire            sf_pred_chk_dp_clk;                 
-wire            sf_pred_chk_dp_clk_en;              
-wire            sf_spec_hit;                        
-wire            sf_spec_mark;                       
-wire            sf_start_abnormal_clr;              
-wire            sf_start_clr_counter_max;           
-wire            sf_start_dp_clk;                    
-wire            sf_start_dp_clk_en;                 
-wire            sf_start_iid_hit;                   
-wire            sf_start_iid_newer_than_st_da;      
-wire            sf_start_info_up;                   
-wire            sf_start_success;                   
-wire    [35:0]  st_da_sf_addr_tto4;                 
-wire    [15:0]  st_da_sf_bytes_vld;                 
-wire    [6 :0]  st_da_sf_iid;                       
-wire            st_da_sf_no_spec_miss;              
-wire            st_da_sf_no_spec_miss_gate;         
-wire            st_da_sf_spec_chk;                  
-wire            st_da_sf_spec_chk_gate;             
+wire            cp0_lsu_icg_en;
+wire            cpurst_b;
+wire            forever_cpuclk;
+wire    [35:0]  ld_da_sf_addr_tto4;
+wire    [15:0]  ld_da_sf_bytes_vld;
+wire            ld_da_sf_spec_chk_req;
+wire            ld_hit_sf_mispred_chk;
+wire            ld_hit_sf_start;
+wire            ld_mark_clr;
+wire            ld_spec_hit_clr;
+wire            pad_yy_icg_scan_en;
+wire            rtu_lsu_spec_fail_flush;
+wire    [6 :0]  rtu_lsu_spec_fail_iid;
+wire            rtu_yy_xx_flush;
+wire            sf_clk;
+wire            sf_clk_en;
+wire            sf_mispred_chk_abnormal_clr;
+wire            sf_mispred_chk_clr_counter_max;
+wire            sf_mispred_chk_iid_newer_than_st_da;
+wire            sf_mispred_chk_info_up;
+wire            sf_mispred_chk_start;
+wire            sf_pred_chk_dp_clk;
+wire            sf_pred_chk_dp_clk_en;
+wire            sf_spec_hit;
+wire            sf_spec_mark;
+wire            sf_start_abnormal_clr;
+wire            sf_start_clr_counter_max;
+wire            sf_start_dp_clk;
+wire            sf_start_dp_clk_en;
+wire            sf_start_iid_hit;
+wire            sf_start_iid_newer_than_st_da;
+wire            sf_start_info_up;
+wire            sf_start_success;
+wire    [35:0]  st_da_sf_addr_tto4;
+wire    [15:0]  st_da_sf_bytes_vld;
+wire    [6 :0]  st_da_sf_iid;
+wire            st_da_sf_no_spec_miss;
+wire            st_da_sf_no_spec_miss_gate;
+wire            st_da_sf_spec_chk;
+wire            st_da_sf_spec_chk_gate;
 
 
 //==========================================================
@@ -140,7 +140,7 @@ gated_clk_cell  x_lsu_sf_gated_clk (
 //          .local_en      (sf_clk_en             ), @43
 //          .clk_out       (sf_clk                )); @44
 
-assign sf_start_dp_clk_en  = st_da_sf_no_spec_miss_gate; 
+assign sf_start_dp_clk_en  = st_da_sf_no_spec_miss_gate;
 // &Instance("gated_clk_cell", "x_lsu_sf_start_dp_gated_clk"); @47
 gated_clk_cell  x_lsu_sf_start_dp_gated_clk (
   .clk_in             (forever_cpuclk    ),
@@ -159,7 +159,7 @@ gated_clk_cell  x_lsu_sf_start_dp_gated_clk (
 //          .local_en      (sf_start_dp_clk_en    ), @52
 //          .clk_out       (sf_start_dp_clk       )); @53
 
-assign sf_pred_chk_dp_clk_en  = st_da_sf_spec_chk_gate; 
+assign sf_pred_chk_dp_clk_en  = st_da_sf_spec_chk_gate;
 // &Instance("gated_clk_cell", "x_lsu_sf_pred_chk_dp_gated_clk"); @56
 gated_clk_cell  x_lsu_sf_pred_chk_dp_gated_clk (
   .clk_in                (forever_cpuclk       ),
@@ -180,7 +180,7 @@ gated_clk_cell  x_lsu_sf_pred_chk_dp_gated_clk (
 //==========================================================
 //                      Registers
 //==========================================================
-//---------------for spec fail prediction start------------// 
+//---------------for spec fail prediction start------------//
 always @(posedge sf_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)
@@ -227,7 +227,7 @@ begin
   end
 end
 
-//---------------for spec fail misprediction check------------// 
+//---------------for spec fail misprediction check------------//
 always @(posedge sf_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)
@@ -267,7 +267,7 @@ end
 //==========================================================
 //                      control logic
 //==========================================================
-//---------------for spec fail prediction start------------// 
+//---------------for spec fail prediction start------------//
 //iid compare
 // &Instance("ct_rtu_compare_iid","x_lsu_sf_start_compare_iid"); @155
 ct_rtu_compare_iid  x_lsu_sf_start_compare_iid (
@@ -301,7 +301,7 @@ assign ld_hit_sf_start  = sf_start_vld
 assign ld_mark_clr =  ld_da_sf_spec_chk_req
                       && ld_hit_sf_start;
 
-assign sf_spec_mark = ld_hit_sf_start; 
+assign sf_spec_mark = ld_hit_sf_start;
 
 //abnormal clr
 assign sf_start_clr_counter_max = (sf_start_clr_counter[3:0] == 4'd12);
@@ -333,13 +333,13 @@ assign ld_hit_sf_mispred_chk  = sf_mispred_chk_vld
 assign ld_spec_hit_clr =  ld_da_sf_spec_chk_req
                           && ld_hit_sf_mispred_chk;
 
-assign sf_spec_hit = ld_hit_sf_mispred_chk; 
+assign sf_spec_hit = ld_hit_sf_mispred_chk;
 
 //abnormal clr
 assign sf_mispred_chk_clr_counter_max = (sf_mispred_chk_clr_counter[3:0] == 4'd12);
 assign sf_mispred_chk_abnormal_clr    =  sf_mispred_chk_clr_counter_max
                                          || rtu_yy_xx_flush;
- 
+
 // &ModuleEnd; @214
 endmodule
 

@@ -24,37 +24,37 @@ module tap2_sm(
 );
 
 // &Ports; @23
-input          pad_had_jtg_tap_en; 
-input          tclk;              
-input          tms_i;             
-input          trst_b;            
-output         debug_wake_vld;    
+input          pad_had_jtg_tap_en;
+input          tclk;
+input          tms_i;
+input          trst_b;
+output         debug_wake_vld;
 
 // &Regs; @24
-reg     [7:0]  sm2_data_counter;  
-reg            sm2_read_vld;      
-reg     [1:0]  sm2_rs;            
-reg     [1:0]  sm2_rs_counter;    
-reg            sm2_write_vld;     
-reg     [3:0]  tap2_cur_st;       
-reg     [3:0]  tap2_nxt_st;       
-reg     [6:0]  tap2_rst_cnt;      
+reg     [7:0]  sm2_data_counter;
+reg            sm2_read_vld;
+reg     [1:0]  sm2_rs;
+reg     [1:0]  sm2_rs_counter;
+reg            sm2_write_vld;
+reg     [3:0]  tap2_cur_st;
+reg     [3:0]  tap2_nxt_st;
+reg     [6:0]  tap2_rst_cnt;
 
 // &Wires; @25
-wire           debug_wake_vld;    
-wire           pad_had_jtg_tap_en; 
-wire           sm2_load_rs;       
-wire           sm2_load_rw;       
-wire           sm2_rs_cdic_dr_sel; 
-wire           sm2_rs_had_dr_sel; 
-wire           sm2_shift_vld;     
-wire           sm2_start_vld;     
-wire           sm2_trn1;          
-wire           tap2_rst_vld;      
-wire           tap2_sm_tap_en;    
-wire           tclk;              
-wire           tms_i;             
-wire           trst_b;            
+wire           debug_wake_vld;
+wire           pad_had_jtg_tap_en;
+wire           sm2_load_rs;
+wire           sm2_load_rw;
+wire           sm2_rs_cdic_dr_sel;
+wire           sm2_rs_had_dr_sel;
+wire           sm2_shift_vld;
+wire           sm2_start_vld;
+wire           sm2_trn1;
+wire           tap2_rst_vld;
+wire           tap2_sm_tap_en;
+wire           tclk;
+wire           tms_i;
+wire           trst_b;
 
 
 parameter TAP2_RESET  = 4'b0000;
@@ -93,7 +93,7 @@ always @(posedge tclk or negedge trst_b)
 begin
   if (!trst_b)
     tap2_cur_st[3:0] <= TAP2_RESET;
-  else if (tap2_rst_vld && tms_i) 
+  else if (tap2_rst_vld && tms_i)
     tap2_cur_st[3:0] <= TAP2_RESET;
   else
     tap2_cur_st[3:0] <= tap2_nxt_st[3:0];
@@ -107,7 +107,7 @@ always @(posedge tclk or negedge trst_b)
 begin
   if (!trst_b)
     tap2_rst_cnt[6:0] <= 7'd80;
-  else 
+  else
   begin
     if (!tms_i)
       tap2_rst_cnt[6:0] <= 7'd80;
@@ -205,7 +205,7 @@ begin
   begin
     sm2_read_vld <= 1'b0;
     sm2_write_vld <= 1'b0;
-  end    
+  end
   else if (sm2_load_rw)
   begin
     sm2_read_vld <= tms_i;

@@ -33,7 +33,7 @@ assign ca[B_SIZE-1:0] = (a[B_SIZE-1:0]&b[B_SIZE-1:0])
 //integer i;
 //always @(a[B_SIZE-1:0]
 //      or b[B_SIZE-1:0]
-//      or c[B_SIZE-1:0]) 
+//      or c[B_SIZE-1:0])
 //begin
 //  for(i= 0;i<B_SIZE;i=i+1) begin
 //    {ca[i],s[i]} =  a[i] + b[i] +  c[i];

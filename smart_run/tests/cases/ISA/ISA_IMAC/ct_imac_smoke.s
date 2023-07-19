@@ -24,9 +24,9 @@ limitations under the License.
 .align 6
 .global main
 main:
- 
+
       csrr	x10, mhartid
-      bnez	x10, TEST_WFI 
+      bnez	x10, TEST_WFI
 #      .include "core_init.h"
       .option norvc
 .global addi.w
@@ -1829,71 +1829,71 @@ check_sc:
 
 .global check_amoswap
 check_amoswap:
-      ori x11,x11,0x00000024A      
+      ori x11,x11,0x00000024A
       andi x11,x11,-8
-      li x15,0xD777CA25BB980856      
-      sd x15,0x000000000(x11)      
-      li x9,0xE3434812C6482D68      
-      amoswap.d x13,x9, (x11)      
+      li x15,0xD777CA25BB980856
+      sd x15,0x000000000(x11)
+      li x9,0xE3434812C6482D68
+      amoswap.d x13,x9, (x11)
       bne x15,x13,TEST_FAIL
       ld x16,(x11)
       bne x16,x9,TEST_FAIL
 .global check_amoadd
 check_amoadd:
-      ori x11,x11,0x0000002AC      
+      ori x11,x11,0x0000002AC
       andi x11,x11,-8
-      li x15,0x3C76E8FBD95888C1      
-      sd x15,0x000000000(x11)      
-      li x9,0xDB483507CBC52F0F      
-      amoadd.d x13,x9, (x11)      
+      li x15,0x3C76E8FBD95888C1
+      sd x15,0x000000000(x11)
+      li x9,0xDB483507CBC52F0F
+      amoadd.d x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       ld x16,(x11)
       add x9,x9,x15
       bne x16,x9,TEST_FAIL
 .global check_amoor
 check_amoor:
-      ori x11,x11,0x00000042A      
+      ori x11,x11,0x00000042A
       andi x11,x11,-8
-      li x15,0x15E0C8ABA1ADBAB6      
-      sd x15,0x000000000(x11)      
-      li x9,0xC0C293DF16F60603      
-      amoor.d x13,x9, (x11)      
+      li x15,0x15E0C8ABA1ADBAB6
+      sd x15,0x000000000(x11)
+      li x9,0xC0C293DF16F60603
+      amoor.d x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       ld x16,(x11)
       or x9,x9,x15
       bne x16,x9,TEST_FAIL
 .global check_amoand
 check_amoand:
-      ori x11,x11,0x0000005B1      
+      ori x11,x11,0x0000005B1
       andi x11,x11,-8
-      li x15,0xDB633D4EB949799B      
-      sd x15,0x000000000(x11)      
-      li x9,0x1D8923A570E63AF6      
-      amoand.d x13,x9, (x11)      
+      li x15,0xDB633D4EB949799B
+      sd x15,0x000000000(x11)
+      li x9,0x1D8923A570E63AF6
+      amoand.d x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       ld x16,(x11)
       and x9,x9,x15
       bne x16,x9,TEST_FAIL
 .global check_amoxor
 check_amoxor:
-      ori x11,x11,0x00000067B      
+      ori x11,x11,0x00000067B
       andi x11,x11,-8
-      li x15,0xDCAB6DBBF9C65CC2      
-      sd x15,0x000000000(x11)      
-      li x9,0xBE6DBF4C4CCE1B93      
-      amoxor.d x13,x9, (x11)      
+      li x15,0xDCAB6DBBF9C65CC2
+      sd x15,0x000000000(x11)
+      li x9,0xBE6DBF4C4CCE1B93
+      amoxor.d x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       ld x16,(x11)
       xor x9,x9,x15
       bne x16,x9,TEST_FAIL
 .global check_amomin
 check_amomin:
-      ori x11,x11,0x00000073C      
+      ori x11,x11,0x00000073C
       andi x11,x11,-8
-      li x15,0x914AA80CF74A1F3      
-      sd x15,0x000000000(x11)      
-      li x9,0x4B3A91CD3EB0E100      
-      amomin.d x13,x9, (x11)      
+      li x15,0x914AA80CF74A1F3
+      sd x15,0x000000000(x11)
+      li x9,0x4B3A91CD3EB0E100
+      amomin.d x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       ld x16,(x11)
       blt x9,x13,mem_val
@@ -1904,12 +1904,12 @@ mem_val:
       bne x16,x9,TEST_FAIL
 .global check_amominu
 check_amominu:
-      ori x11,x11,0x000000281      
+      ori x11,x11,0x000000281
       andi x11,x11,-8
-      li x15,0x47E5C00BDF5001B2      
-      sd x15,0x000000000(x11)      
-      li x9,0xC2A4F93901AA970E      
-      amominu.d x13,x9, (x11)      
+      li x15,0x47E5C00BDF5001B2
+      sd x15,0x000000000(x11)
+      li x9,0xC2A4F93901AA970E
+      amominu.d x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       ld x16,(x11)
       bltu x9,x13,mem_val2
@@ -1920,12 +1920,12 @@ mem_val2:
       bne x16,x9,TEST_FAIL
 .global check_amomax
 check_amomax:
-      ori x11,x11,0x00000035F      
+      ori x11,x11,0x00000035F
       andi x11,x11,-8
-      li x15,0x422A83AD7A959902      
-      sd x15,0x000000000(x11)      
-      li x9,0x6ED2A57104419E8D      
-      amomax.d x13,x9, (x11)      
+      li x15,0x422A83AD7A959902
+      sd x15,0x000000000(x11)
+      li x9,0x6ED2A57104419E8D
+      amomax.d x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       ld x16,(x11)
       bge x9,x13,mem_val3
@@ -1936,12 +1936,12 @@ mem_val3:
       bne x16,x9,TEST_FAIL
 .global check_amomaxu
 check_amomaxu:
-      ori x11,x11,0x00000023D      
+      ori x11,x11,0x00000023D
       andi x11,x11,-8
-      li x15,0xDFCF4ACD38C9FBE9      
-      sd x15,0x000000000(x11)      
-      li x9,0x4BD4607A94336FE5      
-      amomaxu.d x13,x9, (x11)      
+      li x15,0xDFCF4ACD38C9FBE9
+      sd x15,0x000000000(x11)
+      li x9,0x4BD4607A94336FE5
+      amomaxu.d x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       ld x16,(x11)
       bgeu x9,x13,mem_val4
@@ -1954,71 +1954,71 @@ mem_val4:
       li x15,0
 .global check_amoswap_w
 check_amoswap_w:
-      ori x11,x11,0x0000001D8      
+      ori x11,x11,0x0000001D8
       andi x11,x11,-8
-      li x15,0x026775BDA      
-      sw x15,0x000000000(x11)      
-      li x9,0x00DD7B0FD      
-      amoswap.w.aqrl x13,x9, (x11)      
+      li x15,0x026775BDA
+      sw x15,0x000000000(x11)
+      li x9,0x00DD7B0FD
+      amoswap.w.aqrl x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       bne x16,x9,TEST_FAIL
 .global check_amoadd_w
 check_amoadd_w:
-      ori x11,x11,0x00000047C      
+      ori x11,x11,0x00000047C
       andi x11,x11,-8
-      li x15,0x0764E1A4E      
-      sw x15,0x000000000(x11)      
-      li x9,0x036571F5E      
-      amoadd.w.rl x13,x9, (x11)      
+      li x15,0x0764E1A4E
+      sw x15,0x000000000(x11)
+      li x9,0x036571F5E
+      amoadd.w.rl x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       add x9,x9,x15
       bne x16,x9,TEST_FAIL
 .global check_amoor_w
 check_amoor_w:
-      ori x11,x11,0x0000001A0      
+      ori x11,x11,0x0000001A0
       andi x11,x11,-8
-      li x15,0x03C6C8F73      
-      sw x15,0x000000000(x11)      
-      li x9,0x06E7A8DC1      
-      amoor.w x13,x9, (x11)      
+      li x15,0x03C6C8F73
+      sw x15,0x000000000(x11)
+      li x9,0x06E7A8DC1
+      amoor.w x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       or x9,x9,x15
       bne x16,x9,TEST_FAIL
 .global check_amoand_w
 check_amoand_w:
-      ori x11,x11,0x000000133      
+      ori x11,x11,0x000000133
       andi x11,x11,-8
-      li x15,0x00B2A1584      
-      sw x15,0x000000000(x11)      
-      li x9,0x06A7FC67D      
-      amoand.w.rl x13,x9, (x11)      
+      li x15,0x00B2A1584
+      sw x15,0x000000000(x11)
+      li x9,0x06A7FC67D
+      amoand.w.rl x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       and x9,x9,x15
       bne x16,x9,TEST_FAIL
 .global check_amoxor_w
 check_amoxor_w:
-      ori x11,x11,0x0000001E1      
+      ori x11,x11,0x0000001E1
       andi x11,x11,-8
-      li x15,0x06E74E6D8      
-      sw x15,0x000000000(x11)      
-      li x9,0x0377E61C5      
-      amoxor.w.aq x13,x9, (x11)      
+      li x15,0x06E74E6D8
+      sw x15,0x000000000(x11)
+      li x9,0x0377E61C5
+      amoxor.w.aq x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       xor x9,x9,x15
       bne x16,x9,TEST_FAIL
 .global check_amomin_w
 check_amomin_w:
-      ori x11,x11,0x0000005AA      
+      ori x11,x11,0x0000005AA
       andi x11,x11,-8
-      li x15,0x05DABE60E      
-      sw x15,0x000000000(x11)      
-      li x9,0x04C2CFBB3      
-      amomin.w.aqrl x13,x9, (x11)      
+      li x15,0x05DABE60E
+      sw x15,0x000000000(x11)
+      li x9,0x04C2CFBB3
+      amomin.w.aqrl x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       blt x9,x13,mem_val_w
@@ -2029,12 +2029,12 @@ mem_val_w:
       bne x16,x9,TEST_FAIL
 .global check_amominu_w
 check_amominu_w:
-      ori x11,x11,0x00000076E      
+      ori x11,x11,0x00000076E
       andi x11,x11,-8
-      li x15,0x00E464664      
-      sw x15,0x000000000(x11)      
-      li x9,0x065FC3D17      
-      amominu.w.aqrl x13,x9, (x11)      
+      li x15,0x00E464664
+      sw x15,0x000000000(x11)
+      li x9,0x065FC3D17
+      amominu.w.aqrl x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w
@@ -2045,12 +2045,12 @@ mem_val2_w:
       bne x16,x9,TEST_FAIL
 .global check_amomax_w
 check_amomax_w:
-      ori x11,x11,0x00000007D      
+      ori x11,x11,0x00000007D
       andi x11,x11,-8
-      li x15,0x0290926ED      
-      sw x15,0x000000000(x11)      
-      li x9,0x058C998F5      
-      amomax.w x13,x9, (x11)      
+      li x15,0x0290926ED
+      sw x15,0x000000000(x11)
+      li x9,0x058C998F5
+      amomax.w x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       bge x9,x13,mem_val3_w
@@ -2061,12 +2061,12 @@ mem_val3_w:
       bne x16,x9,TEST_FAIL
 .global check_amomaxu_w
 check_amomaxu_w:
-      ori x11,x11,0x0000002F5      
+      ori x11,x11,0x0000002F5
       andi x11,x11,-8
-      li x15,0x07391BD71      
-      sw x15,0x000000000(x11)      
-      li x9,0x048ECBBF1      
-      amomaxu.w.rl x13,x9, (x11)      
+      li x15,0x07391BD71
+      sw x15,0x000000000(x11)
+      li x9,0x048ECBBF1
+      amomaxu.w.rl x13,x9, (x11)
       bne x15,x13, TEST_FAIL
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w
@@ -2082,7 +2082,7 @@ TEST_EXIT:
   jr   x1
 .global TEST_FAIL
 TEST_FAIL:
-   la   x1, __fail 
+   la   x1, __fail
   jr   x1
 .global TEST_WFI
 TEST_WFI:

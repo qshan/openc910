@@ -27,33 +27,33 @@ module ct_idu_rf_prf_gated_vreg(
 );
 
 // &Ports; @28
-input           cp0_idu_icg_en;                 
-input           cp0_yy_clk_en;                  
-input   [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;  
-input           pad_yy_icg_scan_en;             
-input   [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data; 
-input   [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data; 
-input           vreg_top_clk;                   
-input   [2 :0]  x_wb_vld;                       
-output  [63:0]  x_reg_dout;                     
+input           cp0_idu_icg_en;
+input           cp0_yy_clk_en;
+input   [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;
+input           pad_yy_icg_scan_en;
+input   [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data;
+input   [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data;
+input           vreg_top_clk;
+input   [2 :0]  x_wb_vld;
+output  [63:0]  x_reg_dout;
 
 // &Regs; @29
-reg     [63:0]  reg_dout;                       
-reg     [63:0]  write_data;                     
+reg     [63:0]  reg_dout;
+reg     [63:0]  write_data;
 
 // &Wires; @30
-wire            cp0_idu_icg_en;                 
-wire            cp0_yy_clk_en;                  
-wire    [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;  
-wire            pad_yy_icg_scan_en;             
-wire    [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data; 
-wire    [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data; 
-wire            vreg_clk;                       
-wire            vreg_clk_en;                    
-wire            vreg_top_clk;                   
-wire            write_en;                       
-wire    [63:0]  x_reg_dout;                     
-wire    [2 :0]  x_wb_vld;                       
+wire            cp0_idu_icg_en;
+wire            cp0_yy_clk_en;
+wire    [63:0]  lsu_idu_wb_pipe3_wb_vreg_data;
+wire            pad_yy_icg_scan_en;
+wire    [63:0]  vfpu_idu_ex5_pipe6_wb_vreg_data;
+wire    [63:0]  vfpu_idu_ex5_pipe7_wb_vreg_data;
+wire            vreg_clk;
+wire            vreg_clk_en;
+wire            vreg_top_clk;
+wire            write_en;
+wire    [63:0]  x_reg_dout;
+wire    [2 :0]  x_wb_vld;
 
 
 
@@ -61,7 +61,7 @@ wire    [2 :0]  x_wb_vld;
 parameter VEC_MSB = 63;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign vreg_clk_en = write_en;
 // &Instance("gated_clk_cell", "x_vreg_gated_clk"); @40

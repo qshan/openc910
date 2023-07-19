@@ -24,27 +24,27 @@ module ct_had_sync_3flop(
 );
 
 // &Ports; @25
-input        clk1;         
-input        clk2;         
-input        rst1_b;       
-input        rst2_b;       
-input        sync_in;      
-output       sync_out;     
+input        clk1;
+input        clk2;
+input        rst1_b;
+input        rst2_b;
+input        sync_in;
+output       sync_out;
 
 // &Regs; @26
-reg          sync_ff1_clk1; 
-reg          sync_ff2_clk1; 
-reg          sync_ff3_clk1; 
-reg          sync_ff4_clk1; 
-reg          sync_ff_clk2; 
+reg          sync_ff1_clk1;
+reg          sync_ff2_clk1;
+reg          sync_ff3_clk1;
+reg          sync_ff4_clk1;
+reg          sync_ff_clk2;
 
 // &Wires; @27
-wire         clk1;         
-wire         clk2;         
-wire         rst1_b;       
-wire         rst2_b;       
-wire         sync_in;      
-wire         sync_out;     
+wire         clk1;
+wire         clk2;
+wire         rst1_b;
+wire         rst2_b;
+wire         sync_in;
+wire         sync_out;
 
 
 //==============================================================================
@@ -74,7 +74,7 @@ begin
     sync_ff1_clk1 <= sync_ff_clk2;
     sync_ff2_clk1 <= sync_ff1_clk1;
     sync_ff3_clk1 <= sync_ff2_clk1;
-  end   
+  end
 end
 
 // generates a pulse signal in clk1 domain

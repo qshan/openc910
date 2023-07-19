@@ -71,182 +71,182 @@ module ct_ifu_pcfifo_if(
 );
 
 // &Ports; @23
-input           ibctrl_pcfifo_if_create_vld;       
-input           ibctrl_pcfifo_if_ind_btb_miss;     
-input   [38:0]  ibctrl_pcfifo_if_ind_target_pc;    
-input   [38:0]  ibctrl_pcfifo_if_ras_target_pc;    
-input           ibctrl_pcfifo_if_ras_vld;          
-input   [1 :0]  ibdp_pcfifo_if_bht_pre_result;     
-input   [1 :0]  ibdp_pcfifo_if_bht_sel_result;     
-input   [38:0]  ibdp_pcfifo_if_h0_cur_pc;          
-input           ibdp_pcfifo_if_h0_vld;             
-input   [38:0]  ibdp_pcfifo_if_h1_cur_pc;          
-input   [38:0]  ibdp_pcfifo_if_h2_cur_pc;          
-input   [38:0]  ibdp_pcfifo_if_h3_cur_pc;          
-input   [38:0]  ibdp_pcfifo_if_h4_cur_pc;          
-input   [38:0]  ibdp_pcfifo_if_h5_cur_pc;          
-input   [38:0]  ibdp_pcfifo_if_h6_cur_pc;          
-input   [38:0]  ibdp_pcfifo_if_h7_cur_pc;          
-input   [38:0]  ibdp_pcfifo_if_h8_cur_pc;          
-input   [7 :0]  ibdp_pcfifo_if_hn_con_br;          
-input   [7 :0]  ibdp_pcfifo_if_hn_dst_vld;         
-input   [7 :0]  ibdp_pcfifo_if_hn_jal;             
-input   [7 :0]  ibdp_pcfifo_if_hn_jalr;            
-input   [7 :0]  ibdp_pcfifo_if_hn_pc_oper;         
-input   [20:0]  ibdp_pcfifo_if_ind_br_offset;      
-input   [21:0]  ibdp_pcfifo_if_vghr;               
-input           lbuf_pcfifo_if_create_select;      
-input   [1 :0]  lbuf_pcfifo_if_inst_bht_pre_result; 
-input   [1 :0]  lbuf_pcfifo_if_inst_bht_sel_result; 
-input   [38:0]  lbuf_pcfifo_if_inst_cur_pc;        
-input           lbuf_pcfifo_if_inst_pc_oper;       
-input   [38:0]  lbuf_pcfifo_if_inst_target_pc;     
-input   [21:0]  lbuf_pcfifo_if_inst_vghr;          
-output          ifu_iu_pcfifo_create0_bht_pred;    
-output  [24:0]  ifu_iu_pcfifo_create0_chk_idx;     
-output  [39:0]  ifu_iu_pcfifo_create0_cur_pc;      
-output          ifu_iu_pcfifo_create0_dst_vld;     
-output          ifu_iu_pcfifo_create0_en;          
-output          ifu_iu_pcfifo_create0_gateclk_en;  
-output          ifu_iu_pcfifo_create0_jal;         
-output          ifu_iu_pcfifo_create0_jalr;        
-output          ifu_iu_pcfifo_create0_jmp_mispred; 
-output  [39:0]  ifu_iu_pcfifo_create0_tar_pc;      
-output          ifu_iu_pcfifo_create1_bht_pred;    
-output  [24:0]  ifu_iu_pcfifo_create1_chk_idx;     
-output  [39:0]  ifu_iu_pcfifo_create1_cur_pc;      
-output          ifu_iu_pcfifo_create1_dst_vld;     
-output          ifu_iu_pcfifo_create1_en;          
-output          ifu_iu_pcfifo_create1_gateclk_en;  
-output          ifu_iu_pcfifo_create1_jal;         
-output          ifu_iu_pcfifo_create1_jalr;        
-output          ifu_iu_pcfifo_create1_jmp_mispred; 
-output  [39:0]  ifu_iu_pcfifo_create1_tar_pc;      
-output          pcfifo_if_ibctrl_more_than_two;    
-output  [7 :0]  pcfifo_if_ibdp_over_mask;          
+input           ibctrl_pcfifo_if_create_vld;
+input           ibctrl_pcfifo_if_ind_btb_miss;
+input   [38:0]  ibctrl_pcfifo_if_ind_target_pc;
+input   [38:0]  ibctrl_pcfifo_if_ras_target_pc;
+input           ibctrl_pcfifo_if_ras_vld;
+input   [1 :0]  ibdp_pcfifo_if_bht_pre_result;
+input   [1 :0]  ibdp_pcfifo_if_bht_sel_result;
+input   [38:0]  ibdp_pcfifo_if_h0_cur_pc;
+input           ibdp_pcfifo_if_h0_vld;
+input   [38:0]  ibdp_pcfifo_if_h1_cur_pc;
+input   [38:0]  ibdp_pcfifo_if_h2_cur_pc;
+input   [38:0]  ibdp_pcfifo_if_h3_cur_pc;
+input   [38:0]  ibdp_pcfifo_if_h4_cur_pc;
+input   [38:0]  ibdp_pcfifo_if_h5_cur_pc;
+input   [38:0]  ibdp_pcfifo_if_h6_cur_pc;
+input   [38:0]  ibdp_pcfifo_if_h7_cur_pc;
+input   [38:0]  ibdp_pcfifo_if_h8_cur_pc;
+input   [7 :0]  ibdp_pcfifo_if_hn_con_br;
+input   [7 :0]  ibdp_pcfifo_if_hn_dst_vld;
+input   [7 :0]  ibdp_pcfifo_if_hn_jal;
+input   [7 :0]  ibdp_pcfifo_if_hn_jalr;
+input   [7 :0]  ibdp_pcfifo_if_hn_pc_oper;
+input   [20:0]  ibdp_pcfifo_if_ind_br_offset;
+input   [21:0]  ibdp_pcfifo_if_vghr;
+input           lbuf_pcfifo_if_create_select;
+input   [1 :0]  lbuf_pcfifo_if_inst_bht_pre_result;
+input   [1 :0]  lbuf_pcfifo_if_inst_bht_sel_result;
+input   [38:0]  lbuf_pcfifo_if_inst_cur_pc;
+input           lbuf_pcfifo_if_inst_pc_oper;
+input   [38:0]  lbuf_pcfifo_if_inst_target_pc;
+input   [21:0]  lbuf_pcfifo_if_inst_vghr;
+output          ifu_iu_pcfifo_create0_bht_pred;
+output  [24:0]  ifu_iu_pcfifo_create0_chk_idx;
+output  [39:0]  ifu_iu_pcfifo_create0_cur_pc;
+output          ifu_iu_pcfifo_create0_dst_vld;
+output          ifu_iu_pcfifo_create0_en;
+output          ifu_iu_pcfifo_create0_gateclk_en;
+output          ifu_iu_pcfifo_create0_jal;
+output          ifu_iu_pcfifo_create0_jalr;
+output          ifu_iu_pcfifo_create0_jmp_mispred;
+output  [39:0]  ifu_iu_pcfifo_create0_tar_pc;
+output          ifu_iu_pcfifo_create1_bht_pred;
+output  [24:0]  ifu_iu_pcfifo_create1_chk_idx;
+output  [39:0]  ifu_iu_pcfifo_create1_cur_pc;
+output          ifu_iu_pcfifo_create1_dst_vld;
+output          ifu_iu_pcfifo_create1_en;
+output          ifu_iu_pcfifo_create1_gateclk_en;
+output          ifu_iu_pcfifo_create1_jal;
+output          ifu_iu_pcfifo_create1_jalr;
+output          ifu_iu_pcfifo_create1_jmp_mispred;
+output  [39:0]  ifu_iu_pcfifo_create1_tar_pc;
+output          pcfifo_if_ibctrl_more_than_two;
+output  [7 :0]  pcfifo_if_ibdp_over_mask;
 
 // &Regs; @24
-reg     [7 :0]  hn_pc_mask_head;                   
-reg     [7 :0]  hn_pc_mask_tail;                   
-reg             inst0_con_br;                      
-reg     [38:0]  inst0_cur_pc;                      
-reg             inst0_dst_vld;                     
-reg             inst0_jal;                         
-reg             inst0_jalr;                        
-reg             inst0_vld;                         
-reg     [38:0]  inst1_cur_pc;                      
-reg             inst1_dst_vld;                     
-reg             inst1_jal;                         
-reg             inst1_jalr;                        
-reg             inst1_vld;                         
-reg     [7 :0]  over_mask;                         
+reg     [7 :0]  hn_pc_mask_head;
+reg     [7 :0]  hn_pc_mask_tail;
+reg             inst0_con_br;
+reg     [38:0]  inst0_cur_pc;
+reg             inst0_dst_vld;
+reg             inst0_jal;
+reg             inst0_jalr;
+reg             inst0_vld;
+reg     [38:0]  inst1_cur_pc;
+reg             inst1_dst_vld;
+reg             inst1_jal;
+reg             inst1_jalr;
+reg             inst1_vld;
+reg     [7 :0]  over_mask;
 
 // &Wires; @25
-wire            h1_con_br;                         
-wire    [38:0]  h1_cur_pc;                         
-wire            h1_dst_vld;                        
-wire            h1_jal;                            
-wire            h1_jalr;                           
-wire            h2_con_br;                         
-wire    [38:0]  h2_cur_pc;                         
-wire            h2_dst_vld;                        
-wire            h2_jal;                            
-wire            h2_jalr;                           
-wire            h3_con_br;                         
-wire    [38:0]  h3_cur_pc;                         
-wire            h3_dst_vld;                        
-wire            h3_jal;                            
-wire            h3_jalr;                           
-wire            h4_con_br;                         
-wire    [38:0]  h4_cur_pc;                         
-wire            h4_dst_vld;                        
-wire            h4_jal;                            
-wire            h4_jalr;                           
-wire            h5_con_br;                         
-wire    [38:0]  h5_cur_pc;                         
-wire            h5_dst_vld;                        
-wire            h5_jal;                            
-wire            h5_jalr;                           
-wire            h6_con_br;                         
-wire    [38:0]  h6_cur_pc;                         
-wire            h6_dst_vld;                        
-wire            h6_jal;                            
-wire            h6_jalr;                           
-wire            h7_con_br;                         
-wire    [38:0]  h7_cur_pc;                         
-wire            h7_dst_vld;                        
-wire            h7_jal;                            
-wire            h7_jalr;                           
-wire            h8_con_br;                         
-wire    [38:0]  h8_cur_pc;                         
-wire            h8_dst_vld;                        
-wire            h8_jal;                            
-wire            h8_jalr;                           
-wire    [7 :0]  hn_pc_oper;                        
-wire    [39:0]  hn_target_pc;                      
-wire            ibctrl_pcfifo_if_create_vld;       
-wire            ibctrl_pcfifo_if_ind_btb_miss;     
-wire    [38:0]  ibctrl_pcfifo_if_ind_target_pc;    
-wire    [38:0]  ibctrl_pcfifo_if_ras_target_pc;    
-wire            ibctrl_pcfifo_if_ras_vld;          
-wire    [1 :0]  ibdp_pcfifo_if_bht_pre_result;     
-wire    [1 :0]  ibdp_pcfifo_if_bht_sel_result;     
-wire    [38:0]  ibdp_pcfifo_if_h0_cur_pc;          
-wire            ibdp_pcfifo_if_h0_vld;             
-wire    [38:0]  ibdp_pcfifo_if_h1_cur_pc;          
-wire    [38:0]  ibdp_pcfifo_if_h2_cur_pc;          
-wire    [38:0]  ibdp_pcfifo_if_h3_cur_pc;          
-wire    [38:0]  ibdp_pcfifo_if_h4_cur_pc;          
-wire    [38:0]  ibdp_pcfifo_if_h5_cur_pc;          
-wire    [38:0]  ibdp_pcfifo_if_h6_cur_pc;          
-wire    [38:0]  ibdp_pcfifo_if_h7_cur_pc;          
-wire    [38:0]  ibdp_pcfifo_if_h8_cur_pc;          
-wire    [7 :0]  ibdp_pcfifo_if_hn_con_br;          
-wire    [7 :0]  ibdp_pcfifo_if_hn_dst_vld;         
-wire    [7 :0]  ibdp_pcfifo_if_hn_jal;             
-wire    [7 :0]  ibdp_pcfifo_if_hn_jalr;            
-wire    [7 :0]  ibdp_pcfifo_if_hn_pc_oper;         
-wire    [20:0]  ibdp_pcfifo_if_ind_br_offset;      
-wire    [21:0]  ibdp_pcfifo_if_vghr;               
-wire            ibstage_create_vld;                
-wire            ifu_iu_pcfifo_create0_bht_pred;    
-wire    [24:0]  ifu_iu_pcfifo_create0_chk_idx;     
-wire    [39:0]  ifu_iu_pcfifo_create0_cur_pc;      
-wire            ifu_iu_pcfifo_create0_dst_vld;     
-wire            ifu_iu_pcfifo_create0_en;          
-wire            ifu_iu_pcfifo_create0_gateclk_en;  
-wire            ifu_iu_pcfifo_create0_jal;         
-wire            ifu_iu_pcfifo_create0_jalr;        
-wire            ifu_iu_pcfifo_create0_jmp_mispred; 
-wire    [39:0]  ifu_iu_pcfifo_create0_tar_pc;      
-wire            ifu_iu_pcfifo_create1_bht_pred;    
-wire    [24:0]  ifu_iu_pcfifo_create1_chk_idx;     
-wire    [39:0]  ifu_iu_pcfifo_create1_cur_pc;      
-wire            ifu_iu_pcfifo_create1_dst_vld;     
-wire            ifu_iu_pcfifo_create1_en;          
-wire            ifu_iu_pcfifo_create1_gateclk_en;  
-wire            ifu_iu_pcfifo_create1_jal;         
-wire            ifu_iu_pcfifo_create1_jalr;        
-wire            ifu_iu_pcfifo_create1_jmp_mispred; 
-wire    [39:0]  ifu_iu_pcfifo_create1_tar_pc;      
-wire    [39:0]  inst0_target_pc;                   
-wire    [21:0]  inst0_vghr;                        
-wire    [39:0]  inst1_target_pc;                   
-wire    [21:0]  inst1_vghr;                        
-wire    [1 :0]  inst_bht_pre_result;               
-wire    [1 :0]  inst_bht_sel_result;               
-wire            inst_ind_btb_miss;                 
-wire            lbuf_create_select;                
-wire            lbuf_pcfifo_if_create_select;      
-wire    [1 :0]  lbuf_pcfifo_if_inst_bht_pre_result; 
-wire    [1 :0]  lbuf_pcfifo_if_inst_bht_sel_result; 
-wire    [38:0]  lbuf_pcfifo_if_inst_cur_pc;        
-wire            lbuf_pcfifo_if_inst_pc_oper;       
-wire    [38:0]  lbuf_pcfifo_if_inst_target_pc;     
-wire    [21:0]  lbuf_pcfifo_if_inst_vghr;          
-wire            pcfifo_if_ibctrl_more_than_two;    
-wire    [7 :0]  pcfifo_if_ibdp_over_mask;          
-wire    [39:0]  pcfifo_ind_target_pc;              
+wire            h1_con_br;
+wire    [38:0]  h1_cur_pc;
+wire            h1_dst_vld;
+wire            h1_jal;
+wire            h1_jalr;
+wire            h2_con_br;
+wire    [38:0]  h2_cur_pc;
+wire            h2_dst_vld;
+wire            h2_jal;
+wire            h2_jalr;
+wire            h3_con_br;
+wire    [38:0]  h3_cur_pc;
+wire            h3_dst_vld;
+wire            h3_jal;
+wire            h3_jalr;
+wire            h4_con_br;
+wire    [38:0]  h4_cur_pc;
+wire            h4_dst_vld;
+wire            h4_jal;
+wire            h4_jalr;
+wire            h5_con_br;
+wire    [38:0]  h5_cur_pc;
+wire            h5_dst_vld;
+wire            h5_jal;
+wire            h5_jalr;
+wire            h6_con_br;
+wire    [38:0]  h6_cur_pc;
+wire            h6_dst_vld;
+wire            h6_jal;
+wire            h6_jalr;
+wire            h7_con_br;
+wire    [38:0]  h7_cur_pc;
+wire            h7_dst_vld;
+wire            h7_jal;
+wire            h7_jalr;
+wire            h8_con_br;
+wire    [38:0]  h8_cur_pc;
+wire            h8_dst_vld;
+wire            h8_jal;
+wire            h8_jalr;
+wire    [7 :0]  hn_pc_oper;
+wire    [39:0]  hn_target_pc;
+wire            ibctrl_pcfifo_if_create_vld;
+wire            ibctrl_pcfifo_if_ind_btb_miss;
+wire    [38:0]  ibctrl_pcfifo_if_ind_target_pc;
+wire    [38:0]  ibctrl_pcfifo_if_ras_target_pc;
+wire            ibctrl_pcfifo_if_ras_vld;
+wire    [1 :0]  ibdp_pcfifo_if_bht_pre_result;
+wire    [1 :0]  ibdp_pcfifo_if_bht_sel_result;
+wire    [38:0]  ibdp_pcfifo_if_h0_cur_pc;
+wire            ibdp_pcfifo_if_h0_vld;
+wire    [38:0]  ibdp_pcfifo_if_h1_cur_pc;
+wire    [38:0]  ibdp_pcfifo_if_h2_cur_pc;
+wire    [38:0]  ibdp_pcfifo_if_h3_cur_pc;
+wire    [38:0]  ibdp_pcfifo_if_h4_cur_pc;
+wire    [38:0]  ibdp_pcfifo_if_h5_cur_pc;
+wire    [38:0]  ibdp_pcfifo_if_h6_cur_pc;
+wire    [38:0]  ibdp_pcfifo_if_h7_cur_pc;
+wire    [38:0]  ibdp_pcfifo_if_h8_cur_pc;
+wire    [7 :0]  ibdp_pcfifo_if_hn_con_br;
+wire    [7 :0]  ibdp_pcfifo_if_hn_dst_vld;
+wire    [7 :0]  ibdp_pcfifo_if_hn_jal;
+wire    [7 :0]  ibdp_pcfifo_if_hn_jalr;
+wire    [7 :0]  ibdp_pcfifo_if_hn_pc_oper;
+wire    [20:0]  ibdp_pcfifo_if_ind_br_offset;
+wire    [21:0]  ibdp_pcfifo_if_vghr;
+wire            ibstage_create_vld;
+wire            ifu_iu_pcfifo_create0_bht_pred;
+wire    [24:0]  ifu_iu_pcfifo_create0_chk_idx;
+wire    [39:0]  ifu_iu_pcfifo_create0_cur_pc;
+wire            ifu_iu_pcfifo_create0_dst_vld;
+wire            ifu_iu_pcfifo_create0_en;
+wire            ifu_iu_pcfifo_create0_gateclk_en;
+wire            ifu_iu_pcfifo_create0_jal;
+wire            ifu_iu_pcfifo_create0_jalr;
+wire            ifu_iu_pcfifo_create0_jmp_mispred;
+wire    [39:0]  ifu_iu_pcfifo_create0_tar_pc;
+wire            ifu_iu_pcfifo_create1_bht_pred;
+wire    [24:0]  ifu_iu_pcfifo_create1_chk_idx;
+wire    [39:0]  ifu_iu_pcfifo_create1_cur_pc;
+wire            ifu_iu_pcfifo_create1_dst_vld;
+wire            ifu_iu_pcfifo_create1_en;
+wire            ifu_iu_pcfifo_create1_gateclk_en;
+wire            ifu_iu_pcfifo_create1_jal;
+wire            ifu_iu_pcfifo_create1_jalr;
+wire            ifu_iu_pcfifo_create1_jmp_mispred;
+wire    [39:0]  ifu_iu_pcfifo_create1_tar_pc;
+wire    [39:0]  inst0_target_pc;
+wire    [21:0]  inst0_vghr;
+wire    [39:0]  inst1_target_pc;
+wire    [21:0]  inst1_vghr;
+wire    [1 :0]  inst_bht_pre_result;
+wire    [1 :0]  inst_bht_sel_result;
+wire            inst_ind_btb_miss;
+wire            lbuf_create_select;
+wire            lbuf_pcfifo_if_create_select;
+wire    [1 :0]  lbuf_pcfifo_if_inst_bht_pre_result;
+wire    [1 :0]  lbuf_pcfifo_if_inst_bht_sel_result;
+wire    [38:0]  lbuf_pcfifo_if_inst_cur_pc;
+wire            lbuf_pcfifo_if_inst_pc_oper;
+wire    [38:0]  lbuf_pcfifo_if_inst_target_pc;
+wire    [21:0]  lbuf_pcfifo_if_inst_vghr;
+wire            pcfifo_if_ibctrl_more_than_two;
+wire    [7 :0]  pcfifo_if_ibdp_over_mask;
+wire    [39:0]  pcfifo_ind_target_pc;
 
 
 parameter PC_WIDTH = 40;
@@ -273,12 +273,12 @@ parameter PC_WIDTH = 40;
 assign h1_cur_pc[PC_WIDTH-2:0] = (ibdp_pcfifo_if_h0_vld)
                                ? ibdp_pcfifo_if_h0_cur_pc[PC_WIDTH-2:0]
                                : ibdp_pcfifo_if_h1_cur_pc[PC_WIDTH-2:0];
-assign h2_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h2_cur_pc[PC_WIDTH-2:0];                      
-assign h3_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h3_cur_pc[PC_WIDTH-2:0];                      
-assign h4_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h4_cur_pc[PC_WIDTH-2:0];                      
-assign h5_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h5_cur_pc[PC_WIDTH-2:0];                      
-assign h6_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h6_cur_pc[PC_WIDTH-2:0];                      
-assign h7_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h7_cur_pc[PC_WIDTH-2:0];                      
+assign h2_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h2_cur_pc[PC_WIDTH-2:0];
+assign h3_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h3_cur_pc[PC_WIDTH-2:0];
+assign h4_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h4_cur_pc[PC_WIDTH-2:0];
+assign h5_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h5_cur_pc[PC_WIDTH-2:0];
+assign h6_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h6_cur_pc[PC_WIDTH-2:0];
+assign h7_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h7_cur_pc[PC_WIDTH-2:0];
 assign h8_cur_pc[PC_WIDTH-2:0] = ibdp_pcfifo_if_h8_cur_pc[PC_WIDTH-2:0];
 
 //==========================================================
@@ -294,41 +294,41 @@ assign pcfifo_ind_target_pc[PC_WIDTH-1:0] = {ibctrl_pcfifo_if_ind_target_pc[PC_W
                                             {{19{ibdp_pcfifo_if_ind_br_offset[20]}},ibdp_pcfifo_if_ind_br_offset[20:0]};
 
 assign hn_target_pc[PC_WIDTH-1:0] = (ibctrl_pcfifo_if_ras_vld)
-                                  ? {ibctrl_pcfifo_if_ras_target_pc[PC_WIDTH-2:0],1'b0} 
+                                  ? {ibctrl_pcfifo_if_ras_target_pc[PC_WIDTH-2:0],1'b0}
                                   : pcfifo_ind_target_pc[PC_WIDTH-1:0];
-                          
+
 
 //==========================================================
 //                    Other Hn Signal
 //==========================================================
 //hn_jal
-assign h1_jal = ibdp_pcfifo_if_hn_jal[7];                        
-assign h2_jal = ibdp_pcfifo_if_hn_jal[6];                        
-assign h3_jal = ibdp_pcfifo_if_hn_jal[5];                        
-assign h4_jal = ibdp_pcfifo_if_hn_jal[4];                        
-assign h5_jal = ibdp_pcfifo_if_hn_jal[3];                        
-assign h6_jal = ibdp_pcfifo_if_hn_jal[2];                        
-assign h7_jal = ibdp_pcfifo_if_hn_jal[1];                        
-assign h8_jal = ibdp_pcfifo_if_hn_jal[0]; 
+assign h1_jal = ibdp_pcfifo_if_hn_jal[7];
+assign h2_jal = ibdp_pcfifo_if_hn_jal[6];
+assign h3_jal = ibdp_pcfifo_if_hn_jal[5];
+assign h4_jal = ibdp_pcfifo_if_hn_jal[4];
+assign h5_jal = ibdp_pcfifo_if_hn_jal[3];
+assign h6_jal = ibdp_pcfifo_if_hn_jal[2];
+assign h7_jal = ibdp_pcfifo_if_hn_jal[1];
+assign h8_jal = ibdp_pcfifo_if_hn_jal[0];
 
 //hn_jalr
-assign h1_jalr = ibdp_pcfifo_if_hn_jalr[7];                        
-assign h2_jalr = ibdp_pcfifo_if_hn_jalr[6];                        
-assign h3_jalr = ibdp_pcfifo_if_hn_jalr[5];                        
-assign h4_jalr = ibdp_pcfifo_if_hn_jalr[4];                        
-assign h5_jalr = ibdp_pcfifo_if_hn_jalr[3];                        
-assign h6_jalr = ibdp_pcfifo_if_hn_jalr[2];                        
-assign h7_jalr = ibdp_pcfifo_if_hn_jalr[1];                        
-assign h8_jalr = ibdp_pcfifo_if_hn_jalr[0]; 
+assign h1_jalr = ibdp_pcfifo_if_hn_jalr[7];
+assign h2_jalr = ibdp_pcfifo_if_hn_jalr[6];
+assign h3_jalr = ibdp_pcfifo_if_hn_jalr[5];
+assign h4_jalr = ibdp_pcfifo_if_hn_jalr[4];
+assign h5_jalr = ibdp_pcfifo_if_hn_jalr[3];
+assign h6_jalr = ibdp_pcfifo_if_hn_jalr[2];
+assign h7_jalr = ibdp_pcfifo_if_hn_jalr[1];
+assign h8_jalr = ibdp_pcfifo_if_hn_jalr[0];
 
 //hn_con_br
-assign h1_con_br = ibdp_pcfifo_if_hn_con_br[7];                        
-assign h2_con_br = ibdp_pcfifo_if_hn_con_br[6];                        
-assign h3_con_br = ibdp_pcfifo_if_hn_con_br[5];                        
-assign h4_con_br = ibdp_pcfifo_if_hn_con_br[4];                        
-assign h5_con_br = ibdp_pcfifo_if_hn_con_br[3];                        
-assign h6_con_br = ibdp_pcfifo_if_hn_con_br[2];                        
-assign h7_con_br = ibdp_pcfifo_if_hn_con_br[1];                        
+assign h1_con_br = ibdp_pcfifo_if_hn_con_br[7];
+assign h2_con_br = ibdp_pcfifo_if_hn_con_br[6];
+assign h3_con_br = ibdp_pcfifo_if_hn_con_br[5];
+assign h4_con_br = ibdp_pcfifo_if_hn_con_br[4];
+assign h5_con_br = ibdp_pcfifo_if_hn_con_br[3];
+assign h6_con_br = ibdp_pcfifo_if_hn_con_br[2];
+assign h7_con_br = ibdp_pcfifo_if_hn_con_br[1];
 assign h8_con_br = ibdp_pcfifo_if_hn_con_br[0];
 
 //hn_dst_vld
@@ -503,7 +503,7 @@ casez(hn_pc_oper[7:0])
                 inst1_vld                  = 1'b0;
                 over_mask[7:0]             = 8'b00000000;
                 end
-                
+
   8'b011????? : begin
                 inst0_cur_pc[PC_WIDTH-2:0] = h2_cur_pc[PC_WIDTH-2:0];
                 inst0_jal                  = h2_jal;
@@ -602,7 +602,7 @@ casez(hn_pc_oper[7:0])
                 inst1_vld                  = 1'b0;
                 over_mask[7:0]             = 8'b00000000;
                 end
-                
+
   8'b0011???? : begin
                 inst0_cur_pc[PC_WIDTH-2:0] = h3_cur_pc[PC_WIDTH-2:0];
                 inst0_jal                  = h3_jal;
@@ -946,7 +946,7 @@ assign inst1_target_pc[PC_WIDTH-1:0] = hn_target_pc[PC_WIDTH-1:0];
 //if inst0 is con_br not jump
 //inst1 vghr = {ip_vghr[12:0] ,1'b0}
 assign inst0_vghr[21:0] = ibdp_pcfifo_if_vghr[21:0];
-assign inst1_vghr[21:0] = (inst0_con_br) 
+assign inst1_vghr[21:0] = (inst0_con_br)
                         ? {ibdp_pcfifo_if_vghr[20:0], 1'b0}
                         : ibdp_pcfifo_if_vghr[21:0];
 
@@ -961,7 +961,7 @@ assign inst_bht_pre_result[1:0] = ibdp_pcfifo_if_bht_pre_result[1:0];
 assign inst_bht_sel_result[1:0] = ibdp_pcfifo_if_bht_sel_result[1:0];
 
 //Ind_btb Miss Signal
-//Let BJU 
+//Let BJU
 assign inst_ind_btb_miss = ibctrl_pcfifo_if_ind_btb_miss;
 
 //==========================================================
@@ -1005,7 +1005,7 @@ casez(hn_pc_oper[7:0])
 endcase
 // &CombEnd; @733
 end
-assign pcfifo_if_ibctrl_more_than_two   =  |(hn_pc_mask_head[7:0] & 
+assign pcfifo_if_ibctrl_more_than_two   =  |(hn_pc_mask_head[7:0] &
                                              hn_pc_mask_tail[7:0]);
 assign pcfifo_if_ibdp_over_mask[7:0]    = over_mask[7:0];
 
@@ -1020,22 +1020,22 @@ assign lbuf_create_select    = lbuf_pcfifo_if_create_select;
 assign ifu_iu_pcfifo_create0_en             = (lbuf_create_select)
                                             ? lbuf_pcfifo_if_inst_pc_oper
                                             : ibstage_create_vld && inst0_vld;
-assign ifu_iu_pcfifo_create0_gateclk_en     = lbuf_create_select || 
+assign ifu_iu_pcfifo_create0_gateclk_en     = lbuf_create_select ||
                                               inst0_vld;
-assign ifu_iu_pcfifo_create0_cur_pc[39:0]   = (lbuf_create_select) 
+assign ifu_iu_pcfifo_create0_cur_pc[39:0]   = (lbuf_create_select)
                                             ? {lbuf_pcfifo_if_inst_cur_pc[PC_WIDTH-2:0],1'b0}
                                             : {inst0_cur_pc[PC_WIDTH-2:0],1'b0};
 assign ifu_iu_pcfifo_create0_tar_pc[39:0]   = (lbuf_create_select)
-                                            ? {lbuf_pcfifo_if_inst_target_pc[PC_WIDTH-2:0],1'b0} 
+                                            ? {lbuf_pcfifo_if_inst_target_pc[PC_WIDTH-2:0],1'b0}
                                             : inst0_target_pc[PC_WIDTH-1:0];
 assign ifu_iu_pcfifo_create0_jal            = (lbuf_create_select)
-                                            ? 1'b0 
+                                            ? 1'b0
                                             : inst0_jal;
 assign ifu_iu_pcfifo_create0_jalr           = (lbuf_create_select)
-                                            ? 1'b0 
+                                            ? 1'b0
                                             : inst0_jalr;
 assign ifu_iu_pcfifo_create0_dst_vld        = (lbuf_create_select)
-                                            ? 1'b0 
+                                            ? 1'b0
                                             : inst0_dst_vld;
 assign ifu_iu_pcfifo_create0_bht_pred       = (lbuf_create_select)
                                             ? lbuf_pcfifo_if_inst_bht_pre_result[1]
@@ -1048,14 +1048,14 @@ assign ifu_iu_pcfifo_create0_chk_idx[24:0]  = (lbuf_create_select)
                                                inst_bht_sel_result[1:0],
                                                inst0_vghr[21:0]};
 assign ifu_iu_pcfifo_create0_jmp_mispred    = (lbuf_create_select)
-                                            ? 1'b0 
-                                            : inst_ind_btb_miss;                                            
+                                            ? 1'b0
+                                            : inst_ind_btb_miss;
 //Inst 1
 //Inst 1 can only from IB data path
 assign ifu_iu_pcfifo_create1_en             = (lbuf_create_select)
-                                            ? 1'b0 
+                                            ? 1'b0
                                             : ibstage_create_vld && inst1_vld;
-assign ifu_iu_pcfifo_create1_gateclk_en     = lbuf_create_select || 
+assign ifu_iu_pcfifo_create1_gateclk_en     = lbuf_create_select ||
                                               inst1_vld;
 assign ifu_iu_pcfifo_create1_cur_pc[39:0]   = {inst1_cur_pc[PC_WIDTH-2:0],1'b0};
 assign ifu_iu_pcfifo_create1_tar_pc[39:0]   = inst1_target_pc[PC_WIDTH-1:0];

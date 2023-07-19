@@ -130,322 +130,322 @@ module ct_ifu_ifctrl(
 );
 
 // &Ports; @23
-input            bht_ifctrl_inv_done;               
-input            bht_ifctrl_inv_on;                 
-input            btb_ifctrl_inv_done;               
-input            btb_ifctrl_inv_on;                 
-input            cp0_ifu_bht_inv;                   
-input            cp0_ifu_btb_inv;                   
-input            cp0_ifu_icache_inv;                
-input   [16 :0]  cp0_ifu_icache_read_index;         
-input            cp0_ifu_icache_read_req;           
-input            cp0_ifu_icache_read_tag;           
-input            cp0_ifu_icache_read_way;           
-input            cp0_ifu_icg_en;                    
-input            cp0_ifu_ind_btb_inv;               
-input            cp0_ifu_no_op_req;                 
-input            cp0_yy_clk_en;                     
-input            cpurst_b;                          
-input            forever_cpuclk;                    
-input            hpcp_ifu_cnt_en;                   
-input   [127:0]  icache_if_ifctrl_inst_data0;       
-input   [127:0]  icache_if_ifctrl_inst_data1;       
-input   [28 :0]  icache_if_ifctrl_tag_data0;        
-input   [28 :0]  icache_if_ifctrl_tag_data1;        
-input            ind_btb_ifctrl_inv_done;           
-input            ind_btb_ifctrl_inv_on;             
-input            ipb_ifctrl_prefetch_idle;          
-input            ipctrl_ifctrl_bht_stall;           
-input            ipctrl_ifctrl_stall;               
-input            ipctrl_ifctrl_stall_short;         
-input   [38 :0]  l0_btb_ifctrl_chgflw_pc;           
-input   [1  :0]  l0_btb_ifctrl_chgflw_way_pred;     
-input            l0_btb_ifctrl_chglfw_vld;          
-input            l1_refill_ifctrl_ctc;              
-input            l1_refill_ifctrl_idle;             
-input   [38 :0]  l1_refill_ifctrl_pc;               
-input            l1_refill_ifctrl_refill_on;        
-input            l1_refill_ifctrl_reissue;          
-input            l1_refill_ifctrl_start;            
-input            l1_refill_ifctrl_start_for_gateclk; 
-input            l1_refill_ifctrl_trans_cmplt;      
-input            l1_refill_inv_wfd_back;            
-input            lsu_ifu_icache_all_inv;            
-input   [5  :0]  lsu_ifu_icache_index;              
-input            lsu_ifu_icache_line_inv;           
-input   [27 :0]  lsu_ifu_icache_ptag;               
-input            mmu_ifu_pavld;                     
-input            pad_yy_icg_scan_en;                
-input            pcgen_ifctrl_cancel;               
-input   [38 :0]  pcgen_ifctrl_pc;                   
-input            pcgen_ifctrl_pipe_cancel;          
-input            pcgen_ifctrl_reissue;              
-input   [1  :0]  pcgen_ifctrl_way_pred;             
-input            pcgen_ifctrl_way_pred_stall;       
-input            rtu_ifu_xx_dbgon;                  
-input            vector_ifctrl_reset_on;            
-input            vector_ifctrl_sm_on;               
-input            vector_ifctrl_sm_start;            
-output           ifctrl_bht_inv;                    
-output           ifctrl_bht_pipedown;               
-output           ifctrl_bht_stall;                  
-output           ifctrl_btb_inv;                    
-output           ifctrl_debug_if_pc_vld;            
-output           ifctrl_debug_if_stall;             
-output           ifctrl_debug_if_vld;               
-output  [3  :0]  ifctrl_debug_inv_st;               
-output           ifctrl_debug_lsu_all_inv;          
-output           ifctrl_debug_lsu_line_inv;         
-output           ifctrl_debug_mmu_pavld;            
-output           ifctrl_debug_way_pred_stall;       
-output  [38 :0]  ifctrl_icache_if_index;            
-output           ifctrl_icache_if_inv_fifo;         
-output           ifctrl_icache_if_inv_on;           
-output           ifctrl_icache_if_read_req_data0;   
-output           ifctrl_icache_if_read_req_data1;   
-output  [38 :0]  ifctrl_icache_if_read_req_index;   
-output           ifctrl_icache_if_read_req_tag;     
-output           ifctrl_icache_if_reset_req;        
-output           ifctrl_icache_if_tag_req;          
-output  [2  :0]  ifctrl_icache_if_tag_wen;          
-output           ifctrl_ifdp_cancel;                
-output           ifctrl_ifdp_pipedown;              
-output           ifctrl_ifdp_stall;                 
-output           ifctrl_ind_btb_inv;                
-output           ifctrl_ipb_inv_on;                 
-output           ifctrl_ipctrl_if_pcload;           
-output           ifctrl_ipctrl_vld;                 
-output           ifctrl_l0_btb_inv;                 
-output           ifctrl_l0_btb_stall;               
-output           ifctrl_l1_refill_ins_inv;          
-output           ifctrl_l1_refill_ins_inv_dn;       
-output           ifctrl_l1_refill_inv_busy;         
-output           ifctrl_l1_refill_inv_on;           
-output           ifctrl_lbuf_ins_inv_on;            
-output           ifctrl_lbuf_inv_req;               
-output           ifctrl_pcgen_chgflw_no_stall_mask; 
-output           ifctrl_pcgen_chgflw_vld;           
-output           ifctrl_pcgen_ins_icache_inv_done;  
-output  [38 :0]  ifctrl_pcgen_pcload_pc;            
-output           ifctrl_pcgen_reissue_pcload;       
-output           ifctrl_pcgen_stall;                
-output           ifctrl_pcgen_stall_short;          
-output  [1  :0]  ifctrl_pcgen_way_pred;             
-output           ifu_cp0_bht_inv_done;              
-output           ifu_cp0_btb_inv_done;              
-output           ifu_cp0_icache_inv_done;           
-output  [127:0]  ifu_cp0_icache_read_data;          
-output           ifu_cp0_icache_read_data_vld;      
-output           ifu_cp0_ind_btb_inv_done;          
-output           ifu_had_no_op;                     
-output           ifu_hpcp_frontend_stall;           
-output           ifu_lsu_icache_inv_done;           
-output           ifu_no_op_req;                     
-output           ifu_yy_xx_no_op;                   
+input            bht_ifctrl_inv_done;
+input            bht_ifctrl_inv_on;
+input            btb_ifctrl_inv_done;
+input            btb_ifctrl_inv_on;
+input            cp0_ifu_bht_inv;
+input            cp0_ifu_btb_inv;
+input            cp0_ifu_icache_inv;
+input   [16 :0]  cp0_ifu_icache_read_index;
+input            cp0_ifu_icache_read_req;
+input            cp0_ifu_icache_read_tag;
+input            cp0_ifu_icache_read_way;
+input            cp0_ifu_icg_en;
+input            cp0_ifu_ind_btb_inv;
+input            cp0_ifu_no_op_req;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            forever_cpuclk;
+input            hpcp_ifu_cnt_en;
+input   [127:0]  icache_if_ifctrl_inst_data0;
+input   [127:0]  icache_if_ifctrl_inst_data1;
+input   [28 :0]  icache_if_ifctrl_tag_data0;
+input   [28 :0]  icache_if_ifctrl_tag_data1;
+input            ind_btb_ifctrl_inv_done;
+input            ind_btb_ifctrl_inv_on;
+input            ipb_ifctrl_prefetch_idle;
+input            ipctrl_ifctrl_bht_stall;
+input            ipctrl_ifctrl_stall;
+input            ipctrl_ifctrl_stall_short;
+input   [38 :0]  l0_btb_ifctrl_chgflw_pc;
+input   [1  :0]  l0_btb_ifctrl_chgflw_way_pred;
+input            l0_btb_ifctrl_chglfw_vld;
+input            l1_refill_ifctrl_ctc;
+input            l1_refill_ifctrl_idle;
+input   [38 :0]  l1_refill_ifctrl_pc;
+input            l1_refill_ifctrl_refill_on;
+input            l1_refill_ifctrl_reissue;
+input            l1_refill_ifctrl_start;
+input            l1_refill_ifctrl_start_for_gateclk;
+input            l1_refill_ifctrl_trans_cmplt;
+input            l1_refill_inv_wfd_back;
+input            lsu_ifu_icache_all_inv;
+input   [5  :0]  lsu_ifu_icache_index;
+input            lsu_ifu_icache_line_inv;
+input   [27 :0]  lsu_ifu_icache_ptag;
+input            mmu_ifu_pavld;
+input            pad_yy_icg_scan_en;
+input            pcgen_ifctrl_cancel;
+input   [38 :0]  pcgen_ifctrl_pc;
+input            pcgen_ifctrl_pipe_cancel;
+input            pcgen_ifctrl_reissue;
+input   [1  :0]  pcgen_ifctrl_way_pred;
+input            pcgen_ifctrl_way_pred_stall;
+input            rtu_ifu_xx_dbgon;
+input            vector_ifctrl_reset_on;
+input            vector_ifctrl_sm_on;
+input            vector_ifctrl_sm_start;
+output           ifctrl_bht_inv;
+output           ifctrl_bht_pipedown;
+output           ifctrl_bht_stall;
+output           ifctrl_btb_inv;
+output           ifctrl_debug_if_pc_vld;
+output           ifctrl_debug_if_stall;
+output           ifctrl_debug_if_vld;
+output  [3  :0]  ifctrl_debug_inv_st;
+output           ifctrl_debug_lsu_all_inv;
+output           ifctrl_debug_lsu_line_inv;
+output           ifctrl_debug_mmu_pavld;
+output           ifctrl_debug_way_pred_stall;
+output  [38 :0]  ifctrl_icache_if_index;
+output           ifctrl_icache_if_inv_fifo;
+output           ifctrl_icache_if_inv_on;
+output           ifctrl_icache_if_read_req_data0;
+output           ifctrl_icache_if_read_req_data1;
+output  [38 :0]  ifctrl_icache_if_read_req_index;
+output           ifctrl_icache_if_read_req_tag;
+output           ifctrl_icache_if_reset_req;
+output           ifctrl_icache_if_tag_req;
+output  [2  :0]  ifctrl_icache_if_tag_wen;
+output           ifctrl_ifdp_cancel;
+output           ifctrl_ifdp_pipedown;
+output           ifctrl_ifdp_stall;
+output           ifctrl_ind_btb_inv;
+output           ifctrl_ipb_inv_on;
+output           ifctrl_ipctrl_if_pcload;
+output           ifctrl_ipctrl_vld;
+output           ifctrl_l0_btb_inv;
+output           ifctrl_l0_btb_stall;
+output           ifctrl_l1_refill_ins_inv;
+output           ifctrl_l1_refill_ins_inv_dn;
+output           ifctrl_l1_refill_inv_busy;
+output           ifctrl_l1_refill_inv_on;
+output           ifctrl_lbuf_ins_inv_on;
+output           ifctrl_lbuf_inv_req;
+output           ifctrl_pcgen_chgflw_no_stall_mask;
+output           ifctrl_pcgen_chgflw_vld;
+output           ifctrl_pcgen_ins_icache_inv_done;
+output  [38 :0]  ifctrl_pcgen_pcload_pc;
+output           ifctrl_pcgen_reissue_pcload;
+output           ifctrl_pcgen_stall;
+output           ifctrl_pcgen_stall_short;
+output  [1  :0]  ifctrl_pcgen_way_pred;
+output           ifu_cp0_bht_inv_done;
+output           ifu_cp0_btb_inv_done;
+output           ifu_cp0_icache_inv_done;
+output  [127:0]  ifu_cp0_icache_read_data;
+output           ifu_cp0_icache_read_data_vld;
+output           ifu_cp0_ind_btb_inv_done;
+output           ifu_had_no_op;
+output           ifu_hpcp_frontend_stall;
+output           ifu_lsu_icache_inv_done;
+output           ifu_no_op_req;
+output           ifu_yy_xx_no_op;
 
 // &Regs; @24
-reg     [4  :0]  addr_inv_count_reg;                
-reg              bht_inv_dn_ff;                     
-reg              bht_inv_ff;                        
-reg              btb_inv_dn_ff;                     
-reg              btb_inv_ff;                        
-reg     [127:0]  icache_if_ifctrl_inst_data0_reg;   
-reg     [127:0]  icache_if_ifctrl_inst_data1_reg;   
-reg     [28 :0]  icache_if_ifctrl_tag_data0_reg;    
-reg     [28 :0]  icache_if_ifctrl_tag_data1_reg;    
-reg     [12 :0]  icache_inv_cnt;                    
-reg     [3  :0]  icache_inv_cur_state;              
-reg              icache_inv_fifo;                   
-reg     [3  :0]  icache_inv_next_state;             
-reg     [2  :0]  icache_inv_tag_wen;                
-reg              ifctrl_ipctrl_if_pcload;           
-reg              ifctrl_ipctrl_vld;                 
-reg              ifctrl_pcgen_reissue_pcload;       
-reg              ifu_hpcp_frontend_stall;           
-reg              ifu_no_op_flop;                    
-reg              ind_btb_inv_dn_ff;                 
-reg              ind_btb_inv_ff;                    
-reg     [27 :0]  ins_inv_ptag_flop;                 
-reg     [1  :0]  tag_cmp_result;                    
-reg     [28 :0]  tag_data0_reg;                     
-reg     [28 :0]  tag_data1_reg;                     
+reg     [4  :0]  addr_inv_count_reg;
+reg              bht_inv_dn_ff;
+reg              bht_inv_ff;
+reg              btb_inv_dn_ff;
+reg              btb_inv_ff;
+reg     [127:0]  icache_if_ifctrl_inst_data0_reg;
+reg     [127:0]  icache_if_ifctrl_inst_data1_reg;
+reg     [28 :0]  icache_if_ifctrl_tag_data0_reg;
+reg     [28 :0]  icache_if_ifctrl_tag_data1_reg;
+reg     [12 :0]  icache_inv_cnt;
+reg     [3  :0]  icache_inv_cur_state;
+reg              icache_inv_fifo;
+reg     [3  :0]  icache_inv_next_state;
+reg     [2  :0]  icache_inv_tag_wen;
+reg              ifctrl_ipctrl_if_pcload;
+reg              ifctrl_ipctrl_vld;
+reg              ifctrl_pcgen_reissue_pcload;
+reg              ifu_hpcp_frontend_stall;
+reg              ifu_no_op_flop;
+reg              ind_btb_inv_dn_ff;
+reg              ind_btb_inv_ff;
+reg     [27 :0]  ins_inv_ptag_flop;
+reg     [1  :0]  tag_cmp_result;
+reg     [28 :0]  tag_data0_reg;
+reg     [28 :0]  tag_data1_reg;
 
 // &Wires; @25
-wire             all_inv_req;                       
-wire             bht_ifctrl_inv_done;               
-wire             bht_ifctrl_inv_on;                 
-wire             bht_inv_dn;                        
-wire             bht_inv_flop_clk;                  
-wire             bht_inv_flop_clk_en;               
-wire             bht_inv_on;                        
-wire             btb_ifctrl_inv_done;               
-wire             btb_ifctrl_inv_on;                 
-wire             btb_inv_dn;                        
-wire             btb_inv_flop_clk;                  
-wire             btb_inv_flop_clk_en;               
-wire             btb_inv_on;                        
-wire             cache_data_flop_clk;               
-wire             cache_data_flop_clk_en;            
-wire             cp0_ifu_bht_inv;                   
-wire             cp0_ifu_btb_inv;                   
-wire             cp0_ifu_icache_inv;                
-wire    [16 :0]  cp0_ifu_icache_read_index;         
-wire             cp0_ifu_icache_read_req;           
-wire             cp0_ifu_icache_read_tag;           
-wire             cp0_ifu_icache_read_way;           
-wire             cp0_ifu_icg_en;                    
-wire             cp0_ifu_ind_btb_inv;               
-wire             cp0_ifu_no_op_req;                 
-wire             cp0_yy_clk_en;                     
-wire             cpurst_b;                          
-wire             forever_cpuclk;                    
-wire             hpcp_clk;                          
-wire             hpcp_clk_en;                       
-wire             hpcp_ifu_cnt_en;                   
-wire             ibp_inv_flop_clk;                  
-wire             ibp_inv_flop_clk_en;               
-wire             icache_all_inv;                    
-wire             icache_all_inv_done;               
-wire    [127:0]  icache_if_ifctrl_inst_data0;       
-wire    [127:0]  icache_if_ifctrl_inst_data1;       
-wire    [28 :0]  icache_if_ifctrl_tag_data0;        
-wire    [28 :0]  icache_if_ifctrl_tag_data1;        
-wire             icache_inv_clk;                    
-wire             icache_inv_clk_en;                 
-wire             icache_inv_cnt_initial;            
-wire             icache_inv_cnt_on;                 
-wire    [12 :0]  icache_inv_cnt_sub;                
-wire             icache_inv_done;                   
-wire    [38 :0]  icache_inv_index;                  
-wire             icache_inv_on;                     
-wire             icache_inv_over;                   
-wire             icache_inv_tag_req;                
-wire             icache_inv_valid;                  
-wire             icache_line_inv_done;              
-wire    [38 :0]  icache_line_inv_index;             
-wire             icache_read;                       
-wire             icache_read_clk;                   
-wire             icache_read_clk_en;                
-wire             icache_read_done;                  
-wire    [16 :0]  icache_read_index;                 
-wire             icache_read_pipe_vld;              
-wire             icache_read_req;                   
-wire             icache_read_tag;                   
-wire             icache_read_way;                   
-wire             icache_refill_on;                  
-wire             icache_reissue;                    
-wire             icache_reset_inv_req;              
-wire             if_cancel;                         
-wire             if_frontend_stall;                 
-wire             if_inst_data_vld;                  
-wire             if_pc_vld;                         
-wire             if_self_stall;                     
-wire             if_stage_stall;                    
-wire             if_vld;                            
-wire             if_vld_clk;                        
-wire             if_vld_clk_en;                     
-wire             if_vld_for_gateclk;                
-wire             ifctrl_bht_inv;                    
-wire             ifctrl_bht_pipedown;               
-wire             ifctrl_bht_stall;                  
-wire             ifctrl_btb_inv;                    
-wire             ifctrl_debug_if_pc_vld;            
-wire             ifctrl_debug_if_stall;             
-wire             ifctrl_debug_if_vld;               
-wire    [3  :0]  ifctrl_debug_inv_st;               
-wire             ifctrl_debug_lsu_all_inv;          
-wire             ifctrl_debug_lsu_line_inv;         
-wire             ifctrl_debug_mmu_pavld;            
-wire             ifctrl_debug_way_pred_stall;       
-wire    [38 :0]  ifctrl_icache_if_index;            
-wire             ifctrl_icache_if_inv_fifo;         
-wire             ifctrl_icache_if_inv_on;           
-wire             ifctrl_icache_if_read_req_data0;   
-wire             ifctrl_icache_if_read_req_data1;   
-wire    [38 :0]  ifctrl_icache_if_read_req_index;   
-wire             ifctrl_icache_if_read_req_tag;     
-wire             ifctrl_icache_if_reset_req;        
-wire             ifctrl_icache_if_tag_req;          
-wire    [2  :0]  ifctrl_icache_if_tag_wen;          
-wire             ifctrl_ifdp_cancel;                
-wire             ifctrl_ifdp_pipedown;              
-wire             ifctrl_ifdp_stall;                 
-wire             ifctrl_ind_btb_inv;                
-wire             ifctrl_ipb_inv_on;                 
-wire             ifctrl_l0_btb_inv;                 
-wire             ifctrl_l0_btb_stall;               
-wire             ifctrl_l1_refill_ins_inv;          
-wire             ifctrl_l1_refill_ins_inv_dn;       
-wire             ifctrl_l1_refill_inv_busy;         
-wire             ifctrl_l1_refill_inv_on;           
-wire             ifctrl_lbuf_ins_inv_on;            
-wire             ifctrl_lbuf_inv_req;               
-wire             ifctrl_pcgen_chgflw_no_stall_mask; 
-wire             ifctrl_pcgen_chgflw_vld;           
-wire             ifctrl_pcgen_ins_icache_inv_done;  
-wire    [38 :0]  ifctrl_pcgen_pcload_pc;            
-wire             ifctrl_pcgen_stall;                
-wire             ifctrl_pcgen_stall_short;          
-wire    [1  :0]  ifctrl_pcgen_way_pred;             
-wire             ifctrl_pcload;                     
-wire             ifctrl_reissue_clk;                
-wire             ifu_cp0_bht_inv_done;              
-wire             ifu_cp0_btb_inv_done;              
-wire             ifu_cp0_icache_inv_done;           
-wire    [127:0]  ifu_cp0_icache_read_data;          
-wire             ifu_cp0_icache_read_data_vld;      
-wire             ifu_cp0_ind_btb_inv_done;          
-wire             ifu_had_no_op;                     
-wire             ifu_lsu_icache_inv_done;           
-wire             ifu_no_op;                         
-wire             ifu_no_op_for_gateclk;             
-wire             ifu_no_op_req;                     
-wire             ifu_no_op_updt_clk;                
-wire             ifu_no_op_updt_clk_en;             
-wire             ifu_yy_xx_no_op;                   
-wire             ind_btb_ifctrl_inv_done;           
-wire             ind_btb_ifctrl_inv_on;             
-wire             ind_btb_inv_dn;                    
-wire             ind_btb_inv_on;                    
-wire             ins_addr_inv_req;                  
-wire             ins_all_inv_req;                   
-wire             ins_icache_inv_line_hit;           
-wire             ins_inv_ptag_flop_clk;             
-wire             ins_inv_ptag_flop_clk_en;          
-wire    [1  :0]  ins_tag_cmp;                       
-wire             ipb_ifctrl_prefetch_idle;          
-wire             ipctrl_ifctrl_bht_stall;           
-wire             ipctrl_ifctrl_stall;               
-wire             ipctrl_ifctrl_stall_short;         
-wire    [38 :0]  l0_btb_ifctrl_chgflw_pc;           
-wire    [1  :0]  l0_btb_ifctrl_chgflw_way_pred;     
-wire             l0_btb_ifctrl_chglfw_vld;          
-wire             l1_refill_ifctrl_ctc;              
-wire             l1_refill_ifctrl_idle;             
-wire    [38 :0]  l1_refill_ifctrl_pc;               
-wire             l1_refill_ifctrl_refill_on;        
-wire             l1_refill_ifctrl_reissue;          
-wire             l1_refill_ifctrl_start;            
-wire             l1_refill_ifctrl_start_for_gateclk; 
-wire             l1_refill_ifctrl_trans_cmplt;      
-wire             l1_refill_inv_wfd_back;            
-wire             lsu_ifu_icache_all_inv;            
-wire    [5  :0]  lsu_ifu_icache_index;              
-wire             lsu_ifu_icache_line_inv;           
-wire    [27 :0]  lsu_ifu_icache_ptag;               
-wire             mmu_ifu_pavld;                     
-wire             pad_yy_icg_scan_en;                
-wire             pcgen_ifctrl_cancel;               
-wire    [38 :0]  pcgen_ifctrl_pc;                   
-wire             pcgen_ifctrl_pipe_cancel;          
-wire             pcgen_ifctrl_reissue;              
-wire    [1  :0]  pcgen_ifctrl_way_pred;             
-wire             pcgen_ifctrl_way_pred_stall;       
-wire             refill_pc_hit;                     
-wire             rtu_ifu_xx_dbgon;                  
-wire             vector_ifctrl_reset_on;            
-wire             vector_ifctrl_sm_on;               
-wire             vector_ifctrl_sm_start;            
+wire             all_inv_req;
+wire             bht_ifctrl_inv_done;
+wire             bht_ifctrl_inv_on;
+wire             bht_inv_dn;
+wire             bht_inv_flop_clk;
+wire             bht_inv_flop_clk_en;
+wire             bht_inv_on;
+wire             btb_ifctrl_inv_done;
+wire             btb_ifctrl_inv_on;
+wire             btb_inv_dn;
+wire             btb_inv_flop_clk;
+wire             btb_inv_flop_clk_en;
+wire             btb_inv_on;
+wire             cache_data_flop_clk;
+wire             cache_data_flop_clk_en;
+wire             cp0_ifu_bht_inv;
+wire             cp0_ifu_btb_inv;
+wire             cp0_ifu_icache_inv;
+wire    [16 :0]  cp0_ifu_icache_read_index;
+wire             cp0_ifu_icache_read_req;
+wire             cp0_ifu_icache_read_tag;
+wire             cp0_ifu_icache_read_way;
+wire             cp0_ifu_icg_en;
+wire             cp0_ifu_ind_btb_inv;
+wire             cp0_ifu_no_op_req;
+wire             cp0_yy_clk_en;
+wire             cpurst_b;
+wire             forever_cpuclk;
+wire             hpcp_clk;
+wire             hpcp_clk_en;
+wire             hpcp_ifu_cnt_en;
+wire             ibp_inv_flop_clk;
+wire             ibp_inv_flop_clk_en;
+wire             icache_all_inv;
+wire             icache_all_inv_done;
+wire    [127:0]  icache_if_ifctrl_inst_data0;
+wire    [127:0]  icache_if_ifctrl_inst_data1;
+wire    [28 :0]  icache_if_ifctrl_tag_data0;
+wire    [28 :0]  icache_if_ifctrl_tag_data1;
+wire             icache_inv_clk;
+wire             icache_inv_clk_en;
+wire             icache_inv_cnt_initial;
+wire             icache_inv_cnt_on;
+wire    [12 :0]  icache_inv_cnt_sub;
+wire             icache_inv_done;
+wire    [38 :0]  icache_inv_index;
+wire             icache_inv_on;
+wire             icache_inv_over;
+wire             icache_inv_tag_req;
+wire             icache_inv_valid;
+wire             icache_line_inv_done;
+wire    [38 :0]  icache_line_inv_index;
+wire             icache_read;
+wire             icache_read_clk;
+wire             icache_read_clk_en;
+wire             icache_read_done;
+wire    [16 :0]  icache_read_index;
+wire             icache_read_pipe_vld;
+wire             icache_read_req;
+wire             icache_read_tag;
+wire             icache_read_way;
+wire             icache_refill_on;
+wire             icache_reissue;
+wire             icache_reset_inv_req;
+wire             if_cancel;
+wire             if_frontend_stall;
+wire             if_inst_data_vld;
+wire             if_pc_vld;
+wire             if_self_stall;
+wire             if_stage_stall;
+wire             if_vld;
+wire             if_vld_clk;
+wire             if_vld_clk_en;
+wire             if_vld_for_gateclk;
+wire             ifctrl_bht_inv;
+wire             ifctrl_bht_pipedown;
+wire             ifctrl_bht_stall;
+wire             ifctrl_btb_inv;
+wire             ifctrl_debug_if_pc_vld;
+wire             ifctrl_debug_if_stall;
+wire             ifctrl_debug_if_vld;
+wire    [3  :0]  ifctrl_debug_inv_st;
+wire             ifctrl_debug_lsu_all_inv;
+wire             ifctrl_debug_lsu_line_inv;
+wire             ifctrl_debug_mmu_pavld;
+wire             ifctrl_debug_way_pred_stall;
+wire    [38 :0]  ifctrl_icache_if_index;
+wire             ifctrl_icache_if_inv_fifo;
+wire             ifctrl_icache_if_inv_on;
+wire             ifctrl_icache_if_read_req_data0;
+wire             ifctrl_icache_if_read_req_data1;
+wire    [38 :0]  ifctrl_icache_if_read_req_index;
+wire             ifctrl_icache_if_read_req_tag;
+wire             ifctrl_icache_if_reset_req;
+wire             ifctrl_icache_if_tag_req;
+wire    [2  :0]  ifctrl_icache_if_tag_wen;
+wire             ifctrl_ifdp_cancel;
+wire             ifctrl_ifdp_pipedown;
+wire             ifctrl_ifdp_stall;
+wire             ifctrl_ind_btb_inv;
+wire             ifctrl_ipb_inv_on;
+wire             ifctrl_l0_btb_inv;
+wire             ifctrl_l0_btb_stall;
+wire             ifctrl_l1_refill_ins_inv;
+wire             ifctrl_l1_refill_ins_inv_dn;
+wire             ifctrl_l1_refill_inv_busy;
+wire             ifctrl_l1_refill_inv_on;
+wire             ifctrl_lbuf_ins_inv_on;
+wire             ifctrl_lbuf_inv_req;
+wire             ifctrl_pcgen_chgflw_no_stall_mask;
+wire             ifctrl_pcgen_chgflw_vld;
+wire             ifctrl_pcgen_ins_icache_inv_done;
+wire    [38 :0]  ifctrl_pcgen_pcload_pc;
+wire             ifctrl_pcgen_stall;
+wire             ifctrl_pcgen_stall_short;
+wire    [1  :0]  ifctrl_pcgen_way_pred;
+wire             ifctrl_pcload;
+wire             ifctrl_reissue_clk;
+wire             ifu_cp0_bht_inv_done;
+wire             ifu_cp0_btb_inv_done;
+wire             ifu_cp0_icache_inv_done;
+wire    [127:0]  ifu_cp0_icache_read_data;
+wire             ifu_cp0_icache_read_data_vld;
+wire             ifu_cp0_ind_btb_inv_done;
+wire             ifu_had_no_op;
+wire             ifu_lsu_icache_inv_done;
+wire             ifu_no_op;
+wire             ifu_no_op_for_gateclk;
+wire             ifu_no_op_req;
+wire             ifu_no_op_updt_clk;
+wire             ifu_no_op_updt_clk_en;
+wire             ifu_yy_xx_no_op;
+wire             ind_btb_ifctrl_inv_done;
+wire             ind_btb_ifctrl_inv_on;
+wire             ind_btb_inv_dn;
+wire             ind_btb_inv_on;
+wire             ins_addr_inv_req;
+wire             ins_all_inv_req;
+wire             ins_icache_inv_line_hit;
+wire             ins_inv_ptag_flop_clk;
+wire             ins_inv_ptag_flop_clk_en;
+wire    [1  :0]  ins_tag_cmp;
+wire             ipb_ifctrl_prefetch_idle;
+wire             ipctrl_ifctrl_bht_stall;
+wire             ipctrl_ifctrl_stall;
+wire             ipctrl_ifctrl_stall_short;
+wire    [38 :0]  l0_btb_ifctrl_chgflw_pc;
+wire    [1  :0]  l0_btb_ifctrl_chgflw_way_pred;
+wire             l0_btb_ifctrl_chglfw_vld;
+wire             l1_refill_ifctrl_ctc;
+wire             l1_refill_ifctrl_idle;
+wire    [38 :0]  l1_refill_ifctrl_pc;
+wire             l1_refill_ifctrl_refill_on;
+wire             l1_refill_ifctrl_reissue;
+wire             l1_refill_ifctrl_start;
+wire             l1_refill_ifctrl_start_for_gateclk;
+wire             l1_refill_ifctrl_trans_cmplt;
+wire             l1_refill_inv_wfd_back;
+wire             lsu_ifu_icache_all_inv;
+wire    [5  :0]  lsu_ifu_icache_index;
+wire             lsu_ifu_icache_line_inv;
+wire    [27 :0]  lsu_ifu_icache_ptag;
+wire             mmu_ifu_pavld;
+wire             pad_yy_icg_scan_en;
+wire             pcgen_ifctrl_cancel;
+wire    [38 :0]  pcgen_ifctrl_pc;
+wire             pcgen_ifctrl_pipe_cancel;
+wire             pcgen_ifctrl_reissue;
+wire    [1  :0]  pcgen_ifctrl_way_pred;
+wire             pcgen_ifctrl_way_pred_stall;
+wire             refill_pc_hit;
+wire             rtu_ifu_xx_dbgon;
+wire             vector_ifctrl_reset_on;
+wire             vector_ifctrl_sm_on;
+wire             vector_ifctrl_sm_start;
 
 
 parameter PC_WIDTH = 40;
@@ -455,11 +455,11 @@ parameter PC_WIDTH = 40;
 //             No_op Signal for Low Power
 //==========================================================
 assign ifu_no_op_req = cp0_ifu_no_op_req;
-assign ifu_no_op     = l1_refill_ifctrl_idle && 
-                       !l1_refill_ifctrl_start && 
+assign ifu_no_op     = l1_refill_ifctrl_idle &&
+                       !l1_refill_ifctrl_start &&
                        ipb_ifctrl_prefetch_idle;
-assign ifu_no_op_for_gateclk = l1_refill_ifctrl_idle && 
-                               !l1_refill_ifctrl_start_for_gateclk && 
+assign ifu_no_op_for_gateclk = l1_refill_ifctrl_idle &&
+                               !l1_refill_ifctrl_start_for_gateclk &&
                                ipb_ifctrl_prefetch_idle;
 
 //Gate Clk
@@ -502,11 +502,11 @@ assign ifu_had_no_op = ifu_yy_xx_no_op;
 //  1.Refill not on : Data from L1 ICache, Data Valid When not way_pred_close
 //  2.Refill     on : Data from Refill, Data Valid only when trans_cmplt && PC_hit
 //  Refill on Valid When Enter Refill SM && NOT ask Change Flow,Which Means
-//  WFD1-WFD4 or REQ 
-assign if_inst_data_vld = (!l1_refill_ifctrl_refill_on && 
+//  WFD1-WFD4 or REQ
+assign if_inst_data_vld = (!l1_refill_ifctrl_refill_on &&
                            !(pcgen_ifctrl_way_pred[1:0] == 2'b0) ) || //not way_pred stall
-                          (l1_refill_ifctrl_refill_on && 
-                           l1_refill_ifctrl_trans_cmplt && 
+                          (l1_refill_ifctrl_refill_on &&
+                           l1_refill_ifctrl_trans_cmplt &&
                            refill_pc_hit);
 assign refill_pc_hit = (pcgen_ifctrl_pc[PC_WIDTH-2:3] == l1_refill_ifctrl_pc[PC_WIDTH-2:3]);
 
@@ -517,7 +517,7 @@ assign refill_pc_hit = (pcgen_ifctrl_pc[PC_WIDTH-2:3] == l1_refill_ifctrl_pc[PC_
 //  1.MMU Trans success
 //  2.MMU Trans expt
 //  3.!ifu_no_op_req(in case of invalid inst fetch affect no_op)
-assign if_pc_vld       = mmu_ifu_pavld && 
+assign if_pc_vld       = mmu_ifu_pavld &&
                          !ifu_no_op_req;
 
 //==========================================================
@@ -539,15 +539,15 @@ assign ifctrl_ifdp_cancel = if_cancel;
 //  6.Vector_SM on
 //  7.Way Predict = 2'b00, Which Means
 //  8.Rtu_yy_xx_dbgon
-assign if_self_stall = (l1_refill_ifctrl_refill_on && 
+assign if_self_stall = (l1_refill_ifctrl_refill_on &&
                         !(l1_refill_ifctrl_trans_cmplt && refill_pc_hit)) ||
                        !if_pc_vld ||
                        icache_inv_on ||
                        bht_inv_on ||
-                       btb_inv_on || 
-                       ind_btb_inv_on || 
+                       btb_inv_on ||
+                       ind_btb_inv_on ||
                        vector_ifctrl_sm_on ||
-                       pcgen_ifctrl_way_pred_stall || 
+                       pcgen_ifctrl_way_pred_stall ||
                        rtu_ifu_xx_dbgon;
 assign if_stage_stall      = if_self_stall || ipctrl_ifctrl_stall;
 assign ifctrl_pcgen_stall  = if_stage_stall;
@@ -578,9 +578,9 @@ assign if_vld_for_gateclk = if_inst_data_vld &&
 //==========================================================
 //                       IF Debug Signal
 //==========================================================
-assign if_frontend_stall = !if_inst_data_vld 
-                        || !if_pc_vld 
-                        || if_self_stall 
+assign if_frontend_stall = !if_inst_data_vld
+                        || !if_pc_vld
+                        || if_self_stall
                         || ipctrl_ifctrl_stall;
 
 assign hpcp_clk_en       = hpcp_ifu_cnt_en;
@@ -647,9 +647,9 @@ gated_clk_cell  x_if_vld_clk (
 //           .local_en       (if_vld_clk_en),//Local Condition @197
 //           .module_en      (cp0_ifu_icg_en) @198
 //         ); @199
-assign if_vld_clk_en = if_vld_for_gateclk || 
-                       ifctrl_ipctrl_vld; 
-//ipctrl_ifctrl_stall may set with higher priority cancel at 
+assign if_vld_clk_en = if_vld_for_gateclk ||
+                       ifctrl_ipctrl_vld;
+//ipctrl_ifctrl_stall may set with higher priority cancel at
 //the same time
 always @(posedge if_vld_clk or negedge cpurst_b)
 begin
@@ -672,11 +672,11 @@ end
 //  3.High priority change flow from Had/Vector and so on
 //  Note That The Three Done Signal should Flop One Cycle
 assign icache_reissue = l1_refill_ifctrl_reissue ||
-                        (icache_inv_done || icache_read_done) && 
+                        (icache_inv_done || icache_read_done) &&
                         (
-                          !l1_refill_ifctrl_ctc || 
+                          !l1_refill_ifctrl_ctc ||
                           l1_refill_inv_wfd_back
-                        ) || 
+                        ) ||
                         pcgen_ifctrl_reissue;
 //Gate Clk
 // &Instance("gated_clk_cell","x_ifctrl_reissue_clk"); @232
@@ -697,7 +697,7 @@ gated_clk_cell  x_ifctrl_reissue_clk (
 //           .local_en       (1'b1),//Local Condition @237
 //           .module_en      (cp0_ifu_icg_en) @238
 //         ); @239
-        
+
 always @(posedge ifctrl_reissue_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -710,17 +710,17 @@ end
 //==========================================================
 //             IF Stage PCload
 //==========================================================
-assign ifctrl_pcload                = l0_btb_ifctrl_chglfw_vld 
+assign ifctrl_pcload                = l0_btb_ifctrl_chglfw_vld
                                    && !ipctrl_ifctrl_stall
                                    && !ifctrl_pcgen_reissue_pcload
                                    && if_inst_data_vld
 //                                   && if_pc_vld
                                    && !if_self_stall;
-                                   
+
 assign ifctrl_pcgen_chgflw_no_stall_mask = l0_btb_ifctrl_chglfw_vld
                                         && !ifctrl_pcgen_reissue_pcload
                                         && if_inst_data_vld;
-                                         
+
 assign ifctrl_pcgen_chgflw_vld              = ifctrl_pcload;
 assign ifctrl_pcgen_pcload_pc[PC_WIDTH-2:0] = l0_btb_ifctrl_chgflw_pc[PC_WIDTH-2:0];
 assign ifctrl_pcgen_way_pred[1:0]           = (l0_btb_ifctrl_chglfw_vld)
@@ -759,9 +759,9 @@ parameter INS_INV_ALL = 4'b1101;
 //==========================================================
 //              Gate Clk of Icache Inv SM
 //==========================================================
-assign icache_inv_valid  = icache_all_inv || 
-                           lsu_ifu_icache_line_inv || 
-                           lsu_ifu_icache_all_inv || 
+assign icache_inv_valid  = icache_all_inv ||
+                           lsu_ifu_icache_line_inv ||
+                           lsu_ifu_icache_all_inv ||
                            icache_read;
 assign icache_all_inv    = cp0_ifu_icache_inv;
 assign icache_read       = cp0_ifu_icache_read_req;
@@ -835,7 +835,7 @@ INV_ALL     : if(icache_all_inv_done)
               icache_inv_next_state[3:0] = INV_ALL;
 //Because VIPT icache
 //the same PA may occur in different icache line
-//Thus should ergodic 4/8 icache line in 32K/64K icache 
+//Thus should ergodic 4/8 icache line in 32K/64K icache
 INS_TAG_REQ : icache_inv_next_state[3:0] = INS_TAG_RD;
 INS_TAG_RD  : icache_inv_next_state[3:0] = INS_CMP;
 INS_CMP     : if(ins_icache_inv_line_hit)
@@ -863,24 +863,24 @@ end
 //------------------Condition Signal------------------------
 //inst all inv
 assign ins_all_inv_req   = lsu_ifu_icache_all_inv && //inv will not start at the same time with vec or refill
-                           (!icache_refill_on && !vector_ifctrl_sm_start || 
+                           (!icache_refill_on && !vector_ifctrl_sm_start ||
                            l1_refill_ifctrl_ctc);//Low power mode not care lbuf idle
 //inst line inv (icache.iva or icache.ipa)
-assign ins_addr_inv_req  = lsu_ifu_icache_line_inv && 
-                          (!icache_refill_on && !vector_ifctrl_sm_start || 
+assign ins_addr_inv_req  = lsu_ifu_icache_line_inv &&
+                          (!icache_refill_on && !vector_ifctrl_sm_start ||
                            l1_refill_ifctrl_ctc);
 //when there is ctc_req, loop buffer should be flushed instead of loop buffer
 //contain old invalid instructions
-assign ifctrl_lbuf_ins_inv_on = lsu_ifu_icache_all_inv || 
+assign ifctrl_lbuf_ins_inv_on = lsu_ifu_icache_all_inv ||
                                 lsu_ifu_icache_line_inv;
 assign ifctrl_lbuf_inv_req = ins_all_inv_req || ins_addr_inv_req;
 
 //cp0 all inv
-assign all_inv_req     = icache_all_inv && 
-                         !icache_refill_on && 
+assign all_inv_req     = icache_all_inv &&
+                         !icache_refill_on &&
                          !vector_ifctrl_sm_start; //not care lbuf, for cp0 will flush lbuf
-assign icache_read_req = icache_read && 
-                         !icache_refill_on && 
+assign icache_read_req = icache_read &&
+                         !icache_refill_on &&
                          !vector_ifctrl_sm_start;
 //addr_inv_count_reg[2:0]
 //addr_inv_count_reg used to deal with VIPT Icache address inv
@@ -907,12 +907,12 @@ always @(posedge icache_inv_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
     addr_inv_count_reg[4:0] <= 5'b00000;
-  else if( (icache_inv_cur_state[3:0] == IDLE) && 
+  else if( (icache_inv_cur_state[3:0] == IDLE) &&
            (ins_addr_inv_req) )
 //csky vperl_off
     addr_inv_count_reg[4:0] <= CNT_REG_VAL;
 //csky vperl_on
-  else if( (icache_inv_cur_state[3:0] == INS_INV) || 
+  else if( (icache_inv_cur_state[3:0] == INS_INV) ||
            (icache_inv_cur_state[3:0] == INS_CMP) && !ins_icache_inv_line_hit)
     if(!(addr_inv_count_reg[4:0] == 5'b000))
       addr_inv_count_reg[4:0] <= addr_inv_count_reg[4:0] - 5'b1;
@@ -927,28 +927,28 @@ end
 assign icache_inv_on = (icache_inv_cur_state[3:0] != IDLE);
 //assign ifctrl_vector_icache_inv_on = icache_inv_on;
 //ins_icache_inv_line_hit
-assign ins_icache_inv_line_hit = (|ins_tag_cmp[1:0]);                             
+assign ins_icache_inv_line_hit = (|ins_tag_cmp[1:0]);
 //icache_inv_tag_req for Inv SM Tag Read && Write
 //  Read on TAG_REQ state
 //  Write on INV state or INV_ALL state
 assign icache_inv_tag_req       = (
-                                   (icache_inv_cur_state[3:0] == INV_ALL) || 
+                                   (icache_inv_cur_state[3:0] == INV_ALL) ||
                                    (icache_inv_cur_state[3:0] == INS_TAG_REQ) ||
                                    (icache_inv_cur_state[3:0] == INS_INV)     ||
                                    (icache_inv_cur_state[3:0] == INS_INV_ALL)
                                   ) &&
                                   (&icache_inv_cnt[1:0]);
-assign icache_reset_inv_req     = (icache_inv_cur_state[3:0] == INV_ALL) && vector_ifctrl_reset_on;                         
+assign icache_reset_inv_req     = (icache_inv_cur_state[3:0] == INV_ALL) && vector_ifctrl_reset_on;
 //icache_inv_cnt_initial for all_line_inv counter initial
 assign icache_inv_cnt_initial   = (icache_inv_cur_state[3:0] == IDLE) &&
-                                  (icache_all_inv || lsu_ifu_icache_all_inv) && 
-                                  !icache_refill_on && 
+                                  (icache_all_inv || lsu_ifu_icache_all_inv) &&
+                                  !icache_refill_on &&
                                   !vector_ifctrl_sm_start;
 //icache_inv_cnt_on for decreasing the all_line_inv counter
-assign icache_inv_cnt_on        = (icache_inv_cur_state[3:0] == INV_ALL) || 
+assign icache_inv_cnt_on        = (icache_inv_cur_state[3:0] == INV_ALL) ||
                                   (icache_inv_cur_state[3:0] == INS_INV_ALL);
 //icache_inv_tag_wen[2:0]
-//wen[2] for fifobit, fifobit point to the Way is going to be substitude 
+//wen[2] for fifobit, fifobit point to the Way is going to be substitude
 // &CombBeg; @482
 always @( icache_inv_cur_state[3:0]
        or tag_cmp_result[1:0])
@@ -1012,7 +1012,7 @@ gated_clk_cell  x_cache_data_flop_clk (
 //           .module_en      (cp0_ifu_icg_en) @524
 //         ); @525
 assign cache_data_flop_clk_en = (icache_inv_cur_state[3:0] == INS_TAG_RD);
-//Flop icache dout for Tag Compare Next cycle 
+//Flop icache dout for Tag Compare Next cycle
 always @(posedge cache_data_flop_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -1057,14 +1057,14 @@ begin
     ins_inv_ptag_flop[27:0] <= ins_inv_ptag_flop[27:0];
 end
 
-assign ins_tag_cmp[1] = (tag_data1_reg[28:0] == {1'b1, ins_inv_ptag_flop[27:0]});                   
-assign ins_tag_cmp[0] = (tag_data0_reg[28:0] == {1'b1, ins_inv_ptag_flop[27:0]});                   
+assign ins_tag_cmp[1] = (tag_data1_reg[28:0] == {1'b1, ins_inv_ptag_flop[27:0]});
+assign ins_tag_cmp[0] = (tag_data0_reg[28:0] == {1'b1, ins_inv_ptag_flop[27:0]});
 
 //icache_inv_index
-assign icache_inv_index[PC_WIDTH-2:0] = (icache_all_inv || lsu_ifu_icache_all_inv) 
+assign icache_inv_index[PC_WIDTH-2:0] = (icache_all_inv || lsu_ifu_icache_all_inv)
                                       ? {23'b0, icache_inv_cnt[12:0], 3'b0}
                                       : icache_line_inv_index[PC_WIDTH-2:0];
-assign icache_line_inv_index[PC_WIDTH-2:0] = {23'b0, addr_inv_count_reg[4:0], lsu_ifu_icache_index[5:0], 5'b0}; 
+assign icache_line_inv_index[PC_WIDTH-2:0] = {23'b0, addr_inv_count_reg[4:0], lsu_ifu_icache_index[5:0], 5'b0};
 //---------------The Index to ICache Inv ALL----------------
 //For 64K Cache, Index = 9Bit
 //For 32K Cache, Index = 8Bit
@@ -1097,33 +1097,33 @@ begin
   else
     icache_inv_cnt[12:0] <= icache_inv_cnt[12:0];
 end
-assign icache_inv_over = ~(|icache_inv_cnt[12:2]) && 
+assign icache_inv_over = ~(|icache_inv_cnt[12:2]) &&
                          !(vector_ifctrl_reset_on && (|icache_inv_cnt[1:0]));
 
 //---------------ICache INV Done Signal---------------------
 assign icache_all_inv_done     = (
-                                   (icache_inv_cur_state[3:0] == INV_ALL) || 
+                                   (icache_inv_cur_state[3:0] == INV_ALL) ||
                                    (icache_inv_cur_state[3:0] == INS_INV_ALL)
-                                 ) && 
+                                 ) &&
                                  icache_inv_over;
 //icache_line_inv_done
-assign icache_line_inv_done    = (icache_inv_cur_state[3:0] == INS_INV) && 
-                                 (addr_inv_count_reg[4:0] == 5'b00000)    || 
-                                 (icache_inv_cur_state[3:0] == INS_CMP) && 
+assign icache_line_inv_done    = (icache_inv_cur_state[3:0] == INS_INV) &&
+                                 (addr_inv_count_reg[4:0] == 5'b00000)    ||
+                                 (icache_inv_cur_state[3:0] == INS_CMP) &&
                                  (addr_inv_count_reg[4:0] == 5'b00000)    &&
                                  !ins_icache_inv_line_hit;
 
 assign icache_inv_done         = icache_line_inv_done || icache_all_inv_done;
 assign icache_read_done        = (icache_inv_cur_state[3:0] == READ_ST);
 
-assign ifu_lsu_icache_inv_done = icache_line_inv_done || 
-                                 (icache_inv_cur_state[3:0] == INS_INV_ALL) && 
+assign ifu_lsu_icache_inv_done = icache_line_inv_done ||
+                                 (icache_inv_cur_state[3:0] == INS_INV_ALL) &&
                                  icache_inv_over;
 // &Force("output","ifu_lsu_icache_inv_done"); @650
-assign ifu_cp0_icache_inv_done = (icache_inv_cur_state[3:0] == INV_ALL) && 
+assign ifu_cp0_icache_inv_done = (icache_inv_cur_state[3:0] == INV_ALL) &&
                                  icache_inv_over;
-assign ifctrl_pcgen_ins_icache_inv_done = icache_line_inv_done || 
-                                         (icache_inv_cur_state[3:0] == INS_INV_ALL) && 
+assign ifctrl_pcgen_ins_icache_inv_done = icache_line_inv_done ||
+                                         (icache_inv_cur_state[3:0] == INS_INV_ALL) &&
                                           icache_inv_over;
 //==========================================================
 //            Interface with Icache Interface
@@ -1135,12 +1135,12 @@ assign ifctrl_icache_if_tag_wen[2:0]         = icache_inv_tag_wen[2:0];
 assign ifctrl_icache_if_inv_fifo             = icache_inv_fifo;
 assign ifctrl_icache_if_index[PC_WIDTH-2:0]  = icache_inv_index[PC_WIDTH-2:0];
 
-assign ifctrl_icache_if_read_req_tag         = (icache_inv_cur_state[3:0] == READ_REQ) && 
+assign ifctrl_icache_if_read_req_tag         = (icache_inv_cur_state[3:0] == READ_REQ) &&
                                                 icache_read_tag;
-assign ifctrl_icache_if_read_req_data0       = (icache_inv_cur_state[3:0] == READ_REQ) && 
+assign ifctrl_icache_if_read_req_data0       = (icache_inv_cur_state[3:0] == READ_REQ) &&
                                                !icache_read_tag && !icache_read_way;
-assign ifctrl_icache_if_read_req_data1       = (icache_inv_cur_state[3:0] == READ_REQ) && 
-                                               !icache_read_tag &&  icache_read_way;                                             
+assign ifctrl_icache_if_read_req_data1       = (icache_inv_cur_state[3:0] == READ_REQ) &&
+                                               !icache_read_tag &&  icache_read_way;
 assign ifctrl_icache_if_read_req_index[PC_WIDTH-2:0] = {23'b0,icache_read_index[16:1]};
 
 //==========================================================
@@ -1148,18 +1148,18 @@ assign ifctrl_icache_if_read_req_index[PC_WIDTH-2:0] = {23'b0,icache_read_index[
 //==========================================================
 //Keep Refill SM will not interupt INV SM
 assign ifctrl_l1_refill_inv_on       = (icache_inv_cur_state[3:0] != IDLE) ||
-                                       ( 
+                                       (
                                          (icache_inv_cur_state[3:0] == IDLE) &&
                                          (
-                                           icache_all_inv || 
-                                           lsu_ifu_icache_line_inv || 
-                                           lsu_ifu_icache_all_inv || 
+                                           icache_all_inv ||
+                                           lsu_ifu_icache_line_inv ||
+                                           lsu_ifu_icache_all_inv ||
                                            icache_read
                                          )
                                        );
 // &Force("output","ifctrl_l1_refill_inv_on"); @690
 assign ifctrl_l1_refill_inv_busy     = (icache_inv_cur_state[3:0] != IDLE);
-assign ifctrl_l1_refill_ins_inv      = lsu_ifu_icache_line_inv || 
+assign ifctrl_l1_refill_ins_inv      = lsu_ifu_icache_line_inv ||
                                        lsu_ifu_icache_all_inv;
 assign ifctrl_l1_refill_ins_inv_dn   = ifu_lsu_icache_inv_done;
 //==========================================================
@@ -1170,9 +1170,9 @@ assign ifctrl_ipb_inv_on = ifctrl_l1_refill_inv_on;
 //==========================================================
 //            The invalidation of BTB
 //==========================================================
-//The BTB invalidation signal is level signal, which should 
+//The BTB invalidation signal is level signal, which should
 //be transfered to pulse signal
-//Gate Clk                    
+//Gate Clk
 // &Instance("gated_clk_cell","x_btb_inv_flop_clk"); @707
 gated_clk_cell  x_btb_inv_flop_clk (
   .clk_in              (forever_cpuclk     ),
@@ -1215,16 +1215,16 @@ begin
 end
 assign btb_inv_on = btb_ifctrl_inv_on;
 assign btb_inv_dn = btb_ifctrl_inv_done;
-assign ifu_cp0_btb_inv_done = btb_inv_dn && 
+assign ifu_cp0_btb_inv_done = btb_inv_dn &&
                               !btb_inv_dn_ff;
 // &Force("input","cp0_ifu_btb_inv"); @745
 
 //==========================================================
 //            The invalidation of BHT
 //==========================================================
-//The BHT invalidation signal is level signal, which should 
+//The BHT invalidation signal is level signal, which should
 //be transfered to pulse signal
-//Gate Clk                    
+//Gate Clk
 // &Instance("gated_clk_cell","x_bht_inv_flop_clk"); @754
 gated_clk_cell  x_bht_inv_flop_clk (
   .clk_in              (forever_cpuclk     ),
@@ -1243,7 +1243,7 @@ gated_clk_cell  x_bht_inv_flop_clk (
 //           .local_en       (bht_inv_flop_clk_en),//Local Condition @759
 //           .module_en      (cp0_ifu_icg_en) @760
 //         ); @761
-assign bht_inv_flop_clk_en = cp0_ifu_bht_inv ^ bht_inv_ff || 
+assign bht_inv_flop_clk_en = cp0_ifu_bht_inv ^ bht_inv_ff ||
                              bht_inv_dn ^ bht_inv_dn_ff;
 
 always @(posedge bht_inv_flop_clk or negedge cpurst_b)
@@ -1265,13 +1265,13 @@ begin
 end
 assign bht_inv_on = bht_ifctrl_inv_on;
 assign bht_inv_dn = bht_ifctrl_inv_done;
-assign ifu_cp0_bht_inv_done = bht_inv_dn && 
+assign ifu_cp0_bht_inv_done = bht_inv_dn &&
                               !bht_inv_dn_ff;
 
 //==========================================================
 //            The invalidation of IND_BTB
 //==========================================================
-//The IND_BTB invalidation signal is level signal, which should 
+//The IND_BTB invalidation signal is level signal, which should
 //be transfered to pulse signal
 // &Instance("gated_clk_cell","x_ibp_inv_flop_clk"); @793
 gated_clk_cell  x_ibp_inv_flop_clk (
@@ -1291,8 +1291,8 @@ gated_clk_cell  x_ibp_inv_flop_clk (
 //           .local_en       (ibp_inv_flop_clk_en),//Local Condition @798
 //           .module_en      (cp0_ifu_icg_en) @799
 //         ); @800
-assign ibp_inv_flop_clk_en = cp0_ifu_ind_btb_inv ^ ind_btb_inv_ff || 
-                             ind_btb_inv_dn ^ ind_btb_inv_dn_ff;  
+assign ibp_inv_flop_clk_en = cp0_ifu_ind_btb_inv ^ ind_btb_inv_ff ||
+                             ind_btb_inv_dn ^ ind_btb_inv_dn_ff;
 
 always @(posedge ibp_inv_flop_clk or negedge cpurst_b)
 begin
@@ -1313,7 +1313,7 @@ begin
 end
 assign ind_btb_inv_on = ind_btb_ifctrl_inv_on;
 assign ind_btb_inv_dn = ind_btb_ifctrl_inv_done;
-assign ifu_cp0_ind_btb_inv_done = ind_btb_inv_dn && 
+assign ifu_cp0_ind_btb_inv_done = ind_btb_inv_dn &&
                                  !ind_btb_inv_dn_ff;
 
 //==========================================================
@@ -1369,16 +1369,16 @@ begin
     icache_if_ifctrl_inst_data0_reg[127:0] <= icache_if_ifctrl_inst_data0_reg[127:0];
     icache_if_ifctrl_inst_data1_reg[127:0] <= icache_if_ifctrl_inst_data1_reg[127:0];
   end
-end  
+end
 
 assign ifu_cp0_icache_read_data_vld    = (icache_inv_cur_state[3:0] == READ_ST);
 assign ifu_cp0_icache_read_data[127:0] = (icache_read_tag)
                                        ? (icache_read_way)
                                          ? {96'b0, icache_if_ifctrl_tag_data1_reg[19:0], 11'b0, icache_if_ifctrl_tag_data1_reg[20]}
-                                         : {96'b0, icache_if_ifctrl_tag_data0_reg[19:0], 11'b0, icache_if_ifctrl_tag_data0_reg[20]} 
+                                         : {96'b0, icache_if_ifctrl_tag_data0_reg[19:0], 11'b0, icache_if_ifctrl_tag_data0_reg[20]}
                                        : (icache_read_way)
                                           ? icache_if_ifctrl_inst_data1_reg[127:0]
-                                          : icache_if_ifctrl_inst_data0_reg[127:0];  
+                                          : icache_if_ifctrl_inst_data0_reg[127:0];
 
 //Debug_infor
 assign ifctrl_debug_if_stall       = if_self_stall;

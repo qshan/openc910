@@ -51,7 +51,7 @@ output              ctrl_xx_s_permission_t;
 output              ctrl_xx_s_permission_nt;
 output              ctrl_xx_amp_mode;
 output              ctrl_xx_amp_lock;
-  
+
 wire                plic_ctrl_apb_acc_en;
 wire                plic_ctrl_apb_write_en;
 wire                plic_ctrl_apb_read_en;
@@ -89,19 +89,19 @@ wire    [31:0]      plic_ctrl_reg_prdata;
 `else
 wire                plic_amp;
 `endif
-assign plic_ctrl_apb_acc_en     = bus_mtx_plic_ctrl_psel 
+assign plic_ctrl_apb_acc_en     = bus_mtx_plic_ctrl_psel
                                   && !bus_mtx_plic_ctrl_penable;
 
-assign plic_ctrl_apb_write_en   = plic_ctrl_apb_acc_en 
-                                  && bus_mtx_plic_ctrl_pwrite 
+assign plic_ctrl_apb_write_en   = plic_ctrl_apb_acc_en
+                                  && bus_mtx_plic_ctrl_pwrite
                                   && !plic_ctrl_pslverr_pre;
 
-assign plic_ctrl_apb_read_en    = plic_ctrl_apb_acc_en 
-                                  && !bus_mtx_plic_ctrl_pwrite 
+assign plic_ctrl_apb_read_en    = plic_ctrl_apb_acc_en
+                                  && !bus_mtx_plic_ctrl_pwrite
                                   && !plic_ctrl_pslverr_pre;
 
 assign plic_ctrl_reg_sel_en     = (bus_mtx_plic_ctrl_paddr[11:0] == 12'hffc);
-assign plic_ctrl_reg_wr_en      = plic_ctrl_apb_write_en 
+assign plic_ctrl_reg_wr_en      = plic_ctrl_apb_write_en
                                   && plic_ctrl_reg_sel_en;
 assign plic_ctrl_reg_rd_en      = plic_ctrl_apb_read_en && plic_ctrl_reg_sel_en;
 
@@ -110,15 +110,15 @@ assign plic_ctrl_reg_rd_en      = plic_ctrl_apb_read_en && plic_ctrl_reg_sel_en;
 
 `ifdef PLIC_SEC
 
-// the slave err pre will different when 
-assign plic_ctrl_pslverr_pre    = (((bus_mtx_plic_ctrl_paddr[11:0] != 12'hffc) 
-                                     && (bus_mtx_plic_ctrl_paddr[11:0] != 12'hff8)) || 
-                                   (bus_mtx_plic_ctrl_pprot[1:0]  != 2'b11)) 
+// the slave err pre will different when
+assign plic_ctrl_pslverr_pre    = (((bus_mtx_plic_ctrl_paddr[11:0] != 12'hffc)
+                                     && (bus_mtx_plic_ctrl_paddr[11:0] != 12'hff8)) ||
+                                   (bus_mtx_plic_ctrl_pprot[1:0]  != 2'b11))
                                  || plic_ctrl_nt_vio;
-assign plic_ctrl_nt_vio         = plic_amp 
-                                  && (bus_mtx_plic_ctrl_paddr[11:0] == 12'hff8) 
+assign plic_ctrl_nt_vio         = plic_amp
+                                  && (bus_mtx_plic_ctrl_paddr[11:0] == 12'hff8)
                                   && !bus_mtx_plic_ctrl_psec;
-                                     
+
 assign sec_ctrl_reg_sel_en      = (bus_mtx_plic_ctrl_paddr[11:0] == 12'hff8);
 
 assign plic_sec_ctrl_reg_wr_en  = plic_ctrl_apb_write_en
@@ -127,7 +127,7 @@ assign plic_sec_ctrl_reg_wr_en  = plic_ctrl_apb_write_en
 assign plic_sec_ctrl_reg_rd_en  = plic_ctrl_apb_read_en
                                   && sec_ctrl_reg_sel_en
                                   && bus_mtx_plic_ctrl_psec;
-// 
+//
 
 assign plic_t_amp_write_en      =  plic_sec_ctrl_reg_wr_en && !plic_sec_lock;
 always @(posedge plic_ctrl_clk or negedge plicrst_b)
@@ -177,7 +177,7 @@ assign ctrl_xx_amp_mode = 1'b0;
 assign plic_t_amp_write_en = 1'b0;
 assign plic_amp            = 1'b0;
 assign plic_ctrl_prdata[31:0] = {32{~plic_ctrl_pslverr_pre}} & {31'b0,plic_s_permission_t};
-assign plic_ctrl_pslverr_pre    = (((bus_mtx_plic_ctrl_paddr[11:0] != 12'hffc)) || 
+assign plic_ctrl_pslverr_pre    = (((bus_mtx_plic_ctrl_paddr[11:0] != 12'hffc)) ||
                                    (bus_mtx_plic_ctrl_pprot[1:0]  != 2'b11));
 assign ctrl_xx_amp_lock       = 1'b0;
 assign ctrl_xx_s_permission_t = plic_s_permission_t;
@@ -190,7 +190,7 @@ begin
   else if(plic_s_permision_t_wen)
     plic_s_permission_t  <= plic_s_permission_t_pre;
 end
-assign plic_ctrl_reg_t_write_en  = plic_ctrl_reg_wr_en && (bus_mtx_plic_ctrl_psec || !plic_amp); 
+assign plic_ctrl_reg_t_write_en  = plic_ctrl_reg_wr_en && (bus_mtx_plic_ctrl_psec || !plic_amp);
 assign plic_s_permision_t_wen    = plic_ctrl_reg_t_write_en || plic_s_permission_t_clean;
 assign plic_s_permission_t_clean = ~plic_amp && bus_mtx_plic_ctrl_pwdata[30] && plic_t_amp_write_en;
 assign plic_s_permission_t_pre   = plic_s_permission_t_clean ? 1'b0 : bus_mtx_plic_ctrl_pwdata[0];
@@ -201,8 +201,8 @@ begin
     plic_ctrl_pready <= 1'b0;
   else if(bus_mtx_plic_ctrl_psel)
     plic_ctrl_pready <= plic_ctrl_apb_acc_en;
-end 
-assign plic_ctrl_pslverr    = plic_ctrl_pslverr_pre;                                           
+end
+assign plic_ctrl_pslverr    = plic_ctrl_pslverr_pre;
 gated_clk_cell  x_ict_ready_gateclk (
   .clk_in               (plic_clk            ),
   .clk_out              (plic_ctrl_clk       ),
@@ -210,7 +210,7 @@ gated_clk_cell  x_ict_ready_gateclk (
   .global_en            (1'b1                ),
   .local_en             (plic_ctrl_clk_en    ),
   .module_en            (ciu_plic_icg_en     ),
-  .pad_yy_icg_scan_en (pad_yy_icg_scan_en)                
+  .pad_yy_icg_scan_en (pad_yy_icg_scan_en)
 );
 assign plic_ctrl_clk_en  = bus_mtx_plic_ctrl_psel;
 endmodule

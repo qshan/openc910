@@ -89,180 +89,177 @@ module axi2ahb(
 );
 
 
-input   [39 :0]  biu_pad_araddr;     
-input   [1  :0]  biu_pad_arburst;    
-input   [3  :0]  biu_pad_arcache;    
-input   [7  :0]  biu_pad_arid;       
-input   [7  :0]  biu_pad_arlen;      
-input            biu_pad_arlock;     
-input   [2  :0]  biu_pad_arprot;     
-input   [2  :0]  biu_pad_arsize;     
-input            biu_pad_artrust;    
-input            biu_pad_arvalid;    
-input   [39 :0]  biu_pad_awaddr;     
-input   [1  :0]  biu_pad_awburst;    
-input   [3  :0]  biu_pad_awcache;    
-input   [7  :0]  biu_pad_awid;       
-input   [7  :0]  biu_pad_awlen;      
-input            biu_pad_awlock;     
-input   [2  :0]  biu_pad_awprot;     
-input   [2  :0]  biu_pad_awsize;     
-input            biu_pad_awvalid;    
-input            biu_pad_bready;     
-input            biu_pad_rready;     
-input   [127:0]  biu_pad_wdata;      
-input   [7  :0]  biu_pad_wid;        
-input            biu_pad_wlast;      
-input   [15 :0]  biu_pad_wstrb;      
-input            biu_pad_wvalid;     
-input            pad_biu_hgrant;     
-input   [127:0]  pad_biu_hrdata;     
-input            pad_biu_hready;     
-input   [1  :0]  pad_biu_hresp;      
-input            pad_cpu_rst_b;      
-input            pll_core_cpuclk;    
-output  [39 :0]  biu_pad_haddr;      
-output  [2  :0]  biu_pad_hburst;     
-output           biu_pad_hbusreq;    
-output           biu_pad_hlock;      
-output  [3  :0]  biu_pad_hprot;      
-output  [2  :0]  biu_pad_hsize;      
-output  [1  :0]  biu_pad_htrans;     
-output  [127:0]  biu_pad_hwdata;     
-output           biu_pad_hwrite;     
-output           pad_biu_arready;    
-output           pad_biu_awready;    
-output  [7  :0]  pad_biu_bid;        
-output  [1  :0]  pad_biu_bresp;      
-output           pad_biu_bvalid;     
-output  [127:0]  pad_biu_rdata;      
-output  [7  :0]  pad_biu_rid;        
-output           pad_biu_rlast;      
-output  [1  :0]  pad_biu_rresp;      
-output           pad_biu_rvalid;     
-output           pad_biu_wready;     
+input   [39 :0]  biu_pad_araddr;
+input   [1  :0]  biu_pad_arburst;
+input   [3  :0]  biu_pad_arcache;
+input   [7  :0]  biu_pad_arid;
+input   [7  :0]  biu_pad_arlen;
+input            biu_pad_arlock;
+input   [2  :0]  biu_pad_arprot;
+input   [2  :0]  biu_pad_arsize;
+input            biu_pad_artrust;
+input            biu_pad_arvalid;
+input   [39 :0]  biu_pad_awaddr;
+input   [1  :0]  biu_pad_awburst;
+input   [3  :0]  biu_pad_awcache;
+input   [7  :0]  biu_pad_awid;
+input   [7  :0]  biu_pad_awlen;
+input            biu_pad_awlock;
+input   [2  :0]  biu_pad_awprot;
+input   [2  :0]  biu_pad_awsize;
+input            biu_pad_awvalid;
+input            biu_pad_bready;
+input            biu_pad_rready;
+input   [127:0]  biu_pad_wdata;
+input   [7  :0]  biu_pad_wid;
+input            biu_pad_wlast;
+input   [15 :0]  biu_pad_wstrb;
+input            biu_pad_wvalid;
+input            pad_biu_hgrant;
+input   [127:0]  pad_biu_hrdata;
+input            pad_biu_hready;
+input   [1  :0]  pad_biu_hresp;
+input            pad_cpu_rst_b;
+input            pll_core_cpuclk;
+output  [39 :0]  biu_pad_haddr;
+output  [2  :0]  biu_pad_hburst;
+output           biu_pad_hbusreq;
+output           biu_pad_hlock;
+output  [3  :0]  biu_pad_hprot;
+output  [2  :0]  biu_pad_hsize;
+output  [1  :0]  biu_pad_htrans;
+output  [127:0]  biu_pad_hwdata;
+output           biu_pad_hwrite;
+output           pad_biu_arready;
+output           pad_biu_awready;
+output  [7  :0]  pad_biu_bid;
+output  [1  :0]  pad_biu_bresp;
+output           pad_biu_bvalid;
+output  [127:0]  pad_biu_rdata;
+output  [7  :0]  pad_biu_rid;
+output           pad_biu_rlast;
+output  [1  :0]  pad_biu_rresp;
+output           pad_biu_rvalid;
+output           pad_biu_wready;
 
 
-reg     [39 :0]  addr_wrap;          
-reg              ahb_rd_en;          
-reg              ahb_trans_noseq;    
-reg              ahb_trans_seq;      
-reg              ahb_wr_en;          
-reg     [7  :0]  arid_flop;          
-reg     [7  :0]  awid_flop;          
-reg              axi_rd_en;          
-reg              axi_rd_en_first;    
-reg              axi_wr_en;          
-reg     [39 :0]  biu_pad_haddr;      
-reg     [2  :0]  biu_pad_hburst;     
-reg              biu_pad_hlock;      
-reg     [3  :0]  biu_pad_hprot;      
-reg     [2  :0]  biu_pad_hsize;      
-reg     [1  :0]  biu_pad_htrans;     
-reg              biu_pad_hwrite;     
-reg              clr_ptr;            
-reg     [8  :0]  cur_st;             
-reg     [127:0]  db_out_reg;         
-reg     [127:0]  entry_data  [7:0]; 
-reg     [7  :0]  entry_tea;          
-reg              first_read_flag;    
-reg              first_trans_en;     
-reg     [8  :0]  nxt_st;             
-reg     [1  :0]  pad_biu_bresp;      
-reg     [2  :0]  pre_hburst;         
-reg     [7  :0]  rd_cnt;             
-reg              rd_cnt_ld;          
-reg              rd_cnt_sub;         
-reg     [3  :0]  rptr;               
-reg     [1  :0]  rresp_reg;          
-reg     [7  :0]  trans_len_flop;     
-reg     [3  :0]  wptr;               
-reg     [7  :0]  wr_cnt;             
-reg              wr_cnt_ld;          
-reg              wr_cnt_sub;         
+reg     [39 :0]  addr_wrap;
+reg              ahb_rd_en;
+reg              ahb_trans_noseq;
+reg              ahb_trans_seq;
+reg              ahb_wr_en;
+reg     [7  :0]  arid_flop;
+reg     [7  :0]  awid_flop;
+reg              axi_rd_en;
+reg              axi_rd_en_first;
+reg              axi_wr_en;
+reg     [39 :0]  biu_pad_haddr;
+reg     [2  :0]  biu_pad_hburst;
+reg              biu_pad_hlock;
+reg     [3  :0]  biu_pad_hprot;
+reg     [2  :0]  biu_pad_hsize;
+reg     [1  :0]  biu_pad_htrans;
+reg              biu_pad_hwrite;
+reg              clr_ptr;
+reg     [8  :0]  cur_st;
+reg     [127:0]  db_out_reg;
+reg     [127:0]  entry_data  [7:0];
+reg     [7  :0]  entry_tea;
+reg              first_read_flag;
+reg              first_trans_en;
+reg     [8  :0]  nxt_st;
+reg     [1  :0]  pad_biu_bresp;
+reg     [2  :0]  pre_hburst;
+reg     [7  :0]  rd_cnt;
+reg              rd_cnt_ld;
+reg              rd_cnt_sub;
+reg     [3  :0]  rptr;
+reg     [1  :0]  rresp_reg;
+reg     [7  :0]  trans_len_flop;
+reg     [3  :0]  wptr;
+reg     [7  :0]  wr_cnt;
+reg              wr_cnt_ld;
+reg              wr_cnt_sub;
 
 
-wire             ahb_rd_cplt;        
-wire             ahb_tea;            
-wire             ahb_trans_hold;     
-wire             ahb_trans_seq_en;   
-wire             ahb_wr_cplt;        
-wire             ahb_wr_tea;         
-wire             axi_rd_vld;         
-wire             axi_wr_vld;         
-wire    [39 :0]  biu_pad_araddr;     
-wire    [1  :0]  biu_pad_arburst;    
-wire    [3  :0]  biu_pad_arcache;    
-wire    [7  :0]  biu_pad_arid;       
-wire    [7  :0]  biu_pad_arlen;      
-wire             biu_pad_arlock;     
-wire    [2  :0]  biu_pad_arprot;     
-wire    [2  :0]  biu_pad_arsize;     
-wire             biu_pad_artrust;    
-wire             biu_pad_arvalid;    
-wire    [39 :0]  biu_pad_awaddr;     
-wire    [1  :0]  biu_pad_awburst;    
-wire    [3  :0]  biu_pad_awcache;    
-wire    [7  :0]  biu_pad_awid;       
-wire    [7  :0]  biu_pad_awlen;      
-wire             biu_pad_awlock;     
-wire    [2  :0]  biu_pad_awprot;     
-wire    [2  :0]  biu_pad_awsize;     
-wire             biu_pad_awvalid;    
-wire             biu_pad_bready;     
-wire             biu_pad_hbusreq;    
-wire    [127:0]  biu_pad_hwdata;     
-wire             biu_pad_rready;     
-wire    [127:0]  biu_pad_wdata;      
-wire             biu_pad_wlast;      
-wire             biu_pad_wvalid;     
-wire             bresp_hold;         
-wire             bresp_update;       
-wire             buffer_empty;       
-wire    [127:0]  db_input_data;      
-wire             db_input_tea;       
-wire             db_rd;              
-wire             db_wr;              
-wire             first_read_flag_clr; 
-wire             haddr_update;       
-wire             last_ctrl;          
-wire    [8  :0]  nxt_st_dly;         
-wire             pad_biu_arready;    
-wire             pad_biu_awready;    
-wire    [7  :0]  pad_biu_bid;        
-wire             pad_biu_bvalid;     
-wire             pad_biu_hgrant;     
-wire    [127:0]  pad_biu_hrdata;     
-wire             pad_biu_hready;     
-wire    [1  :0]  pad_biu_hresp;      
-wire    [127:0]  pad_biu_rdata;      
-wire    [7  :0]  pad_biu_rid;        
-wire             pad_biu_rlast;      
-wire    [1  :0]  pad_biu_rresp;      
-wire             pad_biu_rvalid;     
-wire             pad_biu_wready;     
-wire             pad_cpu_rst_b;      
-wire             pll_core_cpuclk;    
-wire             rd_cnt_sub_en;      
-wire             rd_cnt_zero;        
-wire             readaxi_last_data;  
-wire    [39 :0]  trans_addr;         
-wire    [1  :0]  trans_burst;        
-wire    [3  :0]  trans_cache;        
-wire    [7  :0]  trans_len;          
-wire    [1  :0]  trans_lock;         
-wire    [2  :0]  trans_prot;         
-wire             trans_req_vld;      
-wire             trans_sec;          
-wire    [2  :0]  trans_size;         
-wire             wr_cnt_sub_en;      
-wire             wr_cnt_zero;        
-wire             wrap2;              
-wire             wrap4;              
-wire             wrap8;              
-
-
-
+wire             ahb_rd_cplt;
+wire             ahb_tea;
+wire             ahb_trans_hold;
+wire             ahb_trans_seq_en;
+wire             ahb_wr_cplt;
+wire             ahb_wr_tea;
+wire             axi_rd_vld;
+wire             axi_wr_vld;
+wire    [39 :0]  biu_pad_araddr;
+wire    [1  :0]  biu_pad_arburst;
+wire    [3  :0]  biu_pad_arcache;
+wire    [7  :0]  biu_pad_arid;
+wire    [7  :0]  biu_pad_arlen;
+wire             biu_pad_arlock;
+wire    [2  :0]  biu_pad_arprot;
+wire    [2  :0]  biu_pad_arsize;
+wire             biu_pad_artrust;
+wire             biu_pad_arvalid;
+wire    [39 :0]  biu_pad_awaddr;
+wire    [1  :0]  biu_pad_awburst;
+wire    [3  :0]  biu_pad_awcache;
+wire    [7  :0]  biu_pad_awid;
+wire    [7  :0]  biu_pad_awlen;
+wire             biu_pad_awlock;
+wire    [2  :0]  biu_pad_awprot;
+wire    [2  :0]  biu_pad_awsize;
+wire             biu_pad_awvalid;
+wire             biu_pad_bready;
+wire             biu_pad_hbusreq;
+wire    [127:0]  biu_pad_hwdata;
+wire             biu_pad_rready;
+wire    [127:0]  biu_pad_wdata;
+wire             biu_pad_wlast;
+wire             biu_pad_wvalid;
+wire             bresp_hold;
+wire             bresp_update;
+wire             buffer_empty;
+wire    [127:0]  db_input_data;
+wire             db_input_tea;
+wire             db_rd;
+wire             db_wr;
+wire             first_read_flag_clr;
+wire             haddr_update;
+wire             last_ctrl;
+wire    [8  :0]  nxt_st_dly;
+wire             pad_biu_arready;
+wire             pad_biu_awready;
+wire    [7  :0]  pad_biu_bid;
+wire             pad_biu_bvalid;
+wire             pad_biu_hgrant;
+wire    [127:0]  pad_biu_hrdata;
+wire             pad_biu_hready;
+wire    [1  :0]  pad_biu_hresp;
+wire    [127:0]  pad_biu_rdata;
+wire    [7  :0]  pad_biu_rid;
+wire             pad_biu_rlast;
+wire    [1  :0]  pad_biu_rresp;
+wire             pad_biu_rvalid;
+wire             pad_biu_wready;
+wire             pad_cpu_rst_b;
+wire             pll_core_cpuclk;
+wire             rd_cnt_sub_en;
+wire             rd_cnt_zero;
+wire             readaxi_last_data;
+wire    [39 :0]  trans_addr;
+wire    [1  :0]  trans_burst;
+wire    [3  :0]  trans_cache;
+wire    [7  :0]  trans_len;
+wire    [1  :0]  trans_lock;
+wire    [2  :0]  trans_prot;
+wire             trans_req_vld;
+wire             trans_sec;
+wire    [2  :0]  trans_size;
+wire             wr_cnt_sub_en;
+wire             wr_cnt_zero;
+wire             wrap2;
+wire             wrap4;
+wire             wrap8;
 
 
 
@@ -290,16 +287,19 @@ wire             wrap8;
 
 
 
-parameter  FSM_IDLE     =9'b000000001, 
-           RD_AXI       =9'b000000010, 
-           WR_AHB       =9'b000000100, 
+
+
+
+parameter  FSM_IDLE     =9'b000000001,
+           RD_AXI       =9'b000000010,
+           WR_AHB       =9'b000000100,
            WR_LAST_DATA =9'b000001000,
            RESP_AXI     =9'b000010000,
-           
+
            RD_AHB       =9'b000100000,
            RD_LAST_DATA =9'b001000000,
            WR_AXI       =9'b010000000,
-           WT_DB_WR     =9'b100000000; 
+           WT_DB_WR     =9'b100000000;
 
 
 
@@ -347,17 +347,17 @@ case(cur_st[8:0])
 FSM_IDLE:
   begin
     clr_ptr=1;
-    if(biu_pad_awvalid) 
+    if(biu_pad_awvalid)
       begin
         nxt_st[8:0]=RD_AXI;
         wr_cnt_ld=1;
       end
-    else if (biu_pad_arvalid) 
+    else if (biu_pad_arvalid)
       begin
         nxt_st[8:0]=RD_AHB;
         rd_cnt_ld=1;
         ahb_trans_noseq=1;
-        first_trans_en=1;           //first trans contrl ending cannot access data 
+        first_trans_en=1;           //first trans contrl ending cannot access data
       end
     else
       begin
@@ -368,12 +368,12 @@ RD_AXI:
   begin
     axi_wr_en=1;
 
-    if(readaxi_last_data) 
+    if(readaxi_last_data)
       begin
         nxt_st[8:0]=WR_AHB;
         ahb_trans_noseq=1;
       end
-    else 
+    else
       begin
         nxt_st[8:0]=RD_AXI;
       end
@@ -383,38 +383,38 @@ WR_AHB:
     ahb_rd_en=1;
     wr_cnt_sub=1;
     ahb_trans_seq=1;
-    if (ahb_tea) 
+    if (ahb_tea)
       begin
         nxt_st[8:0]=RESP_AXI;
       end
 
-    else if(ahb_wr_cplt) 
+    else if(ahb_wr_cplt)
       begin
         nxt_st[8:0]=WR_LAST_DATA;
       end
-    else 
+    else
       begin
         nxt_st[8:0]=WR_AHB;
       end
-  end      
+  end
 WR_LAST_DATA:
   begin
-    if(pad_biu_hready) 
+    if(pad_biu_hready)
       begin
         nxt_st[8:0]=RESP_AXI;
       end
-    else 
+    else
       begin
         nxt_st[8:0]=WR_LAST_DATA;
       end
   end
 RESP_AXI:
-  begin 
-    if(biu_pad_bready) 
+  begin
+    if(biu_pad_bready)
       begin
         nxt_st[8:0]=FSM_IDLE;
       end
-    else 
+    else
       begin
         nxt_st[8:0]=RESP_AXI;
       end
@@ -425,11 +425,11 @@ RD_AHB:
     rd_cnt_sub =1;
     ahb_wr_en=1;
 
-    if (ahb_rd_cplt) 
+    if (ahb_rd_cplt)
       begin
         nxt_st[8:0]=RD_LAST_DATA;
       end
-    else 
+    else
       begin
         nxt_st[8:0]=RD_AHB;
       end
@@ -441,7 +441,7 @@ RD_LAST_DATA:
       begin
         nxt_st[8:0]=WT_DB_WR;
       end
-    else 
+    else
       begin
         nxt_st[8:0]=RD_LAST_DATA;
       end
@@ -454,11 +454,11 @@ WT_DB_WR:
 WR_AXI:
   begin
     axi_rd_en=1;
-    if(buffer_empty && biu_pad_rready) 
+    if(buffer_empty && biu_pad_rready)
       begin
         nxt_st[8:0]=FSM_IDLE;
       end
-    else 
+    else
       begin
         nxt_st[8:0]=WR_AXI;
       end
@@ -466,8 +466,8 @@ WR_AXI:
 default:
   begin
     nxt_st[8:0]=WR_AXI;
-  end  
-endcase 
+  end
+endcase
 
 end
 
@@ -475,8 +475,8 @@ end
 
 
 assign #1 readaxi_last_data   = biu_pad_wlast && biu_pad_wvalid;
-assign ahb_wr_cplt         = (~|wr_cnt[7:0]) && pad_biu_hready; 
-assign ahb_rd_cplt         = (~|rd_cnt[7:0]) && pad_biu_hready; 
+assign ahb_wr_cplt         = (~|wr_cnt[7:0]) && pad_biu_hready;
+assign ahb_rd_cplt         = (~|rd_cnt[7:0]) && pad_biu_hready;
 assign buffer_empty        = (wptr[3:0]==rptr[3:0]);
 
 
@@ -488,7 +488,7 @@ begin
     begin
       first_read_flag<=1'b0;
     end
-  else if(first_trans_en) 
+  else if(first_trans_en)
     begin
       first_read_flag<=1'b1;
     end
@@ -497,11 +497,11 @@ begin
     begin
       first_read_flag<=1'b0;
     end
-  else 
+  else
     begin
       first_read_flag<=first_read_flag;
-    end    
-end    
+    end
+end
 
 
 assign wr_cnt_sub_en  =  wr_cnt_sub && pad_biu_hready;
@@ -512,7 +512,7 @@ begin
     begin
       wr_cnt[7:0]<=8'b0;
     end
-  else if(wr_cnt_ld) 
+  else if(wr_cnt_ld)
     begin
       wr_cnt[7:0]<=biu_pad_awlen[7:0];
     end
@@ -521,12 +521,12 @@ begin
     begin
       wr_cnt[7:0]<=wr_cnt[7:0]-1'b1;
     end
-  else 
+  else
     begin
       wr_cnt[7:0]<=wr_cnt[7:0];
-    end    
-end 
-  
+    end
+end
+
 assign wr_cnt_zero   = ~|wr_cnt[7:0];
 assign rd_cnt_sub_en = rd_cnt_sub && pad_biu_hready;
 always @(posedge pll_core_cpuclk or negedge pad_cpu_rst_b)
@@ -535,7 +535,7 @@ begin
     begin
       rd_cnt[7:0]<=8'b0;
     end
-  else if(rd_cnt_ld) 
+  else if(rd_cnt_ld)
     begin
       rd_cnt[7:0]<=biu_pad_arlen[7:0];
     end
@@ -544,11 +544,11 @@ begin
     begin
       rd_cnt[7:0]<=rd_cnt[7:0]-1'b1;
     end
-  else 
+  else
     begin
       rd_cnt[7:0]<=rd_cnt[7:0];
-    end    
-end 
+    end
+end
 
 assign rd_cnt_zero = ~|rd_cnt[7:0];
 
@@ -566,19 +566,19 @@ begin
     begin
       wptr[3:0]<=4'b0;
     end
-  else if(clr_ptr) 
+  else if(clr_ptr)
     begin
       wptr[3:0]<=4'b0;
-    end 
-  else if(db_wr) 
+    end
+  else if(db_wr)
     begin
       wptr[3:0]<=wptr[3:0]+1'b1;
     end
-  else 
+  else
     begin
       wptr[3:0]<=wptr[3:0];
-    end    
-end 
+    end
+end
 
 assign db_input_data[127:0]=biu_pad_hwrite?biu_pad_wdata[127:0]:pad_biu_hrdata[127:0];
 
@@ -609,20 +609,20 @@ begin
   else if(clr_ptr)
     begin
       rptr[3:0]<=4'b0;
-    end 
-  else if(db_rd) 
+    end
+  else if(db_rd)
     begin
       rptr[3:0]<=rptr[3:0]+1'b1;
     end
-  else 
+  else
     begin
       rptr[3:0]<=rptr[3:0];
-    end    
-end 
+    end
+end
 
 always @(posedge pll_core_cpuclk)
 begin
-  if(db_rd) 
+  if(db_rd)
     begin
       db_out_reg[127:0] <=   entry_data[rptr[2:0]];
       rresp_reg[1:0]    <=  {entry_tea[rptr[2:0]],1'b0};
@@ -646,7 +646,7 @@ assign trans_sec  = biu_pad_awvalid ? 1'b0 : biu_pad_artrust;
 
 always @(posedge pll_core_cpuclk)
   begin
-    if(trans_req_vld) 
+    if(trans_req_vld)
       begin
         trans_len_flop[7:0]  <= trans_len[7:0];
       end
@@ -660,7 +660,7 @@ assign axi_wr_vld = cur_st[0] && biu_pad_awvalid;
 always @(posedge pll_core_cpuclk)
   begin
 
-    if(axi_wr_vld) 
+    if(axi_wr_vld)
       begin
         awid_flop[7:0]<=biu_pad_awid[7:0];
       end
@@ -670,7 +670,7 @@ assign axi_rd_vld=cur_st[0] && biu_pad_arvalid && !biu_pad_awvalid;
 always @(posedge pll_core_cpuclk)
   begin
 
-    if(axi_rd_vld) 
+    if(axi_rd_vld)
       begin
         arid_flop[7:0]<=biu_pad_arid[7:0];
       end
@@ -686,7 +686,7 @@ assign last_ctrl=biu_pad_hwrite?wr_cnt_zero:rd_cnt_zero;
 
 always @(posedge pll_core_cpuclk or negedge pad_cpu_rst_b)
   begin
-    if(!pad_cpu_rst_b) 
+    if(!pad_cpu_rst_b)
       begin
         biu_pad_htrans[1:0] <=  2'b00;
       end
@@ -695,24 +695,24 @@ always @(posedge pll_core_cpuclk or negedge pad_cpu_rst_b)
         biu_pad_htrans[1:0] <=  2'b10;
       end
 
-    else if(ahb_wr_tea) 
+    else if(ahb_wr_tea)
       begin
-        biu_pad_htrans[1:0] <=  2'b00;   
-      end 
+        biu_pad_htrans[1:0] <=  2'b00;
+      end
 
     else if (ahb_trans_seq_en)
       begin
         biu_pad_htrans[1:0] <=  2'b11;
       end
 
-    else if (ahb_trans_hold) 
+    else if (ahb_trans_hold)
       begin
         biu_pad_htrans[1:0] <= biu_pad_htrans[1:0];
       end
-    else 
+    else
       begin
         biu_pad_htrans[1:0] <=  2'b00;
-      end 
+      end
   end
 
 assign ahb_wr_tea        = biu_pad_hwrite && ahb_trans_seq &&  ahb_tea;
@@ -724,12 +724,12 @@ assign ahb_trans_hold    = ahb_trans_seq && !pad_biu_hready;
 
 always @(posedge pll_core_cpuclk)
   begin
-    if(trans_req_vld) 
+    if(trans_req_vld)
       begin
         biu_pad_haddr[39:0]<=trans_addr[39:0];
       end
 
-    else if(haddr_update) 
+    else if(haddr_update)
       begin
         biu_pad_haddr[39:0]<=addr_wrap[39:0];
       end
@@ -750,7 +750,7 @@ always @( wrap4
 begin
 addr_wrap[39:7] = biu_pad_haddr[39:7];
 addr_wrap[3:0]  = biu_pad_haddr[3:0];
-case ({wrap8,wrap4,wrap2}) 
+case ({wrap8,wrap4,wrap2})
 3'b001:
   begin
     addr_wrap[4]   =  ~biu_pad_haddr[4];
@@ -783,7 +783,7 @@ assign biu_pad_hwdata[127:0]=db_out_reg[127:0];
 
 always @(posedge pll_core_cpuclk)
   begin
-    if(trans_req_vld) 
+    if(trans_req_vld)
       begin
         biu_pad_hsize[2:0]<=trans_size[2:0];
       end
@@ -832,7 +832,7 @@ end
 
 always @(posedge pll_core_cpuclk)
   begin
-    if(trans_req_vld) 
+    if(trans_req_vld)
       begin
         biu_pad_hburst[2:0]<=pre_hburst[2:0];
       end
@@ -843,7 +843,7 @@ always @(posedge pll_core_cpuclk)
 
 always @(posedge pll_core_cpuclk)
   begin
-    if(trans_req_vld) 
+    if(trans_req_vld)
       begin
         biu_pad_hwrite<=biu_pad_awvalid;
       end
@@ -855,7 +855,7 @@ always @(posedge pll_core_cpuclk)
 
 always @(posedge pll_core_cpuclk)
   begin
-    if(trans_req_vld) 
+    if(trans_req_vld)
       begin
         biu_pad_hprot[3:0]<={trans_cache[1], trans_sec, trans_prot[0], trans_prot[2]};
       end
@@ -893,7 +893,7 @@ assign pad_biu_awready = cur_st[0] && biu_pad_awvalid;
 
 
 
-assign pad_biu_wready = cur_st[1]; 
+assign pad_biu_wready = cur_st[1];
 
 
 
@@ -905,16 +905,16 @@ assign pad_biu_bid[7:0]=awid_flop[7:0];
 always @(posedge pll_core_cpuclk)
   begin
 
-    if(bresp_update) 
+    if(bresp_update)
       begin
         pad_biu_bresp[1:0]<={ahb_tea,1'b0};
       end
 
-    else if(bresp_hold) 
+    else if(bresp_hold)
       begin
         pad_biu_bresp[1:0]<=pad_biu_bresp[1:0];
       end
-    else 
+    else
       begin
         pad_biu_bresp[1:0]<=2'b0;
       end

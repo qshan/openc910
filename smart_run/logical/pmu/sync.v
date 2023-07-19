@@ -21,8 +21,8 @@ limitations under the License.
 // ORIGINAL TIME   : 2017.06.02
 // FUNCTION        : sync signal
 //                 :
-//                 :   
-//                 :   
+//                 :
+//                 :
 // RESET           : Async reset
 // DFT             :
 // DFP             :
@@ -41,23 +41,23 @@ module sync(
 );
 
 // &Ports; @21
-input        fast_clk;     
-input        in;           
-input        pad_cpu_rst_b; 
-input        slow_clk;     
-output       out;          
+input        fast_clk;
+input        in;
+input        pad_cpu_rst_b;
+input        slow_clk;
+output       out;
 
 // &Regs; @22
-reg          input_lv;     
-reg          reg_clr;      
+reg          input_lv;
+reg          reg_clr;
 
 // &Wires; @23
-wire         fast_clk;     
-wire         in;           
-wire         input_vld;    
-wire         out;          
-wire         pad_cpu_rst_b; 
-wire         slow_clk;     
+wire         fast_clk;
+wire         in;
+wire         input_vld;
+wire         out;
+wire         pad_cpu_rst_b;
+wire         slow_clk;
 
 
 
@@ -79,7 +79,7 @@ always@(posedge slow_clk or negedge pad_cpu_rst_b )
 begin
   if (!pad_cpu_rst_b)
     reg_clr <= 1'b0;
-  else 
+  else
     reg_clr <= 1'b1;
 end
 

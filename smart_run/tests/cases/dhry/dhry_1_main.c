@@ -3,9 +3,9 @@
  *
  *                   "DHRYSTONE" Benchmark Program
  *                   -----------------------------
- *                                                                            
+ *
  *  Version:    C, Version 2.1
- *                                                                            
+ *
  *  File:       dhry_1.c (part 2 of 3)
  *
  *  Date:       May 25, 1988
@@ -27,7 +27,7 @@
  int vtimer_end;
  int vcycles;
  float dmips;
-#endif 
+#endif
 /* Global Variables: */
 
 #ifdef __uClinux__
@@ -119,7 +119,7 @@ long            Microseconds,
 t_ck_uart_device uart0 = {0xFFFF};
 //------------------------------------------------
 
-void main () 
+void main ()
 /*****/
 
   /* main program, corresponds to procedures        */
@@ -163,7 +163,7 @@ void main ()
   Ptr_Glob->Discr                       = Ident_1;
   Ptr_Glob->variant.var_1.Enum_Comp     = Ident_3;
   Ptr_Glob->variant.var_1.Int_Comp      = 40;
-  strcpy (Ptr_Glob->variant.var_1.Str_Comp, 
+  strcpy (Ptr_Glob->variant.var_1.Str_Comp,
           "DHRYSTONE PROGRAM, SOME STRING");
   strcpy (Str_1_Loc, "DHRYSTONE PROGRAM, 1'ST STRING");
 
@@ -204,7 +204,7 @@ void main ()
   /* Start timer */
   /***************/
 
-#ifdef __uClinux__ 
+#ifdef __uClinux__
   /* For uClinux or Linux OS */
 #ifdef TIMES
   times (&time_info);
@@ -221,9 +221,9 @@ void main ()
 #ifdef VCUNT_SIM
 vtimer_start= get_vtimer();
 //vtimer_start= 100;
-#endif 
+#endif
   for (Run_Index = 1; Run_Index <= Number_Of_Runs; ++Run_Index)
-  { 
+  {
     Proc_5();
     Proc_4();
       /* Ch_1_Glob == 'A', Ch_2_Glob == 'B', Bool_Glob == true */
@@ -266,8 +266,8 @@ vtimer_start= get_vtimer();
       /* Int_1_Loc == 5 */
   } /* loop "for Run_Index" */
 #ifdef VCUNT_SIM
-vtimer_end= get_vtimer(); 
-//vtimer_end= 1000; 
+vtimer_end= get_vtimer();
+//vtimer_end= 1000;
   vcycles = vtimer_end - vtimer_start;
 //  printf ("\n %d  %d   %d  \n",vtimer_start,vtimer_end,vcycles);
   vcycles = vcycles/Number_Of_Runs;
@@ -284,7 +284,7 @@ vtimer_end= get_vtimer();
   /* Stop timer */
   /**************/
 
-#ifdef __uClinux__ 
+#ifdef __uClinux__
 #ifdef TIMES
   times (&time_info);
   End_Time = (long) time_info.tms_utime;
@@ -295,7 +295,7 @@ vtimer_end= get_vtimer();
 #else  /* #ifdef __uClinux__ */
   Begin_Time = get_timer (0);
 #endif /* #ifdef __uClinux__ */
-  stop_timer(0); 
+  stop_timer(0);
   printf ("Execution ends\n");
 #if 1
   printf ("\n");
@@ -353,11 +353,11 @@ vtimer_end= get_vtimer();
   User_Time = Loop_Num * TIMER_PERIOD + End_Time - Begin_Time;
 
 #ifndef __uClinux__
-  printf ("Elapse time(APB cycles): %d\n", User_Time);  
+  printf ("Elapse time(APB cycles): %d\n", User_Time);
   User_Time = User_Time / (APB_FREQ / 1000);
 #endif
 
-  printf ("Elapse time(ms): %d\n", User_Time);  
+  printf ("Elapse time(ms): %d\n", User_Time);
   if (User_Time < Too_Small_Time)
   {
     printf ("Measured time too small to obtain meaningful results\n");
@@ -369,11 +369,11 @@ vtimer_end= get_vtimer();
 #ifdef __uClinux__
     /* For uClinux or Linux OS */
   #ifdef TIME
-    Microseconds = (float) User_Time * Mic_secs_Per_Second 
+    Microseconds = (float) User_Time * Mic_secs_Per_Second
                         / (float) Number_Of_Runs;
     Dhrystones_Per_Second = (float) Number_Of_Runs / (float) User_Time;
   #else
-    Microseconds = (float) User_Time * Mic_secs_Per_Second 
+    Microseconds = (float) User_Time * Mic_secs_Per_Second
                         / ((float) HZ * ((float) Number_Of_Runs));
     Dhrystones_Per_Second = ((float) HZ * (float) Number_Of_Runs)
                         / (float) User_Time;
@@ -389,7 +389,7 @@ vtimer_end= get_vtimer();
     Microseconds = User_Time * (Mic_secs_Per_Second / Number_Of_Runs) / 1000 ;
     Dhrystones_Per_Second =  Number_Of_Runs / User_Time * 1000;
     Vax_Mips = Dhrystones_Per_Second / 1757;
-    printf ("Microseconds Dhrystone: %d\n", Microseconds);  
+    printf ("Microseconds Dhrystone: %d\n", Microseconds);
     printf ("Dhrystones per Second:  %d\n", Dhrystones_Per_Second);
     printf ("VAX MIPS rating =       %d  @ %d MHZ\n",
             Vax_Mips, SYS_FREQ / 1000000);
@@ -397,13 +397,13 @@ vtimer_end= get_vtimer();
     printf ("\n");
   }
 
-#ifdef __uClinux__ 
+#ifdef __uClinux__
   exit(0);
 #endif
 
   while (ck_uart_status(&uart0));
 
-#endif 
+#endif
 }
 
 
@@ -413,27 +413,27 @@ Proc_1 (Ptr_Val_Par)
 REG Rec_Pointer Ptr_Val_Par;
     /* executed once */
 {
-  REG Rec_Pointer Next_Record = Ptr_Val_Par->Ptr_Comp;  
+  REG Rec_Pointer Next_Record = Ptr_Val_Par->Ptr_Comp;
                                         /* == Ptr_Glob_Next */
   /* Local variable, initialized with Ptr_Val_Par->Ptr_Comp,    */
   /* corresponds to "rename" in Ada, "with" in Pascal           */
-  
-  structassign (*Ptr_Val_Par->Ptr_Comp, *Ptr_Glob); 
+
+  structassign (*Ptr_Val_Par->Ptr_Comp, *Ptr_Glob);
   Ptr_Val_Par->variant.var_1.Int_Comp = 5;
-  Next_Record->variant.var_1.Int_Comp 
+  Next_Record->variant.var_1.Int_Comp
         = Ptr_Val_Par->variant.var_1.Int_Comp;
   Next_Record->Ptr_Comp = Ptr_Val_Par->Ptr_Comp;
   Proc_3 (&Next_Record->Ptr_Comp);
-    /* Ptr_Val_Par->Ptr_Comp->Ptr_Comp 
+    /* Ptr_Val_Par->Ptr_Comp->Ptr_Comp
                         == Ptr_Glob->Ptr_Comp */
   if (Next_Record->Discr == Ident_1)
     /* then, executed */
   {
     Next_Record->variant.var_1.Int_Comp = 6;
-    Proc_6 (Ptr_Val_Par->variant.var_1.Enum_Comp, 
+    Proc_6 (Ptr_Val_Par->variant.var_1.Enum_Comp,
            &Next_Record->variant.var_1.Enum_Comp);
     Next_Record->Ptr_Comp = Ptr_Glob->Ptr_Comp;
-    Proc_7 (Next_Record->variant.var_1.Int_Comp, 10, 
+    Proc_7 (Next_Record->variant.var_1.Int_Comp, 10,
            &Next_Record->variant.var_1.Int_Comp);
   }
   else /* not executed */
@@ -448,7 +448,7 @@ Proc_2 (Int_Par_Ref)
 
 One_Fifty   *Int_Par_Ref;
 {
-  One_Fifty  Int_Loc;  
+  One_Fifty  Int_Loc;
   Enumeration   Enum_Loc;
 
   Int_Loc = *Int_Par_Ref + 10;

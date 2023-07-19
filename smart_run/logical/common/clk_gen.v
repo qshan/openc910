@@ -31,34 +31,34 @@ module clk_gen(
 );
 
 
-input           clkrst_b;        
-input           i_pad_clk;       
-input           penable;         
-input           psel;            
-input   [2 :0]  pwdata;          
-input           pwrite;         
-input           gate_en0;      
-input           gate_en1;      
-output          clk_en;          
-output  [2 :0]  pad_biu_clkratio; 
-output          per_clk;         
-output          cpu_clk;         
-output  [31:0]  prdata;          
+input           clkrst_b;
+input           i_pad_clk;
+input           penable;
+input           psel;
+input   [2 :0]  pwdata;
+input           pwrite;
+input           gate_en0;
+input           gate_en1;
+output          clk_en;
+output  [2 :0]  pad_biu_clkratio;
+output          per_clk;
+output          cpu_clk;
+output  [31:0]  prdata;
 
 
-wire    [31:0]  prdata;          
+wire    [31:0]  prdata;
 
 
-wire            clk_en;          
-wire            clkrst_b;        
-wire            i_pad_clk;       
-wire    [2 :0]  pad_biu_clkratio; 
-wire            penable;         
-wire            per_clk;         
-wire            cpu_clk;         
-wire            psel;            
-wire    [2 :0]  pwdata;          
-wire            pwrite;          
+wire            clk_en;
+wire            clkrst_b;
+wire            i_pad_clk;
+wire    [2 :0]  pad_biu_clkratio;
+wire            penable;
+wire            per_clk;
+wire            cpu_clk;
+wire            psel;
+wire    [2 :0]  pwdata;
+wire            pwrite;
 
 // configure parameter for system clock dividor
 // 0 not support
@@ -76,8 +76,8 @@ wire            pwrite;
 parameter  CLK_RATIO = 3'd1;
 
 
-reg [2:0]  cnt; 
-reg        cnt_zero; 
+reg [2:0]  cnt;
+reg        cnt_zero;
 wire       sys_clk;
 always @(posedge i_pad_clk or negedge clkrst_b)
 begin
@@ -111,7 +111,7 @@ assign  prdata[31:0]          = {29'b0,CLK_RATIO};
 assign  pad_biu_clkratio[2:0] = CLK_RATIO;
 
 reg [3:0] div_cnt;
-reg       slow_clk; 
+reg       slow_clk;
 always @(posedge i_pad_clk or negedge clkrst_b) begin
   if (!clkrst_b) begin
     div_cnt     <= 4'hf;

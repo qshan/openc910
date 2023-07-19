@@ -112,297 +112,297 @@ module ct_biu_write_channel(
 );
 
 // &Ports; @23
-input            bcpuclk;                             
-input            bus_arb_w_fifo_clk;                  
-input            coreclk;                             
-input            cpurst_b;                            
-input            pad_biu_awready;                     
-input            pad_biu_back_ready;                  
-input   [4  :0]  pad_biu_bid;                         
-input   [1  :0]  pad_biu_bresp;                       
-input            pad_biu_bvalid;                      
-input            pad_biu_wns_awready;                 
-input            pad_biu_wns_wready;                  
-input            pad_biu_wready;                      
-input            pad_biu_ws_awready;                  
-input            pad_biu_ws_wready;                   
-input            round_wcpuclk;                       
-input   [39 :0]  st_awaddr;                           
-input   [1  :0]  st_awbar;                            
-input   [1  :0]  st_awburst;                          
-input   [3  :0]  st_awcache;                          
-input            st_awcpuclk;                         
-input   [1  :0]  st_awdomain;                         
-input   [4  :0]  st_awid;                             
-input   [1  :0]  st_awlen;                            
-input            st_awlock;                           
-input   [2  :0]  st_awprot;                           
-input   [2  :0]  st_awsize;                           
-input   [2  :0]  st_awsnoop;                          
-input            st_awunique;                         
-input            st_awuser;                           
-input            st_awvalid;                          
-input            st_awvalid_gate;                     
-input            st_wcpuclk;                          
-input   [127:0]  st_wdata;                            
-input            st_wlast;                            
-input            st_wns;                              
-input   [15 :0]  st_wstrb;                            
-input            st_wvalid;                           
-input   [39 :0]  vict_awaddr;                         
-input   [1  :0]  vict_awbar;                          
-input   [1  :0]  vict_awburst;                        
-input   [3  :0]  vict_awcache;                        
-input            vict_awcpuclk;                       
-input   [1  :0]  vict_awdomain;                       
-input   [4  :0]  vict_awid;                           
-input   [1  :0]  vict_awlen;                          
-input            vict_awlock;                         
-input   [2  :0]  vict_awprot;                         
-input   [2  :0]  vict_awsize;                         
-input   [2  :0]  vict_awsnoop;                        
-input            vict_awunique;                       
-input            vict_awuser;                         
-input            vict_awvalid;                        
-input            vict_awvalid_gate;                   
-input            vict_wcpuclk;                        
-input   [127:0]  vict_wdata;                          
-input            vict_wlast;                          
-input            vict_wns;                            
-input   [15 :0]  vict_wstrb;                          
-input            vict_wvalid;                         
-output  [4  :0]  biu_lsu_b_id;                        
-output  [1  :0]  biu_lsu_b_resp;                      
-output           biu_lsu_b_vld;                       
-output  [39 :0]  biu_pad_awaddr;                      
-output  [1  :0]  biu_pad_awbar;                       
-output  [1  :0]  biu_pad_awburst;                     
-output  [3  :0]  biu_pad_awcache;                     
-output  [1  :0]  biu_pad_awdomain;                    
-output  [4  :0]  biu_pad_awid;                        
-output  [1  :0]  biu_pad_awlen;                       
-output           biu_pad_awlock;                      
-output  [2  :0]  biu_pad_awprot;                      
-output  [2  :0]  biu_pad_awsize;                      
-output  [2  :0]  biu_pad_awsnoop;                     
-output           biu_pad_awunique;                    
-output           biu_pad_awuser;                      
-output           biu_pad_awvalid;                     
-output           biu_pad_back;                        
-output           biu_pad_bready;                      
-output  [127:0]  biu_pad_wdata;                       
-output           biu_pad_werr;                        
-output           biu_pad_wlast;                       
-output           biu_pad_wns;                         
-output  [15 :0]  biu_pad_wstrb;                       
-output           biu_pad_wvalid;                      
-output           bus_arb_w_fifo_clk_en;               
-output           round_w_clk_en;                      
-output           st_aw_clk_en;                        
-output           st_awready;                          
-output           st_w_clk_en;                         
-output           st_wready;                           
-output           vict_aw_clk_en;                      
-output           vict_awready;                        
-output           vict_w_clk_en;                       
-output           vict_wready;                         
-output           write_b_clk_en;                      
-output           write_busy;                          
+input            bcpuclk;
+input            bus_arb_w_fifo_clk;
+input            coreclk;
+input            cpurst_b;
+input            pad_biu_awready;
+input            pad_biu_back_ready;
+input   [4  :0]  pad_biu_bid;
+input   [1  :0]  pad_biu_bresp;
+input            pad_biu_bvalid;
+input            pad_biu_wns_awready;
+input            pad_biu_wns_wready;
+input            pad_biu_wready;
+input            pad_biu_ws_awready;
+input            pad_biu_ws_wready;
+input            round_wcpuclk;
+input   [39 :0]  st_awaddr;
+input   [1  :0]  st_awbar;
+input   [1  :0]  st_awburst;
+input   [3  :0]  st_awcache;
+input            st_awcpuclk;
+input   [1  :0]  st_awdomain;
+input   [4  :0]  st_awid;
+input   [1  :0]  st_awlen;
+input            st_awlock;
+input   [2  :0]  st_awprot;
+input   [2  :0]  st_awsize;
+input   [2  :0]  st_awsnoop;
+input            st_awunique;
+input            st_awuser;
+input            st_awvalid;
+input            st_awvalid_gate;
+input            st_wcpuclk;
+input   [127:0]  st_wdata;
+input            st_wlast;
+input            st_wns;
+input   [15 :0]  st_wstrb;
+input            st_wvalid;
+input   [39 :0]  vict_awaddr;
+input   [1  :0]  vict_awbar;
+input   [1  :0]  vict_awburst;
+input   [3  :0]  vict_awcache;
+input            vict_awcpuclk;
+input   [1  :0]  vict_awdomain;
+input   [4  :0]  vict_awid;
+input   [1  :0]  vict_awlen;
+input            vict_awlock;
+input   [2  :0]  vict_awprot;
+input   [2  :0]  vict_awsize;
+input   [2  :0]  vict_awsnoop;
+input            vict_awunique;
+input            vict_awuser;
+input            vict_awvalid;
+input            vict_awvalid_gate;
+input            vict_wcpuclk;
+input   [127:0]  vict_wdata;
+input            vict_wlast;
+input            vict_wns;
+input   [15 :0]  vict_wstrb;
+input            vict_wvalid;
+output  [4  :0]  biu_lsu_b_id;
+output  [1  :0]  biu_lsu_b_resp;
+output           biu_lsu_b_vld;
+output  [39 :0]  biu_pad_awaddr;
+output  [1  :0]  biu_pad_awbar;
+output  [1  :0]  biu_pad_awburst;
+output  [3  :0]  biu_pad_awcache;
+output  [1  :0]  biu_pad_awdomain;
+output  [4  :0]  biu_pad_awid;
+output  [1  :0]  biu_pad_awlen;
+output           biu_pad_awlock;
+output  [2  :0]  biu_pad_awprot;
+output  [2  :0]  biu_pad_awsize;
+output  [2  :0]  biu_pad_awsnoop;
+output           biu_pad_awunique;
+output           biu_pad_awuser;
+output           biu_pad_awvalid;
+output           biu_pad_back;
+output           biu_pad_bready;
+output  [127:0]  biu_pad_wdata;
+output           biu_pad_werr;
+output           biu_pad_wlast;
+output           biu_pad_wns;
+output  [15 :0]  biu_pad_wstrb;
+output           biu_pad_wvalid;
+output           bus_arb_w_fifo_clk_en;
+output           round_w_clk_en;
+output           st_aw_clk_en;
+output           st_awready;
+output           st_w_clk_en;
+output           st_wready;
+output           vict_aw_clk_en;
+output           vict_awready;
+output           vict_w_clk_en;
+output           vict_wready;
+output           write_b_clk_en;
+output           write_busy;
 
 // &Regs; @24
-reg              back_pending;                        
-reg              back_valid;                          
-reg     [11 :0]  bus_arb_w_fifo;                      
-reg     [12 :0]  bus_arb_w_fifo_create_ptr;           
-reg     [4  :0]  cur_bresp_buf_bid;                   
-reg     [1  :0]  cur_bresp_buf_bresp;                 
-reg              cur_bresp_buf_bvalid;                
-reg     [39 :0]  cur_waddr_buf_awaddr;                
-reg     [1  :0]  cur_waddr_buf_awbar;                 
-reg     [1  :0]  cur_waddr_buf_awburst;               
-reg     [3  :0]  cur_waddr_buf_awcache;               
-reg     [1  :0]  cur_waddr_buf_awdomain;              
-reg     [4  :0]  cur_waddr_buf_awid;                  
-reg     [1  :0]  cur_waddr_buf_awlen;                 
-reg              cur_waddr_buf_awlock;                
-reg     [2  :0]  cur_waddr_buf_awprot;                
-reg     [2  :0]  cur_waddr_buf_awsize;                
-reg     [2  :0]  cur_waddr_buf_awsnoop;               
-reg              cur_waddr_buf_awunique;              
-reg              cur_waddr_buf_awuser;                
-reg     [39 :0]  cur_waddr_st_awaddr;                 
-reg     [1  :0]  cur_waddr_st_awbar;                  
-reg     [1  :0]  cur_waddr_st_awburst;                
-reg     [3  :0]  cur_waddr_st_awcache;                
-reg     [1  :0]  cur_waddr_st_awdomain;               
-reg     [4  :0]  cur_waddr_st_awid;                   
-reg     [1  :0]  cur_waddr_st_awlen;                  
-reg              cur_waddr_st_awlock;                 
-reg     [2  :0]  cur_waddr_st_awprot;                 
-reg     [2  :0]  cur_waddr_st_awsize;                 
-reg     [2  :0]  cur_waddr_st_awsnoop;                
-reg              cur_waddr_st_awunique;               
-reg              cur_waddr_st_awuser;                 
-reg              cur_waddr_st_awvalid;                
-reg     [39 :0]  cur_waddr_vict_awaddr;               
-reg     [1  :0]  cur_waddr_vict_awbar;                
-reg     [1  :0]  cur_waddr_vict_awburst;              
-reg     [3  :0]  cur_waddr_vict_awcache;              
-reg     [1  :0]  cur_waddr_vict_awdomain;             
-reg     [4  :0]  cur_waddr_vict_awid;                 
-reg     [1  :0]  cur_waddr_vict_awlen;                
-reg              cur_waddr_vict_awlock;               
-reg     [2  :0]  cur_waddr_vict_awprot;               
-reg     [2  :0]  cur_waddr_vict_awsize;               
-reg     [2  :0]  cur_waddr_vict_awsnoop;              
-reg              cur_waddr_vict_awunique;             
-reg              cur_waddr_vict_awuser;               
-reg              cur_waddr_vict_awvalid;              
-reg     [2  :0]  cur_wdata_buf_pop_sel;               
-reg     [127:0]  cur_wdata_buf_wdata;                 
-reg              cur_wdata_buf_wlast;                 
-reg              cur_wdata_buf_wns;                   
-reg     [15 :0]  cur_wdata_buf_wstrb;                 
-reg              cur_wdata_buf_wvalid_dp;             
-reg     [127:0]  cur_wdata_round_wdata;               
-reg              cur_wdata_round_wlast;               
-reg              cur_wdata_round_wns;                 
-reg     [15 :0]  cur_wdata_round_wstrb;               
-reg              cur_wdata_round_wvalid;              
-reg     [127:0]  cur_wdata_st_wdata;                  
-reg              cur_wdata_st_wlast;                  
-reg              cur_wdata_st_wns;                    
-reg     [15 :0]  cur_wdata_st_wstrb;                  
-reg              cur_wdata_st_wvalid;                 
-reg     [127:0]  cur_wdata_vict_wdata;                
-reg              cur_wdata_vict_wlast;                
-reg              cur_wdata_vict_wns;                  
-reg     [15 :0]  cur_wdata_vict_wstrb;                
-reg              cur_wdata_vict_wvalid;               
+reg              back_pending;
+reg              back_valid;
+reg     [11 :0]  bus_arb_w_fifo;
+reg     [12 :0]  bus_arb_w_fifo_create_ptr;
+reg     [4  :0]  cur_bresp_buf_bid;
+reg     [1  :0]  cur_bresp_buf_bresp;
+reg              cur_bresp_buf_bvalid;
+reg     [39 :0]  cur_waddr_buf_awaddr;
+reg     [1  :0]  cur_waddr_buf_awbar;
+reg     [1  :0]  cur_waddr_buf_awburst;
+reg     [3  :0]  cur_waddr_buf_awcache;
+reg     [1  :0]  cur_waddr_buf_awdomain;
+reg     [4  :0]  cur_waddr_buf_awid;
+reg     [1  :0]  cur_waddr_buf_awlen;
+reg              cur_waddr_buf_awlock;
+reg     [2  :0]  cur_waddr_buf_awprot;
+reg     [2  :0]  cur_waddr_buf_awsize;
+reg     [2  :0]  cur_waddr_buf_awsnoop;
+reg              cur_waddr_buf_awunique;
+reg              cur_waddr_buf_awuser;
+reg     [39 :0]  cur_waddr_st_awaddr;
+reg     [1  :0]  cur_waddr_st_awbar;
+reg     [1  :0]  cur_waddr_st_awburst;
+reg     [3  :0]  cur_waddr_st_awcache;
+reg     [1  :0]  cur_waddr_st_awdomain;
+reg     [4  :0]  cur_waddr_st_awid;
+reg     [1  :0]  cur_waddr_st_awlen;
+reg              cur_waddr_st_awlock;
+reg     [2  :0]  cur_waddr_st_awprot;
+reg     [2  :0]  cur_waddr_st_awsize;
+reg     [2  :0]  cur_waddr_st_awsnoop;
+reg              cur_waddr_st_awunique;
+reg              cur_waddr_st_awuser;
+reg              cur_waddr_st_awvalid;
+reg     [39 :0]  cur_waddr_vict_awaddr;
+reg     [1  :0]  cur_waddr_vict_awbar;
+reg     [1  :0]  cur_waddr_vict_awburst;
+reg     [3  :0]  cur_waddr_vict_awcache;
+reg     [1  :0]  cur_waddr_vict_awdomain;
+reg     [4  :0]  cur_waddr_vict_awid;
+reg     [1  :0]  cur_waddr_vict_awlen;
+reg              cur_waddr_vict_awlock;
+reg     [2  :0]  cur_waddr_vict_awprot;
+reg     [2  :0]  cur_waddr_vict_awsize;
+reg     [2  :0]  cur_waddr_vict_awsnoop;
+reg              cur_waddr_vict_awunique;
+reg              cur_waddr_vict_awuser;
+reg              cur_waddr_vict_awvalid;
+reg     [2  :0]  cur_wdata_buf_pop_sel;
+reg     [127:0]  cur_wdata_buf_wdata;
+reg              cur_wdata_buf_wlast;
+reg              cur_wdata_buf_wns;
+reg     [15 :0]  cur_wdata_buf_wstrb;
+reg              cur_wdata_buf_wvalid_dp;
+reg     [127:0]  cur_wdata_round_wdata;
+reg              cur_wdata_round_wlast;
+reg              cur_wdata_round_wns;
+reg     [15 :0]  cur_wdata_round_wstrb;
+reg              cur_wdata_round_wvalid;
+reg     [127:0]  cur_wdata_st_wdata;
+reg              cur_wdata_st_wlast;
+reg              cur_wdata_st_wns;
+reg     [15 :0]  cur_wdata_st_wstrb;
+reg              cur_wdata_st_wvalid;
+reg     [127:0]  cur_wdata_vict_wdata;
+reg              cur_wdata_vict_wlast;
+reg              cur_wdata_vict_wns;
+reg     [15 :0]  cur_wdata_vict_wstrb;
+reg              cur_wdata_vict_wvalid;
 
 // &Wires; @25
-wire             aw_ws;                               
-wire             back_full;                           
-wire             bcpuclk;                             
-wire    [4  :0]  biu_lsu_b_id;                        
-wire    [1  :0]  biu_lsu_b_resp;                      
-wire             biu_lsu_b_vld;                       
-wire    [39 :0]  biu_pad_awaddr;                      
-wire    [1  :0]  biu_pad_awbar;                       
-wire    [1  :0]  biu_pad_awburst;                     
-wire    [3  :0]  biu_pad_awcache;                     
-wire    [1  :0]  biu_pad_awdomain;                    
-wire    [4  :0]  biu_pad_awid;                        
-wire    [1  :0]  biu_pad_awlen;                       
-wire             biu_pad_awlock;                      
-wire    [2  :0]  biu_pad_awprot;                      
-wire    [2  :0]  biu_pad_awsize;                      
-wire    [2  :0]  biu_pad_awsnoop;                     
-wire             biu_pad_awunique;                    
-wire             biu_pad_awuser;                      
-wire             biu_pad_awvalid;                     
-wire             biu_pad_back;                        
-wire             biu_pad_bready;                      
-wire    [127:0]  biu_pad_wdata;                       
-wire             biu_pad_werr;                        
-wire             biu_pad_wlast;                       
-wire             biu_pad_wns;                         
-wire    [15 :0]  biu_pad_wstrb;                       
-wire             biu_pad_wvalid;                      
-wire             blast_done;                          
-wire             bus_arb_w_fifo_clk;                  
-wire             bus_arb_w_fifo_clk_en;               
-wire             bus_arb_w_fifo_create_vld;           
-wire             bus_arb_w_fifo_create_vld_gateclk_en; 
-wire             bus_arb_w_fifo_empty;                
-wire             bus_arb_w_fifo_less2;                
-wire    [11 :0]  bus_arb_w_fifo_next;                 
-wire             bus_arb_w_fifo_pop_vld;              
-wire             bus_arb_w_fifo_pop_vld_gateclk_en;   
-wire    [11 :0]  bus_arb_w_fifo_stage;                
-wire             coreclk;                             
-wire             cpurst_b;                            
-wire             cur_waddr_buf_awvalid;               
-wire    [2  :0]  cur_wdata_buf_create_pop_sel;        
-wire    [2  :0]  cur_wdata_buf_pop_sel_next;          
-wire             cur_wdata_buf_wvalid;                
-wire             evict_trans;                         
-wire             pad_awready;                         
-wire             pad_biu_back_ready;                  
-wire    [4  :0]  pad_biu_bid;                         
-wire    [1  :0]  pad_biu_bresp;                       
-wire             pad_biu_bvalid;                      
-wire             pad_biu_wns_awready;                 
-wire             pad_biu_wns_wready;                  
-wire             pad_biu_ws_awready;                  
-wire             pad_biu_ws_wready;                   
-wire             pad_wready;                          
-wire             pop_next_w_fifo;                     
-wire             round_w_clk_en;                      
-wire             round_wcpuclk;                       
-wire             round_wvalid;                        
-wire             st_aw_clk_en;                        
-wire    [39 :0]  st_awaddr;                           
-wire    [1  :0]  st_awbar;                            
-wire    [1  :0]  st_awburst;                          
-wire    [3  :0]  st_awcache;                          
-wire             st_awcpuclk;                         
-wire    [1  :0]  st_awdomain;                         
-wire    [4  :0]  st_awid;                             
-wire    [1  :0]  st_awlen;                            
-wire             st_awlock;                           
-wire    [2  :0]  st_awprot;                           
-wire             st_awready;                          
-wire    [2  :0]  st_awsize;                           
-wire    [2  :0]  st_awsnoop;                          
-wire             st_awunique;                         
-wire             st_awuser;                           
-wire             st_awvalid;                          
-wire             st_awvalid_gate;                     
-wire             st_w_clk_en;                         
-wire             st_wcpuclk;                          
-wire    [127:0]  st_wdata;                            
-wire             st_wlast;                            
-wire             st_wns;                              
-wire             st_wready;                           
-wire    [15 :0]  st_wstrb;                            
-wire             st_wvalid;                           
-wire             vict_aw_clk_en;                      
-wire    [39 :0]  vict_awaddr;                         
-wire    [1  :0]  vict_awbar;                          
-wire    [1  :0]  vict_awburst;                        
-wire    [3  :0]  vict_awcache;                        
-wire             vict_awcpuclk;                       
-wire    [1  :0]  vict_awdomain;                       
-wire    [4  :0]  vict_awid;                           
-wire    [1  :0]  vict_awlen;                          
-wire             vict_awlock;                         
-wire    [2  :0]  vict_awprot;                         
-wire             vict_awready;                        
-wire    [2  :0]  vict_awsize;                         
-wire    [2  :0]  vict_awsnoop;                        
-wire             vict_awunique;                       
-wire             vict_awuser;                         
-wire             vict_awvalid;                        
-wire             vict_awvalid_gate;                   
-wire             vict_w_clk_en;                       
-wire             vict_wcpuclk;                        
-wire    [127:0]  vict_wdata;                          
-wire             vict_wlast;                          
-wire             vict_wns;                            
-wire             vict_wready;                         
-wire    [15 :0]  vict_wstrb;                          
-wire             vict_wvalid;                         
-wire             w_fifo_round_next_st;                
-wire             w_fifo_round_next_victim;            
-wire             wdata_st_pop_sel_next;               
-wire             wdata_vict_pop_sel_next;             
-wire             write_b_clk_en;                      
-wire             write_busy;                          
+wire             aw_ws;
+wire             back_full;
+wire             bcpuclk;
+wire    [4  :0]  biu_lsu_b_id;
+wire    [1  :0]  biu_lsu_b_resp;
+wire             biu_lsu_b_vld;
+wire    [39 :0]  biu_pad_awaddr;
+wire    [1  :0]  biu_pad_awbar;
+wire    [1  :0]  biu_pad_awburst;
+wire    [3  :0]  biu_pad_awcache;
+wire    [1  :0]  biu_pad_awdomain;
+wire    [4  :0]  biu_pad_awid;
+wire    [1  :0]  biu_pad_awlen;
+wire             biu_pad_awlock;
+wire    [2  :0]  biu_pad_awprot;
+wire    [2  :0]  biu_pad_awsize;
+wire    [2  :0]  biu_pad_awsnoop;
+wire             biu_pad_awunique;
+wire             biu_pad_awuser;
+wire             biu_pad_awvalid;
+wire             biu_pad_back;
+wire             biu_pad_bready;
+wire    [127:0]  biu_pad_wdata;
+wire             biu_pad_werr;
+wire             biu_pad_wlast;
+wire             biu_pad_wns;
+wire    [15 :0]  biu_pad_wstrb;
+wire             biu_pad_wvalid;
+wire             blast_done;
+wire             bus_arb_w_fifo_clk;
+wire             bus_arb_w_fifo_clk_en;
+wire             bus_arb_w_fifo_create_vld;
+wire             bus_arb_w_fifo_create_vld_gateclk_en;
+wire             bus_arb_w_fifo_empty;
+wire             bus_arb_w_fifo_less2;
+wire    [11 :0]  bus_arb_w_fifo_next;
+wire             bus_arb_w_fifo_pop_vld;
+wire             bus_arb_w_fifo_pop_vld_gateclk_en;
+wire    [11 :0]  bus_arb_w_fifo_stage;
+wire             coreclk;
+wire             cpurst_b;
+wire             cur_waddr_buf_awvalid;
+wire    [2  :0]  cur_wdata_buf_create_pop_sel;
+wire    [2  :0]  cur_wdata_buf_pop_sel_next;
+wire             cur_wdata_buf_wvalid;
+wire             evict_trans;
+wire             pad_awready;
+wire             pad_biu_back_ready;
+wire    [4  :0]  pad_biu_bid;
+wire    [1  :0]  pad_biu_bresp;
+wire             pad_biu_bvalid;
+wire             pad_biu_wns_awready;
+wire             pad_biu_wns_wready;
+wire             pad_biu_ws_awready;
+wire             pad_biu_ws_wready;
+wire             pad_wready;
+wire             pop_next_w_fifo;
+wire             round_w_clk_en;
+wire             round_wcpuclk;
+wire             round_wvalid;
+wire             st_aw_clk_en;
+wire    [39 :0]  st_awaddr;
+wire    [1  :0]  st_awbar;
+wire    [1  :0]  st_awburst;
+wire    [3  :0]  st_awcache;
+wire             st_awcpuclk;
+wire    [1  :0]  st_awdomain;
+wire    [4  :0]  st_awid;
+wire    [1  :0]  st_awlen;
+wire             st_awlock;
+wire    [2  :0]  st_awprot;
+wire             st_awready;
+wire    [2  :0]  st_awsize;
+wire    [2  :0]  st_awsnoop;
+wire             st_awunique;
+wire             st_awuser;
+wire             st_awvalid;
+wire             st_awvalid_gate;
+wire             st_w_clk_en;
+wire             st_wcpuclk;
+wire    [127:0]  st_wdata;
+wire             st_wlast;
+wire             st_wns;
+wire             st_wready;
+wire    [15 :0]  st_wstrb;
+wire             st_wvalid;
+wire             vict_aw_clk_en;
+wire    [39 :0]  vict_awaddr;
+wire    [1  :0]  vict_awbar;
+wire    [1  :0]  vict_awburst;
+wire    [3  :0]  vict_awcache;
+wire             vict_awcpuclk;
+wire    [1  :0]  vict_awdomain;
+wire    [4  :0]  vict_awid;
+wire    [1  :0]  vict_awlen;
+wire             vict_awlock;
+wire    [2  :0]  vict_awprot;
+wire             vict_awready;
+wire    [2  :0]  vict_awsize;
+wire    [2  :0]  vict_awsnoop;
+wire             vict_awunique;
+wire             vict_awuser;
+wire             vict_awvalid;
+wire             vict_awvalid_gate;
+wire             vict_w_clk_en;
+wire             vict_wcpuclk;
+wire    [127:0]  vict_wdata;
+wire             vict_wlast;
+wire             vict_wns;
+wire             vict_wready;
+wire    [15 :0]  vict_wstrb;
+wire             vict_wvalid;
+wire             w_fifo_round_next_st;
+wire             w_fifo_round_next_victim;
+wire             wdata_st_pop_sel_next;
+wire             wdata_vict_pop_sel_next;
+wire             write_b_clk_en;
+wire             write_busy;
 
 
 //**********************************************************
-//           write addr channel                        
+//           write addr channel
 // transmit write req (addr & data)
 //**********************************************************
 ////buf ready stand for buf can acept req from lsu
@@ -412,8 +412,8 @@ parameter WU          = 3'b000;
 parameter WLU         = 3'b001;
 parameter EVICT       = 3'b100;
 
-assign aw_ws       = ((cur_waddr_buf_awsnoop[2:0] == WU) || 
-                      (cur_waddr_buf_awsnoop[2:0] == WLU)) && 
+assign aw_ws       = ((cur_waddr_buf_awsnoop[2:0] == WU) ||
+                      (cur_waddr_buf_awsnoop[2:0] == WLU)) &&
                       (cur_waddr_buf_awdomain[1:0] == 2'b01) ||
                      cur_waddr_buf_awbar[0];
 
@@ -423,7 +423,7 @@ assign vict_awready = !cur_waddr_vict_awvalid;
 assign st_awready   = !cur_waddr_st_awvalid;
 
 //**********************************************************
-//           write addr channel                        
+//           write addr channel
 //cur_waddr_buf:
 //| cur_waddr_buf_awvalid | cur_raddr_buf_awid | cur_raddr_buf_awaddr |
 //|             ..._awlen |         ..._awsize |          ..._awburst |
@@ -642,7 +642,7 @@ begin
   end
 end
 //**********************************************************
-//           write data channel                        
+//           write data channel
 // transmit write req (addr & data)
 //**********************************************************
 //==============================================
@@ -685,7 +685,7 @@ assign bus_arb_w_fifo_pop_vld     = cur_wdata_buf_wvalid
 assign bus_arb_w_fifo_stage[W_FIFO_ENTRY-1:0] = {W_FIFO_ENTRY{cur_waddr_vict_awvalid && pad_biu_wns_awready && !evict_trans}}
                                                   & bus_arb_w_fifo_create_ptr[W_FIFO_ENTRY-1:0]
                                                 | bus_arb_w_fifo[W_FIFO_ENTRY-1:0];
-                                                        
+
 assign bus_arb_w_fifo_next[W_FIFO_ENTRY-1:0]  = bus_arb_w_fifo_pop_vld
                                                 ? {1'b0,bus_arb_w_fifo_stage[W_FIFO_ENTRY-1:1]}
                                                 : bus_arb_w_fifo_stage[W_FIFO_ENTRY-1:0];
@@ -706,9 +706,9 @@ assign vict_wready   = !cur_wdata_vict_wvalid
 assign st_wready     = !cur_wdata_st_wvalid
                        || !cur_wdata_round_wvalid
                           && w_fifo_round_next_st;
- 
+
 //**********************************************************
-//           write data channel                        
+//           write data channel
 //cur_wdata_buf:
 //| cur_wdata_buf_wvalid |
 //| cur_wdata_buf_wdata  | cur_wdata_buf_wstrb | cur_wdata_buf_wlast |
@@ -727,7 +727,7 @@ assign biu_pad_werr         = 1'b0;
 //and the third is round buffer for both source to cut timing
 //use round buffer to support back to back
 assign cur_wdata_buf_wvalid = !bus_arb_w_fifo_empty
-                              && cur_wdata_buf_wvalid_dp;  
+                              && cur_wdata_buf_wvalid_dp;
 
 // &CombBeg; @330
 always @( cur_wdata_st_wdata[127:0]
@@ -819,7 +819,7 @@ assign wdata_st_pop_sel_next   = !pop_next_w_fifo
 
 assign cur_wdata_buf_pop_sel_next[2:0] = {!wdata_st_pop_sel_next && !wdata_vict_pop_sel_next,
                                           wdata_st_pop_sel_next,
-                                          wdata_vict_pop_sel_next}; 
+                                          wdata_vict_pop_sel_next};
 
 
 //w channel buffer
@@ -913,7 +913,7 @@ assign w_fifo_round_next_st     = !bus_arb_w_fifo_empty
 assign round_wvalid = vict_wvalid
                          && cur_wdata_vict_wvalid
                          && w_fifo_round_next_victim
-                      || st_wvalid 
+                      || st_wvalid
                          && cur_wdata_st_wvalid
                          && w_fifo_round_next_st;
 
@@ -961,7 +961,7 @@ begin
   end
 end
 //**********************************************************
-//           write resp channel                        
+//           write resp channel
 // transmit resp from bus to req source(lsu)
 //cur_bresp_buf:
 //| cur_bresp_buf_bvalid |
@@ -1057,10 +1057,10 @@ assign write_b_clk_en  = 1'b1;  //for timing,not use input signal
 
 //for low power
 assign write_busy = cur_waddr_buf_awvalid
-                    || cur_wdata_buf_wvalid 
-                    || cur_bresp_buf_bvalid 
-                    || back_valid 
-                    || back_pending; 
+                    || cur_wdata_buf_wvalid
+                    || cur_bresp_buf_bvalid
+                    || back_valid
+                    || back_pending;
 
 // &ModuleEnd; @687
 endmodule

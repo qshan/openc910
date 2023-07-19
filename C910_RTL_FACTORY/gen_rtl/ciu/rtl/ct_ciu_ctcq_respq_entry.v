@@ -31,64 +31,64 @@ module ct_ciu_ctcq_respq_entry(
 );
 
 // &Ports; @23
-input          ciu_icg_en;                 
-input          cpurst_b;                   
-input          forever_cpuclk;             
-input          pad_yy_icg_scan_en;         
-input   [5:0]  respq_create_cmplt_init;    
-input          respq_create_dvm;           
-input          respq_create_en_x;          
-input          respq_ebiu_resp_create_en_x; 
-input          respq_l2c_resp_create_en_x; 
-input          respq_piu0_resp_create_en_x; 
-input          respq_piu1_resp_create_en_x; 
-input          respq_piu2_resp_create_en_x; 
-input          respq_piu3_resp_create_en_x; 
-output         respq_dvm_x;                
-output         respq_vld_x;                
+input          ciu_icg_en;
+input          cpurst_b;
+input          forever_cpuclk;
+input          pad_yy_icg_scan_en;
+input   [5:0]  respq_create_cmplt_init;
+input          respq_create_dvm;
+input          respq_create_en_x;
+input          respq_ebiu_resp_create_en_x;
+input          respq_l2c_resp_create_en_x;
+input          respq_piu0_resp_create_en_x;
+input          respq_piu1_resp_create_en_x;
+input          respq_piu2_resp_create_en_x;
+input          respq_piu3_resp_create_en_x;
+output         respq_dvm_x;
+output         respq_vld_x;
 
 // &Regs; @24
-reg            respq_dvm;                  
-reg            respq_ebiu_cmplt;           
-reg            respq_l2c_cmplt;            
-reg            respq_piu0_cmplt;           
-reg            respq_piu1_cmplt;           
-reg            respq_piu2_cmplt;           
-reg            respq_piu3_cmplt;           
-reg            respq_vld;                  
+reg            respq_dvm;
+reg            respq_ebiu_cmplt;
+reg            respq_l2c_cmplt;
+reg            respq_piu0_cmplt;
+reg            respq_piu1_cmplt;
+reg            respq_piu2_cmplt;
+reg            respq_piu3_cmplt;
+reg            respq_vld;
 
 // &Wires; @25
-wire           ciu_icg_en;                 
-wire           cpurst_b;                   
-wire           forever_cpuclk;             
-wire           pad_yy_icg_scan_en;         
-wire    [5:0]  respq_create_cmplt_init;    
-wire           respq_create_dvm;           
-wire           respq_create_en;            
-wire           respq_create_en_x;          
-wire           respq_dvm_x;                
-wire           respq_ebiu_resp_create_en;  
-wire           respq_ebiu_resp_create_en_x; 
-wire           respq_entry_clk_en;         
-wire           respq_l2c_resp_create_en;   
-wire           respq_l2c_resp_create_en_x; 
-wire           respq_piu0_resp_create_en;  
-wire           respq_piu0_resp_create_en_x; 
-wire           respq_piu1_resp_create_en;  
-wire           respq_piu1_resp_create_en_x; 
-wire           respq_piu2_resp_create_en;  
-wire           respq_piu2_resp_create_en_x; 
-wire           respq_piu3_resp_create_en;  
-wire           respq_piu3_resp_create_en_x; 
-wire           respq_pop_en;               
-wire           respq_vld_x;                
-wire           respqentyclk;               
+wire           ciu_icg_en;
+wire           cpurst_b;
+wire           forever_cpuclk;
+wire           pad_yy_icg_scan_en;
+wire    [5:0]  respq_create_cmplt_init;
+wire           respq_create_dvm;
+wire           respq_create_en;
+wire           respq_create_en_x;
+wire           respq_dvm_x;
+wire           respq_ebiu_resp_create_en;
+wire           respq_ebiu_resp_create_en_x;
+wire           respq_entry_clk_en;
+wire           respq_l2c_resp_create_en;
+wire           respq_l2c_resp_create_en_x;
+wire           respq_piu0_resp_create_en;
+wire           respq_piu0_resp_create_en_x;
+wire           respq_piu1_resp_create_en;
+wire           respq_piu1_resp_create_en_x;
+wire           respq_piu2_resp_create_en;
+wire           respq_piu2_resp_create_en_x;
+wire           respq_piu3_resp_create_en;
+wire           respq_piu3_resp_create_en_x;
+wire           respq_pop_en;
+wire           respq_vld_x;
+wire           respqentyclk;
 
 //======================================
 //    CTC resp queue(respq)
 //entry content:
 //| vld   |
-//| cmplt |     [4]: L2 cmplt  
+//| cmplt |     [4]: L2 cmplt
 //              [3]: cpu3 cmplt
 //              [2]: cpu2 cmplt
 //              [1]: cpu1 cmplt
@@ -96,7 +96,7 @@ wire           respqentyclk;
 //======================================
 
 assign respq_pop_en  = respq_l2c_cmplt
-                     & respq_ebiu_cmplt 
+                     & respq_ebiu_cmplt
                      & respq_piu3_cmplt
                      & respq_piu2_cmplt
                      & respq_piu1_cmplt
@@ -195,9 +195,9 @@ end
 //==========================================================
 //                 Gated Clk EN
 //==========================================================
-assign respq_entry_clk_en =  respq_create_en 
+assign respq_entry_clk_en =  respq_create_en
                           || respq_pop_en
-                          || respq_l2c_resp_create_en 
+                          || respq_l2c_resp_create_en
                           || respq_ebiu_resp_create_en
                           || respq_piu3_resp_create_en
                           || respq_piu2_resp_create_en

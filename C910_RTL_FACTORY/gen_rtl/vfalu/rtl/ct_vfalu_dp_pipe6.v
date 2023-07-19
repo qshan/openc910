@@ -30,34 +30,34 @@ module ct_vfalu_dp_pipe6(
 );
 
 // &Ports; @23
-input   [2 :0]  dp_vfalu_ex1_pipex_sel;      
-input           fadd_ereg_ex3_forward_r_vld; 
-input   [4 :0]  fadd_ereg_ex3_result;        
-input           fadd_forward_r_vld;          
-input   [63:0]  fadd_forward_result;         
-input   [63:0]  fadd_mfvr_cmp_result;        
-input           fspu_forward_r_vld;          
-input   [63:0]  fspu_forward_result;         
-input   [63:0]  fspu_mfvr_data;              
-output  [63:0]  pipex_dp_ex1_vfalu_mfvr_data; 
-output  [4 :0]  pipex_dp_ex3_vfalu_ereg_data; 
-output  [63:0]  pipex_dp_ex3_vfalu_freg_data; 
+input   [2 :0]  dp_vfalu_ex1_pipex_sel;
+input           fadd_ereg_ex3_forward_r_vld;
+input   [4 :0]  fadd_ereg_ex3_result;
+input           fadd_forward_r_vld;
+input   [63:0]  fadd_forward_result;
+input   [63:0]  fadd_mfvr_cmp_result;
+input           fspu_forward_r_vld;
+input   [63:0]  fspu_forward_result;
+input   [63:0]  fspu_mfvr_data;
+output  [63:0]  pipex_dp_ex1_vfalu_mfvr_data;
+output  [4 :0]  pipex_dp_ex3_vfalu_ereg_data;
+output  [63:0]  pipex_dp_ex3_vfalu_freg_data;
 
 // &Regs; @24
-reg     [63:0]  pipex_dp_ex3_vfalu_freg_data; 
+reg     [63:0]  pipex_dp_ex3_vfalu_freg_data;
 
 // &Wires; @25
-wire    [2 :0]  dp_vfalu_ex1_pipex_sel;      
-wire            fadd_ereg_ex3_forward_r_vld; 
-wire    [4 :0]  fadd_ereg_ex3_result;        
-wire            fadd_forward_r_vld;          
-wire    [63:0]  fadd_forward_result;         
-wire    [63:0]  fadd_mfvr_cmp_result;        
-wire            fspu_forward_r_vld;          
-wire    [63:0]  fspu_forward_result;         
-wire    [63:0]  fspu_mfvr_data;              
-wire    [63:0]  pipex_dp_ex1_vfalu_mfvr_data; 
-wire    [4 :0]  pipex_dp_ex3_vfalu_ereg_data; 
+wire    [2 :0]  dp_vfalu_ex1_pipex_sel;
+wire            fadd_ereg_ex3_forward_r_vld;
+wire    [4 :0]  fadd_ereg_ex3_result;
+wire            fadd_forward_r_vld;
+wire    [63:0]  fadd_forward_result;
+wire    [63:0]  fadd_mfvr_cmp_result;
+wire            fspu_forward_r_vld;
+wire    [63:0]  fspu_forward_result;
+wire    [63:0]  fspu_mfvr_data;
+wire    [63:0]  pipex_dp_ex1_vfalu_mfvr_data;
+wire    [4 :0]  pipex_dp_ex3_vfalu_ereg_data;
 
 
 //assign pipex_dp_ex3_vfalu_expt_vec[4:0]    = 5'd30;

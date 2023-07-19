@@ -794,7 +794,7 @@ task read_hadreg_corex;
       default:$display("There is no target!");
     endcase
   end
-endtask	
+endtask
 
 
 
@@ -1075,7 +1075,7 @@ begin
 //COREA
    write_hadreg_corea(`event_outen,32'h3);
    write_hadreg_corea(`event_inen,32'h3);
-   
+
 //COREB
 `ifdef PROCESSOR_1
    write_hadreg_coreb(`event_outen,32'h3);
@@ -1099,7 +1099,7 @@ endtask
 
 /***********************************************************
 The following task was defined to check the cpu mode.
-If the cpu has into debug mode, 
+If the cpu has into debug mode,
 ************************************************************/
 //task check_cpu_mode;
 //  reg[15:0] hsr_data_out;
@@ -1110,7 +1110,7 @@ If the cpu has into debug mode,
 //      $display("----------------------------------------");
 //      $display("*** <CHECK> hsr value is:0x%h  ***   |",
 //               hsr_data_out[15:0]);
-//      $display("***  CPU is in Normal Mode!  ***       |"); 
+//      $display("***  CPU is in Normal Mode!  ***       |");
 //      $display("----------------------------------------");
 //      end
 //    else if(hsr_data_out[1:0]==2'b01)
@@ -1118,7 +1118,7 @@ If the cpu has into debug mode,
 //      $display("----------------------------------------");
 //      $display("*** <CHECK> hsr value is:0x%h  ***   |",
 //               hsr_data_out[15:0]);
-//      $display("***  CPU is in LowPower Mode!  ***     |"); 
+//      $display("***  CPU is in LowPower Mode!  ***     |");
 //      $display("----------------------------------------");
 //      end
 //    else if(hsr_data_out[1:0]==2'b10)
@@ -1126,21 +1126,21 @@ If the cpu has into debug mode,
 //      $display("----------------------------------------");
 //      $display("*** <CHECK> hsr value is:0x%h  ***   |",
 //               hsr_data_out[15:0]);
-//      $display("***  CPU is in Debug Mode!  ***        |"); 
+//      $display("***  CPU is in Debug Mode!  ***        |");
 //      $display("----------------------------------------");
-//      end    
-//    else      
-//      beg    in 
+//      end
+//    else
+//      beg    in
 //      $di    splay("----------------------------------------");
 //      $di    splay("*** <CHECK> hsr value is:0x%h  ***   |",
 //                   hsr_data_out[15:0]);
-//      $di    splay("***  CPU is in Reserve Mode!  ***      |"); 
+//      $di    splay("***  CPU is in Reserve Mode!  ***      |");
 //      $di    splay("----------------------------------------");
 //      end
-//  end        
-//endtask      
-               
-               
+//  end
+//endtask
+
+
 /**********    *************************************************
 The followi    ng task was defined to check the cpu mode.
 If the cpu     has into debug mode,
@@ -1308,7 +1308,7 @@ task check_cpu_mode_cored;
       $display("----------------------------------------");
       $display("*** <CHECK> hsr value is:0x%h  ***   |",
                hsr_data_out[15:0]);
-      $display("***  CPU is in Reserve Mode!  ***      |"); 
+      $display("***  CPU is in Reserve Mode!  ***      |");
       $display("----------------------------------------");
       end
   end

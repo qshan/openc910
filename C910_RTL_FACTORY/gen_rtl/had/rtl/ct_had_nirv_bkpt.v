@@ -34,52 +34,52 @@ module ct_had_nirv_bkpt(
 );
 
 // &Ports; @24
-input          cpuclk;                    
-input          cpurst_b;                  
-input          ctrl_bkpta_en;             
-input          ctrl_bkptb_en;             
-input          regs_xx_nirven;            
-input   [3:0]  rtu_had_inst0_non_irv_bkpt; 
-input   [3:0]  rtu_had_inst1_non_irv_bkpt; 
-input   [3:0]  rtu_had_inst2_non_irv_bkpt; 
-input          rtu_had_xx_split_inst;     
-input          rtu_yy_xx_dbgon;           
-input          rtu_yy_xx_flush;           
-input          rtu_yy_xx_retire0_normal;  
-input          rtu_yy_xx_retire1;         
-input          rtu_yy_xx_retire2;         
-output         nirv_bkpta;                
-output         non_irv_bkpt_vld;          
+input          cpuclk;
+input          cpurst_b;
+input          ctrl_bkpta_en;
+input          ctrl_bkptb_en;
+input          regs_xx_nirven;
+input   [3:0]  rtu_had_inst0_non_irv_bkpt;
+input   [3:0]  rtu_had_inst1_non_irv_bkpt;
+input   [3:0]  rtu_had_inst2_non_irv_bkpt;
+input          rtu_had_xx_split_inst;
+input          rtu_yy_xx_dbgon;
+input          rtu_yy_xx_flush;
+input          rtu_yy_xx_retire0_normal;
+input          rtu_yy_xx_retire1;
+input          rtu_yy_xx_retire2;
+output         nirv_bkpta;
+output         non_irv_bkpt_vld;
 
 // &Regs; @25
-reg            nirv_bkpt_pending;         
-reg            nirv_bkpta;                
-reg            nirv_bkpta_pending;        
-reg            non_irv_bkpt_vld;          
+reg            nirv_bkpt_pending;
+reg            nirv_bkpta;
+reg            nirv_bkpta_pending;
+reg            non_irv_bkpt_vld;
 
 // &Wires; @26
-wire           cpuclk;                    
-wire           cpurst_b;                  
-wire           ctrl_bkpta_en;             
-wire           ctrl_bkptb_en;             
-wire    [3:0]  inst0_non_irv_bkpt;        
-wire    [3:0]  inst1_non_irv_bkpt;        
-wire    [3:0]  inst2_non_irv_bkpt;        
-wire           kbpt_occur;                
-wire           nirv_bkpt_occur_raw;       
-wire           nirv_bkpta_occur;          
-wire           nirv_bkpta_sel;            
-wire           nirv_bkptb_occur;          
-wire           regs_xx_nirven;            
-wire    [3:0]  rtu_had_inst0_non_irv_bkpt; 
-wire    [3:0]  rtu_had_inst1_non_irv_bkpt; 
-wire    [3:0]  rtu_had_inst2_non_irv_bkpt; 
-wire           rtu_had_xx_split_inst;     
-wire           rtu_yy_xx_dbgon;           
-wire           rtu_yy_xx_flush;           
-wire           rtu_yy_xx_retire0_normal;  
-wire           rtu_yy_xx_retire1;         
-wire           rtu_yy_xx_retire2;         
+wire           cpuclk;
+wire           cpurst_b;
+wire           ctrl_bkpta_en;
+wire           ctrl_bkptb_en;
+wire    [3:0]  inst0_non_irv_bkpt;
+wire    [3:0]  inst1_non_irv_bkpt;
+wire    [3:0]  inst2_non_irv_bkpt;
+wire           kbpt_occur;
+wire           nirv_bkpt_occur_raw;
+wire           nirv_bkpta_occur;
+wire           nirv_bkpta_sel;
+wire           nirv_bkptb_occur;
+wire           regs_xx_nirven;
+wire    [3:0]  rtu_had_inst0_non_irv_bkpt;
+wire    [3:0]  rtu_had_inst1_non_irv_bkpt;
+wire    [3:0]  rtu_had_inst2_non_irv_bkpt;
+wire           rtu_had_xx_split_inst;
+wire           rtu_yy_xx_dbgon;
+wire           rtu_yy_xx_flush;
+wire           rtu_yy_xx_retire0_normal;
+wire           rtu_yy_xx_retire1;
+wire           rtu_yy_xx_retire2;
 
 
 assign inst0_non_irv_bkpt[3:0] = rtu_had_inst0_non_irv_bkpt[3:0] & {4{rtu_yy_xx_retire0_normal}};
@@ -94,7 +94,7 @@ assign nirv_bkptb_occur = inst0_non_irv_bkpt[0] || inst0_non_irv_bkpt[3] ||
                           inst1_non_irv_bkpt[0] || inst1_non_irv_bkpt[3] ||
                           inst2_non_irv_bkpt[0] || inst2_non_irv_bkpt[3];
 
-assign kbpt_occur = regs_xx_nirven && 
+assign kbpt_occur = regs_xx_nirven &&
                     (nirv_bkpta_occur && ctrl_bkpta_en || nirv_bkptb_occur && ctrl_bkptb_en) ;
 
 always @(posedge cpuclk or negedge cpurst_b)

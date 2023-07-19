@@ -101,215 +101,215 @@ module ct_vfpu_ctrl(
 );
 
 // &Ports; @23
-input           cp0_vfpu_icg_en;                  
-input           cp0_yy_clk_en;                    
-input           cpurst_b;                         
-input           dp_ctrl_ex1_pipe6_data_vld_pre;   
-input           dp_ctrl_ex1_pipe7_data_vld_pre;   
-input           dp_ctrl_ex2_pipe6_data_vld_pre;   
-input           dp_ctrl_ex2_pipe7_data_vld_pre;   
-input           dp_ctrl_ex3_pipe6_data_vld_pre;   
-input           dp_ctrl_ex3_pipe6_fwd_vld_pre;    
-input           dp_ctrl_ex3_pipe7_data_vld_pre;   
-input           dp_ctrl_ex3_pipe7_fwd_vld_pre;    
-input           dp_ctrl_ex4_pipe6_fwd_vld_pre;    
-input           dp_ctrl_ex4_pipe7_fwd_vld_pre;    
-input           dp_ctrl_pipe6_vfdsu_inst_vld;     
-input           dp_ex1_pipe6_dst_vld_pre;         
-input           dp_ex1_pipe7_dst_vld_pre;         
-input           forever_cpuclk;                   
-input   [11:0]  idu_vfpu_rf_pipe6_eu_sel;         
-input           idu_vfpu_rf_pipe6_gateclk_sel;    
-input           idu_vfpu_rf_pipe6_sel;            
-input   [11:0]  idu_vfpu_rf_pipe7_eu_sel;         
-input           idu_vfpu_rf_pipe7_gateclk_sel;    
-input           idu_vfpu_rf_pipe7_sel;            
-input   [4 :0]  iu_vfpu_ex1_pipe0_mtvr_inst;      
-input           iu_vfpu_ex1_pipe0_mtvr_vld;       
-input   [4 :0]  iu_vfpu_ex1_pipe1_mtvr_inst;      
-input           iu_vfpu_ex1_pipe1_mtvr_vld;       
-input           pad_yy_icg_scan_en;               
-input           pipe6_dp_vfdsu_inst_vld;          
-input           rtu_yy_xx_flush;                  
-input           vdivu_vfpu_ex1_pipe6_result_vld;  
-output          ctrl_dp_ex2_pipe7_inst_vld;       
-output          ctrl_ex1_pipe6_data_vld;          
-output          ctrl_ex1_pipe6_data_vld_dup0;     
-output          ctrl_ex1_pipe6_data_vld_dup1;     
-output          ctrl_ex1_pipe6_data_vld_dup2;     
-output  [11:0]  ctrl_ex1_pipe6_eu_sel;            
-output          ctrl_ex1_pipe6_inst_vld;          
-output          ctrl_ex1_pipe6_mfvr_inst_vld;     
-output          ctrl_ex1_pipe6_mfvr_inst_vld_dup0; 
-output          ctrl_ex1_pipe6_mfvr_inst_vld_dup1; 
-output          ctrl_ex1_pipe6_mfvr_inst_vld_dup2; 
-output          ctrl_ex1_pipe6_mfvr_inst_vld_dup3; 
-output          ctrl_ex1_pipe7_data_vld;          
-output          ctrl_ex1_pipe7_data_vld_dup0;     
-output          ctrl_ex1_pipe7_data_vld_dup1;     
-output          ctrl_ex1_pipe7_data_vld_dup2;     
-output  [11:0]  ctrl_ex1_pipe7_eu_sel;            
-output          ctrl_ex1_pipe7_mfvr_inst_vld;     
-output          ctrl_ex1_pipe7_mfvr_inst_vld_dup0; 
-output          ctrl_ex1_pipe7_mfvr_inst_vld_dup1; 
-output          ctrl_ex1_pipe7_mfvr_inst_vld_dup2; 
-output          ctrl_ex1_pipe7_mfvr_inst_vld_dup3; 
-output          ctrl_ex2_pipe6_data_vld;          
-output          ctrl_ex2_pipe6_data_vld_dup0;     
-output          ctrl_ex2_pipe6_data_vld_dup1;     
-output          ctrl_ex2_pipe6_data_vld_dup2;     
-output          ctrl_ex2_pipe6_inst_vld;          
-output          ctrl_ex2_pipe6_mfvr_inst_vld;     
-output          ctrl_ex2_pipe7_data_vld;          
-output          ctrl_ex2_pipe7_data_vld_dup0;     
-output          ctrl_ex2_pipe7_data_vld_dup1;     
-output          ctrl_ex2_pipe7_data_vld_dup2;     
-output          ctrl_ex2_pipe7_inst_vld;          
-output          ctrl_ex2_pipe7_mfvr_inst_vld;     
-output          ctrl_ex3_pipe6_data_vld;          
-output          ctrl_ex3_pipe6_data_vld_dup0;     
-output          ctrl_ex3_pipe6_data_vld_dup1;     
-output          ctrl_ex3_pipe6_data_vld_dup2;     
-output          ctrl_ex3_pipe6_fwd_vld;           
-output          ctrl_ex3_pipe6_inst_vld;          
-output          ctrl_ex3_pipe7_data_vld;          
-output          ctrl_ex3_pipe7_data_vld_dup0;     
-output          ctrl_ex3_pipe7_data_vld_dup1;     
-output          ctrl_ex3_pipe7_data_vld_dup2;     
-output          ctrl_ex3_pipe7_fwd_vld;           
-output          ctrl_ex3_pipe7_inst_vld;          
-output          ctrl_ex4_pipe6_fwd_vld;           
-output          ctrl_ex4_pipe6_inst_vld;          
-output          ctrl_ex4_pipe7_fwd_vld;           
-output          ctrl_ex4_pipe7_inst_vld;          
-output          ctrl_ex5_pipe6_clk;               
-output          ctrl_ex5_pipe7_clk;               
-output          dp_vfmau_rf_pipe6_sel;            
-output          dp_vfmau_rf_pipe7_sel;            
+input           cp0_vfpu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           dp_ctrl_ex1_pipe6_data_vld_pre;
+input           dp_ctrl_ex1_pipe7_data_vld_pre;
+input           dp_ctrl_ex2_pipe6_data_vld_pre;
+input           dp_ctrl_ex2_pipe7_data_vld_pre;
+input           dp_ctrl_ex3_pipe6_data_vld_pre;
+input           dp_ctrl_ex3_pipe6_fwd_vld_pre;
+input           dp_ctrl_ex3_pipe7_data_vld_pre;
+input           dp_ctrl_ex3_pipe7_fwd_vld_pre;
+input           dp_ctrl_ex4_pipe6_fwd_vld_pre;
+input           dp_ctrl_ex4_pipe7_fwd_vld_pre;
+input           dp_ctrl_pipe6_vfdsu_inst_vld;
+input           dp_ex1_pipe6_dst_vld_pre;
+input           dp_ex1_pipe7_dst_vld_pre;
+input           forever_cpuclk;
+input   [11:0]  idu_vfpu_rf_pipe6_eu_sel;
+input           idu_vfpu_rf_pipe6_gateclk_sel;
+input           idu_vfpu_rf_pipe6_sel;
+input   [11:0]  idu_vfpu_rf_pipe7_eu_sel;
+input           idu_vfpu_rf_pipe7_gateclk_sel;
+input           idu_vfpu_rf_pipe7_sel;
+input   [4 :0]  iu_vfpu_ex1_pipe0_mtvr_inst;
+input           iu_vfpu_ex1_pipe0_mtvr_vld;
+input   [4 :0]  iu_vfpu_ex1_pipe1_mtvr_inst;
+input           iu_vfpu_ex1_pipe1_mtvr_vld;
+input           pad_yy_icg_scan_en;
+input           pipe6_dp_vfdsu_inst_vld;
+input           rtu_yy_xx_flush;
+input           vdivu_vfpu_ex1_pipe6_result_vld;
+output          ctrl_dp_ex2_pipe7_inst_vld;
+output          ctrl_ex1_pipe6_data_vld;
+output          ctrl_ex1_pipe6_data_vld_dup0;
+output          ctrl_ex1_pipe6_data_vld_dup1;
+output          ctrl_ex1_pipe6_data_vld_dup2;
+output  [11:0]  ctrl_ex1_pipe6_eu_sel;
+output          ctrl_ex1_pipe6_inst_vld;
+output          ctrl_ex1_pipe6_mfvr_inst_vld;
+output          ctrl_ex1_pipe6_mfvr_inst_vld_dup0;
+output          ctrl_ex1_pipe6_mfvr_inst_vld_dup1;
+output          ctrl_ex1_pipe6_mfvr_inst_vld_dup2;
+output          ctrl_ex1_pipe6_mfvr_inst_vld_dup3;
+output          ctrl_ex1_pipe7_data_vld;
+output          ctrl_ex1_pipe7_data_vld_dup0;
+output          ctrl_ex1_pipe7_data_vld_dup1;
+output          ctrl_ex1_pipe7_data_vld_dup2;
+output  [11:0]  ctrl_ex1_pipe7_eu_sel;
+output          ctrl_ex1_pipe7_mfvr_inst_vld;
+output          ctrl_ex1_pipe7_mfvr_inst_vld_dup0;
+output          ctrl_ex1_pipe7_mfvr_inst_vld_dup1;
+output          ctrl_ex1_pipe7_mfvr_inst_vld_dup2;
+output          ctrl_ex1_pipe7_mfvr_inst_vld_dup3;
+output          ctrl_ex2_pipe6_data_vld;
+output          ctrl_ex2_pipe6_data_vld_dup0;
+output          ctrl_ex2_pipe6_data_vld_dup1;
+output          ctrl_ex2_pipe6_data_vld_dup2;
+output          ctrl_ex2_pipe6_inst_vld;
+output          ctrl_ex2_pipe6_mfvr_inst_vld;
+output          ctrl_ex2_pipe7_data_vld;
+output          ctrl_ex2_pipe7_data_vld_dup0;
+output          ctrl_ex2_pipe7_data_vld_dup1;
+output          ctrl_ex2_pipe7_data_vld_dup2;
+output          ctrl_ex2_pipe7_inst_vld;
+output          ctrl_ex2_pipe7_mfvr_inst_vld;
+output          ctrl_ex3_pipe6_data_vld;
+output          ctrl_ex3_pipe6_data_vld_dup0;
+output          ctrl_ex3_pipe6_data_vld_dup1;
+output          ctrl_ex3_pipe6_data_vld_dup2;
+output          ctrl_ex3_pipe6_fwd_vld;
+output          ctrl_ex3_pipe6_inst_vld;
+output          ctrl_ex3_pipe7_data_vld;
+output          ctrl_ex3_pipe7_data_vld_dup0;
+output          ctrl_ex3_pipe7_data_vld_dup1;
+output          ctrl_ex3_pipe7_data_vld_dup2;
+output          ctrl_ex3_pipe7_fwd_vld;
+output          ctrl_ex3_pipe7_inst_vld;
+output          ctrl_ex4_pipe6_fwd_vld;
+output          ctrl_ex4_pipe6_inst_vld;
+output          ctrl_ex4_pipe7_fwd_vld;
+output          ctrl_ex4_pipe7_inst_vld;
+output          ctrl_ex5_pipe6_clk;
+output          ctrl_ex5_pipe7_clk;
+output          dp_vfmau_rf_pipe6_sel;
+output          dp_vfmau_rf_pipe7_sel;
 
 // &Regs; @24
-reg             ctrl_ex1_pipe6_data_vld;          
-reg             ctrl_ex1_pipe6_data_vld_dup0;     
-reg             ctrl_ex1_pipe6_data_vld_dup1;     
-reg             ctrl_ex1_pipe6_data_vld_dup2;     
-reg     [11:0]  ctrl_ex1_pipe6_eu_sel_tmp;        
-reg             ctrl_ex1_pipe6_inst_vld;          
-reg             ctrl_ex1_pipe6_mfvr_inst_vld;     
-reg             ctrl_ex1_pipe6_mfvr_inst_vld_dup0; 
-reg             ctrl_ex1_pipe6_mfvr_inst_vld_dup1; 
-reg             ctrl_ex1_pipe6_mfvr_inst_vld_dup2; 
-reg             ctrl_ex1_pipe6_mfvr_inst_vld_dup3; 
-reg             ctrl_ex1_pipe7_data_vld;          
-reg             ctrl_ex1_pipe7_data_vld_dup0;     
-reg             ctrl_ex1_pipe7_data_vld_dup1;     
-reg             ctrl_ex1_pipe7_data_vld_dup2;     
-reg     [11:0]  ctrl_ex1_pipe7_eu_sel_tmp;        
-reg             ctrl_ex1_pipe7_inst_vld;          
-reg             ctrl_ex1_pipe7_mfvr_inst_vld;     
-reg             ctrl_ex1_pipe7_mfvr_inst_vld_dup0; 
-reg             ctrl_ex1_pipe7_mfvr_inst_vld_dup1; 
-reg             ctrl_ex1_pipe7_mfvr_inst_vld_dup2; 
-reg             ctrl_ex1_pipe7_mfvr_inst_vld_dup3; 
-reg             ctrl_ex2_pipe6_data_vld;          
-reg             ctrl_ex2_pipe6_data_vld_dup0;     
-reg             ctrl_ex2_pipe6_data_vld_dup1;     
-reg             ctrl_ex2_pipe6_data_vld_dup2;     
-reg             ctrl_ex2_pipe6_inst_vld;          
-reg             ctrl_ex2_pipe6_mfvr_inst_vld;     
-reg             ctrl_ex2_pipe7_data_vld;          
-reg             ctrl_ex2_pipe7_data_vld_dup0;     
-reg             ctrl_ex2_pipe7_data_vld_dup1;     
-reg             ctrl_ex2_pipe7_data_vld_dup2;     
-reg             ctrl_ex2_pipe7_inst_vld;          
-reg             ctrl_ex2_pipe7_mfvr_inst_vld;     
-reg             ctrl_ex3_pipe6_data_vld;          
-reg             ctrl_ex3_pipe6_data_vld_dup0;     
-reg             ctrl_ex3_pipe6_data_vld_dup1;     
-reg             ctrl_ex3_pipe6_data_vld_dup2;     
-reg             ctrl_ex3_pipe6_fwd_vld;           
-reg             ctrl_ex3_pipe6_inst_vld;          
-reg             ctrl_ex3_pipe7_data_vld;          
-reg             ctrl_ex3_pipe7_data_vld_dup0;     
-reg             ctrl_ex3_pipe7_data_vld_dup1;     
-reg             ctrl_ex3_pipe7_data_vld_dup2;     
-reg             ctrl_ex3_pipe7_fwd_vld;           
-reg             ctrl_ex3_pipe7_inst_vld;          
-reg             ctrl_ex4_pipe6_fwd_vld;           
-reg             ctrl_ex4_pipe6_inst_vld;          
-reg             ctrl_ex4_pipe7_fwd_vld;           
-reg             ctrl_ex4_pipe7_inst_vld;          
-reg             ctrl_ex5_pipe6_inst_vld;          
-reg             ctrl_ex5_pipe7_inst_vld;          
+reg             ctrl_ex1_pipe6_data_vld;
+reg             ctrl_ex1_pipe6_data_vld_dup0;
+reg             ctrl_ex1_pipe6_data_vld_dup1;
+reg             ctrl_ex1_pipe6_data_vld_dup2;
+reg     [11:0]  ctrl_ex1_pipe6_eu_sel_tmp;
+reg             ctrl_ex1_pipe6_inst_vld;
+reg             ctrl_ex1_pipe6_mfvr_inst_vld;
+reg             ctrl_ex1_pipe6_mfvr_inst_vld_dup0;
+reg             ctrl_ex1_pipe6_mfvr_inst_vld_dup1;
+reg             ctrl_ex1_pipe6_mfvr_inst_vld_dup2;
+reg             ctrl_ex1_pipe6_mfvr_inst_vld_dup3;
+reg             ctrl_ex1_pipe7_data_vld;
+reg             ctrl_ex1_pipe7_data_vld_dup0;
+reg             ctrl_ex1_pipe7_data_vld_dup1;
+reg             ctrl_ex1_pipe7_data_vld_dup2;
+reg     [11:0]  ctrl_ex1_pipe7_eu_sel_tmp;
+reg             ctrl_ex1_pipe7_inst_vld;
+reg             ctrl_ex1_pipe7_mfvr_inst_vld;
+reg             ctrl_ex1_pipe7_mfvr_inst_vld_dup0;
+reg             ctrl_ex1_pipe7_mfvr_inst_vld_dup1;
+reg             ctrl_ex1_pipe7_mfvr_inst_vld_dup2;
+reg             ctrl_ex1_pipe7_mfvr_inst_vld_dup3;
+reg             ctrl_ex2_pipe6_data_vld;
+reg             ctrl_ex2_pipe6_data_vld_dup0;
+reg             ctrl_ex2_pipe6_data_vld_dup1;
+reg             ctrl_ex2_pipe6_data_vld_dup2;
+reg             ctrl_ex2_pipe6_inst_vld;
+reg             ctrl_ex2_pipe6_mfvr_inst_vld;
+reg             ctrl_ex2_pipe7_data_vld;
+reg             ctrl_ex2_pipe7_data_vld_dup0;
+reg             ctrl_ex2_pipe7_data_vld_dup1;
+reg             ctrl_ex2_pipe7_data_vld_dup2;
+reg             ctrl_ex2_pipe7_inst_vld;
+reg             ctrl_ex2_pipe7_mfvr_inst_vld;
+reg             ctrl_ex3_pipe6_data_vld;
+reg             ctrl_ex3_pipe6_data_vld_dup0;
+reg             ctrl_ex3_pipe6_data_vld_dup1;
+reg             ctrl_ex3_pipe6_data_vld_dup2;
+reg             ctrl_ex3_pipe6_fwd_vld;
+reg             ctrl_ex3_pipe6_inst_vld;
+reg             ctrl_ex3_pipe7_data_vld;
+reg             ctrl_ex3_pipe7_data_vld_dup0;
+reg             ctrl_ex3_pipe7_data_vld_dup1;
+reg             ctrl_ex3_pipe7_data_vld_dup2;
+reg             ctrl_ex3_pipe7_fwd_vld;
+reg             ctrl_ex3_pipe7_inst_vld;
+reg             ctrl_ex4_pipe6_fwd_vld;
+reg             ctrl_ex4_pipe6_inst_vld;
+reg             ctrl_ex4_pipe7_fwd_vld;
+reg             ctrl_ex4_pipe7_inst_vld;
+reg             ctrl_ex5_pipe6_inst_vld;
+reg             ctrl_ex5_pipe7_inst_vld;
 
 // &Wires; @25
-wire            cp0_vfpu_icg_en;                  
-wire            cp0_yy_clk_en;                    
-wire            cpurst_b;                         
-wire            ctrl_dp_ex2_pipe7_inst_vld;       
-wire            ctrl_ex1_pipe6_clk;               
-wire            ctrl_ex1_pipe6_en;                
-wire    [11:0]  ctrl_ex1_pipe6_eu_sel;            
-wire            ctrl_ex1_pipe6_inst_vld_pre;      
-wire            ctrl_ex1_pipe6_mfvr_inst_vld_pre; 
-wire            ctrl_ex1_pipe7_clk;               
-wire            ctrl_ex1_pipe7_en;                
-wire    [11:0]  ctrl_ex1_pipe7_eu_sel;            
-wire            ctrl_ex1_pipe7_inst_vld_pre;      
-wire            ctrl_ex1_pipe7_mfvr_inst_vld_pre; 
-wire            ctrl_ex2_pipe6_clk;               
-wire            ctrl_ex2_pipe6_data_vld_pre;      
-wire            ctrl_ex2_pipe6_en;                
-wire            ctrl_ex2_pipe6_inst_vld_pre;      
-wire            ctrl_ex2_pipe7_clk;               
-wire            ctrl_ex2_pipe7_en;                
-wire            ctrl_ex2_pipe7_inst_vld_pre;      
-wire            ctrl_ex3_pipe6_clk;               
-wire            ctrl_ex3_pipe6_en;                
-wire            ctrl_ex3_pipe7_clk;               
-wire            ctrl_ex3_pipe7_en;                
-wire            ctrl_ex4_pipe6_clk;               
-wire            ctrl_ex4_pipe6_en;                
-wire            ctrl_ex4_pipe7_clk;               
-wire            ctrl_ex4_pipe7_en;                
-wire            ctrl_ex5_pipe6_clk;               
-wire            ctrl_ex5_pipe6_en;                
-wire            ctrl_ex5_pipe6_inst_vld_pre;      
-wire            ctrl_ex5_pipe7_clk;               
-wire            ctrl_ex5_pipe7_en;                
-wire            dp_ctrl_ex1_pipe6_data_vld_pre;   
-wire            dp_ctrl_ex1_pipe7_data_vld_pre;   
-wire            dp_ctrl_ex2_pipe6_data_vld_pre;   
-wire            dp_ctrl_ex2_pipe7_data_vld_pre;   
-wire            dp_ctrl_ex3_pipe6_data_vld_pre;   
-wire            dp_ctrl_ex3_pipe6_fwd_vld_pre;    
-wire            dp_ctrl_ex3_pipe7_data_vld_pre;   
-wire            dp_ctrl_ex3_pipe7_fwd_vld_pre;    
-wire            dp_ctrl_ex4_pipe6_fwd_vld_pre;    
-wire            dp_ctrl_ex4_pipe7_fwd_vld_pre;    
-wire            dp_ctrl_pipe6_vfdsu_inst_vld;     
-wire            dp_ex1_pipe6_dst_vld_pre;         
-wire            dp_ex1_pipe7_dst_vld_pre;         
-wire            dp_vfmau_rf_pipe6_sel;            
-wire            dp_vfmau_rf_pipe7_sel;            
-wire            forever_cpuclk;                   
-wire    [11:0]  idu_vfpu_rf_pipe6_eu_sel;         
-wire            idu_vfpu_rf_pipe6_gateclk_sel;    
-wire            idu_vfpu_rf_pipe6_sel;            
-wire    [11:0]  idu_vfpu_rf_pipe7_eu_sel;         
-wire            idu_vfpu_rf_pipe7_gateclk_sel;    
-wire            idu_vfpu_rf_pipe7_sel;            
-wire    [4 :0]  iu_vfpu_ex1_pipe0_mtvr_inst;      
-wire            iu_vfpu_ex1_pipe0_mtvr_vld;       
-wire    [4 :0]  iu_vfpu_ex1_pipe1_mtvr_inst;      
-wire            iu_vfpu_ex1_pipe1_mtvr_vld;       
-wire            pad_yy_icg_scan_en;               
-wire            pipe6_dp_vfdsu_inst_vld;          
-wire    [11:0]  pipe6_eu_sel;                     
-wire    [11:0]  pipe6_mtvr_eu_sel;                
-wire    [11:0]  pipe7_eu_sel;                     
-wire    [11:0]  pipe7_mtvr_eu_sel;                
-wire            rtu_yy_xx_flush;                  
-wire            vdivu_vfpu_ex1_pipe6_result_vld;  
+wire            cp0_vfpu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            ctrl_dp_ex2_pipe7_inst_vld;
+wire            ctrl_ex1_pipe6_clk;
+wire            ctrl_ex1_pipe6_en;
+wire    [11:0]  ctrl_ex1_pipe6_eu_sel;
+wire            ctrl_ex1_pipe6_inst_vld_pre;
+wire            ctrl_ex1_pipe6_mfvr_inst_vld_pre;
+wire            ctrl_ex1_pipe7_clk;
+wire            ctrl_ex1_pipe7_en;
+wire    [11:0]  ctrl_ex1_pipe7_eu_sel;
+wire            ctrl_ex1_pipe7_inst_vld_pre;
+wire            ctrl_ex1_pipe7_mfvr_inst_vld_pre;
+wire            ctrl_ex2_pipe6_clk;
+wire            ctrl_ex2_pipe6_data_vld_pre;
+wire            ctrl_ex2_pipe6_en;
+wire            ctrl_ex2_pipe6_inst_vld_pre;
+wire            ctrl_ex2_pipe7_clk;
+wire            ctrl_ex2_pipe7_en;
+wire            ctrl_ex2_pipe7_inst_vld_pre;
+wire            ctrl_ex3_pipe6_clk;
+wire            ctrl_ex3_pipe6_en;
+wire            ctrl_ex3_pipe7_clk;
+wire            ctrl_ex3_pipe7_en;
+wire            ctrl_ex4_pipe6_clk;
+wire            ctrl_ex4_pipe6_en;
+wire            ctrl_ex4_pipe7_clk;
+wire            ctrl_ex4_pipe7_en;
+wire            ctrl_ex5_pipe6_clk;
+wire            ctrl_ex5_pipe6_en;
+wire            ctrl_ex5_pipe6_inst_vld_pre;
+wire            ctrl_ex5_pipe7_clk;
+wire            ctrl_ex5_pipe7_en;
+wire            dp_ctrl_ex1_pipe6_data_vld_pre;
+wire            dp_ctrl_ex1_pipe7_data_vld_pre;
+wire            dp_ctrl_ex2_pipe6_data_vld_pre;
+wire            dp_ctrl_ex2_pipe7_data_vld_pre;
+wire            dp_ctrl_ex3_pipe6_data_vld_pre;
+wire            dp_ctrl_ex3_pipe6_fwd_vld_pre;
+wire            dp_ctrl_ex3_pipe7_data_vld_pre;
+wire            dp_ctrl_ex3_pipe7_fwd_vld_pre;
+wire            dp_ctrl_ex4_pipe6_fwd_vld_pre;
+wire            dp_ctrl_ex4_pipe7_fwd_vld_pre;
+wire            dp_ctrl_pipe6_vfdsu_inst_vld;
+wire            dp_ex1_pipe6_dst_vld_pre;
+wire            dp_ex1_pipe7_dst_vld_pre;
+wire            dp_vfmau_rf_pipe6_sel;
+wire            dp_vfmau_rf_pipe7_sel;
+wire            forever_cpuclk;
+wire    [11:0]  idu_vfpu_rf_pipe6_eu_sel;
+wire            idu_vfpu_rf_pipe6_gateclk_sel;
+wire            idu_vfpu_rf_pipe6_sel;
+wire    [11:0]  idu_vfpu_rf_pipe7_eu_sel;
+wire            idu_vfpu_rf_pipe7_gateclk_sel;
+wire            idu_vfpu_rf_pipe7_sel;
+wire    [4 :0]  iu_vfpu_ex1_pipe0_mtvr_inst;
+wire            iu_vfpu_ex1_pipe0_mtvr_vld;
+wire    [4 :0]  iu_vfpu_ex1_pipe1_mtvr_inst;
+wire            iu_vfpu_ex1_pipe1_mtvr_vld;
+wire            pad_yy_icg_scan_en;
+wire            pipe6_dp_vfdsu_inst_vld;
+wire    [11:0]  pipe6_eu_sel;
+wire    [11:0]  pipe6_mtvr_eu_sel;
+wire    [11:0]  pipe7_eu_sel;
+wire    [11:0]  pipe7_mtvr_eu_sel;
+wire            rtu_yy_xx_flush;
+wire            vdivu_vfpu_ex1_pipe6_result_vld;
 
 // &Depend("cpu_cfig.h"); @26
 
@@ -321,7 +321,7 @@ parameter EU_WIDTH = 12;
 //                 Pipe6 Control Path
 //==========================================================
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
  assign ctrl_ex1_pipe6_en = idu_vfpu_rf_pipe6_gateclk_sel
                          || iu_vfpu_ex1_pipe0_mtvr_vld
@@ -382,7 +382,7 @@ begin
     ctrl_ex1_pipe6_mfvr_inst_vld_dup3 <= ctrl_ex1_pipe6_mfvr_inst_vld_pre;
   end
 end
-assign ctrl_ex1_pipe6_mfvr_inst_vld_pre = ctrl_ex1_pipe6_inst_vld_pre && 
+assign ctrl_ex1_pipe6_mfvr_inst_vld_pre = ctrl_ex1_pipe6_inst_vld_pre &&
                                           dp_ex1_pipe6_dst_vld_pre;
 
 
@@ -419,11 +419,11 @@ assign ctrl_ex1_pipe6_inst_vld_pre = idu_vfpu_rf_pipe6_sel
 // &Force("output","ctrl_ex1_pipe6_data_vld"); @121
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex2_pipe6_en =  ctrl_ex1_pipe6_inst_vld
-                         || ctrl_ex2_pipe6_inst_vld 
-                         || pipe6_dp_vfdsu_inst_vld 
+                         || ctrl_ex2_pipe6_inst_vld
+                         || pipe6_dp_vfdsu_inst_vld
                          || vdivu_vfpu_ex1_pipe6_result_vld;
 //  &Instance("gated_clk_cell", "x_ctrl_ex2_pipe6_gated_clk"); @130
 gated_clk_cell  x_ctrl_ex2_pipe6_gated_clk (
@@ -456,8 +456,8 @@ begin
     ctrl_ex2_pipe6_inst_vld <= ctrl_ex2_pipe6_inst_vld_pre;
 end
 
-assign ctrl_ex2_pipe6_inst_vld_pre = ctrl_ex1_pipe6_inst_vld 
-                                  || pipe6_dp_vfdsu_inst_vld 
+assign ctrl_ex2_pipe6_inst_vld_pre = ctrl_ex1_pipe6_inst_vld
+                                  || pipe6_dp_vfdsu_inst_vld
                                   || vdivu_vfpu_ex1_pipe6_result_vld;
 
 always @(posedge ctrl_ex2_pipe6_clk or negedge cpurst_b)
@@ -482,15 +482,15 @@ begin
   end
 end
 
-assign ctrl_ex2_pipe6_data_vld_pre = dp_ctrl_ex2_pipe6_data_vld_pre && ctrl_ex1_pipe6_inst_vld 
-                                  || pipe6_dp_vfdsu_inst_vld 
+assign ctrl_ex2_pipe6_data_vld_pre = dp_ctrl_ex2_pipe6_data_vld_pre && ctrl_ex1_pipe6_inst_vld
+                                  || pipe6_dp_vfdsu_inst_vld
                                   || vdivu_vfpu_ex1_pipe6_result_vld;
 
 // &Force("output","ctrl_ex2_pipe6_inst_vld"); @181
 // &Force("output","ctrl_ex2_pipe6_data_vld"); @182
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
  assign ctrl_ex3_pipe6_en = ctrl_ex2_pipe6_inst_vld
                          || ctrl_ex3_pipe6_inst_vld;
@@ -566,7 +566,7 @@ end
 // &Force("output","ctrl_ex3_pipe6_fwd_vld"); @248
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex4_pipe6_en =  ctrl_ex3_pipe6_inst_vld
                          || ctrl_ex4_pipe6_inst_vld;
@@ -616,7 +616,7 @@ end
 
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex5_pipe6_en =  ctrl_ex4_pipe6_inst_vld
                          || dp_ctrl_pipe6_vfdsu_inst_vld
@@ -662,7 +662,7 @@ end
 //                 Pipe7 Control Path
 //==========================================================
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
  assign ctrl_ex1_pipe7_en = idu_vfpu_rf_pipe7_gateclk_sel
                          || iu_vfpu_ex1_pipe1_mtvr_vld
@@ -735,7 +735,7 @@ assign ctrl_ex1_pipe7_inst_vld_pre = idu_vfpu_rf_pipe7_sel
 // &Force("output","ctrl_ex1_pipe7_data_vld"); @389
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex2_pipe7_en =  ctrl_ex1_pipe7_inst_vld
                          || ctrl_ex2_pipe7_inst_vld;
@@ -794,7 +794,7 @@ begin
     ctrl_ex1_pipe7_mfvr_inst_vld_dup3 <= ctrl_ex1_pipe7_mfvr_inst_vld_pre;
   end
 end
-assign ctrl_ex1_pipe7_mfvr_inst_vld_pre = ctrl_ex1_pipe7_inst_vld_pre && 
+assign ctrl_ex1_pipe7_mfvr_inst_vld_pre = ctrl_ex1_pipe7_inst_vld_pre &&
                                           dp_ex1_pipe7_dst_vld_pre;
 
 
@@ -827,7 +827,7 @@ assign ctrl_dp_ex2_pipe7_inst_vld = ctrl_ex2_pipe7_inst_vld_pre;
 // &Force("output","ctrl_ex2_pipe7_inst_vld"); @471
 // &Force("output","ctrl_ex2_pipe7_data_vld"); @472
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
  assign ctrl_ex3_pipe7_en = ctrl_ex2_pipe7_inst_vld
                          || ctrl_ex3_pipe7_inst_vld;
@@ -900,7 +900,7 @@ end
 
 // &Force("output","ctrl_ex3_pipe7_fwd_vld"); @535
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex4_pipe7_en =  ctrl_ex3_pipe7_inst_vld
                          || ctrl_ex4_pipe7_inst_vld;
@@ -949,7 +949,7 @@ end
 // &Force("output","ctrl_ex4_pipe7_inst_vld"); @573
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex5_pipe7_en =  ctrl_ex4_pipe7_inst_vld
                          || ctrl_ex5_pipe7_inst_vld;
@@ -1013,7 +1013,7 @@ end
 //----------------------------------------------------------
 //assign ctrl_ex1_pipe7_mfvr_inst_vld = ctrl_ex1_pipe7_inst_vld
 //                                   && dp_ctrl_ex1_pipe7_dst_vld;
-                                   
+
 always @(posedge ctrl_ex2_pipe7_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -1041,7 +1041,7 @@ assign pipe6_mtvr_eu_sel[EU_WIDTH-1:0] = |iu_vfpu_ex1_pipe0_mtvr_inst[1:0]
 
 assign pipe6_eu_sel[EU_WIDTH-1:0] = iu_vfpu_ex1_pipe0_mtvr_vld ? pipe6_mtvr_eu_sel[EU_WIDTH-1:0]
                                                                : idu_vfpu_rf_pipe6_eu_sel[EU_WIDTH-1:0];
-  
+
 //    {EU_WIDTH{idu_vfpu_rf_pipe6_sel}}      & idu_vfpu_rf_pipe6_eu_sel[EU_WIDTH-1:0]
 //  | {EU_WIDTH{iu_vfpu_ex1_pipe0_mtvr_vld}} & pipe6_mtvr_eu_sel[EU_WIDTH-1:0];
 
@@ -1060,14 +1060,14 @@ assign ctrl_ex1_pipe6_eu_sel[EU_WIDTH-1:0] ={EU_WIDTH{ctrl_ex1_pipe6_inst_vld}} 
 //               Pipe7 EU_SEL Contrl Signal
 //----------------------------------------------------------
 //mtvr inst data preparation
-assign pipe7_mtvr_eu_sel[EU_WIDTH-1:0] = |iu_vfpu_ex1_pipe1_mtvr_inst[1:0] 
+assign pipe7_mtvr_eu_sel[EU_WIDTH-1:0] = |iu_vfpu_ex1_pipe1_mtvr_inst[1:0]
                                          || iu_vfpu_ex1_pipe1_mtvr_inst[4]
                                          ? {{EU_WIDTH-1{1'b0}},1'b1}
                                          : {{EU_WIDTH-8{1'b0}},1'b1,7'b0};
 
 assign pipe7_eu_sel[EU_WIDTH-1:0] = iu_vfpu_ex1_pipe1_mtvr_vld ? pipe7_mtvr_eu_sel[EU_WIDTH-1:0]
                                                                : idu_vfpu_rf_pipe7_eu_sel[EU_WIDTH-1:0];
- 
+
 //    {EU_WIDTH{idu_vfpu_rf_pipe7_sel}}      & idu_vfpu_rf_pipe7_eu_sel[EU_WIDTH-1:0]
 //  | {EU_WIDTH{iu_vfpu_ex1_pipe1_mtvr_vld}} & pipe7_mtvr_eu_sel[EU_WIDTH-1:0];
 

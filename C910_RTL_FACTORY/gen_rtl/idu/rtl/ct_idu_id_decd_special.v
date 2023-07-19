@@ -30,35 +30,35 @@ module ct_idu_id_decd_special(
 );
 
 // &Ports; @26
-input           cp0_idu_cskyee;     
-input   [2 :0]  cp0_idu_frm;        
-input   [1 :0]  cp0_idu_fs;         
-input   [31:0]  x_inst;             
-output          x_fence;            
-output  [2 :0]  x_fence_type;       
-output          x_split;            
-output  [9 :0]  x_split_long_type;  
-output  [2 :0]  x_split_potnt;      
-output          x_split_short;      
-output  [2 :0]  x_split_short_potnt; 
-output  [6 :0]  x_split_short_type; 
+input           cp0_idu_cskyee;
+input   [2 :0]  cp0_idu_frm;
+input   [1 :0]  cp0_idu_fs;
+input   [31:0]  x_inst;
+output          x_fence;
+output  [2 :0]  x_fence_type;
+output          x_split;
+output  [9 :0]  x_split_long_type;
+output  [2 :0]  x_split_potnt;
+output          x_split_short;
+output  [2 :0]  x_split_short_potnt;
+output  [6 :0]  x_split_short_type;
 
 // &Regs; @27
 
 // &Wires; @28
-wire            cp0_idu_cskyee;     
-wire    [2 :0]  cp0_idu_frm;        
-wire    [1 :0]  cp0_idu_fs;         
-wire            hfence_inst;        
-wire            x_fence;            
-wire    [2 :0]  x_fence_type;       
-wire    [31:0]  x_inst;             
-wire            x_split;            
-wire    [9 :0]  x_split_long_type;  
-wire    [2 :0]  x_split_potnt;      
-wire            x_split_short;      
-wire    [2 :0]  x_split_short_potnt; 
-wire    [6 :0]  x_split_short_type; 
+wire            cp0_idu_cskyee;
+wire    [2 :0]  cp0_idu_frm;
+wire    [1 :0]  cp0_idu_fs;
+wire            hfence_inst;
+wire            x_fence;
+wire    [2 :0]  x_fence_type;
+wire    [31:0]  x_inst;
+wire            x_split;
+wire    [9 :0]  x_split_long_type;
+wire    [2 :0]  x_split_potnt;
+wire            x_split_short;
+wire    [2 :0]  x_split_short_potnt;
+wire    [6 :0]  x_split_short_type;
 
 
 
@@ -87,7 +87,7 @@ assign x_split_short_type[0] = ({x_inst[15:12], x_inst[6:0]} == 11'b1001_0000010
 //----------------------------------------------------------
 assign x_split_short_type[1] = ( ({x_inst[31:27],x_inst[24:22],x_inst[6:0]} == 15'b11000_000_1010011)
                                || ({x_inst[31:27],x_inst[24:22],x_inst[6:0]} == 15'b11010_000_1010011))
-                            && !(cp0_idu_fs[1:0] == 2'b00)                                //fs bit   
+                            && !(cp0_idu_fs[1:0] == 2'b00)                                //fs bit
                             && !((x_inst[14:12] == 3'b101) || (x_inst[14:12] == 3'b110))  //illegal
                             && !((x_inst[14:12] == 3'b111)
                                   && ((cp0_idu_frm[2:0] == 3'b101)

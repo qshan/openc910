@@ -74,175 +74,175 @@ module ct_ifu_icache_if(
 );
 
 // &Ports; @23
-input            cp0_ifu_icache_en;                  
-input            cp0_ifu_icg_en;                     
-input            cp0_yy_clk_en;                      
-input            cpurst_b;                           
-input            forever_cpuclk;                     
-input            hpcp_ifu_cnt_en;                    
-input   [38 :0]  ifctrl_icache_if_index;             
-input            ifctrl_icache_if_inv_fifo;          
-input            ifctrl_icache_if_inv_on;            
-input            ifctrl_icache_if_read_req_data0;    
-input            ifctrl_icache_if_read_req_data1;    
-input   [38 :0]  ifctrl_icache_if_read_req_index;    
-input            ifctrl_icache_if_read_req_tag;      
-input            ifctrl_icache_if_reset_req;         
-input            ifctrl_icache_if_tag_req;           
-input   [2  :0]  ifctrl_icache_if_tag_wen;           
-input            ifu_hpcp_icache_miss_pre;           
-input   [33 :0]  ipb_icache_if_index;                
-input            ipb_icache_if_req;                  
-input            ipb_icache_if_req_for_gateclk;      
-input            l1_refill_icache_if_fifo;           
-input            l1_refill_icache_if_first;          
-input   [38 :0]  l1_refill_icache_if_index;          
-input   [127:0]  l1_refill_icache_if_inst_data;      
-input            l1_refill_icache_if_last;           
-input   [31 :0]  l1_refill_icache_if_pre_code;       
-input   [27 :0]  l1_refill_icache_if_ptag;           
-input            l1_refill_icache_if_wr;             
-input            pad_yy_icg_scan_en;                 
-input            pcgen_icache_if_chgflw;             
-input            pcgen_icache_if_chgflw_bank0;       
-input            pcgen_icache_if_chgflw_bank1;       
-input            pcgen_icache_if_chgflw_bank2;       
-input            pcgen_icache_if_chgflw_bank3;       
-input            pcgen_icache_if_chgflw_short;       
-input            pcgen_icache_if_gateclk_en;         
-input   [15 :0]  pcgen_icache_if_index;              
-input            pcgen_icache_if_seq_data_req;       
-input            pcgen_icache_if_seq_data_req_short; 
-input            pcgen_icache_if_seq_tag_req;        
-input   [1  :0]  pcgen_icache_if_way_pred;           
-output  [127:0]  icache_if_ifctrl_inst_data0;        
-output  [127:0]  icache_if_ifctrl_inst_data1;        
-output  [28 :0]  icache_if_ifctrl_tag_data0;         
-output  [28 :0]  icache_if_ifctrl_tag_data1;         
-output           icache_if_ifdp_fifo;                
-output  [127:0]  icache_if_ifdp_inst_data0;          
-output  [127:0]  icache_if_ifdp_inst_data1;          
-output  [31 :0]  icache_if_ifdp_precode0;            
-output  [31 :0]  icache_if_ifdp_precode1;            
-output  [28 :0]  icache_if_ifdp_tag_data0;           
-output  [28 :0]  icache_if_ifdp_tag_data1;           
-output  [28 :0]  icache_if_ipb_tag_data0;            
-output  [28 :0]  icache_if_ipb_tag_data1;            
-output           ifu_hpcp_icache_access;             
-output           ifu_hpcp_icache_miss;               
+input            cp0_ifu_icache_en;
+input            cp0_ifu_icg_en;
+input            cp0_yy_clk_en;
+input            cpurst_b;
+input            forever_cpuclk;
+input            hpcp_ifu_cnt_en;
+input   [38 :0]  ifctrl_icache_if_index;
+input            ifctrl_icache_if_inv_fifo;
+input            ifctrl_icache_if_inv_on;
+input            ifctrl_icache_if_read_req_data0;
+input            ifctrl_icache_if_read_req_data1;
+input   [38 :0]  ifctrl_icache_if_read_req_index;
+input            ifctrl_icache_if_read_req_tag;
+input            ifctrl_icache_if_reset_req;
+input            ifctrl_icache_if_tag_req;
+input   [2  :0]  ifctrl_icache_if_tag_wen;
+input            ifu_hpcp_icache_miss_pre;
+input   [33 :0]  ipb_icache_if_index;
+input            ipb_icache_if_req;
+input            ipb_icache_if_req_for_gateclk;
+input            l1_refill_icache_if_fifo;
+input            l1_refill_icache_if_first;
+input   [38 :0]  l1_refill_icache_if_index;
+input   [127:0]  l1_refill_icache_if_inst_data;
+input            l1_refill_icache_if_last;
+input   [31 :0]  l1_refill_icache_if_pre_code;
+input   [27 :0]  l1_refill_icache_if_ptag;
+input            l1_refill_icache_if_wr;
+input            pad_yy_icg_scan_en;
+input            pcgen_icache_if_chgflw;
+input            pcgen_icache_if_chgflw_bank0;
+input            pcgen_icache_if_chgflw_bank1;
+input            pcgen_icache_if_chgflw_bank2;
+input            pcgen_icache_if_chgflw_bank3;
+input            pcgen_icache_if_chgflw_short;
+input            pcgen_icache_if_gateclk_en;
+input   [15 :0]  pcgen_icache_if_index;
+input            pcgen_icache_if_seq_data_req;
+input            pcgen_icache_if_seq_data_req_short;
+input            pcgen_icache_if_seq_tag_req;
+input   [1  :0]  pcgen_icache_if_way_pred;
+output  [127:0]  icache_if_ifctrl_inst_data0;
+output  [127:0]  icache_if_ifctrl_inst_data1;
+output  [28 :0]  icache_if_ifctrl_tag_data0;
+output  [28 :0]  icache_if_ifctrl_tag_data1;
+output           icache_if_ifdp_fifo;
+output  [127:0]  icache_if_ifdp_inst_data0;
+output  [127:0]  icache_if_ifdp_inst_data1;
+output  [31 :0]  icache_if_ifdp_precode0;
+output  [31 :0]  icache_if_ifdp_precode1;
+output  [28 :0]  icache_if_ifdp_tag_data0;
+output  [28 :0]  icache_if_ifdp_tag_data1;
+output  [28 :0]  icache_if_ipb_tag_data0;
+output  [28 :0]  icache_if_ipb_tag_data1;
+output           ifu_hpcp_icache_access;
+output           ifu_hpcp_icache_miss;
 
 // &Regs; @24
-reg     [15 :0]  icache_index_higher;                
-reg              ifu_hpcp_icache_access_reg;         
-reg              ifu_hpcp_icache_miss_reg;           
-reg     [2  :0]  ifu_icache_tag_wen;                 
+reg     [15 :0]  icache_index_higher;
+reg              ifu_hpcp_icache_access_reg;
+reg              ifu_hpcp_icache_miss_reg;
+reg     [2  :0]  ifu_icache_tag_wen;
 
 // &Wires; @25
-wire             cp0_ifu_icache_en;                  
-wire             cp0_ifu_icg_en;                     
-wire             cp0_yy_clk_en;                      
-wire             cpurst_b;                           
-wire             fifo_bit;                           
-wire             forever_cpuclk;                     
-wire             hpcp_clk;                           
-wire             hpcp_clk_en;                        
-wire             hpcp_ifu_cnt_en;                    
-wire    [127:0]  icache_if_ifctrl_inst_data0;        
-wire    [127:0]  icache_if_ifctrl_inst_data1;        
-wire    [28 :0]  icache_if_ifctrl_tag_data0;         
-wire    [28 :0]  icache_if_ifctrl_tag_data1;         
-wire             icache_if_ifdp_fifo;                
-wire    [127:0]  icache_if_ifdp_inst_data0;          
-wire    [127:0]  icache_if_ifdp_inst_data1;          
-wire    [31 :0]  icache_if_ifdp_precode0;            
-wire    [31 :0]  icache_if_ifdp_precode1;            
-wire    [28 :0]  icache_if_ifdp_tag_data0;           
-wire    [28 :0]  icache_if_ifdp_tag_data1;           
-wire    [28 :0]  icache_if_ipb_tag_data0;            
-wire    [28 :0]  icache_if_ipb_tag_data1;            
-wire    [127:0]  icache_ifu_data_array0_dout;        
-wire    [127:0]  icache_ifu_data_array1_dout;        
-wire    [31 :0]  icache_ifu_predecd_array0_dout;     
-wire    [31 :0]  icache_ifu_predecd_array1_dout;     
-wire    [58 :0]  icache_ifu_tag_dout;                
-wire    [3  :0]  icache_index_sel;                   
-wire             icache_read_req;                    
-wire             icache_req_higher;                  
-wire             icache_reset_inv;                   
-wire    [1  :0]  icache_way_pred;                    
-wire    [38 :0]  ifctrl_icache_if_index;             
-wire             ifctrl_icache_if_inv_fifo;          
-wire             ifctrl_icache_if_inv_on;            
-wire             ifctrl_icache_if_read_req_data0;    
-wire             ifctrl_icache_if_read_req_data1;    
-wire    [38 :0]  ifctrl_icache_if_read_req_index;    
-wire             ifctrl_icache_if_read_req_tag;      
-wire             ifctrl_icache_if_reset_req;         
-wire             ifctrl_icache_if_tag_req;           
-wire    [2  :0]  ifctrl_icache_if_tag_wen;           
-wire             ifu_hpcp_icache_access;             
-wire             ifu_hpcp_icache_access_pre;         
-wire             ifu_hpcp_icache_miss;               
-wire             ifu_hpcp_icache_miss_pre;           
-wire             ifu_icache_data_array0_bank0_cen_b; 
-wire             ifu_icache_data_array0_bank0_clk_en; 
-wire             ifu_icache_data_array0_bank1_cen_b; 
-wire             ifu_icache_data_array0_bank1_clk_en; 
-wire             ifu_icache_data_array0_bank2_cen_b; 
-wire             ifu_icache_data_array0_bank2_clk_en; 
-wire             ifu_icache_data_array0_bank3_cen_b; 
-wire             ifu_icache_data_array0_bank3_clk_en; 
-wire    [127:0]  ifu_icache_data_array0_din;         
-wire             ifu_icache_data_array0_wen_b;       
-wire             ifu_icache_data_array1_bank0_cen_b; 
-wire             ifu_icache_data_array1_bank0_clk_en; 
-wire             ifu_icache_data_array1_bank1_cen_b; 
-wire             ifu_icache_data_array1_bank1_clk_en; 
-wire             ifu_icache_data_array1_bank2_cen_b; 
-wire             ifu_icache_data_array1_bank2_clk_en; 
-wire             ifu_icache_data_array1_bank3_cen_b; 
-wire             ifu_icache_data_array1_bank3_clk_en; 
-wire    [127:0]  ifu_icache_data_array1_din;         
-wire             ifu_icache_data_array1_wen_b;       
-wire    [15 :0]  ifu_icache_index;                   
-wire             ifu_icache_predecd_array0_cen_b;    
-wire             ifu_icache_predecd_array0_clk_en;   
-wire    [31 :0]  ifu_icache_predecd_array0_din;      
-wire             ifu_icache_predecd_array0_wen_b;    
-wire             ifu_icache_predecd_array1_cen_b;    
-wire             ifu_icache_predecd_array1_clk_en;   
-wire    [31 :0]  ifu_icache_predecd_array1_din;      
-wire             ifu_icache_predecd_array1_wen_b;    
-wire             ifu_icache_tag_cen_b;               
-wire             ifu_icache_tag_clk_en;              
-wire    [58 :0]  ifu_icache_tag_din;                 
-wire    [33 :0]  ipb_icache_if_index;                
-wire             ipb_icache_if_req;                  
-wire             ipb_icache_if_req_for_gateclk;      
-wire             l1_refill_icache_if_fifo;           
-wire             l1_refill_icache_if_first;          
-wire    [38 :0]  l1_refill_icache_if_index;          
-wire    [127:0]  l1_refill_icache_if_inst_data;      
-wire             l1_refill_icache_if_last;           
-wire    [31 :0]  l1_refill_icache_if_pre_code;       
-wire    [27 :0]  l1_refill_icache_if_ptag;           
-wire             l1_refill_icache_if_wr;             
-wire             pad_yy_icg_scan_en;                 
-wire             pcgen_icache_if_chgflw;             
-wire             pcgen_icache_if_chgflw_bank0;       
-wire             pcgen_icache_if_chgflw_bank1;       
-wire             pcgen_icache_if_chgflw_bank2;       
-wire             pcgen_icache_if_chgflw_bank3;       
-wire             pcgen_icache_if_chgflw_short;       
-wire             pcgen_icache_if_gateclk_en;         
-wire    [15 :0]  pcgen_icache_if_index;              
-wire             pcgen_icache_if_seq_data_req;       
-wire             pcgen_icache_if_seq_data_req_short; 
-wire             pcgen_icache_if_seq_tag_req;        
-wire    [1  :0]  pcgen_icache_if_way_pred;           
-wire             tag_fifo_din;                       
-wire    [27 :0]  tag_pc_din;                         
-wire             tag_valid_din;                      
+wire             cp0_ifu_icache_en;
+wire             cp0_ifu_icg_en;
+wire             cp0_yy_clk_en;
+wire             cpurst_b;
+wire             fifo_bit;
+wire             forever_cpuclk;
+wire             hpcp_clk;
+wire             hpcp_clk_en;
+wire             hpcp_ifu_cnt_en;
+wire    [127:0]  icache_if_ifctrl_inst_data0;
+wire    [127:0]  icache_if_ifctrl_inst_data1;
+wire    [28 :0]  icache_if_ifctrl_tag_data0;
+wire    [28 :0]  icache_if_ifctrl_tag_data1;
+wire             icache_if_ifdp_fifo;
+wire    [127:0]  icache_if_ifdp_inst_data0;
+wire    [127:0]  icache_if_ifdp_inst_data1;
+wire    [31 :0]  icache_if_ifdp_precode0;
+wire    [31 :0]  icache_if_ifdp_precode1;
+wire    [28 :0]  icache_if_ifdp_tag_data0;
+wire    [28 :0]  icache_if_ifdp_tag_data1;
+wire    [28 :0]  icache_if_ipb_tag_data0;
+wire    [28 :0]  icache_if_ipb_tag_data1;
+wire    [127:0]  icache_ifu_data_array0_dout;
+wire    [127:0]  icache_ifu_data_array1_dout;
+wire    [31 :0]  icache_ifu_predecd_array0_dout;
+wire    [31 :0]  icache_ifu_predecd_array1_dout;
+wire    [58 :0]  icache_ifu_tag_dout;
+wire    [3  :0]  icache_index_sel;
+wire             icache_read_req;
+wire             icache_req_higher;
+wire             icache_reset_inv;
+wire    [1  :0]  icache_way_pred;
+wire    [38 :0]  ifctrl_icache_if_index;
+wire             ifctrl_icache_if_inv_fifo;
+wire             ifctrl_icache_if_inv_on;
+wire             ifctrl_icache_if_read_req_data0;
+wire             ifctrl_icache_if_read_req_data1;
+wire    [38 :0]  ifctrl_icache_if_read_req_index;
+wire             ifctrl_icache_if_read_req_tag;
+wire             ifctrl_icache_if_reset_req;
+wire             ifctrl_icache_if_tag_req;
+wire    [2  :0]  ifctrl_icache_if_tag_wen;
+wire             ifu_hpcp_icache_access;
+wire             ifu_hpcp_icache_access_pre;
+wire             ifu_hpcp_icache_miss;
+wire             ifu_hpcp_icache_miss_pre;
+wire             ifu_icache_data_array0_bank0_cen_b;
+wire             ifu_icache_data_array0_bank0_clk_en;
+wire             ifu_icache_data_array0_bank1_cen_b;
+wire             ifu_icache_data_array0_bank1_clk_en;
+wire             ifu_icache_data_array0_bank2_cen_b;
+wire             ifu_icache_data_array0_bank2_clk_en;
+wire             ifu_icache_data_array0_bank3_cen_b;
+wire             ifu_icache_data_array0_bank3_clk_en;
+wire    [127:0]  ifu_icache_data_array0_din;
+wire             ifu_icache_data_array0_wen_b;
+wire             ifu_icache_data_array1_bank0_cen_b;
+wire             ifu_icache_data_array1_bank0_clk_en;
+wire             ifu_icache_data_array1_bank1_cen_b;
+wire             ifu_icache_data_array1_bank1_clk_en;
+wire             ifu_icache_data_array1_bank2_cen_b;
+wire             ifu_icache_data_array1_bank2_clk_en;
+wire             ifu_icache_data_array1_bank3_cen_b;
+wire             ifu_icache_data_array1_bank3_clk_en;
+wire    [127:0]  ifu_icache_data_array1_din;
+wire             ifu_icache_data_array1_wen_b;
+wire    [15 :0]  ifu_icache_index;
+wire             ifu_icache_predecd_array0_cen_b;
+wire             ifu_icache_predecd_array0_clk_en;
+wire    [31 :0]  ifu_icache_predecd_array0_din;
+wire             ifu_icache_predecd_array0_wen_b;
+wire             ifu_icache_predecd_array1_cen_b;
+wire             ifu_icache_predecd_array1_clk_en;
+wire    [31 :0]  ifu_icache_predecd_array1_din;
+wire             ifu_icache_predecd_array1_wen_b;
+wire             ifu_icache_tag_cen_b;
+wire             ifu_icache_tag_clk_en;
+wire    [58 :0]  ifu_icache_tag_din;
+wire    [33 :0]  ipb_icache_if_index;
+wire             ipb_icache_if_req;
+wire             ipb_icache_if_req_for_gateclk;
+wire             l1_refill_icache_if_fifo;
+wire             l1_refill_icache_if_first;
+wire    [38 :0]  l1_refill_icache_if_index;
+wire    [127:0]  l1_refill_icache_if_inst_data;
+wire             l1_refill_icache_if_last;
+wire    [31 :0]  l1_refill_icache_if_pre_code;
+wire    [27 :0]  l1_refill_icache_if_ptag;
+wire             l1_refill_icache_if_wr;
+wire             pad_yy_icg_scan_en;
+wire             pcgen_icache_if_chgflw;
+wire             pcgen_icache_if_chgflw_bank0;
+wire             pcgen_icache_if_chgflw_bank1;
+wire             pcgen_icache_if_chgflw_bank2;
+wire             pcgen_icache_if_chgflw_bank3;
+wire             pcgen_icache_if_chgflw_short;
+wire             pcgen_icache_if_gateclk_en;
+wire    [15 :0]  pcgen_icache_if_index;
+wire             pcgen_icache_if_seq_data_req;
+wire             pcgen_icache_if_seq_data_req_short;
+wire             pcgen_icache_if_seq_tag_req;
+wire    [1  :0]  pcgen_icache_if_way_pred;
+wire             tag_fifo_din;
+wire    [27 :0]  tag_pc_din;
+wire             tag_valid_din;
 
 
 parameter PC_WIDTH = 40;
@@ -263,31 +263,31 @@ parameter PC_WIDTH = 40;
 //    c.Sequence Read && Data first
 //    d.Vector SM Read
 //    e.Prefetch Read
-assign ifu_icache_tag_cen_b = !(l1_refill_icache_if_wr && 
-                                 (l1_refill_icache_if_first || 
-                                  l1_refill_icache_if_last) && 
+assign ifu_icache_tag_cen_b = !(l1_refill_icache_if_wr &&
+                                 (l1_refill_icache_if_first ||
+                                  l1_refill_icache_if_last) &&
                                 cp0_ifu_icache_en
                                ) &&
                               !(ifctrl_icache_if_tag_req
                                ) &&
                               !(pcgen_icache_if_chgflw &&
-                                 (pcgen_icache_if_way_pred[1:0] != 2'b00) && 
+                                 (pcgen_icache_if_way_pred[1:0] != 2'b00) &&
                                 cp0_ifu_icache_en
                                ) &&
                               !(pcgen_icache_if_seq_tag_req && //Seq && !Stall
                                 cp0_ifu_icache_en
                                ) &&
-                              !(ipb_icache_if_req && 
+                              !(ipb_icache_if_req &&
                                 cp0_ifu_icache_en
-                               ) && 
+                               ) &&
                               !ifctrl_icache_if_read_req_tag;
 //Gate Clk Enable Signal for Memory Gate Clk
-assign ifu_icache_tag_clk_en = ifctrl_icache_if_tag_req || 
+assign ifu_icache_tag_clk_en = ifctrl_icache_if_tag_req ||
                                ifctrl_icache_if_read_req_tag ||
-                               cp0_ifu_icache_en && 
+                               cp0_ifu_icache_en &&
                                (
-                                 l1_refill_icache_if_wr || 
-                                 pcgen_icache_if_gateclk_en || 
+                                 l1_refill_icache_if_wr ||
+                                 pcgen_icache_if_gateclk_en ||
                                  ipb_icache_if_req_for_gateclk
                                );
 
@@ -343,8 +343,8 @@ assign fifo_bit = l1_refill_icache_if_fifo;
 //  1. 1bit FIFO bit      * 1
 //  2. 1bit Valid bit     * 2
 //  3. 20bit Tag Data     * 2
-assign tag_fifo_din     = (ifctrl_icache_if_inv_on) 
-                          ? ifctrl_icache_if_inv_fifo 
+assign tag_fifo_din     = (ifctrl_icache_if_inv_on)
+                          ? ifctrl_icache_if_inv_fifo
                           : !fifo_bit;
 //Only When refill last, Valid Bit will Be 1
 assign tag_valid_din    = l1_refill_icache_if_last;
@@ -370,7 +370,7 @@ assign ifu_icache_tag_din[58:0] = {tag_fifo_din,
 assign icache_way_pred[1:0] = (l1_refill_icache_if_wr)
                             ? 2'b11
                             : pcgen_icache_if_way_pred[1:0];
-assign icache_reset_inv     = ifctrl_icache_if_reset_req;                            
+assign icache_reset_inv     = ifctrl_icache_if_reset_req;
 assign ifu_icache_data_array0_bank0_cen_b = (
                                              !(l1_refill_icache_if_wr && !fifo_bit
                                               ) &&
@@ -379,7 +379,7 @@ assign ifu_icache_data_array0_bank0_cen_b = (
                                              !(pcgen_icache_if_seq_data_req
                                               )
                                               || !(cp0_ifu_icache_en && icache_way_pred[0])
-                                            ) && 
+                                            ) &&
                                             !ifctrl_icache_if_read_req_data0 &&
                                             !icache_reset_inv;
 assign ifu_icache_data_array0_bank1_cen_b = (
@@ -390,7 +390,7 @@ assign ifu_icache_data_array0_bank1_cen_b = (
                                              !(pcgen_icache_if_seq_data_req
                                               )
                                               || !(cp0_ifu_icache_en && icache_way_pred[0])
-                                            ) && 
+                                            ) &&
                                             !ifctrl_icache_if_read_req_data0 &&
                                             !icache_reset_inv;
 assign ifu_icache_data_array0_bank2_cen_b = (
@@ -401,7 +401,7 @@ assign ifu_icache_data_array0_bank2_cen_b = (
                                              !(pcgen_icache_if_seq_data_req
                                               )
                                               || !(cp0_ifu_icache_en && icache_way_pred[0])
-                                            ) && 
+                                            ) &&
                                             !ifctrl_icache_if_read_req_data0 &&
                                             !icache_reset_inv;
 assign ifu_icache_data_array0_bank3_cen_b = (
@@ -412,7 +412,7 @@ assign ifu_icache_data_array0_bank3_cen_b = (
                                              !(pcgen_icache_if_seq_data_req
                                               )
                                               || !(cp0_ifu_icache_en && icache_way_pred[0])
-                                            ) && 
+                                            ) &&
                                             !ifctrl_icache_if_read_req_data0 &&
                                             !icache_reset_inv;
 
@@ -424,7 +424,7 @@ assign ifu_icache_data_array1_bank0_cen_b = (
                                              !(pcgen_icache_if_seq_data_req
                                               )
                                               || !(cp0_ifu_icache_en && icache_way_pred[1])
-                                            ) && 
+                                            ) &&
                                             !ifctrl_icache_if_read_req_data1 &&
                                             !icache_reset_inv;
 assign ifu_icache_data_array1_bank1_cen_b = (
@@ -435,7 +435,7 @@ assign ifu_icache_data_array1_bank1_cen_b = (
                                              !(pcgen_icache_if_seq_data_req
                                               )
                                               || !(cp0_ifu_icache_en && icache_way_pred[1])
-                                            ) && 
+                                            ) &&
                                             !ifctrl_icache_if_read_req_data1 &&
                                             !icache_reset_inv;
 assign ifu_icache_data_array1_bank2_cen_b = (
@@ -446,7 +446,7 @@ assign ifu_icache_data_array1_bank2_cen_b = (
                                              !(pcgen_icache_if_seq_data_req
                                               )
                                               || !(cp0_ifu_icache_en && icache_way_pred[1])
-                                            ) && 
+                                            ) &&
                                             !ifctrl_icache_if_read_req_data1 &&
                                             !icache_reset_inv;
 assign ifu_icache_data_array1_bank3_cen_b = (
@@ -457,74 +457,74 @@ assign ifu_icache_data_array1_bank3_cen_b = (
                                              !(pcgen_icache_if_seq_data_req
                                               )
                                               || !(cp0_ifu_icache_en && icache_way_pred[1])
-                                            ) && 
+                                            ) &&
                                             !ifctrl_icache_if_read_req_data1 &&
                                             !icache_reset_inv;
 
 //Gate Clk Enable Signal for Memory Gate Clk
 assign ifu_icache_data_array0_bank0_clk_en = (
-                                              l1_refill_icache_if_wr && !fifo_bit || 
-                                              pcgen_icache_if_chgflw_short || 
-                                              pcgen_icache_if_seq_data_req_short 
-                                             ) && 
-                                             cp0_ifu_icache_en || 
+                                              l1_refill_icache_if_wr && !fifo_bit ||
+                                              pcgen_icache_if_chgflw_short ||
+                                              pcgen_icache_if_seq_data_req_short
+                                             ) &&
+                                             cp0_ifu_icache_en ||
                                              ifctrl_icache_if_read_req_data0 ||
                                              icache_reset_inv;
 assign ifu_icache_data_array0_bank1_clk_en = (
-                                              l1_refill_icache_if_wr && !fifo_bit || 
-                                              pcgen_icache_if_chgflw_short || 
-                                              pcgen_icache_if_seq_data_req_short 
-                                             ) && 
-                                             cp0_ifu_icache_en || 
+                                              l1_refill_icache_if_wr && !fifo_bit ||
+                                              pcgen_icache_if_chgflw_short ||
+                                              pcgen_icache_if_seq_data_req_short
+                                             ) &&
+                                             cp0_ifu_icache_en ||
                                              ifctrl_icache_if_read_req_data0 ||
                                              icache_reset_inv;
 assign ifu_icache_data_array0_bank2_clk_en = (
-                                              l1_refill_icache_if_wr && !fifo_bit || 
-                                              pcgen_icache_if_chgflw_short || 
-                                              pcgen_icache_if_seq_data_req_short 
-                                             ) && 
-                                             cp0_ifu_icache_en || 
+                                              l1_refill_icache_if_wr && !fifo_bit ||
+                                              pcgen_icache_if_chgflw_short ||
+                                              pcgen_icache_if_seq_data_req_short
+                                             ) &&
+                                             cp0_ifu_icache_en ||
                                              ifctrl_icache_if_read_req_data0 ||
                                              icache_reset_inv;
 assign ifu_icache_data_array0_bank3_clk_en = (
-                                              l1_refill_icache_if_wr && !fifo_bit || 
-                                              pcgen_icache_if_chgflw_short || 
+                                              l1_refill_icache_if_wr && !fifo_bit ||
+                                              pcgen_icache_if_chgflw_short ||
                                               pcgen_icache_if_seq_data_req_short
-                                             ) && 
-                                             cp0_ifu_icache_en || 
+                                             ) &&
+                                             cp0_ifu_icache_en ||
                                              ifctrl_icache_if_read_req_data0 ||
                                              icache_reset_inv;
 
 assign ifu_icache_data_array1_bank0_clk_en = (
-                                              l1_refill_icache_if_wr && fifo_bit || 
-                                              pcgen_icache_if_chgflw_short || 
-                                              pcgen_icache_if_seq_data_req_short 
-                                             ) && 
-                                             cp0_ifu_icache_en || 
+                                              l1_refill_icache_if_wr && fifo_bit ||
+                                              pcgen_icache_if_chgflw_short ||
+                                              pcgen_icache_if_seq_data_req_short
+                                             ) &&
+                                             cp0_ifu_icache_en ||
                                              ifctrl_icache_if_read_req_data1 ||
                                              icache_reset_inv;
 assign ifu_icache_data_array1_bank1_clk_en = (
-                                              l1_refill_icache_if_wr && fifo_bit || 
-                                              pcgen_icache_if_chgflw_short || 
-                                              pcgen_icache_if_seq_data_req_short 
-                                             ) && 
-                                             cp0_ifu_icache_en || 
+                                              l1_refill_icache_if_wr && fifo_bit ||
+                                              pcgen_icache_if_chgflw_short ||
+                                              pcgen_icache_if_seq_data_req_short
+                                             ) &&
+                                             cp0_ifu_icache_en ||
                                              ifctrl_icache_if_read_req_data1 ||
                                              icache_reset_inv;
 assign ifu_icache_data_array1_bank2_clk_en = (
-                                              l1_refill_icache_if_wr && fifo_bit || 
-                                              pcgen_icache_if_chgflw_short || 
-                                              pcgen_icache_if_seq_data_req_short 
-                                             ) && 
-                                             cp0_ifu_icache_en || 
+                                              l1_refill_icache_if_wr && fifo_bit ||
+                                              pcgen_icache_if_chgflw_short ||
+                                              pcgen_icache_if_seq_data_req_short
+                                             ) &&
+                                             cp0_ifu_icache_en ||
                                              ifctrl_icache_if_read_req_data1 ||
                                              icache_reset_inv;
 assign ifu_icache_data_array1_bank3_clk_en = (
-                                              l1_refill_icache_if_wr && fifo_bit || 
-                                              pcgen_icache_if_chgflw_short || 
-                                              pcgen_icache_if_seq_data_req_short 
-                                             ) && 
-                                             cp0_ifu_icache_en || 
+                                              l1_refill_icache_if_wr && fifo_bit ||
+                                              pcgen_icache_if_chgflw_short ||
+                                              pcgen_icache_if_seq_data_req_short
+                                             ) &&
+                                             cp0_ifu_icache_en ||
                                              ifctrl_icache_if_read_req_data1 ||
                                              icache_reset_inv;
 //==========================================================
@@ -569,19 +569,19 @@ assign ifu_icache_predecd_array1_cen_b = ( !(l1_refill_icache_if_wr && fifo_bit
 
 //Gate Clk Enable Signal for Memory Gate Clk
 assign ifu_icache_predecd_array0_clk_en = (
-                                           l1_refill_icache_if_wr && !fifo_bit || 
-                                           pcgen_icache_if_chgflw_short        || 
-                                           pcgen_icache_if_seq_data_req_short 
-                                          ) && 
+                                           l1_refill_icache_if_wr && !fifo_bit ||
+                                           pcgen_icache_if_chgflw_short        ||
+                                           pcgen_icache_if_seq_data_req_short
+                                          ) &&
                                           cp0_ifu_icache_en ||
                                           icache_reset_inv;
 assign ifu_icache_predecd_array1_clk_en = (
-                                           l1_refill_icache_if_wr && fifo_bit || 
-                                           pcgen_icache_if_chgflw_short       || 
-                                           pcgen_icache_if_seq_data_req_short 
-                                          ) && 
+                                           l1_refill_icache_if_wr && fifo_bit ||
+                                           pcgen_icache_if_chgflw_short       ||
+                                           pcgen_icache_if_seq_data_req_short
+                                          ) &&
                                           cp0_ifu_icache_en ||
-                                          icache_reset_inv; 
+                                          icache_reset_inv;
 //==========================================================
 //         Write Enable to Icache Predecode Array
 //==========================================================
@@ -611,18 +611,18 @@ assign ifu_icache_predecd_array1_din[31:0] = (icache_reset_inv) ? 32'b0 : l1_ref
 //      b.biu_refill_grnt doesnot arrive witn change flow at the same time
 //  5.PCgen Index
 
-//Using & | logic to save timing 
+//Using & | logic to save timing
 //for four condition will not set at the same time
 assign ifu_icache_index[15:0] = (icache_req_higher)
                               ? icache_index_higher[15:0]
                               : pcgen_icache_if_index[15:0];
-assign icache_req_higher      = ifctrl_icache_if_tag_req || 
+assign icache_req_higher      = ifctrl_icache_if_tag_req ||
                                 ifctrl_icache_if_reset_req ||
-//                                vector_icache_if_req || 
-                                l1_refill_icache_if_wr || 
+//                                vector_icache_if_req ||
+                                l1_refill_icache_if_wr ||
                                 ipb_icache_if_req ||
-                                ifctrl_icache_if_read_req_data0 || 
-                                ifctrl_icache_if_read_req_data1 || 
+                                ifctrl_icache_if_read_req_data0 ||
+                                ifctrl_icache_if_read_req_data1 ||
                                 ifctrl_icache_if_read_req_tag;
 
 //Icache read can from
@@ -650,7 +650,7 @@ case(icache_index_sel[3:0])
   4'b0010: icache_index_higher[15:0] = {ipb_icache_if_index[10:0],5'b0};
   4'b0001: icache_index_higher[15:0] = ifctrl_icache_if_read_req_index[15:0];
   default: icache_index_higher[15:0] = {16{1'bx}};
-endcase 
+endcase
 // &CombEnd; @437
 end
 
@@ -680,8 +680,8 @@ assign icache_if_ifdp_inst_data1[127:0] = icache_ifu_data_array1_dout[127:0];
 //==========================================================
 //               Interactive with Vector
 //==========================================================
-//assign icache_if_vector_data0_dout[127:0] = icache_ifu_data_array0_dout[127:0]; 
-//assign icache_if_vector_data1_dout[127:0] = icache_ifu_data_array1_dout[127:0]; 
+//assign icache_if_vector_data0_dout[127:0] = icache_ifu_data_array0_dout[127:0];
+//assign icache_if_vector_data1_dout[127:0] = icache_ifu_data_array1_dout[127:0];
 //assign icache_if_vector_tag0_dout[28:0]   = icache_ifu_tag_dout[28: 0];
 //assign icache_if_vector_tag1_dout[28:0]   = icache_ifu_tag_dout[57:29];
 
@@ -695,7 +695,7 @@ assign icache_if_ipb_tag_data1[28:0] = icache_ifu_tag_dout[57:29];
 //               Interactive with PMU
 //==========================================================
 assign ifu_hpcp_icache_access_pre         = (pcgen_icache_if_seq_data_req || pcgen_icache_if_chgflw)&& cp0_ifu_icache_en;
-//     ifu_hpcp_icache_miss_pre   
+//     ifu_hpcp_icache_miss_pre
 
 // &Instance("gated_clk_cell","x_hpcp_clk"); @522
 gated_clk_cell  x_hpcp_clk (
@@ -727,7 +727,7 @@ begin
   else if(cp0_ifu_icache_en && hpcp_ifu_cnt_en)
   begin
     ifu_hpcp_icache_access_reg <= ifu_hpcp_icache_access_pre;
-    ifu_hpcp_icache_miss_reg   <= ifu_hpcp_icache_miss_pre;   
+    ifu_hpcp_icache_miss_reg   <= ifu_hpcp_icache_miss_pre;
   end
   else
   begin

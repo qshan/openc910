@@ -53,110 +53,110 @@ module axi_slave128(
 );
 
 
-input   [39 :0]  araddr_s0;      
-input   [1  :0]  arburst_s0;     
-input   [3  :0]  arcache_s0;     
-input   [7  :0]  arid_s0;        
-input   [7  :0]  arlen_s0;       
-input   [2  :0]  arprot_s0;      
-input   [2  :0]  arsize_s0;      
-input            arvalid_s0;     
-input   [39 :0]  awaddr_s0;      
-input   [1  :0]  awburst_s0;     
-input   [3  :0]  awcache_s0;     
-input   [7  :0]  awid_s0;        
-input   [7  :0]  awlen_s0;       
-input   [2  :0]  awprot_s0;      
-input   [2  :0]  awsize_s0;      
-input            awvalid_s0;     
-input            bready_s0;      
-input            pad_cpu_rst_b;  
-input            pll_core_cpuclk; 
-input            rready_s0;      
-input   [127:0]  wdata_s0;       
-input   [7  :0]  wid_s0;         
-input            wlast_s0;       
-input   [15 :0]  wstrb_s0;       
-input            wvalid_s0;      
-output           arready_s0;     
-output           awready_s0;     
-output  [7  :0]  bid_s0;         
-output  [1  :0]  bresp_s0;       
-output           bvalid_s0;      
-output  [127:0]  rdata_s0;       
-output  [7  :0]  rid_s0;         
-output           rlast_s0;       
-output  [1  :0]  rresp_s0;       
-output           rvalid_s0;      
-output           wready_s0;      
+input   [39 :0]  araddr_s0;
+input   [1  :0]  arburst_s0;
+input   [3  :0]  arcache_s0;
+input   [7  :0]  arid_s0;
+input   [7  :0]  arlen_s0;
+input   [2  :0]  arprot_s0;
+input   [2  :0]  arsize_s0;
+input            arvalid_s0;
+input   [39 :0]  awaddr_s0;
+input   [1  :0]  awburst_s0;
+input   [3  :0]  awcache_s0;
+input   [7  :0]  awid_s0;
+input   [7  :0]  awlen_s0;
+input   [2  :0]  awprot_s0;
+input   [2  :0]  awsize_s0;
+input            awvalid_s0;
+input            bready_s0;
+input            pad_cpu_rst_b;
+input            pll_core_cpuclk;
+input            rready_s0;
+input   [127:0]  wdata_s0;
+input   [7  :0]  wid_s0;
+input            wlast_s0;
+input   [15 :0]  wstrb_s0;
+input            wvalid_s0;
+output           arready_s0;
+output           awready_s0;
+output  [7  :0]  bid_s0;
+output  [1  :0]  bresp_s0;
+output           bvalid_s0;
+output  [127:0]  rdata_s0;
+output  [7  :0]  rid_s0;
+output           rlast_s0;
+output  [1  :0]  rresp_s0;
+output           rvalid_s0;
+output           wready_s0;
 
 
-reg     [7  :0]  arid;           
-reg     [7  :0]  arlen;          
-reg              arready;        
-reg     [7  :0]  awid;           
-reg     [7  :0]  awlen;          
-reg              awready;        
-reg     [7  :0]  bid;            
-reg     [1  :0]  cur_state;      
-reg     [39 :0]  mem_addr;       
-reg              mem_cen;        
-reg              mem_cen_0_ff;   
-reg              mem_cen_1_ff;   
-reg     [127:0]  mem_din;        
-wire     [127:0]  mem_dout;       
-reg     [15 :0]  mem_wen;        
-reg     [1  :0]  next_state;     
-reg              read_dly;       
-reg     [7  :0]  read_step;      
-reg              rvalid;         
-reg     [7  :0]  write_step;     
+reg     [7  :0]  arid;
+reg     [7  :0]  arlen;
+reg              arready;
+reg     [7  :0]  awid;
+reg     [7  :0]  awlen;
+reg              awready;
+reg     [7  :0]  bid;
+reg     [1  :0]  cur_state;
+reg     [39 :0]  mem_addr;
+reg              mem_cen;
+reg              mem_cen_0_ff;
+reg              mem_cen_1_ff;
+reg     [127:0]  mem_din;
+wire     [127:0]  mem_dout;
+reg     [15 :0]  mem_wen;
+reg     [1  :0]  next_state;
+reg              read_dly;
+reg     [7  :0]  read_step;
+reg              rvalid;
+reg     [7  :0]  write_step;
 
 
-wire    [39 :0]  araddr_s0;      
-wire    [7  :0]  arid_s0;        
-wire    [7  :0]  arlen_s0;       
-wire             arready_s0;     
-wire             arvalid_s0;     
-wire    [39 :0]  awaddr_s0;      
-wire    [7  :0]  awid_s0;        
-wire    [7  :0]  awlen_s0;       
-wire             awready_s0;     
-wire             awvalid_s0;     
-wire    [7  :0]  bid_s0;         
-wire             bready_s0;      
-wire    [1  :0]  bresp_s0;       
-wire             bvalid;         
-wire             bvalid_s0;      
-wire             mem_cen_0;      
-wire             mem_cen_1;      
-wire    [127:0]  mem_dout_0;     
-wire    [127:0]  mem_dout_1;     
-wire    [3  :0]  mem_sel;        
-wire             pad_cpu_rst_b;  
-wire             pll_core_cpuclk; 
-wire    [127:0]  rdata_s0;       
-wire             read_over;      
-wire    [7  :0]  rid_s0;         
-wire             rlast;          
-wire             rlast_s0;       
-wire             rready_s0;      
-wire    [1  :0]  rresp_s0;       
-wire             rvalid_s0;      
-wire    [127:0]  wdata_s0;       
-wire             wrap2_1;        
-wire             wrap2_read_en;  
-wire             wrap2_write_en; 
-wire             wrap4_1;        
-wire             wrap4_2;        
-wire             wrap4_3;        
-wire             wrap4_read_en;  
-wire             wrap4_write_en; 
-wire             wready;         
-wire             wready_s0;      
-wire             write_over;     
-wire    [15 :0]  wstrb_s0;       
-wire             wvalid_s0;      
+wire    [39 :0]  araddr_s0;
+wire    [7  :0]  arid_s0;
+wire    [7  :0]  arlen_s0;
+wire             arready_s0;
+wire             arvalid_s0;
+wire    [39 :0]  awaddr_s0;
+wire    [7  :0]  awid_s0;
+wire    [7  :0]  awlen_s0;
+wire             awready_s0;
+wire             awvalid_s0;
+wire    [7  :0]  bid_s0;
+wire             bready_s0;
+wire    [1  :0]  bresp_s0;
+wire             bvalid;
+wire             bvalid_s0;
+wire             mem_cen_0;
+wire             mem_cen_1;
+wire    [127:0]  mem_dout_0;
+wire    [127:0]  mem_dout_1;
+wire    [3  :0]  mem_sel;
+wire             pad_cpu_rst_b;
+wire             pll_core_cpuclk;
+wire    [127:0]  rdata_s0;
+wire             read_over;
+wire    [7  :0]  rid_s0;
+wire             rlast;
+wire             rlast_s0;
+wire             rready_s0;
+wire    [1  :0]  rresp_s0;
+wire             rvalid_s0;
+wire    [127:0]  wdata_s0;
+wire             wrap2_1;
+wire             wrap2_read_en;
+wire             wrap2_write_en;
+wire             wrap4_1;
+wire             wrap4_2;
+wire             wrap4_3;
+wire             wrap4_read_en;
+wire             wrap4_write_en;
+wire             wready;
+wire             wready_s0;
+wire             write_over;
+wire    [15 :0]  wstrb_s0;
+wire             wvalid_s0;
 
 
 
@@ -298,7 +298,7 @@ begin
       read_step[7:0] <= 8'b0;
   else if((cur_state[1:0] == READ) && rready_s0 && rvalid)
       read_step[7:0] <= read_step[7:0] + 1'b1;
-  else 
+  else
       read_step[7:0] <= read_step[7:0];
 end
 
@@ -311,7 +311,7 @@ begin
       write_step[7:0] <= 8'b0;
   else if((cur_state[1:0] == WRITE) && wvalid_s0 && wready)
       write_step[7:0] <= write_step[7:0] + 1'b1;
-  else 
+  else
       write_step[7:0] <= write_step[7:0];
 end
 
@@ -351,7 +351,7 @@ begin
     begin
       mem_addr[39:0] <= awaddr_s0[39:0];
     end
-  else if((wrap4_1 || wrap4_2 || wrap4_3) && 
+  else if((wrap4_1 || wrap4_2 || wrap4_3) &&
           ((wvalid_s0 && wready) || (rready_s0 && rvalid)))
     begin
       mem_addr[39:0] <= mem_addr[39:0] - 40'h30;

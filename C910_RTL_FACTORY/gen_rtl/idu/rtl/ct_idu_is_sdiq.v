@@ -112,501 +112,501 @@ module ct_idu_is_sdiq(
 );
 
 // &Ports; @27
-input           cp0_idu_icg_en;                         
-input           cp0_yy_clk_en;                          
-input           cpurst_b;                               
-input           ctrl_sdiq_create0_dp_en;                
-input           ctrl_sdiq_create0_en;                   
-input           ctrl_sdiq_create0_gateclk_en;           
-input           ctrl_sdiq_create1_dp_en;                
-input           ctrl_sdiq_create1_en;                   
-input           ctrl_sdiq_create1_gateclk_en;           
-input           ctrl_sdiq_rf_lch_fail_vld;              
-input   [11:0]  ctrl_sdiq_rf_pipe0_alu_reg_fwd_vld;     
-input   [11:0]  ctrl_sdiq_rf_pipe1_alu_reg_fwd_vld;     
-input           ctrl_sdiq_rf_staddr_rdy_set;            
-input           ctrl_xx_rf_pipe0_preg_lch_vld_dupx;     
-input           ctrl_xx_rf_pipe1_preg_lch_vld_dupx;     
-input   [26:0]  dp_sdiq_create0_data;                   
-input   [26:0]  dp_sdiq_create1_data;                   
-input   [11:0]  dp_sdiq_rf_lch_entry;                   
-input   [1 :0]  dp_sdiq_rf_rdy_clr;                     
-input   [11:0]  dp_sdiq_rf_sdiq_entry;                  
-input           dp_sdiq_rf_staddr1_vld;                 
-input           dp_sdiq_rf_staddr_rdy_clr;              
-input           dp_sdiq_rf_stdata1_vld;                 
-input   [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;           
-input   [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;           
-input           forever_cpuclk;                         
-input           iu_idu_div_inst_vld;                    
-input   [6 :0]  iu_idu_div_preg_dupx;                   
-input   [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;          
-input           iu_idu_ex2_pipe0_wb_preg_vld_dupx;      
-input           iu_idu_ex2_pipe1_mult_inst_vld_dupx;    
-input   [6 :0]  iu_idu_ex2_pipe1_preg_dupx;             
-input   [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;          
-input           iu_idu_ex2_pipe1_wb_preg_vld_dupx;      
-input           lsu_idu_ag_pipe3_load_inst_vld;         
-input   [6 :0]  lsu_idu_ag_pipe3_preg_dupx;             
-input           lsu_idu_ag_pipe3_vload_inst_vld;        
-input   [6 :0]  lsu_idu_ag_pipe3_vreg_dupx;             
-input           lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx; 
-input           lsu_idu_dc_pipe3_load_inst_vld_dupx;    
-input   [6 :0]  lsu_idu_dc_pipe3_preg_dupx;             
-input           lsu_idu_dc_pipe3_vload_fwd_inst_vld;    
-input           lsu_idu_dc_pipe3_vload_inst_vld_dupx;   
-input   [6 :0]  lsu_idu_dc_pipe3_vreg_dupx;             
-input   [11:0]  lsu_idu_dc_sdiq_entry;                  
-input           lsu_idu_dc_staddr1_vld;                 
-input           lsu_idu_dc_staddr_unalign;              
-input           lsu_idu_dc_staddr_vld;                  
-input   [11:0]  lsu_idu_ex1_sdiq_entry;                 
-input           lsu_idu_ex1_sdiq_frz_clr;               
-input           lsu_idu_ex1_sdiq_pop_vld;               
-input   [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;          
-input           lsu_idu_wb_pipe3_wb_preg_vld_dupx;      
-input   [6 :0]  lsu_idu_wb_pipe3_wb_vreg_dupx;          
-input           lsu_idu_wb_pipe3_wb_vreg_vld_dupx;      
-input           pad_yy_icg_scan_en;                     
-input           rtu_yy_xx_flush;                        
-input           vfpu_idu_ex1_pipe6_data_vld_dupx;       
-input           vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;  
-input   [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;           
-input   [6 :0]  vfpu_idu_ex1_pipe6_vreg_dupx;           
-input           vfpu_idu_ex1_pipe7_data_vld_dupx;       
-input           vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;  
-input   [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;           
-input   [6 :0]  vfpu_idu_ex1_pipe7_vreg_dupx;           
-input           vfpu_idu_ex2_pipe6_data_vld_dupx;       
-input   [6 :0]  vfpu_idu_ex2_pipe6_vreg_dupx;           
-input           vfpu_idu_ex2_pipe7_data_vld_dupx;       
-input   [6 :0]  vfpu_idu_ex2_pipe7_vreg_dupx;           
-input           vfpu_idu_ex3_pipe6_data_vld_dupx;       
-input   [6 :0]  vfpu_idu_ex3_pipe6_vreg_dupx;           
-input           vfpu_idu_ex3_pipe7_data_vld_dupx;       
-input   [6 :0]  vfpu_idu_ex3_pipe7_vreg_dupx;           
-input   [6 :0]  vfpu_idu_ex5_pipe6_wb_vreg_dupx;        
-input           vfpu_idu_ex5_pipe6_wb_vreg_vld_dupx;    
-input   [6 :0]  vfpu_idu_ex5_pipe7_wb_vreg_dupx;        
-input           vfpu_idu_ex5_pipe7_wb_vreg_vld_dupx;    
-output  [63:0]  idu_rtu_pst_freg_dealloc_mask;          
-output  [95:0]  idu_rtu_pst_preg_dealloc_mask;          
-output  [63:0]  idu_rtu_pst_vreg_dealloc_mask;          
-output  [11:0]  sdiq_aiq_create0_entry;                 
-output  [11:0]  sdiq_aiq_create1_entry;                 
-output          sdiq_ctrl_1_left_updt;                  
-output          sdiq_ctrl_empty;                        
-output          sdiq_ctrl_full;                         
-output          sdiq_ctrl_full_updt;                    
-output          sdiq_ctrl_full_updt_clk_en;             
-output  [11:0]  sdiq_dp_create0_entry;                  
-output  [11:0]  sdiq_dp_create1_entry;                  
-output  [11:0]  sdiq_dp_issue_entry;                    
-output  [26:0]  sdiq_dp_issue_read_data;                
-output  [3 :0]  sdiq_top_sdiq_entry_cnt;                
-output          sdiq_xx_gateclk_issue_en;               
-output          sdiq_xx_issue_en;                       
+input           cp0_idu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           ctrl_sdiq_create0_dp_en;
+input           ctrl_sdiq_create0_en;
+input           ctrl_sdiq_create0_gateclk_en;
+input           ctrl_sdiq_create1_dp_en;
+input           ctrl_sdiq_create1_en;
+input           ctrl_sdiq_create1_gateclk_en;
+input           ctrl_sdiq_rf_lch_fail_vld;
+input   [11:0]  ctrl_sdiq_rf_pipe0_alu_reg_fwd_vld;
+input   [11:0]  ctrl_sdiq_rf_pipe1_alu_reg_fwd_vld;
+input           ctrl_sdiq_rf_staddr_rdy_set;
+input           ctrl_xx_rf_pipe0_preg_lch_vld_dupx;
+input           ctrl_xx_rf_pipe1_preg_lch_vld_dupx;
+input   [26:0]  dp_sdiq_create0_data;
+input   [26:0]  dp_sdiq_create1_data;
+input   [11:0]  dp_sdiq_rf_lch_entry;
+input   [1 :0]  dp_sdiq_rf_rdy_clr;
+input   [11:0]  dp_sdiq_rf_sdiq_entry;
+input           dp_sdiq_rf_staddr1_vld;
+input           dp_sdiq_rf_staddr_rdy_clr;
+input           dp_sdiq_rf_stdata1_vld;
+input   [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;
+input   [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;
+input           forever_cpuclk;
+input           iu_idu_div_inst_vld;
+input   [6 :0]  iu_idu_div_preg_dupx;
+input   [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;
+input           iu_idu_ex2_pipe0_wb_preg_vld_dupx;
+input           iu_idu_ex2_pipe1_mult_inst_vld_dupx;
+input   [6 :0]  iu_idu_ex2_pipe1_preg_dupx;
+input   [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;
+input           iu_idu_ex2_pipe1_wb_preg_vld_dupx;
+input           lsu_idu_ag_pipe3_load_inst_vld;
+input   [6 :0]  lsu_idu_ag_pipe3_preg_dupx;
+input           lsu_idu_ag_pipe3_vload_inst_vld;
+input   [6 :0]  lsu_idu_ag_pipe3_vreg_dupx;
+input           lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx;
+input           lsu_idu_dc_pipe3_load_inst_vld_dupx;
+input   [6 :0]  lsu_idu_dc_pipe3_preg_dupx;
+input           lsu_idu_dc_pipe3_vload_fwd_inst_vld;
+input           lsu_idu_dc_pipe3_vload_inst_vld_dupx;
+input   [6 :0]  lsu_idu_dc_pipe3_vreg_dupx;
+input   [11:0]  lsu_idu_dc_sdiq_entry;
+input           lsu_idu_dc_staddr1_vld;
+input           lsu_idu_dc_staddr_unalign;
+input           lsu_idu_dc_staddr_vld;
+input   [11:0]  lsu_idu_ex1_sdiq_entry;
+input           lsu_idu_ex1_sdiq_frz_clr;
+input           lsu_idu_ex1_sdiq_pop_vld;
+input   [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;
+input           lsu_idu_wb_pipe3_wb_preg_vld_dupx;
+input   [6 :0]  lsu_idu_wb_pipe3_wb_vreg_dupx;
+input           lsu_idu_wb_pipe3_wb_vreg_vld_dupx;
+input           pad_yy_icg_scan_en;
+input           rtu_yy_xx_flush;
+input           vfpu_idu_ex1_pipe6_data_vld_dupx;
+input           vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe6_vreg_dupx;
+input           vfpu_idu_ex1_pipe7_data_vld_dupx;
+input           vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe7_vreg_dupx;
+input           vfpu_idu_ex2_pipe6_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex2_pipe6_vreg_dupx;
+input           vfpu_idu_ex2_pipe7_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex2_pipe7_vreg_dupx;
+input           vfpu_idu_ex3_pipe6_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex3_pipe6_vreg_dupx;
+input           vfpu_idu_ex3_pipe7_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex3_pipe7_vreg_dupx;
+input   [6 :0]  vfpu_idu_ex5_pipe6_wb_vreg_dupx;
+input           vfpu_idu_ex5_pipe6_wb_vreg_vld_dupx;
+input   [6 :0]  vfpu_idu_ex5_pipe7_wb_vreg_dupx;
+input           vfpu_idu_ex5_pipe7_wb_vreg_vld_dupx;
+output  [63:0]  idu_rtu_pst_freg_dealloc_mask;
+output  [95:0]  idu_rtu_pst_preg_dealloc_mask;
+output  [63:0]  idu_rtu_pst_vreg_dealloc_mask;
+output  [11:0]  sdiq_aiq_create0_entry;
+output  [11:0]  sdiq_aiq_create1_entry;
+output          sdiq_ctrl_1_left_updt;
+output          sdiq_ctrl_empty;
+output          sdiq_ctrl_full;
+output          sdiq_ctrl_full_updt;
+output          sdiq_ctrl_full_updt_clk_en;
+output  [11:0]  sdiq_dp_create0_entry;
+output  [11:0]  sdiq_dp_create1_entry;
+output  [11:0]  sdiq_dp_issue_entry;
+output  [26:0]  sdiq_dp_issue_read_data;
+output  [3 :0]  sdiq_top_sdiq_entry_cnt;
+output          sdiq_xx_gateclk_issue_en;
+output          sdiq_xx_issue_en;
 
 // &Regs; @28
-reg     [10:0]  sdiq_entry0_create_agevec;              
-reg     [26:0]  sdiq_entry0_create_data;                
-reg     [10:0]  sdiq_entry10_create_agevec;             
-reg     [26:0]  sdiq_entry10_create_data;               
-reg     [10:0]  sdiq_entry11_create_agevec;             
-reg     [26:0]  sdiq_entry11_create_data;               
-reg     [10:0]  sdiq_entry1_create_agevec;              
-reg     [26:0]  sdiq_entry1_create_data;                
-reg     [10:0]  sdiq_entry2_create_agevec;              
-reg     [26:0]  sdiq_entry2_create_data;                
-reg     [10:0]  sdiq_entry3_create_agevec;              
-reg     [26:0]  sdiq_entry3_create_data;                
-reg     [10:0]  sdiq_entry4_create_agevec;              
-reg     [26:0]  sdiq_entry4_create_data;                
-reg     [10:0]  sdiq_entry5_create_agevec;              
-reg     [26:0]  sdiq_entry5_create_data;                
-reg     [10:0]  sdiq_entry6_create_agevec;              
-reg     [26:0]  sdiq_entry6_create_data;                
-reg     [10:0]  sdiq_entry7_create_agevec;              
-reg     [26:0]  sdiq_entry7_create_data;                
-reg     [10:0]  sdiq_entry8_create_agevec;              
-reg     [26:0]  sdiq_entry8_create_data;                
-reg     [10:0]  sdiq_entry9_create_agevec;              
-reg     [26:0]  sdiq_entry9_create_data;                
-reg     [3 :0]  sdiq_entry_cnt;                         
-reg     [11:0]  sdiq_entry_create0_in;                  
-reg     [11:0]  sdiq_entry_create1_in;                  
-reg     [26:0]  sdiq_entry_read_data;                   
-reg     [95:0]  sdiq_src0_preg_dealloc_mask;            
-reg             sdiq_src_reg_mask_update_vld_ff;        
-reg     [63:0]  sdiq_srcf_freg_dealloc_mask;            
-reg     [63:0]  sdiq_srcv_vreg_dealloc_mask;            
+reg     [10:0]  sdiq_entry0_create_agevec;
+reg     [26:0]  sdiq_entry0_create_data;
+reg     [10:0]  sdiq_entry10_create_agevec;
+reg     [26:0]  sdiq_entry10_create_data;
+reg     [10:0]  sdiq_entry11_create_agevec;
+reg     [26:0]  sdiq_entry11_create_data;
+reg     [10:0]  sdiq_entry1_create_agevec;
+reg     [26:0]  sdiq_entry1_create_data;
+reg     [10:0]  sdiq_entry2_create_agevec;
+reg     [26:0]  sdiq_entry2_create_data;
+reg     [10:0]  sdiq_entry3_create_agevec;
+reg     [26:0]  sdiq_entry3_create_data;
+reg     [10:0]  sdiq_entry4_create_agevec;
+reg     [26:0]  sdiq_entry4_create_data;
+reg     [10:0]  sdiq_entry5_create_agevec;
+reg     [26:0]  sdiq_entry5_create_data;
+reg     [10:0]  sdiq_entry6_create_agevec;
+reg     [26:0]  sdiq_entry6_create_data;
+reg     [10:0]  sdiq_entry7_create_agevec;
+reg     [26:0]  sdiq_entry7_create_data;
+reg     [10:0]  sdiq_entry8_create_agevec;
+reg     [26:0]  sdiq_entry8_create_data;
+reg     [10:0]  sdiq_entry9_create_agevec;
+reg     [26:0]  sdiq_entry9_create_data;
+reg     [3 :0]  sdiq_entry_cnt;
+reg     [11:0]  sdiq_entry_create0_in;
+reg     [11:0]  sdiq_entry_create1_in;
+reg     [26:0]  sdiq_entry_read_data;
+reg     [95:0]  sdiq_src0_preg_dealloc_mask;
+reg             sdiq_src_reg_mask_update_vld_ff;
+reg     [63:0]  sdiq_srcf_freg_dealloc_mask;
+reg     [63:0]  sdiq_srcv_vreg_dealloc_mask;
 
 // &Wires; @29
-wire            cnt_clk;                                
-wire            cnt_clk_en;                             
-wire            cp0_idu_icg_en;                         
-wire            cp0_yy_clk_en;                          
-wire            cpurst_b;                               
-wire            ctrl_sdiq_create0_dp_en;                
-wire            ctrl_sdiq_create0_en;                   
-wire            ctrl_sdiq_create0_gateclk_en;           
-wire            ctrl_sdiq_create1_dp_en;                
-wire            ctrl_sdiq_create1_en;                   
-wire            ctrl_sdiq_create1_gateclk_en;           
-wire            ctrl_sdiq_rf_lch_fail_vld;              
-wire    [11:0]  ctrl_sdiq_rf_pipe0_alu_reg_fwd_vld;     
-wire    [11:0]  ctrl_sdiq_rf_pipe1_alu_reg_fwd_vld;     
-wire            ctrl_sdiq_rf_staddr_rdy_set;            
-wire            ctrl_xx_rf_pipe0_preg_lch_vld_dupx;     
-wire            ctrl_xx_rf_pipe1_preg_lch_vld_dupx;     
-wire    [26:0]  dp_sdiq_create0_data;                   
-wire    [26:0]  dp_sdiq_create1_data;                   
-wire    [11:0]  dp_sdiq_rf_lch_entry;                   
-wire    [1 :0]  dp_sdiq_rf_rdy_clr;                     
-wire    [11:0]  dp_sdiq_rf_sdiq_entry;                  
-wire            dp_sdiq_rf_staddr1_vld;                 
-wire            dp_sdiq_rf_staddr_rdy_clr;              
-wire            dp_sdiq_rf_stdata1_vld;                 
-wire    [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;           
-wire    [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;           
-wire            forever_cpuclk;                         
-wire    [63:0]  idu_rtu_pst_freg_dealloc_mask;          
-wire    [95:0]  idu_rtu_pst_preg_dealloc_mask;          
-wire    [63:0]  idu_rtu_pst_vreg_dealloc_mask;          
-wire            iu_idu_div_inst_vld;                    
-wire    [6 :0]  iu_idu_div_preg_dupx;                   
-wire    [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;          
-wire            iu_idu_ex2_pipe0_wb_preg_vld_dupx;      
-wire            iu_idu_ex2_pipe1_mult_inst_vld_dupx;    
-wire    [6 :0]  iu_idu_ex2_pipe1_preg_dupx;             
-wire    [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;          
-wire            iu_idu_ex2_pipe1_wb_preg_vld_dupx;      
-wire            lsu_idu_ag_pipe3_load_inst_vld;         
-wire    [6 :0]  lsu_idu_ag_pipe3_preg_dupx;             
-wire            lsu_idu_ag_pipe3_vload_inst_vld;        
-wire    [6 :0]  lsu_idu_ag_pipe3_vreg_dupx;             
-wire            lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx; 
-wire            lsu_idu_dc_pipe3_load_inst_vld_dupx;    
-wire    [6 :0]  lsu_idu_dc_pipe3_preg_dupx;             
-wire            lsu_idu_dc_pipe3_vload_fwd_inst_vld;    
-wire            lsu_idu_dc_pipe3_vload_inst_vld_dupx;   
-wire    [6 :0]  lsu_idu_dc_pipe3_vreg_dupx;             
-wire    [11:0]  lsu_idu_dc_sdiq_entry;                  
-wire            lsu_idu_dc_staddr1_vld;                 
-wire            lsu_idu_dc_staddr_unalign;              
-wire            lsu_idu_dc_staddr_vld;                  
-wire    [11:0]  lsu_idu_ex1_sdiq_entry;                 
-wire            lsu_idu_ex1_sdiq_frz_clr;               
-wire            lsu_idu_ex1_sdiq_pop_vld;               
-wire    [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;          
-wire            lsu_idu_wb_pipe3_wb_preg_vld_dupx;      
-wire    [6 :0]  lsu_idu_wb_pipe3_wb_vreg_dupx;          
-wire            lsu_idu_wb_pipe3_wb_vreg_vld_dupx;      
-wire            pad_yy_icg_scan_en;                     
-wire            rtu_yy_xx_flush;                        
-wire    [11:0]  sdiq_aiq_create0_entry;                 
-wire    [11:0]  sdiq_aiq_create1_entry;                 
-wire            sdiq_ctrl_1_left_updt;                  
-wire            sdiq_ctrl_empty;                        
-wire            sdiq_ctrl_full;                         
-wire            sdiq_ctrl_full_updt;                    
-wire            sdiq_ctrl_full_updt_clk_en;             
-wire    [11:0]  sdiq_dp_create0_entry;                  
-wire    [11:0]  sdiq_dp_create1_entry;                  
-wire    [11:0]  sdiq_dp_issue_entry;                    
-wire    [26:0]  sdiq_dp_issue_read_data;                
-wire    [10:0]  sdiq_entry0_agevec;                     
-wire            sdiq_entry0_alu0_reg_fwd_vld;           
-wire            sdiq_entry0_alu1_reg_fwd_vld;           
-wire            sdiq_entry0_create_dp_en;               
-wire            sdiq_entry0_create_en;                  
-wire            sdiq_entry0_create_gateclk_en;          
-wire            sdiq_entry0_ex1_frz_clr;                
-wire            sdiq_entry0_issue_en;                   
-wire            sdiq_entry0_pop_cur_entry;              
-wire    [10:0]  sdiq_entry0_pop_other_entry;            
-wire            sdiq_entry0_rdy;                        
-wire    [26:0]  sdiq_entry0_read_data;                  
-wire            sdiq_entry0_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry0_src0_preg_expand;           
-wire    [63:0]  sdiq_entry0_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry0_srcv_vreg_expand;           
-wire            sdiq_entry0_staddr_rdy_set;             
-wire            sdiq_entry0_staddr_stq_create;          
-wire            sdiq_entry0_vld;                        
-wire            sdiq_entry0_vld_with_frz;               
-wire    [10:0]  sdiq_entry10_agevec;                    
-wire            sdiq_entry10_alu0_reg_fwd_vld;          
-wire            sdiq_entry10_alu1_reg_fwd_vld;          
-wire            sdiq_entry10_create_dp_en;              
-wire            sdiq_entry10_create_en;                 
-wire            sdiq_entry10_create_gateclk_en;         
-wire            sdiq_entry10_ex1_frz_clr;               
-wire            sdiq_entry10_issue_en;                  
-wire            sdiq_entry10_pop_cur_entry;             
-wire    [10:0]  sdiq_entry10_pop_other_entry;           
-wire            sdiq_entry10_rdy;                       
-wire    [26:0]  sdiq_entry10_read_data;                 
-wire            sdiq_entry10_rf_frz_clr;                
-wire    [95:0]  sdiq_entry10_src0_preg_expand;          
-wire    [63:0]  sdiq_entry10_srcf_freg_expand;          
-wire    [63:0]  sdiq_entry10_srcv_vreg_expand;          
-wire            sdiq_entry10_staddr_rdy_set;            
-wire            sdiq_entry10_staddr_stq_create;         
-wire            sdiq_entry10_vld;                       
-wire            sdiq_entry10_vld_with_frz;              
-wire    [10:0]  sdiq_entry11_agevec;                    
-wire            sdiq_entry11_alu0_reg_fwd_vld;          
-wire            sdiq_entry11_alu1_reg_fwd_vld;          
-wire            sdiq_entry11_create_dp_en;              
-wire            sdiq_entry11_create_en;                 
-wire            sdiq_entry11_create_gateclk_en;         
-wire            sdiq_entry11_ex1_frz_clr;               
-wire            sdiq_entry11_issue_en;                  
-wire            sdiq_entry11_pop_cur_entry;             
-wire    [10:0]  sdiq_entry11_pop_other_entry;           
-wire            sdiq_entry11_rdy;                       
-wire    [26:0]  sdiq_entry11_read_data;                 
-wire            sdiq_entry11_rf_frz_clr;                
-wire    [95:0]  sdiq_entry11_src0_preg_expand;          
-wire    [63:0]  sdiq_entry11_srcf_freg_expand;          
-wire    [63:0]  sdiq_entry11_srcv_vreg_expand;          
-wire            sdiq_entry11_staddr_rdy_set;            
-wire            sdiq_entry11_staddr_stq_create;         
-wire            sdiq_entry11_vld;                       
-wire            sdiq_entry11_vld_with_frz;              
-wire    [10:0]  sdiq_entry1_agevec;                     
-wire            sdiq_entry1_alu0_reg_fwd_vld;           
-wire            sdiq_entry1_alu1_reg_fwd_vld;           
-wire            sdiq_entry1_create_dp_en;               
-wire            sdiq_entry1_create_en;                  
-wire            sdiq_entry1_create_gateclk_en;          
-wire            sdiq_entry1_ex1_frz_clr;                
-wire            sdiq_entry1_issue_en;                   
-wire            sdiq_entry1_pop_cur_entry;              
-wire    [10:0]  sdiq_entry1_pop_other_entry;            
-wire            sdiq_entry1_rdy;                        
-wire    [26:0]  sdiq_entry1_read_data;                  
-wire            sdiq_entry1_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry1_src0_preg_expand;           
-wire    [63:0]  sdiq_entry1_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry1_srcv_vreg_expand;           
-wire            sdiq_entry1_staddr_rdy_set;             
-wire            sdiq_entry1_staddr_stq_create;          
-wire            sdiq_entry1_vld;                        
-wire            sdiq_entry1_vld_with_frz;               
-wire    [10:0]  sdiq_entry2_agevec;                     
-wire            sdiq_entry2_alu0_reg_fwd_vld;           
-wire            sdiq_entry2_alu1_reg_fwd_vld;           
-wire            sdiq_entry2_create_dp_en;               
-wire            sdiq_entry2_create_en;                  
-wire            sdiq_entry2_create_gateclk_en;          
-wire            sdiq_entry2_ex1_frz_clr;                
-wire            sdiq_entry2_issue_en;                   
-wire            sdiq_entry2_pop_cur_entry;              
-wire    [10:0]  sdiq_entry2_pop_other_entry;            
-wire            sdiq_entry2_rdy;                        
-wire    [26:0]  sdiq_entry2_read_data;                  
-wire            sdiq_entry2_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry2_src0_preg_expand;           
-wire    [63:0]  sdiq_entry2_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry2_srcv_vreg_expand;           
-wire            sdiq_entry2_staddr_rdy_set;             
-wire            sdiq_entry2_staddr_stq_create;          
-wire            sdiq_entry2_vld;                        
-wire            sdiq_entry2_vld_with_frz;               
-wire    [10:0]  sdiq_entry3_agevec;                     
-wire            sdiq_entry3_alu0_reg_fwd_vld;           
-wire            sdiq_entry3_alu1_reg_fwd_vld;           
-wire            sdiq_entry3_create_dp_en;               
-wire            sdiq_entry3_create_en;                  
-wire            sdiq_entry3_create_gateclk_en;          
-wire            sdiq_entry3_ex1_frz_clr;                
-wire            sdiq_entry3_issue_en;                   
-wire            sdiq_entry3_pop_cur_entry;              
-wire    [10:0]  sdiq_entry3_pop_other_entry;            
-wire            sdiq_entry3_rdy;                        
-wire    [26:0]  sdiq_entry3_read_data;                  
-wire            sdiq_entry3_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry3_src0_preg_expand;           
-wire    [63:0]  sdiq_entry3_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry3_srcv_vreg_expand;           
-wire            sdiq_entry3_staddr_rdy_set;             
-wire            sdiq_entry3_staddr_stq_create;          
-wire            sdiq_entry3_vld;                        
-wire            sdiq_entry3_vld_with_frz;               
-wire    [10:0]  sdiq_entry4_agevec;                     
-wire            sdiq_entry4_alu0_reg_fwd_vld;           
-wire            sdiq_entry4_alu1_reg_fwd_vld;           
-wire            sdiq_entry4_create_dp_en;               
-wire            sdiq_entry4_create_en;                  
-wire            sdiq_entry4_create_gateclk_en;          
-wire            sdiq_entry4_ex1_frz_clr;                
-wire            sdiq_entry4_issue_en;                   
-wire            sdiq_entry4_pop_cur_entry;              
-wire    [10:0]  sdiq_entry4_pop_other_entry;            
-wire            sdiq_entry4_rdy;                        
-wire    [26:0]  sdiq_entry4_read_data;                  
-wire            sdiq_entry4_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry4_src0_preg_expand;           
-wire    [63:0]  sdiq_entry4_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry4_srcv_vreg_expand;           
-wire            sdiq_entry4_staddr_rdy_set;             
-wire            sdiq_entry4_staddr_stq_create;          
-wire            sdiq_entry4_vld;                        
-wire            sdiq_entry4_vld_with_frz;               
-wire    [10:0]  sdiq_entry5_agevec;                     
-wire            sdiq_entry5_alu0_reg_fwd_vld;           
-wire            sdiq_entry5_alu1_reg_fwd_vld;           
-wire            sdiq_entry5_create_dp_en;               
-wire            sdiq_entry5_create_en;                  
-wire            sdiq_entry5_create_gateclk_en;          
-wire            sdiq_entry5_ex1_frz_clr;                
-wire            sdiq_entry5_issue_en;                   
-wire            sdiq_entry5_pop_cur_entry;              
-wire    [10:0]  sdiq_entry5_pop_other_entry;            
-wire            sdiq_entry5_rdy;                        
-wire    [26:0]  sdiq_entry5_read_data;                  
-wire            sdiq_entry5_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry5_src0_preg_expand;           
-wire    [63:0]  sdiq_entry5_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry5_srcv_vreg_expand;           
-wire            sdiq_entry5_staddr_rdy_set;             
-wire            sdiq_entry5_staddr_stq_create;          
-wire            sdiq_entry5_vld;                        
-wire            sdiq_entry5_vld_with_frz;               
-wire    [10:0]  sdiq_entry6_agevec;                     
-wire            sdiq_entry6_alu0_reg_fwd_vld;           
-wire            sdiq_entry6_alu1_reg_fwd_vld;           
-wire            sdiq_entry6_create_dp_en;               
-wire            sdiq_entry6_create_en;                  
-wire            sdiq_entry6_create_gateclk_en;          
-wire            sdiq_entry6_ex1_frz_clr;                
-wire            sdiq_entry6_issue_en;                   
-wire            sdiq_entry6_pop_cur_entry;              
-wire    [10:0]  sdiq_entry6_pop_other_entry;            
-wire            sdiq_entry6_rdy;                        
-wire    [26:0]  sdiq_entry6_read_data;                  
-wire            sdiq_entry6_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry6_src0_preg_expand;           
-wire    [63:0]  sdiq_entry6_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry6_srcv_vreg_expand;           
-wire            sdiq_entry6_staddr_rdy_set;             
-wire            sdiq_entry6_staddr_stq_create;          
-wire            sdiq_entry6_vld;                        
-wire            sdiq_entry6_vld_with_frz;               
-wire    [10:0]  sdiq_entry7_agevec;                     
-wire            sdiq_entry7_alu0_reg_fwd_vld;           
-wire            sdiq_entry7_alu1_reg_fwd_vld;           
-wire            sdiq_entry7_create_dp_en;               
-wire            sdiq_entry7_create_en;                  
-wire            sdiq_entry7_create_gateclk_en;          
-wire            sdiq_entry7_ex1_frz_clr;                
-wire            sdiq_entry7_issue_en;                   
-wire            sdiq_entry7_pop_cur_entry;              
-wire    [10:0]  sdiq_entry7_pop_other_entry;            
-wire            sdiq_entry7_rdy;                        
-wire    [26:0]  sdiq_entry7_read_data;                  
-wire            sdiq_entry7_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry7_src0_preg_expand;           
-wire    [63:0]  sdiq_entry7_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry7_srcv_vreg_expand;           
-wire            sdiq_entry7_staddr_rdy_set;             
-wire            sdiq_entry7_staddr_stq_create;          
-wire            sdiq_entry7_vld;                        
-wire            sdiq_entry7_vld_with_frz;               
-wire    [10:0]  sdiq_entry8_agevec;                     
-wire            sdiq_entry8_alu0_reg_fwd_vld;           
-wire            sdiq_entry8_alu1_reg_fwd_vld;           
-wire            sdiq_entry8_create_dp_en;               
-wire            sdiq_entry8_create_en;                  
-wire            sdiq_entry8_create_gateclk_en;          
-wire            sdiq_entry8_ex1_frz_clr;                
-wire            sdiq_entry8_issue_en;                   
-wire            sdiq_entry8_pop_cur_entry;              
-wire    [10:0]  sdiq_entry8_pop_other_entry;            
-wire            sdiq_entry8_rdy;                        
-wire    [26:0]  sdiq_entry8_read_data;                  
-wire            sdiq_entry8_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry8_src0_preg_expand;           
-wire    [63:0]  sdiq_entry8_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry8_srcv_vreg_expand;           
-wire            sdiq_entry8_staddr_rdy_set;             
-wire            sdiq_entry8_staddr_stq_create;          
-wire            sdiq_entry8_vld;                        
-wire            sdiq_entry8_vld_with_frz;               
-wire    [10:0]  sdiq_entry9_agevec;                     
-wire            sdiq_entry9_alu0_reg_fwd_vld;           
-wire            sdiq_entry9_alu1_reg_fwd_vld;           
-wire            sdiq_entry9_create_dp_en;               
-wire            sdiq_entry9_create_en;                  
-wire            sdiq_entry9_create_gateclk_en;          
-wire            sdiq_entry9_ex1_frz_clr;                
-wire            sdiq_entry9_issue_en;                   
-wire            sdiq_entry9_pop_cur_entry;              
-wire    [10:0]  sdiq_entry9_pop_other_entry;            
-wire            sdiq_entry9_rdy;                        
-wire    [26:0]  sdiq_entry9_read_data;                  
-wire            sdiq_entry9_rf_frz_clr;                 
-wire    [95:0]  sdiq_entry9_src0_preg_expand;           
-wire    [63:0]  sdiq_entry9_srcf_freg_expand;           
-wire    [63:0]  sdiq_entry9_srcv_vreg_expand;           
-wire            sdiq_entry9_staddr_rdy_set;             
-wire            sdiq_entry9_staddr_stq_create;          
-wire            sdiq_entry9_vld;                        
-wire            sdiq_entry9_vld_with_frz;               
-wire    [3 :0]  sdiq_entry_cnt_create;                  
-wire            sdiq_entry_cnt_create_0;                
-wire            sdiq_entry_cnt_create_1;                
-wire            sdiq_entry_cnt_create_2;                
-wire    [3 :0]  sdiq_entry_cnt_pop;                     
-wire            sdiq_entry_cnt_pop_0;                   
-wire            sdiq_entry_cnt_pop_1;                   
-wire    [3 :0]  sdiq_entry_cnt_updt_val;                
-wire            sdiq_entry_cnt_updt_vld;                
-wire    [11:0]  sdiq_entry_create0_agevec;              
-wire    [11:0]  sdiq_entry_create1_agevec;              
-wire    [11:0]  sdiq_entry_create_dp_en;                
-wire    [11:0]  sdiq_entry_create_en;                   
-wire    [11:0]  sdiq_entry_create_gateclk_en;           
-wire    [11:0]  sdiq_entry_create_sel;                  
-wire    [11:0]  sdiq_entry_ex1_frz_clr;                 
-wire    [11:0]  sdiq_entry_issue_en;                    
-wire    [11:0]  sdiq_entry_ready;                       
-wire    [11:0]  sdiq_entry_rf_frz_clr;                  
-wire    [11:0]  sdiq_entry_staddr_rdy_set;              
-wire    [11:0]  sdiq_entry_staddr_stq_create;           
-wire    [11:0]  sdiq_entry_vld;                         
-wire    [11:0]  sdiq_older_entry_ready;                 
-wire    [95:0]  sdiq_src0_preg_dealloc_mask_updt;       
-wire            sdiq_src_reg_mask_update_vld;           
-wire    [63:0]  sdiq_srcf_freg_dealloc_mask_updt;       
-wire    [63:0]  sdiq_srcv_vreg_dealloc_mask_updt;       
-wire    [3 :0]  sdiq_top_sdiq_entry_cnt;                
-wire            sdiq_xx_gateclk_issue_en;               
-wire            sdiq_xx_issue_en;                       
-wire            src_mask_clk;                           
-wire            src_mask_clk_en;                        
-wire            vfpu_idu_ex1_pipe6_data_vld_dupx;       
-wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;  
-wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;           
-wire    [6 :0]  vfpu_idu_ex1_pipe6_vreg_dupx;           
-wire            vfpu_idu_ex1_pipe7_data_vld_dupx;       
-wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;  
-wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;           
-wire    [6 :0]  vfpu_idu_ex1_pipe7_vreg_dupx;           
-wire            vfpu_idu_ex2_pipe6_data_vld_dupx;       
-wire    [6 :0]  vfpu_idu_ex2_pipe6_vreg_dupx;           
-wire            vfpu_idu_ex2_pipe7_data_vld_dupx;       
-wire    [6 :0]  vfpu_idu_ex2_pipe7_vreg_dupx;           
-wire            vfpu_idu_ex3_pipe6_data_vld_dupx;       
-wire    [6 :0]  vfpu_idu_ex3_pipe6_vreg_dupx;           
-wire            vfpu_idu_ex3_pipe7_data_vld_dupx;       
-wire    [6 :0]  vfpu_idu_ex3_pipe7_vreg_dupx;           
-wire    [6 :0]  vfpu_idu_ex5_pipe6_wb_vreg_dupx;        
-wire            vfpu_idu_ex5_pipe6_wb_vreg_vld_dupx;    
-wire    [6 :0]  vfpu_idu_ex5_pipe7_wb_vreg_dupx;        
-wire            vfpu_idu_ex5_pipe7_wb_vreg_vld_dupx;    
+wire            cnt_clk;
+wire            cnt_clk_en;
+wire            cp0_idu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            ctrl_sdiq_create0_dp_en;
+wire            ctrl_sdiq_create0_en;
+wire            ctrl_sdiq_create0_gateclk_en;
+wire            ctrl_sdiq_create1_dp_en;
+wire            ctrl_sdiq_create1_en;
+wire            ctrl_sdiq_create1_gateclk_en;
+wire            ctrl_sdiq_rf_lch_fail_vld;
+wire    [11:0]  ctrl_sdiq_rf_pipe0_alu_reg_fwd_vld;
+wire    [11:0]  ctrl_sdiq_rf_pipe1_alu_reg_fwd_vld;
+wire            ctrl_sdiq_rf_staddr_rdy_set;
+wire            ctrl_xx_rf_pipe0_preg_lch_vld_dupx;
+wire            ctrl_xx_rf_pipe1_preg_lch_vld_dupx;
+wire    [26:0]  dp_sdiq_create0_data;
+wire    [26:0]  dp_sdiq_create1_data;
+wire    [11:0]  dp_sdiq_rf_lch_entry;
+wire    [1 :0]  dp_sdiq_rf_rdy_clr;
+wire    [11:0]  dp_sdiq_rf_sdiq_entry;
+wire            dp_sdiq_rf_staddr1_vld;
+wire            dp_sdiq_rf_staddr_rdy_clr;
+wire            dp_sdiq_rf_stdata1_vld;
+wire    [6 :0]  dp_xx_rf_pipe0_dst_preg_dupx;
+wire    [6 :0]  dp_xx_rf_pipe1_dst_preg_dupx;
+wire            forever_cpuclk;
+wire    [63:0]  idu_rtu_pst_freg_dealloc_mask;
+wire    [95:0]  idu_rtu_pst_preg_dealloc_mask;
+wire    [63:0]  idu_rtu_pst_vreg_dealloc_mask;
+wire            iu_idu_div_inst_vld;
+wire    [6 :0]  iu_idu_div_preg_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe0_wb_preg_dupx;
+wire            iu_idu_ex2_pipe0_wb_preg_vld_dupx;
+wire            iu_idu_ex2_pipe1_mult_inst_vld_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe1_preg_dupx;
+wire    [6 :0]  iu_idu_ex2_pipe1_wb_preg_dupx;
+wire            iu_idu_ex2_pipe1_wb_preg_vld_dupx;
+wire            lsu_idu_ag_pipe3_load_inst_vld;
+wire    [6 :0]  lsu_idu_ag_pipe3_preg_dupx;
+wire            lsu_idu_ag_pipe3_vload_inst_vld;
+wire    [6 :0]  lsu_idu_ag_pipe3_vreg_dupx;
+wire            lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx;
+wire            lsu_idu_dc_pipe3_load_inst_vld_dupx;
+wire    [6 :0]  lsu_idu_dc_pipe3_preg_dupx;
+wire            lsu_idu_dc_pipe3_vload_fwd_inst_vld;
+wire            lsu_idu_dc_pipe3_vload_inst_vld_dupx;
+wire    [6 :0]  lsu_idu_dc_pipe3_vreg_dupx;
+wire    [11:0]  lsu_idu_dc_sdiq_entry;
+wire            lsu_idu_dc_staddr1_vld;
+wire            lsu_idu_dc_staddr_unalign;
+wire            lsu_idu_dc_staddr_vld;
+wire    [11:0]  lsu_idu_ex1_sdiq_entry;
+wire            lsu_idu_ex1_sdiq_frz_clr;
+wire            lsu_idu_ex1_sdiq_pop_vld;
+wire    [6 :0]  lsu_idu_wb_pipe3_wb_preg_dupx;
+wire            lsu_idu_wb_pipe3_wb_preg_vld_dupx;
+wire    [6 :0]  lsu_idu_wb_pipe3_wb_vreg_dupx;
+wire            lsu_idu_wb_pipe3_wb_vreg_vld_dupx;
+wire            pad_yy_icg_scan_en;
+wire            rtu_yy_xx_flush;
+wire    [11:0]  sdiq_aiq_create0_entry;
+wire    [11:0]  sdiq_aiq_create1_entry;
+wire            sdiq_ctrl_1_left_updt;
+wire            sdiq_ctrl_empty;
+wire            sdiq_ctrl_full;
+wire            sdiq_ctrl_full_updt;
+wire            sdiq_ctrl_full_updt_clk_en;
+wire    [11:0]  sdiq_dp_create0_entry;
+wire    [11:0]  sdiq_dp_create1_entry;
+wire    [11:0]  sdiq_dp_issue_entry;
+wire    [26:0]  sdiq_dp_issue_read_data;
+wire    [10:0]  sdiq_entry0_agevec;
+wire            sdiq_entry0_alu0_reg_fwd_vld;
+wire            sdiq_entry0_alu1_reg_fwd_vld;
+wire            sdiq_entry0_create_dp_en;
+wire            sdiq_entry0_create_en;
+wire            sdiq_entry0_create_gateclk_en;
+wire            sdiq_entry0_ex1_frz_clr;
+wire            sdiq_entry0_issue_en;
+wire            sdiq_entry0_pop_cur_entry;
+wire    [10:0]  sdiq_entry0_pop_other_entry;
+wire            sdiq_entry0_rdy;
+wire    [26:0]  sdiq_entry0_read_data;
+wire            sdiq_entry0_rf_frz_clr;
+wire    [95:0]  sdiq_entry0_src0_preg_expand;
+wire    [63:0]  sdiq_entry0_srcf_freg_expand;
+wire    [63:0]  sdiq_entry0_srcv_vreg_expand;
+wire            sdiq_entry0_staddr_rdy_set;
+wire            sdiq_entry0_staddr_stq_create;
+wire            sdiq_entry0_vld;
+wire            sdiq_entry0_vld_with_frz;
+wire    [10:0]  sdiq_entry10_agevec;
+wire            sdiq_entry10_alu0_reg_fwd_vld;
+wire            sdiq_entry10_alu1_reg_fwd_vld;
+wire            sdiq_entry10_create_dp_en;
+wire            sdiq_entry10_create_en;
+wire            sdiq_entry10_create_gateclk_en;
+wire            sdiq_entry10_ex1_frz_clr;
+wire            sdiq_entry10_issue_en;
+wire            sdiq_entry10_pop_cur_entry;
+wire    [10:0]  sdiq_entry10_pop_other_entry;
+wire            sdiq_entry10_rdy;
+wire    [26:0]  sdiq_entry10_read_data;
+wire            sdiq_entry10_rf_frz_clr;
+wire    [95:0]  sdiq_entry10_src0_preg_expand;
+wire    [63:0]  sdiq_entry10_srcf_freg_expand;
+wire    [63:0]  sdiq_entry10_srcv_vreg_expand;
+wire            sdiq_entry10_staddr_rdy_set;
+wire            sdiq_entry10_staddr_stq_create;
+wire            sdiq_entry10_vld;
+wire            sdiq_entry10_vld_with_frz;
+wire    [10:0]  sdiq_entry11_agevec;
+wire            sdiq_entry11_alu0_reg_fwd_vld;
+wire            sdiq_entry11_alu1_reg_fwd_vld;
+wire            sdiq_entry11_create_dp_en;
+wire            sdiq_entry11_create_en;
+wire            sdiq_entry11_create_gateclk_en;
+wire            sdiq_entry11_ex1_frz_clr;
+wire            sdiq_entry11_issue_en;
+wire            sdiq_entry11_pop_cur_entry;
+wire    [10:0]  sdiq_entry11_pop_other_entry;
+wire            sdiq_entry11_rdy;
+wire    [26:0]  sdiq_entry11_read_data;
+wire            sdiq_entry11_rf_frz_clr;
+wire    [95:0]  sdiq_entry11_src0_preg_expand;
+wire    [63:0]  sdiq_entry11_srcf_freg_expand;
+wire    [63:0]  sdiq_entry11_srcv_vreg_expand;
+wire            sdiq_entry11_staddr_rdy_set;
+wire            sdiq_entry11_staddr_stq_create;
+wire            sdiq_entry11_vld;
+wire            sdiq_entry11_vld_with_frz;
+wire    [10:0]  sdiq_entry1_agevec;
+wire            sdiq_entry1_alu0_reg_fwd_vld;
+wire            sdiq_entry1_alu1_reg_fwd_vld;
+wire            sdiq_entry1_create_dp_en;
+wire            sdiq_entry1_create_en;
+wire            sdiq_entry1_create_gateclk_en;
+wire            sdiq_entry1_ex1_frz_clr;
+wire            sdiq_entry1_issue_en;
+wire            sdiq_entry1_pop_cur_entry;
+wire    [10:0]  sdiq_entry1_pop_other_entry;
+wire            sdiq_entry1_rdy;
+wire    [26:0]  sdiq_entry1_read_data;
+wire            sdiq_entry1_rf_frz_clr;
+wire    [95:0]  sdiq_entry1_src0_preg_expand;
+wire    [63:0]  sdiq_entry1_srcf_freg_expand;
+wire    [63:0]  sdiq_entry1_srcv_vreg_expand;
+wire            sdiq_entry1_staddr_rdy_set;
+wire            sdiq_entry1_staddr_stq_create;
+wire            sdiq_entry1_vld;
+wire            sdiq_entry1_vld_with_frz;
+wire    [10:0]  sdiq_entry2_agevec;
+wire            sdiq_entry2_alu0_reg_fwd_vld;
+wire            sdiq_entry2_alu1_reg_fwd_vld;
+wire            sdiq_entry2_create_dp_en;
+wire            sdiq_entry2_create_en;
+wire            sdiq_entry2_create_gateclk_en;
+wire            sdiq_entry2_ex1_frz_clr;
+wire            sdiq_entry2_issue_en;
+wire            sdiq_entry2_pop_cur_entry;
+wire    [10:0]  sdiq_entry2_pop_other_entry;
+wire            sdiq_entry2_rdy;
+wire    [26:0]  sdiq_entry2_read_data;
+wire            sdiq_entry2_rf_frz_clr;
+wire    [95:0]  sdiq_entry2_src0_preg_expand;
+wire    [63:0]  sdiq_entry2_srcf_freg_expand;
+wire    [63:0]  sdiq_entry2_srcv_vreg_expand;
+wire            sdiq_entry2_staddr_rdy_set;
+wire            sdiq_entry2_staddr_stq_create;
+wire            sdiq_entry2_vld;
+wire            sdiq_entry2_vld_with_frz;
+wire    [10:0]  sdiq_entry3_agevec;
+wire            sdiq_entry3_alu0_reg_fwd_vld;
+wire            sdiq_entry3_alu1_reg_fwd_vld;
+wire            sdiq_entry3_create_dp_en;
+wire            sdiq_entry3_create_en;
+wire            sdiq_entry3_create_gateclk_en;
+wire            sdiq_entry3_ex1_frz_clr;
+wire            sdiq_entry3_issue_en;
+wire            sdiq_entry3_pop_cur_entry;
+wire    [10:0]  sdiq_entry3_pop_other_entry;
+wire            sdiq_entry3_rdy;
+wire    [26:0]  sdiq_entry3_read_data;
+wire            sdiq_entry3_rf_frz_clr;
+wire    [95:0]  sdiq_entry3_src0_preg_expand;
+wire    [63:0]  sdiq_entry3_srcf_freg_expand;
+wire    [63:0]  sdiq_entry3_srcv_vreg_expand;
+wire            sdiq_entry3_staddr_rdy_set;
+wire            sdiq_entry3_staddr_stq_create;
+wire            sdiq_entry3_vld;
+wire            sdiq_entry3_vld_with_frz;
+wire    [10:0]  sdiq_entry4_agevec;
+wire            sdiq_entry4_alu0_reg_fwd_vld;
+wire            sdiq_entry4_alu1_reg_fwd_vld;
+wire            sdiq_entry4_create_dp_en;
+wire            sdiq_entry4_create_en;
+wire            sdiq_entry4_create_gateclk_en;
+wire            sdiq_entry4_ex1_frz_clr;
+wire            sdiq_entry4_issue_en;
+wire            sdiq_entry4_pop_cur_entry;
+wire    [10:0]  sdiq_entry4_pop_other_entry;
+wire            sdiq_entry4_rdy;
+wire    [26:0]  sdiq_entry4_read_data;
+wire            sdiq_entry4_rf_frz_clr;
+wire    [95:0]  sdiq_entry4_src0_preg_expand;
+wire    [63:0]  sdiq_entry4_srcf_freg_expand;
+wire    [63:0]  sdiq_entry4_srcv_vreg_expand;
+wire            sdiq_entry4_staddr_rdy_set;
+wire            sdiq_entry4_staddr_stq_create;
+wire            sdiq_entry4_vld;
+wire            sdiq_entry4_vld_with_frz;
+wire    [10:0]  sdiq_entry5_agevec;
+wire            sdiq_entry5_alu0_reg_fwd_vld;
+wire            sdiq_entry5_alu1_reg_fwd_vld;
+wire            sdiq_entry5_create_dp_en;
+wire            sdiq_entry5_create_en;
+wire            sdiq_entry5_create_gateclk_en;
+wire            sdiq_entry5_ex1_frz_clr;
+wire            sdiq_entry5_issue_en;
+wire            sdiq_entry5_pop_cur_entry;
+wire    [10:0]  sdiq_entry5_pop_other_entry;
+wire            sdiq_entry5_rdy;
+wire    [26:0]  sdiq_entry5_read_data;
+wire            sdiq_entry5_rf_frz_clr;
+wire    [95:0]  sdiq_entry5_src0_preg_expand;
+wire    [63:0]  sdiq_entry5_srcf_freg_expand;
+wire    [63:0]  sdiq_entry5_srcv_vreg_expand;
+wire            sdiq_entry5_staddr_rdy_set;
+wire            sdiq_entry5_staddr_stq_create;
+wire            sdiq_entry5_vld;
+wire            sdiq_entry5_vld_with_frz;
+wire    [10:0]  sdiq_entry6_agevec;
+wire            sdiq_entry6_alu0_reg_fwd_vld;
+wire            sdiq_entry6_alu1_reg_fwd_vld;
+wire            sdiq_entry6_create_dp_en;
+wire            sdiq_entry6_create_en;
+wire            sdiq_entry6_create_gateclk_en;
+wire            sdiq_entry6_ex1_frz_clr;
+wire            sdiq_entry6_issue_en;
+wire            sdiq_entry6_pop_cur_entry;
+wire    [10:0]  sdiq_entry6_pop_other_entry;
+wire            sdiq_entry6_rdy;
+wire    [26:0]  sdiq_entry6_read_data;
+wire            sdiq_entry6_rf_frz_clr;
+wire    [95:0]  sdiq_entry6_src0_preg_expand;
+wire    [63:0]  sdiq_entry6_srcf_freg_expand;
+wire    [63:0]  sdiq_entry6_srcv_vreg_expand;
+wire            sdiq_entry6_staddr_rdy_set;
+wire            sdiq_entry6_staddr_stq_create;
+wire            sdiq_entry6_vld;
+wire            sdiq_entry6_vld_with_frz;
+wire    [10:0]  sdiq_entry7_agevec;
+wire            sdiq_entry7_alu0_reg_fwd_vld;
+wire            sdiq_entry7_alu1_reg_fwd_vld;
+wire            sdiq_entry7_create_dp_en;
+wire            sdiq_entry7_create_en;
+wire            sdiq_entry7_create_gateclk_en;
+wire            sdiq_entry7_ex1_frz_clr;
+wire            sdiq_entry7_issue_en;
+wire            sdiq_entry7_pop_cur_entry;
+wire    [10:0]  sdiq_entry7_pop_other_entry;
+wire            sdiq_entry7_rdy;
+wire    [26:0]  sdiq_entry7_read_data;
+wire            sdiq_entry7_rf_frz_clr;
+wire    [95:0]  sdiq_entry7_src0_preg_expand;
+wire    [63:0]  sdiq_entry7_srcf_freg_expand;
+wire    [63:0]  sdiq_entry7_srcv_vreg_expand;
+wire            sdiq_entry7_staddr_rdy_set;
+wire            sdiq_entry7_staddr_stq_create;
+wire            sdiq_entry7_vld;
+wire            sdiq_entry7_vld_with_frz;
+wire    [10:0]  sdiq_entry8_agevec;
+wire            sdiq_entry8_alu0_reg_fwd_vld;
+wire            sdiq_entry8_alu1_reg_fwd_vld;
+wire            sdiq_entry8_create_dp_en;
+wire            sdiq_entry8_create_en;
+wire            sdiq_entry8_create_gateclk_en;
+wire            sdiq_entry8_ex1_frz_clr;
+wire            sdiq_entry8_issue_en;
+wire            sdiq_entry8_pop_cur_entry;
+wire    [10:0]  sdiq_entry8_pop_other_entry;
+wire            sdiq_entry8_rdy;
+wire    [26:0]  sdiq_entry8_read_data;
+wire            sdiq_entry8_rf_frz_clr;
+wire    [95:0]  sdiq_entry8_src0_preg_expand;
+wire    [63:0]  sdiq_entry8_srcf_freg_expand;
+wire    [63:0]  sdiq_entry8_srcv_vreg_expand;
+wire            sdiq_entry8_staddr_rdy_set;
+wire            sdiq_entry8_staddr_stq_create;
+wire            sdiq_entry8_vld;
+wire            sdiq_entry8_vld_with_frz;
+wire    [10:0]  sdiq_entry9_agevec;
+wire            sdiq_entry9_alu0_reg_fwd_vld;
+wire            sdiq_entry9_alu1_reg_fwd_vld;
+wire            sdiq_entry9_create_dp_en;
+wire            sdiq_entry9_create_en;
+wire            sdiq_entry9_create_gateclk_en;
+wire            sdiq_entry9_ex1_frz_clr;
+wire            sdiq_entry9_issue_en;
+wire            sdiq_entry9_pop_cur_entry;
+wire    [10:0]  sdiq_entry9_pop_other_entry;
+wire            sdiq_entry9_rdy;
+wire    [26:0]  sdiq_entry9_read_data;
+wire            sdiq_entry9_rf_frz_clr;
+wire    [95:0]  sdiq_entry9_src0_preg_expand;
+wire    [63:0]  sdiq_entry9_srcf_freg_expand;
+wire    [63:0]  sdiq_entry9_srcv_vreg_expand;
+wire            sdiq_entry9_staddr_rdy_set;
+wire            sdiq_entry9_staddr_stq_create;
+wire            sdiq_entry9_vld;
+wire            sdiq_entry9_vld_with_frz;
+wire    [3 :0]  sdiq_entry_cnt_create;
+wire            sdiq_entry_cnt_create_0;
+wire            sdiq_entry_cnt_create_1;
+wire            sdiq_entry_cnt_create_2;
+wire    [3 :0]  sdiq_entry_cnt_pop;
+wire            sdiq_entry_cnt_pop_0;
+wire            sdiq_entry_cnt_pop_1;
+wire    [3 :0]  sdiq_entry_cnt_updt_val;
+wire            sdiq_entry_cnt_updt_vld;
+wire    [11:0]  sdiq_entry_create0_agevec;
+wire    [11:0]  sdiq_entry_create1_agevec;
+wire    [11:0]  sdiq_entry_create_dp_en;
+wire    [11:0]  sdiq_entry_create_en;
+wire    [11:0]  sdiq_entry_create_gateclk_en;
+wire    [11:0]  sdiq_entry_create_sel;
+wire    [11:0]  sdiq_entry_ex1_frz_clr;
+wire    [11:0]  sdiq_entry_issue_en;
+wire    [11:0]  sdiq_entry_ready;
+wire    [11:0]  sdiq_entry_rf_frz_clr;
+wire    [11:0]  sdiq_entry_staddr_rdy_set;
+wire    [11:0]  sdiq_entry_staddr_stq_create;
+wire    [11:0]  sdiq_entry_vld;
+wire    [11:0]  sdiq_older_entry_ready;
+wire    [95:0]  sdiq_src0_preg_dealloc_mask_updt;
+wire            sdiq_src_reg_mask_update_vld;
+wire    [63:0]  sdiq_srcf_freg_dealloc_mask_updt;
+wire    [63:0]  sdiq_srcv_vreg_dealloc_mask_updt;
+wire    [3 :0]  sdiq_top_sdiq_entry_cnt;
+wire            sdiq_xx_gateclk_issue_en;
+wire            sdiq_xx_issue_en;
+wire            src_mask_clk;
+wire            src_mask_clk_en;
+wire            vfpu_idu_ex1_pipe6_data_vld_dupx;
+wire            vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_preg_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_vreg_dupx;
+wire            vfpu_idu_ex1_pipe7_data_vld_dupx;
+wire            vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_preg_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_vreg_dupx;
+wire            vfpu_idu_ex2_pipe6_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex2_pipe6_vreg_dupx;
+wire            vfpu_idu_ex2_pipe7_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex2_pipe7_vreg_dupx;
+wire            vfpu_idu_ex3_pipe6_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex3_pipe6_vreg_dupx;
+wire            vfpu_idu_ex3_pipe7_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex3_pipe7_vreg_dupx;
+wire    [6 :0]  vfpu_idu_ex5_pipe6_wb_vreg_dupx;
+wire            vfpu_idu_ex5_pipe6_wb_vreg_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex5_pipe7_wb_vreg_dupx;
+wire            vfpu_idu_ex5_pipe7_wb_vreg_vld_dupx;
 
 
 parameter SDIQ_WIDTH = 27;
@@ -717,7 +717,7 @@ assign sdiq_dp_create1_entry[11:0] = sdiq_entry_create1_in[11:0];
 
 //stdata inst should wait for staddr launch, cannot bypass
 
-assign sdiq_entry_vld[11:0] = 
+assign sdiq_entry_vld[11:0] =
          {sdiq_entry11_vld, sdiq_entry10_vld, sdiq_entry9_vld, sdiq_entry8_vld,
           sdiq_entry7_vld,  sdiq_entry6_vld,  sdiq_entry5_vld, sdiq_entry4_vld,
           sdiq_entry3_vld,  sdiq_entry2_vld,  sdiq_entry1_vld, sdiq_entry0_vld};
@@ -931,7 +931,7 @@ begin
   else begin
     sdiq_entry1_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:2],
                                        sdiq_entry_create1_agevec[0]};
-    sdiq_entry1_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry1_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @303
@@ -956,7 +956,7 @@ begin
   else begin
     sdiq_entry2_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:3],
                                        sdiq_entry_create1_agevec[1:0]};
-    sdiq_entry2_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry2_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @319
@@ -981,7 +981,7 @@ begin
   else begin
     sdiq_entry3_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:4],
                                        sdiq_entry_create1_agevec[2:0]};
-    sdiq_entry3_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry3_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @335
@@ -1006,7 +1006,7 @@ begin
   else begin
     sdiq_entry4_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:5],
                                        sdiq_entry_create1_agevec[3:0]};
-    sdiq_entry4_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry4_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @351
@@ -1031,7 +1031,7 @@ begin
   else begin
     sdiq_entry5_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:6],
                                        sdiq_entry_create1_agevec[4:0]};
-    sdiq_entry5_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry5_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @367
@@ -1056,7 +1056,7 @@ begin
   else begin
     sdiq_entry6_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:7],
                                        sdiq_entry_create1_agevec[5:0]};
-    sdiq_entry6_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry6_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @383
@@ -1081,7 +1081,7 @@ begin
   else begin
     sdiq_entry7_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:8],
                                        sdiq_entry_create1_agevec[6:0]};
-    sdiq_entry7_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry7_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @399
@@ -1106,7 +1106,7 @@ begin
   else begin
     sdiq_entry8_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:9],
                                        sdiq_entry_create1_agevec[7:0]};
-    sdiq_entry8_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry8_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @415
@@ -1131,7 +1131,7 @@ begin
   else begin
     sdiq_entry9_create_agevec[10:0] = {sdiq_entry_create1_agevec[11:10],
                                        sdiq_entry_create1_agevec[8:0]};
-    sdiq_entry9_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry9_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @431
@@ -1156,7 +1156,7 @@ begin
   else begin
     sdiq_entry10_create_agevec[10:0] = {sdiq_entry_create1_agevec[11],
                                         sdiq_entry_create1_agevec[9:0]};
-    sdiq_entry10_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry10_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @447
@@ -1177,7 +1177,7 @@ begin
   end
   else begin
     sdiq_entry11_create_agevec[10:0] = sdiq_entry_create1_agevec[10:0];
-    sdiq_entry11_create_data[SDIQ_WIDTH-1:0] = 
+    sdiq_entry11_create_data[SDIQ_WIDTH-1:0] =
        dp_sdiq_create1_data[SDIQ_WIDTH-1:0];
   end
 // &CombEnd; @461
@@ -1297,7 +1297,7 @@ assign sdiq_dp_issue_entry[11:0]       = sdiq_entry_issue_en[11:0];
 
 //-----------------issue data path selection----------------
 //issue data path will select oldest ready entry in issue queue
-//if no instruction valid, the data path will always select bypass 
+//if no instruction valid, the data path will always select bypass
 //data path
 // &CombBeg; @579
 always @( sdiq_entry8_read_data[26:0]
@@ -1346,7 +1346,7 @@ begin
 end
 
 //sdiq cannot bypass
-assign sdiq_dp_issue_read_data[SDIQ_WIDTH-1:0] = 
+assign sdiq_dp_issue_read_data[SDIQ_WIDTH-1:0] =
          sdiq_entry_read_data[SDIQ_WIDTH-1:0];
 
 //==========================================================
@@ -1356,31 +1356,31 @@ assign sdiq_dp_issue_read_data[SDIQ_WIDTH-1:0] =
 //pop when rf launch pass
 assign {sdiq_entry0_pop_other_entry[10:0],
         sdiq_entry0_pop_cur_entry}          = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry1_pop_other_entry[10:1],  
+assign {sdiq_entry1_pop_other_entry[10:1],
         sdiq_entry1_pop_cur_entry,
         sdiq_entry1_pop_other_entry[0]}     = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry2_pop_other_entry[10:2],  
+assign {sdiq_entry2_pop_other_entry[10:2],
         sdiq_entry2_pop_cur_entry,
         sdiq_entry2_pop_other_entry[1:0]}   = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry3_pop_other_entry[10:3],  
+assign {sdiq_entry3_pop_other_entry[10:3],
         sdiq_entry3_pop_cur_entry,
         sdiq_entry3_pop_other_entry[2:0]}   = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry4_pop_other_entry[10:4],  
+assign {sdiq_entry4_pop_other_entry[10:4],
         sdiq_entry4_pop_cur_entry,
         sdiq_entry4_pop_other_entry[3:0]}   = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry5_pop_other_entry[10:5],  
+assign {sdiq_entry5_pop_other_entry[10:5],
         sdiq_entry5_pop_cur_entry,
         sdiq_entry5_pop_other_entry[4:0]}   = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry6_pop_other_entry[10:6],  
+assign {sdiq_entry6_pop_other_entry[10:6],
         sdiq_entry6_pop_cur_entry,
         sdiq_entry6_pop_other_entry[5:0]}   = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry7_pop_other_entry[10:7],  
+assign {sdiq_entry7_pop_other_entry[10:7],
         sdiq_entry7_pop_cur_entry,
         sdiq_entry7_pop_other_entry[6:0]}   = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry8_pop_other_entry[10:8],  
+assign {sdiq_entry8_pop_other_entry[10:8],
         sdiq_entry8_pop_cur_entry,
         sdiq_entry8_pop_other_entry[7:0]}   = lsu_idu_ex1_sdiq_entry[11:0];
-assign {sdiq_entry9_pop_other_entry[10:9],  
+assign {sdiq_entry9_pop_other_entry[10:9],
         sdiq_entry9_pop_cur_entry,
         sdiq_entry9_pop_other_entry[8:0]}   = lsu_idu_ex1_sdiq_entry[11:0];
 assign {sdiq_entry10_pop_other_entry[10],

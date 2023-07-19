@@ -20,14 +20,14 @@ module ct_rtu_expand_64(
 );
 
 // &Ports; @25
-input   [5 :0]  x_num;       
-output  [63:0]  x_num_expand; 
+input   [5 :0]  x_num;
+output  [63:0]  x_num_expand;
 
 // &Regs; @26
 
 // &Wires; @27
-wire    [5 :0]  x_num;       
-wire    [63:0]  x_num_expand; 
+wire    [5 :0]  x_num;
+wire    [63:0]  x_num_expand;
 
 
 //==========================================================

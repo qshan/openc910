@@ -45,28 +45,28 @@ module uart_baud_gen(
 );
 
 
-input   [15:0]  ctrl_baud_gen_divisor;     
-input           ctrl_baud_gen_set_dllh_vld; 
-input           rst_b;                     
-input           sys_clk;                   
-output          receive_clk_en;            
-output          trans_clk_en;              
+input   [15:0]  ctrl_baud_gen_divisor;
+input           ctrl_baud_gen_set_dllh_vld;
+input           rst_b;
+input           sys_clk;
+output          receive_clk_en;
+output          trans_clk_en;
 
 
-reg     [15:0]  clk_counter;               
-reg             receive_clk_en;            
-reg     [3 :0]  trans_clk_counter;         
+reg     [15:0]  clk_counter;
+reg             receive_clk_en;
+reg     [3 :0]  trans_clk_counter;
 
 
-wire            clk_divisor_start_en;      
-wire            clk_negedge_en;            
-wire    [15:0]  ctrl_baud_gen_divisor;     
-wire            ctrl_baud_gen_set_dllh_vld; 
-wire            divisor_more_then_3;       
-wire            rst_b;                     
-wire            sys_clk;                   
-wire            trans_clk_en;              
-wire            trans_clk_posedge_en;      
+wire            clk_divisor_start_en;
+wire            clk_negedge_en;
+wire    [15:0]  ctrl_baud_gen_divisor;
+wire            ctrl_baud_gen_set_dllh_vld;
+wire            divisor_more_then_3;
+wire            rst_b;
+wire            sys_clk;
+wire            trans_clk_en;
+wire            trans_clk_posedge_en;
 
 
 
@@ -94,15 +94,15 @@ wire            trans_clk_posedge_en;
 assign clk_divisor_start_en = |ctrl_baud_gen_divisor[15:0];
 
 assign clk_negedge_en  = (clk_counter[15:0] == ctrl_baud_gen_divisor[15:0]) ? 1 : 0 ;
- 
-always@(posedge sys_clk or negedge rst_b) 
-begin 
-  if(!rst_b) 
+
+always@(posedge sys_clk or negedge rst_b)
+begin
+  if(!rst_b)
     clk_counter[15:0] <= 16'b1;
   else if(ctrl_baud_gen_set_dllh_vld)
     clk_counter[15:0] <= 16'b1;
   else if(clk_negedge_en)
-    clk_counter[15:0] <= 1'b1; 
+    clk_counter[15:0] <= 1'b1;
   else if(clk_divisor_start_en)
     clk_counter[15:0] <= clk_counter[15:0]+1;
   else
@@ -151,9 +151,9 @@ always@(posedge sys_clk or negedge rst_b)
 begin
   if(!rst_b)
    trans_clk_counter[3:0] <= 4'b0;
-  else if(receive_clk_en) 
+  else if(receive_clk_en)
    trans_clk_counter[3:0] <= trans_clk_counter[3:0] + 1'b1;
-  else 
+  else
    trans_clk_counter[3:0] <= trans_clk_counter[3:0];
 end
 

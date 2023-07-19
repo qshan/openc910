@@ -15,7 +15,7 @@ limitations under the License.
 
 module wid_for_axi4(
   biu_pad_awid,
-  biu_pad_awvalid, 
+  biu_pad_awvalid,
   pad_biu_awready,
   biu_pad_wvalid,
   biu_pad_wlast,
@@ -26,52 +26,52 @@ module wid_for_axi4(
 );
 
 
-input   [7:0]  biu_pad_awid;  
-input          pad_cpu_rst_b; 
-input          per_clk;       
-input          biu_pad_awvalid;       
-input          pad_biu_awready;       
-input          biu_pad_wvalid;       
-input          biu_pad_wlast;       
-input          pad_biu_wready;       
+input   [7:0]  biu_pad_awid;
+input          pad_cpu_rst_b;
+input          per_clk;
+input          biu_pad_awvalid;
+input          pad_biu_awready;
+input          biu_pad_wvalid;
+input          biu_pad_wlast;
+input          pad_biu_wready;
 output  [7:0]  biu_pad_wid;
 
-reg     [4  :0]  wid_fifo_create;        
-reg     [4  :0]  wid_fifo_pop;           
-reg     [7  :0]  wid_m1_8;               
-wire    [7  :0]  wid_0;                  
-wire    [7  :0]  wid_1;                  
-wire    [7  :0]  wid_10;                 
-wire    [7  :0]  wid_11;                 
-wire    [7  :0]  wid_12;                 
-wire    [7  :0]  wid_13;                 
-wire    [7  :0]  wid_14;                 
-wire    [7  :0]  wid_15;                 
-wire    [7  :0]  wid_16;                 
-wire    [7  :0]  wid_17;                 
-wire    [7  :0]  wid_18;                 
-wire    [7  :0]  wid_19;                 
-wire    [7  :0]  wid_2;                  
-wire    [7  :0]  wid_20;                 
-wire    [7  :0]  wid_21;                 
-wire    [7  :0]  wid_22;                 
-wire    [7  :0]  wid_23;                 
-wire    [7  :0]  wid_24;                 
-wire    [7  :0]  wid_25;                 
-wire    [7  :0]  wid_26;                 
-wire    [7  :0]  wid_27;                 
-wire    [7  :0]  wid_28;                 
-wire    [7  :0]  wid_29;                 
-wire    [7  :0]  wid_3;                  
-wire    [7  :0]  wid_30;                 
-wire    [7  :0]  wid_31;                 
-wire    [7  :0]  wid_4;                  
-wire    [7  :0]  wid_5;                  
-wire    [7  :0]  wid_6;                  
-wire    [7  :0]  wid_7;                  
-wire    [7  :0]  wid_8;                  
-wire    [7  :0]  wid_9;                  
-wire    [31 :0]  wid_entry_push;         
+reg     [4  :0]  wid_fifo_create;
+reg     [4  :0]  wid_fifo_pop;
+reg     [7  :0]  wid_m1_8;
+wire    [7  :0]  wid_0;
+wire    [7  :0]  wid_1;
+wire    [7  :0]  wid_10;
+wire    [7  :0]  wid_11;
+wire    [7  :0]  wid_12;
+wire    [7  :0]  wid_13;
+wire    [7  :0]  wid_14;
+wire    [7  :0]  wid_15;
+wire    [7  :0]  wid_16;
+wire    [7  :0]  wid_17;
+wire    [7  :0]  wid_18;
+wire    [7  :0]  wid_19;
+wire    [7  :0]  wid_2;
+wire    [7  :0]  wid_20;
+wire    [7  :0]  wid_21;
+wire    [7  :0]  wid_22;
+wire    [7  :0]  wid_23;
+wire    [7  :0]  wid_24;
+wire    [7  :0]  wid_25;
+wire    [7  :0]  wid_26;
+wire    [7  :0]  wid_27;
+wire    [7  :0]  wid_28;
+wire    [7  :0]  wid_29;
+wire    [7  :0]  wid_3;
+wire    [7  :0]  wid_30;
+wire    [7  :0]  wid_31;
+wire    [7  :0]  wid_4;
+wire    [7  :0]  wid_5;
+wire    [7  :0]  wid_6;
+wire    [7  :0]  wid_7;
+wire    [7  :0]  wid_8;
+wire    [7  :0]  wid_9;
+wire    [31 :0]  wid_entry_push;
 
 assign create_en = biu_pad_awvalid && pad_biu_awready;
 

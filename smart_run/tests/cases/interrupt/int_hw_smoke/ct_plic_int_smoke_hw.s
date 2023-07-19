@@ -42,15 +42,15 @@ main:
   la   t1, vector_table + 128  #intterrupt start address
   addi t0,x0,\EXP_CODE
   slli t0,t0,0x3
-  add  t1,t1,t0   
+  add  t1,t1,t0
 
   la   t0, \HANDLER_BEGIN
-  sd   t0, 0(t1) 
+  sd   t0, 0(t1)
 
   ld   t1, -32(sp)
   ld   t0, -24(sp)
   j    \HANDLER_END
- 
+
   ld   a4, -16(sp)
 .endm
 
@@ -102,14 +102,14 @@ int_end:
 #//-------------------//
 #//   INIT BEGIN      //
 ##//-------------------//
-#//enable cpu int ie 
+#//enable cpu int ie
       li x10,0xa
       csrs mstatus,x10
 #//enable meie
       li x10,0x800
       csrs mie,x10
 
-#//set threshold highest to mask all 
+#//set threshold highest to mask all
 .global set_mthreshold_mask
 set_mthreshold_mask:
       li x5, PLICBASE_M
@@ -136,7 +136,7 @@ init_prio:
       li x8, 0xa
       sw x8, 0x40(x7)
 
-#//enable id 1  mie 
+#//enable id 1  mie
 .global init_ie
 init_ie:
       li x5, PLICBASE_M
@@ -157,7 +157,7 @@ set_mthreshold_off:
 #//-------------------//
 #//   WAIT FOR INT     //
 #//-------------------//
-#//wait int 
+#//wait int
 
       wfi
 .global EXIT
@@ -166,7 +166,7 @@ EXIT:
   jr   x1
 .global FAIL
 FAIL:
-   la   x1, __fail 
+   la   x1, __fail
   jr   x1
 #******this region is added by generator******
 

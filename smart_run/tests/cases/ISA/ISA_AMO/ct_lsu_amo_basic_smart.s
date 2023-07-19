@@ -42,11 +42,11 @@ start:   # first round :cache enable; second round: cache disable
       la x20,fail
 .global check_amoswap
 check_amoswap:
-      ori x11,x11,0x00000061D      # gen one addr 
+      ori x11,x11,0x00000061D      # gen one addr
       andi x11,x11,-8
-      li x15,0x78AF40619DEE61FC      
+      li x15,0x78AF40619DEE61FC
       sd x15,0x000000000(x11)       #store the data
-      li x9,0xC2052BDC086A5C50      
+      li x9,0xC2052BDC086A5C50
       amoswap.d x13,x9, (x11)      #check the data
       bne x15,x13, inner_fail_random_loop1_9
       ld x16,(x11)                 #check the store data
@@ -57,13 +57,13 @@ inner_fail_random_loop1_9:
       jr x20
 .global pass_random_loop1_9
 pass_random_loop1_9:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x0000002A1      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x0000002A1
       andi x11,x11,-8
-      li x15,0xC5A3C9C3D8452FE5      
-      sd x15,0x000000000(x11)      
-      li x9,0x703AD3C65D5F5DD      
-      amoswap.d.rl x13,x9, (x11)      
+      li x15,0xC5A3C9C3D8452FE5
+      sd x15,0x000000000(x11)
+      li x9,0x703AD3C65D5F5DD
+      amoswap.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail_random_loop1_8
       ld x16,(x11)
       bne x16,x9,inner_fail_random_loop1_8
@@ -73,13 +73,13 @@ inner_fail_random_loop1_8:
       jr x20
 .global pass_random_loop1_8
 pass_random_loop1_8:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x000000278      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x000000278
       andi x11,x11,-8
-      li x15,0x4D5CB0AEE2F1A939      
-      sd x15,0x000000000(x11)      
-      li x9,0x28107386258F3519      
-      amoswap.d.aqrl x13,x9, (x11)      
+      li x15,0x4D5CB0AEE2F1A939
+      sd x15,0x000000000(x11)
+      li x9,0x28107386258F3519
+      amoswap.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail_random_loop1_7
       ld x16,(x11)
       bne x16,x9,inner_fail_random_loop1_7
@@ -89,13 +89,13 @@ inner_fail_random_loop1_7:
       jr x20
 .global pass_random_loop1_7
 pass_random_loop1_7:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x0000001F5      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x0000001F5
       andi x11,x11,-8
-      li x15,0xADDA85EF299B4373      
-      sd x15,0x000000000(x11)      
-      li x9,0x4A0E404744C68E0E      
-      amoswap.d.aq x13,x9, (x11)      
+      li x15,0xADDA85EF299B4373
+      sd x15,0x000000000(x11)
+      li x9,0x4A0E404744C68E0E
+      amoswap.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail_random_loop1_6
       ld x16,(x11)
       bne x16,x9,inner_fail_random_loop1_6
@@ -105,13 +105,13 @@ inner_fail_random_loop1_6:
       jr x20
 .global pass_random_loop1_6
 pass_random_loop1_6:
-      sd x14,0x000000000(x11)      
-      ori x11,x11,0x00000034C      
+      sd x14,0x000000000(x11)
+      ori x11,x11,0x00000034C
       andi x11,x11,-8
-      li x15,0x5A8F5135EF3F81CC      
-      sd x15,0x000000000(x11)      
-      li x9,0x3C85981913C58F08      
-      amoswap.d x13,x9, (x11)      
+      li x15,0x5A8F5135EF3F81CC
+      sd x15,0x000000000(x11)
+      li x9,0x3C85981913C58F08
+      amoswap.d x13,x9, (x11)
       bne x15,x13, inner_fail_random_loop1_5
       ld x16,(x11)
       bne x16,x9,inner_fail_random_loop1_5
@@ -121,13 +121,13 @@ inner_fail_random_loop1_5:
       jr x20
 .global pass_random_loop1_5
 pass_random_loop1_5:
-      c.lw x8,0x00(x11)      
-      ori x11,x11,0x00000005F      
+      c.lw x8,0x00(x11)
+      ori x11,x11,0x00000005F
       andi x11,x11,-8
-      li x15,0xB89F96341F4AD6E      
-      sd x15,0x000000000(x11)      
-      li x9,0xD60E8444FE0AD4C1      
-      amoswap.d.rl x13,x9, (x11)      
+      li x15,0xB89F96341F4AD6E
+      sd x15,0x000000000(x11)
+      li x9,0xD60E8444FE0AD4C1
+      amoswap.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail_random_loop1_4
       ld x16,(x11)
       bne x16,x9,inner_fail_random_loop1_4
@@ -137,13 +137,13 @@ inner_fail_random_loop1_4:
       jr x20
 .global pass_random_loop1_4
 pass_random_loop1_4:
-      lb x10,0x000000000(x11)      
-      ori x11,x11,0x000000628      
+      lb x10,0x000000000(x11)
+      ori x11,x11,0x000000628
       andi x11,x11,-8
-      li x15,0x3C3F0749C6387073      
-      sd x15,0x000000000(x11)      
-      li x9,0xD6267670592AE0F4      
-      amoswap.d.rl x13,x9, (x11)      
+      li x15,0x3C3F0749C6387073
+      sd x15,0x000000000(x11)
+      li x9,0xD6267670592AE0F4
+      amoswap.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail_random_loop1_3
       ld x16,(x11)
       bne x16,x9,inner_fail_random_loop1_3
@@ -153,13 +153,13 @@ inner_fail_random_loop1_3:
       jr x20
 .global pass_random_loop1_3
 pass_random_loop1_3:
-      c.lw x10,0x00(x11)      
-      ori x11,x11,0x0000006E5      
+      c.lw x10,0x00(x11)
+      ori x11,x11,0x0000006E5
       andi x11,x11,-8
-      li x15,0x338CF320664A871B      
-      sd x15,0x000000000(x11)      
-      li x9,0x912806A0AFCA5733      
-      amoswap.d.aq x13,x9, (x11)      
+      li x15,0x338CF320664A871B
+      sd x15,0x000000000(x11)
+      li x9,0x912806A0AFCA5733
+      amoswap.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail_random_loop1_2
       ld x16,(x11)
       bne x16,x9,inner_fail_random_loop1_2
@@ -169,13 +169,13 @@ inner_fail_random_loop1_2:
       jr x20
 .global pass_random_loop1_2
 pass_random_loop1_2:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x000000459      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x000000459
       andi x11,x11,-8
-      li x15,0x6AFD77EC04225BD3      
-      sd x15,0x000000000(x11)      
-      li x9,0xE7C6ECF08325ECA3      
-      amoswap.d.aqrl x13,x9, (x11)      
+      li x15,0x6AFD77EC04225BD3
+      sd x15,0x000000000(x11)
+      li x9,0xE7C6ECF08325ECA3
+      amoswap.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail_random_loop1_1
       ld x16,(x11)
       bne x16,x9,inner_fail_random_loop1_1
@@ -185,13 +185,13 @@ inner_fail_random_loop1_1:
       jr x20
 .global pass_random_loop1_1
 pass_random_loop1_1:
-      sd x15,0x000000000(x11)      
-      ori x11,x11,0x0000002AE      
+      sd x15,0x000000000(x11)
+      ori x11,x11,0x0000002AE
       andi x11,x11,-8
-      li x15,0xBB067D0A550FFCA0      
-      sd x15,0x000000000(x11)      
-      li x9,0xE5A06833AC03479B      
-      amoswap.d.rl x13,x9, (x11)      
+      li x15,0xBB067D0A550FFCA0
+      sd x15,0x000000000(x11)
+      li x9,0xE5A06833AC03479B
+      amoswap.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail
       ld x16,(x11)
       bne x16,x9,inner_fail
@@ -201,15 +201,15 @@ inner_fail:
       jr x20
 .global pass
 pass:
-      ld x10,0x000000000(x11)      
+      ld x10,0x000000000(x11)
 .global check_amoadd
 check_amoadd:
-      ori x11,x11,0x00000053F      
+      ori x11,x11,0x00000053F
       andi x11,x11,-8
-      li x15,0xC6BF45091D2D45D4      
-      sd x15,0x000000000(x11)      
-      li x9,0x2EC1B86F76416156      
-      amoadd.d.rl x13,x9, (x11)      
+      li x15,0xC6BF45091D2D45D4
+      sd x15,0x000000000(x11)
+      li x9,0x2EC1B86F76416156
+      amoadd.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_9
       ld x16,(x11)
       add x9,x9,x15
@@ -220,13 +220,13 @@ inner_fail2_random_loop2_9:
       jr x20
 .global pass2_random_loop2_9
 pass2_random_loop2_9:
-      lwu x10,0x000000000(x11)      
-      ori x11,x11,0x00000056E      
+      lwu x10,0x000000000(x11)
+      ori x11,x11,0x00000056E
       andi x11,x11,-8
-      li x15,0x29A0A31A3297C7BB      
-      sd x15,0x000000000(x11)      
-      li x9,0xE9422290AA7FE9CA      
-      amoadd.d.aqrl x13,x9, (x11)      
+      li x15,0x29A0A31A3297C7BB
+      sd x15,0x000000000(x11)
+      li x9,0xE9422290AA7FE9CA
+      amoadd.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_8
       ld x16,(x11)
       add x9,x9,x15
@@ -237,13 +237,13 @@ inner_fail2_random_loop2_8:
       jr x20
 .global pass2_random_loop2_8
 pass2_random_loop2_8:
-      lwu x9,0x000000000(x11)      
-      ori x11,x11,0x000000690      
+      lwu x9,0x000000000(x11)
+      ori x11,x11,0x000000690
       andi x11,x11,-8
-      li x15,0x4B28DDF2389A830B      
-      sd x15,0x000000000(x11)      
-      li x9,0xFEE47A17E34EF60B      
-      amoadd.d.rl x13,x9, (x11)      
+      li x15,0x4B28DDF2389A830B
+      sd x15,0x000000000(x11)
+      li x9,0xFEE47A17E34EF60B
+      amoadd.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_7
       ld x16,(x11)
       add x9,x9,x15
@@ -254,13 +254,13 @@ inner_fail2_random_loop2_7:
       jr x20
 .global pass2_random_loop2_7
 pass2_random_loop2_7:
-      lb x9,0x000000000(x11)      
-      ori x11,x11,0x0000006C7      
+      lb x9,0x000000000(x11)
+      ori x11,x11,0x0000006C7
       andi x11,x11,-8
-      li x15,0x3A5B7E0B5ED9F554      
-      sd x15,0x000000000(x11)      
-      li x9,0x8AC7EA4C84F5DEFD      
-      amoadd.d x13,x9, (x11)      
+      li x15,0x3A5B7E0B5ED9F554
+      sd x15,0x000000000(x11)
+      li x9,0x8AC7EA4C84F5DEFD
+      amoadd.d x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_6
       ld x16,(x11)
       add x9,x9,x15
@@ -271,13 +271,13 @@ inner_fail2_random_loop2_6:
       jr x20
 .global pass2_random_loop2_6
 pass2_random_loop2_6:
-      c.lw x10,0x00(x11)      
-      ori x11,x11,0x000000722      
+      c.lw x10,0x00(x11)
+      ori x11,x11,0x000000722
       andi x11,x11,-8
-      li x15,0xF969C3F8B44CF0BA      
-      sd x15,0x000000000(x11)      
-      li x9,0x1D5F037079E9E742      
-      amoadd.d x13,x9, (x11)      
+      li x15,0xF969C3F8B44CF0BA
+      sd x15,0x000000000(x11)
+      li x9,0x1D5F037079E9E742
+      amoadd.d x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_5
       ld x16,(x11)
       add x9,x9,x15
@@ -288,13 +288,13 @@ inner_fail2_random_loop2_5:
       jr x20
 .global pass2_random_loop2_5
 pass2_random_loop2_5:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x00000078C      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x00000078C
       andi x11,x11,-8
-      li x15,0x79003DD03FE621EA      
-      sd x15,0x000000000(x11)      
-      li x9,0x8DA64176ED26D1C9      
-      amoadd.d x13,x9, (x11)      
+      li x15,0x79003DD03FE621EA
+      sd x15,0x000000000(x11)
+      li x9,0x8DA64176ED26D1C9
+      amoadd.d x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_4
       ld x16,(x11)
       add x9,x9,x15
@@ -305,13 +305,13 @@ inner_fail2_random_loop2_4:
       jr x20
 .global pass2_random_loop2_4
 pass2_random_loop2_4:
-      sd x14,0x000000000(x11)      
-      ori x11,x11,0x0000003CD      
+      sd x14,0x000000000(x11)
+      ori x11,x11,0x0000003CD
       andi x11,x11,-8
-      li x15,0x670A8FAD36BA826D      
-      sd x15,0x000000000(x11)      
-      li x9,0xE1D5BDB3B377A115      
-      amoadd.d.rl x13,x9, (x11)      
+      li x15,0x670A8FAD36BA826D
+      sd x15,0x000000000(x11)
+      li x9,0xE1D5BDB3B377A115
+      amoadd.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_3
       ld x16,(x11)
       add x9,x9,x15
@@ -322,13 +322,13 @@ inner_fail2_random_loop2_3:
       jr x20
 .global pass2_random_loop2_3
 pass2_random_loop2_3:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x0000005F3      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x0000005F3
       andi x11,x11,-8
-      li x15,0x916276CD872D9445      
-      sd x15,0x000000000(x11)      
-      li x9,0x590DD2403A47272      
-      amoadd.d.aqrl x13,x9, (x11)      
+      li x15,0x916276CD872D9445
+      sd x15,0x000000000(x11)
+      li x9,0x590DD2403A47272
+      amoadd.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_2
       ld x16,(x11)
       add x9,x9,x15
@@ -339,13 +339,13 @@ inner_fail2_random_loop2_2:
       jr x20
 .global pass2_random_loop2_2
 pass2_random_loop2_2:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x0000006A1      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x0000006A1
       andi x11,x11,-8
-      li x15,0x9D3B2628383BAA5F      
-      sd x15,0x000000000(x11)      
-      li x9,0x451067B9F3F11606      
-      amoadd.d x13,x9, (x11)      
+      li x15,0x9D3B2628383BAA5F
+      sd x15,0x000000000(x11)
+      li x9,0x451067B9F3F11606
+      amoadd.d x13,x9, (x11)
       bne x15,x13, inner_fail2_random_loop2_1
       ld x16,(x11)
       add x9,x9,x15
@@ -356,13 +356,13 @@ inner_fail2_random_loop2_1:
       jr x20
 .global pass2_random_loop2_1
 pass2_random_loop2_1:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x0000003DC      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x0000003DC
       andi x11,x11,-8
-      li x15,0xC429929DC5529C3B      
-      sd x15,0x000000000(x11)      
-      li x9,0xF8F998C135A55771      
-      amoadd.d.aq x13,x9, (x11)      
+      li x15,0xC429929DC5529C3B
+      sd x15,0x000000000(x11)
+      li x9,0xF8F998C135A55771
+      amoadd.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail2
       ld x16,(x11)
       add x9,x9,x15
@@ -373,15 +373,15 @@ inner_fail2:
       jr x20
 .global pass2
 pass2:
-      ld x9,0x000000000(x11)      
+      ld x9,0x000000000(x11)
 .global check_amoor
 check_amoor:
-      ori x11,x11,0x000000766      
+      ori x11,x11,0x000000766
       andi x11,x11,-8
-      li x15,0xCB6C1E8C04B5D28B      
-      sd x15,0x000000000(x11)      
-      li x9,0x2ED4511BD61624CF      
-      amoor.d.aqrl x13,x9, (x11)      
+      li x15,0xCB6C1E8C04B5D28B
+      sd x15,0x000000000(x11)
+      li x9,0x2ED4511BD61624CF
+      amoor.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_9
       ld x16,(x11)
       or x9,x9,x15
@@ -392,13 +392,13 @@ inner_fail3_random_loop3_9:
       jr x20
 .global pass3_random_loop3_9
 pass3_random_loop3_9:
-      lwu x9,0x000000000(x11)      
-      ori x11,x11,0x000000388      
+      lwu x9,0x000000000(x11)
+      ori x11,x11,0x000000388
       andi x11,x11,-8
-      li x15,0x4244275623B017A7      
-      sd x15,0x000000000(x11)      
-      li x9,0xF38D2178CDC065A4      
-      amoor.d.aq x13,x9, (x11)      
+      li x15,0x4244275623B017A7
+      sd x15,0x000000000(x11)
+      li x9,0xF38D2178CDC065A4
+      amoor.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_8
       ld x16,(x11)
       or x9,x9,x15
@@ -409,13 +409,13 @@ inner_fail3_random_loop3_8:
       jr x20
 .global pass3_random_loop3_8
 pass3_random_loop3_8:
-      lw x8,0x000000000(x11)      
-      ori x11,x11,0x0000004F5      
+      lw x8,0x000000000(x11)
+      ori x11,x11,0x0000004F5
       andi x11,x11,-8
-      li x15,0x1E17CD0E52016701      
-      sd x15,0x000000000(x11)      
-      li x9,0xD824689BF6A9C1B1      
-      amoor.d.aqrl x13,x9, (x11)      
+      li x15,0x1E17CD0E52016701
+      sd x15,0x000000000(x11)
+      li x9,0xD824689BF6A9C1B1
+      amoor.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_7
       ld x16,(x11)
       or x9,x9,x15
@@ -426,13 +426,13 @@ inner_fail3_random_loop3_7:
       jr x20
 .global pass3_random_loop3_7
 pass3_random_loop3_7:
-      sw x14,0x000000000(x11)      
-      ori x11,x11,0x0000001E9      
+      sw x14,0x000000000(x11)
+      ori x11,x11,0x0000001E9
       andi x11,x11,-8
-      li x15,0x1A715ADF612AB8FE      
-      sd x15,0x000000000(x11)      
-      li x9,0xBA09000513328E47      
-      amoor.d.aq x13,x9, (x11)      
+      li x15,0x1A715ADF612AB8FE
+      sd x15,0x000000000(x11)
+      li x9,0xBA09000513328E47
+      amoor.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_6
       ld x16,(x11)
       or x9,x9,x15
@@ -443,13 +443,13 @@ inner_fail3_random_loop3_6:
       jr x20
 .global pass3_random_loop3_6
 pass3_random_loop3_6:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x000000576      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x000000576
       andi x11,x11,-8
-      li x15,0x89F1B514830521C0      
-      sd x15,0x000000000(x11)      
-      li x9,0xC58C2C2AAB1D4FD2      
-      amoor.d x13,x9, (x11)      
+      li x15,0x89F1B514830521C0
+      sd x15,0x000000000(x11)
+      li x9,0xC58C2C2AAB1D4FD2
+      amoor.d x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_5
       ld x16,(x11)
       or x9,x9,x15
@@ -460,13 +460,13 @@ inner_fail3_random_loop3_5:
       jr x20
 .global pass3_random_loop3_5
 pass3_random_loop3_5:
-      lb x10,0x000000000(x11)      
-      ori x11,x11,0x00000026B      
+      lb x10,0x000000000(x11)
+      ori x11,x11,0x00000026B
       andi x11,x11,-8
-      li x15,0xA2A49509BDB598A4      
-      sd x15,0x000000000(x11)      
-      li x9,0x6B65BFFF85A94B1A      
-      amoor.d.aq x13,x9, (x11)      
+      li x15,0xA2A49509BDB598A4
+      sd x15,0x000000000(x11)
+      li x9,0x6B65BFFF85A94B1A
+      amoor.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_4
       ld x16,(x11)
       or x9,x9,x15
@@ -477,13 +477,13 @@ inner_fail3_random_loop3_4:
       jr x20
 .global pass3_random_loop3_4
 pass3_random_loop3_4:
-      lwu x9,0x000000000(x11)      
-      ori x11,x11,0x00000030F      
+      lwu x9,0x000000000(x11)
+      ori x11,x11,0x00000030F
       andi x11,x11,-8
-      li x15,0x3162F6255F987E81      
-      sd x15,0x000000000(x11)      
-      li x9,0x65383C30468CC7AC      
-      amoor.d.aqrl x13,x9, (x11)      
+      li x15,0x3162F6255F987E81
+      sd x15,0x000000000(x11)
+      li x9,0x65383C30468CC7AC
+      amoor.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_3
       ld x16,(x11)
       or x9,x9,x15
@@ -494,13 +494,13 @@ inner_fail3_random_loop3_3:
       jr x20
 .global pass3_random_loop3_3
 pass3_random_loop3_3:
-      lwu x9,0x000000000(x11)      
-      ori x11,x11,0x000000596      
+      lwu x9,0x000000000(x11)
+      ori x11,x11,0x000000596
       andi x11,x11,-8
-      li x15,0xAA0074C795944BE2      
-      sd x15,0x000000000(x11)      
-      li x9,0x14D9328DBE280A62      
-      amoor.d.aq x13,x9, (x11)      
+      li x15,0xAA0074C795944BE2
+      sd x15,0x000000000(x11)
+      li x9,0x14D9328DBE280A62
+      amoor.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_2
       ld x16,(x11)
       or x9,x9,x15
@@ -511,13 +511,13 @@ inner_fail3_random_loop3_2:
       jr x20
 .global pass3_random_loop3_2
 pass3_random_loop3_2:
-      lb x10,0x000000000(x11)      
-      ori x11,x11,0x00000035D      
+      lb x10,0x000000000(x11)
+      ori x11,x11,0x00000035D
       andi x11,x11,-8
-      li x15,0xE932B4155BE2E318      
-      sd x15,0x000000000(x11)      
-      li x9,0x741E2C5F13E7C25      
-      amoor.d x13,x9, (x11)      
+      li x15,0xE932B4155BE2E318
+      sd x15,0x000000000(x11)
+      li x9,0x741E2C5F13E7C25
+      amoor.d x13,x9, (x11)
       bne x15,x13, inner_fail3_random_loop3_1
       ld x16,(x11)
       or x9,x9,x15
@@ -528,13 +528,13 @@ inner_fail3_random_loop3_1:
       jr x20
 .global pass3_random_loop3_1
 pass3_random_loop3_1:
-      ld x8,0x000000000(x11)      
-      ori x11,x11,0x0000005DF      
+      ld x8,0x000000000(x11)
+      ori x11,x11,0x0000005DF
       andi x11,x11,-8
-      li x15,0x3E9E72802E40028B      
-      sd x15,0x000000000(x11)      
-      li x9,0xEC72E0E7E007599D      
-      amoor.d x13,x9, (x11)      
+      li x15,0x3E9E72802E40028B
+      sd x15,0x000000000(x11)
+      li x9,0xEC72E0E7E007599D
+      amoor.d x13,x9, (x11)
       bne x15,x13, inner_fail3
       ld x16,(x11)
       or x9,x9,x15
@@ -545,15 +545,15 @@ inner_fail3:
       jr x20
 .global pass3
 pass3:
-      lhu x10,0x000000000(x11)      
+      lhu x10,0x000000000(x11)
 .global check_amoand
 check_amoand:
-      ori x11,x11,0x000000601      
+      ori x11,x11,0x000000601
       andi x11,x11,-8
-      li x15,0xAE33BC078D1E425F      
-      sd x15,0x000000000(x11)      
-      li x9,0x182D2549966E579B      
-      amoand.d.rl x13,x9, (x11)      
+      li x15,0xAE33BC078D1E425F
+      sd x15,0x000000000(x11)
+      li x9,0x182D2549966E579B
+      amoand.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_9
       ld x16,(x11)
       and x9,x9,x15
@@ -564,13 +564,13 @@ inner_fail4_random_loop4_9:
       jr x20
 .global pass4_random_loop4_9
 pass4_random_loop4_9:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x000000713      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x000000713
       andi x11,x11,-8
-      li x15,0xC246D56064563360      
-      sd x15,0x000000000(x11)      
-      li x9,0xA5FAB1965399AFD2      
-      amoand.d.aq x13,x9, (x11)      
+      li x15,0xC246D56064563360
+      sd x15,0x000000000(x11)
+      li x9,0xA5FAB1965399AFD2
+      amoand.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_8
       ld x16,(x11)
       and x9,x9,x15
@@ -581,13 +581,13 @@ inner_fail4_random_loop4_8:
       jr x20
 .global pass4_random_loop4_8
 pass4_random_loop4_8:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x000000080      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x000000080
       andi x11,x11,-8
-      li x15,0x62D9B0AFE55753E9      
-      sd x15,0x000000000(x11)      
-      li x9,0xEF4ED2AE11DD58FB      
-      amoand.d.rl x13,x9, (x11)      
+      li x15,0x62D9B0AFE55753E9
+      sd x15,0x000000000(x11)
+      li x9,0xEF4ED2AE11DD58FB
+      amoand.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_7
       ld x16,(x11)
       and x9,x9,x15
@@ -598,13 +598,13 @@ inner_fail4_random_loop4_7:
       jr x20
 .global pass4_random_loop4_7
 pass4_random_loop4_7:
-      sw x14,0x000000000(x11)      
-      ori x11,x11,0x0000002E3      
+      sw x14,0x000000000(x11)
+      ori x11,x11,0x0000002E3
       andi x11,x11,-8
-      li x15,0x450BF1B13F1D3C8A      
-      sd x15,0x000000000(x11)      
-      li x9,0xF8B9D4789C0FDA40      
-      amoand.d.rl x13,x9, (x11)      
+      li x15,0x450BF1B13F1D3C8A
+      sd x15,0x000000000(x11)
+      li x9,0xF8B9D4789C0FDA40
+      amoand.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_6
       ld x16,(x11)
       and x9,x9,x15
@@ -615,13 +615,13 @@ inner_fail4_random_loop4_6:
       jr x20
 .global pass4_random_loop4_6
 pass4_random_loop4_6:
-      lh x10,0x000000000(x11)      
-      ori x11,x11,0x0000002B8      
+      lh x10,0x000000000(x11)
+      ori x11,x11,0x0000002B8
       andi x11,x11,-8
-      li x15,0xDCBB2A46E3ECBF8D      
-      sd x15,0x000000000(x11)      
-      li x9,0xBBF7B79D703225F8      
-      amoand.d x13,x9, (x11)      
+      li x15,0xDCBB2A46E3ECBF8D
+      sd x15,0x000000000(x11)
+      li x9,0xBBF7B79D703225F8
+      amoand.d x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_5
       ld x16,(x11)
       and x9,x9,x15
@@ -632,13 +632,13 @@ inner_fail4_random_loop4_5:
       jr x20
 .global pass4_random_loop4_5
 pass4_random_loop4_5:
-      lbu x10,0x000000000(x11)      
-      ori x11,x11,0x0000004C3      
+      lbu x10,0x000000000(x11)
+      ori x11,x11,0x0000004C3
       andi x11,x11,-8
-      li x15,0x38A4FD28FFFE18D5      
-      sd x15,0x000000000(x11)      
-      li x9,0x31D49B9AACB93D8      
-      amoand.d.aq x13,x9, (x11)      
+      li x15,0x38A4FD28FFFE18D5
+      sd x15,0x000000000(x11)
+      li x9,0x31D49B9AACB93D8
+      amoand.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_4
       ld x16,(x11)
       and x9,x9,x15
@@ -649,13 +649,13 @@ inner_fail4_random_loop4_4:
       jr x20
 .global pass4_random_loop4_4
 pass4_random_loop4_4:
-      c.lw x10,0x00(x11)      
-      ori x11,x11,0x000000515      
+      c.lw x10,0x00(x11)
+      ori x11,x11,0x000000515
       andi x11,x11,-8
-      li x15,0xC43E60C8423165B5      
-      sd x15,0x000000000(x11)      
-      li x9,0x6D928223690AC806      
-      amoand.d x13,x9, (x11)      
+      li x15,0xC43E60C8423165B5
+      sd x15,0x000000000(x11)
+      li x9,0x6D928223690AC806
+      amoand.d x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_3
       ld x16,(x11)
       and x9,x9,x15
@@ -666,13 +666,13 @@ inner_fail4_random_loop4_3:
       jr x20
 .global pass4_random_loop4_3
 pass4_random_loop4_3:
-      lw x10,0x000000000(x11)      
-      ori x11,x11,0x00000045B      
+      lw x10,0x000000000(x11)
+      ori x11,x11,0x00000045B
       andi x11,x11,-8
-      li x15,0x51A4077B35A7DB4D      
-      sd x15,0x000000000(x11)      
-      li x9,0xE36DAEE180FD42E6      
-      amoand.d.rl x13,x9, (x11)      
+      li x15,0x51A4077B35A7DB4D
+      sd x15,0x000000000(x11)
+      li x9,0xE36DAEE180FD42E6
+      amoand.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_2
       ld x16,(x11)
       and x9,x9,x15
@@ -683,13 +683,13 @@ inner_fail4_random_loop4_2:
       jr x20
 .global pass4_random_loop4_2
 pass4_random_loop4_2:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x000000483      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x000000483
       andi x11,x11,-8
-      li x15,0x406C73CFC12B98BD      
-      sd x15,0x000000000(x11)      
-      li x9,0x6AA62963FF909E8A      
-      amoand.d x13,x9, (x11)      
+      li x15,0x406C73CFC12B98BD
+      sd x15,0x000000000(x11)
+      li x9,0x6AA62963FF909E8A
+      amoand.d x13,x9, (x11)
       bne x15,x13, inner_fail4_random_loop4_1
       ld x16,(x11)
       and x9,x9,x15
@@ -700,13 +700,13 @@ inner_fail4_random_loop4_1:
       jr x20
 .global pass4_random_loop4_1
 pass4_random_loop4_1:
-      lwu x8,0x000000000(x11)      
-      ori x11,x11,0x00000042D      
+      lwu x8,0x000000000(x11)
+      ori x11,x11,0x00000042D
       andi x11,x11,-8
-      li x15,0x1FA9B06FE3028067      
-      sd x15,0x000000000(x11)      
-      li x9,0xB59520CD9849EC8D      
-      amoand.d x13,x9, (x11)      
+      li x15,0x1FA9B06FE3028067
+      sd x15,0x000000000(x11)
+      li x9,0xB59520CD9849EC8D
+      amoand.d x13,x9, (x11)
       bne x15,x13, inner_fail4
       ld x16,(x11)
       and x9,x9,x15
@@ -717,15 +717,15 @@ inner_fail4:
       jr x20
 .global pass4
 pass4:
-      lbu x10,0x000000000(x11)      
+      lbu x10,0x000000000(x11)
 .global check_amoxor
 check_amoxor:
-      ori x11,x11,0x00000055A      
+      ori x11,x11,0x00000055A
       andi x11,x11,-8
-      li x15,0xC7873E15DD6F2295      
-      sd x15,0x000000000(x11)      
-      li x9,0x7D16B9D308CA816E      
-      amoxor.d x13,x9, (x11)      
+      li x15,0xC7873E15DD6F2295
+      sd x15,0x000000000(x11)
+      li x9,0x7D16B9D308CA816E
+      amoxor.d x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_9
       ld x16,(x11)
       xor x9,x9,x15
@@ -736,13 +736,13 @@ inner_fail5_random_loop5_9:
       jr x20
 .global pass5_random_loop5_9
 pass5_random_loop5_9:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x00000026E      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x00000026E
       andi x11,x11,-8
-      li x15,0xDB7B5DF7845DA128      
-      sd x15,0x000000000(x11)      
-      li x9,0x7C00BCCA7882BB7      
-      amoxor.d.rl x13,x9, (x11)      
+      li x15,0xDB7B5DF7845DA128
+      sd x15,0x000000000(x11)
+      li x9,0x7C00BCCA7882BB7
+      amoxor.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_8
       ld x16,(x11)
       xor x9,x9,x15
@@ -753,13 +753,13 @@ inner_fail5_random_loop5_8:
       jr x20
 .global pass5_random_loop5_8
 pass5_random_loop5_8:
-      lwu x8,0x000000000(x11)      
-      ori x11,x11,0x00000002F      
+      lwu x8,0x000000000(x11)
+      ori x11,x11,0x00000002F
       andi x11,x11,-8
-      li x15,0xD412C71E1A3167FE      
-      sd x15,0x000000000(x11)      
-      li x9,0x26690CE1885E5962      
-      amoxor.d.rl x13,x9, (x11)      
+      li x15,0xD412C71E1A3167FE
+      sd x15,0x000000000(x11)
+      li x9,0x26690CE1885E5962
+      amoxor.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_7
       ld x16,(x11)
       xor x9,x9,x15
@@ -770,13 +770,13 @@ inner_fail5_random_loop5_7:
       jr x20
 .global pass5_random_loop5_7
 pass5_random_loop5_7:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x000000387      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x000000387
       andi x11,x11,-8
-      li x15,0xFF76C217B467F829      
-      sd x15,0x000000000(x11)      
-      li x9,0x76171DCE3A9B9094      
-      amoxor.d.aq x13,x9, (x11)      
+      li x15,0xFF76C217B467F829
+      sd x15,0x000000000(x11)
+      li x9,0x76171DCE3A9B9094
+      amoxor.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_6
       ld x16,(x11)
       xor x9,x9,x15
@@ -787,13 +787,13 @@ inner_fail5_random_loop5_6:
       jr x20
 .global pass5_random_loop5_6
 pass5_random_loop5_6:
-      c.lw x9,0x00(x11)      
-      ori x11,x11,0x000000163      
+      c.lw x9,0x00(x11)
+      ori x11,x11,0x000000163
       andi x11,x11,-8
-      li x15,0x84BE5B443F5D8E78      
-      sd x15,0x000000000(x11)      
-      li x9,0xC078CCC3A78C517E      
-      amoxor.d x13,x9, (x11)      
+      li x15,0x84BE5B443F5D8E78
+      sd x15,0x000000000(x11)
+      li x9,0xC078CCC3A78C517E
+      amoxor.d x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_5
       ld x16,(x11)
       xor x9,x9,x15
@@ -804,13 +804,13 @@ inner_fail5_random_loop5_5:
       jr x20
 .global pass5_random_loop5_5
 pass5_random_loop5_5:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x000000128      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x000000128
       andi x11,x11,-8
-      li x15,0xFF7E6565A5C1C225      
-      sd x15,0x000000000(x11)      
-      li x9,0xA4404923D9C162A8      
-      amoxor.d.aqrl x13,x9, (x11)      
+      li x15,0xFF7E6565A5C1C225
+      sd x15,0x000000000(x11)
+      li x9,0xA4404923D9C162A8
+      amoxor.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_4
       ld x16,(x11)
       xor x9,x9,x15
@@ -821,13 +821,13 @@ inner_fail5_random_loop5_4:
       jr x20
 .global pass5_random_loop5_4
 pass5_random_loop5_4:
-      lbu x8,0x000000000(x11)      
-      ori x11,x11,0x000000039      
+      lbu x8,0x000000000(x11)
+      ori x11,x11,0x000000039
       andi x11,x11,-8
-      li x15,0x40127DB3C48C2F23      
-      sd x15,0x000000000(x11)      
-      li x9,0xFD343D2C0B5F30A      
-      amoxor.d.rl x13,x9, (x11)      
+      li x15,0x40127DB3C48C2F23
+      sd x15,0x000000000(x11)
+      li x9,0xFD343D2C0B5F30A
+      amoxor.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_3
       ld x16,(x11)
       xor x9,x9,x15
@@ -838,13 +838,13 @@ inner_fail5_random_loop5_3:
       jr x20
 .global pass5_random_loop5_3
 pass5_random_loop5_3:
-      lwu x8,0x000000000(x11)      
-      ori x11,x11,0x0000000AA      
+      lwu x8,0x000000000(x11)
+      ori x11,x11,0x0000000AA
       andi x11,x11,-8
-      li x15,0xFF8AB19835DC3364      
-      sd x15,0x000000000(x11)      
-      li x9,0xB8DA905408D87974      
-      amoxor.d x13,x9, (x11)      
+      li x15,0xFF8AB19835DC3364
+      sd x15,0x000000000(x11)
+      li x9,0xB8DA905408D87974
+      amoxor.d x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_2
       ld x16,(x11)
       xor x9,x9,x15
@@ -855,13 +855,13 @@ inner_fail5_random_loop5_2:
       jr x20
 .global pass5_random_loop5_2
 pass5_random_loop5_2:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x000000678      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x000000678
       andi x11,x11,-8
-      li x15,0xC8C65EDC9E016CC4      
-      sd x15,0x000000000(x11)      
-      li x9,0xCD79D888EEC60C40      
-      amoxor.d.rl x13,x9, (x11)      
+      li x15,0xC8C65EDC9E016CC4
+      sd x15,0x000000000(x11)
+      li x9,0xCD79D888EEC60C40
+      amoxor.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail5_random_loop5_1
       ld x16,(x11)
       xor x9,x9,x15
@@ -872,13 +872,13 @@ inner_fail5_random_loop5_1:
       jr x20
 .global pass5_random_loop5_1
 pass5_random_loop5_1:
-      lwu x10,0x000000000(x11)      
-      ori x11,x11,0x0000006D3      
+      lwu x10,0x000000000(x11)
+      ori x11,x11,0x0000006D3
       andi x11,x11,-8
-      li x15,0xE9C9F332E42CD424      
-      sd x15,0x000000000(x11)      
-      li x9,0xE0F307071C988575      
-      amoxor.d.aqrl x13,x9, (x11)      
+      li x15,0xE9C9F332E42CD424
+      sd x15,0x000000000(x11)
+      li x9,0xE0F307071C988575
+      amoxor.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail5
       ld x16,(x11)
       xor x9,x9,x15
@@ -889,15 +889,15 @@ inner_fail5:
       jr x20
 .global pass5
 pass5:
-      sw x13,0x000000000(x11)      
+      sw x13,0x000000000(x11)
 .global check_amomin
 check_amomin:
-      ori x11,x11,0x0000002A4      
+      ori x11,x11,0x0000002A4
       andi x11,x11,-8
-      li x15,0x41DC8F62892370EB      
-      sd x15,0x000000000(x11)      
-      li x9,0x4A79AFB3F9CC6497      
-      amomin.d.aqrl x13,x9, (x11)      
+      li x15,0x41DC8F62892370EB
+      sd x15,0x000000000(x11)
+      li x9,0x4A79AFB3F9CC6497
+      amomin.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_9
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_9
@@ -912,13 +912,13 @@ inner_fail6_random_loop6_9:
       jr x20
 .global pass6_random_loop6_9
 pass6_random_loop6_9:
-      ld x9,0x000000000(x11)      
-      ori x11,x11,0x0000001C3      
+      ld x9,0x000000000(x11)
+      ori x11,x11,0x0000001C3
       andi x11,x11,-8
-      li x15,0x3B45DED6BEDAF9EF      
-      sd x15,0x000000000(x11)      
-      li x9,0xA5679FADEF32B65A      
-      amomin.d x13,x9, (x11)      
+      li x15,0x3B45DED6BEDAF9EF
+      sd x15,0x000000000(x11)
+      li x9,0xA5679FADEF32B65A
+      amomin.d x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_8
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_8
@@ -933,13 +933,13 @@ inner_fail6_random_loop6_8:
       jr x20
 .global pass6_random_loop6_8
 pass6_random_loop6_8:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x00000047C      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x00000047C
       andi x11,x11,-8
-      li x15,0x24C2FBDE9AB67C65      
-      sd x15,0x000000000(x11)      
-      li x9,0xEC8DFB1144879031      
-      amomin.d.aqrl x13,x9, (x11)      
+      li x15,0x24C2FBDE9AB67C65
+      sd x15,0x000000000(x11)
+      li x9,0xEC8DFB1144879031
+      amomin.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_7
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_7
@@ -954,13 +954,13 @@ inner_fail6_random_loop6_7:
       jr x20
 .global pass6_random_loop6_7
 pass6_random_loop6_7:
-      lh x8,0x000000000(x11)      
-      ori x11,x11,0x000000225      
+      lh x8,0x000000000(x11)
+      ori x11,x11,0x000000225
       andi x11,x11,-8
-      li x15,0x658FD6F0F0BFA5C8      
-      sd x15,0x000000000(x11)      
-      li x9,0x38E8FAC67DF62EC8      
-      amomin.d.aqrl x13,x9, (x11)      
+      li x15,0x658FD6F0F0BFA5C8
+      sd x15,0x000000000(x11)
+      li x9,0x38E8FAC67DF62EC8
+      amomin.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_6
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_6
@@ -975,13 +975,13 @@ inner_fail6_random_loop6_6:
       jr x20
 .global pass6_random_loop6_6
 pass6_random_loop6_6:
-      c.sw x15,0x00(x11)      
-      ori x11,x11,0x000000545      
+      c.sw x15,0x00(x11)
+      ori x11,x11,0x000000545
       andi x11,x11,-8
-      li x15,0xFD367B90EA64CB7B      
-      sd x15,0x000000000(x11)      
-      li x9,0xFC753793B1B7D0CF      
-      amomin.d x13,x9, (x11)      
+      li x15,0xFD367B90EA64CB7B
+      sd x15,0x000000000(x11)
+      li x9,0xFC753793B1B7D0CF
+      amomin.d x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_5
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_5
@@ -996,13 +996,13 @@ inner_fail6_random_loop6_5:
       jr x20
 .global pass6_random_loop6_5
 pass6_random_loop6_5:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x000000018      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x000000018
       andi x11,x11,-8
-      li x15,0x3D6582457FCDBED9      
-      sd x15,0x000000000(x11)      
-      li x9,0x617C5B8B8AD1C3AD      
-      amomin.d.aq x13,x9, (x11)      
+      li x15,0x3D6582457FCDBED9
+      sd x15,0x000000000(x11)
+      li x9,0x617C5B8B8AD1C3AD
+      amomin.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_4
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_4
@@ -1017,13 +1017,13 @@ inner_fail6_random_loop6_4:
       jr x20
 .global pass6_random_loop6_4
 pass6_random_loop6_4:
-      sw x13,0x000000000(x11)      
-      ori x11,x11,0x0000001FE      
+      sw x13,0x000000000(x11)
+      ori x11,x11,0x0000001FE
       andi x11,x11,-8
-      li x15,0xF10FC7A4F0A7BCFF      
-      sd x15,0x000000000(x11)      
-      li x9,0x6BA4EBE03D3E3C43      
-      amomin.d.aq x13,x9, (x11)      
+      li x15,0xF10FC7A4F0A7BCFF
+      sd x15,0x000000000(x11)
+      li x9,0x6BA4EBE03D3E3C43
+      amomin.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_3
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_3
@@ -1038,13 +1038,13 @@ inner_fail6_random_loop6_3:
       jr x20
 .global pass6_random_loop6_3
 pass6_random_loop6_3:
-      lb x10,0x000000000(x11)      
-      ori x11,x11,0x000000799      
+      lb x10,0x000000000(x11)
+      ori x11,x11,0x000000799
       andi x11,x11,-8
-      li x15,0x3310F34CC9638523      
-      sd x15,0x000000000(x11)      
-      li x9,0x8123D02C3668211D      
-      amomin.d.aqrl x13,x9, (x11)      
+      li x15,0x3310F34CC9638523
+      sd x15,0x000000000(x11)
+      li x9,0x8123D02C3668211D
+      amomin.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_2
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_2
@@ -1059,13 +1059,13 @@ inner_fail6_random_loop6_2:
       jr x20
 .global pass6_random_loop6_2
 pass6_random_loop6_2:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x0000006AE      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x0000006AE
       andi x11,x11,-8
-      li x15,0x842E00C281B5A884      
-      sd x15,0x000000000(x11)      
-      li x9,0x19328E6AAB310324      
-      amomin.d.aq x13,x9, (x11)      
+      li x15,0x842E00C281B5A884
+      sd x15,0x000000000(x11)
+      li x9,0x19328E6AAB310324
+      amomin.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail6_random_loop6_1
       ld x16,(x11)
       blt x9,x13,mem_val_random_loop6_1
@@ -1080,13 +1080,13 @@ inner_fail6_random_loop6_1:
       jr x20
 .global pass6_random_loop6_1
 pass6_random_loop6_1:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x0000001AD      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x0000001AD
       andi x11,x11,-8
-      li x15,0xB1C7FFCA6C467682      
-      sd x15,0x000000000(x11)      
-      li x9,0xE1172D0DD428A2CF      
-      amomin.d.aq x13,x9, (x11)      
+      li x15,0xB1C7FFCA6C467682
+      sd x15,0x000000000(x11)
+      li x9,0xE1172D0DD428A2CF
+      amomin.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail6
       ld x16,(x11)
       blt x9,x13,mem_val
@@ -1101,15 +1101,15 @@ inner_fail6:
       jr x20
 .global pass6
 pass6:
-      sw x15,0x000000000(x11)      
+      sw x15,0x000000000(x11)
 .global check_amominu
 check_amominu:
-      ori x11,x11,0x00000018C      
+      ori x11,x11,0x00000018C
       andi x11,x11,-8
-      li x15,0x8E54C34924A80DF      
-      sd x15,0x000000000(x11)      
-      li x9,0xF5D02C2FF442F8F      
-      amominu.d.rl x13,x9, (x11)      
+      li x15,0x8E54C34924A80DF
+      sd x15,0x000000000(x11)
+      li x9,0xF5D02C2FF442F8F
+      amominu.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_9
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_9
@@ -1124,13 +1124,13 @@ inner_fail7_random_loop7_9:
       jr x20
 .global pass7_random_loop7_9
 pass7_random_loop7_9:
-      lw x8,0x000000000(x11)      
-      ori x11,x11,0x000000339      
+      lw x8,0x000000000(x11)
+      ori x11,x11,0x000000339
       andi x11,x11,-8
-      li x15,0xE8420FD2A09CE07C      
-      sd x15,0x000000000(x11)      
-      li x9,0x2E472959501FE808      
-      amominu.d.aq x13,x9, (x11)      
+      li x15,0xE8420FD2A09CE07C
+      sd x15,0x000000000(x11)
+      li x9,0x2E472959501FE808
+      amominu.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_8
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_8
@@ -1145,13 +1145,13 @@ inner_fail7_random_loop7_8:
       jr x20
 .global pass7_random_loop7_8
 pass7_random_loop7_8:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x000000584      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x000000584
       andi x11,x11,-8
-      li x15,0xCF2EF74C4822FD92      
-      sd x15,0x000000000(x11)      
-      li x9,0x78BAD7D29EEB6B51      
-      amominu.d x13,x9, (x11)      
+      li x15,0xCF2EF74C4822FD92
+      sd x15,0x000000000(x11)
+      li x9,0x78BAD7D29EEB6B51
+      amominu.d x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_7
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_7
@@ -1166,13 +1166,13 @@ inner_fail7_random_loop7_7:
       jr x20
 .global pass7_random_loop7_7
 pass7_random_loop7_7:
-      lwu x9,0x000000000(x11)      
-      ori x11,x11,0x00000051F      
+      lwu x9,0x000000000(x11)
+      ori x11,x11,0x00000051F
       andi x11,x11,-8
-      li x15,0x7B415528583EAB55      
-      sd x15,0x000000000(x11)      
-      li x9,0xEE69A7DBD2D04768      
-      amominu.d.rl x13,x9, (x11)      
+      li x15,0x7B415528583EAB55
+      sd x15,0x000000000(x11)
+      li x9,0xEE69A7DBD2D04768
+      amominu.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_6
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_6
@@ -1187,13 +1187,13 @@ inner_fail7_random_loop7_6:
       jr x20
 .global pass7_random_loop7_6
 pass7_random_loop7_6:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x00000025F      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x00000025F
       andi x11,x11,-8
-      li x15,0xE388268E8BE11D98      
-      sd x15,0x000000000(x11)      
-      li x9,0xFAEC565940E38C0      
-      amominu.d.aq x13,x9, (x11)      
+      li x15,0xE388268E8BE11D98
+      sd x15,0x000000000(x11)
+      li x9,0xFAEC565940E38C0
+      amominu.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_5
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_5
@@ -1208,13 +1208,13 @@ inner_fail7_random_loop7_5:
       jr x20
 .global pass7_random_loop7_5
 pass7_random_loop7_5:
-      lw x8,0x000000000(x11)      
-      ori x11,x11,0x00000026E      
+      lw x8,0x000000000(x11)
+      ori x11,x11,0x00000026E
       andi x11,x11,-8
-      li x15,0x1554EA4B3E9B2124      
-      sd x15,0x000000000(x11)      
-      li x9,0x7B9BEFBBF0F0D1EC      
-      amominu.d x13,x9, (x11)      
+      li x15,0x1554EA4B3E9B2124
+      sd x15,0x000000000(x11)
+      li x9,0x7B9BEFBBF0F0D1EC
+      amominu.d x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_4
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_4
@@ -1229,13 +1229,13 @@ inner_fail7_random_loop7_4:
       jr x20
 .global pass7_random_loop7_4
 pass7_random_loop7_4:
-      sw x15,0x000000000(x11)      
-      ori x11,x11,0x0000005CF      
+      sw x15,0x000000000(x11)
+      ori x11,x11,0x0000005CF
       andi x11,x11,-8
-      li x15,0xF5BEC1E8FA8A3A08      
-      sd x15,0x000000000(x11)      
-      li x9,0xB977979410A498A1      
-      amominu.d x13,x9, (x11)      
+      li x15,0xF5BEC1E8FA8A3A08
+      sd x15,0x000000000(x11)
+      li x9,0xB977979410A498A1
+      amominu.d x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_3
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_3
@@ -1250,13 +1250,13 @@ inner_fail7_random_loop7_3:
       jr x20
 .global pass7_random_loop7_3
 pass7_random_loop7_3:
-      c.sw x15,0x00(x11)      
-      ori x11,x11,0x0000005F9      
+      c.sw x15,0x00(x11)
+      ori x11,x11,0x0000005F9
       andi x11,x11,-8
-      li x15,0x672342E8F84626D1      
-      sd x15,0x000000000(x11)      
-      li x9,0xA54C78A7083D2391      
-      amominu.d x13,x9, (x11)      
+      li x15,0x672342E8F84626D1
+      sd x15,0x000000000(x11)
+      li x9,0xA54C78A7083D2391
+      amominu.d x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_2
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_2
@@ -1271,13 +1271,13 @@ inner_fail7_random_loop7_2:
       jr x20
 .global pass7_random_loop7_2
 pass7_random_loop7_2:
-      c.lw x9,0x00(x11)      
-      ori x11,x11,0x0000001FC      
+      c.lw x9,0x00(x11)
+      ori x11,x11,0x0000001FC
       andi x11,x11,-8
-      li x15,0xE4A19E187258EE6      
-      sd x15,0x000000000(x11)      
-      li x9,0x762F8F38322185F8      
-      amominu.d x13,x9, (x11)      
+      li x15,0xE4A19E187258EE6
+      sd x15,0x000000000(x11)
+      li x9,0x762F8F38322185F8
+      amominu.d x13,x9, (x11)
       bne x15,x13, inner_fail7_random_loop7_1
       ld x16,(x11)
       bltu x9,x13,mem_val2_random_loop7_1
@@ -1292,13 +1292,13 @@ inner_fail7_random_loop7_1:
       jr x20
 .global pass7_random_loop7_1
 pass7_random_loop7_1:
-      lwu x9,0x000000000(x11)      
-      ori x11,x11,0x00000025F      
+      lwu x9,0x000000000(x11)
+      ori x11,x11,0x00000025F
       andi x11,x11,-8
-      li x15,0x5E2BD68694EC2339      
-      sd x15,0x000000000(x11)      
-      li x9,0x1BCA8635DBF29CEB      
-      amominu.d.aqrl x13,x9, (x11)      
+      li x15,0x5E2BD68694EC2339
+      sd x15,0x000000000(x11)
+      li x9,0x1BCA8635DBF29CEB
+      amominu.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail7
       ld x16,(x11)
       bltu x9,x13,mem_val2
@@ -1313,15 +1313,15 @@ inner_fail7:
       jr x20
 .global pass7
 pass7:
-      lw x8,0x000000000(x11)      
+      lw x8,0x000000000(x11)
 .global check_amomax
 check_amomax:
-      ori x11,x11,0x0000003B5      
+      ori x11,x11,0x0000003B5
       andi x11,x11,-8
-      li x15,0xECE9517564D0AD53      
-      sd x15,0x000000000(x11)      
-      li x9,0x1D1912810ACE2772      
-      amomax.d.aqrl x13,x9, (x11)      
+      li x15,0xECE9517564D0AD53
+      sd x15,0x000000000(x11)
+      li x9,0x1D1912810ACE2772
+      amomax.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_9
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_9
@@ -1336,13 +1336,13 @@ inner_fail8_random_loop8_9:
       jr x20
 .global pass8_random_loop8_9
 pass8_random_loop8_9:
-      lb x10,0x000000000(x11)      
-      ori x11,x11,0x000000346      
+      lb x10,0x000000000(x11)
+      ori x11,x11,0x000000346
       andi x11,x11,-8
-      li x15,0x1EA88ACF2C9773EC      
-      sd x15,0x000000000(x11)      
-      li x9,0xAF3E8094312716A6      
-      amomax.d.aqrl x13,x9, (x11)      
+      li x15,0x1EA88ACF2C9773EC
+      sd x15,0x000000000(x11)
+      li x9,0xAF3E8094312716A6
+      amomax.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_8
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_8
@@ -1357,13 +1357,13 @@ inner_fail8_random_loop8_8:
       jr x20
 .global pass8_random_loop8_8
 pass8_random_loop8_8:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x00000032E      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x00000032E
       andi x11,x11,-8
-      li x15,0xF92E3F31D95389E3      
-      sd x15,0x000000000(x11)      
-      li x9,0x9BB8D35059FC3B6F      
-      amomax.d.aq x13,x9, (x11)      
+      li x15,0xF92E3F31D95389E3
+      sd x15,0x000000000(x11)
+      li x9,0x9BB8D35059FC3B6F
+      amomax.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_7
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_7
@@ -1378,13 +1378,13 @@ inner_fail8_random_loop8_7:
       jr x20
 .global pass8_random_loop8_7
 pass8_random_loop8_7:
-      sw x15,0x000000000(x11)      
-      ori x11,x11,0x000000458      
+      sw x15,0x000000000(x11)
+      ori x11,x11,0x000000458
       andi x11,x11,-8
-      li x15,0xF2BE7049FDB4F4F7      
-      sd x15,0x000000000(x11)      
-      li x9,0x47523C3DB71391D1      
-      amomax.d.rl x13,x9, (x11)      
+      li x15,0xF2BE7049FDB4F4F7
+      sd x15,0x000000000(x11)
+      li x9,0x47523C3DB71391D1
+      amomax.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_6
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_6
@@ -1399,13 +1399,13 @@ inner_fail8_random_loop8_6:
       jr x20
 .global pass8_random_loop8_6
 pass8_random_loop8_6:
-      lw x10,0x000000000(x11)      
-      ori x11,x11,0x0000006F1      
+      lw x10,0x000000000(x11)
+      ori x11,x11,0x0000006F1
       andi x11,x11,-8
-      li x15,0xC7DD6A52FA34D712      
-      sd x15,0x000000000(x11)      
-      li x9,0xD0597A7A07E48625      
-      amomax.d.aqrl x13,x9, (x11)      
+      li x15,0xC7DD6A52FA34D712
+      sd x15,0x000000000(x11)
+      li x9,0xD0597A7A07E48625
+      amomax.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_5
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_5
@@ -1420,13 +1420,13 @@ inner_fail8_random_loop8_5:
       jr x20
 .global pass8_random_loop8_5
 pass8_random_loop8_5:
-      lwu x8,0x000000000(x11)      
-      ori x11,x11,0x00000034A      
+      lwu x8,0x000000000(x11)
+      ori x11,x11,0x00000034A
       andi x11,x11,-8
-      li x15,0x43E4070B0E8C03C9      
-      sd x15,0x000000000(x11)      
-      li x9,0x8E3A0EE7E6F0C8D      
-      amomax.d.aq x13,x9, (x11)      
+      li x15,0x43E4070B0E8C03C9
+      sd x15,0x000000000(x11)
+      li x9,0x8E3A0EE7E6F0C8D
+      amomax.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_4
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_4
@@ -1441,13 +1441,13 @@ inner_fail8_random_loop8_4:
       jr x20
 .global pass8_random_loop8_4
 pass8_random_loop8_4:
-      sw x14,0x000000000(x11)      
-      ori x11,x11,0x000000496      
+      sw x14,0x000000000(x11)
+      ori x11,x11,0x000000496
       andi x11,x11,-8
-      li x15,0x51EDE30E25274B59      
-      sd x15,0x000000000(x11)      
-      li x9,0xB382A2ECC82A4760      
-      amomax.d.aqrl x13,x9, (x11)      
+      li x15,0x51EDE30E25274B59
+      sd x15,0x000000000(x11)
+      li x9,0xB382A2ECC82A4760
+      amomax.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_3
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_3
@@ -1462,13 +1462,13 @@ inner_fail8_random_loop8_3:
       jr x20
 .global pass8_random_loop8_3
 pass8_random_loop8_3:
-      lw x10,0x000000000(x11)      
-      ori x11,x11,0x00000016F      
+      lw x10,0x000000000(x11)
+      ori x11,x11,0x00000016F
       andi x11,x11,-8
-      li x15,0x81157F1D3C574640      
-      sd x15,0x000000000(x11)      
-      li x9,0x86ABE0348FD148F5      
-      amomax.d.rl x13,x9, (x11)      
+      li x15,0x81157F1D3C574640
+      sd x15,0x000000000(x11)
+      li x9,0x86ABE0348FD148F5
+      amomax.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_2
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_2
@@ -1483,13 +1483,13 @@ inner_fail8_random_loop8_2:
       jr x20
 .global pass8_random_loop8_2
 pass8_random_loop8_2:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x000000475      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x000000475
       andi x11,x11,-8
-      li x15,0xBE45B8C663AFA28B      
-      sd x15,0x000000000(x11)      
-      li x9,0x78A2DBFEEE24799E      
-      amomax.d.aqrl x13,x9, (x11)      
+      li x15,0xBE45B8C663AFA28B
+      sd x15,0x000000000(x11)
+      li x9,0x78A2DBFEEE24799E
+      amomax.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail8_random_loop8_1
       ld x16,(x11)
       bge x9,x13,mem_val3_random_loop8_1
@@ -1504,13 +1504,13 @@ inner_fail8_random_loop8_1:
       jr x20
 .global pass8_random_loop8_1
 pass8_random_loop8_1:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x000000275      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x000000275
       andi x11,x11,-8
-      li x15,0x19D5B44E17EA70D2      
-      sd x15,0x000000000(x11)      
-      li x9,0x7AF6CD676CD23D3C      
-      amomax.d.aqrl x13,x9, (x11)      
+      li x15,0x19D5B44E17EA70D2
+      sd x15,0x000000000(x11)
+      li x9,0x7AF6CD676CD23D3C
+      amomax.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail8
       ld x16,(x11)
       bge x9,x13,mem_val3
@@ -1525,15 +1525,15 @@ inner_fail8:
       jr x20
 .global pass8
 pass8:
-      c.lw x8,0x00(x11)      
+      c.lw x8,0x00(x11)
 .global check_amomaxu
 check_amomaxu:
-      ori x11,x11,0x00000054D      
+      ori x11,x11,0x00000054D
       andi x11,x11,-8
-      li x15,0xFE73C8B6BDC44277      
-      sd x15,0x000000000(x11)      
-      li x9,0x99561A29CCFDFBBF      
-      amomaxu.d.aq x13,x9, (x11)      
+      li x15,0xFE73C8B6BDC44277
+      sd x15,0x000000000(x11)
+      li x9,0x99561A29CCFDFBBF
+      amomaxu.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_9
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_9
@@ -1548,13 +1548,13 @@ inner_fail9_random_loop9_9:
       jr x20
 .global pass9_random_loop9_9
 pass9_random_loop9_9:
-      lb x9,0x000000000(x11)      
-      ori x11,x11,0x000000175      
+      lb x9,0x000000000(x11)
+      ori x11,x11,0x000000175
       andi x11,x11,-8
-      li x15,0xD9357BC07DD66378      
-      sd x15,0x000000000(x11)      
-      li x9,0x918B84DBE313543      
-      amomaxu.d.rl x13,x9, (x11)      
+      li x15,0xD9357BC07DD66378
+      sd x15,0x000000000(x11)
+      li x9,0x918B84DBE313543
+      amomaxu.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_8
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_8
@@ -1569,13 +1569,13 @@ inner_fail9_random_loop9_8:
       jr x20
 .global pass9_random_loop9_8
 pass9_random_loop9_8:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x000000437      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x000000437
       andi x11,x11,-8
-      li x15,0xFE222955001FB01      
-      sd x15,0x000000000(x11)      
-      li x9,0x5CE77B9E81984A1      
-      amomaxu.d x13,x9, (x11)      
+      li x15,0xFE222955001FB01
+      sd x15,0x000000000(x11)
+      li x9,0x5CE77B9E81984A1
+      amomaxu.d x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_7
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_7
@@ -1590,13 +1590,13 @@ inner_fail9_random_loop9_7:
       jr x20
 .global pass9_random_loop9_7
 pass9_random_loop9_7:
-      sw x15,0x000000000(x11)      
-      ori x11,x11,0x0000002BB      
+      sw x15,0x000000000(x11)
+      ori x11,x11,0x0000002BB
       andi x11,x11,-8
-      li x15,0x319F1D336938FE1E      
-      sd x15,0x000000000(x11)      
-      li x9,0x53A4FD6CB4DE1F2C      
-      amomaxu.d.aq x13,x9, (x11)      
+      li x15,0x319F1D336938FE1E
+      sd x15,0x000000000(x11)
+      li x9,0x53A4FD6CB4DE1F2C
+      amomaxu.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_6
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_6
@@ -1611,13 +1611,13 @@ inner_fail9_random_loop9_6:
       jr x20
 .global pass9_random_loop9_6
 pass9_random_loop9_6:
-      sw x13,0x000000000(x11)      
-      ori x11,x11,0x000000127      
+      sw x13,0x000000000(x11)
+      ori x11,x11,0x000000127
       andi x11,x11,-8
-      li x15,0xC3A56CEA431CC030      
-      sd x15,0x000000000(x11)      
-      li x9,0x8E9DA7B994AB09A5      
-      amomaxu.d.aq x13,x9, (x11)      
+      li x15,0xC3A56CEA431CC030
+      sd x15,0x000000000(x11)
+      li x9,0x8E9DA7B994AB09A5
+      amomaxu.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_5
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_5
@@ -1632,13 +1632,13 @@ inner_fail9_random_loop9_5:
       jr x20
 .global pass9_random_loop9_5
 pass9_random_loop9_5:
-      sd x14,0x000000000(x11)      
-      ori x11,x11,0x0000005F1      
+      sd x14,0x000000000(x11)
+      ori x11,x11,0x0000005F1
       andi x11,x11,-8
-      li x15,0xBAD4F9869F773A8A      
-      sd x15,0x000000000(x11)      
-      li x9,0xC01B26D1C3C9E18B      
-      amomaxu.d.rl x13,x9, (x11)      
+      li x15,0xBAD4F9869F773A8A
+      sd x15,0x000000000(x11)
+      li x9,0xC01B26D1C3C9E18B
+      amomaxu.d.rl x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_4
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_4
@@ -1653,13 +1653,13 @@ inner_fail9_random_loop9_4:
       jr x20
 .global pass9_random_loop9_4
 pass9_random_loop9_4:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x00000079D      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x00000079D
       andi x11,x11,-8
-      li x15,0xC62C17F1F9FBC837      
-      sd x15,0x000000000(x11)      
-      li x9,0x85F6E14BBEA4D125      
-      amomaxu.d.aq x13,x9, (x11)      
+      li x15,0xC62C17F1F9FBC837
+      sd x15,0x000000000(x11)
+      li x9,0x85F6E14BBEA4D125
+      amomaxu.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_3
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_3
@@ -1674,13 +1674,13 @@ inner_fail9_random_loop9_3:
       jr x20
 .global pass9_random_loop9_3
 pass9_random_loop9_3:
-      sd x15,0x000000000(x11)      
-      ori x11,x11,0x0000002CD      
+      sd x15,0x000000000(x11)
+      ori x11,x11,0x0000002CD
       andi x11,x11,-8
-      li x15,0x1C2090C7A2343D6C      
-      sd x15,0x000000000(x11)      
-      li x9,0xDC64187AFD7ED5D      
-      amomaxu.d.aq x13,x9, (x11)      
+      li x15,0x1C2090C7A2343D6C
+      sd x15,0x000000000(x11)
+      li x9,0xDC64187AFD7ED5D
+      amomaxu.d.aq x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_2
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_2
@@ -1695,13 +1695,13 @@ inner_fail9_random_loop9_2:
       jr x20
 .global pass9_random_loop9_2
 pass9_random_loop9_2:
-      lw x10,0x000000000(x11)      
-      ori x11,x11,0x000000345      
+      lw x10,0x000000000(x11)
+      ori x11,x11,0x000000345
       andi x11,x11,-8
-      li x15,0x2A25F4AAC79FBB6D      
-      sd x15,0x000000000(x11)      
-      li x9,0x7373616D2A9E82A7      
-      amomaxu.d.aqrl x13,x9, (x11)      
+      li x15,0x2A25F4AAC79FBB6D
+      sd x15,0x000000000(x11)
+      li x9,0x7373616D2A9E82A7
+      amomaxu.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail9_random_loop9_1
       ld x16,(x11)
       bgeu x9,x13,mem_val4_random_loop9_1
@@ -1716,13 +1716,13 @@ inner_fail9_random_loop9_1:
       jr x20
 .global pass9_random_loop9_1
 pass9_random_loop9_1:
-      ld x9,0x000000000(x11)      
-      ori x11,x11,0x0000000AB      
+      ld x9,0x000000000(x11)
+      ori x11,x11,0x0000000AB
       andi x11,x11,-8
-      li x15,0x5F8305A3EB779CC5      
-      sd x15,0x000000000(x11)      
-      li x9,0x8FD39D9AD1F41505      
-      amomaxu.d.aqrl x13,x9, (x11)      
+      li x15,0x5F8305A3EB779CC5
+      sd x15,0x000000000(x11)
+      li x9,0x8FD39D9AD1F41505
+      amomaxu.d.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail9
       ld x16,(x11)
       bgeu x9,x13,mem_val4
@@ -1737,17 +1737,17 @@ inner_fail9:
       jr x20
 .global pass9
 pass9:
-      c.lw x9,0x00(x11)      
+      c.lw x9,0x00(x11)
       li x9,0
       li x15,0
 .global check_amoswap_w
 check_amoswap_w:
-      ori x11,x11,0x00000040D      
+      ori x11,x11,0x00000040D
       andi x11,x11,-8
-      li x15,0x05DD77631      
-      sw x15,0x000000000(x11)      
-      li x9,0x07C41DFE1      
-      amoswap.w.rl x13,x9, (x11)      
+      li x15,0x05DD77631
+      sw x15,0x000000000(x11)
+      li x9,0x07C41DFE1
+      amoswap.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_9
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_9
@@ -1757,13 +1757,13 @@ inner_fail_w_random_loop1_w_9:
       jr x20
 .global pass_w_random_loop1_w_9
 pass_w_random_loop1_w_9:
-      lw x10,0x000000000(x11)      
-      ori x11,x11,0x000000364      
+      lw x10,0x000000000(x11)
+      ori x11,x11,0x000000364
       andi x11,x11,-8
-      li x15,0x03D55AD19      
-      sw x15,0x000000000(x11)      
-      li x9,0x06DF18EE2      
-      amoswap.w.aqrl x13,x9, (x11)      
+      li x15,0x03D55AD19
+      sw x15,0x000000000(x11)
+      li x9,0x06DF18EE2
+      amoswap.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_8
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_8
@@ -1773,13 +1773,13 @@ inner_fail_w_random_loop1_w_8:
       jr x20
 .global pass_w_random_loop1_w_8
 pass_w_random_loop1_w_8:
-      c.lw x9,0x00(x11)      
-      ori x11,x11,0x0000007E4      
+      c.lw x9,0x00(x11)
+      ori x11,x11,0x0000007E4
       andi x11,x11,-8
-      li x15,0x0435E4DAD      
-      sw x15,0x000000000(x11)      
-      li x9,0x04C1542AE      
-      amoswap.w x13,x9, (x11)      
+      li x15,0x0435E4DAD
+      sw x15,0x000000000(x11)
+      li x9,0x04C1542AE
+      amoswap.w x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_7
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_7
@@ -1789,13 +1789,13 @@ inner_fail_w_random_loop1_w_7:
       jr x20
 .global pass_w_random_loop1_w_7
 pass_w_random_loop1_w_7:
-      ld x9,0x000000000(x11)      
-      ori x11,x11,0x0000006D9      
+      ld x9,0x000000000(x11)
+      ori x11,x11,0x0000006D9
       andi x11,x11,-8
-      li x15,0x047B0DA16      
-      sw x15,0x000000000(x11)      
-      li x9,0x07A3ABA7D      
-      amoswap.w.aqrl x13,x9, (x11)      
+      li x15,0x047B0DA16
+      sw x15,0x000000000(x11)
+      li x9,0x07A3ABA7D
+      amoswap.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_6
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_6
@@ -1805,13 +1805,13 @@ inner_fail_w_random_loop1_w_6:
       jr x20
 .global pass_w_random_loop1_w_6
 pass_w_random_loop1_w_6:
-      c.lw x10,0x00(x11)      
-      ori x11,x11,0x0000001D2      
+      c.lw x10,0x00(x11)
+      ori x11,x11,0x0000001D2
       andi x11,x11,-8
-      li x15,0x04A28F939      
-      sw x15,0x000000000(x11)      
-      li x9,0x0204C474F      
-      amoswap.w.rl x13,x9, (x11)      
+      li x15,0x04A28F939
+      sw x15,0x000000000(x11)
+      li x9,0x0204C474F
+      amoswap.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_5
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_5
@@ -1821,13 +1821,13 @@ inner_fail_w_random_loop1_w_5:
       jr x20
 .global pass_w_random_loop1_w_5
 pass_w_random_loop1_w_5:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x000000097      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x000000097
       andi x11,x11,-8
-      li x15,0x02C100A15      
-      sw x15,0x000000000(x11)      
-      li x9,0x0650DA174      
-      amoswap.w.rl x13,x9, (x11)      
+      li x15,0x02C100A15
+      sw x15,0x000000000(x11)
+      li x9,0x0650DA174
+      amoswap.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_4
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_4
@@ -1837,13 +1837,13 @@ inner_fail_w_random_loop1_w_4:
       jr x20
 .global pass_w_random_loop1_w_4
 pass_w_random_loop1_w_4:
-      c.sw x15,0x00(x11)      
-      ori x11,x11,0x0000002D3      
+      c.sw x15,0x00(x11)
+      ori x11,x11,0x0000002D3
       andi x11,x11,-8
-      li x15,0x01B3C5284      
-      sw x15,0x000000000(x11)      
-      li x9,0x055339AE7      
-      amoswap.w.rl x13,x9, (x11)      
+      li x15,0x01B3C5284
+      sw x15,0x000000000(x11)
+      li x9,0x055339AE7
+      amoswap.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_3
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_3
@@ -1853,13 +1853,13 @@ inner_fail_w_random_loop1_w_3:
       jr x20
 .global pass_w_random_loop1_w_3
 pass_w_random_loop1_w_3:
-      c.lw x8,0x00(x11)      
-      ori x11,x11,0x000000412      
+      c.lw x8,0x00(x11)
+      ori x11,x11,0x000000412
       andi x11,x11,-8
-      li x15,0x02CE9C59D      
-      sw x15,0x000000000(x11)      
-      li x9,0x032A1B99A      
-      amoswap.w.rl x13,x9, (x11)      
+      li x15,0x02CE9C59D
+      sw x15,0x000000000(x11)
+      li x9,0x032A1B99A
+      amoswap.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_2
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_2
@@ -1869,13 +1869,13 @@ inner_fail_w_random_loop1_w_2:
       jr x20
 .global pass_w_random_loop1_w_2
 pass_w_random_loop1_w_2:
-      lbu x8,0x000000000(x11)      
-      ori x11,x11,0x00000040E      
+      lbu x8,0x000000000(x11)
+      ori x11,x11,0x00000040E
       andi x11,x11,-8
-      li x15,0x02148F8D1      
-      sw x15,0x000000000(x11)      
-      li x9,0x06C3ADF23      
-      amoswap.w x13,x9, (x11)      
+      li x15,0x02148F8D1
+      sw x15,0x000000000(x11)
+      li x9,0x06C3ADF23
+      amoswap.w x13,x9, (x11)
       bne x15,x13, inner_fail_w_random_loop1_w_1
       lwu x16,(x11)
       bne x16,x9,inner_fail_w_random_loop1_w_1
@@ -1885,13 +1885,13 @@ inner_fail_w_random_loop1_w_1:
       jr x20
 .global pass_w_random_loop1_w_1
 pass_w_random_loop1_w_1:
-      ld x9,0x000000000(x11)      
-      ori x11,x11,0x0000005BA      
+      ld x9,0x000000000(x11)
+      ori x11,x11,0x0000005BA
       andi x11,x11,-8
-      li x15,0x055F79C53      
-      sw x15,0x000000000(x11)      
-      li x9,0x026223BB9      
-      amoswap.w x13,x9, (x11)      
+      li x15,0x055F79C53
+      sw x15,0x000000000(x11)
+      li x9,0x026223BB9
+      amoswap.w x13,x9, (x11)
       bne x15,x13, inner_fail_w
       lwu x16,(x11)
       bne x16,x9,inner_fail_w
@@ -1901,15 +1901,15 @@ inner_fail_w:
       jr x20
 .global pass_w
 pass_w:
-      sd x15,0x000000000(x11)      
+      sd x15,0x000000000(x11)
 .global check_amoadd_w
 check_amoadd_w:
-      ori x11,x11,0x000000159      
+      ori x11,x11,0x000000159
       andi x11,x11,-8
-      li x15,0x0410CCAC8      
-      sw x15,0x000000000(x11)      
-      li x9,0x0608B5072      
-      amoadd.w.aq x13,x9, (x11)      
+      li x15,0x0410CCAC8
+      sw x15,0x000000000(x11)
+      li x9,0x0608B5072
+      amoadd.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_9
       lwu x16,(x11)
       add x9,x9,x15
@@ -1920,13 +1920,13 @@ inner_fail2_w_random_loop2_w_9:
       jr x20
 .global pass2_w_random_loop2_w_9
 pass2_w_random_loop2_w_9:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x00000006B      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x00000006B
       andi x11,x11,-8
-      li x15,0x0274A0131      
-      sw x15,0x000000000(x11)      
-      li x9,0x07B66B903      
-      amoadd.w.aq x13,x9, (x11)      
+      li x15,0x0274A0131
+      sw x15,0x000000000(x11)
+      li x9,0x07B66B903
+      amoadd.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_8
       lwu x16,(x11)
       add x9,x9,x15
@@ -1937,13 +1937,13 @@ inner_fail2_w_random_loop2_w_8:
       jr x20
 .global pass2_w_random_loop2_w_8
 pass2_w_random_loop2_w_8:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x00000026B      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x00000026B
       andi x11,x11,-8
-      li x15,0x05CB8B451      
-      sw x15,0x000000000(x11)      
-      li x9,0x077208601      
-      amoadd.w x13,x9, (x11)      
+      li x15,0x05CB8B451
+      sw x15,0x000000000(x11)
+      li x9,0x077208601
+      amoadd.w x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_7
       lwu x16,(x11)
       add x9,x9,x15
@@ -1954,13 +1954,13 @@ inner_fail2_w_random_loop2_w_7:
       jr x20
 .global pass2_w_random_loop2_w_7
 pass2_w_random_loop2_w_7:
-      sw x13,0x000000000(x11)      
-      ori x11,x11,0x0000006FB      
+      sw x13,0x000000000(x11)
+      ori x11,x11,0x0000006FB
       andi x11,x11,-8
-      li x15,0x051A633C4      
-      sw x15,0x000000000(x11)      
-      li x9,0x01899B1F5      
-      amoadd.w x13,x9, (x11)      
+      li x15,0x051A633C4
+      sw x15,0x000000000(x11)
+      li x9,0x01899B1F5
+      amoadd.w x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_6
       lwu x16,(x11)
       add x9,x9,x15
@@ -1971,13 +1971,13 @@ inner_fail2_w_random_loop2_w_6:
       jr x20
 .global pass2_w_random_loop2_w_6
 pass2_w_random_loop2_w_6:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x000000154      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x000000154
       andi x11,x11,-8
-      li x15,0x07AA3EACE      
-      sw x15,0x000000000(x11)      
-      li x9,0x07467B123      
-      amoadd.w.aq x13,x9, (x11)      
+      li x15,0x07AA3EACE
+      sw x15,0x000000000(x11)
+      li x9,0x07467B123
+      amoadd.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_5
       lwu x16,(x11)
       add x9,x9,x15
@@ -1988,13 +1988,13 @@ inner_fail2_w_random_loop2_w_5:
       jr x20
 .global pass2_w_random_loop2_w_5
 pass2_w_random_loop2_w_5:
-      lhu x8,0x000000000(x11)      
-      ori x11,x11,0x00000040F      
+      lhu x8,0x000000000(x11)
+      ori x11,x11,0x00000040F
       andi x11,x11,-8
-      li x15,0x00FACB5A2      
-      sw x15,0x000000000(x11)      
-      li x9,0x03813E8D1      
-      amoadd.w.aqrl x13,x9, (x11)      
+      li x15,0x00FACB5A2
+      sw x15,0x000000000(x11)
+      li x9,0x03813E8D1
+      amoadd.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_4
       lwu x16,(x11)
       add x9,x9,x15
@@ -2005,13 +2005,13 @@ inner_fail2_w_random_loop2_w_4:
       jr x20
 .global pass2_w_random_loop2_w_4
 pass2_w_random_loop2_w_4:
-      lwu x8,0x000000000(x11)      
-      ori x11,x11,0x00000031D      
+      lwu x8,0x000000000(x11)
+      ori x11,x11,0x00000031D
       andi x11,x11,-8
-      li x15,0x00C8E00D5      
-      sw x15,0x000000000(x11)      
-      li x9,0x07BD6A13B      
-      amoadd.w.aqrl x13,x9, (x11)      
+      li x15,0x00C8E00D5
+      sw x15,0x000000000(x11)
+      li x9,0x07BD6A13B
+      amoadd.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_3
       lwu x16,(x11)
       add x9,x9,x15
@@ -2022,13 +2022,13 @@ inner_fail2_w_random_loop2_w_3:
       jr x20
 .global pass2_w_random_loop2_w_3
 pass2_w_random_loop2_w_3:
-      c.sw x15,0x00(x11)      
-      ori x11,x11,0x00000037D      
+      c.sw x15,0x00(x11)
+      ori x11,x11,0x00000037D
       andi x11,x11,-8
-      li x15,0x07E8AC226      
-      sw x15,0x000000000(x11)      
-      li x9,0x00D61F6CC      
-      amoadd.w.aq x13,x9, (x11)      
+      li x15,0x07E8AC226
+      sw x15,0x000000000(x11)
+      li x9,0x00D61F6CC
+      amoadd.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_2
       lwu x16,(x11)
       add x9,x9,x15
@@ -2039,13 +2039,13 @@ inner_fail2_w_random_loop2_w_2:
       jr x20
 .global pass2_w_random_loop2_w_2
 pass2_w_random_loop2_w_2:
-      c.lw x8,0x00(x11)      
-      ori x11,x11,0x000000620      
+      c.lw x8,0x00(x11)
+      ori x11,x11,0x000000620
       andi x11,x11,-8
-      li x15,0x0379BFBC6      
-      sw x15,0x000000000(x11)      
-      li x9,0x0603E529E      
-      amoadd.w.aqrl x13,x9, (x11)      
+      li x15,0x0379BFBC6
+      sw x15,0x000000000(x11)
+      li x9,0x0603E529E
+      amoadd.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail2_w_random_loop2_w_1
       lwu x16,(x11)
       add x9,x9,x15
@@ -2056,13 +2056,13 @@ inner_fail2_w_random_loop2_w_1:
       jr x20
 .global pass2_w_random_loop2_w_1
 pass2_w_random_loop2_w_1:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x0000005A0      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x0000005A0
       andi x11,x11,-8
-      li x15,0x00CAA04A6      
-      sw x15,0x000000000(x11)      
-      li x9,0x017B9CE23      
-      amoadd.w.aq x13,x9, (x11)      
+      li x15,0x00CAA04A6
+      sw x15,0x000000000(x11)
+      li x9,0x017B9CE23
+      amoadd.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail2_w
       lwu x16,(x11)
       add x9,x9,x15
@@ -2073,15 +2073,15 @@ inner_fail2_w:
       jr x20
 .global pass2_w
 pass2_w:
-      lwu x9,0x000000000(x11)      
+      lwu x9,0x000000000(x11)
 .global check_amoor_w
 check_amoor_w:
-      ori x11,x11,0x000000409      
+      ori x11,x11,0x000000409
       andi x11,x11,-8
-      li x15,0x05CC457D9      
-      sw x15,0x000000000(x11)      
-      li x9,0x02A93D703      
-      amoor.w x13,x9, (x11)      
+      li x15,0x05CC457D9
+      sw x15,0x000000000(x11)
+      li x9,0x02A93D703
+      amoor.w x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_9
       lwu x16,(x11)
       or x9,x9,x15
@@ -2092,13 +2092,13 @@ inner_fail3_w_random_loop3_w_9:
       jr x20
 .global pass3_w_random_loop3_w_9
 pass3_w_random_loop3_w_9:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x000000181      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x000000181
       andi x11,x11,-8
-      li x15,0x052D2C763      
-      sw x15,0x000000000(x11)      
-      li x9,0x010D9E7CB      
-      amoor.w x13,x9, (x11)      
+      li x15,0x052D2C763
+      sw x15,0x000000000(x11)
+      li x9,0x010D9E7CB
+      amoor.w x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_8
       lwu x16,(x11)
       or x9,x9,x15
@@ -2109,13 +2109,13 @@ inner_fail3_w_random_loop3_w_8:
       jr x20
 .global pass3_w_random_loop3_w_8
 pass3_w_random_loop3_w_8:
-      lw x8,0x000000000(x11)      
-      ori x11,x11,0x0000007B2      
+      lw x8,0x000000000(x11)
+      ori x11,x11,0x0000007B2
       andi x11,x11,-8
-      li x15,0x064FABACD      
-      sw x15,0x000000000(x11)      
-      li x9,0x00176F643      
-      amoor.w x13,x9, (x11)      
+      li x15,0x064FABACD
+      sw x15,0x000000000(x11)
+      li x9,0x00176F643
+      amoor.w x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_7
       lwu x16,(x11)
       or x9,x9,x15
@@ -2126,13 +2126,13 @@ inner_fail3_w_random_loop3_w_7:
       jr x20
 .global pass3_w_random_loop3_w_7
 pass3_w_random_loop3_w_7:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x000000234      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x000000234
       andi x11,x11,-8
-      li x15,0x06D24D61A      
-      sw x15,0x000000000(x11)      
-      li x9,0x00F248141      
-      amoor.w.aq x13,x9, (x11)      
+      li x15,0x06D24D61A
+      sw x15,0x000000000(x11)
+      li x9,0x00F248141
+      amoor.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_6
       lwu x16,(x11)
       or x9,x9,x15
@@ -2143,13 +2143,13 @@ inner_fail3_w_random_loop3_w_6:
       jr x20
 .global pass3_w_random_loop3_w_6
 pass3_w_random_loop3_w_6:
-      c.lw x9,0x00(x11)      
-      ori x11,x11,0x00000075B      
+      c.lw x9,0x00(x11)
+      ori x11,x11,0x00000075B
       andi x11,x11,-8
-      li x15,0x020CC0E3B      
-      sw x15,0x000000000(x11)      
-      li x9,0x04CE2C7DC      
-      amoor.w.aq x13,x9, (x11)      
+      li x15,0x020CC0E3B
+      sw x15,0x000000000(x11)
+      li x9,0x04CE2C7DC
+      amoor.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_5
       lwu x16,(x11)
       or x9,x9,x15
@@ -2160,13 +2160,13 @@ inner_fail3_w_random_loop3_w_5:
       jr x20
 .global pass3_w_random_loop3_w_5
 pass3_w_random_loop3_w_5:
-      c.lw x8,0x00(x11)      
-      ori x11,x11,0x0000007F4      
+      c.lw x8,0x00(x11)
+      ori x11,x11,0x0000007F4
       andi x11,x11,-8
-      li x15,0x039E6A33B      
-      sw x15,0x000000000(x11)      
-      li x9,0x0558D2785      
-      amoor.w x13,x9, (x11)      
+      li x15,0x039E6A33B
+      sw x15,0x000000000(x11)
+      li x9,0x0558D2785
+      amoor.w x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_4
       lwu x16,(x11)
       or x9,x9,x15
@@ -2177,13 +2177,13 @@ inner_fail3_w_random_loop3_w_4:
       jr x20
 .global pass3_w_random_loop3_w_4
 pass3_w_random_loop3_w_4:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x000000510      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x000000510
       andi x11,x11,-8
-      li x15,0x035219EBB      
-      sw x15,0x000000000(x11)      
-      li x9,0x07339ADD3      
-      amoor.w x13,x9, (x11)      
+      li x15,0x035219EBB
+      sw x15,0x000000000(x11)
+      li x9,0x07339ADD3
+      amoor.w x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_3
       lwu x16,(x11)
       or x9,x9,x15
@@ -2194,13 +2194,13 @@ inner_fail3_w_random_loop3_w_3:
       jr x20
 .global pass3_w_random_loop3_w_3
 pass3_w_random_loop3_w_3:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x00000000F      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x00000000F
       andi x11,x11,-8
-      li x15,0x078DB8D0C      
-      sw x15,0x000000000(x11)      
-      li x9,0x04726F7E5      
-      amoor.w x13,x9, (x11)      
+      li x15,0x078DB8D0C
+      sw x15,0x000000000(x11)
+      li x9,0x04726F7E5
+      amoor.w x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_2
       lwu x16,(x11)
       or x9,x9,x15
@@ -2211,13 +2211,13 @@ inner_fail3_w_random_loop3_w_2:
       jr x20
 .global pass3_w_random_loop3_w_2
 pass3_w_random_loop3_w_2:
-      lb x9,0x000000000(x11)      
-      ori x11,x11,0x0000006CD      
+      lb x9,0x000000000(x11)
+      ori x11,x11,0x0000006CD
       andi x11,x11,-8
-      li x15,0x05A6AFD69      
-      sw x15,0x000000000(x11)      
-      li x9,0x02B3A1DC1      
-      amoor.w x13,x9, (x11)      
+      li x15,0x05A6AFD69
+      sw x15,0x000000000(x11)
+      li x9,0x02B3A1DC1
+      amoor.w x13,x9, (x11)
       bne x15,x13, inner_fail3_w_random_loop3_w_1
       lwu x16,(x11)
       or x9,x9,x15
@@ -2228,13 +2228,13 @@ inner_fail3_w_random_loop3_w_1:
       jr x20
 .global pass3_w_random_loop3_w_1
 pass3_w_random_loop3_w_1:
-      ld x8,0x000000000(x11)      
-      ori x11,x11,0x000000561      
+      ld x8,0x000000000(x11)
+      ori x11,x11,0x000000561
       andi x11,x11,-8
-      li x15,0x069F9782A      
-      sw x15,0x000000000(x11)      
-      li x9,0x00702AFBB      
-      amoor.w.rl x13,x9, (x11)      
+      li x15,0x069F9782A
+      sw x15,0x000000000(x11)
+      li x9,0x00702AFBB
+      amoor.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail3_w
       lwu x16,(x11)
       or x9,x9,x15
@@ -2245,15 +2245,15 @@ inner_fail3_w:
       jr x20
 .global pass3_w
 pass3_w:
-      c.lw x9,0x00(x11)      
+      c.lw x9,0x00(x11)
 .global check_amoand_w
 check_amoand_w:
-      ori x11,x11,0x0000001A3      
+      ori x11,x11,0x0000001A3
       andi x11,x11,-8
-      li x15,0x00AFC055A      
-      sw x15,0x000000000(x11)      
-      li x9,0x0569E4AF9      
-      amoand.w x13,x9, (x11)      
+      li x15,0x00AFC055A
+      sw x15,0x000000000(x11)
+      li x9,0x0569E4AF9
+      amoand.w x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_9
       lwu x16,(x11)
       and x9,x9,x15
@@ -2264,13 +2264,13 @@ inner_fail4_w_random_loop4_w_9:
       jr x20
 .global pass4_w_random_loop4_w_9
 pass4_w_random_loop4_w_9:
-      sw x13,0x000000000(x11)      
-      ori x11,x11,0x0000006E1      
+      sw x13,0x000000000(x11)
+      ori x11,x11,0x0000006E1
       andi x11,x11,-8
-      li x15,0x037B4943E      
-      sw x15,0x000000000(x11)      
-      li x9,0x077A0B022      
-      amoand.w x13,x9, (x11)      
+      li x15,0x037B4943E
+      sw x15,0x000000000(x11)
+      li x9,0x077A0B022
+      amoand.w x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_8
       lwu x16,(x11)
       and x9,x9,x15
@@ -2281,13 +2281,13 @@ inner_fail4_w_random_loop4_w_8:
       jr x20
 .global pass4_w_random_loop4_w_8
 pass4_w_random_loop4_w_8:
-      lwu x9,0x000000000(x11)      
-      ori x11,x11,0x00000022C      
+      lwu x9,0x000000000(x11)
+      ori x11,x11,0x00000022C
       andi x11,x11,-8
-      li x15,0x0085CB8EE      
-      sw x15,0x000000000(x11)      
-      li x9,0x044D23402      
-      amoand.w.aq x13,x9, (x11)      
+      li x15,0x0085CB8EE
+      sw x15,0x000000000(x11)
+      li x9,0x044D23402
+      amoand.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_7
       lwu x16,(x11)
       and x9,x9,x15
@@ -2298,13 +2298,13 @@ inner_fail4_w_random_loop4_w_7:
       jr x20
 .global pass4_w_random_loop4_w_7
 pass4_w_random_loop4_w_7:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x00000047C      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x00000047C
       andi x11,x11,-8
-      li x15,0x020A856FD      
-      sw x15,0x000000000(x11)      
-      li x9,0x035621740      
-      amoand.w x13,x9, (x11)      
+      li x15,0x020A856FD
+      sw x15,0x000000000(x11)
+      li x9,0x035621740
+      amoand.w x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_6
       lwu x16,(x11)
       and x9,x9,x15
@@ -2315,13 +2315,13 @@ inner_fail4_w_random_loop4_w_6:
       jr x20
 .global pass4_w_random_loop4_w_6
 pass4_w_random_loop4_w_6:
-      lhu x9,0x000000000(x11)      
-      ori x11,x11,0x00000034C      
+      lhu x9,0x000000000(x11)
+      ori x11,x11,0x00000034C
       andi x11,x11,-8
-      li x15,0x01C42DBA5      
-      sw x15,0x000000000(x11)      
-      li x9,0x022060E21      
-      amoand.w x13,x9, (x11)      
+      li x15,0x01C42DBA5
+      sw x15,0x000000000(x11)
+      li x9,0x022060E21
+      amoand.w x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_5
       lwu x16,(x11)
       and x9,x9,x15
@@ -2332,13 +2332,13 @@ inner_fail4_w_random_loop4_w_5:
       jr x20
 .global pass4_w_random_loop4_w_5
 pass4_w_random_loop4_w_5:
-      ld x8,0x000000000(x11)      
-      ori x11,x11,0x0000001AA      
+      ld x8,0x000000000(x11)
+      ori x11,x11,0x0000001AA
       andi x11,x11,-8
-      li x15,0x0746015E4      
-      sw x15,0x000000000(x11)      
-      li x9,0x01D426F29      
-      amoand.w x13,x9, (x11)      
+      li x15,0x0746015E4
+      sw x15,0x000000000(x11)
+      li x9,0x01D426F29
+      amoand.w x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_4
       lwu x16,(x11)
       and x9,x9,x15
@@ -2349,13 +2349,13 @@ inner_fail4_w_random_loop4_w_4:
       jr x20
 .global pass4_w_random_loop4_w_4
 pass4_w_random_loop4_w_4:
-      sd x14,0x000000000(x11)      
-      ori x11,x11,0x00000064C      
+      sd x14,0x000000000(x11)
+      ori x11,x11,0x00000064C
       andi x11,x11,-8
-      li x15,0x00C4F0517      
-      sw x15,0x000000000(x11)      
-      li x9,0x05265E0C2      
-      amoand.w x13,x9, (x11)      
+      li x15,0x00C4F0517
+      sw x15,0x000000000(x11)
+      li x9,0x05265E0C2
+      amoand.w x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_3
       lwu x16,(x11)
       and x9,x9,x15
@@ -2366,13 +2366,13 @@ inner_fail4_w_random_loop4_w_3:
       jr x20
 .global pass4_w_random_loop4_w_3
 pass4_w_random_loop4_w_3:
-      ld x8,0x000000000(x11)      
-      ori x11,x11,0x000000556      
+      ld x8,0x000000000(x11)
+      ori x11,x11,0x000000556
       andi x11,x11,-8
-      li x15,0x022E2DF91      
-      sw x15,0x000000000(x11)      
-      li x9,0x000DCFCE9      
-      amoand.w x13,x9, (x11)      
+      li x15,0x022E2DF91
+      sw x15,0x000000000(x11)
+      li x9,0x000DCFCE9
+      amoand.w x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_2
       lwu x16,(x11)
       and x9,x9,x15
@@ -2383,13 +2383,13 @@ inner_fail4_w_random_loop4_w_2:
       jr x20
 .global pass4_w_random_loop4_w_2
 pass4_w_random_loop4_w_2:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x00000021A      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x00000021A
       andi x11,x11,-8
-      li x15,0x062BE9AF8      
-      sw x15,0x000000000(x11)      
-      li x9,0x01DF67B89      
-      amoand.w.aq x13,x9, (x11)      
+      li x15,0x062BE9AF8
+      sw x15,0x000000000(x11)
+      li x9,0x01DF67B89
+      amoand.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail4_w_random_loop4_w_1
       lwu x16,(x11)
       and x9,x9,x15
@@ -2400,13 +2400,13 @@ inner_fail4_w_random_loop4_w_1:
       jr x20
 .global pass4_w_random_loop4_w_1
 pass4_w_random_loop4_w_1:
-      sw x15,0x000000000(x11)      
-      ori x11,x11,0x000000502      
+      sw x15,0x000000000(x11)
+      ori x11,x11,0x000000502
       andi x11,x11,-8
-      li x15,0x0073C9A76      
-      sw x15,0x000000000(x11)      
-      li x9,0x071127D9C      
-      amoand.w.rl x13,x9, (x11)      
+      li x15,0x0073C9A76
+      sw x15,0x000000000(x11)
+      li x9,0x071127D9C
+      amoand.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail4_w
       lwu x16,(x11)
       and x9,x9,x15
@@ -2417,15 +2417,15 @@ inner_fail4_w:
       jr x20
 .global pass4_w
 pass4_w:
-      lh x10,0x000000000(x11)      
+      lh x10,0x000000000(x11)
 .global check_amoxor_w
 check_amoxor_w:
-      ori x11,x11,0x0000004DB      
+      ori x11,x11,0x0000004DB
       andi x11,x11,-8
-      li x15,0x003357387      
-      sw x15,0x000000000(x11)      
-      li x9,0x0105A0E8B      
-      amoxor.w.aqrl x13,x9, (x11)      
+      li x15,0x003357387
+      sw x15,0x000000000(x11)
+      li x9,0x0105A0E8B
+      amoxor.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_9
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2436,13 +2436,13 @@ inner_fail5_w_random_loop5_w_9:
       jr x20
 .global pass5_w_random_loop5_w_9
 pass5_w_random_loop5_w_9:
-      lw x8,0x000000000(x11)      
-      ori x11,x11,0x000000642      
+      lw x8,0x000000000(x11)
+      ori x11,x11,0x000000642
       andi x11,x11,-8
-      li x15,0x024100F66      
-      sw x15,0x000000000(x11)      
-      li x9,0x06E2F03A3      
-      amoxor.w.rl x13,x9, (x11)      
+      li x15,0x024100F66
+      sw x15,0x000000000(x11)
+      li x9,0x06E2F03A3
+      amoxor.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_8
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2453,13 +2453,13 @@ inner_fail5_w_random_loop5_w_8:
       jr x20
 .global pass5_w_random_loop5_w_8
 pass5_w_random_loop5_w_8:
-      lwu x8,0x000000000(x11)      
-      ori x11,x11,0x000000545      
+      lwu x8,0x000000000(x11)
+      ori x11,x11,0x000000545
       andi x11,x11,-8
-      li x15,0x0174B12AC      
-      sw x15,0x000000000(x11)      
-      li x9,0x003A06B1A      
-      amoxor.w.aq x13,x9, (x11)      
+      li x15,0x0174B12AC
+      sw x15,0x000000000(x11)
+      li x9,0x003A06B1A
+      amoxor.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_7
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2470,13 +2470,13 @@ inner_fail5_w_random_loop5_w_7:
       jr x20
 .global pass5_w_random_loop5_w_7
 pass5_w_random_loop5_w_7:
-      lbu x9,0x000000000(x11)      
-      ori x11,x11,0x000000786      
+      lbu x9,0x000000000(x11)
+      ori x11,x11,0x000000786
       andi x11,x11,-8
-      li x15,0x028B931AC      
-      sw x15,0x000000000(x11)      
-      li x9,0x0229E7E2A      
-      amoxor.w x13,x9, (x11)      
+      li x15,0x028B931AC
+      sw x15,0x000000000(x11)
+      li x9,0x0229E7E2A
+      amoxor.w x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_6
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2487,13 +2487,13 @@ inner_fail5_w_random_loop5_w_6:
       jr x20
 .global pass5_w_random_loop5_w_6
 pass5_w_random_loop5_w_6:
-      lh x8,0x000000000(x11)      
-      ori x11,x11,0x00000005C      
+      lh x8,0x000000000(x11)
+      ori x11,x11,0x00000005C
       andi x11,x11,-8
-      li x15,0x00F5EB420      
-      sw x15,0x000000000(x11)      
-      li x9,0x02D8C483F      
-      amoxor.w.rl x13,x9, (x11)      
+      li x15,0x00F5EB420
+      sw x15,0x000000000(x11)
+      li x9,0x02D8C483F
+      amoxor.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_5
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2504,13 +2504,13 @@ inner_fail5_w_random_loop5_w_5:
       jr x20
 .global pass5_w_random_loop5_w_5
 pass5_w_random_loop5_w_5:
-      c.sw x13,0x00(x11)      
-      ori x11,x11,0x0000001C5      
+      c.sw x13,0x00(x11)
+      ori x11,x11,0x0000001C5
       andi x11,x11,-8
-      li x15,0x0560E3346      
-      sw x15,0x000000000(x11)      
-      li x9,0x007998AE9      
-      amoxor.w.aq x13,x9, (x11)      
+      li x15,0x0560E3346
+      sw x15,0x000000000(x11)
+      li x9,0x007998AE9
+      amoxor.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_4
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2521,13 +2521,13 @@ inner_fail5_w_random_loop5_w_4:
       jr x20
 .global pass5_w_random_loop5_w_4
 pass5_w_random_loop5_w_4:
-      sd x14,0x000000000(x11)      
-      ori x11,x11,0x0000000BF      
+      sd x14,0x000000000(x11)
+      ori x11,x11,0x0000000BF
       andi x11,x11,-8
-      li x15,0x04BBBD770      
-      sw x15,0x000000000(x11)      
-      li x9,0x042C2AE55      
-      amoxor.w.aq x13,x9, (x11)      
+      li x15,0x04BBBD770
+      sw x15,0x000000000(x11)
+      li x9,0x042C2AE55
+      amoxor.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_3
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2538,13 +2538,13 @@ inner_fail5_w_random_loop5_w_3:
       jr x20
 .global pass5_w_random_loop5_w_3
 pass5_w_random_loop5_w_3:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x0000007F7      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x0000007F7
       andi x11,x11,-8
-      li x15,0x0310EA9D7      
-      sw x15,0x000000000(x11)      
-      li x9,0x01686FACE      
-      amoxor.w x13,x9, (x11)      
+      li x15,0x0310EA9D7
+      sw x15,0x000000000(x11)
+      li x9,0x01686FACE
+      amoxor.w x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_2
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2555,13 +2555,13 @@ inner_fail5_w_random_loop5_w_2:
       jr x20
 .global pass5_w_random_loop5_w_2
 pass5_w_random_loop5_w_2:
-      c.sw x15,0x00(x11)      
-      ori x11,x11,0x00000063A      
+      c.sw x15,0x00(x11)
+      ori x11,x11,0x00000063A
       andi x11,x11,-8
-      li x15,0x05EC53460      
-      sw x15,0x000000000(x11)      
-      li x9,0x062912E75      
-      amoxor.w.aqrl x13,x9, (x11)      
+      li x15,0x05EC53460
+      sw x15,0x000000000(x11)
+      li x9,0x062912E75
+      amoxor.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail5_w_random_loop5_w_1
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2572,13 +2572,13 @@ inner_fail5_w_random_loop5_w_1:
       jr x20
 .global pass5_w_random_loop5_w_1
 pass5_w_random_loop5_w_1:
-      sw x13,0x000000000(x11)      
-      ori x11,x11,0x0000005F9      
+      sw x13,0x000000000(x11)
+      ori x11,x11,0x0000005F9
       andi x11,x11,-8
-      li x15,0x0737C14E7      
-      sw x15,0x000000000(x11)      
-      li x9,0x07D128168      
-      amoxor.w.rl x13,x9, (x11)      
+      li x15,0x0737C14E7
+      sw x15,0x000000000(x11)
+      li x9,0x07D128168
+      amoxor.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail5_w
       lwu x16,(x11)
       xor x9,x9,x15
@@ -2589,15 +2589,15 @@ inner_fail5_w:
       jr x20
 .global pass5_w
 pass5_w:
-      ld x8,0x000000000(x11)      
+      ld x8,0x000000000(x11)
 .global check_amomin_w
 check_amomin_w:
-      ori x11,x11,0x00000005B      
+      ori x11,x11,0x00000005B
       andi x11,x11,-8
-      li x15,0x03E85843A      
-      sw x15,0x000000000(x11)      
-      li x9,0x05FAB3A4F      
-      amomin.w.aq x13,x9, (x11)      
+      li x15,0x03E85843A
+      sw x15,0x000000000(x11)
+      li x9,0x05FAB3A4F
+      amomin.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_9
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_9
@@ -2612,13 +2612,13 @@ inner_fail6_w_random_loop6_w_9:
       jr x20
 .global pass6_w_random_loop6_w_9
 pass6_w_random_loop6_w_9:
-      lwu x10,0x000000000(x11)      
-      ori x11,x11,0x000000512      
+      lwu x10,0x000000000(x11)
+      ori x11,x11,0x000000512
       andi x11,x11,-8
-      li x15,0x060647F0F      
-      sw x15,0x000000000(x11)      
-      li x9,0x01ACA60E8      
-      amomin.w.rl x13,x9, (x11)      
+      li x15,0x060647F0F
+      sw x15,0x000000000(x11)
+      li x9,0x01ACA60E8
+      amomin.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_8
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_8
@@ -2633,13 +2633,13 @@ inner_fail6_w_random_loop6_w_8:
       jr x20
 .global pass6_w_random_loop6_w_8
 pass6_w_random_loop6_w_8:
-      sd x14,0x000000000(x11)      
-      ori x11,x11,0x000000446      
+      sd x14,0x000000000(x11)
+      ori x11,x11,0x000000446
       andi x11,x11,-8
-      li x15,0x05B62C3B1      
-      sw x15,0x000000000(x11)      
-      li x9,0x07E6A66DD      
-      amomin.w.aqrl x13,x9, (x11)      
+      li x15,0x05B62C3B1
+      sw x15,0x000000000(x11)
+      li x9,0x07E6A66DD
+      amomin.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_7
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_7
@@ -2654,13 +2654,13 @@ inner_fail6_w_random_loop6_w_7:
       jr x20
 .global pass6_w_random_loop6_w_7
 pass6_w_random_loop6_w_7:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x000000792      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x000000792
       andi x11,x11,-8
-      li x15,0x0297369BE      
-      sw x15,0x000000000(x11)      
-      li x9,0x00B7BFCA5      
-      amomin.w.aq x13,x9, (x11)      
+      li x15,0x0297369BE
+      sw x15,0x000000000(x11)
+      li x9,0x00B7BFCA5
+      amomin.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_6
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_6
@@ -2675,13 +2675,13 @@ inner_fail6_w_random_loop6_w_6:
       jr x20
 .global pass6_w_random_loop6_w_6
 pass6_w_random_loop6_w_6:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x000000448      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x000000448
       andi x11,x11,-8
-      li x15,0x0408642D5      
-      sw x15,0x000000000(x11)      
-      li x9,0x022B08D26      
-      amomin.w x13,x9, (x11)      
+      li x15,0x0408642D5
+      sw x15,0x000000000(x11)
+      li x9,0x022B08D26
+      amomin.w x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_5
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_5
@@ -2696,13 +2696,13 @@ inner_fail6_w_random_loop6_w_5:
       jr x20
 .global pass6_w_random_loop6_w_5
 pass6_w_random_loop6_w_5:
-      ld x9,0x000000000(x11)      
-      ori x11,x11,0x00000024B      
+      ld x9,0x000000000(x11)
+      ori x11,x11,0x00000024B
       andi x11,x11,-8
-      li x15,0x00381BACB      
-      sw x15,0x000000000(x11)      
-      li x9,0x0794E7F25      
-      amomin.w.aq x13,x9, (x11)      
+      li x15,0x00381BACB
+      sw x15,0x000000000(x11)
+      li x9,0x0794E7F25
+      amomin.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_4
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_4
@@ -2717,13 +2717,13 @@ inner_fail6_w_random_loop6_w_4:
       jr x20
 .global pass6_w_random_loop6_w_4
 pass6_w_random_loop6_w_4:
-      sw x13,0x000000000(x11)      
-      ori x11,x11,0x000000237      
+      sw x13,0x000000000(x11)
+      ori x11,x11,0x000000237
       andi x11,x11,-8
-      li x15,0x01194218D      
-      sw x15,0x000000000(x11)      
-      li x9,0x04936820F      
-      amomin.w.rl x13,x9, (x11)      
+      li x15,0x01194218D
+      sw x15,0x000000000(x11)
+      li x9,0x04936820F
+      amomin.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_3
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_3
@@ -2738,13 +2738,13 @@ inner_fail6_w_random_loop6_w_3:
       jr x20
 .global pass6_w_random_loop6_w_3
 pass6_w_random_loop6_w_3:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x000000363      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x000000363
       andi x11,x11,-8
-      li x15,0x07227D3AD      
-      sw x15,0x000000000(x11)      
-      li x9,0x05F78CA66      
-      amomin.w.rl x13,x9, (x11)      
+      li x15,0x07227D3AD
+      sw x15,0x000000000(x11)
+      li x9,0x05F78CA66
+      amomin.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_2
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_2
@@ -2759,13 +2759,13 @@ inner_fail6_w_random_loop6_w_2:
       jr x20
 .global pass6_w_random_loop6_w_2
 pass6_w_random_loop6_w_2:
-      lbu x10,0x000000000(x11)      
-      ori x11,x11,0x00000058E      
+      lbu x10,0x000000000(x11)
+      ori x11,x11,0x00000058E
       andi x11,x11,-8
-      li x15,0x00C270D93      
-      sw x15,0x000000000(x11)      
-      li x9,0x002A6C5F1      
-      amomin.w x13,x9, (x11)      
+      li x15,0x00C270D93
+      sw x15,0x000000000(x11)
+      li x9,0x002A6C5F1
+      amomin.w x13,x9, (x11)
       bne x15,x13, inner_fail6_w_random_loop6_w_1
       lwu x16,(x11)
       blt x9,x13,mem_val_w_random_loop6_w_1
@@ -2780,13 +2780,13 @@ inner_fail6_w_random_loop6_w_1:
       jr x20
 .global pass6_w_random_loop6_w_1
 pass6_w_random_loop6_w_1:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x000000098      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x000000098
       andi x11,x11,-8
-      li x15,0x05C781D40      
-      sw x15,0x000000000(x11)      
-      li x9,0x034AC137F      
-      amomin.w.rl x13,x9, (x11)      
+      li x15,0x05C781D40
+      sw x15,0x000000000(x11)
+      li x9,0x034AC137F
+      amomin.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail6_w
       lwu x16,(x11)
       blt x9,x13,mem_val_w
@@ -2801,15 +2801,15 @@ inner_fail6_w:
       jr x20
 .global pass6_w
 pass6_w:
-      ld x9,0x000000000(x11)      
+      ld x9,0x000000000(x11)
 .global check_amominu_w
 check_amominu_w:
-      ori x11,x11,0x000000389      
+      ori x11,x11,0x000000389
       andi x11,x11,-8
-      li x15,0x05E4D63E2      
-      sw x15,0x000000000(x11)      
-      li x9,0x02D512224      
-      amominu.w.aqrl x13,x9, (x11)      
+      li x15,0x05E4D63E2
+      sw x15,0x000000000(x11)
+      li x9,0x02D512224
+      amominu.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_9
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_9
@@ -2824,13 +2824,13 @@ inner_fail7_w_random_loop7_w_9:
       jr x20
 .global pass7_w_random_loop7_w_9
 pass7_w_random_loop7_w_9:
-      lwu x10,0x000000000(x11)      
-      ori x11,x11,0x0000003FF      
+      lwu x10,0x000000000(x11)
+      ori x11,x11,0x0000003FF
       andi x11,x11,-8
-      li x15,0x010D6E9AC      
-      sw x15,0x000000000(x11)      
-      li x9,0x0175E181C      
-      amominu.w x13,x9, (x11)      
+      li x15,0x010D6E9AC
+      sw x15,0x000000000(x11)
+      li x9,0x0175E181C
+      amominu.w x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_8
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_8
@@ -2845,13 +2845,13 @@ inner_fail7_w_random_loop7_w_8:
       jr x20
 .global pass7_w_random_loop7_w_8
 pass7_w_random_loop7_w_8:
-      lb x8,0x000000000(x11)      
-      ori x11,x11,0x0000003AC      
+      lb x8,0x000000000(x11)
+      ori x11,x11,0x0000003AC
       andi x11,x11,-8
-      li x15,0x034B1B094      
-      sw x15,0x000000000(x11)      
-      li x9,0x01B3473D0      
-      amominu.w x13,x9, (x11)      
+      li x15,0x034B1B094
+      sw x15,0x000000000(x11)
+      li x9,0x01B3473D0
+      amominu.w x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_7
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_7
@@ -2866,13 +2866,13 @@ inner_fail7_w_random_loop7_w_7:
       jr x20
 .global pass7_w_random_loop7_w_7
 pass7_w_random_loop7_w_7:
-      lwu x10,0x000000000(x11)      
-      ori x11,x11,0x000000481      
+      lwu x10,0x000000000(x11)
+      ori x11,x11,0x000000481
       andi x11,x11,-8
-      li x15,0x03BBBA594      
-      sw x15,0x000000000(x11)      
-      li x9,0x036F4E0BF      
-      amominu.w.rl x13,x9, (x11)      
+      li x15,0x03BBBA594
+      sw x15,0x000000000(x11)
+      li x9,0x036F4E0BF
+      amominu.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_6
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_6
@@ -2887,13 +2887,13 @@ inner_fail7_w_random_loop7_w_6:
       jr x20
 .global pass7_w_random_loop7_w_6
 pass7_w_random_loop7_w_6:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x000000762      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x000000762
       andi x11,x11,-8
-      li x15,0x06885DD89      
-      sw x15,0x000000000(x11)      
-      li x9,0x07284B345      
-      amominu.w.rl x13,x9, (x11)      
+      li x15,0x06885DD89
+      sw x15,0x000000000(x11)
+      li x9,0x07284B345
+      amominu.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_5
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_5
@@ -2908,13 +2908,13 @@ inner_fail7_w_random_loop7_w_5:
       jr x20
 .global pass7_w_random_loop7_w_5
 pass7_w_random_loop7_w_5:
-      lwu x8,0x000000000(x11)      
-      ori x11,x11,0x0000005FC      
+      lwu x8,0x000000000(x11)
+      ori x11,x11,0x0000005FC
       andi x11,x11,-8
-      li x15,0x00716551C      
-      sw x15,0x000000000(x11)      
-      li x9,0x068F18322      
-      amominu.w x13,x9, (x11)      
+      li x15,0x00716551C
+      sw x15,0x000000000(x11)
+      li x9,0x068F18322
+      amominu.w x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_4
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_4
@@ -2929,13 +2929,13 @@ inner_fail7_w_random_loop7_w_4:
       jr x20
 .global pass7_w_random_loop7_w_4
 pass7_w_random_loop7_w_4:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x000000649      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x000000649
       andi x11,x11,-8
-      li x15,0x005F7CEAB      
-      sw x15,0x000000000(x11)      
-      li x9,0x064863584      
-      amominu.w x13,x9, (x11)      
+      li x15,0x005F7CEAB
+      sw x15,0x000000000(x11)
+      li x9,0x064863584
+      amominu.w x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_3
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_3
@@ -2950,13 +2950,13 @@ inner_fail7_w_random_loop7_w_3:
       jr x20
 .global pass7_w_random_loop7_w_3
 pass7_w_random_loop7_w_3:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x0000002BF      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x0000002BF
       andi x11,x11,-8
-      li x15,0x0007AFAB9      
-      sw x15,0x000000000(x11)      
-      li x9,0x060444D42      
-      amominu.w.aqrl x13,x9, (x11)      
+      li x15,0x0007AFAB9
+      sw x15,0x000000000(x11)
+      li x9,0x060444D42
+      amominu.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_2
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_2
@@ -2971,13 +2971,13 @@ inner_fail7_w_random_loop7_w_2:
       jr x20
 .global pass7_w_random_loop7_w_2
 pass7_w_random_loop7_w_2:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x000000746      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x000000746
       andi x11,x11,-8
-      li x15,0x015DD171F      
-      sw x15,0x000000000(x11)      
-      li x9,0x062C80FA1      
-      amominu.w.aqrl x13,x9, (x11)      
+      li x15,0x015DD171F
+      sw x15,0x000000000(x11)
+      li x9,0x062C80FA1
+      amominu.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail7_w_random_loop7_w_1
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w_random_loop7_w_1
@@ -2992,13 +2992,13 @@ inner_fail7_w_random_loop7_w_1:
       jr x20
 .global pass7_w_random_loop7_w_1
 pass7_w_random_loop7_w_1:
-      lwu x8,0x000000000(x11)      
-      ori x11,x11,0x000000798      
+      lwu x8,0x000000000(x11)
+      ori x11,x11,0x000000798
       andi x11,x11,-8
-      li x15,0x062C82089      
-      sw x15,0x000000000(x11)      
-      li x9,0x01E9309E4      
-      amominu.w.aq x13,x9, (x11)      
+      li x15,0x062C82089
+      sw x15,0x000000000(x11)
+      li x9,0x01E9309E4
+      amominu.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail7_w
       lwu x16,(x11)
       bltu x9,x13,mem_val2_w
@@ -3013,15 +3013,15 @@ inner_fail7_w:
       jr x20
 .global pass7_w
 pass7_w:
-      sw x15,0x000000000(x11)      
+      sw x15,0x000000000(x11)
 .global check_amomax_w
 check_amomax_w:
-      ori x11,x11,0x0000002F9      
+      ori x11,x11,0x0000002F9
       andi x11,x11,-8
-      li x15,0x060A8AA2E      
-      sw x15,0x000000000(x11)      
-      li x9,0x04A99DF10      
-      amomax.w.rl x13,x9, (x11)      
+      li x15,0x060A8AA2E
+      sw x15,0x000000000(x11)
+      li x9,0x04A99DF10
+      amomax.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_9
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_9
@@ -3036,13 +3036,13 @@ inner_fail8_w_random_loop8_w_9:
       jr x20
 .global pass8_w_random_loop8_w_9
 pass8_w_random_loop8_w_9:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x000000732      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x000000732
       andi x11,x11,-8
-      li x15,0x04CDD7CEC      
-      sw x15,0x000000000(x11)      
-      li x9,0x06A329A02      
-      amomax.w x13,x9, (x11)      
+      li x15,0x04CDD7CEC
+      sw x15,0x000000000(x11)
+      li x9,0x06A329A02
+      amomax.w x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_8
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_8
@@ -3057,13 +3057,13 @@ inner_fail8_w_random_loop8_w_8:
       jr x20
 .global pass8_w_random_loop8_w_8
 pass8_w_random_loop8_w_8:
-      lb x8,0x000000000(x11)      
-      ori x11,x11,0x0000000FE      
+      lb x8,0x000000000(x11)
+      ori x11,x11,0x0000000FE
       andi x11,x11,-8
-      li x15,0x047CB7274      
-      sw x15,0x000000000(x11)      
-      li x9,0x01F4CA5F0      
-      amomax.w.rl x13,x9, (x11)      
+      li x15,0x047CB7274
+      sw x15,0x000000000(x11)
+      li x9,0x01F4CA5F0
+      amomax.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_7
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_7
@@ -3078,13 +3078,13 @@ inner_fail8_w_random_loop8_w_7:
       jr x20
 .global pass8_w_random_loop8_w_7
 pass8_w_random_loop8_w_7:
-      c.lw x10,0x00(x11)      
-      ori x11,x11,0x00000017B      
+      c.lw x10,0x00(x11)
+      ori x11,x11,0x00000017B
       andi x11,x11,-8
-      li x15,0x06907A3BF      
-      sw x15,0x000000000(x11)      
-      li x9,0x04EE0E3D6      
-      amomax.w x13,x9, (x11)      
+      li x15,0x06907A3BF
+      sw x15,0x000000000(x11)
+      li x9,0x04EE0E3D6
+      amomax.w x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_6
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_6
@@ -3099,13 +3099,13 @@ inner_fail8_w_random_loop8_w_6:
       jr x20
 .global pass8_w_random_loop8_w_6
 pass8_w_random_loop8_w_6:
-      ld x9,0x000000000(x11)      
-      ori x11,x11,0x0000004B5      
+      ld x9,0x000000000(x11)
+      ori x11,x11,0x0000004B5
       andi x11,x11,-8
-      li x15,0x064D0405A      
-      sw x15,0x000000000(x11)      
-      li x9,0x055181ACC      
-      amomax.w x13,x9, (x11)      
+      li x15,0x064D0405A
+      sw x15,0x000000000(x11)
+      li x9,0x055181ACC
+      amomax.w x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_5
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_5
@@ -3120,13 +3120,13 @@ inner_fail8_w_random_loop8_w_5:
       jr x20
 .global pass8_w_random_loop8_w_5
 pass8_w_random_loop8_w_5:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x000000435      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x000000435
       andi x11,x11,-8
-      li x15,0x06717F289      
-      sw x15,0x000000000(x11)      
-      li x9,0x06EFAB4E7      
-      amomax.w.rl x13,x9, (x11)      
+      li x15,0x06717F289
+      sw x15,0x000000000(x11)
+      li x9,0x06EFAB4E7
+      amomax.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_4
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_4
@@ -3141,13 +3141,13 @@ inner_fail8_w_random_loop8_w_4:
       jr x20
 .global pass8_w_random_loop8_w_4
 pass8_w_random_loop8_w_4:
-      lhu x8,0x000000000(x11)      
-      ori x11,x11,0x0000003B3      
+      lhu x8,0x000000000(x11)
+      ori x11,x11,0x0000003B3
       andi x11,x11,-8
-      li x15,0x078E44D9B      
-      sw x15,0x000000000(x11)      
-      li x9,0x030811859      
-      amomax.w x13,x9, (x11)      
+      li x15,0x078E44D9B
+      sw x15,0x000000000(x11)
+      li x9,0x030811859
+      amomax.w x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_3
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_3
@@ -3162,13 +3162,13 @@ inner_fail8_w_random_loop8_w_3:
       jr x20
 .global pass8_w_random_loop8_w_3
 pass8_w_random_loop8_w_3:
-      lbu x10,0x000000000(x11)      
-      ori x11,x11,0x0000002E5      
+      lbu x10,0x000000000(x11)
+      ori x11,x11,0x0000002E5
       andi x11,x11,-8
-      li x15,0x00F24F357      
-      sw x15,0x000000000(x11)      
-      li x9,0x041914D6D      
-      amomax.w.aq x13,x9, (x11)      
+      li x15,0x00F24F357
+      sw x15,0x000000000(x11)
+      li x9,0x041914D6D
+      amomax.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_2
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_2
@@ -3183,13 +3183,13 @@ inner_fail8_w_random_loop8_w_2:
       jr x20
 .global pass8_w_random_loop8_w_2
 pass8_w_random_loop8_w_2:
-      lw x9,0x000000000(x11)      
-      ori x11,x11,0x0000006F7      
+      lw x9,0x000000000(x11)
+      ori x11,x11,0x0000006F7
       andi x11,x11,-8
-      li x15,0x07368E155      
-      sw x15,0x000000000(x11)      
-      li x9,0x034EBC21E      
-      amomax.w.rl x13,x9, (x11)      
+      li x15,0x07368E155
+      sw x15,0x000000000(x11)
+      li x9,0x034EBC21E
+      amomax.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail8_w_random_loop8_w_1
       lwu x16,(x11)
       bge x9,x13,mem_val3_w_random_loop8_w_1
@@ -3204,13 +3204,13 @@ inner_fail8_w_random_loop8_w_1:
       jr x20
 .global pass8_w_random_loop8_w_1
 pass8_w_random_loop8_w_1:
-      c.lw x9,0x00(x11)      
-      ori x11,x11,0x000000111      
+      c.lw x9,0x00(x11)
+      ori x11,x11,0x000000111
       andi x11,x11,-8
-      li x15,0x04E348410      
-      sw x15,0x000000000(x11)      
-      li x9,0x02F408D8A      
-      amomax.w x13,x9, (x11)      
+      li x15,0x04E348410
+      sw x15,0x000000000(x11)
+      li x9,0x02F408D8A
+      amomax.w x13,x9, (x11)
       bne x15,x13, inner_fail8_w
       lwu x16,(x11)
       bge x9,x13,mem_val3_w
@@ -3225,15 +3225,15 @@ inner_fail8_w:
       jr x20
 .global pass8_w
 pass8_w:
-      ld x10,0x000000000(x11)      
+      ld x10,0x000000000(x11)
 .global check_amomaxu_w
 check_amomaxu_w:
-      ori x11,x11,0x00000079C      
+      ori x11,x11,0x00000079C
       andi x11,x11,-8
-      li x15,0x0645C07A0      
-      sw x15,0x000000000(x11)      
-      li x9,0x04AD79D18      
-      amomaxu.w.aq x13,x9, (x11)      
+      li x15,0x0645C07A0
+      sw x15,0x000000000(x11)
+      li x9,0x04AD79D18
+      amomaxu.w.aq x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_9
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_9
@@ -3248,13 +3248,13 @@ inner_fail9_w_random_loop9_w_9:
       jr x20
 .global pass9_w_random_loop9_w_9
 pass9_w_random_loop9_w_9:
-      lwu x10,0x000000000(x11)      
-      ori x11,x11,0x000000543      
+      lwu x10,0x000000000(x11)
+      ori x11,x11,0x000000543
       andi x11,x11,-8
-      li x15,0x00068BE2F      
-      sw x15,0x000000000(x11)      
-      li x9,0x07E422D19      
-      amomaxu.w.aqrl x13,x9, (x11)      
+      li x15,0x00068BE2F
+      sw x15,0x000000000(x11)
+      li x9,0x07E422D19
+      amomaxu.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_8
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_8
@@ -3269,13 +3269,13 @@ inner_fail9_w_random_loop9_w_8:
       jr x20
 .global pass9_w_random_loop9_w_8
 pass9_w_random_loop9_w_8:
-      c.sw x14,0x00(x11)      
-      ori x11,x11,0x0000007D5      
+      c.sw x14,0x00(x11)
+      ori x11,x11,0x0000007D5
       andi x11,x11,-8
-      li x15,0x01EE34CEB      
-      sw x15,0x000000000(x11)      
-      li x9,0x026F10D3C      
-      amomaxu.w.rl x13,x9, (x11)      
+      li x15,0x01EE34CEB
+      sw x15,0x000000000(x11)
+      li x9,0x026F10D3C
+      amomaxu.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_7
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_7
@@ -3290,13 +3290,13 @@ inner_fail9_w_random_loop9_w_7:
       jr x20
 .global pass9_w_random_loop9_w_7
 pass9_w_random_loop9_w_7:
-      ld x9,0x000000000(x11)      
-      ori x11,x11,0x00000066C      
+      ld x9,0x000000000(x11)
+      ori x11,x11,0x00000066C
       andi x11,x11,-8
-      li x15,0x02A1BABC2      
-      sw x15,0x000000000(x11)      
-      li x9,0x07401252D      
-      amomaxu.w x13,x9, (x11)      
+      li x15,0x02A1BABC2
+      sw x15,0x000000000(x11)
+      li x9,0x07401252D
+      amomaxu.w x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_6
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_6
@@ -3311,13 +3311,13 @@ inner_fail9_w_random_loop9_w_6:
       jr x20
 .global pass9_w_random_loop9_w_6
 pass9_w_random_loop9_w_6:
-      ld x9,0x000000000(x11)      
-      ori x11,x11,0x00000020F      
+      ld x9,0x000000000(x11)
+      ori x11,x11,0x00000020F
       andi x11,x11,-8
-      li x15,0x03B5F8A96      
-      sw x15,0x000000000(x11)      
-      li x9,0x02CC0ABBE      
-      amomaxu.w.aqrl x13,x9, (x11)      
+      li x15,0x03B5F8A96
+      sw x15,0x000000000(x11)
+      li x9,0x02CC0ABBE
+      amomaxu.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_5
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_5
@@ -3332,13 +3332,13 @@ inner_fail9_w_random_loop9_w_5:
       jr x20
 .global pass9_w_random_loop9_w_5
 pass9_w_random_loop9_w_5:
-      lh x9,0x000000000(x11)      
-      ori x11,x11,0x000000749      
+      lh x9,0x000000000(x11)
+      ori x11,x11,0x000000749
       andi x11,x11,-8
-      li x15,0x00635D3A5      
-      sw x15,0x000000000(x11)      
-      li x9,0x003225469      
-      amomaxu.w.aqrl x13,x9, (x11)      
+      li x15,0x00635D3A5
+      sw x15,0x000000000(x11)
+      li x9,0x003225469
+      amomaxu.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_4
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_4
@@ -3353,13 +3353,13 @@ inner_fail9_w_random_loop9_w_4:
       jr x20
 .global pass9_w_random_loop9_w_4
 pass9_w_random_loop9_w_4:
-      lbu x8,0x000000000(x11)      
-      ori x11,x11,0x000000427      
+      lbu x8,0x000000000(x11)
+      ori x11,x11,0x000000427
       andi x11,x11,-8
-      li x15,0x01ED36E1D      
-      sw x15,0x000000000(x11)      
-      li x9,0x01E43EC62      
-      amomaxu.w x13,x9, (x11)      
+      li x15,0x01ED36E1D
+      sw x15,0x000000000(x11)
+      li x9,0x01E43EC62
+      amomaxu.w x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_3
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_3
@@ -3374,13 +3374,13 @@ inner_fail9_w_random_loop9_w_3:
       jr x20
 .global pass9_w_random_loop9_w_3
 pass9_w_random_loop9_w_3:
-      lw x10,0x000000000(x11)      
-      ori x11,x11,0x0000000A3      
+      lw x10,0x000000000(x11)
+      ori x11,x11,0x0000000A3
       andi x11,x11,-8
-      li x15,0x009EC8ECB      
-      sw x15,0x000000000(x11)      
-      li x9,0x00BA8EB32      
-      amomaxu.w.aqrl x13,x9, (x11)      
+      li x15,0x009EC8ECB
+      sw x15,0x000000000(x11)
+      li x9,0x00BA8EB32
+      amomaxu.w.aqrl x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_2
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_2
@@ -3395,13 +3395,13 @@ inner_fail9_w_random_loop9_w_2:
       jr x20
 .global pass9_w_random_loop9_w_2
 pass9_w_random_loop9_w_2:
-      ld x10,0x000000000(x11)      
-      ori x11,x11,0x00000079E      
+      ld x10,0x000000000(x11)
+      ori x11,x11,0x00000079E
       andi x11,x11,-8
-      li x15,0x068C6DEF7      
-      sw x15,0x000000000(x11)      
-      li x9,0x04A08CB88      
-      amomaxu.w.rl x13,x9, (x11)      
+      li x15,0x068C6DEF7
+      sw x15,0x000000000(x11)
+      li x9,0x04A08CB88
+      amomaxu.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail9_w_random_loop9_w_1
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w_random_loop9_w_1
@@ -3416,13 +3416,13 @@ inner_fail9_w_random_loop9_w_1:
       jr x20
 .global pass9_w_random_loop9_w_1
 pass9_w_random_loop9_w_1:
-      lw x8,0x000000000(x11)      
-      ori x11,x11,0x0000001CF      
+      lw x8,0x000000000(x11)
+      ori x11,x11,0x0000001CF
       andi x11,x11,-8
-      li x15,0x075D9C419      
-      sw x15,0x000000000(x11)      
-      li x9,0x012F2221F      
-      amomaxu.w.rl x13,x9, (x11)      
+      li x15,0x075D9C419
+      sw x15,0x000000000(x11)
+      li x9,0x012F2221F
+      amomaxu.w.rl x13,x9, (x11)
       bne x15,x13, inner_fail9_w
       lwu x16,(x11)
       bgeu x9,x13,mem_val4_w
@@ -3437,7 +3437,7 @@ inner_fail9_w:
       jr x20
 .global pass9_w
 pass9_w:
-      sd x13,0x000000000(x11)      
+      sd x13,0x000000000(x11)
       DATA_CACHE_CLIV
       DATA_CACHE_DIS
       j  start

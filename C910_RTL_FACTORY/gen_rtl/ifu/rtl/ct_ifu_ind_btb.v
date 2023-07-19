@@ -47,120 +47,120 @@ module ct_ifu_ind_btb(
 );
 
 // &Ports; @23
-input   [7 :0]  bht_ind_btb_rtu_ghr;        
-input   [7 :0]  bht_ind_btb_vghr;           
-input           cp0_ifu_icg_en;             
-input           cp0_ifu_ind_btb_en;         
-input           cp0_yy_clk_en;              
-input   [1 :0]  cp0_yy_priv_mode;           
-input           cpurst_b;                   
-input           forever_cpuclk;             
-input           ibctrl_ind_btb_check_vld;   
-input           ibctrl_ind_btb_fifo_stall;  
-input   [7 :0]  ibctrl_ind_btb_path;        
-input           ifctrl_ind_btb_inv;         
-input           ipctrl_ind_btb_con_br_vld;  
-input           ipdp_ind_btb_jmp_detect;    
-input           pad_yy_icg_scan_en;         
-input           rtu_ifu_flush;              
-input   [7 :0]  rtu_ifu_retire0_chk_idx;    
-input           rtu_ifu_retire0_jmp;        
-input           rtu_ifu_retire0_jmp_mispred; 
-input           rtu_ifu_retire0_mispred;    
-input   [38:0]  rtu_ifu_retire0_next_pc;    
-input   [7 :0]  rtu_ifu_retire1_chk_idx;    
-input           rtu_ifu_retire1_jmp;        
-input   [7 :0]  rtu_ifu_retire2_chk_idx;    
-input           rtu_ifu_retire2_jmp;        
-output  [22:0]  ind_btb_ibctrl_dout;        
-output  [1 :0]  ind_btb_ibctrl_priv_mode;   
-output          ind_btb_ifctrl_inv_done;    
-output          ind_btb_ifctrl_inv_on;      
+input   [7 :0]  bht_ind_btb_rtu_ghr;
+input   [7 :0]  bht_ind_btb_vghr;
+input           cp0_ifu_icg_en;
+input           cp0_ifu_ind_btb_en;
+input           cp0_yy_clk_en;
+input   [1 :0]  cp0_yy_priv_mode;
+input           cpurst_b;
+input           forever_cpuclk;
+input           ibctrl_ind_btb_check_vld;
+input           ibctrl_ind_btb_fifo_stall;
+input   [7 :0]  ibctrl_ind_btb_path;
+input           ifctrl_ind_btb_inv;
+input           ipctrl_ind_btb_con_br_vld;
+input           ipdp_ind_btb_jmp_detect;
+input           pad_yy_icg_scan_en;
+input           rtu_ifu_flush;
+input   [7 :0]  rtu_ifu_retire0_chk_idx;
+input           rtu_ifu_retire0_jmp;
+input           rtu_ifu_retire0_jmp_mispred;
+input           rtu_ifu_retire0_mispred;
+input   [38:0]  rtu_ifu_retire0_next_pc;
+input   [7 :0]  rtu_ifu_retire1_chk_idx;
+input           rtu_ifu_retire1_jmp;
+input   [7 :0]  rtu_ifu_retire2_chk_idx;
+input           rtu_ifu_retire2_jmp;
+output  [22:0]  ind_btb_ibctrl_dout;
+output  [1 :0]  ind_btb_ibctrl_priv_mode;
+output          ind_btb_ifctrl_inv_done;
+output          ind_btb_ifctrl_inv_on;
 
 // &Regs; @24
-reg             after_path_reg_rtu_updt;    
-reg     [22:0]  ind_btb_dout_reg;           
-reg     [7 :0]  ind_btb_index;              
-reg     [7 :0]  ind_btb_inv_cnt;            
-reg             ind_btb_inv_on_reg;         
-reg             ind_btb_rd_flop;            
-reg     [7 :0]  path_reg_0;                 
-reg     [7 :0]  path_reg_1;                 
-reg     [7 :0]  path_reg_2;                 
-reg     [7 :0]  path_reg_3;                 
-reg     [1 :0]  priv_mode_reg;              
-reg     [7 :0]  rtu_path_reg_0;             
-reg     [7 :0]  rtu_path_reg_0_pre;         
-reg     [7 :0]  rtu_path_reg_1;             
-reg     [7 :0]  rtu_path_reg_1_pre;         
-reg     [7 :0]  rtu_path_reg_2;             
-reg     [7 :0]  rtu_path_reg_2_pre;         
-reg     [7 :0]  rtu_path_reg_3;             
-reg     [7 :0]  rtu_path_reg_3_pre;         
+reg             after_path_reg_rtu_updt;
+reg     [22:0]  ind_btb_dout_reg;
+reg     [7 :0]  ind_btb_index;
+reg     [7 :0]  ind_btb_inv_cnt;
+reg             ind_btb_inv_on_reg;
+reg             ind_btb_rd_flop;
+reg     [7 :0]  path_reg_0;
+reg     [7 :0]  path_reg_1;
+reg     [7 :0]  path_reg_2;
+reg     [7 :0]  path_reg_3;
+reg     [1 :0]  priv_mode_reg;
+reg     [7 :0]  rtu_path_reg_0;
+reg     [7 :0]  rtu_path_reg_0_pre;
+reg     [7 :0]  rtu_path_reg_1;
+reg     [7 :0]  rtu_path_reg_1_pre;
+reg     [7 :0]  rtu_path_reg_2;
+reg     [7 :0]  rtu_path_reg_2_pre;
+reg     [7 :0]  rtu_path_reg_3;
+reg     [7 :0]  rtu_path_reg_3_pre;
 
 // &Wires; @25
-wire            after_path_reg_rtu_updt_rd; 
-wire    [7 :0]  bht_ind_btb_rtu_ghr;        
-wire    [7 :0]  bht_ind_btb_vghr;           
-wire            cp0_ifu_icg_en;             
-wire            cp0_ifu_ind_btb_en;         
-wire            cp0_yy_clk_en;              
-wire    [1 :0]  cp0_yy_priv_mode;           
-wire            cpurst_b;                   
-wire            dout_update_clk;            
-wire            dout_update_clk_en;         
-wire            forever_cpuclk;             
-wire            ib_stage_path_update_rd;    
-wire            ibctrl_ind_btb_check_vld;   
-wire            ibctrl_ind_btb_fifo_stall;  
-wire    [7 :0]  ibctrl_ind_btb_path;        
-wire            ifctrl_ind_btb_inv;         
-wire            ind_btb_cen_b;              
-wire            ind_btb_clk_en;             
-wire    [22:0]  ind_btb_data_in;            
-wire    [22:0]  ind_btb_dout;               
-wire    [22:0]  ind_btb_ibctrl_dout;        
-wire    [1 :0]  ind_btb_ibctrl_priv_mode;   
-wire            ind_btb_ifctrl_inv_done;    
-wire            ind_btb_ifctrl_inv_on;      
-wire            ind_btb_inv_reg_upd_clk;    
-wire            ind_btb_inv_reg_upd_clk_en; 
-wire            ind_btb_invalidate;         
-wire            ind_btb_rd;                 
-wire    [7 :0]  ind_btb_rd_index;           
-wire            ind_btb_wen_b;              
-wire    [7 :0]  ind_btb_wr_index;           
-wire            ip_stage_vghr_update_rd;    
-wire            ipctrl_ind_btb_con_br_vld;  
-wire            ipdp_ind_btb_jmp_detect;    
-wire            pad_yy_icg_scan_en;         
-wire    [7 :0]  path_reg_0_pre;             
-wire    [7 :0]  path_reg_1_pre;             
-wire    [7 :0]  path_reg_2_pre;             
-wire    [7 :0]  path_reg_3_pre;             
-wire            path_reg_rtu_updt;          
-wire            path_reg_rtu_updt_rd;       
-wire            path_reg_updt_clk;          
-wire            path_reg_updt_clk_en;       
-wire    [7 :0]  rtu_ghr;                    
-wire            rtu_ifu_flush;              
-wire    [7 :0]  rtu_ifu_retire0_chk_idx;    
-wire            rtu_ifu_retire0_jmp;        
-wire            rtu_ifu_retire0_jmp_mispred; 
-wire            rtu_ifu_retire0_mispred;    
-wire    [38:0]  rtu_ifu_retire0_next_pc;    
-wire    [7 :0]  rtu_ifu_retire1_chk_idx;    
-wire            rtu_ifu_retire1_jmp;        
-wire    [7 :0]  rtu_ifu_retire2_chk_idx;    
-wire            rtu_ifu_retire2_jmp;        
-wire            rtu_ind_btb_update_vld;     
-wire            rtu_jmp_check_vld;          
-wire    [19:0]  rtu_jmp_target_pc;          
-wire            rtu_path_reg_updt_clk;      
-wire            rtu_path_reg_updt_clk_en;   
-wire            updt_clk;                   
-wire            updt_clk_en;                
-wire    [7 :0]  vghr_reg;                   
+wire            after_path_reg_rtu_updt_rd;
+wire    [7 :0]  bht_ind_btb_rtu_ghr;
+wire    [7 :0]  bht_ind_btb_vghr;
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_ind_btb_en;
+wire            cp0_yy_clk_en;
+wire    [1 :0]  cp0_yy_priv_mode;
+wire            cpurst_b;
+wire            dout_update_clk;
+wire            dout_update_clk_en;
+wire            forever_cpuclk;
+wire            ib_stage_path_update_rd;
+wire            ibctrl_ind_btb_check_vld;
+wire            ibctrl_ind_btb_fifo_stall;
+wire    [7 :0]  ibctrl_ind_btb_path;
+wire            ifctrl_ind_btb_inv;
+wire            ind_btb_cen_b;
+wire            ind_btb_clk_en;
+wire    [22:0]  ind_btb_data_in;
+wire    [22:0]  ind_btb_dout;
+wire    [22:0]  ind_btb_ibctrl_dout;
+wire    [1 :0]  ind_btb_ibctrl_priv_mode;
+wire            ind_btb_ifctrl_inv_done;
+wire            ind_btb_ifctrl_inv_on;
+wire            ind_btb_inv_reg_upd_clk;
+wire            ind_btb_inv_reg_upd_clk_en;
+wire            ind_btb_invalidate;
+wire            ind_btb_rd;
+wire    [7 :0]  ind_btb_rd_index;
+wire            ind_btb_wen_b;
+wire    [7 :0]  ind_btb_wr_index;
+wire            ip_stage_vghr_update_rd;
+wire            ipctrl_ind_btb_con_br_vld;
+wire            ipdp_ind_btb_jmp_detect;
+wire            pad_yy_icg_scan_en;
+wire    [7 :0]  path_reg_0_pre;
+wire    [7 :0]  path_reg_1_pre;
+wire    [7 :0]  path_reg_2_pre;
+wire    [7 :0]  path_reg_3_pre;
+wire            path_reg_rtu_updt;
+wire            path_reg_rtu_updt_rd;
+wire            path_reg_updt_clk;
+wire            path_reg_updt_clk_en;
+wire    [7 :0]  rtu_ghr;
+wire            rtu_ifu_flush;
+wire    [7 :0]  rtu_ifu_retire0_chk_idx;
+wire            rtu_ifu_retire0_jmp;
+wire            rtu_ifu_retire0_jmp_mispred;
+wire            rtu_ifu_retire0_mispred;
+wire    [38:0]  rtu_ifu_retire0_next_pc;
+wire    [7 :0]  rtu_ifu_retire1_chk_idx;
+wire            rtu_ifu_retire1_jmp;
+wire    [7 :0]  rtu_ifu_retire2_chk_idx;
+wire            rtu_ifu_retire2_jmp;
+wire            rtu_ind_btb_update_vld;
+wire            rtu_jmp_check_vld;
+wire    [19:0]  rtu_jmp_target_pc;
+wire            rtu_path_reg_updt_clk;
+wire            rtu_path_reg_updt_clk_en;
+wire            updt_clk;
+wire            updt_clk_en;
+wire    [7 :0]  vghr_reg;
 
 
 
@@ -178,38 +178,38 @@ wire    [7 :0]  vghr_reg;
 //    1).RTU IFU Flush
 //    2).RTU retire any mispredict inst
 //  b.BJU Change Flow  --> Update VGHR
-//    BJU check any mispredict inst will update VGHR  
+//    BJU check any mispredict inst will update VGHR
 //    Need not to read ind btb, beacuse from IU check Mispred
-//    inst, until RTU retire Mispred inst, if IFU fetch ind btb 
-//    inst, it will stall inst fetch 
+//    inst, until RTU retire Mispred inst, if IFU fetch ind btb
+//    inst, it will stall inst fetch
 //  c.IB Stage check Ind_BTB Inst --> Update PATH Infor
-//  d.IP Stage check Con_br Inst --> Update VGHR 
-assign ind_btb_cen_b = !ind_btb_inv_on_reg && 
-                       !(cp0_ifu_ind_btb_en && 
+//  d.IP Stage check Con_br Inst --> Update VGHR
+assign ind_btb_cen_b = !ind_btb_inv_on_reg &&
+                       !(cp0_ifu_ind_btb_en &&
                           (
-                            rtu_ind_btb_update_vld || 
-                            path_reg_rtu_updt_rd || 
-                            after_path_reg_rtu_updt_rd || 
-                            ib_stage_path_update_rd || 
+                            rtu_ind_btb_update_vld ||
+                            path_reg_rtu_updt_rd ||
+                            after_path_reg_rtu_updt_rd ||
+                            ib_stage_path_update_rd ||
                             ip_stage_vghr_update_rd
                           )
                         );
 //Clk Enable Signal for Memory Gate Clk
-assign ind_btb_clk_en = ind_btb_inv_on_reg || 
-                        cp0_ifu_ind_btb_en && 
+assign ind_btb_clk_en = ind_btb_inv_on_reg ||
+                        cp0_ifu_ind_btb_en &&
                         (
-                          rtu_ind_btb_update_vld || 
+                          rtu_ind_btb_update_vld ||
                           ipdp_ind_btb_jmp_detect
                         );
 
 //----------------------read signal-------------------------
 //Only When ip stage detect JMP inst will read ind_btb
 assign rtu_ind_btb_update_vld  = rtu_ifu_retire0_jmp_mispred;
-assign ib_stage_path_update_rd = ipdp_ind_btb_jmp_detect || 
+assign ib_stage_path_update_rd = ipdp_ind_btb_jmp_detect ||
                                  ibctrl_ind_btb_check_vld;
-assign ip_stage_vghr_update_rd = ipctrl_ind_btb_con_br_vld && 
+assign ip_stage_vghr_update_rd = ipctrl_ind_btb_con_br_vld &&
                                  ipdp_ind_btb_jmp_detect;
-assign path_reg_rtu_updt_rd    = path_reg_rtu_updt && 
+assign path_reg_rtu_updt_rd    = path_reg_rtu_updt &&
                                  ipdp_ind_btb_jmp_detect;
 
 //-------------after_path_reg_rtu_updt_rd-------------------
@@ -231,8 +231,8 @@ gated_clk_cell  x_updt_clk (
 //           .local_en       (updt_clk_en),//Local Condition @82
 //           .module_en      (cp0_ifu_icg_en) @83
 //         ); @84
-assign updt_clk_en = ind_btb_inv_on_reg || 
-                     path_reg_rtu_updt || 
+assign updt_clk_en = ind_btb_inv_on_reg ||
+                     path_reg_rtu_updt ||
                      after_path_reg_rtu_updt;
 
 //path_reg_rtu_updt means rtu retire one any mispredict inst
@@ -249,9 +249,9 @@ begin
     after_path_reg_rtu_updt <= 1'b0;
 end
 
-assign after_path_reg_rtu_updt_rd = after_path_reg_rtu_updt && 
+assign after_path_reg_rtu_updt_rd = after_path_reg_rtu_updt &&
                                     ipdp_ind_btb_jmp_detect;
-assign path_reg_rtu_updt = rtu_ifu_retire0_mispred || 
+assign path_reg_rtu_updt = rtu_ifu_retire0_mispred ||
                            rtu_ifu_flush;
 //==========================================================
 //               Write Enable to Ind_BTB
@@ -259,34 +259,34 @@ assign path_reg_rtu_updt = rtu_ifu_retire0_mispred ||
 //Ind_BTB write priority is higher than Ind_BTB read
 //1.Ind_BTB Invalid
 //2.Ind_BTB Update by RTU
-assign ind_btb_wen_b = !ind_btb_inv_on_reg && 
-                       !(cp0_ifu_ind_btb_en && 
+assign ind_btb_wen_b = !ind_btb_inv_on_reg &&
+                       !(cp0_ifu_ind_btb_en &&
                          rtu_ind_btb_update_vld);
 
 //==========================================================
 //               Read Enable to Ind_BTB
 //==========================================================
-assign ind_btb_rd = cp0_ifu_ind_btb_en &&  
+assign ind_btb_rd = cp0_ifu_ind_btb_en &&
                     (
-                      path_reg_rtu_updt_rd || 
-                      after_path_reg_rtu_updt_rd || 
-                      ib_stage_path_update_rd || 
+                      path_reg_rtu_updt_rd ||
+                      after_path_reg_rtu_updt_rd ||
+                      ib_stage_path_update_rd ||
                       ip_stage_vghr_update_rd
-                    ) && 
-                    !rtu_ind_btb_update_vld && 
-                    !ibctrl_ind_btb_fifo_stall && 
+                    ) &&
+                    !rtu_ind_btb_update_vld &&
+                    !ibctrl_ind_btb_fifo_stall &&
                     !ind_btb_inv_on_reg;
-                  
+
 //==========================================================
 //                Write Data to Ind BTB
 //==========================================================
 //data_in[20:0] = {vld, target[19:0]}
-assign ind_btb_data_in[22:0] = (ind_btb_inv_on_reg) 
-                             ? 23'b0 
+assign ind_btb_data_in[22:0] = (ind_btb_inv_on_reg)
+                             ? 23'b0
                              : {1'b1,cp0_yy_priv_mode[1:0],rtu_jmp_target_pc[19:0]};
 assign rtu_jmp_target_pc[19:0] = rtu_ifu_retire0_next_pc[19:0];
 // &Force("bus","rtu_ifu_retire0_next_pc",38,0);       @139
-                             
+
 //==========================================================
 //                   Index to Ind BTB
 //==========================================================
@@ -301,22 +301,22 @@ if(ind_btb_inv_on_reg)
   ind_btb_index[7:0] = ind_btb_inv_cnt[7:0];
 else if(rtu_ind_btb_update_vld)
   ind_btb_index[7:0] = ind_btb_wr_index[7:0];
-else //if(ind_btb_read) 
+else //if(ind_btb_read)
   ind_btb_index[7:0] = ind_btb_rd_index[7:0];
 // &CombEnd; @151
 end
 
 assign ind_btb_wr_index[7:0] = {
-                                 {rtu_path_reg_3[7:6] ^ rtu_ghr[7:6]}, 
-                                 {rtu_path_reg_2[5:4] ^ rtu_ghr[5:4]}, 
-                                 {rtu_path_reg_1[3:2] ^ rtu_ghr[3:2]}, 
+                                 {rtu_path_reg_3[7:6] ^ rtu_ghr[7:6]},
+                                 {rtu_path_reg_2[5:4] ^ rtu_ghr[5:4]},
+                                 {rtu_path_reg_1[3:2] ^ rtu_ghr[3:2]},
                                  {rtu_path_reg_0[1:0] ^ rtu_ghr[1:0]}
                                };
 //For timing, use vghr_reg in stead of vghr_pre
 assign ind_btb_rd_index[7:0] = {
-                                 {path_reg_3_pre[7:6] ^ vghr_reg[7:6]}, 
-                                 {path_reg_2_pre[5:4] ^ vghr_reg[5:4]}, 
-                                 {path_reg_1_pre[3:2] ^ vghr_reg[3:2]}, 
+                                 {path_reg_3_pre[7:6] ^ vghr_reg[7:6]},
+                                 {path_reg_2_pre[5:4] ^ vghr_reg[5:4]},
+                                 {path_reg_1_pre[3:2] ^ vghr_reg[3:2]},
                                  {path_reg_0_pre[1:0] ^ vghr_reg[1:0]}
                                };
 
@@ -324,7 +324,7 @@ assign rtu_ghr[7:0]  = bht_ind_btb_rtu_ghr[7:0];
 assign vghr_reg[7:0] = bht_ind_btb_vghr[7:0];
 
 //==========================================================
-//                   rtu_path_reg 
+//                   rtu_path_reg
 //==========================================================
 //Gate Clk
 // &Instance("gated_clk_cell","x_rtu_path_reg_updt_clk"); @174
@@ -345,13 +345,13 @@ gated_clk_cell  x_rtu_path_reg_updt_clk (
 //           .local_en       (rtu_path_reg_updt_clk_en),//Local Condition @179
 //           .module_en      (cp0_ifu_icg_en) @180
 //         ); @181
-assign rtu_path_reg_updt_clk_en = rtu_jmp_check_vld && 
-                                  cp0_ifu_ind_btb_en || 
+assign rtu_path_reg_updt_clk_en = rtu_jmp_check_vld &&
+                                  cp0_ifu_ind_btb_en ||
                                   ind_btb_inv_on_reg;
-assign rtu_jmp_check_vld        = rtu_ifu_retire0_jmp || 
-                                  rtu_ifu_retire1_jmp || 
+assign rtu_jmp_check_vld        = rtu_ifu_retire0_jmp ||
+                                  rtu_ifu_retire1_jmp ||
                                   rtu_ifu_retire2_jmp;
-//rtu_path_reg                             
+//rtu_path_reg
 always @(posedge rtu_path_reg_updt_clk or negedge cpurst_b)
 begin
   if(!cpurst_b)
@@ -381,8 +381,8 @@ begin
     rtu_path_reg_2[7:0] <= rtu_path_reg_2[7:0];
     rtu_path_reg_1[7:0] <= rtu_path_reg_1[7:0];
     rtu_path_reg_0[7:0] <= rtu_path_reg_0[7:0];
-  end    
-end 
+  end
+end
 
 //rtu_path_reg_pre
 // &CombBeg; @222
@@ -479,11 +479,11 @@ gated_clk_cell  x_path_reg_updt_clk (
 //           .module_en      (cp0_ifu_icg_en) @291
 //         ); @292
 assign path_reg_updt_clk_en = (
-                                path_reg_rtu_updt || 
+                                path_reg_rtu_updt ||
                                 ibctrl_ind_btb_check_vld
-                              ) && 
-                              cp0_ifu_ind_btb_en || 
-                              ind_btb_inv_on_reg; 
+                              ) &&
+                              cp0_ifu_ind_btb_en ||
+                              ind_btb_inv_on_reg;
 
 //path_reg
 always @(posedge path_reg_updt_clk or negedge cpurst_b)
@@ -515,8 +515,8 @@ begin
     path_reg_2[7:0] <= path_reg_2[7:0];
     path_reg_1[7:0] <= path_reg_1[7:0];
     path_reg_0[7:0] <= path_reg_0[7:0];
-  end    
-end 
+  end
+end
 
 //path_reg_pre
 assign path_reg_3_pre[7:0] = (path_reg_rtu_updt)
@@ -624,7 +624,7 @@ gated_clk_cell  x_ind_btb_inv_reg_upd_clk (
 //           .local_en       (ind_btb_inv_reg_upd_clk_en),//Local Condition @416
 //           .module_en      (cp0_ifu_icg_en) @417
 //         ); @418
-assign ind_btb_inv_reg_upd_clk_en = ind_btb_inv_on_reg || 
+assign ind_btb_inv_reg_upd_clk_en = ind_btb_inv_on_reg ||
                                     ind_btb_invalidate;
 //Invalidation Index
 always @(posedge ind_btb_inv_reg_upd_clk or negedge cpurst_b)

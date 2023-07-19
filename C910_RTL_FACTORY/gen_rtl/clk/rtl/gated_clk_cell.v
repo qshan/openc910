@@ -46,4 +46,4 @@ assign SE	       = pad_yy_icg_scan_en;
 // //                ) ; @54
 assign clk_out = clk_in;
 
-endmodule   
+endmodule

@@ -22,18 +22,18 @@ module ct_fcnvt_ftoi_sh(
 );
 
 // &Ports; @23
-input   [6 :0]  fsh_cnt;   
-input   [52:0]  fsh_src;   
-output  [63:0]  fsh_i_v_nm; 
-output  [53:0]  fsh_i_x_nm; 
+input   [6 :0]  fsh_cnt;
+input   [52:0]  fsh_src;
+output  [63:0]  fsh_i_v_nm;
+output  [53:0]  fsh_i_x_nm;
 
 // &Regs; @24
-reg     [63:0]  fsh_i_v_nm; 
-reg     [53:0]  fsh_i_x_nm; 
+reg     [63:0]  fsh_i_v_nm;
+reg     [53:0]  fsh_i_x_nm;
 
 // &Wires; @25
-wire    [6 :0]  fsh_cnt;   
-wire    [52:0]  fsh_src;   
+wire    [6 :0]  fsh_cnt;
+wire    [52:0]  fsh_src;
 
 
 // &CombBeg; @27
@@ -44,7 +44,7 @@ case(fsh_cnt[6:0])
   7'h7f : begin      //for actual exponent = -1, should consider rouding
     fsh_i_v_nm[63:0] = 64'd0;
     fsh_i_x_nm[53:0] = {fsh_src[52:0], 1'd0};
-  end 
+  end
   7'd0 : begin
     fsh_i_v_nm[63:0] = {63'd0, fsh_src[52]};
     fsh_i_x_nm[53:0] = {fsh_src[51:0], 2'd0};

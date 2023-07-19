@@ -42,94 +42,94 @@ module ct_lsu_pfu_gsdb(
 );
 
 // &Ports; @29
-input           cp0_lsu_icg_en;                              
-input           cp0_yy_clk_en;                               
-input           cp0_yy_dcache_pref_en;                       
-input           cpurst_b;                                    
-input           forever_cpuclk;                              
-input   [6 :0]  ld_da_iid;                                   
-input           ld_da_pfu_act_vld;                           
-input           ld_da_pfu_pf_inst_vld;                       
-input   [39:0]  ld_da_pfu_va;                                
-input           pad_yy_icg_scan_en;                          
-input           pfu_gpfb_vld;                                
-input           pfu_pop_all_vld;                             
-input           rtu_yy_xx_commit0;                           
-input   [6 :0]  rtu_yy_xx_commit0_iid;                       
-input           rtu_yy_xx_commit1;                           
-input   [6 :0]  rtu_yy_xx_commit1_iid;                       
-input           rtu_yy_xx_commit2;                           
-input   [6 :0]  rtu_yy_xx_commit2_iid;                       
-input           rtu_yy_xx_flush;                             
-output          pfu_gsdb_gpfb_create_vld;                    
-output          pfu_gsdb_gpfb_pop_req;                       
-output  [10:0]  pfu_gsdb_stride;                             
-output          pfu_gsdb_stride_neg;                         
-output  [6 :0]  pfu_gsdb_strideh_6to0;                       
+input           cp0_lsu_icg_en;
+input           cp0_yy_clk_en;
+input           cp0_yy_dcache_pref_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input   [6 :0]  ld_da_iid;
+input           ld_da_pfu_act_vld;
+input           ld_da_pfu_pf_inst_vld;
+input   [39:0]  ld_da_pfu_va;
+input           pad_yy_icg_scan_en;
+input           pfu_gpfb_vld;
+input           pfu_pop_all_vld;
+input           rtu_yy_xx_commit0;
+input   [6 :0]  rtu_yy_xx_commit0_iid;
+input           rtu_yy_xx_commit1;
+input   [6 :0]  rtu_yy_xx_commit1_iid;
+input           rtu_yy_xx_commit2;
+input   [6 :0]  rtu_yy_xx_commit2_iid;
+input           rtu_yy_xx_flush;
+output          pfu_gsdb_gpfb_create_vld;
+output          pfu_gsdb_gpfb_pop_req;
+output  [10:0]  pfu_gsdb_stride;
+output          pfu_gsdb_stride_neg;
+output  [6 :0]  pfu_gsdb_strideh_6to0;
 
 // &Regs; @30
-reg             pfu_gsdb_newest_pf_inst_cmit;                
-reg     [6 :0]  pfu_gsdb_newest_pf_inst_iid;                 
-reg             pfu_gsdb_newest_pf_inst_vld;                 
-reg     [3 :0]  pfu_gsdb_next_state;                         
-reg     [1 :0]  pfu_gsdb_pop_confidence;                     
-reg     [3 :0]  pfu_gsdb_state;                              
+reg             pfu_gsdb_newest_pf_inst_cmit;
+reg     [6 :0]  pfu_gsdb_newest_pf_inst_iid;
+reg             pfu_gsdb_newest_pf_inst_vld;
+reg     [3 :0]  pfu_gsdb_next_state;
+reg     [1 :0]  pfu_gsdb_pop_confidence;
+reg     [3 :0]  pfu_gsdb_state;
 
 // &Wires; @31
-wire            confidence_add_vld;                          
-wire            confidence_max;                              
-wire            confidence_min;                              
-wire            confidence_reset;                            
-wire            confidence_sub_vld;                          
-wire            cp0_lsu_icg_en;                              
-wire            cp0_yy_clk_en;                               
-wire            cp0_yy_dcache_pref_en;                       
-wire            cpurst_b;                                    
-wire            forever_cpuclk;                              
-wire    [6 :0]  ld_da_iid;                                   
-wire            ld_da_pfu_act_vld;                           
-wire            ld_da_pfu_pf_inst_vld;                       
-wire    [39:0]  ld_da_pfu_va;                                
-wire            monitor_with_confidence;                     
-wire            pad_yy_icg_scan_en;                          
-wire            pfu_gpfb_vld;                                
-wire            pfu_gsdb_addr0_act;                          
-wire            pfu_gsdb_addr_cmp_info_vld;                  
-wire            pfu_gsdb_check_stride_success;               
-wire            pfu_gsdb_clk;                                
-wire            pfu_gsdb_clk_en;                             
-wire            pfu_gsdb_create_dp_vld;                      
-wire            pfu_gsdb_create_gateclk_en;                  
-wire            pfu_gsdb_create_vld;                         
-wire            pfu_gsdb_gpfb_create_vld;                    
-wire            pfu_gsdb_gpfb_pop_req;                       
-wire            pfu_gsdb_newest_pf_inst_cmit_hit0;           
-wire            pfu_gsdb_newest_pf_inst_cmit_hit1;           
-wire            pfu_gsdb_newest_pf_inst_cmit_hit2;           
-wire            pfu_gsdb_newest_pf_inst_cmit_set;            
-wire            pfu_gsdb_newest_pf_inst_flush_uncmit;        
-wire            pfu_gsdb_newest_pf_inst_iid_older_than_ld_da; 
-wire            pfu_gsdb_newest_pf_inst_older_than_ld_da;    
-wire            pfu_gsdb_newest_pf_inst_set;                 
-wire            pfu_gsdb_normal_stride;                      
-wire            pfu_gsdb_pf_inst_vld;                        
-wire            pfu_gsdb_pf_inst_vld_clk;                    
-wire            pfu_gsdb_pf_inst_vld_clk_en;                 
-wire            pfu_gsdb_state_is_check_stride;              
-wire            pfu_gsdb_state_is_get_stride;                
-wire            pfu_gsdb_state_is_monitor_stride;            
-wire    [10:0]  pfu_gsdb_stride;                             
-wire            pfu_gsdb_stride_neg;                         
-wire    [6 :0]  pfu_gsdb_strideh_6to0;                       
-wire            pfu_gsdb_vld;                                
-wire            pfu_pop_all_vld;                             
-wire            rtu_yy_xx_commit0;                           
-wire    [6 :0]  rtu_yy_xx_commit0_iid;                       
-wire            rtu_yy_xx_commit1;                           
-wire    [6 :0]  rtu_yy_xx_commit1_iid;                       
-wire            rtu_yy_xx_commit2;                           
-wire    [6 :0]  rtu_yy_xx_commit2_iid;                       
-wire            rtu_yy_xx_flush;                             
+wire            confidence_add_vld;
+wire            confidence_max;
+wire            confidence_min;
+wire            confidence_reset;
+wire            confidence_sub_vld;
+wire            cp0_lsu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cp0_yy_dcache_pref_en;
+wire            cpurst_b;
+wire            forever_cpuclk;
+wire    [6 :0]  ld_da_iid;
+wire            ld_da_pfu_act_vld;
+wire            ld_da_pfu_pf_inst_vld;
+wire    [39:0]  ld_da_pfu_va;
+wire            monitor_with_confidence;
+wire            pad_yy_icg_scan_en;
+wire            pfu_gpfb_vld;
+wire            pfu_gsdb_addr0_act;
+wire            pfu_gsdb_addr_cmp_info_vld;
+wire            pfu_gsdb_check_stride_success;
+wire            pfu_gsdb_clk;
+wire            pfu_gsdb_clk_en;
+wire            pfu_gsdb_create_dp_vld;
+wire            pfu_gsdb_create_gateclk_en;
+wire            pfu_gsdb_create_vld;
+wire            pfu_gsdb_gpfb_create_vld;
+wire            pfu_gsdb_gpfb_pop_req;
+wire            pfu_gsdb_newest_pf_inst_cmit_hit0;
+wire            pfu_gsdb_newest_pf_inst_cmit_hit1;
+wire            pfu_gsdb_newest_pf_inst_cmit_hit2;
+wire            pfu_gsdb_newest_pf_inst_cmit_set;
+wire            pfu_gsdb_newest_pf_inst_flush_uncmit;
+wire            pfu_gsdb_newest_pf_inst_iid_older_than_ld_da;
+wire            pfu_gsdb_newest_pf_inst_older_than_ld_da;
+wire            pfu_gsdb_newest_pf_inst_set;
+wire            pfu_gsdb_normal_stride;
+wire            pfu_gsdb_pf_inst_vld;
+wire            pfu_gsdb_pf_inst_vld_clk;
+wire            pfu_gsdb_pf_inst_vld_clk_en;
+wire            pfu_gsdb_state_is_check_stride;
+wire            pfu_gsdb_state_is_get_stride;
+wire            pfu_gsdb_state_is_monitor_stride;
+wire    [10:0]  pfu_gsdb_stride;
+wire            pfu_gsdb_stride_neg;
+wire    [6 :0]  pfu_gsdb_strideh_6to0;
+wire            pfu_gsdb_vld;
+wire            pfu_pop_all_vld;
+wire            rtu_yy_xx_commit0;
+wire    [6 :0]  rtu_yy_xx_commit0_iid;
+wire            rtu_yy_xx_commit1;
+wire    [6 :0]  rtu_yy_xx_commit1_iid;
+wire            rtu_yy_xx_commit2;
+wire    [6 :0]  rtu_yy_xx_commit2_iid;
+wire            rtu_yy_xx_flush;
 
 
 parameter IDLE              = 4'b0000,
@@ -138,7 +138,7 @@ parameter IDLE              = 4'b0000,
           MONITOR_STRIDE    = 4'b1100;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign pfu_gsdb_clk_en  = pfu_gsdb_vld
                           ||  pfu_gsdb_create_gateclk_en;
@@ -197,7 +197,7 @@ end
 assign pfu_gsdb_vld = pfu_gsdb_state[3];
 
 //+----------------+
-//| newest_pf_inst | 
+//| newest_pf_inst |
 //+----------------+
 always @(posedge pfu_gsdb_clk or negedge cpurst_b)
 begin
@@ -228,7 +228,7 @@ begin
 end
 
 //+-----------------------------+
-//| gsdb to gpfb pop confidence | 
+//| gsdb to gpfb pop confidence |
 //+-----------------------------+
 always @(posedge pfu_gsdb_clk or negedge cpurst_b)
 begin
@@ -344,28 +344,28 @@ assign pfu_gsdb_create_vld          = !pfu_gsdb_vld
 assign pfu_gsdb_create_dp_vld       = pfu_gsdb_create_vld;
 assign pfu_gsdb_create_gateclk_en   = pfu_gsdb_create_vld;
 //==========================================================
-//              pop confidence ctrl 
+//              pop confidence ctrl
 //==========================================================
 assign confidence_max = (pfu_gsdb_pop_confidence[1:0] == 2'b11);
 assign confidence_min = (pfu_gsdb_pop_confidence[1:0] == 2'b00);
 
 assign confidence_reset   = pfu_gsdb_state_is_check_stride
                             && pfu_gsdb_addr_cmp_info_vld
-                            && pfu_gsdb_check_stride_success;  
+                            && pfu_gsdb_check_stride_success;
 
 assign confidence_sub_vld = pfu_gsdb_state_is_monitor_stride
                             && pfu_gsdb_addr_cmp_info_vld
-                            && !pfu_gsdb_check_stride_success  
-                            && !confidence_min;   
+                            && !pfu_gsdb_check_stride_success
+                            && !confidence_min;
 
 assign confidence_add_vld = pfu_gsdb_state_is_monitor_stride
                             && pfu_gsdb_addr_cmp_info_vld
-                            && pfu_gsdb_check_stride_success  
+                            && pfu_gsdb_check_stride_success
                             && !confidence_max;
 
 assign monitor_with_confidence = pfu_gsdb_state_is_monitor_stride
                                  && pfu_gpfb_vld
-                                 && !confidence_min; 
+                                 && !confidence_min;
 //==========================================================
 //              Maintain newest iid
 //==========================================================

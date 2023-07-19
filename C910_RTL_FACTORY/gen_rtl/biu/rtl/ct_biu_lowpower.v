@@ -47,76 +47,76 @@ module ct_biu_lowpower(
 );
 
 // &Ports; @24
-input        bus_arb_w_fifo_clk_en; 
-input        coreclk;              
-input        cp0_biu_icg_en;       
-input        forever_coreclk;      
-input        pad_yy_icg_scan_en;   
-input        read_ar_clk_en;       
-input        read_busy;            
-input        read_r_clk_en;        
-input        round_w_clk_en;       
-input        snoop_ac_clk_en;      
-input        snoop_cd_clk_en;      
-input        snoop_cr_clk_en;      
-input        st_aw_clk_en;         
-input        st_w_clk_en;          
-input        vict_aw_clk_en;       
-input        vict_w_clk_en;        
-input        write_b_clk_en;       
-input        write_busy;           
-output       accpuclk;             
-output       arcpuclk;             
-output       bcpuclk;              
-output       biu_yy_xx_no_op;      
-output       bus_arb_w_fifo_clk;   
-output       cdcpuclk;             
-output       crcpuclk;             
-output       rcpuclk;              
-output       round_wcpuclk;        
-output       st_awcpuclk;          
-output       st_wcpuclk;           
-output       vict_awcpuclk;        
-output       vict_wcpuclk;         
+input        bus_arb_w_fifo_clk_en;
+input        coreclk;
+input        cp0_biu_icg_en;
+input        forever_coreclk;
+input        pad_yy_icg_scan_en;
+input        read_ar_clk_en;
+input        read_busy;
+input        read_r_clk_en;
+input        round_w_clk_en;
+input        snoop_ac_clk_en;
+input        snoop_cd_clk_en;
+input        snoop_cr_clk_en;
+input        st_aw_clk_en;
+input        st_w_clk_en;
+input        vict_aw_clk_en;
+input        vict_w_clk_en;
+input        write_b_clk_en;
+input        write_busy;
+output       accpuclk;
+output       arcpuclk;
+output       bcpuclk;
+output       biu_yy_xx_no_op;
+output       bus_arb_w_fifo_clk;
+output       cdcpuclk;
+output       crcpuclk;
+output       rcpuclk;
+output       round_wcpuclk;
+output       st_awcpuclk;
+output       st_wcpuclk;
+output       vict_awcpuclk;
+output       vict_wcpuclk;
 
 // &Regs; @25
 
 // &Wires; @26
-wire         accpuclk;             
-wire         arcpuclk;             
-wire         bcpuclk;              
-wire         biu_yy_xx_no_op;      
-wire         bus_arb_w_fifo_clk;   
-wire         bus_arb_w_fifo_clk_en; 
-wire         cdcpuclk;             
-wire         coreclk;              
-wire         cp0_biu_icg_en;       
-wire         crcpuclk;             
-wire         forever_coreclk;      
-wire         pad_yy_icg_scan_en;   
-wire         rcpuclk;              
-wire         read_ar_clk_en;       
-wire         read_busy;            
-wire         read_r_clk_en;        
-wire         round_w_clk_en;       
-wire         round_wcpuclk;        
-wire         snoop_ac_clk_en;      
-wire         snoop_cd_clk_en;      
-wire         snoop_cr_clk_en;      
-wire         st_aw_clk_en;         
-wire         st_awcpuclk;          
-wire         st_w_clk_en;          
-wire         st_wcpuclk;           
-wire         vict_aw_clk_en;       
-wire         vict_awcpuclk;        
-wire         vict_w_clk_en;        
-wire         vict_wcpuclk;         
-wire         write_b_clk_en;       
-wire         write_busy;           
+wire         accpuclk;
+wire         arcpuclk;
+wire         bcpuclk;
+wire         biu_yy_xx_no_op;
+wire         bus_arb_w_fifo_clk;
+wire         bus_arb_w_fifo_clk_en;
+wire         cdcpuclk;
+wire         coreclk;
+wire         cp0_biu_icg_en;
+wire         crcpuclk;
+wire         forever_coreclk;
+wire         pad_yy_icg_scan_en;
+wire         rcpuclk;
+wire         read_ar_clk_en;
+wire         read_busy;
+wire         read_r_clk_en;
+wire         round_w_clk_en;
+wire         round_wcpuclk;
+wire         snoop_ac_clk_en;
+wire         snoop_cd_clk_en;
+wire         snoop_cr_clk_en;
+wire         st_aw_clk_en;
+wire         st_awcpuclk;
+wire         st_w_clk_en;
+wire         st_wcpuclk;
+wire         vict_aw_clk_en;
+wire         vict_awcpuclk;
+wire         vict_w_clk_en;
+wire         vict_wcpuclk;
+wire         write_b_clk_en;
+wire         write_busy;
 
 
 //==========================================================
-// low power gated clock for read channel 
+// low power gated clock for read channel
 //==========================================================
 // &Instance("gated_clk_cell","x_read_channel_ar_gated_cell"); @31
 gated_clk_cell  x_read_channel_ar_gated_cell (
@@ -156,7 +156,7 @@ gated_clk_cell  x_read_channel_r_gated_cell (
 //           .module_en        (cp0_biu_icg_en) @46
 //         ); @47
 //==========================================================
-// low power gated clock for write channel 
+// low power gated clock for write channel
 //==========================================================
 // &Instance("gated_clk_cell","x_write_channel_vict_aw_gated_cell"); @51
 gated_clk_cell  x_write_channel_vict_aw_gated_cell (
@@ -290,7 +290,7 @@ gated_clk_cell  x_write_channel_b_gated_cell (
 //           .module_en        (cp0_biu_icg_en) @110
 //         ); @111
 //==========================================================
-// low power gated clock for snoop channel 
+// low power gated clock for snoop channel
 //==========================================================
 // &Instance("gated_clk_cell","x_snoop_channel_ac_gated_cell"); @115
 gated_clk_cell  x_snoop_channel_ac_gated_cell (

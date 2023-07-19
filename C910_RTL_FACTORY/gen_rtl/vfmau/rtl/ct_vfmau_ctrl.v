@@ -47,77 +47,77 @@ module ct_vfmau_ctrl(
 );
 
 // &Ports; @15
-input          cp0_vfpu_icg_en;           
-input          cp0_yy_clk_en;             
-input          cpurst_b;                  
-input          dp_vfmau_ex1_pipex_sel;    
-input          dp_xx_ex1_half;            
-input          dp_xx_ex2_half;            
-input          dp_xx_ex3_fma;             
-input          dp_xx_ex3_half;            
-input          dp_xx_ex4_fma;             
-input          dp_xx_ex4_half;            
-input          dp_xx_ex4_mult_id;         
-input          forever_cpuclk;            
-input          pad_yy_icg_scan_en;        
-input          rtu_yy_xx_flush;           
-output         ctrl_dp_ex5_fma_wb_vld;    
-output         ctrl_ex1_ex2_en;           
-output         ctrl_ex1_inst_vld;         
-output         ctrl_ex2_inst_vld;         
-output         ctrl_ex3_inst_vld;         
-output         ctrl_ex4_inst_vld;         
-output         ctrl_ex5_inst_vld;         
-output         mult1_ex1_ex2_pipedown;    
-output         mult1_ex2_ex3_pipedown;    
-output         mult1_ex3_ex4_pipedown;    
-output         mult1_ex4_ex5_pipedown;    
-output         mult_ex1_ex2_half_pipedown; 
-output         mult_ex2_ex3_half_pipedown; 
-output         mult_ex3_ex4_half_pipedown; 
-output         mult_ex4_ex5_half_pipedown; 
+input          cp0_vfpu_icg_en;
+input          cp0_yy_clk_en;
+input          cpurst_b;
+input          dp_vfmau_ex1_pipex_sel;
+input          dp_xx_ex1_half;
+input          dp_xx_ex2_half;
+input          dp_xx_ex3_fma;
+input          dp_xx_ex3_half;
+input          dp_xx_ex4_fma;
+input          dp_xx_ex4_half;
+input          dp_xx_ex4_mult_id;
+input          forever_cpuclk;
+input          pad_yy_icg_scan_en;
+input          rtu_yy_xx_flush;
+output         ctrl_dp_ex5_fma_wb_vld;
+output         ctrl_ex1_ex2_en;
+output         ctrl_ex1_inst_vld;
+output         ctrl_ex2_inst_vld;
+output         ctrl_ex3_inst_vld;
+output         ctrl_ex4_inst_vld;
+output         ctrl_ex5_inst_vld;
+output         mult1_ex1_ex2_pipedown;
+output         mult1_ex2_ex3_pipedown;
+output         mult1_ex3_ex4_pipedown;
+output         mult1_ex4_ex5_pipedown;
+output         mult_ex1_ex2_half_pipedown;
+output         mult_ex2_ex3_half_pipedown;
+output         mult_ex3_ex4_half_pipedown;
+output         mult_ex4_ex5_half_pipedown;
 
 // &Regs; @16
-reg            ctrl_ex2_inst_vld;         
-reg            ctrl_ex3_inst_vld;         
-reg            ctrl_ex4_inst_vld;         
-reg            ctrl_ex5_fma_wb_vld;       
-reg            ctrl_ex5_inst_vld;         
+reg            ctrl_ex2_inst_vld;
+reg            ctrl_ex3_inst_vld;
+reg            ctrl_ex4_inst_vld;
+reg            ctrl_ex5_fma_wb_vld;
+reg            ctrl_ex5_inst_vld;
 
 // &Wires; @17
-wire           cp0_vfpu_icg_en;           
-wire           cp0_yy_clk_en;             
-wire           cpurst_b;                  
-wire           ctrl_dp_ex5_fma_wb_vld;    
-wire           ctrl_ex1_ex2_clk;          
-wire           ctrl_ex1_ex2_en;           
-wire           ctrl_ex1_inst_vld;         
-wire           ctrl_ex2_ex3_clk;          
-wire           ctrl_ex2_ex3_en;           
-wire           ctrl_ex3_en;               
-wire           ctrl_ex3_ex4_clk;          
-wire           ctrl_ex4_en;               
-wire           ctrl_ex4_ex5_clk;          
-wire           ctrl_ex4_fma_wb_vld;       
-wire           dp_vfmau_ex1_pipex_sel;    
-wire           dp_xx_ex1_half;            
-wire           dp_xx_ex2_half;            
-wire           dp_xx_ex3_fma;             
-wire           dp_xx_ex3_half;            
-wire           dp_xx_ex4_fma;             
-wire           dp_xx_ex4_half;            
-wire           dp_xx_ex4_mult_id;         
-wire           forever_cpuclk;            
-wire           mult1_ex1_ex2_pipedown;    
-wire           mult1_ex2_ex3_pipedown;    
-wire           mult1_ex3_ex4_pipedown;    
-wire           mult1_ex4_ex5_pipedown;    
-wire           mult_ex1_ex2_half_pipedown; 
-wire           mult_ex2_ex3_half_pipedown; 
-wire           mult_ex3_ex4_half_pipedown; 
-wire           mult_ex4_ex5_half_pipedown; 
-wire           pad_yy_icg_scan_en;        
-wire           rtu_yy_xx_flush;           
+wire           cp0_vfpu_icg_en;
+wire           cp0_yy_clk_en;
+wire           cpurst_b;
+wire           ctrl_dp_ex5_fma_wb_vld;
+wire           ctrl_ex1_ex2_clk;
+wire           ctrl_ex1_ex2_en;
+wire           ctrl_ex1_inst_vld;
+wire           ctrl_ex2_ex3_clk;
+wire           ctrl_ex2_ex3_en;
+wire           ctrl_ex3_en;
+wire           ctrl_ex3_ex4_clk;
+wire           ctrl_ex4_en;
+wire           ctrl_ex4_ex5_clk;
+wire           ctrl_ex4_fma_wb_vld;
+wire           dp_vfmau_ex1_pipex_sel;
+wire           dp_xx_ex1_half;
+wire           dp_xx_ex2_half;
+wire           dp_xx_ex3_fma;
+wire           dp_xx_ex3_half;
+wire           dp_xx_ex4_fma;
+wire           dp_xx_ex4_half;
+wire           dp_xx_ex4_mult_id;
+wire           forever_cpuclk;
+wire           mult1_ex1_ex2_pipedown;
+wire           mult1_ex2_ex3_pipedown;
+wire           mult1_ex3_ex4_pipedown;
+wire           mult1_ex4_ex5_pipedown;
+wire           mult_ex1_ex2_half_pipedown;
+wire           mult_ex2_ex3_half_pipedown;
+wire           mult_ex3_ex4_half_pipedown;
+wire           mult_ex4_ex5_half_pipedown;
+wire           pad_yy_icg_scan_en;
+wire           rtu_yy_xx_flush;
 
 
 // &Depend("cpu_cfig.h"); @19
@@ -130,10 +130,10 @@ wire           rtu_yy_xx_flush;
 //                 EX1 EX2 Gated CLK
 //==========================================================
 assign mult1_ex1_ex2_pipedown     = dp_vfmau_ex1_pipex_sel && !dp_xx_ex1_half;
-assign mult_ex1_ex2_half_pipedown = dp_vfmau_ex1_pipex_sel && dp_xx_ex1_half; 
+assign mult_ex1_ex2_half_pipedown = dp_vfmau_ex1_pipex_sel && dp_xx_ex1_half;
 assign ctrl_ex1_inst_vld          = dp_vfmau_ex1_pipex_sel;
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex1_ex2_en = dp_vfmau_ex1_pipex_sel
                        ||ctrl_ex2_inst_vld;
@@ -178,7 +178,7 @@ end
 assign mult1_ex2_ex3_pipedown     = ctrl_ex2_inst_vld && !dp_xx_ex2_half;
 assign mult_ex2_ex3_half_pipedown = ctrl_ex2_inst_vld && dp_xx_ex2_half;
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex2_ex3_en = ctrl_ex2_inst_vld
                        ||ctrl_ex3_inst_vld;
@@ -222,7 +222,7 @@ assign mult1_ex3_ex4_pipedown     = ctrl_ex3_inst_vld && !dp_xx_ex3_half;
 assign mult_ex3_ex4_half_pipedown = ctrl_ex3_inst_vld && dp_xx_ex3_half && dp_xx_ex3_fma;
 
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex3_en = ctrl_ex3_inst_vld
                    ||ctrl_ex4_inst_vld;
@@ -263,19 +263,19 @@ end
 //==========================================================
 //                 EX4 EX5 Gated CLK
 //==========================================================
-assign mult1_ex4_ex5_pipedown     = ctrl_ex4_inst_vld 
+assign mult1_ex4_ex5_pipedown     = ctrl_ex4_inst_vld
                                  && !dp_xx_ex4_half
-                                 && (dp_xx_ex4_fma 
+                                 && (dp_xx_ex4_fma
                                      || dp_xx_ex4_mult_id);
-assign mult_ex4_ex5_half_pipedown = ctrl_ex4_inst_vld 
-                                 && dp_xx_ex4_fma 
+assign mult_ex4_ex5_half_pipedown = ctrl_ex4_inst_vld
+                                 && dp_xx_ex4_fma
                                  && dp_xx_ex4_half;
 
 
 //assign mult1_ex4_ex5_pipedown     = ctrl_ex4_inst_vld && dp_xx_ex4_fma && !dp_xx_ex4_half;
 //assign mult_ex4_ex5_half_pipedown = ctrl_ex4_inst_vld && dp_xx_ex4_fma && dp_xx_ex4_half;
 //----------------------------------------------------------
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //----------------------------------------------------------
 assign ctrl_ex4_en = ctrl_ex4_inst_vld
                    ||ctrl_ex5_inst_vld;
@@ -316,14 +316,14 @@ end
 //----------------------------------------------------------
 //                 EX5 FMA Write Back Valid
 //----------------------------------------------------------
-assign ctrl_ex4_fma_wb_vld = dp_xx_ex4_fma 
+assign ctrl_ex4_fma_wb_vld = dp_xx_ex4_fma
                              && ctrl_ex4_inst_vld
                              && !dp_xx_ex4_half
                           || dp_xx_ex4_mult_id
                              && ctrl_ex4_inst_vld
                              && !dp_xx_ex4_half;
 
-//assign ctrl_ex4_fma_wb_vld = dp_xx_ex4_fma 
+//assign ctrl_ex4_fma_wb_vld = dp_xx_ex4_fma
 //                          && ctrl_ex4_inst_vld
 //                          && !dp_xx_ex4_half;
 

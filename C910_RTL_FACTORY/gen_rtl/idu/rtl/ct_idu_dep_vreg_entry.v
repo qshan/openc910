@@ -55,125 +55,125 @@ module ct_idu_dep_vreg_entry(
 );
 
 // &Ports; @27
-input           cp0_idu_icg_en;                      
-input           cp0_yy_clk_en;                       
-input           cpurst_b;                            
-input           forever_cpuclk;                      
-input           gateclk_entry_vld;                   
-input           lsu_idu_ag_pipe3_vload_inst_vld;     
-input   [6 :0]  lsu_idu_ag_pipe3_vreg_dupx;          
-input           lsu_idu_dc_pipe3_vload_fwd_inst_vld; 
-input           lsu_idu_dc_pipe3_vload_inst_vld_dupx; 
-input   [6 :0]  lsu_idu_dc_pipe3_vreg_dupx;          
-input   [6 :0]  lsu_idu_wb_pipe3_wb_vreg_dupx;       
-input           lsu_idu_wb_pipe3_wb_vreg_vld_dupx;   
-input           pad_yy_icg_scan_en;                  
-input           rtu_idu_flush_fe;                    
-input           rtu_idu_flush_is;                    
-input           vfpu_idu_ex1_pipe6_data_vld_dupx;    
-input   [6 :0]  vfpu_idu_ex1_pipe6_vreg_dupx;        
-input           vfpu_idu_ex1_pipe7_data_vld_dupx;    
-input   [6 :0]  vfpu_idu_ex1_pipe7_vreg_dupx;        
-input           vfpu_idu_ex2_pipe6_data_vld_dupx;    
-input   [6 :0]  vfpu_idu_ex2_pipe6_vreg_dupx;        
-input           vfpu_idu_ex2_pipe7_data_vld_dupx;    
-input   [6 :0]  vfpu_idu_ex2_pipe7_vreg_dupx;        
-input           vfpu_idu_ex3_pipe6_data_vld_dupx;    
-input   [6 :0]  vfpu_idu_ex3_pipe6_vreg_dupx;        
-input           vfpu_idu_ex3_pipe7_data_vld_dupx;    
-input   [6 :0]  vfpu_idu_ex3_pipe7_vreg_dupx;        
-input   [6 :0]  vfpu_idu_ex5_pipe6_wb_vreg_dupx;     
-input           vfpu_idu_ex5_pipe6_wb_vreg_vld_dupx; 
-input   [6 :0]  vfpu_idu_ex5_pipe7_wb_vreg_dupx;     
-input           vfpu_idu_ex5_pipe7_wb_vreg_vld_dupx; 
-input   [9 :0]  x_create_data;                       
-input           x_gateclk_idx_write_en;              
-input           x_gateclk_write_en;                  
-input           x_rdy_clr;                           
-input           x_write_en;                          
-output  [11:0]  x_read_data;                         
+input           cp0_idu_icg_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           gateclk_entry_vld;
+input           lsu_idu_ag_pipe3_vload_inst_vld;
+input   [6 :0]  lsu_idu_ag_pipe3_vreg_dupx;
+input           lsu_idu_dc_pipe3_vload_fwd_inst_vld;
+input           lsu_idu_dc_pipe3_vload_inst_vld_dupx;
+input   [6 :0]  lsu_idu_dc_pipe3_vreg_dupx;
+input   [6 :0]  lsu_idu_wb_pipe3_wb_vreg_dupx;
+input           lsu_idu_wb_pipe3_wb_vreg_vld_dupx;
+input           pad_yy_icg_scan_en;
+input           rtu_idu_flush_fe;
+input           rtu_idu_flush_is;
+input           vfpu_idu_ex1_pipe6_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe6_vreg_dupx;
+input           vfpu_idu_ex1_pipe7_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex1_pipe7_vreg_dupx;
+input           vfpu_idu_ex2_pipe6_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex2_pipe6_vreg_dupx;
+input           vfpu_idu_ex2_pipe7_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex2_pipe7_vreg_dupx;
+input           vfpu_idu_ex3_pipe6_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex3_pipe6_vreg_dupx;
+input           vfpu_idu_ex3_pipe7_data_vld_dupx;
+input   [6 :0]  vfpu_idu_ex3_pipe7_vreg_dupx;
+input   [6 :0]  vfpu_idu_ex5_pipe6_wb_vreg_dupx;
+input           vfpu_idu_ex5_pipe6_wb_vreg_vld_dupx;
+input   [6 :0]  vfpu_idu_ex5_pipe7_wb_vreg_dupx;
+input           vfpu_idu_ex5_pipe7_wb_vreg_vld_dupx;
+input   [9 :0]  x_create_data;
+input           x_gateclk_idx_write_en;
+input           x_gateclk_write_en;
+input           x_rdy_clr;
+input           x_write_en;
+output  [11:0]  x_read_data;
 
 // &Regs; @28
-reg             lsu_match;                           
-reg             rdy;                                 
-reg     [6 :0]  vreg;                                
-reg             wb;                                  
+reg             lsu_match;
+reg             rdy;
+reg     [6 :0]  vreg;
+reg             wb;
 
 // &Wires; @29
-wire            cp0_idu_icg_en;                      
-wire            cp0_yy_clk_en;                       
-wire            cpurst_b;                            
-wire            data_ready;                          
-wire            dep_clk;                             
-wire            dep_clk_en;                          
-wire            forever_cpuclk;                      
-wire            gateclk_entry_vld;                   
-wire            load_data_ready;                     
-wire            load_issue_data_ready;               
-wire            lsu_idu_ag_pipe3_vload_inst_vld;     
-wire    [6 :0]  lsu_idu_ag_pipe3_vreg_dupx;          
-wire            lsu_idu_dc_pipe3_vload_fwd_inst_vld; 
-wire            lsu_idu_dc_pipe3_vload_inst_vld_dupx; 
-wire    [6 :0]  lsu_idu_dc_pipe3_vreg_dupx;          
-wire    [6 :0]  lsu_idu_wb_pipe3_wb_vreg_dupx;       
-wire            lsu_idu_wb_pipe3_wb_vreg_vld_dupx;   
-wire            lsu_match_update;                    
-wire            pad_yy_icg_scan_en;                  
-wire            pipe3_wb;                            
-wire            pipe6_wb;                            
-wire            pipe7_wb;                            
-wire            rdy_clear;                           
-wire            rdy_update;                          
-wire            rtu_idu_flush_fe;                    
-wire            rtu_idu_flush_is;                    
-wire            vfpu0_ex3_data_ready;                
-wire            vfpu0_ex4_data_ready;                
-wire            vfpu0_ex5_data_ready;                
-wire            vfpu1_ex3_data_ready;                
-wire            vfpu1_ex4_data_ready;                
-wire            vfpu1_ex5_data_ready;                
-wire            vfpu_idu_ex1_pipe6_data_vld_dupx;    
-wire    [6 :0]  vfpu_idu_ex1_pipe6_vreg_dupx;        
-wire            vfpu_idu_ex1_pipe7_data_vld_dupx;    
-wire    [6 :0]  vfpu_idu_ex1_pipe7_vreg_dupx;        
-wire            vfpu_idu_ex2_pipe6_data_vld_dupx;    
-wire    [6 :0]  vfpu_idu_ex2_pipe6_vreg_dupx;        
-wire            vfpu_idu_ex2_pipe7_data_vld_dupx;    
-wire    [6 :0]  vfpu_idu_ex2_pipe7_vreg_dupx;        
-wire            vfpu_idu_ex3_pipe6_data_vld_dupx;    
-wire    [6 :0]  vfpu_idu_ex3_pipe6_vreg_dupx;        
-wire            vfpu_idu_ex3_pipe7_data_vld_dupx;    
-wire    [6 :0]  vfpu_idu_ex3_pipe7_vreg_dupx;        
-wire    [6 :0]  vfpu_idu_ex5_pipe6_wb_vreg_dupx;     
-wire            vfpu_idu_ex5_pipe6_wb_vreg_vld_dupx; 
-wire    [6 :0]  vfpu_idu_ex5_pipe7_wb_vreg_dupx;     
-wire            vfpu_idu_ex5_pipe7_wb_vreg_vld_dupx; 
-wire            wake_up;                             
-wire            wb_update;                           
-wire            write_back;                          
-wire            write_clk;                           
-wire            write_clk_en;                        
-wire    [9 :0]  x_create_data;                       
-wire            x_create_lsu_match;                  
-wire            x_create_rdy;                        
-wire    [6 :0]  x_create_vreg;                       
-wire            x_create_wb;                         
-wire            x_gateclk_idx_write_en;              
-wire            x_gateclk_write_en;                  
-wire            x_rdy_clr;                           
-wire    [11:0]  x_read_data;                         
-wire            x_read_lsu_match;                    
-wire            x_read_rdy;                          
-wire            x_read_rdy_for_bypass;               
-wire            x_read_rdy_for_issue;                
-wire    [6 :0]  x_read_vreg;                         
-wire            x_read_wb;                           
-wire            x_write_en;                          
+wire            cp0_idu_icg_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            data_ready;
+wire            dep_clk;
+wire            dep_clk_en;
+wire            forever_cpuclk;
+wire            gateclk_entry_vld;
+wire            load_data_ready;
+wire            load_issue_data_ready;
+wire            lsu_idu_ag_pipe3_vload_inst_vld;
+wire    [6 :0]  lsu_idu_ag_pipe3_vreg_dupx;
+wire            lsu_idu_dc_pipe3_vload_fwd_inst_vld;
+wire            lsu_idu_dc_pipe3_vload_inst_vld_dupx;
+wire    [6 :0]  lsu_idu_dc_pipe3_vreg_dupx;
+wire    [6 :0]  lsu_idu_wb_pipe3_wb_vreg_dupx;
+wire            lsu_idu_wb_pipe3_wb_vreg_vld_dupx;
+wire            lsu_match_update;
+wire            pad_yy_icg_scan_en;
+wire            pipe3_wb;
+wire            pipe6_wb;
+wire            pipe7_wb;
+wire            rdy_clear;
+wire            rdy_update;
+wire            rtu_idu_flush_fe;
+wire            rtu_idu_flush_is;
+wire            vfpu0_ex3_data_ready;
+wire            vfpu0_ex4_data_ready;
+wire            vfpu0_ex5_data_ready;
+wire            vfpu1_ex3_data_ready;
+wire            vfpu1_ex4_data_ready;
+wire            vfpu1_ex5_data_ready;
+wire            vfpu_idu_ex1_pipe6_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe6_vreg_dupx;
+wire            vfpu_idu_ex1_pipe7_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex1_pipe7_vreg_dupx;
+wire            vfpu_idu_ex2_pipe6_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex2_pipe6_vreg_dupx;
+wire            vfpu_idu_ex2_pipe7_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex2_pipe7_vreg_dupx;
+wire            vfpu_idu_ex3_pipe6_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex3_pipe6_vreg_dupx;
+wire            vfpu_idu_ex3_pipe7_data_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex3_pipe7_vreg_dupx;
+wire    [6 :0]  vfpu_idu_ex5_pipe6_wb_vreg_dupx;
+wire            vfpu_idu_ex5_pipe6_wb_vreg_vld_dupx;
+wire    [6 :0]  vfpu_idu_ex5_pipe7_wb_vreg_dupx;
+wire            vfpu_idu_ex5_pipe7_wb_vreg_vld_dupx;
+wire            wake_up;
+wire            wb_update;
+wire            write_back;
+wire            write_clk;
+wire            write_clk_en;
+wire    [9 :0]  x_create_data;
+wire            x_create_lsu_match;
+wire            x_create_rdy;
+wire    [6 :0]  x_create_vreg;
+wire            x_create_wb;
+wire            x_gateclk_idx_write_en;
+wire            x_gateclk_write_en;
+wire            x_rdy_clr;
+wire    [11:0]  x_read_data;
+wire            x_read_lsu_match;
+wire            x_read_rdy;
+wire            x_read_rdy_for_bypass;
+wire            x_read_rdy_for_issue;
+wire    [6 :0]  x_read_vreg;
+wire            x_read_wb;
+wire            x_write_en;
 
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign dep_clk_en = x_gateclk_write_en || gateclk_entry_vld && (!rdy || !wb);
 // &Instance("gated_clk_cell", "x_dep_gated_clk"); @36
@@ -267,7 +267,7 @@ assign rdy_clear             = x_rdy_clr;
 
 //1.if ready is already be 1, just hold 1
 //2.if producer are presumed to produce the result two cycles later,
-//  set ready to 1 
+//  set ready to 1
 //3.if producer wake up, set ready to 1
 //4.clear ready to 0
 assign rdy_update = (rdy || data_ready || wake_up) && !rdy_clear;
@@ -310,7 +310,7 @@ begin
 end
 
 //==========================================================
-//                     Write Back Valid  
+//                     Write Back Valid
 //==========================================================
 //write back valid shows whether the result is written back
 //into PRF : 1 stands for the result is in PRF
@@ -345,7 +345,7 @@ begin
 end
 
 //==========================================================
-//                         Vreg 
+//                         Vreg
 //==========================================================
 assign x_read_vreg[6:0] = vreg[6:0];
 always @(posedge write_clk or negedge cpurst_b)

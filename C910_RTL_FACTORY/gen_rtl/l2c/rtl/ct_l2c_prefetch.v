@@ -41,81 +41,81 @@ module ct_l2c_prefetch(
 );
 
 // &Ports; @23
-input   [1 :0]  ciu_l2c_iprf;              
-input           ciu_l2c_prf_ready;         
-input           ciu_l2c_tprf;              
-input   [32:0]  cmp_pref_addr_bank_0;      
-input   [32:0]  cmp_pref_addr_bank_1;      
-input           cmp_pref_cache_miss_bank_0; 
-input           cmp_pref_cache_miss_bank_1; 
-input           cmp_pref_ifu_req_bank_0;   
-input           cmp_pref_ifu_req_bank_1;   
-input           cmp_pref_read_bank_0;      
-input           cmp_pref_read_bank_1;      
-input           cmp_pref_tlb_req_bank_0;   
-input           cmp_pref_tlb_req_bank_1;   
-input           cmp_pref_vld_bank_0;       
-input           cmp_pref_vld_bank_1;       
-input           cpurst_b;                  
-input           forever_cpuclk;            
-input           l2c_icg_en;                
-input           pad_yy_icg_scan_en;        
-output  [33:0]  l2c_ciu_prf_addr;          
-output  [2 :0]  l2c_ciu_prf_prot;          
-output          l2c_ciu_prf_vld;           
-output          prf_idle;                  
+input   [1 :0]  ciu_l2c_iprf;
+input           ciu_l2c_prf_ready;
+input           ciu_l2c_tprf;
+input   [32:0]  cmp_pref_addr_bank_0;
+input   [32:0]  cmp_pref_addr_bank_1;
+input           cmp_pref_cache_miss_bank_0;
+input           cmp_pref_cache_miss_bank_1;
+input           cmp_pref_ifu_req_bank_0;
+input           cmp_pref_ifu_req_bank_1;
+input           cmp_pref_read_bank_0;
+input           cmp_pref_read_bank_1;
+input           cmp_pref_tlb_req_bank_0;
+input           cmp_pref_tlb_req_bank_1;
+input           cmp_pref_vld_bank_0;
+input           cmp_pref_vld_bank_1;
+input           cpurst_b;
+input           forever_cpuclk;
+input           l2c_icg_en;
+input           pad_yy_icg_scan_en;
+output  [33:0]  l2c_ciu_prf_addr;
+output  [2 :0]  l2c_ciu_prf_prot;
+output          l2c_ciu_prf_vld;
+output          prf_idle;
 
 // &Regs; @24
-reg     [33:0]  pref_addr;                 
-reg     [1 :0]  pref_cnt;                  
-reg             pref_next_state;           
-reg             pref_state;                
-reg             pref_tlb;                  
+reg     [33:0]  pref_addr;
+reg     [1 :0]  pref_cnt;
+reg             pref_next_state;
+reg             pref_state;
+reg             pref_tlb;
 
 // &Wires; @25
-wire            bank1_sel;                 
-wire            ciu_accepted;              
-wire            ciu_ipref_en;              
-wire    [1 :0]  ciu_l2c_iprf;              
-wire            ciu_l2c_prf_ready;         
-wire            ciu_l2c_tprf;              
-wire            ciu_tpref_en;              
-wire    [33:0]  cmp_pref_addr;             
-wire    [32:0]  cmp_pref_addr_bank_0;      
-wire    [32:0]  cmp_pref_addr_bank_1;      
-wire            cmp_pref_addr_cross_page;  
-wire            cmp_pref_cache_miss_bank_0; 
-wire            cmp_pref_cache_miss_bank_1; 
-wire            cmp_pref_ifu_req_bank_0;   
-wire            cmp_pref_ifu_req_bank_1;   
-wire            cmp_pref_read_bank_0;      
-wire            cmp_pref_read_bank_1;      
-wire            cmp_pref_tlb_req_bank_0;   
-wire            cmp_pref_tlb_req_bank_1;   
-wire            cmp_pref_vld_bank_0;       
-wire            cmp_pref_vld_bank_1;       
-wire            cpurst_b;                  
-wire            cross_page;                
-wire            forever_cpuclk;            
-wire    [1 :0]  iprf_cnt;                  
-wire    [33:0]  l2c_ciu_prf_addr;          
-wire    [2 :0]  l2c_ciu_prf_prot;          
-wire            l2c_ciu_prf_vld;           
-wire            l2c_icg_en;                
-wire            l2c_pref_clk;              
-wire            l2c_pref_clk_en;           
-wire            pad_yy_icg_scan_en;        
-wire    [33:0]  pref_addr_bank0;           
-wire    [33:0]  pref_addr_bank1;           
-wire            pref_addr_update;          
-wire            pref_en;                   
-wire            pref_en_0;                 
-wire            pref_en_1;                 
-wire            pref_last;                 
-wire    [33:0]  pref_next_addr;            
-wire    [33:0]  pref_updt_addr;            
-wire            pref_updt_tlb_req;         
-wire            prf_idle;                  
+wire            bank1_sel;
+wire            ciu_accepted;
+wire            ciu_ipref_en;
+wire    [1 :0]  ciu_l2c_iprf;
+wire            ciu_l2c_prf_ready;
+wire            ciu_l2c_tprf;
+wire            ciu_tpref_en;
+wire    [33:0]  cmp_pref_addr;
+wire    [32:0]  cmp_pref_addr_bank_0;
+wire    [32:0]  cmp_pref_addr_bank_1;
+wire            cmp_pref_addr_cross_page;
+wire            cmp_pref_cache_miss_bank_0;
+wire            cmp_pref_cache_miss_bank_1;
+wire            cmp_pref_ifu_req_bank_0;
+wire            cmp_pref_ifu_req_bank_1;
+wire            cmp_pref_read_bank_0;
+wire            cmp_pref_read_bank_1;
+wire            cmp_pref_tlb_req_bank_0;
+wire            cmp_pref_tlb_req_bank_1;
+wire            cmp_pref_vld_bank_0;
+wire            cmp_pref_vld_bank_1;
+wire            cpurst_b;
+wire            cross_page;
+wire            forever_cpuclk;
+wire    [1 :0]  iprf_cnt;
+wire    [33:0]  l2c_ciu_prf_addr;
+wire    [2 :0]  l2c_ciu_prf_prot;
+wire            l2c_ciu_prf_vld;
+wire            l2c_icg_en;
+wire            l2c_pref_clk;
+wire            l2c_pref_clk_en;
+wire            pad_yy_icg_scan_en;
+wire    [33:0]  pref_addr_bank0;
+wire    [33:0]  pref_addr_bank1;
+wire            pref_addr_update;
+wire            pref_en;
+wire            pref_en_0;
+wire            pref_en_1;
+wire            pref_last;
+wire    [33:0]  pref_next_addr;
+wire    [33:0]  pref_updt_addr;
+wire            pref_updt_tlb_req;
+wire            prf_idle;
 
 
 parameter IDLE    = 1'b0;
@@ -157,13 +157,13 @@ assign ciu_ipref_en  = (ciu_l2c_iprf[1:0] != 2'b00);
 assign ciu_tpref_en  = (ciu_l2c_tprf      != 1'b0 );
 
 assign pref_en_0 = cmp_pref_vld_bank_0 &&
-                   cmp_pref_read_bank_0 && 
+                   cmp_pref_read_bank_0 &&
                    (cmp_pref_ifu_req_bank_0 && ciu_ipref_en ||
                     cmp_pref_tlb_req_bank_0 && ciu_tpref_en) &&
                    cmp_pref_cache_miss_bank_0;
 
 assign pref_en_1 = cmp_pref_vld_bank_1 &&
-                   cmp_pref_read_bank_1 && 
+                   cmp_pref_read_bank_1 &&
                    (cmp_pref_ifu_req_bank_1 && ciu_ipref_en ||
                     cmp_pref_tlb_req_bank_1 && ciu_tpref_en) &&
                    cmp_pref_cache_miss_bank_1;
@@ -208,7 +208,7 @@ assign pref_last     = pref_cnt[1:0] == 2'b00;
 //     prefetch buffer
 //===============================================
 assign bank1_sel = cmp_pref_cache_miss_bank_1 &&
-                   (cmp_pref_ifu_req_bank_1  || cmp_pref_tlb_req_bank_1) && 
+                   (cmp_pref_ifu_req_bank_1  || cmp_pref_tlb_req_bank_1) &&
                    cmp_pref_vld_bank_1;
 
 assign pref_addr_bank1[33:0] = {cmp_pref_addr_bank_1[32:0],1'b1};
@@ -252,7 +252,7 @@ begin
   end
 end
 
-assign cross_page  = (pref_addr[6] ^ pref_next_addr[6]); 
+assign cross_page  = (pref_addr[6] ^ pref_next_addr[6]);
 
 assign prf_idle = pref_state == IDLE;
 

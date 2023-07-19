@@ -36,7 +36,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 //#ifdef CONFIG_CSI_V2
-//#include <drv/uart.h> 
+//#include <drv/uart.h>
 //#else
 //#include <drv/usart.h>
 //#endif

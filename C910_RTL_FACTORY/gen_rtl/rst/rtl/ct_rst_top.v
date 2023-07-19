@@ -30,45 +30,45 @@ module ct_rst_top(
 );
 
 // &Ports; @23
-input        forever_coreclk;  
-input        pad_core_rst_b;   
-input        pad_cpu_rst_b;    
-input        pad_yy_mbist_mode; 
-input        pad_yy_scan_mode; 
-input        pad_yy_scan_rst_b; 
-output       fpu_rst_b;        
-output       had_rst_b;        
-output       idu_rst_b;        
-output       ifu_rst_b;        
-output       lsu_rst_b;        
-output       mmu_rst_b;        
+input        forever_coreclk;
+input        pad_core_rst_b;
+input        pad_cpu_rst_b;
+input        pad_yy_mbist_mode;
+input        pad_yy_scan_mode;
+input        pad_yy_scan_rst_b;
+output       fpu_rst_b;
+output       had_rst_b;
+output       idu_rst_b;
+output       ifu_rst_b;
+output       lsu_rst_b;
+output       mmu_rst_b;
 
 // &Regs; @24
-reg          core_rst_ff_1st;  
-reg          core_rst_ff_2nd;  
-reg          core_rst_ff_3rd;  
-reg          fpurst_b;         
-reg          hadrst_b;         
-reg          idurst_b;         
-reg          ifurst_b;         
-reg          lsurst_b;         
-reg          mmurst_b;         
+reg          core_rst_ff_1st;
+reg          core_rst_ff_2nd;
+reg          core_rst_ff_3rd;
+reg          fpurst_b;
+reg          hadrst_b;
+reg          idurst_b;
+reg          ifurst_b;
+reg          lsurst_b;
+reg          mmurst_b;
 
 // &Wires; @25
-wire         async_corerst_b;  
-wire         corerst_b;        
-wire         forever_coreclk;  
-wire         fpu_rst_b;        
-wire         had_rst_b;        
-wire         idu_rst_b;        
-wire         ifu_rst_b;        
-wire         lsu_rst_b;        
-wire         mmu_rst_b;        
-wire         pad_core_rst_b;   
-wire         pad_cpu_rst_b;    
-wire         pad_yy_mbist_mode; 
-wire         pad_yy_scan_mode; 
-wire         pad_yy_scan_rst_b; 
+wire         async_corerst_b;
+wire         corerst_b;
+wire         forever_coreclk;
+wire         fpu_rst_b;
+wire         had_rst_b;
+wire         idu_rst_b;
+wire         ifu_rst_b;
+wire         lsu_rst_b;
+wire         mmu_rst_b;
+wire         pad_core_rst_b;
+wire         pad_cpu_rst_b;
+wire         pad_yy_mbist_mode;
+wire         pad_yy_scan_mode;
+wire         pad_yy_scan_rst_b;
 
 
 //==============================================================================
@@ -98,7 +98,7 @@ always @(posedge forever_coreclk or negedge corerst_b)
 begin
   if (!corerst_b)
     ifurst_b <= 1'b0;
-  else 
+  else
     ifurst_b <= corerst_b;
 end
 
@@ -108,7 +108,7 @@ always @(posedge forever_coreclk or negedge corerst_b)
 begin
   if (!corerst_b)
     idurst_b <= 1'b0;
-  else 
+  else
     idurst_b <= corerst_b;
 end
 
@@ -118,7 +118,7 @@ always @(posedge forever_coreclk or negedge corerst_b)
 begin
   if (!corerst_b)
     lsurst_b <= 1'b0;
-  else 
+  else
     lsurst_b <= corerst_b;
 end
 
@@ -128,7 +128,7 @@ always @(posedge forever_coreclk or negedge corerst_b)
 begin
   if (!corerst_b)
     fpurst_b <= 1'b0;
-  else 
+  else
     fpurst_b <= corerst_b;
 end
 
@@ -138,7 +138,7 @@ always @(posedge forever_coreclk or negedge corerst_b)
 begin
   if (!corerst_b)
     mmurst_b <= 1'b0;
-  else 
+  else
     mmurst_b <= corerst_b;
 end
 
@@ -148,7 +148,7 @@ always @(posedge forever_coreclk or negedge corerst_b)
 begin
   if (!corerst_b)
     hadrst_b <= 1'b0;
-  else 
+  else
     hadrst_b <= corerst_b;
 end
 

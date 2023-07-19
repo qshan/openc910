@@ -19,16 +19,16 @@ module ct_vfdsu_ff1(
 );
 
 // &Ports; @22
-input   [51:0]  frac_num;      
-output  [51:0]  fanc_shift_num; 
-output  [12:0]  frac_bin_val;  
+input   [51:0]  frac_num;
+output  [51:0]  fanc_shift_num;
+output  [12:0]  frac_bin_val;
 
 // &Regs; @23
-reg     [51:0]  fanc_shift_num; 
-reg     [12:0]  frac_bin_val;  
+reg     [51:0]  fanc_shift_num;
+reg     [12:0]  frac_bin_val;
 
 // &Wires; @24
-wire    [51:0]  frac_num;      
+wire    [51:0]  frac_num;
 
 
 // &CombBeg; @26
@@ -89,10 +89,10 @@ casez(frac_num[51:0])
   52'b0000000000000000000000000000000000000000000000000001: begin frac_bin_val[12:0] = 13'h1fcd; fanc_shift_num[51:0] = {frac_num[0:0],51'b0};end
   52'b0000000000000000000000000000000000000000000000000000: begin frac_bin_val[12:0] = 13'h1fcc; fanc_shift_num[51:0] = {52'b0};end
   default:begin frac_bin_val[12:0] = 13'h000;     fanc_shift_num[51:0] = {52'b0};end
-endcase 
+endcase
 // &CombEnd;                                                                                          @83
 end
-                                                                                                  
+
 // &ModuleEnd;                                                                                        @85
 endmodule
 

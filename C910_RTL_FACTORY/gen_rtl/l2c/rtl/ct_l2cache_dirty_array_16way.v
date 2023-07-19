@@ -32,21 +32,21 @@ module ct_l2cache_dirty_array_16way(
 
 parameter TAG_INDEX_WIDTH = `L2C_TAG_INDEX_WIDTH;
 
-input           dirty_cen;           
-input           dirty_clk;        
-input   [143:0] dirty_din;           
-input           dirty_gwen;          
-input   [TAG_INDEX_WIDTH-1:0]  dirty_idx;           
-input   [143:0] dirty_wen;           
-output  [143:0] dirty_dout;          
+input           dirty_cen;
+input           dirty_clk;
+input   [143:0] dirty_din;
+input           dirty_gwen;
+input   [TAG_INDEX_WIDTH-1:0]  dirty_idx;
+input   [143:0] dirty_wen;
+output  [143:0] dirty_dout;
 
-wire            dirty_cen;           
-wire            dirty_clk;        
-wire    [143:0] dirty_din;           
-wire    [143:0] dirty_dout;          
-wire            dirty_gwen;          
-wire    [TAG_INDEX_WIDTH-1:0]  dirty_idx;           
-wire    [143:0] dirty_wen;           
+wire            dirty_cen;
+wire            dirty_clk;
+wire    [143:0] dirty_din;
+wire    [143:0] dirty_dout;
+wire            dirty_gwen;
+wire    [TAG_INDEX_WIDTH-1:0]  dirty_idx;
+wire    [143:0] dirty_wen;
 
 //csky vperl_off
 //==========================================================

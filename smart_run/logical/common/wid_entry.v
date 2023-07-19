@@ -22,21 +22,21 @@ module wid_entry(
 );
 
 
-input   [7:0]  biu_pad_awid;  
-input          pad_cpu_rst_b; 
-input          per_clk;       
-input          wid_entry_push; 
-output  [7:0]  wid;           
+input   [7:0]  biu_pad_awid;
+input          pad_cpu_rst_b;
+input          per_clk;
+input          wid_entry_push;
+output  [7:0]  wid;
 
 
-reg     [7:0]  wid_f;         
+reg     [7:0]  wid_f;
 
 
-wire    [7:0]  biu_pad_awid;  
-wire           pad_cpu_rst_b; 
-wire           per_clk;       
-wire    [7:0]  wid;           
-wire           wid_entry_push; 
+wire    [7:0]  biu_pad_awid;
+wire           pad_cpu_rst_b;
+wire           per_clk;
+wire    [7:0]  wid;
+wire           wid_entry_push;
 
 
 always@(posedge per_clk or negedge pad_cpu_rst_b)

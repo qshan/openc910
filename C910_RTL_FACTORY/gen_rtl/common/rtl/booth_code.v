@@ -21,7 +21,7 @@ module booth_code(
 A,       // mulitplicand
 code,    // booth code
 product, // partial product
-h,      
+h,
 sn       // partial_sign
 );
 parameter B_SIZE = 53;
@@ -38,11 +38,11 @@ reg           sn;
 
 wire A_sign;
 
-assign A_sign = A[B_SIZE-1]; 
+assign A_sign = A[B_SIZE-1];
 
 always @(A[B_SIZE-1:0]
       or code[2:0]
-      or A_sign) 
+      or A_sign)
 begin
   case(code[2:0])
     3'b000 : product[B_SIZE:0] = {B_SIZE+1{1'b0}};
@@ -72,7 +72,7 @@ begin
   endcase
 end
 
-always @(code[2:0]) 
+always @(code[2:0])
 begin
   case(code[2:0])
     3'b000 : h[1:0] = 2'b00;

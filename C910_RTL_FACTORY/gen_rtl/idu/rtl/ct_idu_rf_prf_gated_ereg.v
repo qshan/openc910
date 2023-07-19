@@ -28,40 +28,40 @@ module ct_idu_rf_prf_gated_ereg(
 );
 
 // &Ports; @28
-input          cp0_idu_icg_en;                 
-input          cp0_yy_clk_en;                  
-input          cpurst_b;                       
-input          ereg_top_clk;                   
-input          pad_yy_icg_scan_en;             
-input   [5:0]  vfpu_idu_ex5_pipe6_wb_ereg_data; 
-input   [5:0]  vfpu_idu_ex5_pipe7_wb_ereg_data; 
-input          x_retired_released_wb;          
-input   [1:0]  x_wb_vld;                       
-output  [5:0]  x_acc_reg_dout;                 
+input          cp0_idu_icg_en;
+input          cp0_yy_clk_en;
+input          cpurst_b;
+input          ereg_top_clk;
+input          pad_yy_icg_scan_en;
+input   [5:0]  vfpu_idu_ex5_pipe6_wb_ereg_data;
+input   [5:0]  vfpu_idu_ex5_pipe7_wb_ereg_data;
+input          x_retired_released_wb;
+input   [1:0]  x_wb_vld;
+output  [5:0]  x_acc_reg_dout;
 
 // &Regs; @29
-reg     [5:0]  reg_dout;                       
+reg     [5:0]  reg_dout;
 
 // &Wires; @30
-wire           cp0_idu_icg_en;                 
-wire           cp0_yy_clk_en;                  
-wire           cpurst_b;                       
-wire           ereg_clk;                       
-wire           ereg_clk_en;                    
-wire           ereg_top_clk;                   
-wire           pad_yy_icg_scan_en;             
-wire    [5:0]  vfpu_idu_ex5_pipe6_wb_ereg_data; 
-wire    [5:0]  vfpu_idu_ex5_pipe7_wb_ereg_data; 
-wire    [5:0]  write_data;                     
-wire           write_en;                       
-wire    [5:0]  x_acc_reg_dout;                 
-wire           x_retired_released_wb;          
-wire    [1:0]  x_wb_vld;                       
+wire           cp0_idu_icg_en;
+wire           cp0_yy_clk_en;
+wire           cpurst_b;
+wire           ereg_clk;
+wire           ereg_clk_en;
+wire           ereg_top_clk;
+wire           pad_yy_icg_scan_en;
+wire    [5:0]  vfpu_idu_ex5_pipe6_wb_ereg_data;
+wire    [5:0]  vfpu_idu_ex5_pipe7_wb_ereg_data;
+wire    [5:0]  write_data;
+wire           write_en;
+wire    [5:0]  x_acc_reg_dout;
+wire           x_retired_released_wb;
+wire    [1:0]  x_wb_vld;
 
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 assign ereg_clk_en = write_en;
 // &Instance("gated_clk_cell", "x_ereg_gated_clk"); @37

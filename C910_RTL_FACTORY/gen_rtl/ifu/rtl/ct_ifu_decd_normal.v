@@ -40,65 +40,65 @@ module ct_ifu_decd_normal(
 );
 
 // &Ports; @26
-input   [7 :0]  cp0_ifu_vl;                  
-input           cp0_ifu_vsetvli_pred_disable; 
-input           x_br;                        
-input   [31:0]  x_inst;                      
-output          x_auipc;                     
-output          x_branch;                    
-output          x_chgflw;                    
-output          x_con_br;                    
-output          x_dst_vld;                   
-output          x_ind_br;                    
-output          x_jal;                       
-output          x_jalr;                      
-output          x_ld;                        
-output  [20:0]  x_offset;                    
-output          x_pc_oper;                   
-output          x_pcall;                     
-output          x_preturn;                   
-output          x_st;                        
-output  [7 :0]  x_vlmax;                     
-output  [1 :0]  x_vlmul;                     
-output          x_vsetvli;                   
-output  [2 :0]  x_vsew;                      
+input   [7 :0]  cp0_ifu_vl;
+input           cp0_ifu_vsetvli_pred_disable;
+input           x_br;
+input   [31:0]  x_inst;
+output          x_auipc;
+output          x_branch;
+output          x_chgflw;
+output          x_con_br;
+output          x_dst_vld;
+output          x_ind_br;
+output          x_jal;
+output          x_jalr;
+output          x_ld;
+output  [20:0]  x_offset;
+output          x_pc_oper;
+output          x_pcall;
+output          x_preturn;
+output          x_st;
+output  [7 :0]  x_vlmax;
+output  [1 :0]  x_vlmul;
+output          x_vsetvli;
+output  [2 :0]  x_vsew;
 
 // &Regs; @27
 
 // &Wires; @28
-wire    [7 :0]  cp0_ifu_vl;                  
-wire            cp0_ifu_vsetvli_pred_disable; 
-wire            x_ab_br;                     
-wire            x_auipc;                     
-wire            x_br;                        
-wire            x_branch;                    
-wire            x_chgflw;                    
-wire            x_con_br;                    
-wire            x_dst_vld;                   
-wire            x_ind_br;                    
-wire    [31:0]  x_inst;                      
-wire            x_jal;                       
-wire            x_jalr;                      
-wire            x_ld;                        
-wire    [20:0]  x_offset;                    
-wire    [20:0]  x_offset_12_ab_br;           
-wire            x_offset_12_ab_br_vld;       
-wire    [20:0]  x_offset_12_ind_br;          
-wire            x_offset_12_ind_br_vld;      
-wire    [20:0]  x_offset_13_con_br;          
-wire            x_offset_13_con_br_vld;      
-wire    [20:0]  x_offset_21_ab_br;           
-wire            x_offset_21_ab_br_vld;       
-wire    [20:0]  x_offset_9_con_br;           
-wire            x_offset_9_con_br_vld;       
-wire            x_pc_oper;                   
-wire            x_pcall;                     
-wire            x_preturn;                   
-wire            x_st;                        
-wire    [7 :0]  x_vlmax;                     
-wire    [1 :0]  x_vlmul;                     
-wire            x_vsetvli;                   
-wire    [2 :0]  x_vsew;                      
+wire    [7 :0]  cp0_ifu_vl;
+wire            cp0_ifu_vsetvli_pred_disable;
+wire            x_ab_br;
+wire            x_auipc;
+wire            x_br;
+wire            x_branch;
+wire            x_chgflw;
+wire            x_con_br;
+wire            x_dst_vld;
+wire            x_ind_br;
+wire    [31:0]  x_inst;
+wire            x_jal;
+wire            x_jalr;
+wire            x_ld;
+wire    [20:0]  x_offset;
+wire    [20:0]  x_offset_12_ab_br;
+wire            x_offset_12_ab_br_vld;
+wire    [20:0]  x_offset_12_ind_br;
+wire            x_offset_12_ind_br_vld;
+wire    [20:0]  x_offset_13_con_br;
+wire            x_offset_13_con_br_vld;
+wire    [20:0]  x_offset_21_ab_br;
+wire            x_offset_21_ab_br_vld;
+wire    [20:0]  x_offset_9_con_br;
+wire            x_offset_9_con_br_vld;
+wire            x_pc_oper;
+wire            x_pcall;
+wire            x_preturn;
+wire            x_st;
+wire    [7 :0]  x_vlmax;
+wire    [1 :0]  x_vlmul;
+wire            x_vsetvli;
+wire    [2 :0]  x_vsew;
 
 
 
@@ -108,13 +108,13 @@ wire    [2 :0]  x_vsew;
 // &Force("bus","x_inst",31,0); @34
 
 //Hn_ab_br
-assign x_ab_br = x_br && 
+assign x_ab_br = x_br &&
                  (
                    (x_inst[2:1] == 2'b11) ||         //jal
                    ({x_inst[14],x_inst[1]} == 2'b00) //c.j
                  );
 //Hn_con_br
-assign x_con_br = x_br && 
+assign x_con_br = x_br &&
                   (
                     (x_inst[2:1] == 2'b01) ||         //32-bit con-br
                     ({x_inst[14],x_inst[1]} == 2'b10) //16-bit con-br
@@ -131,7 +131,7 @@ assign x_pc_oper = x_br ||
                  ({x_inst[15:13],x_inst[6:0]} == 10'b100_00000_10) && (x_inst[11:7] != 5'b0) || //c.jr/c.jalr
                  (x_inst[6:0] == 7'b0010111);                                                   //auipc
 // &Force("output","x_pc_oper"); @59
-                  
+
 //Hn_chgflw_not_br
 //contain all the chgflw inst except con_br
 assign x_chgflw = ({x_inst[14:12],x_inst[6:0]} == 10'b000_1100111) ||                            //jalr
@@ -145,7 +145,7 @@ assign x_branch = ({x_inst[14:12],x_inst[6:0]} == 10'b000_1100111) ||           
                   ({x_inst[15:13],x_inst[6:0]} == 10'b100_00000_10) && (x_inst[11:7] != 5'b0) || //c.jr/c.jalr
                   x_br;
 // &Force("output","x_branch"); @73
-                
+
 //Hn_jal
 assign x_jal = (x_inst[6:0] == 7'b1101111) ||               //jal
                 ({x_inst[15:13], x_inst[1:0]} == 5'b10101); //c.j
@@ -180,7 +180,7 @@ assign x_dst_vld = ((x_inst[6:0] == 7'b1101111) || ({x_inst[14:12],x_inst[6:0]} 
 //      +-------+-------+--------+--------------+
 
 
-//Hn_pcall 
+//Hn_pcall
 //1. jalr: rd == x1 or rd == x5
 //2. jal : rd == x1 or rd == x5
 //3. c.jalr
@@ -190,23 +190,23 @@ assign x_pcall = (
                    (x_inst[11:7] == 5'b00001) ||
                    (x_inst[11:7] == 5'b00101)
                   )
-                 ) || 
+                 ) ||
                  (
                   (x_inst[6:0] == 7'b1101111) && //jal
-                  (     
+                  (
                    (x_inst[11:7] == 5'b00001) ||
                    (x_inst[11:7] == 5'b00101)
                   )
                  ) ||
                  (
-                   ({x_inst[15:12],x_inst[6:0]} == 11'b1001_00000_10) && //c.jalr 
+                   ({x_inst[15:12],x_inst[6:0]} == 11'b1001_00000_10) && //c.jalr
                    (x_inst[11:7] != 5'b0)
-                 ); 
+                 );
 
 //Hn_preturn
 //1. jalr: when rs1 == x1 or rs1 == x5 and rs1!=rd
 //2. c.jr: when rs1 ==x1 or rs1 == x5
-//3. c.jalr: when rs1 == x5(c.jalr use x1 as default rd) 
+//3. c.jalr: when rs1 == x5(c.jalr use x1 as default rd)
 assign x_preturn = (
                     ({x_inst[14:12],x_inst[6:0]} == 10'b000_1100111) && //jalr
                     (x_inst[11:7] != x_inst[19:15]) &&
@@ -225,16 +225,16 @@ assign x_preturn = (
                      (x_inst[11:7] != 5'b00000)
                    ) ||
                    (
-                     ({x_inst[15:12],x_inst[6:0]} == 11'b1001_00000_10) && //c.jalr 
+                     ({x_inst[15:12],x_inst[6:0]} == 11'b1001_00000_10) && //c.jalr
                      (x_inst[11:7] == 5'b00101)
-                   ); 
+                   );
 
 
 //Hn_ind_jmp
 assign x_ind_br  = (
                     ({x_inst[14:12],x_inst[6:0]} == 10'b000_1100111) && //jalr
                     (
-                     ( 
+                     (
                       ((x_inst[19:15] != 5'b1) &&
                        (x_inst[19:15] != 5'b00101)
                       ) ||
@@ -250,10 +250,10 @@ assign x_ind_br  = (
                     !(x_inst[11:7] == 5'b0)
                    ) ||
                    (
-                     ({x_inst[15:12],x_inst[6:0]} == 11'b1001_00000_10) && //c.jalr 
+                     ({x_inst[15:12],x_inst[6:0]} == 11'b1001_00000_10) && //c.jalr
                      !(x_inst[11:7] == 5'b00101) && !(x_inst[11:7] == 5'b0)
-                   ); 
-                
+                   );
+
 
 //==========================================================
 //                   Decode Store Inst
@@ -369,8 +369,8 @@ assign x_vsetvli = !x_inst[31]
 // 4:2:  vsew,standard element width setting
 // 1:0:  vlmul,vector register group multiplier setting
 assign x_vsew[2:0]  = x_inst[24:22];
-assign x_vlmul[1:0] = x_inst[21:20]; 
-assign x_vlmax[7:0] = (cp0_ifu_vsetvli_pred_disable) 
+assign x_vlmul[1:0] = x_inst[21:20];
+assign x_vlmax[7:0] = (cp0_ifu_vsetvli_pred_disable)
                       ? cp0_ifu_vl[7:0]
                       : ((8'b00010000 >> x_inst[23:22]) <<x_inst[21:20]);
 
@@ -379,8 +379,8 @@ assign x_vlmax[7:0] = (cp0_ifu_vsetvli_pred_disable)
 //==========================================================
 assign x_offset_21_ab_br_vld   = (x_inst[6:0] == 7'b1101111); //JAL
 assign x_offset_21_ab_br[20:0] = {
-                                  x_inst[31],  
-                                  x_inst[19:12], 
+                                  x_inst[31],
+                                  x_inst[19:12],
                                   x_inst[20],
                                   x_inst[30:21],
                                   1'b0
@@ -424,8 +424,8 @@ assign x_offset_9_con_br[20:0]  = {
                                    1'b0
                                   };
 
-//default will choose 0 as C.J/C.JARL result                                        
-assign x_offset[20:0] = 
+//default will choose 0 as C.J/C.JARL result
+assign x_offset[20:0] =
     {21{x_offset_21_ab_br_vld}}  & x_offset_21_ab_br[20:0]
   | {21{x_offset_12_ind_br_vld}} & x_offset_12_ind_br[20:0]
   | {21{x_offset_13_con_br_vld}} & x_offset_13_con_br[20:0]

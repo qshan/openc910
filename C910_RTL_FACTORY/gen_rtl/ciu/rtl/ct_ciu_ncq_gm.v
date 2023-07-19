@@ -31,40 +31,40 @@ module ct_ciu_ncq_gm(
 );
 
 // &Ports; @24
-input           ciu_icg_en;        
-input           cpurst_b;          
-input           forever_cpuclk;    
-input           gm_aw_req;         
-input           gm_ctrl_clk;       
-input           gm_set_vld_gate_x; 
-input           gm_set_vld_x;      
-input           pad_yy_icg_scan_en; 
-input   [73:0]  raq_pop_bus;       
-input   [73:0]  waq_pop_bus;       
-input           waq_pop_en;        
-output          gm_success_x;      
-output          gm_vld_x;          
+input           ciu_icg_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           gm_aw_req;
+input           gm_ctrl_clk;
+input           gm_set_vld_gate_x;
+input           gm_set_vld_x;
+input           pad_yy_icg_scan_en;
+input   [73:0]  raq_pop_bus;
+input   [73:0]  waq_pop_bus;
+input           waq_pop_en;
+output          gm_success_x;
+output          gm_vld_x;
 
 // &Regs; @25
-reg     [73:0]  gm_cont;           
-reg             gm_exclusive;      
+reg     [73:0]  gm_cont;
+reg             gm_exclusive;
 
 // &Wires; @26
-wire            ciu_icg_en;        
-wire            cpurst_b;          
-wire            forever_cpuclk;    
-wire            gm_aw_req;         
-wire            gm_clk;            
-wire            gm_clr_vld;        
-wire            gm_ctrl_clk;       
-wire            gm_set_vld_gate_x; 
-wire            gm_set_vld_x;      
-wire            gm_success_x;      
-wire            gm_vld_x;          
-wire            pad_yy_icg_scan_en; 
-wire    [73:0]  raq_pop_bus;       
-wire    [73:0]  waq_pop_bus;       
-wire            waq_pop_en;        
+wire            ciu_icg_en;
+wire            cpurst_b;
+wire            forever_cpuclk;
+wire            gm_aw_req;
+wire            gm_clk;
+wire            gm_clr_vld;
+wire            gm_ctrl_clk;
+wire            gm_set_vld_gate_x;
+wire            gm_set_vld_x;
+wire            gm_success_x;
+wire            gm_vld_x;
+wire            pad_yy_icg_scan_en;
+wire    [73:0]  raq_pop_bus;
+wire    [73:0]  waq_pop_bus;
+wire            waq_pop_en;
 
 
 parameter ADDRW   = 40;
@@ -79,7 +79,7 @@ assign gm_clr_vld = gm_aw_req && waq_pop_en &&
 assign gm_success_x = gm_aw_req && waq_pop_bus[LOCK] &&
                       gm_exclusive &&
                      (gm_cont[GMWIDTH-1:0] == waq_pop_bus[GMWIDTH-1:0]);
-                   
+
 
 always @(posedge gm_ctrl_clk or negedge cpurst_b)
 begin

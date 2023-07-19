@@ -21,21 +21,21 @@ module ct_rtu_compare_iid(
 );
 
 // &Ports; @25
-input   [6:0]  x_iid0;          
-input   [6:0]  x_iid1;          
-output         x_iid0_older;    
+input   [6:0]  x_iid0;
+input   [6:0]  x_iid1;
+output         x_iid0_older;
 
 // &Regs; @26
 
 // &Wires; @27
-wire           iid0_5_0_larger; 
-wire    [5:0]  iid0_larger;     
-wire           iid1_5_0_larger; 
-wire    [5:0]  iid1_larger;     
-wire           iid_msb_mismatch; 
-wire    [6:0]  x_iid0;          
-wire           x_iid0_older;    
-wire    [6:0]  x_iid1;          
+wire           iid0_5_0_larger;
+wire    [5:0]  iid0_larger;
+wire           iid1_5_0_larger;
+wire    [5:0]  iid1_larger;
+wire           iid_msb_mismatch;
+wire    [6:0]  x_iid0;
+wire           x_iid0_older;
+wire    [6:0]  x_iid1;
 
 
 //==========================================================

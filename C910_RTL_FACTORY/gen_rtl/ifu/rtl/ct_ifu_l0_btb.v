@@ -64,249 +64,249 @@ module ct_ifu_l0_btb(
 );
 
 // &Ports; @23
-input   [15:0]  addrgen_l0_btb_update_entry;  
-input           addrgen_l0_btb_update_vld;    
-input           addrgen_l0_btb_update_vld_bit; 
-input   [3 :0]  addrgen_l0_btb_wen;           
-input           cp0_ifu_btb_en;               
-input           cp0_ifu_icg_en;               
-input           cp0_ifu_l0btb_en;             
-input           cp0_yy_clk_en;                
-input           cpurst_b;                     
-input           forever_cpuclk;               
-input           ibdp_l0_btb_fifo_update_vld;  
-input           ibdp_l0_btb_update_cnt_bit;   
-input   [36:0]  ibdp_l0_btb_update_data;      
-input   [15:0]  ibdp_l0_btb_update_entry;     
-input           ibdp_l0_btb_update_ras_bit;   
-input           ibdp_l0_btb_update_vld;       
-input           ibdp_l0_btb_update_vld_bit;   
-input   [3 :0]  ibdp_l0_btb_wen;              
-input           ifctrl_l0_btb_inv;            
-input           ifctrl_l0_btb_stall;          
-input           ipctrl_l0_btb_chgflw_vld;     
-input           ipctrl_l0_btb_ip_vld;         
-input           ipctrl_l0_btb_wait_next;      
-input   [38:0]  ipdp_l0_btb_ras_pc;           
-input           ipdp_l0_btb_ras_push;         
-input           l0_btb_update_vld_for_gateclk; 
-input           pad_yy_icg_scan_en;           
-input           pcgen_l0_btb_chgflw_mask;     
-input   [14:0]  pcgen_l0_btb_chgflw_pc;       
-input           pcgen_l0_btb_chgflw_vld;      
-input   [38:0]  pcgen_l0_btb_if_pc;           
-input   [38:0]  ras_l0_btb_pc;                
-input   [38:0]  ras_l0_btb_push_pc;           
-input           ras_l0_btb_ras_push;          
-output  [1 :0]  l0_btb_debug_cur_state;       
-output  [15:0]  l0_btb_ibdp_entry_fifo;       
-output  [38:0]  l0_btb_ifctrl_chgflw_pc;      
-output  [1 :0]  l0_btb_ifctrl_chgflw_way_pred; 
-output          l0_btb_ifctrl_chglfw_vld;     
-output  [38:0]  l0_btb_ifdp_chgflw_pc;        
-output  [1 :0]  l0_btb_ifdp_chgflw_way_pred;  
-output          l0_btb_ifdp_counter;          
-output  [15:0]  l0_btb_ifdp_entry_hit;        
-output          l0_btb_ifdp_hit;              
-output          l0_btb_ifdp_ras;              
-output          l0_btb_ipctrl_st_wait;        
+input   [15:0]  addrgen_l0_btb_update_entry;
+input           addrgen_l0_btb_update_vld;
+input           addrgen_l0_btb_update_vld_bit;
+input   [3 :0]  addrgen_l0_btb_wen;
+input           cp0_ifu_btb_en;
+input           cp0_ifu_icg_en;
+input           cp0_ifu_l0btb_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           ibdp_l0_btb_fifo_update_vld;
+input           ibdp_l0_btb_update_cnt_bit;
+input   [36:0]  ibdp_l0_btb_update_data;
+input   [15:0]  ibdp_l0_btb_update_entry;
+input           ibdp_l0_btb_update_ras_bit;
+input           ibdp_l0_btb_update_vld;
+input           ibdp_l0_btb_update_vld_bit;
+input   [3 :0]  ibdp_l0_btb_wen;
+input           ifctrl_l0_btb_inv;
+input           ifctrl_l0_btb_stall;
+input           ipctrl_l0_btb_chgflw_vld;
+input           ipctrl_l0_btb_ip_vld;
+input           ipctrl_l0_btb_wait_next;
+input   [38:0]  ipdp_l0_btb_ras_pc;
+input           ipdp_l0_btb_ras_push;
+input           l0_btb_update_vld_for_gateclk;
+input           pad_yy_icg_scan_en;
+input           pcgen_l0_btb_chgflw_mask;
+input   [14:0]  pcgen_l0_btb_chgflw_pc;
+input           pcgen_l0_btb_chgflw_vld;
+input   [38:0]  pcgen_l0_btb_if_pc;
+input   [38:0]  ras_l0_btb_pc;
+input   [38:0]  ras_l0_btb_push_pc;
+input           ras_l0_btb_ras_push;
+output  [1 :0]  l0_btb_debug_cur_state;
+output  [15:0]  l0_btb_ibdp_entry_fifo;
+output  [38:0]  l0_btb_ifctrl_chgflw_pc;
+output  [1 :0]  l0_btb_ifctrl_chgflw_way_pred;
+output          l0_btb_ifctrl_chglfw_vld;
+output  [38:0]  l0_btb_ifdp_chgflw_pc;
+output  [1 :0]  l0_btb_ifdp_chgflw_way_pred;
+output          l0_btb_ifdp_counter;
+output  [15:0]  l0_btb_ifdp_entry_hit;
+output          l0_btb_ifdp_hit;
+output          l0_btb_ifdp_ras;
+output          l0_btb_ipctrl_st_wait;
 
 // &Regs; @24
-reg     [15:0]  entry_fifo;                   
-reg     [15:0]  entry_hit_flop;               
-reg     [1 :0]  l0_btb_cur_state;             
-reg             l0_btb_entry_inv;             
-reg     [1 :0]  l0_btb_next_state;            
-reg             l0_btb_rd_flop;               
-reg             l0_btb_update_cnt_bit;        
-reg     [36:0]  l0_btb_update_data;           
-reg             l0_btb_update_ras_bit;        
-reg             l0_btb_update_vld_bit;        
-reg     [3 :0]  l0_btb_wen;                   
-reg     [38:0]  ras_pc;                       
+reg     [15:0]  entry_fifo;
+reg     [15:0]  entry_hit_flop;
+reg     [1 :0]  l0_btb_cur_state;
+reg             l0_btb_entry_inv;
+reg     [1 :0]  l0_btb_next_state;
+reg             l0_btb_rd_flop;
+reg             l0_btb_update_cnt_bit;
+reg     [36:0]  l0_btb_update_data;
+reg             l0_btb_update_ras_bit;
+reg             l0_btb_update_vld_bit;
+reg     [3 :0]  l0_btb_wen;
+reg     [38:0]  ras_pc;
 
 // &Wires; @25
-wire    [15:0]  addrgen_l0_btb_update_entry;  
-wire            addrgen_l0_btb_update_vld;    
-wire            addrgen_l0_btb_update_vld_bit; 
-wire    [3 :0]  addrgen_l0_btb_wen;           
-wire            bypass_rd_hit;                
-wire            cp0_ifu_btb_en;               
-wire            cp0_ifu_icg_en;               
-wire            cp0_ifu_l0btb_en;             
-wire            cp0_yy_clk_en;                
-wire            cpurst_b;                     
-wire            entry0_cnt;                   
-wire            entry0_ras;                   
-wire            entry0_rd_hit;                
-wire    [14:0]  entry0_tag;                   
-wire    [19:0]  entry0_target;                
-wire            entry0_vld;                   
-wire    [1 :0]  entry0_way_pred;              
-wire            entry10_cnt;                  
-wire            entry10_ras;                  
-wire            entry10_rd_hit;               
-wire    [14:0]  entry10_tag;                  
-wire    [19:0]  entry10_target;               
-wire            entry10_vld;                  
-wire    [1 :0]  entry10_way_pred;             
-wire            entry11_cnt;                  
-wire            entry11_ras;                  
-wire            entry11_rd_hit;               
-wire    [14:0]  entry11_tag;                  
-wire    [19:0]  entry11_target;               
-wire            entry11_vld;                  
-wire    [1 :0]  entry11_way_pred;             
-wire            entry12_cnt;                  
-wire            entry12_ras;                  
-wire            entry12_rd_hit;               
-wire    [14:0]  entry12_tag;                  
-wire    [19:0]  entry12_target;               
-wire            entry12_vld;                  
-wire    [1 :0]  entry12_way_pred;             
-wire            entry13_cnt;                  
-wire            entry13_ras;                  
-wire            entry13_rd_hit;               
-wire    [14:0]  entry13_tag;                  
-wire    [19:0]  entry13_target;               
-wire            entry13_vld;                  
-wire    [1 :0]  entry13_way_pred;             
-wire            entry14_cnt;                  
-wire            entry14_ras;                  
-wire            entry14_rd_hit;               
-wire    [14:0]  entry14_tag;                  
-wire    [19:0]  entry14_target;               
-wire            entry14_vld;                  
-wire    [1 :0]  entry14_way_pred;             
-wire            entry15_cnt;                  
-wire            entry15_ras;                  
-wire            entry15_rd_hit;               
-wire    [14:0]  entry15_tag;                  
-wire    [19:0]  entry15_target;               
-wire            entry15_vld;                  
-wire    [1 :0]  entry15_way_pred;             
-wire            entry1_cnt;                   
-wire            entry1_ras;                   
-wire            entry1_rd_hit;                
-wire    [14:0]  entry1_tag;                   
-wire    [19:0]  entry1_target;                
-wire            entry1_vld;                   
-wire    [1 :0]  entry1_way_pred;              
-wire            entry2_cnt;                   
-wire            entry2_ras;                   
-wire            entry2_rd_hit;                
-wire    [14:0]  entry2_tag;                   
-wire    [19:0]  entry2_target;                
-wire            entry2_vld;                   
-wire    [1 :0]  entry2_way_pred;              
-wire            entry3_cnt;                   
-wire            entry3_ras;                   
-wire            entry3_rd_hit;                
-wire    [14:0]  entry3_tag;                   
-wire    [19:0]  entry3_target;                
-wire            entry3_vld;                   
-wire    [1 :0]  entry3_way_pred;              
-wire            entry4_cnt;                   
-wire            entry4_ras;                   
-wire            entry4_rd_hit;                
-wire    [14:0]  entry4_tag;                   
-wire    [19:0]  entry4_target;                
-wire            entry4_vld;                   
-wire    [1 :0]  entry4_way_pred;              
-wire            entry5_cnt;                   
-wire            entry5_ras;                   
-wire            entry5_rd_hit;                
-wire    [14:0]  entry5_tag;                   
-wire    [19:0]  entry5_target;                
-wire            entry5_vld;                   
-wire    [1 :0]  entry5_way_pred;              
-wire            entry6_cnt;                   
-wire            entry6_ras;                   
-wire            entry6_rd_hit;                
-wire    [14:0]  entry6_tag;                   
-wire    [19:0]  entry6_target;                
-wire            entry6_vld;                   
-wire    [1 :0]  entry6_way_pred;              
-wire            entry7_cnt;                   
-wire            entry7_ras;                   
-wire            entry7_rd_hit;                
-wire    [14:0]  entry7_tag;                   
-wire    [19:0]  entry7_target;                
-wire            entry7_vld;                   
-wire    [1 :0]  entry7_way_pred;              
-wire            entry8_cnt;                   
-wire            entry8_ras;                   
-wire            entry8_rd_hit;                
-wire    [14:0]  entry8_tag;                   
-wire    [19:0]  entry8_target;                
-wire            entry8_vld;                   
-wire    [1 :0]  entry8_way_pred;              
-wire            entry9_cnt;                   
-wire            entry9_ras;                   
-wire            entry9_rd_hit;                
-wire    [14:0]  entry9_tag;                   
-wire    [19:0]  entry9_target;                
-wire            entry9_vld;                   
-wire    [1 :0]  entry9_way_pred;              
-wire    [15:0]  entry_bypass_hit;             
-wire            entry_chgflw_vld;             
-wire    [15:0]  entry_hit;                    
-wire            entry_hit_counter;            
-wire    [19:0]  entry_hit_pc;                 
-wire            entry_hit_ras;                
-wire    [38:0]  entry_hit_target;             
-wire    [1 :0]  entry_hit_way_pred;           
-wire            entry_if_hit;                 
-wire    [15:0]  entry_rd_hit;                 
-wire            forever_cpuclk;               
-wire            ibdp_l0_btb_fifo_update_vld;  
-wire            ibdp_l0_btb_update_cnt_bit;   
-wire    [36:0]  ibdp_l0_btb_update_data;      
-wire    [15:0]  ibdp_l0_btb_update_entry;     
-wire            ibdp_l0_btb_update_ras_bit;   
-wire            ibdp_l0_btb_update_vld;       
-wire            ibdp_l0_btb_update_vld_bit;   
-wire    [3 :0]  ibdp_l0_btb_wen;              
-wire            ifctrl_l0_btb_inv;            
-wire            ifctrl_l0_btb_stall;          
-wire            ipctrl_l0_btb_chgflw_vld;     
-wire            ipctrl_l0_btb_ip_vld;         
-wire            ipctrl_l0_btb_wait_next;      
-wire    [38:0]  ipdp_l0_btb_ras_pc;           
-wire            ipdp_l0_btb_ras_push;         
-wire            l0_btb_clk;                   
-wire            l0_btb_clk_en;                
-wire            l0_btb_create_clk;            
-wire            l0_btb_create_en;             
-wire    [1 :0]  l0_btb_debug_cur_state;       
-wire    [15:0]  l0_btb_ibdp_entry_fifo;       
-wire    [38:0]  l0_btb_ifctrl_chgflw_pc;      
-wire    [1 :0]  l0_btb_ifctrl_chgflw_way_pred; 
-wire            l0_btb_ifctrl_chglfw_vld;     
-wire    [38:0]  l0_btb_ifdp_chgflw_pc;        
-wire    [1 :0]  l0_btb_ifdp_chgflw_way_pred;  
-wire            l0_btb_ifdp_counter;          
-wire    [15:0]  l0_btb_ifdp_entry_hit;        
-wire            l0_btb_ifdp_hit;              
-wire            l0_btb_ifdp_ras;              
-wire            l0_btb_inv_reg_upd_clk;       
-wire            l0_btb_inv_reg_upd_clk_en;    
-wire            l0_btb_ipctrl_st_wait;        
-wire            l0_btb_pipe_clk;              
-wire            l0_btb_pipe_en;               
-wire    [38:0]  l0_btb_ras_pc;                
-wire            l0_btb_rd;                    
-wire    [14:0]  l0_btb_rd_tag;                
-wire    [15:0]  l0_btb_update_entry;          
-wire            l0_btb_update_vld_for_gateclk; 
-wire            pad_yy_icg_scan_en;           
-wire            pcgen_l0_btb_chgflw_mask;     
-wire    [14:0]  pcgen_l0_btb_chgflw_pc;       
-wire            pcgen_l0_btb_chgflw_vld;      
-wire    [38:0]  pcgen_l0_btb_if_pc;           
-wire    [38:0]  ras_l0_btb_pc;                
-wire    [38:0]  ras_l0_btb_push_pc;           
-wire            ras_l0_btb_ras_push;          
+wire    [15:0]  addrgen_l0_btb_update_entry;
+wire            addrgen_l0_btb_update_vld;
+wire            addrgen_l0_btb_update_vld_bit;
+wire    [3 :0]  addrgen_l0_btb_wen;
+wire            bypass_rd_hit;
+wire            cp0_ifu_btb_en;
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_l0btb_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            entry0_cnt;
+wire            entry0_ras;
+wire            entry0_rd_hit;
+wire    [14:0]  entry0_tag;
+wire    [19:0]  entry0_target;
+wire            entry0_vld;
+wire    [1 :0]  entry0_way_pred;
+wire            entry10_cnt;
+wire            entry10_ras;
+wire            entry10_rd_hit;
+wire    [14:0]  entry10_tag;
+wire    [19:0]  entry10_target;
+wire            entry10_vld;
+wire    [1 :0]  entry10_way_pred;
+wire            entry11_cnt;
+wire            entry11_ras;
+wire            entry11_rd_hit;
+wire    [14:0]  entry11_tag;
+wire    [19:0]  entry11_target;
+wire            entry11_vld;
+wire    [1 :0]  entry11_way_pred;
+wire            entry12_cnt;
+wire            entry12_ras;
+wire            entry12_rd_hit;
+wire    [14:0]  entry12_tag;
+wire    [19:0]  entry12_target;
+wire            entry12_vld;
+wire    [1 :0]  entry12_way_pred;
+wire            entry13_cnt;
+wire            entry13_ras;
+wire            entry13_rd_hit;
+wire    [14:0]  entry13_tag;
+wire    [19:0]  entry13_target;
+wire            entry13_vld;
+wire    [1 :0]  entry13_way_pred;
+wire            entry14_cnt;
+wire            entry14_ras;
+wire            entry14_rd_hit;
+wire    [14:0]  entry14_tag;
+wire    [19:0]  entry14_target;
+wire            entry14_vld;
+wire    [1 :0]  entry14_way_pred;
+wire            entry15_cnt;
+wire            entry15_ras;
+wire            entry15_rd_hit;
+wire    [14:0]  entry15_tag;
+wire    [19:0]  entry15_target;
+wire            entry15_vld;
+wire    [1 :0]  entry15_way_pred;
+wire            entry1_cnt;
+wire            entry1_ras;
+wire            entry1_rd_hit;
+wire    [14:0]  entry1_tag;
+wire    [19:0]  entry1_target;
+wire            entry1_vld;
+wire    [1 :0]  entry1_way_pred;
+wire            entry2_cnt;
+wire            entry2_ras;
+wire            entry2_rd_hit;
+wire    [14:0]  entry2_tag;
+wire    [19:0]  entry2_target;
+wire            entry2_vld;
+wire    [1 :0]  entry2_way_pred;
+wire            entry3_cnt;
+wire            entry3_ras;
+wire            entry3_rd_hit;
+wire    [14:0]  entry3_tag;
+wire    [19:0]  entry3_target;
+wire            entry3_vld;
+wire    [1 :0]  entry3_way_pred;
+wire            entry4_cnt;
+wire            entry4_ras;
+wire            entry4_rd_hit;
+wire    [14:0]  entry4_tag;
+wire    [19:0]  entry4_target;
+wire            entry4_vld;
+wire    [1 :0]  entry4_way_pred;
+wire            entry5_cnt;
+wire            entry5_ras;
+wire            entry5_rd_hit;
+wire    [14:0]  entry5_tag;
+wire    [19:0]  entry5_target;
+wire            entry5_vld;
+wire    [1 :0]  entry5_way_pred;
+wire            entry6_cnt;
+wire            entry6_ras;
+wire            entry6_rd_hit;
+wire    [14:0]  entry6_tag;
+wire    [19:0]  entry6_target;
+wire            entry6_vld;
+wire    [1 :0]  entry6_way_pred;
+wire            entry7_cnt;
+wire            entry7_ras;
+wire            entry7_rd_hit;
+wire    [14:0]  entry7_tag;
+wire    [19:0]  entry7_target;
+wire            entry7_vld;
+wire    [1 :0]  entry7_way_pred;
+wire            entry8_cnt;
+wire            entry8_ras;
+wire            entry8_rd_hit;
+wire    [14:0]  entry8_tag;
+wire    [19:0]  entry8_target;
+wire            entry8_vld;
+wire    [1 :0]  entry8_way_pred;
+wire            entry9_cnt;
+wire            entry9_ras;
+wire            entry9_rd_hit;
+wire    [14:0]  entry9_tag;
+wire    [19:0]  entry9_target;
+wire            entry9_vld;
+wire    [1 :0]  entry9_way_pred;
+wire    [15:0]  entry_bypass_hit;
+wire            entry_chgflw_vld;
+wire    [15:0]  entry_hit;
+wire            entry_hit_counter;
+wire    [19:0]  entry_hit_pc;
+wire            entry_hit_ras;
+wire    [38:0]  entry_hit_target;
+wire    [1 :0]  entry_hit_way_pred;
+wire            entry_if_hit;
+wire    [15:0]  entry_rd_hit;
+wire            forever_cpuclk;
+wire            ibdp_l0_btb_fifo_update_vld;
+wire            ibdp_l0_btb_update_cnt_bit;
+wire    [36:0]  ibdp_l0_btb_update_data;
+wire    [15:0]  ibdp_l0_btb_update_entry;
+wire            ibdp_l0_btb_update_ras_bit;
+wire            ibdp_l0_btb_update_vld;
+wire            ibdp_l0_btb_update_vld_bit;
+wire    [3 :0]  ibdp_l0_btb_wen;
+wire            ifctrl_l0_btb_inv;
+wire            ifctrl_l0_btb_stall;
+wire            ipctrl_l0_btb_chgflw_vld;
+wire            ipctrl_l0_btb_ip_vld;
+wire            ipctrl_l0_btb_wait_next;
+wire    [38:0]  ipdp_l0_btb_ras_pc;
+wire            ipdp_l0_btb_ras_push;
+wire            l0_btb_clk;
+wire            l0_btb_clk_en;
+wire            l0_btb_create_clk;
+wire            l0_btb_create_en;
+wire    [1 :0]  l0_btb_debug_cur_state;
+wire    [15:0]  l0_btb_ibdp_entry_fifo;
+wire    [38:0]  l0_btb_ifctrl_chgflw_pc;
+wire    [1 :0]  l0_btb_ifctrl_chgflw_way_pred;
+wire            l0_btb_ifctrl_chglfw_vld;
+wire    [38:0]  l0_btb_ifdp_chgflw_pc;
+wire    [1 :0]  l0_btb_ifdp_chgflw_way_pred;
+wire            l0_btb_ifdp_counter;
+wire    [15:0]  l0_btb_ifdp_entry_hit;
+wire            l0_btb_ifdp_hit;
+wire            l0_btb_ifdp_ras;
+wire            l0_btb_inv_reg_upd_clk;
+wire            l0_btb_inv_reg_upd_clk_en;
+wire            l0_btb_ipctrl_st_wait;
+wire            l0_btb_pipe_clk;
+wire            l0_btb_pipe_en;
+wire    [38:0]  l0_btb_ras_pc;
+wire            l0_btb_rd;
+wire    [14:0]  l0_btb_rd_tag;
+wire    [15:0]  l0_btb_update_entry;
+wire            l0_btb_update_vld_for_gateclk;
+wire            pad_yy_icg_scan_en;
+wire            pcgen_l0_btb_chgflw_mask;
+wire    [14:0]  pcgen_l0_btb_chgflw_pc;
+wire            pcgen_l0_btb_chgflw_vld;
+wire    [38:0]  pcgen_l0_btb_if_pc;
+wire    [38:0]  ras_l0_btb_pc;
+wire    [38:0]  ras_l0_btb_push_pc;
+wire            ras_l0_btb_ras_push;
 
 
 // &Force("bus","pcgen_l0_btb_if_pc",38,0); @28
@@ -322,11 +322,11 @@ parameter WAIT     = 2'b10;
 assign l0_btb_rd           = cp0_ifu_btb_en
                           && cp0_ifu_l0btb_en
                           && !pcgen_l0_btb_chgflw_mask
-                          && (pcgen_l0_btb_chgflw_vld 
+                          && (pcgen_l0_btb_chgflw_vld
                               || !ifctrl_l0_btb_stall);
 assign l0_btb_rd_tag[14:0] = pcgen_l0_btb_chgflw_pc[14:0];
 
-//Becaue we will detect chglfw of next two line after one chgflw,so we 
+//Becaue we will detect chglfw of next two line after one chgflw,so we
 //will read L0 BTB again
 always@(posedge forever_cpuclk or negedge cpurst_b)
 begin
@@ -353,8 +353,8 @@ assign entry12_rd_hit = (l0_btb_rd_tag[14:0] == entry12_tag[14:0]) && entry12_vl
 assign entry13_rd_hit = (l0_btb_rd_tag[14:0] == entry13_tag[14:0]) && entry13_vld && !pcgen_l0_btb_chgflw_mask;
 assign entry14_rd_hit = (l0_btb_rd_tag[14:0] == entry14_tag[14:0]) && entry14_vld && !pcgen_l0_btb_chgflw_mask;
 assign entry15_rd_hit = (l0_btb_rd_tag[14:0] == entry15_tag[14:0]) && entry15_vld && !pcgen_l0_btb_chgflw_mask;
-assign bypass_rd_hit  = (l0_btb_rd_tag[14:0] == l0_btb_update_data[36:22]) 
-                     && l0_btb_update_vld_bit && !pcgen_l0_btb_chgflw_mask; 
+assign bypass_rd_hit  = (l0_btb_rd_tag[14:0] == l0_btb_update_data[36:22])
+                     && l0_btb_update_vld_bit && !pcgen_l0_btb_chgflw_mask;
 
 assign entry_rd_hit[15:0] = {entry15_rd_hit,entry14_rd_hit,entry13_rd_hit,entry12_rd_hit
                            ,entry11_rd_hit,entry10_rd_hit,entry9_rd_hit ,entry8_rd_hit
@@ -407,11 +407,11 @@ assign l0_btb_ras_pc[PC_WIDTH-2:0] = (ras_l0_btb_ras_push)
 
 always@(posedge l0_btb_pipe_clk or negedge cpurst_b)
 begin
-  if(!cpurst_b) 
+  if(!cpurst_b)
     ras_pc[PC_WIDTH-2:0] <= {PC_WIDTH-1{1'b0}};
-  else if(l0_btb_rd || l0_btb_rd_flop) 
+  else if(l0_btb_rd || l0_btb_rd_flop)
     ras_pc[PC_WIDTH-2:0] <= l0_btb_ras_pc[PC_WIDTH-2:0];
-  else 
+  else
     ras_pc[PC_WIDTH-2:0] <= ras_pc[PC_WIDTH-2:0];
 end
 
@@ -473,23 +473,23 @@ assign entry_hit_way_pred[1:0] = ({2{entry_hit_flop[0]}}  & entry0_way_pred[1:0]
                                | ({2{entry_hit_flop[15]}} & entry15_way_pred[1:0]);
 
 
-//L0 btb prediction target,it excludes ret result                               
+//L0 btb prediction target,it excludes ret result
 assign entry_hit_pc[19:0]      = ({20{entry_hit_flop[0]}}  & entry0_target[19:0])
-                               | ({20{entry_hit_flop[1]}}  & entry1_target[19:0]) 
-                               | ({20{entry_hit_flop[2]}}  & entry2_target[19:0]) 
-                               | ({20{entry_hit_flop[3]}}  & entry3_target[19:0]) 
-                               | ({20{entry_hit_flop[4]}}  & entry4_target[19:0]) 
-                               | ({20{entry_hit_flop[5]}}  & entry5_target[19:0]) 
-                               | ({20{entry_hit_flop[6]}}  & entry6_target[19:0]) 
-                               | ({20{entry_hit_flop[7]}}  & entry7_target[19:0]) 
-                               | ({20{entry_hit_flop[8]}}  & entry8_target[19:0]) 
-                               | ({20{entry_hit_flop[9]}}  & entry9_target[19:0]) 
-                               | ({20{entry_hit_flop[10]}} & entry10_target[19:0]) 
-                               | ({20{entry_hit_flop[11]}} & entry11_target[19:0]) 
-                               | ({20{entry_hit_flop[12]}} & entry12_target[19:0]) 
-                               | ({20{entry_hit_flop[13]}} & entry13_target[19:0]) 
-                               | ({20{entry_hit_flop[14]}} & entry14_target[19:0]) 
-                               | ({20{entry_hit_flop[15]}} & entry15_target[19:0]); 
+                               | ({20{entry_hit_flop[1]}}  & entry1_target[19:0])
+                               | ({20{entry_hit_flop[2]}}  & entry2_target[19:0])
+                               | ({20{entry_hit_flop[3]}}  & entry3_target[19:0])
+                               | ({20{entry_hit_flop[4]}}  & entry4_target[19:0])
+                               | ({20{entry_hit_flop[5]}}  & entry5_target[19:0])
+                               | ({20{entry_hit_flop[6]}}  & entry6_target[19:0])
+                               | ({20{entry_hit_flop[7]}}  & entry7_target[19:0])
+                               | ({20{entry_hit_flop[8]}}  & entry8_target[19:0])
+                               | ({20{entry_hit_flop[9]}}  & entry9_target[19:0])
+                               | ({20{entry_hit_flop[10]}} & entry10_target[19:0])
+                               | ({20{entry_hit_flop[11]}} & entry11_target[19:0])
+                               | ({20{entry_hit_flop[12]}} & entry12_target[19:0])
+                               | ({20{entry_hit_flop[13]}} & entry13_target[19:0])
+                               | ({20{entry_hit_flop[14]}} & entry14_target[19:0])
+                               | ({20{entry_hit_flop[15]}} & entry15_target[19:0]);
 
 
 assign entry_if_hit           = |entry_hit_flop[15:0];
@@ -582,7 +582,7 @@ gated_clk_cell  x_l0_btb_create_clk (
 //          .clk_out     (l0_btb_create_clk) @260
 //         ); @261
 
-assign l0_btb_create_en = ibdp_l0_btb_fifo_update_vld 
+assign l0_btb_create_en = ibdp_l0_btb_fifo_update_vld
                        && cp0_ifu_btb_en
                        && cp0_ifu_l0btb_en;
 always @(posedge l0_btb_create_clk or negedge cpurst_b)
@@ -595,12 +595,12 @@ begin
     entry_fifo[15:0] <= entry_fifo[15:0];
 end
 
-assign l0_btb_ibdp_entry_fifo[15:0] = entry_fifo[15:0]; 
+assign l0_btb_ibdp_entry_fifo[15:0] = entry_fifo[15:0];
 
 //==========================================================
 //                 L0 BTB Write Preparation
 //==========================================================
-assign l0_btb_update_entry[15:0] = 
+assign l0_btb_update_entry[15:0] =
    {16{addrgen_l0_btb_update_vld}}          & addrgen_l0_btb_update_entry[15:0]
  | {16{l0_btb_update_vld_for_gateclk}}      & ibdp_l0_btb_update_entry[15:0];
 
@@ -665,7 +665,7 @@ gated_clk_cell  x_l0_btb_inv_reg_upd_clk (
 //           .clk_out        (l0_btb_inv_reg_upd_clk),//Out Clock @322
 //           .module_en      (cp0_ifu_icg_en) @323
 //         ); @324
-assign l0_btb_inv_reg_upd_clk_en = l0_btb_entry_inv || 
+assign l0_btb_inv_reg_upd_clk_en = l0_btb_entry_inv ||
                                    ifctrl_l0_btb_inv;
 
 always @(posedge l0_btb_inv_reg_upd_clk or negedge cpurst_b)
@@ -1326,7 +1326,7 @@ ct_ifu_l0_btb_entry  x_l0_btb_entry_15 (
 //==========================================================
 //                  Interface with IF
 //==========================================================
-//output to ifctrl                               
+//output to ifctrl
 assign l0_btb_ifctrl_chglfw_vld              = entry_chgflw_vld;
 assign l0_btb_ifctrl_chgflw_pc[PC_WIDTH-2:0] = entry_hit_target[PC_WIDTH-2:0];
 assign l0_btb_ifctrl_chgflw_way_pred[1:0]    = entry_hit_way_pred[1:0];

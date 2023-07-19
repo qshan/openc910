@@ -39,114 +39,114 @@ module pmu(
   pmu_clk,
   // pmu_corec_isolation,
   // pmu_corec_sleep_in,
-  pmu_cpu_pwr_on, 
-  pmu_cpu_iso_in, 
-  pmu_cpu_iso_out, 
-  pmu_cpu_save, 
+  pmu_cpu_pwr_on,
+  pmu_cpu_iso_in,
+  pmu_cpu_iso_out,
+  pmu_cpu_save,
   pmu_cpu_restore
 );
 
 // &Ports; @25
-input   [11:0]  apb_pmu_paddr;         
-input           apb_pmu_penable;       
-input           apb_pmu_psel;          
-input   [31:0]  apb_pmu_pwdata;        
-input           apb_pmu_pwrite;        
-input   [1 :0]  biu_pad_lpmd_b;        
-input           corec_pmu_sleep_out;   
-input           cpu_clk;               
-input           had_pad_wakeup_req_b;  
-input           i_pad_cpu_jtg_rst_b;   
-input           i_pad_jtg_tclk;        
-input           intraw_vld;            
-input           pad_cpu_rst_b;         
-input           pad_had_jtg_tap_en;    
-input           pad_had_jtg_tms;       
-input           pad_had_jtg_trst_b_pre; 
-input           pmu_clk;               
-output          gate_en0;              
-output          gate_en1;              
-output          pad_had_jdb_req_b;     
-output          pad_had_jtg_trst_b;    
-output          pg_reset_b;            
-output  [31:0]  pmu_apb_prdata;        
-// output          pmu_corec_isolation;   
-// output          pmu_corec_sleep_in;    
-output          pmu_cpu_pwr_on; 
-output          pmu_cpu_iso_in; 
-output          pmu_cpu_iso_out; 
+input   [11:0]  apb_pmu_paddr;
+input           apb_pmu_penable;
+input           apb_pmu_psel;
+input   [31:0]  apb_pmu_pwdata;
+input           apb_pmu_pwrite;
+input   [1 :0]  biu_pad_lpmd_b;
+input           corec_pmu_sleep_out;
+input           cpu_clk;
+input           had_pad_wakeup_req_b;
+input           i_pad_cpu_jtg_rst_b;
+input           i_pad_jtg_tclk;
+input           intraw_vld;
+input           pad_cpu_rst_b;
+input           pad_had_jtg_tap_en;
+input           pad_had_jtg_tms;
+input           pad_had_jtg_trst_b_pre;
+input           pmu_clk;
+output          gate_en0;
+output          gate_en1;
+output          pad_had_jdb_req_b;
+output          pad_had_jtg_trst_b;
+output          pg_reset_b;
+output  [31:0]  pmu_apb_prdata;
+// output          pmu_corec_isolation;
+// output          pmu_corec_sleep_in;
+output          pmu_cpu_pwr_on;
+output          pmu_cpu_iso_in;
+output          pmu_cpu_iso_out;
 output          pmu_cpu_save;
 output          pmu_cpu_restore;
 
 // &Regs; @26
-reg     [31:0]  counter;               
-reg             counter_en_ff;         
-reg     [31:0]  counter_load;          
-reg     [31:0]  ctrl_reg;              
-reg     [2 :0]  cur_state;             
-reg             debug_pending;         
-reg             event_ff;              
-reg             event_pending;         
-reg     [2 :0]  next_state;            
-reg     [2 :0]  pg_next_state;         
-reg     [2 :0]  pg_state;              
-reg     [31:0]  pmu_apb_prdata;        
+reg     [31:0]  counter;
+reg             counter_en_ff;
+reg     [31:0]  counter_load;
+reg     [31:0]  ctrl_reg;
+reg     [2 :0]  cur_state;
+reg             debug_pending;
+reg             event_ff;
+reg             event_pending;
+reg     [2 :0]  next_state;
+reg     [2 :0]  pg_next_state;
+reg     [2 :0]  pg_state;
+reg     [31:0]  pmu_apb_prdata;
 
 // Supporting various low power strategies
 reg     [31:0]  pmu_lp_mode_sel;
 
 // &Wires; @27
-wire    [11:0]  apb_pmu_paddr;         
-wire            apb_pmu_penable;       
-wire            apb_pmu_psel;          
-wire    [31:0]  apb_pmu_pwdata;        
-wire            apb_pmu_pwrite;        
-wire    [1 :0]  biu_pad_lpmd_b;        
-wire            corec_pmu_sleep_out;   
-wire            counter_en;            
-wire            cpu_clk;               
-wire            debug_ctl_en;          
-wire            debug_vld;             
-wire            debug_vld_pre;         
-wire            debug_wake_vld;        
-wire            doze_mode;             
-wire            event_ctl_en;          
-wire            event_vld;             
-wire            gate_en0;              
-wire            gate_en1;              
-wire            had_pad_wakeup_req_b;  
-wire            i_pad_cpu_jtg_rst_b;   
-wire            i_pad_jtg_tclk;        
-wire            intraw_vld;            
-wire            load_cnt_en;           
-wire            low_power_dis;         
-wire            low_power_dis_pre;     
-wire            lpmd_en;               
-wire            lpmd_en_ff;            
-wire            pad_cpu_rst_b;         
-wire            pad_had_jdb_req_b;     
-wire            pad_had_jtg_tap_en;    
-wire            pad_had_jtg_tms;       
-wire            pad_had_jtg_trst_b;    
-wire            pad_had_jtg_trst_b_pre; 
-wire            pad_vic_event_vld;     
-wire            pg_reset_b;            
+wire    [11:0]  apb_pmu_paddr;
+wire            apb_pmu_penable;
+wire            apb_pmu_psel;
+wire    [31:0]  apb_pmu_pwdata;
+wire            apb_pmu_pwrite;
+wire    [1 :0]  biu_pad_lpmd_b;
+wire            corec_pmu_sleep_out;
+wire            counter_en;
+wire            cpu_clk;
+wire            debug_ctl_en;
+wire            debug_vld;
+wire            debug_vld_pre;
+wire            debug_wake_vld;
+wire            doze_mode;
+wire            event_ctl_en;
+wire            event_vld;
+wire            gate_en0;
+wire            gate_en1;
+wire            had_pad_wakeup_req_b;
+wire            i_pad_cpu_jtg_rst_b;
+wire            i_pad_jtg_tclk;
+wire            intraw_vld;
+wire            load_cnt_en;
+wire            low_power_dis;
+wire            low_power_dis_pre;
+wire            lpmd_en;
+wire            lpmd_en_ff;
+wire            pad_cpu_rst_b;
+wire            pad_had_jdb_req_b;
+wire            pad_had_jtg_tap_en;
+wire            pad_had_jtg_tms;
+wire            pad_had_jtg_trst_b;
+wire            pad_had_jtg_trst_b_pre;
+wire            pad_vic_event_vld;
+wire            pg_reset_b;
 wire            pmu_clk;
-// wire            pmu_corec_isolation;   
-// wire            pmu_corec_sleep_in;    
-reg            pmu_cpu_pwr_on; 
-reg            pmu_cpu_iso_in; 
-reg            pmu_cpu_iso_out; 
+// wire            pmu_corec_isolation;
+// wire            pmu_corec_sleep_in;
+reg            pmu_cpu_pwr_on;
+reg            pmu_cpu_iso_in;
+reg            pmu_cpu_iso_out;
 reg            pmu_cpu_save;
 reg            pmu_cpu_restore;
 
-wire            pmu_debug_wakeup;      
-wire            pmu_event_wakeup;      
-wire            pmu_wakeup;            
-wire            pmu_wic_wakeup;        
-wire            stop_mode;             
-wire            wait_mode;             
-wire            wic_ctl_en;            
+wire            pmu_debug_wakeup;
+wire            pmu_event_wakeup;
+wire            pmu_wakeup;
+wire            pmu_wic_wakeup;
+wire            stop_mode;
+wire            wait_mode;
+wire            wic_ctl_en;
 
 // Supporting various low power strategies
 wire            pmu_lp_mode_normal;
@@ -237,7 +237,7 @@ always @( apb_pmu_paddr[11:0]
        or apb_pmu_pwrite
        or counter[31:0])
 begin
-if (apb_pmu_psel && !apb_pmu_pwrite) 
+if (apb_pmu_psel && !apb_pmu_pwrite)
 begin
   if(!apb_pmu_paddr[11:0] )
     pmu_apb_prdata[31:0] = {28'b0,ctrl_reg[3:0]};
@@ -317,7 +317,7 @@ end
 
 assign pmu_event_wakeup = event_pending && event_ctl_en ;
 
-//debug wake up 
+//debug wake up
 // &Instance("tap2_sm", "x_tap2_sm"); @180
 tap2_sm  x_tap2_sm (
   .debug_wake_vld      (debug_wake_vld     ),
@@ -348,7 +348,7 @@ begin
   else if (low_power_dis)
     debug_pending <= 1'b0;
 end
- 
+
 assign pad_had_jdb_req_b = !debug_pending;
 assign pmu_debug_wakeup = debug_pending && debug_ctl_en ;
 /////
@@ -361,7 +361,7 @@ assign pmu_lp_mode_clk_off       = pmu_lp_mode_sel[2];	// Light
 assign pmu_lp_mode_clk_slow      = pmu_lp_mode_sel[1];	// Light
 assign pmu_lp_mode_normal        = pmu_lp_mode_sel[0];	// Normal
 //-----------------------------------------
-//              PMU FSM             
+//              PMU FSM
 //-----------------------------------------
 wire normal_req;
 // wire light_slp_req;
@@ -373,9 +373,9 @@ assign normal_req    = biu_pad_lpmd_b[1:0] == 2'b11;
 assign cpu_slp_req   = biu_pad_lpmd_b[1:0] != 2'b11;
 
 reg         dslp_in_sequence_req;
-reg         dslp_in_sequence_done; 
+reg         dslp_in_sequence_done;
 reg         dslp_out_sequence_req;
-reg         dslp_out_sequence_done; 
+reg         dslp_out_sequence_done;
 reg [15:0]  dslp_sequence_counter;
 reg         dslp_sequence_counter_enable;
 
@@ -391,7 +391,7 @@ always @(*) begin
   case(cur_state)
   NORMAL_MODE:
     begin
-      if(pmu_lp_mode_normal) 
+      if(pmu_lp_mode_normal)
         next_state = NORMAL_MODE;
       else if(pmu_lp_mode_clk_slow || pmu_lp_mode_clk_off)
         if(cpu_slp_req)
@@ -439,15 +439,15 @@ end
 
 // gate_en0/1 (connected to fpga_clk_gen), reused as:
 //   gate_en0:
-//     0: clock normal 
-//     1: clock slow 
+//     0: clock normal
+//     1: clock slow
 //   gate_en1:
 //     0: clock normal
 //     1: clock off
 
 assign gate_en0 = (cur_state[2:0] == LIGHT_SLP_MODE) && pmu_lp_mode_clk_slow ? 1 : 0;
 assign gate_en1 = (cur_state[2:0] == LIGHT_SLP_MODE && pmu_lp_mode_clk_off) ||
-                  (cur_state[2:0] == DEEP_SLP_MODE  && pmu_lp_mode_ret_pwr_off) 
+                  (cur_state[2:0] == DEEP_SLP_MODE  && pmu_lp_mode_ret_pwr_off)
                   ? 1 : 0;
 
 always @(posedge pmu_clk or negedge pad_cpu_rst_b)
@@ -464,7 +464,7 @@ begin
     dslp_in_sequence_req    <= 1'b0;
     dslp_out_sequence_req   <= 1'b1;
   end
-  else begin 
+  else begin
     dslp_in_sequence_req    <= 1'b0;
     dslp_out_sequence_req   <= 1'b0;
   end
@@ -496,9 +496,9 @@ always @(posedge pmu_clk or negedge pad_cpu_rst_b)
 begin
   if(!pad_cpu_rst_b)
   begin
-    pmu_cpu_pwr_on    <= 1'b1; 
-    pmu_cpu_iso_in    <= 1'b0; 
-    pmu_cpu_iso_out   <= 1'b0; 
+    pmu_cpu_pwr_on    <= 1'b1;
+    pmu_cpu_iso_in    <= 1'b0;
+    pmu_cpu_iso_out   <= 1'b0;
     pmu_cpu_save      <= 1'b0;
     pmu_cpu_restore   <= 1'b0;
 
@@ -513,46 +513,46 @@ begin
     case(dslp_sequence_counter[15:0])
     16'h1:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b0; 
-        pmu_cpu_iso_out    <= 1'b0; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b0;
+        pmu_cpu_iso_out    <= 1'b0;
         pmu_cpu_save       <= 1'b0;
       end
     16'h20:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b1; 
-        pmu_cpu_iso_out    <= 1'b1; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b1;
+        pmu_cpu_iso_out    <= 1'b1;
         pmu_cpu_save       <= 1'b0;
       end
     16'h40:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b1; 
-        pmu_cpu_iso_out    <= 1'b1; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b1;
+        pmu_cpu_iso_out    <= 1'b1;
         pmu_cpu_save       <= 1'b1;
       end
     16'h41:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b1; 
-        pmu_cpu_iso_out    <= 1'b1; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b1;
+        pmu_cpu_iso_out    <= 1'b1;
         pmu_cpu_save       <= 1'b0;
       end
     16'h60:
       begin
-        pmu_cpu_pwr_on     <= 1'b0; 
-        pmu_cpu_iso_in     <= 1'b1; 
-        pmu_cpu_iso_out    <= 1'b1; 
+        pmu_cpu_pwr_on     <= 1'b0;
+        pmu_cpu_iso_in     <= 1'b1;
+        pmu_cpu_iso_out    <= 1'b1;
         pmu_cpu_save       <= 1'b0;
 
         dslp_in_sequence_done <= 1'b1;
       end
     default:
       begin
-        pmu_cpu_pwr_on     <= pmu_cpu_pwr_on ; 
-        pmu_cpu_iso_in     <= pmu_cpu_iso_in ; 
-        pmu_cpu_iso_out    <= pmu_cpu_iso_out; 
+        pmu_cpu_pwr_on     <= pmu_cpu_pwr_on ;
+        pmu_cpu_iso_in     <= pmu_cpu_iso_in ;
+        pmu_cpu_iso_out    <= pmu_cpu_iso_out;
         pmu_cpu_save       <= pmu_cpu_save   ;
 
         dslp_in_sequence_done <= dslp_in_sequence_done;
@@ -567,54 +567,54 @@ begin
     case(dslp_sequence_counter[15:0])
     16'h1:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b1; 
-        pmu_cpu_iso_out    <= 1'b1; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b1;
+        pmu_cpu_iso_out    <= 1'b1;
         pmu_cpu_restore    <= 1'b0;
 
         dslp_out_sequence_done <= 1'b0;
       end
     16'h20:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b1; 
-        pmu_cpu_iso_out    <= 1'b1; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b1;
+        pmu_cpu_iso_out    <= 1'b1;
         pmu_cpu_restore    <= 1'b1;
 
         dslp_out_sequence_done <= 1'b0;
       end
     16'h21:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b1; 
-        pmu_cpu_iso_out    <= 1'b1; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b1;
+        pmu_cpu_iso_out    <= 1'b1;
         pmu_cpu_restore    <= 1'b0;
 
         dslp_out_sequence_done <= 1'b0;
       end
     16'h40:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b0; 
-        pmu_cpu_iso_out    <= 1'b0; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b0;
+        pmu_cpu_iso_out    <= 1'b0;
         pmu_cpu_restore    <= 1'b0;
 
         dslp_out_sequence_done <= 1'b0;
       end
     16'h60:
       begin
-        pmu_cpu_pwr_on     <= 1'b1; 
-        pmu_cpu_iso_in     <= 1'b0; 
-        pmu_cpu_iso_out    <= 1'b0; 
+        pmu_cpu_pwr_on     <= 1'b1;
+        pmu_cpu_iso_in     <= 1'b0;
+        pmu_cpu_iso_out    <= 1'b0;
         pmu_cpu_restore    <= 1'b0;
 
         dslp_out_sequence_done <= 1'b1;
       end
     default:
       begin
-        pmu_cpu_pwr_on     <= pmu_cpu_pwr_on ; 
-        pmu_cpu_iso_in     <= pmu_cpu_iso_in ; 
-        pmu_cpu_iso_out    <= pmu_cpu_iso_out; 
+        pmu_cpu_pwr_on     <= pmu_cpu_pwr_on ;
+        pmu_cpu_iso_in     <= pmu_cpu_iso_in ;
+        pmu_cpu_iso_out    <= pmu_cpu_iso_out;
         pmu_cpu_restore    <= pmu_cpu_restore   ;
 
         dslp_out_sequence_done <= dslp_out_sequence_done;
@@ -623,9 +623,9 @@ begin
   end
   else
   begin
-    pmu_cpu_pwr_on     <= pmu_cpu_pwr_on ; 
-    pmu_cpu_iso_in     <= pmu_cpu_iso_in ; 
-    pmu_cpu_iso_out    <= pmu_cpu_iso_out; 
+    pmu_cpu_pwr_on     <= pmu_cpu_pwr_on ;
+    pmu_cpu_iso_in     <= pmu_cpu_iso_in ;
+    pmu_cpu_iso_out    <= pmu_cpu_iso_out;
     pmu_cpu_save       <= pmu_cpu_save   ;
     pmu_cpu_restore    <= pmu_cpu_restore;
 

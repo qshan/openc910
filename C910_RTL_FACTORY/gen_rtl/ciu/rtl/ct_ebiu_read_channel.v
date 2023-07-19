@@ -101,231 +101,231 @@ module ct_ebiu_read_channel(
 );
 
 // &Ports; @25
-input   [31 :0]  ca_rd_addr_hit_cawt;      
-input            ciu_icg_en;               
-input            clk_en;                   
-input            cpurst_b;                 
-input   [39 :0]  ctcq_ebiu_araddr;         
-input   [1  :0]  ctcq_ebiu_arbar;          
-input   [1  :0]  ctcq_ebiu_arburst;        
-input   [3  :0]  ctcq_ebiu_arcache;        
-input   [1  :0]  ctcq_ebiu_ardomain;       
-input   [5  :0]  ctcq_ebiu_arid;           
-input   [7  :0]  ctcq_ebiu_arlen;          
-input            ctcq_ebiu_arlock;         
-input   [2  :0]  ctcq_ebiu_arprot;         
-input   [2  :0]  ctcq_ebiu_arsize;         
-input   [3  :0]  ctcq_ebiu_arsnoop;        
-input            ctcq_ebiu_arvalid;        
-input            ctcq_ebiu_r_grant;        
-input   [39 :0]  ebiuif_ebiu_araddr;       
-input   [1  :0]  ebiuif_ebiu_arbar;        
-input   [1  :0]  ebiuif_ebiu_arburst;      
-input   [3  :0]  ebiuif_ebiu_arcache;      
-input   [1  :0]  ebiuif_ebiu_ardomain;     
-input   [5  :0]  ebiuif_ebiu_arid;         
-input   [7  :0]  ebiuif_ebiu_arlen;        
-input            ebiuif_ebiu_arlock;       
-input   [2  :0]  ebiuif_ebiu_arprot;       
-input   [2  :0]  ebiuif_ebiu_arsize;       
-input   [3  :0]  ebiuif_ebiu_arsnoop;      
-input            ebiuif_ebiu_arvalid;      
-input            ebiuif_ebiu_r_grant;      
-input            forever_cpuclk;           
-input   [15 :0]  nc_wo_rd_depd_ncwt;       
-input            ncq_ebiu_arvalid;         
-input            ncq_ebiu_r_grant;         
-input   [3  :0]  ncq_so_vld;               
-input   [39 :0]  ncq_xx_araddr;            
-input   [1  :0]  ncq_xx_arbar;             
-input   [1  :0]  ncq_xx_arburst;           
-input   [3  :0]  ncq_xx_arcache;           
-input   [1  :0]  ncq_xx_ardomain;          
-input   [7  :0]  ncq_xx_arid;              
-input   [7  :0]  ncq_xx_arlen;             
-input            ncq_xx_arlock;            
-input   [2  :0]  ncq_xx_arprot;            
-input   [2  :0]  ncq_xx_arsize;            
-input   [3  :0]  ncq_xx_arsnoop;           
-input            pad_ebiu_arready;         
-input   [127:0]  pad_ebiu_rdata;           
-input   [7  :0]  pad_ebiu_rid;             
-input            pad_ebiu_rlast;           
-input   [1  :0]  pad_ebiu_rresp;           
-input            pad_ebiu_rvalid;          
-input            pad_yy_icg_scan_en;       
-output           ebiu_ctcq_ar_grant;       
-output  [5  :0]  ebiu_ctcq_rid;            
-output           ebiu_ctcq_rvalid;         
-output           ebiu_ebiuif_ar_grant;     
-output           ebiu_ebiuif_ar_grant_gate; 
-output  [23 :0]  ebiu_ebiuif_entry_sel;    
-output  [127:0]  ebiu_ebiuif_rdata;        
-output           ebiu_ebiuif_rlast;        
-output  [3  :0]  ebiu_ebiuif_rresp;        
-output           ebiu_ebiuif_snb0_rvalid;  
-output           ebiu_ebiuif_snb1_rvalid;  
-output           ebiu_ncq_ar_grant;        
-output           ebiu_ncq_ar_grant_gate;   
-output  [127:0]  ebiu_ncq_rdata;           
-output  [7  :0]  ebiu_ncq_rid;             
-output           ebiu_ncq_rlast;           
-output  [1  :0]  ebiu_ncq_rresp;           
-output           ebiu_ncq_rvalid;          
-output  [39 :0]  ebiu_pad_araddr;          
-output  [1  :0]  ebiu_pad_arburst;         
-output  [3  :0]  ebiu_pad_arcache;         
-output  [7  :0]  ebiu_pad_arid;            
-output  [7  :0]  ebiu_pad_arlen;           
-output           ebiu_pad_arlock;          
-output  [2  :0]  ebiu_pad_arprot;          
-output  [2  :0]  ebiu_pad_arsize;          
-output           ebiu_pad_arvalid;         
-output           ebiu_pad_rack;            
-output           ebiu_pad_rready;          
-output           ebiu_read_channel_no_op;  
+input   [31 :0]  ca_rd_addr_hit_cawt;
+input            ciu_icg_en;
+input            clk_en;
+input            cpurst_b;
+input   [39 :0]  ctcq_ebiu_araddr;
+input   [1  :0]  ctcq_ebiu_arbar;
+input   [1  :0]  ctcq_ebiu_arburst;
+input   [3  :0]  ctcq_ebiu_arcache;
+input   [1  :0]  ctcq_ebiu_ardomain;
+input   [5  :0]  ctcq_ebiu_arid;
+input   [7  :0]  ctcq_ebiu_arlen;
+input            ctcq_ebiu_arlock;
+input   [2  :0]  ctcq_ebiu_arprot;
+input   [2  :0]  ctcq_ebiu_arsize;
+input   [3  :0]  ctcq_ebiu_arsnoop;
+input            ctcq_ebiu_arvalid;
+input            ctcq_ebiu_r_grant;
+input   [39 :0]  ebiuif_ebiu_araddr;
+input   [1  :0]  ebiuif_ebiu_arbar;
+input   [1  :0]  ebiuif_ebiu_arburst;
+input   [3  :0]  ebiuif_ebiu_arcache;
+input   [1  :0]  ebiuif_ebiu_ardomain;
+input   [5  :0]  ebiuif_ebiu_arid;
+input   [7  :0]  ebiuif_ebiu_arlen;
+input            ebiuif_ebiu_arlock;
+input   [2  :0]  ebiuif_ebiu_arprot;
+input   [2  :0]  ebiuif_ebiu_arsize;
+input   [3  :0]  ebiuif_ebiu_arsnoop;
+input            ebiuif_ebiu_arvalid;
+input            ebiuif_ebiu_r_grant;
+input            forever_cpuclk;
+input   [15 :0]  nc_wo_rd_depd_ncwt;
+input            ncq_ebiu_arvalid;
+input            ncq_ebiu_r_grant;
+input   [3  :0]  ncq_so_vld;
+input   [39 :0]  ncq_xx_araddr;
+input   [1  :0]  ncq_xx_arbar;
+input   [1  :0]  ncq_xx_arburst;
+input   [3  :0]  ncq_xx_arcache;
+input   [1  :0]  ncq_xx_ardomain;
+input   [7  :0]  ncq_xx_arid;
+input   [7  :0]  ncq_xx_arlen;
+input            ncq_xx_arlock;
+input   [2  :0]  ncq_xx_arprot;
+input   [2  :0]  ncq_xx_arsize;
+input   [3  :0]  ncq_xx_arsnoop;
+input            pad_ebiu_arready;
+input   [127:0]  pad_ebiu_rdata;
+input   [7  :0]  pad_ebiu_rid;
+input            pad_ebiu_rlast;
+input   [1  :0]  pad_ebiu_rresp;
+input            pad_ebiu_rvalid;
+input            pad_yy_icg_scan_en;
+output           ebiu_ctcq_ar_grant;
+output  [5  :0]  ebiu_ctcq_rid;
+output           ebiu_ctcq_rvalid;
+output           ebiu_ebiuif_ar_grant;
+output           ebiu_ebiuif_ar_grant_gate;
+output  [23 :0]  ebiu_ebiuif_entry_sel;
+output  [127:0]  ebiu_ebiuif_rdata;
+output           ebiu_ebiuif_rlast;
+output  [3  :0]  ebiu_ebiuif_rresp;
+output           ebiu_ebiuif_snb0_rvalid;
+output           ebiu_ebiuif_snb1_rvalid;
+output           ebiu_ncq_ar_grant;
+output           ebiu_ncq_ar_grant_gate;
+output  [127:0]  ebiu_ncq_rdata;
+output  [7  :0]  ebiu_ncq_rid;
+output           ebiu_ncq_rlast;
+output  [1  :0]  ebiu_ncq_rresp;
+output           ebiu_ncq_rvalid;
+output  [39 :0]  ebiu_pad_araddr;
+output  [1  :0]  ebiu_pad_arburst;
+output  [3  :0]  ebiu_pad_arcache;
+output  [7  :0]  ebiu_pad_arid;
+output  [7  :0]  ebiu_pad_arlen;
+output           ebiu_pad_arlock;
+output  [2  :0]  ebiu_pad_arprot;
+output  [2  :0]  ebiu_pad_arsize;
+output           ebiu_pad_arvalid;
+output           ebiu_pad_rack;
+output           ebiu_pad_rready;
+output           ebiu_read_channel_no_op;
 
 // &Regs; @26
-reg     [2  :0]  ar_snb_sel;               
-reg              ctcq_two_trans_mask;      
-reg     [39 :0]  cur_raddr_buf_araddr;     
-reg     [1  :0]  cur_raddr_buf_arbar;      
-reg     [1  :0]  cur_raddr_buf_arburst;    
-reg     [3  :0]  cur_raddr_buf_arcache;    
-reg     [1  :0]  cur_raddr_buf_ardomain;   
-reg     [7  :0]  cur_raddr_buf_arid;       
-reg     [7  :0]  cur_raddr_buf_arlen;      
-reg              cur_raddr_buf_arlock;     
-reg     [2  :0]  cur_raddr_buf_arprot;     
-reg     [2  :0]  cur_raddr_buf_arsize;     
-reg     [3  :0]  cur_raddr_buf_arsnoop;    
-reg              cur_raddr_buf_arvalid;    
-reg              ebiu_pad_rack;            
-reg              ebiu_pad_rready;          
-reg     [1  :0]  rack_cnt;                 
+reg     [2  :0]  ar_snb_sel;
+reg              ctcq_two_trans_mask;
+reg     [39 :0]  cur_raddr_buf_araddr;
+reg     [1  :0]  cur_raddr_buf_arbar;
+reg     [1  :0]  cur_raddr_buf_arburst;
+reg     [3  :0]  cur_raddr_buf_arcache;
+reg     [1  :0]  cur_raddr_buf_ardomain;
+reg     [7  :0]  cur_raddr_buf_arid;
+reg     [7  :0]  cur_raddr_buf_arlen;
+reg              cur_raddr_buf_arlock;
+reg     [2  :0]  cur_raddr_buf_arprot;
+reg     [2  :0]  cur_raddr_buf_arsize;
+reg     [3  :0]  cur_raddr_buf_arsnoop;
+reg              cur_raddr_buf_arvalid;
+reg              ebiu_pad_rack;
+reg              ebiu_pad_rready;
+reg     [1  :0]  rack_cnt;
 
 // &Wires; @27
-wire             arctrl_clk;               
-wire             arctrl_clk_en;            
-wire             ardp_clk;                 
-wire             ardp_clk_en;              
-wire    [31 :0]  ca_rd_addr_hit_cawt;      
-wire             ciu_icg_en;               
-wire             clk_en;                   
-wire             cpurst_b;                 
-wire             ctc_ar_req;               
-wire             ctc_ar_sel;               
-wire             ctc_select;               
-wire    [39 :0]  ctcq_ebiu_araddr;         
-wire    [1  :0]  ctcq_ebiu_arbar;          
-wire    [1  :0]  ctcq_ebiu_arburst;        
-wire    [3  :0]  ctcq_ebiu_arcache;        
-wire    [1  :0]  ctcq_ebiu_ardomain;       
-wire    [5  :0]  ctcq_ebiu_arid;           
-wire    [7  :0]  ctcq_ebiu_arlen;          
-wire             ctcq_ebiu_arlock;         
-wire    [2  :0]  ctcq_ebiu_arprot;         
-wire    [2  :0]  ctcq_ebiu_arsize;         
-wire    [3  :0]  ctcq_ebiu_arsnoop;        
-wire             ctcq_ebiu_arvalid;        
-wire             ctcq_ebiu_r_grant;        
-wire             cur_raddr_buf_ready;      
-wire    [3  :0]  ebiu_bus_rresp;           
-wire             ebiu_ctcq_ar_grant;       
-wire    [5  :0]  ebiu_ctcq_rid;            
-wire             ebiu_ctcq_rvalid;         
-wire             ebiu_ebiuif_ar_grant;     
-wire             ebiu_ebiuif_ar_grant_gate; 
-wire    [23 :0]  ebiu_ebiuif_entry_sel;    
-wire    [127:0]  ebiu_ebiuif_rdata;        
-wire             ebiu_ebiuif_rlast;        
-wire    [3  :0]  ebiu_ebiuif_rresp;        
-wire             ebiu_ebiuif_snb0_rvalid;  
-wire             ebiu_ebiuif_snb1_rvalid;  
-wire             ebiu_ncq_ar_grant;        
-wire             ebiu_ncq_ar_grant_gate;   
-wire    [127:0]  ebiu_ncq_rdata;           
-wire    [7  :0]  ebiu_ncq_rid;             
-wire             ebiu_ncq_rlast;           
-wire    [1  :0]  ebiu_ncq_rresp;           
-wire             ebiu_ncq_rvalid;          
-wire    [39 :0]  ebiu_pad_araddr;          
-wire    [1  :0]  ebiu_pad_arburst;         
-wire    [3  :0]  ebiu_pad_arcache;         
-wire    [7  :0]  ebiu_pad_arid;            
-wire    [7  :0]  ebiu_pad_arlen;           
-wire             ebiu_pad_arlock;          
-wire    [2  :0]  ebiu_pad_arprot;          
-wire    [2  :0]  ebiu_pad_arsize;          
-wire             ebiu_pad_arvalid;         
-wire             ebiu_read_channel_no_op;  
-wire    [39 :0]  ebiuif_ebiu_araddr;       
-wire    [1  :0]  ebiuif_ebiu_arbar;        
-wire    [1  :0]  ebiuif_ebiu_arburst;      
-wire    [3  :0]  ebiuif_ebiu_arcache;      
-wire    [1  :0]  ebiuif_ebiu_ardomain;     
-wire    [5  :0]  ebiuif_ebiu_arid;         
-wire    [7  :0]  ebiuif_ebiu_arlen;        
-wire             ebiuif_ebiu_arlock;       
-wire    [2  :0]  ebiuif_ebiu_arprot;       
-wire    [2  :0]  ebiuif_ebiu_arsize;       
-wire    [3  :0]  ebiuif_ebiu_arsnoop;      
-wire             ebiuif_ebiu_arvalid;      
-wire             ebiuif_ebiu_r_grant;      
-wire    [23 :0]  entry_sel;                
-wire             forever_cpuclk;           
-wire    [15 :0]  nc_wo_rd_depd_ncwt;       
-wire             ncq_ar_req;               
-wire             ncq_ar_sel;               
-wire             ncq_ebiu_arvalid;         
-wire             ncq_ebiu_r_grant;         
-wire             ncq_select;               
-wire    [3  :0]  ncq_so_vld;               
-wire    [39 :0]  ncq_xx_araddr;            
-wire    [1  :0]  ncq_xx_arbar;             
-wire    [1  :0]  ncq_xx_arburst;           
-wire    [3  :0]  ncq_xx_arcache;           
-wire    [1  :0]  ncq_xx_ardomain;          
-wire    [7  :0]  ncq_xx_arid;              
-wire    [7  :0]  ncq_xx_arlen;             
-wire             ncq_xx_arlock;            
-wire    [2  :0]  ncq_xx_arprot;            
-wire    [2  :0]  ncq_xx_arsize;            
-wire    [3  :0]  ncq_xx_arsnoop;           
-wire             pad_ebiu_arready;         
-wire    [127:0]  pad_ebiu_rdata;           
-wire    [7  :0]  pad_ebiu_rid;             
-wire             pad_ebiu_rlast;           
-wire    [1  :0]  pad_ebiu_rresp;           
-wire             pad_ebiu_rvalid;          
-wire             pad_yy_icg_scan_en;       
-wire             rack_cnt_dec;             
-wire             rack_cnt_inc;             
-wire             rack_vld;                 
-wire             rd_req_create_en;         
-wire             rd_req_pop_en;            
-wire    [168:0]  rfifo_create_bus;         
-wire             rfifo_create_en;          
-wire             rfifo_empty;              
-wire             rfifo_full;               
-wire    [168:0]  rfifo_pop_bus;            
-wire             rfifo_pop_bus_vld;        
-wire             rfifo_pop_ctc_sel;        
-wire             rfifo_pop_en;             
-wire    [23 :0]  rfifo_pop_entry_sel;      
-wire             rfifo_pop_ncq_sel;        
-wire    [127:0]  rfifo_pop_rdata;          
-wire    [7  :0]  rfifo_pop_rid;            
-wire             rfifo_pop_rlast;          
-wire    [3  :0]  rfifo_pop_rresp;          
-wire             rfifo_pop_snb0_sel;       
-wire             rfifo_pop_snb1_sel;       
-wire             rready_set;               
-wire             snb0_select;              
-wire             snb1_select;              
-wire             snb_ar_req;               
-wire             snb_ar_sel;               
-wire             snb_select;               
+wire             arctrl_clk;
+wire             arctrl_clk_en;
+wire             ardp_clk;
+wire             ardp_clk_en;
+wire    [31 :0]  ca_rd_addr_hit_cawt;
+wire             ciu_icg_en;
+wire             clk_en;
+wire             cpurst_b;
+wire             ctc_ar_req;
+wire             ctc_ar_sel;
+wire             ctc_select;
+wire    [39 :0]  ctcq_ebiu_araddr;
+wire    [1  :0]  ctcq_ebiu_arbar;
+wire    [1  :0]  ctcq_ebiu_arburst;
+wire    [3  :0]  ctcq_ebiu_arcache;
+wire    [1  :0]  ctcq_ebiu_ardomain;
+wire    [5  :0]  ctcq_ebiu_arid;
+wire    [7  :0]  ctcq_ebiu_arlen;
+wire             ctcq_ebiu_arlock;
+wire    [2  :0]  ctcq_ebiu_arprot;
+wire    [2  :0]  ctcq_ebiu_arsize;
+wire    [3  :0]  ctcq_ebiu_arsnoop;
+wire             ctcq_ebiu_arvalid;
+wire             ctcq_ebiu_r_grant;
+wire             cur_raddr_buf_ready;
+wire    [3  :0]  ebiu_bus_rresp;
+wire             ebiu_ctcq_ar_grant;
+wire    [5  :0]  ebiu_ctcq_rid;
+wire             ebiu_ctcq_rvalid;
+wire             ebiu_ebiuif_ar_grant;
+wire             ebiu_ebiuif_ar_grant_gate;
+wire    [23 :0]  ebiu_ebiuif_entry_sel;
+wire    [127:0]  ebiu_ebiuif_rdata;
+wire             ebiu_ebiuif_rlast;
+wire    [3  :0]  ebiu_ebiuif_rresp;
+wire             ebiu_ebiuif_snb0_rvalid;
+wire             ebiu_ebiuif_snb1_rvalid;
+wire             ebiu_ncq_ar_grant;
+wire             ebiu_ncq_ar_grant_gate;
+wire    [127:0]  ebiu_ncq_rdata;
+wire    [7  :0]  ebiu_ncq_rid;
+wire             ebiu_ncq_rlast;
+wire    [1  :0]  ebiu_ncq_rresp;
+wire             ebiu_ncq_rvalid;
+wire    [39 :0]  ebiu_pad_araddr;
+wire    [1  :0]  ebiu_pad_arburst;
+wire    [3  :0]  ebiu_pad_arcache;
+wire    [7  :0]  ebiu_pad_arid;
+wire    [7  :0]  ebiu_pad_arlen;
+wire             ebiu_pad_arlock;
+wire    [2  :0]  ebiu_pad_arprot;
+wire    [2  :0]  ebiu_pad_arsize;
+wire             ebiu_pad_arvalid;
+wire             ebiu_read_channel_no_op;
+wire    [39 :0]  ebiuif_ebiu_araddr;
+wire    [1  :0]  ebiuif_ebiu_arbar;
+wire    [1  :0]  ebiuif_ebiu_arburst;
+wire    [3  :0]  ebiuif_ebiu_arcache;
+wire    [1  :0]  ebiuif_ebiu_ardomain;
+wire    [5  :0]  ebiuif_ebiu_arid;
+wire    [7  :0]  ebiuif_ebiu_arlen;
+wire             ebiuif_ebiu_arlock;
+wire    [2  :0]  ebiuif_ebiu_arprot;
+wire    [2  :0]  ebiuif_ebiu_arsize;
+wire    [3  :0]  ebiuif_ebiu_arsnoop;
+wire             ebiuif_ebiu_arvalid;
+wire             ebiuif_ebiu_r_grant;
+wire    [23 :0]  entry_sel;
+wire             forever_cpuclk;
+wire    [15 :0]  nc_wo_rd_depd_ncwt;
+wire             ncq_ar_req;
+wire             ncq_ar_sel;
+wire             ncq_ebiu_arvalid;
+wire             ncq_ebiu_r_grant;
+wire             ncq_select;
+wire    [3  :0]  ncq_so_vld;
+wire    [39 :0]  ncq_xx_araddr;
+wire    [1  :0]  ncq_xx_arbar;
+wire    [1  :0]  ncq_xx_arburst;
+wire    [3  :0]  ncq_xx_arcache;
+wire    [1  :0]  ncq_xx_ardomain;
+wire    [7  :0]  ncq_xx_arid;
+wire    [7  :0]  ncq_xx_arlen;
+wire             ncq_xx_arlock;
+wire    [2  :0]  ncq_xx_arprot;
+wire    [2  :0]  ncq_xx_arsize;
+wire    [3  :0]  ncq_xx_arsnoop;
+wire             pad_ebiu_arready;
+wire    [127:0]  pad_ebiu_rdata;
+wire    [7  :0]  pad_ebiu_rid;
+wire             pad_ebiu_rlast;
+wire    [1  :0]  pad_ebiu_rresp;
+wire             pad_ebiu_rvalid;
+wire             pad_yy_icg_scan_en;
+wire             rack_cnt_dec;
+wire             rack_cnt_inc;
+wire             rack_vld;
+wire             rd_req_create_en;
+wire             rd_req_pop_en;
+wire    [168:0]  rfifo_create_bus;
+wire             rfifo_create_en;
+wire             rfifo_empty;
+wire             rfifo_full;
+wire    [168:0]  rfifo_pop_bus;
+wire             rfifo_pop_bus_vld;
+wire             rfifo_pop_ctc_sel;
+wire             rfifo_pop_en;
+wire    [23 :0]  rfifo_pop_entry_sel;
+wire             rfifo_pop_ncq_sel;
+wire    [127:0]  rfifo_pop_rdata;
+wire    [7  :0]  rfifo_pop_rid;
+wire             rfifo_pop_rlast;
+wire    [3  :0]  rfifo_pop_rresp;
+wire             rfifo_pop_snb0_sel;
+wire             rfifo_pop_snb1_sel;
+wire             rready_set;
+wire             snb0_select;
+wire             snb1_select;
+wire             snb_ar_req;
+wire             snb_ar_sel;
+wire             snb_select;
 
 
 parameter ADDRW = `PA_WIDTH;
@@ -344,7 +344,7 @@ begin
     ctcq_two_trans_mask <= ctcq_ebiu_araddr[0];
 end
 
-assign ncq_ar_sel = ncq_ebiu_arvalid & !ctcq_two_trans_mask & 
+assign ncq_ar_sel = ncq_ebiu_arvalid & !ctcq_two_trans_mask &
                    (ar_snb_sel[0] | (!ebiuif_ebiu_arvalid & !ctcq_ebiu_arvalid));
 
 assign snb_ar_sel = ebiuif_ebiu_arvalid & !ctcq_two_trans_mask &
@@ -353,11 +353,11 @@ assign snb_ar_sel = ebiuif_ebiu_arvalid & !ctcq_two_trans_mask &
 assign ctc_ar_sel = ctcq_ebiu_arvalid &
                    (ar_snb_sel[2] | (!ncq_ebiu_arvalid & !ebiuif_ebiu_arvalid));
 
-assign ncq_ar_req = ncq_ar_sel && 
+assign ncq_ar_req = ncq_ar_sel &&
                    (ncq_xx_arcache[1] && !(|nc_wo_rd_depd_ncwt[15:0]) ||
                    !ncq_xx_arcache[1] && !(|((4'b1 << ncq_xx_arid[6:5]) & ncq_so_vld[3:0])));
 
-assign snb_ar_req = snb_ar_sel && 
+assign snb_ar_req = snb_ar_sel &&
                    !(|ca_rd_addr_hit_cawt[31:0]);
 
 assign ctc_ar_req = ctc_ar_sel;
@@ -371,7 +371,7 @@ begin
 end
 
 //--------------------------------------
-//  read addr channel                        
+//  read addr channel
 //cur_raddr_buf:
 //| cur_raddr_buf_arvalid | cur_raddr_buf_arid | cur_raddr_buf_araddr |
 //|             ..._arlen |         ..._arsize |          ..._arburst |
@@ -389,9 +389,9 @@ assign rd_req_create_en = (ncq_ar_req | snb_ar_req | ctc_ar_req) & cur_raddr_buf
 assign cur_raddr_buf_ready = (!cur_raddr_buf_arvalid || pad_ebiu_arready)
                            && clk_en;
 
-assign rd_req_pop_en = cur_raddr_buf_arvalid && pad_ebiu_arready  
+assign rd_req_pop_en = cur_raddr_buf_arvalid && pad_ebiu_arready
                     && clk_en;
-                    
+
 always @(posedge arctrl_clk or negedge cpurst_b)
 begin
   if (!cpurst_b)
@@ -584,7 +584,7 @@ assign ebiu_ctcq_rid[5:0] = rfifo_pop_rid[5:0];
 //--------------------------------------
 // &Force("output", "ebiu_pad_rready"); @336
 
-assign rready_set = rfifo_empty | 
+assign rready_set = rfifo_empty |
                    ~rfifo_full & (rfifo_pop_en | ~rfifo_create_en) |
                     rfifo_full &  rfifo_pop_en & ~rfifo_create_en;
 
@@ -661,8 +661,8 @@ gated_clk_cell  x_ebiu_ardp_gated_clk (
 //          .clk_out     (ardp_clk)); @402
 
 assign arctrl_clk_en = clk_en & (ctcq_ebiu_arvalid | ncq_ebiu_arvalid | ebiuif_ebiu_arvalid) |
-                       rd_req_pop_en | 
-                       clk_en & (rready_set | ebiu_pad_rready) | 
+                       rd_req_pop_en |
+                       clk_en & (rready_set | ebiu_pad_rready) |
                        rfifo_pop_en | (|rack_cnt[1:0]) | ebiu_pad_rack;
 
 // &Instance("gated_clk_cell", "x_ebiu_arctrl_gated_clk"); @409
@@ -688,4 +688,4 @@ gated_clk_cell  x_ebiu_arctrl_gated_clk (
 endmodule
 
 
- 
+

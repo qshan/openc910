@@ -53,109 +53,109 @@ module ct_lsu_snoop_req_arbiter(
 );
 
 // &Ports; @25
-input   [39:0]  biu_lsu_ac_addr;            
-input   [2 :0]  biu_lsu_ac_prot;            
-input           biu_lsu_ac_req;             
-input   [3 :0]  biu_lsu_ac_snoop;           
-input           biu_lsu_cr_resp_acept;      
-input           cp0_lsu_icg_en;             
-input           cpurst_b;                   
-input           ctcq_biu_2_cmplt;           
-input           ctcq_biu_cr_valid;          
-input           cur_ctcq_entry_empty;       
-input           cur_snq_entry_empty;        
-input           forever_cpuclk;             
-input           icc_snq_create_permit;      
-input           lm_snq_stall;               
-input           lsu_ctcq_not_empty;         
-input           lsu_sdb_not_empty;          
-input           lsu_snq_not_empty;          
-input           pad_yy_icg_scan_en;         
-input           snq_biu_cr_valid;           
-input   [1 :0]  vb_snq_depd;                
-input   [7 :0]  wmb_snq_depd;               
-output          arb_ctcq_ctc_2nd_trans;     
-output  [23:0]  arb_ctcq_ctc_asid_va;       
-output  [5 :0]  arb_ctcq_ctc_type;          
-output  [35:0]  arb_ctcq_ctc_va_pa;         
-output  [5 :0]  arb_ctcq_entry_oldest_index; 
-output  [5 :0]  arb_snq_entry_oldest_index; 
-output  [39:0]  arb_snq_snoop_addr;         
-output  [9 :0]  arb_snq_snoop_depd;         
-output  [2 :0]  arb_snq_snoop_prot;         
-output  [3 :0]  arb_snq_snoop_type;         
-output          biu_lsu_ctc_req;            
-output          ctc_req_create_en;          
-output          lsu_biu_ac_empty;           
-output          lsu_biu_ac_ready;           
-output          lsu_snoop_clk;              
-output          snoop_req_create_en;        
+input   [39:0]  biu_lsu_ac_addr;
+input   [2 :0]  biu_lsu_ac_prot;
+input           biu_lsu_ac_req;
+input   [3 :0]  biu_lsu_ac_snoop;
+input           biu_lsu_cr_resp_acept;
+input           cp0_lsu_icg_en;
+input           cpurst_b;
+input           ctcq_biu_2_cmplt;
+input           ctcq_biu_cr_valid;
+input           cur_ctcq_entry_empty;
+input           cur_snq_entry_empty;
+input           forever_cpuclk;
+input           icc_snq_create_permit;
+input           lm_snq_stall;
+input           lsu_ctcq_not_empty;
+input           lsu_sdb_not_empty;
+input           lsu_snq_not_empty;
+input           pad_yy_icg_scan_en;
+input           snq_biu_cr_valid;
+input   [1 :0]  vb_snq_depd;
+input   [7 :0]  wmb_snq_depd;
+output          arb_ctcq_ctc_2nd_trans;
+output  [23:0]  arb_ctcq_ctc_asid_va;
+output  [5 :0]  arb_ctcq_ctc_type;
+output  [35:0]  arb_ctcq_ctc_va_pa;
+output  [5 :0]  arb_ctcq_entry_oldest_index;
+output  [5 :0]  arb_snq_entry_oldest_index;
+output  [39:0]  arb_snq_snoop_addr;
+output  [9 :0]  arb_snq_snoop_depd;
+output  [2 :0]  arb_snq_snoop_prot;
+output  [3 :0]  arb_snq_snoop_type;
+output          biu_lsu_ctc_req;
+output          ctc_req_create_en;
+output          lsu_biu_ac_empty;
+output          lsu_biu_ac_ready;
+output          lsu_snoop_clk;
+output          snoop_req_create_en;
 
 // &Regs; @26
-reg     [4 :0]  coq_create_ptr;             
-reg     [4 :0]  coq_pop_ptr;                
-reg     [17:0]  create_order_source;        
-reg     [5 :0]  ctcq_entry_oldest_index;    
-reg     [5 :0]  snq_entry_oldest_index;     
+reg     [4 :0]  coq_create_ptr;
+reg     [4 :0]  coq_pop_ptr;
+reg     [17:0]  create_order_source;
+reg     [5 :0]  ctcq_entry_oldest_index;
+reg     [5 :0]  snq_entry_oldest_index;
 
 // &Wires; @27
-wire            arb_ctcq_ctc_2nd_trans;     
-wire    [23:0]  arb_ctcq_ctc_asid_va;       
-wire    [5 :0]  arb_ctcq_ctc_type;          
-wire    [35:0]  arb_ctcq_ctc_va_pa;         
-wire    [5 :0]  arb_ctcq_entry_oldest_index; 
-wire    [5 :0]  arb_snq_entry_oldest_index; 
-wire    [39:0]  arb_snq_snoop_addr;         
-wire    [9 :0]  arb_snq_snoop_depd;         
-wire    [2 :0]  arb_snq_snoop_prot;         
-wire    [3 :0]  arb_snq_snoop_type;         
-wire    [39:0]  biu_lsu_ac_addr;            
-wire    [2 :0]  biu_lsu_ac_prot;            
-wire            biu_lsu_ac_req;             
-wire    [3 :0]  biu_lsu_ac_snoop;           
-wire            biu_lsu_cr_resp_acept;      
-wire            biu_lsu_ctc_req;            
-wire            biu_lsu_snp_req;            
-wire            coq_create_max;             
-wire            coq_pop_max;                
-wire            cp0_lsu_icg_en;             
-wire            cpurst_b;                   
-wire            ctc_req_aft_check;          
-wire            ctc_req_create_en;          
-wire            ctcq_biu_2_cmplt;           
-wire            ctcq_biu_cr_valid;          
-wire            cur_ctcq_entry_empty;       
-wire            cur_snq_entry_empty;        
-wire            forever_cpuclk;             
-wire            icc_snq_create_permit;      
-wire            lm_snq_stall;               
-wire            lsu_biu_ac_empty;           
-wire            lsu_biu_ac_ready;           
-wire            lsu_ctcq_not_empty;         
-wire            lsu_sdb_not_empty;          
-wire            lsu_snoop_clk;              
-wire            lsu_snoop_clk_en;           
-wire            lsu_snq_not_empty;          
-wire            pad_yy_icg_scan_en;         
-wire            snoop_req_aft_check;        
-wire            snoop_req_create_en;        
-wire            snp_create_clk_en;          
-wire            snp_ctcq_clk_en;            
-wire            snp_pop_clk_en;             
-wire            snp_snq_clk_en;             
-wire            snpcrtclk;                  
-wire            snpindexclk0;               
-wire            snpindexclk1;               
-wire            snppopclk;                  
-wire            snq_biu_cr_valid;           
-wire    [1 :0]  vb_snq_depd;                
-wire    [7 :0]  wmb_snq_depd;               
+wire            arb_ctcq_ctc_2nd_trans;
+wire    [23:0]  arb_ctcq_ctc_asid_va;
+wire    [5 :0]  arb_ctcq_ctc_type;
+wire    [35:0]  arb_ctcq_ctc_va_pa;
+wire    [5 :0]  arb_ctcq_entry_oldest_index;
+wire    [5 :0]  arb_snq_entry_oldest_index;
+wire    [39:0]  arb_snq_snoop_addr;
+wire    [9 :0]  arb_snq_snoop_depd;
+wire    [2 :0]  arb_snq_snoop_prot;
+wire    [3 :0]  arb_snq_snoop_type;
+wire    [39:0]  biu_lsu_ac_addr;
+wire    [2 :0]  biu_lsu_ac_prot;
+wire            biu_lsu_ac_req;
+wire    [3 :0]  biu_lsu_ac_snoop;
+wire            biu_lsu_cr_resp_acept;
+wire            biu_lsu_ctc_req;
+wire            biu_lsu_snp_req;
+wire            coq_create_max;
+wire            coq_pop_max;
+wire            cp0_lsu_icg_en;
+wire            cpurst_b;
+wire            ctc_req_aft_check;
+wire            ctc_req_create_en;
+wire            ctcq_biu_2_cmplt;
+wire            ctcq_biu_cr_valid;
+wire            cur_ctcq_entry_empty;
+wire            cur_snq_entry_empty;
+wire            forever_cpuclk;
+wire            icc_snq_create_permit;
+wire            lm_snq_stall;
+wire            lsu_biu_ac_empty;
+wire            lsu_biu_ac_ready;
+wire            lsu_ctcq_not_empty;
+wire            lsu_sdb_not_empty;
+wire            lsu_snoop_clk;
+wire            lsu_snoop_clk_en;
+wire            lsu_snq_not_empty;
+wire            pad_yy_icg_scan_en;
+wire            snoop_req_aft_check;
+wire            snoop_req_create_en;
+wire            snp_create_clk_en;
+wire            snp_ctcq_clk_en;
+wire            snp_pop_clk_en;
+wire            snp_snq_clk_en;
+wire            snpcrtclk;
+wire            snpindexclk0;
+wire            snpindexclk1;
+wire            snppopclk;
+wire            snq_biu_cr_valid;
+wire    [1 :0]  vb_snq_depd;
+wire    [7 :0]  wmb_snq_depd;
 
 
 assign lsu_snoop_clk_en =  biu_lsu_ac_req
                         || lsu_snq_not_empty
                         || lsu_sdb_not_empty
-                        || lsu_ctcq_not_empty; 
+                        || lsu_ctcq_not_empty;
 // &Force("output","lsu_snoop_clk"); @33
 // &Instance("gated_clk_cell", "x_lsu_snoop_clk"); @34
 gated_clk_cell  x_lsu_snoop_clk (
@@ -203,7 +203,7 @@ assign ctc_req_aft_check   =   biu_lsu_ctc_req
 assign biu_lsu_snp_req  =   biu_lsu_ac_req
                         && !biu_lsu_ctc_req;
 // &Force("output","biu_lsu_ctc_req"); @69
-assign biu_lsu_ctc_req  =   biu_lsu_ac_req 
+assign biu_lsu_ctc_req  =   biu_lsu_ac_req
                         &&  biu_lsu_ac_snoop[3:0] == 4'b1111; //ctc req
 //ac_ready cannot depend on req
 // &Force("output","lsu_biu_ac_ready"); @73
@@ -244,7 +244,7 @@ assign arb_snq_snoop_prot[2:0]  = biu_lsu_ac_prot[2:0];
 //  if(ICI_VA): VA = ADDR[`PA_WIDTH-1:16]
 //3.VA(for TLBI) or PA(for ICI):second transaction
 //(only exist when first transaction addr[0]==1)
-//   
+//
 //==========================================================
 
 assign arb_ctcq_ctc_type[5:0]     = {biu_lsu_ac_addr[14:12] //1st trans

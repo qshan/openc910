@@ -62,431 +62,431 @@ module ct_mmu_iutlb(
 );
 
 // &Ports; @28
-input           arb_iutlb_grant;        
-input           cp0_mmu_icg_en;         
-input           cp0_mmu_no_op_req;      
-input           cp0_mmu_sum;            
-input   [1 :0]  cp0_yy_priv_mode;       
-input           cpurst_b;               
-input           forever_cpuclk;         
-input           hpcp_mmu_cnt_en;        
-input           ifu_mmu_abort;          
-input   [62:0]  ifu_mmu_va;             
-input           ifu_mmu_va_vld;         
-input           jtlb_iutlb_acc_err;     
-input           jtlb_iutlb_pgflt;       
-input           jtlb_iutlb_ref_cmplt;   
-input           jtlb_iutlb_ref_pavld;   
-input   [13:0]  jtlb_utlb_ref_flg;      
-input   [2 :0]  jtlb_utlb_ref_pgs;      
-input   [27:0]  jtlb_utlb_ref_ppn;      
-input   [26:0]  jtlb_utlb_ref_vpn;      
-input   [26:0]  lsu_mmu_tlb_va;         
-input           pad_yy_icg_scan_en;     
-input   [3 :0]  pmp_mmu_flg2;           
-input           regs_mmu_en;            
-input           regs_utlb_clr;          
-input   [4 :0]  sysmap_mmu_flg2;        
-input           tlboper_utlb_clr;       
-input           tlboper_utlb_inv_va_req; 
-input           utlb_clk;               
-output          iutlb_arb_cmplt;        
-output          iutlb_arb_req;          
-output  [26:0]  iutlb_arb_vpn;          
-output          iutlb_ptw_wfc;          
-output  [1 :0]  iutlb_top_ref_cur_st;   
-output          iutlb_top_scd_updt;     
-output          mmu_hpcp_iutlb_miss;    
-output          mmu_ifu_buf;            
-output          mmu_ifu_ca;             
-output          mmu_ifu_deny;           
-output  [27:0]  mmu_ifu_pa;             
-output          mmu_ifu_pavld;          
-output          mmu_ifu_pgflt;          
-output          mmu_ifu_sec;            
-output  [27:0]  mmu_pmp_pa2;            
-output  [27:0]  mmu_sysmap_pa2;         
+input           arb_iutlb_grant;
+input           cp0_mmu_icg_en;
+input           cp0_mmu_no_op_req;
+input           cp0_mmu_sum;
+input   [1 :0]  cp0_yy_priv_mode;
+input           cpurst_b;
+input           forever_cpuclk;
+input           hpcp_mmu_cnt_en;
+input           ifu_mmu_abort;
+input   [62:0]  ifu_mmu_va;
+input           ifu_mmu_va_vld;
+input           jtlb_iutlb_acc_err;
+input           jtlb_iutlb_pgflt;
+input           jtlb_iutlb_ref_cmplt;
+input           jtlb_iutlb_ref_pavld;
+input   [13:0]  jtlb_utlb_ref_flg;
+input   [2 :0]  jtlb_utlb_ref_pgs;
+input   [27:0]  jtlb_utlb_ref_ppn;
+input   [26:0]  jtlb_utlb_ref_vpn;
+input   [26:0]  lsu_mmu_tlb_va;
+input           pad_yy_icg_scan_en;
+input   [3 :0]  pmp_mmu_flg2;
+input           regs_mmu_en;
+input           regs_utlb_clr;
+input   [4 :0]  sysmap_mmu_flg2;
+input           tlboper_utlb_clr;
+input           tlboper_utlb_inv_va_req;
+input           utlb_clk;
+output          iutlb_arb_cmplt;
+output          iutlb_arb_req;
+output  [26:0]  iutlb_arb_vpn;
+output          iutlb_ptw_wfc;
+output  [1 :0]  iutlb_top_ref_cur_st;
+output          iutlb_top_scd_updt;
+output          mmu_hpcp_iutlb_miss;
+output          mmu_ifu_buf;
+output          mmu_ifu_ca;
+output          mmu_ifu_deny;
+output  [27:0]  mmu_ifu_pa;
+output          mmu_ifu_pavld;
+output          mmu_ifu_pgflt;
+output          mmu_ifu_sec;
+output  [27:0]  mmu_pmp_pa2;
+output  [27:0]  mmu_sysmap_pa2;
 
 // &Regs; @29
-reg     [3 :0]  iutlb_fst_wen;          
-reg             iutlb_miss;             
-reg     [27:0]  iutlb_pa_buf;           
-reg     [31:0]  iutlb_plru_read_hit;    
-reg             jtlb_acc_fault_flop;    
-reg             pmp_flg_vld;            
-reg     [2 :0]  ref_cur_st;             
-reg     [2 :0]  ref_nxt_st;             
+reg     [3 :0]  iutlb_fst_wen;
+reg             iutlb_miss;
+reg     [27:0]  iutlb_pa_buf;
+reg     [31:0]  iutlb_plru_read_hit;
+reg             jtlb_acc_fault_flop;
+reg             pmp_flg_vld;
+reg     [2 :0]  ref_cur_st;
+reg     [2 :0]  ref_nxt_st;
 
 // &Wires; @30
-wire            arb_iutlb_grant;        
-wire            cp0_mach_mode;          
-wire            cp0_mmu_icg_en;         
-wire            cp0_mmu_no_op_req;      
-wire            cp0_mmu_sum;            
-wire            cp0_supv_mode;          
-wire            cp0_user_mode;          
-wire    [1 :0]  cp0_yy_priv_mode;       
-wire            cpurst_b;               
-wire    [13:0]  entry0_flg;             
-wire            entry0_hit;             
-wire    [2 :0]  entry0_pgs;             
-wire    [27:0]  entry0_ppn;             
-wire            entry0_swp;             
-wire            entry0_swp_on;          
-wire            entry0_upd;             
-wire            entry0_vld;             
-wire    [26:0]  entry0_vpn;             
-wire    [13:0]  entry10_flg;            
-wire            entry10_hit;            
-wire    [2 :0]  entry10_pgs;            
-wire    [27:0]  entry10_ppn;            
-wire            entry10_swp;            
-wire            entry10_swp_on;         
-wire            entry10_upd;            
-wire            entry10_vld;            
-wire    [13:0]  entry11_flg;            
-wire            entry11_hit;            
-wire    [2 :0]  entry11_pgs;            
-wire    [27:0]  entry11_ppn;            
-wire            entry11_swp;            
-wire            entry11_swp_on;         
-wire            entry11_upd;            
-wire            entry11_vld;            
-wire    [13:0]  entry12_flg;            
-wire            entry12_hit;            
-wire    [2 :0]  entry12_pgs;            
-wire    [27:0]  entry12_ppn;            
-wire            entry12_swp;            
-wire            entry12_swp_on;         
-wire            entry12_upd;            
-wire            entry12_vld;            
-wire    [13:0]  entry13_flg;            
-wire            entry13_hit;            
-wire    [2 :0]  entry13_pgs;            
-wire    [27:0]  entry13_ppn;            
-wire            entry13_swp;            
-wire            entry13_swp_on;         
-wire            entry13_upd;            
-wire            entry13_vld;            
-wire    [13:0]  entry14_flg;            
-wire            entry14_hit;            
-wire    [2 :0]  entry14_pgs;            
-wire    [27:0]  entry14_ppn;            
-wire            entry14_swp;            
-wire            entry14_swp_on;         
-wire            entry14_upd;            
-wire            entry14_vld;            
-wire    [13:0]  entry15_flg;            
-wire            entry15_hit;            
-wire    [2 :0]  entry15_pgs;            
-wire    [27:0]  entry15_ppn;            
-wire            entry15_swp;            
-wire            entry15_swp_on;         
-wire            entry15_upd;            
-wire            entry15_vld;            
-wire    [13:0]  entry16_flg;            
-wire            entry16_hit;            
-wire    [2 :0]  entry16_pgs;            
-wire    [27:0]  entry16_ppn;            
-wire            entry16_swp;            
-wire            entry16_swp_on;         
-wire            entry16_upd;            
-wire            entry16_vld;            
-wire    [26:0]  entry16_vpn;            
-wire    [13:0]  entry17_flg;            
-wire            entry17_hit;            
-wire    [2 :0]  entry17_pgs;            
-wire    [27:0]  entry17_ppn;            
-wire            entry17_swp;            
-wire            entry17_swp_on;         
-wire            entry17_upd;            
-wire            entry17_vld;            
-wire    [13:0]  entry18_flg;            
-wire            entry18_hit;            
-wire    [2 :0]  entry18_pgs;            
-wire    [27:0]  entry18_ppn;            
-wire            entry18_swp;            
-wire            entry18_swp_on;         
-wire            entry18_upd;            
-wire            entry18_vld;            
-wire    [13:0]  entry19_flg;            
-wire            entry19_hit;            
-wire    [2 :0]  entry19_pgs;            
-wire    [27:0]  entry19_ppn;            
-wire            entry19_swp;            
-wire            entry19_swp_on;         
-wire            entry19_upd;            
-wire            entry19_vld;            
-wire    [13:0]  entry1_flg;             
-wire            entry1_hit;             
-wire    [2 :0]  entry1_pgs;             
-wire    [27:0]  entry1_ppn;             
-wire            entry1_swp;             
-wire            entry1_swp_on;          
-wire            entry1_upd;             
-wire            entry1_vld;             
-wire    [13:0]  entry20_flg;            
-wire            entry20_hit;            
-wire    [2 :0]  entry20_pgs;            
-wire    [27:0]  entry20_ppn;            
-wire            entry20_swp;            
-wire            entry20_swp_on;         
-wire            entry20_upd;            
-wire            entry20_vld;            
-wire    [13:0]  entry21_flg;            
-wire            entry21_hit;            
-wire    [2 :0]  entry21_pgs;            
-wire    [27:0]  entry21_ppn;            
-wire            entry21_swp;            
-wire            entry21_swp_on;         
-wire            entry21_upd;            
-wire            entry21_vld;            
-wire    [13:0]  entry22_flg;            
-wire            entry22_hit;            
-wire    [2 :0]  entry22_pgs;            
-wire    [27:0]  entry22_ppn;            
-wire            entry22_swp;            
-wire            entry22_swp_on;         
-wire            entry22_upd;            
-wire            entry22_vld;            
-wire    [13:0]  entry23_flg;            
-wire            entry23_hit;            
-wire    [2 :0]  entry23_pgs;            
-wire    [27:0]  entry23_ppn;            
-wire            entry23_swp;            
-wire            entry23_swp_on;         
-wire            entry23_upd;            
-wire            entry23_vld;            
-wire    [13:0]  entry24_flg;            
-wire            entry24_hit;            
-wire    [2 :0]  entry24_pgs;            
-wire    [27:0]  entry24_ppn;            
-wire            entry24_swp;            
-wire            entry24_swp_on;         
-wire            entry24_upd;            
-wire            entry24_vld;            
-wire    [26:0]  entry24_vpn;            
-wire    [13:0]  entry25_flg;            
-wire            entry25_hit;            
-wire    [2 :0]  entry25_pgs;            
-wire    [27:0]  entry25_ppn;            
-wire            entry25_swp;            
-wire            entry25_swp_on;         
-wire            entry25_upd;            
-wire            entry25_vld;            
-wire    [13:0]  entry26_flg;            
-wire            entry26_hit;            
-wire    [2 :0]  entry26_pgs;            
-wire    [27:0]  entry26_ppn;            
-wire            entry26_swp;            
-wire            entry26_swp_on;         
-wire            entry26_upd;            
-wire            entry26_vld;            
-wire    [13:0]  entry27_flg;            
-wire            entry27_hit;            
-wire    [2 :0]  entry27_pgs;            
-wire    [27:0]  entry27_ppn;            
-wire            entry27_swp;            
-wire            entry27_swp_on;         
-wire            entry27_upd;            
-wire            entry27_vld;            
-wire    [13:0]  entry28_flg;            
-wire            entry28_hit;            
-wire    [2 :0]  entry28_pgs;            
-wire    [27:0]  entry28_ppn;            
-wire            entry28_swp;            
-wire            entry28_swp_on;         
-wire            entry28_upd;            
-wire            entry28_vld;            
-wire    [13:0]  entry29_flg;            
-wire            entry29_hit;            
-wire    [2 :0]  entry29_pgs;            
-wire    [27:0]  entry29_ppn;            
-wire            entry29_swp;            
-wire            entry29_swp_on;         
-wire            entry29_upd;            
-wire            entry29_vld;            
-wire    [13:0]  entry2_flg;             
-wire            entry2_hit;             
-wire    [2 :0]  entry2_pgs;             
-wire    [27:0]  entry2_ppn;             
-wire            entry2_swp;             
-wire            entry2_swp_on;          
-wire            entry2_upd;             
-wire            entry2_vld;             
-wire    [13:0]  entry30_flg;            
-wire            entry30_hit;            
-wire    [2 :0]  entry30_pgs;            
-wire    [27:0]  entry30_ppn;            
-wire            entry30_swp;            
-wire            entry30_swp_on;         
-wire            entry30_upd;            
-wire            entry30_vld;            
-wire    [13:0]  entry31_flg;            
-wire            entry31_hit;            
-wire    [2 :0]  entry31_pgs;            
-wire    [27:0]  entry31_ppn;            
-wire            entry31_swp;            
-wire            entry31_swp_on;         
-wire            entry31_upd;            
-wire            entry31_vld;            
-wire    [13:0]  entry3_flg;             
-wire            entry3_hit;             
-wire    [2 :0]  entry3_pgs;             
-wire    [27:0]  entry3_ppn;             
-wire            entry3_swp;             
-wire            entry3_swp_on;          
-wire            entry3_upd;             
-wire            entry3_vld;             
-wire    [13:0]  entry4_flg;             
-wire            entry4_hit;             
-wire    [2 :0]  entry4_pgs;             
-wire    [27:0]  entry4_ppn;             
-wire            entry4_swp;             
-wire            entry4_swp_on;          
-wire            entry4_upd;             
-wire            entry4_vld;             
-wire    [13:0]  entry5_flg;             
-wire            entry5_hit;             
-wire    [2 :0]  entry5_pgs;             
-wire    [27:0]  entry5_ppn;             
-wire            entry5_swp;             
-wire            entry5_swp_on;          
-wire            entry5_upd;             
-wire            entry5_vld;             
-wire    [13:0]  entry6_flg;             
-wire            entry6_hit;             
-wire    [2 :0]  entry6_pgs;             
-wire    [27:0]  entry6_ppn;             
-wire            entry6_swp;             
-wire            entry6_swp_on;          
-wire            entry6_upd;             
-wire            entry6_vld;             
-wire    [13:0]  entry7_flg;             
-wire            entry7_hit;             
-wire    [2 :0]  entry7_pgs;             
-wire    [27:0]  entry7_ppn;             
-wire            entry7_swp;             
-wire            entry7_swp_on;          
-wire            entry7_upd;             
-wire            entry7_vld;             
-wire    [13:0]  entry8_flg;             
-wire            entry8_hit;             
-wire    [2 :0]  entry8_pgs;             
-wire    [27:0]  entry8_ppn;             
-wire            entry8_swp;             
-wire            entry8_swp_on;          
-wire            entry8_upd;             
-wire            entry8_vld;             
-wire    [26:0]  entry8_vpn;             
-wire    [13:0]  entry9_flg;             
-wire            entry9_hit;             
-wire    [2 :0]  entry9_pgs;             
-wire    [27:0]  entry9_ppn;             
-wire            entry9_swp;             
-wire            entry9_swp_on;          
-wire            entry9_upd;             
-wire            entry9_vld;             
-wire    [31:0]  entry_hit;              
-wire    [31:0]  entry_vld;              
-wire    [13:0]  flg_fin;                
-wire            forever_cpuclk;         
-wire            hpcp_mmu_cnt_en;        
-wire            ifu_mmu_abort;          
-wire    [62:0]  ifu_mmu_va;             
-wire            ifu_mmu_va_vld;         
-wire            iplru_clk;              
-wire            iplru_clk_en;           
-wire            iplru_upd_en;           
-wire            iutlb_acc_flt;          
-wire            iutlb_addr_hit;         
-wire            iutlb_addr_hit_vld;     
-wire            iutlb_arb_cmplt;        
-wire            iutlb_arb_req;          
-wire    [26:0]  iutlb_arb_vpn;          
-wire            iutlb_bypass_vld;       
-wire            iutlb_clk;              
-wire            iutlb_clk_en;           
-wire            iutlb_disable_vld;      
-wire    [31:0]  iutlb_entry_hit;        
-wire    [13:0]  iutlb_flg_aft_bypass;   
-wire    [13:0]  iutlb_hit_flg_fst;      
-wire    [13:0]  iutlb_hit_flg_scd;      
-wire    [27:0]  iutlb_hit_pa_fst;       
-wire    [27:0]  iutlb_hit_pa_scd;       
-wire    [2 :0]  iutlb_hit_pgs_fst;      
-wire    [2 :0]  iutlb_hit_pgs_scd;      
-wire            iutlb_hit_vld;          
-wire            iutlb_miss_cnt;         
-wire            iutlb_miss_vld;         
-wire    [13:0]  iutlb_off_flg;          
-wire            iutlb_off_hit;          
-wire    [27:0]  iutlb_off_pa;           
-wire    [2 :0]  iutlb_off_pgs;          
-wire    [27:0]  iutlb_pa_aft_bypass;    
-wire            iutlb_pa_vld;           
-wire            iutlb_page_fault;       
-wire            iutlb_plru_read_hit_vld; 
-wire            iutlb_plru_refill_on;   
-wire            iutlb_plru_refill_vld;  
-wire            iutlb_pmp_chk_vld;      
-wire            iutlb_ptw_wfc;          
-wire            iutlb_ref_pgflt;        
-wire            iutlb_refill_on;        
-wire            iutlb_refill_vld;       
-wire            iutlb_swp_en;           
-wire    [1 :0]  iutlb_top_ref_cur_st;   
-wire            iutlb_top_scd_updt;     
-wire            iutlb_va_illegal;       
-wire            iutlb_wfc;              
-wire            jtlb_acc_fault;         
-wire            jtlb_iutlb_acc_err;     
-wire            jtlb_iutlb_pgflt;       
-wire            jtlb_iutlb_ref_cmplt;   
-wire            jtlb_iutlb_ref_pavld;   
-wire    [13:0]  jtlb_utlb_ref_flg;      
-wire    [2 :0]  jtlb_utlb_ref_pgs;      
-wire    [27:0]  jtlb_utlb_ref_ppn;      
-wire    [26:0]  jtlb_utlb_ref_vpn;      
-wire    [26:0]  lsu_mmu_tlb_va;         
-wire            mmu_hpcp_iutlb_miss;    
-wire            mmu_ifu_buf;            
-wire            mmu_ifu_ca;             
-wire            mmu_ifu_deny;           
-wire    [27:0]  mmu_ifu_pa;             
-wire            mmu_ifu_pavld;          
-wire            mmu_ifu_pgflt;          
-wire            mmu_ifu_sec;            
-wire    [27:0]  mmu_pmp_pa2;            
-wire    [27:0]  mmu_sysmap_pa2;         
-wire    [27:0]  pa_fin;                 
-wire    [26:0]  pa_offset;              
-wire            pabuf_clk;              
-wire            pabuf_clk_en;           
-wire            pad_yy_icg_scan_en;     
-wire    [2 :0]  pgs_fin;                
-wire    [31:0]  plru_iutlb_ref_num;     
-wire    [3 :0]  pmp_mmu_flg2;           
-wire            regs_mmu_en;            
-wire            regs_utlb_clr;          
-wire    [4 :0]  sysmap_mmu_flg2;        
-wire            tlboper_utlb_clr;       
-wire            tlboper_utlb_inv_va_req; 
-wire            utlb_clk;               
-wire    [13:0]  utlb_fst_swp_flg;       
-wire    [2 :0]  utlb_fst_swp_pgs;       
-wire    [27:0]  utlb_fst_swp_ppn;       
-wire    [26:0]  utlb_fst_swp_vpn;       
-wire    [26:0]  utlb_req_vpn;           
-wire    [13:0]  utlb_swp_flg;           
-wire            utlb_swp_on;            
-wire    [2 :0]  utlb_swp_pgs;           
-wire    [27:0]  utlb_swp_ppn;           
-wire    [26:0]  utlb_swp_vpn;           
-wire    [13:0]  utlb_upd_flg;           
-wire    [2 :0]  utlb_upd_pgs;           
-wire    [27:0]  utlb_upd_ppn;           
-wire    [26:0]  utlb_upd_vpn;           
+wire            arb_iutlb_grant;
+wire            cp0_mach_mode;
+wire            cp0_mmu_icg_en;
+wire            cp0_mmu_no_op_req;
+wire            cp0_mmu_sum;
+wire            cp0_supv_mode;
+wire            cp0_user_mode;
+wire    [1 :0]  cp0_yy_priv_mode;
+wire            cpurst_b;
+wire    [13:0]  entry0_flg;
+wire            entry0_hit;
+wire    [2 :0]  entry0_pgs;
+wire    [27:0]  entry0_ppn;
+wire            entry0_swp;
+wire            entry0_swp_on;
+wire            entry0_upd;
+wire            entry0_vld;
+wire    [26:0]  entry0_vpn;
+wire    [13:0]  entry10_flg;
+wire            entry10_hit;
+wire    [2 :0]  entry10_pgs;
+wire    [27:0]  entry10_ppn;
+wire            entry10_swp;
+wire            entry10_swp_on;
+wire            entry10_upd;
+wire            entry10_vld;
+wire    [13:0]  entry11_flg;
+wire            entry11_hit;
+wire    [2 :0]  entry11_pgs;
+wire    [27:0]  entry11_ppn;
+wire            entry11_swp;
+wire            entry11_swp_on;
+wire            entry11_upd;
+wire            entry11_vld;
+wire    [13:0]  entry12_flg;
+wire            entry12_hit;
+wire    [2 :0]  entry12_pgs;
+wire    [27:0]  entry12_ppn;
+wire            entry12_swp;
+wire            entry12_swp_on;
+wire            entry12_upd;
+wire            entry12_vld;
+wire    [13:0]  entry13_flg;
+wire            entry13_hit;
+wire    [2 :0]  entry13_pgs;
+wire    [27:0]  entry13_ppn;
+wire            entry13_swp;
+wire            entry13_swp_on;
+wire            entry13_upd;
+wire            entry13_vld;
+wire    [13:0]  entry14_flg;
+wire            entry14_hit;
+wire    [2 :0]  entry14_pgs;
+wire    [27:0]  entry14_ppn;
+wire            entry14_swp;
+wire            entry14_swp_on;
+wire            entry14_upd;
+wire            entry14_vld;
+wire    [13:0]  entry15_flg;
+wire            entry15_hit;
+wire    [2 :0]  entry15_pgs;
+wire    [27:0]  entry15_ppn;
+wire            entry15_swp;
+wire            entry15_swp_on;
+wire            entry15_upd;
+wire            entry15_vld;
+wire    [13:0]  entry16_flg;
+wire            entry16_hit;
+wire    [2 :0]  entry16_pgs;
+wire    [27:0]  entry16_ppn;
+wire            entry16_swp;
+wire            entry16_swp_on;
+wire            entry16_upd;
+wire            entry16_vld;
+wire    [26:0]  entry16_vpn;
+wire    [13:0]  entry17_flg;
+wire            entry17_hit;
+wire    [2 :0]  entry17_pgs;
+wire    [27:0]  entry17_ppn;
+wire            entry17_swp;
+wire            entry17_swp_on;
+wire            entry17_upd;
+wire            entry17_vld;
+wire    [13:0]  entry18_flg;
+wire            entry18_hit;
+wire    [2 :0]  entry18_pgs;
+wire    [27:0]  entry18_ppn;
+wire            entry18_swp;
+wire            entry18_swp_on;
+wire            entry18_upd;
+wire            entry18_vld;
+wire    [13:0]  entry19_flg;
+wire            entry19_hit;
+wire    [2 :0]  entry19_pgs;
+wire    [27:0]  entry19_ppn;
+wire            entry19_swp;
+wire            entry19_swp_on;
+wire            entry19_upd;
+wire            entry19_vld;
+wire    [13:0]  entry1_flg;
+wire            entry1_hit;
+wire    [2 :0]  entry1_pgs;
+wire    [27:0]  entry1_ppn;
+wire            entry1_swp;
+wire            entry1_swp_on;
+wire            entry1_upd;
+wire            entry1_vld;
+wire    [13:0]  entry20_flg;
+wire            entry20_hit;
+wire    [2 :0]  entry20_pgs;
+wire    [27:0]  entry20_ppn;
+wire            entry20_swp;
+wire            entry20_swp_on;
+wire            entry20_upd;
+wire            entry20_vld;
+wire    [13:0]  entry21_flg;
+wire            entry21_hit;
+wire    [2 :0]  entry21_pgs;
+wire    [27:0]  entry21_ppn;
+wire            entry21_swp;
+wire            entry21_swp_on;
+wire            entry21_upd;
+wire            entry21_vld;
+wire    [13:0]  entry22_flg;
+wire            entry22_hit;
+wire    [2 :0]  entry22_pgs;
+wire    [27:0]  entry22_ppn;
+wire            entry22_swp;
+wire            entry22_swp_on;
+wire            entry22_upd;
+wire            entry22_vld;
+wire    [13:0]  entry23_flg;
+wire            entry23_hit;
+wire    [2 :0]  entry23_pgs;
+wire    [27:0]  entry23_ppn;
+wire            entry23_swp;
+wire            entry23_swp_on;
+wire            entry23_upd;
+wire            entry23_vld;
+wire    [13:0]  entry24_flg;
+wire            entry24_hit;
+wire    [2 :0]  entry24_pgs;
+wire    [27:0]  entry24_ppn;
+wire            entry24_swp;
+wire            entry24_swp_on;
+wire            entry24_upd;
+wire            entry24_vld;
+wire    [26:0]  entry24_vpn;
+wire    [13:0]  entry25_flg;
+wire            entry25_hit;
+wire    [2 :0]  entry25_pgs;
+wire    [27:0]  entry25_ppn;
+wire            entry25_swp;
+wire            entry25_swp_on;
+wire            entry25_upd;
+wire            entry25_vld;
+wire    [13:0]  entry26_flg;
+wire            entry26_hit;
+wire    [2 :0]  entry26_pgs;
+wire    [27:0]  entry26_ppn;
+wire            entry26_swp;
+wire            entry26_swp_on;
+wire            entry26_upd;
+wire            entry26_vld;
+wire    [13:0]  entry27_flg;
+wire            entry27_hit;
+wire    [2 :0]  entry27_pgs;
+wire    [27:0]  entry27_ppn;
+wire            entry27_swp;
+wire            entry27_swp_on;
+wire            entry27_upd;
+wire            entry27_vld;
+wire    [13:0]  entry28_flg;
+wire            entry28_hit;
+wire    [2 :0]  entry28_pgs;
+wire    [27:0]  entry28_ppn;
+wire            entry28_swp;
+wire            entry28_swp_on;
+wire            entry28_upd;
+wire            entry28_vld;
+wire    [13:0]  entry29_flg;
+wire            entry29_hit;
+wire    [2 :0]  entry29_pgs;
+wire    [27:0]  entry29_ppn;
+wire            entry29_swp;
+wire            entry29_swp_on;
+wire            entry29_upd;
+wire            entry29_vld;
+wire    [13:0]  entry2_flg;
+wire            entry2_hit;
+wire    [2 :0]  entry2_pgs;
+wire    [27:0]  entry2_ppn;
+wire            entry2_swp;
+wire            entry2_swp_on;
+wire            entry2_upd;
+wire            entry2_vld;
+wire    [13:0]  entry30_flg;
+wire            entry30_hit;
+wire    [2 :0]  entry30_pgs;
+wire    [27:0]  entry30_ppn;
+wire            entry30_swp;
+wire            entry30_swp_on;
+wire            entry30_upd;
+wire            entry30_vld;
+wire    [13:0]  entry31_flg;
+wire            entry31_hit;
+wire    [2 :0]  entry31_pgs;
+wire    [27:0]  entry31_ppn;
+wire            entry31_swp;
+wire            entry31_swp_on;
+wire            entry31_upd;
+wire            entry31_vld;
+wire    [13:0]  entry3_flg;
+wire            entry3_hit;
+wire    [2 :0]  entry3_pgs;
+wire    [27:0]  entry3_ppn;
+wire            entry3_swp;
+wire            entry3_swp_on;
+wire            entry3_upd;
+wire            entry3_vld;
+wire    [13:0]  entry4_flg;
+wire            entry4_hit;
+wire    [2 :0]  entry4_pgs;
+wire    [27:0]  entry4_ppn;
+wire            entry4_swp;
+wire            entry4_swp_on;
+wire            entry4_upd;
+wire            entry4_vld;
+wire    [13:0]  entry5_flg;
+wire            entry5_hit;
+wire    [2 :0]  entry5_pgs;
+wire    [27:0]  entry5_ppn;
+wire            entry5_swp;
+wire            entry5_swp_on;
+wire            entry5_upd;
+wire            entry5_vld;
+wire    [13:0]  entry6_flg;
+wire            entry6_hit;
+wire    [2 :0]  entry6_pgs;
+wire    [27:0]  entry6_ppn;
+wire            entry6_swp;
+wire            entry6_swp_on;
+wire            entry6_upd;
+wire            entry6_vld;
+wire    [13:0]  entry7_flg;
+wire            entry7_hit;
+wire    [2 :0]  entry7_pgs;
+wire    [27:0]  entry7_ppn;
+wire            entry7_swp;
+wire            entry7_swp_on;
+wire            entry7_upd;
+wire            entry7_vld;
+wire    [13:0]  entry8_flg;
+wire            entry8_hit;
+wire    [2 :0]  entry8_pgs;
+wire    [27:0]  entry8_ppn;
+wire            entry8_swp;
+wire            entry8_swp_on;
+wire            entry8_upd;
+wire            entry8_vld;
+wire    [26:0]  entry8_vpn;
+wire    [13:0]  entry9_flg;
+wire            entry9_hit;
+wire    [2 :0]  entry9_pgs;
+wire    [27:0]  entry9_ppn;
+wire            entry9_swp;
+wire            entry9_swp_on;
+wire            entry9_upd;
+wire            entry9_vld;
+wire    [31:0]  entry_hit;
+wire    [31:0]  entry_vld;
+wire    [13:0]  flg_fin;
+wire            forever_cpuclk;
+wire            hpcp_mmu_cnt_en;
+wire            ifu_mmu_abort;
+wire    [62:0]  ifu_mmu_va;
+wire            ifu_mmu_va_vld;
+wire            iplru_clk;
+wire            iplru_clk_en;
+wire            iplru_upd_en;
+wire            iutlb_acc_flt;
+wire            iutlb_addr_hit;
+wire            iutlb_addr_hit_vld;
+wire            iutlb_arb_cmplt;
+wire            iutlb_arb_req;
+wire    [26:0]  iutlb_arb_vpn;
+wire            iutlb_bypass_vld;
+wire            iutlb_clk;
+wire            iutlb_clk_en;
+wire            iutlb_disable_vld;
+wire    [31:0]  iutlb_entry_hit;
+wire    [13:0]  iutlb_flg_aft_bypass;
+wire    [13:0]  iutlb_hit_flg_fst;
+wire    [13:0]  iutlb_hit_flg_scd;
+wire    [27:0]  iutlb_hit_pa_fst;
+wire    [27:0]  iutlb_hit_pa_scd;
+wire    [2 :0]  iutlb_hit_pgs_fst;
+wire    [2 :0]  iutlb_hit_pgs_scd;
+wire            iutlb_hit_vld;
+wire            iutlb_miss_cnt;
+wire            iutlb_miss_vld;
+wire    [13:0]  iutlb_off_flg;
+wire            iutlb_off_hit;
+wire    [27:0]  iutlb_off_pa;
+wire    [2 :0]  iutlb_off_pgs;
+wire    [27:0]  iutlb_pa_aft_bypass;
+wire            iutlb_pa_vld;
+wire            iutlb_page_fault;
+wire            iutlb_plru_read_hit_vld;
+wire            iutlb_plru_refill_on;
+wire            iutlb_plru_refill_vld;
+wire            iutlb_pmp_chk_vld;
+wire            iutlb_ptw_wfc;
+wire            iutlb_ref_pgflt;
+wire            iutlb_refill_on;
+wire            iutlb_refill_vld;
+wire            iutlb_swp_en;
+wire    [1 :0]  iutlb_top_ref_cur_st;
+wire            iutlb_top_scd_updt;
+wire            iutlb_va_illegal;
+wire            iutlb_wfc;
+wire            jtlb_acc_fault;
+wire            jtlb_iutlb_acc_err;
+wire            jtlb_iutlb_pgflt;
+wire            jtlb_iutlb_ref_cmplt;
+wire            jtlb_iutlb_ref_pavld;
+wire    [13:0]  jtlb_utlb_ref_flg;
+wire    [2 :0]  jtlb_utlb_ref_pgs;
+wire    [27:0]  jtlb_utlb_ref_ppn;
+wire    [26:0]  jtlb_utlb_ref_vpn;
+wire    [26:0]  lsu_mmu_tlb_va;
+wire            mmu_hpcp_iutlb_miss;
+wire            mmu_ifu_buf;
+wire            mmu_ifu_ca;
+wire            mmu_ifu_deny;
+wire    [27:0]  mmu_ifu_pa;
+wire            mmu_ifu_pavld;
+wire            mmu_ifu_pgflt;
+wire            mmu_ifu_sec;
+wire    [27:0]  mmu_pmp_pa2;
+wire    [27:0]  mmu_sysmap_pa2;
+wire    [27:0]  pa_fin;
+wire    [26:0]  pa_offset;
+wire            pabuf_clk;
+wire            pabuf_clk_en;
+wire            pad_yy_icg_scan_en;
+wire    [2 :0]  pgs_fin;
+wire    [31:0]  plru_iutlb_ref_num;
+wire    [3 :0]  pmp_mmu_flg2;
+wire            regs_mmu_en;
+wire            regs_utlb_clr;
+wire    [4 :0]  sysmap_mmu_flg2;
+wire            tlboper_utlb_clr;
+wire            tlboper_utlb_inv_va_req;
+wire            utlb_clk;
+wire    [13:0]  utlb_fst_swp_flg;
+wire    [2 :0]  utlb_fst_swp_pgs;
+wire    [27:0]  utlb_fst_swp_ppn;
+wire    [26:0]  utlb_fst_swp_vpn;
+wire    [26:0]  utlb_req_vpn;
+wire    [13:0]  utlb_swp_flg;
+wire            utlb_swp_on;
+wire    [2 :0]  utlb_swp_pgs;
+wire    [27:0]  utlb_swp_ppn;
+wire    [26:0]  utlb_swp_vpn;
+wire    [13:0]  utlb_upd_flg;
+wire    [2 :0]  utlb_upd_pgs;
+wire    [27:0]  utlb_upd_ppn;
+wire    [26:0]  utlb_upd_vpn;
 
 
 //==========================================================
@@ -558,7 +558,7 @@ assign iutlb_disable_vld = ifu_mmu_va_vld && iutlb_off_hit;
 //                  Interface to IFU
 //----------------------------------------------------------
 // Paddr is valid when:
-// 1. utlb hit 
+// 1. utlb hit
 // 2. utlb refill cmplt, no matter exception or not
 // 3. mmu is disabled
 // &Force("output", "mmu_ifu_pavld"); @94
@@ -570,7 +570,7 @@ assign mmu_ifu_pavld = iutlb_bypass_vld
                          || iutlb_va_illegal
                        ) ; //&& !iutlb_refill_on; // support hit under miss
 
-assign mmu_ifu_pa[PPN_WIDTH-1:0] = iutlb_pa_aft_bypass[PPN_WIDTH-1:0]; 
+assign mmu_ifu_pa[PPN_WIDTH-1:0] = iutlb_pa_aft_bypass[PPN_WIDTH-1:0];
 
 
 // flags judgement
@@ -596,12 +596,12 @@ assign iutlb_va_illegal = (ifu_mmu_va[VPN_WIDTH+10] && !(&ifu_mmu_va[62:VPN_WIDT
 assign iutlb_page_fault = (!iutlb_flg_aft_bypass[0]
                         || !iutlb_flg_aft_bypass[1] && iutlb_flg_aft_bypass[2]
                         || !iutlb_flg_aft_bypass[3]
-                        ||  iutlb_flg_aft_bypass[4] && cp0_supv_mode && !cp0_mmu_sum 
+                        ||  iutlb_flg_aft_bypass[4] && cp0_supv_mode && !cp0_mmu_sum
                         || !iutlb_flg_aft_bypass[4] && cp0_user_mode && regs_mmu_en
                         || !iutlb_flg_aft_bypass[5]
                         ||  iutlb_flg_aft_bypass[13]
                         ||  iutlb_ref_pgflt
-                        ||  iutlb_va_illegal) 
+                        ||  iutlb_va_illegal)
                         && !jtlb_acc_fault;
 
 assign mmu_ifu_pgflt    = iutlb_page_fault;
@@ -611,7 +611,7 @@ assign mmu_ifu_pgflt    = iutlb_page_fault;
 assign mmu_ifu_deny = jtlb_acc_fault_flop
                    // L-bit for M-Mode
                    || !pmp_mmu_flg2[2] && !(cp0_mach_mode && !pmp_mmu_flg2[3])
-                       && pmp_flg_vld; 
+                       && pmp_flg_vld;
 
 //==========================================================
 //                  uTLB Replacement Logic
@@ -1918,7 +1918,7 @@ assign {entry24_swp_on, entry16_swp_on, entry8_swp_on, entry0_swp_on}
 assign {entry24_swp,  entry16_swp,  entry8_swp,  entry0_swp}
                            = {4{iutlb_swp_en}} & iutlb_fst_wen[3:0];
 
-//assign utlb_fst_swp_vpn[VPN_WIDTH-1:0] = 
+//assign utlb_fst_swp_vpn[VPN_WIDTH-1:0] =
 //                {VPN_WIDTH{iutlb_entry_hit[1]}}  & entry1_vpn[VPN_WIDTH-1:0]
 //              | {VPN_WIDTH{iutlb_entry_hit[2]}}  & entry2_vpn[VPN_WIDTH-1:0]
 //              | {VPN_WIDTH{iutlb_entry_hit[3]}}  & entry3_vpn[VPN_WIDTH-1:0]
@@ -1965,25 +1965,25 @@ assign {entry31_swp, entry30_swp, entry29_swp, entry28_swp,
          = {28{iutlb_swp_en}} & {iutlb_entry_hit[31:25], iutlb_entry_hit[23:17],
                                  iutlb_entry_hit[15:9],  iutlb_entry_hit[7:1]};
 
-assign utlb_swp_vpn[VPN_WIDTH-1:0] = 
+assign utlb_swp_vpn[VPN_WIDTH-1:0] =
                     {VPN_WIDTH{iutlb_fst_wen[0]}} & entry0_vpn[VPN_WIDTH-1:0]
                   | {VPN_WIDTH{iutlb_fst_wen[1]}} & entry8_vpn[VPN_WIDTH-1:0]
                   | {VPN_WIDTH{iutlb_fst_wen[2]}} & entry16_vpn[VPN_WIDTH-1:0]
                   | {VPN_WIDTH{iutlb_fst_wen[3]}} & entry24_vpn[VPN_WIDTH-1:0];
 
-assign utlb_swp_pgs[PGS_WIDTH-1:0] = 
+assign utlb_swp_pgs[PGS_WIDTH-1:0] =
                     {PGS_WIDTH{iutlb_fst_wen[0]}} & entry0_pgs[PGS_WIDTH-1:0]
                   | {PGS_WIDTH{iutlb_fst_wen[1]}} & entry8_pgs[PGS_WIDTH-1:0]
                   | {PGS_WIDTH{iutlb_fst_wen[2]}} & entry16_pgs[PGS_WIDTH-1:0]
                   | {PGS_WIDTH{iutlb_fst_wen[3]}} & entry24_pgs[PGS_WIDTH-1:0];
 
-assign utlb_swp_ppn[PPN_WIDTH-1:0] = 
+assign utlb_swp_ppn[PPN_WIDTH-1:0] =
                     {PPN_WIDTH{iutlb_fst_wen[0]}} & entry0_ppn[PPN_WIDTH-1:0]
                   | {PPN_WIDTH{iutlb_fst_wen[1]}} & entry8_ppn[PPN_WIDTH-1:0]
                   | {PPN_WIDTH{iutlb_fst_wen[2]}} & entry16_ppn[PPN_WIDTH-1:0]
                   | {PPN_WIDTH{iutlb_fst_wen[3]}} & entry24_ppn[PPN_WIDTH-1:0];
 
-assign utlb_swp_flg[FLG_WIDTH-1:0] = 
+assign utlb_swp_flg[FLG_WIDTH-1:0] =
                     {FLG_WIDTH{iutlb_fst_wen[0]}} & entry0_flg[FLG_WIDTH-1:0]
                   | {FLG_WIDTH{iutlb_fst_wen[1]}} & entry8_flg[FLG_WIDTH-1:0]
                   | {FLG_WIDTH{iutlb_fst_wen[2]}} & entry16_flg[FLG_WIDTH-1:0]
@@ -1999,7 +1999,7 @@ assign {entry31_swp_on, entry30_swp_on, entry29_swp_on, entry28_swp_on,
         entry18_swp_on, entry17_swp_on, entry15_swp_on, entry14_swp_on,
         entry13_swp_on, entry12_swp_on, entry11_swp_on, entry10_swp_on,
         entry9_swp_on,  entry7_swp_on,  entry6_swp_on,  entry5_swp_on,
-        entry4_swp_on,  entry3_swp_on,  entry2_swp_on,  entry1_swp_on} = 
+        entry4_swp_on,  entry3_swp_on,  entry2_swp_on,  entry1_swp_on} =
         {28{utlb_swp_on}};
 
 //==========================================================
@@ -2033,7 +2033,7 @@ assign iutlb_entry_hit[31:0] = entry_hit[31:0] & entry_vld[31:0];
 assign iutlb_addr_hit_vld = |iutlb_entry_hit[31:0];
 
 assign iutlb_addr_hit     = iutlb_entry_hit[0]  || iutlb_entry_hit[8]
-                         || iutlb_entry_hit[16] || iutlb_entry_hit[24]; 
+                         || iutlb_entry_hit[16] || iutlb_entry_hit[24];
 
 assign iutlb_swp_en       = ifu_mmu_va_vld && iutlb_addr_hit_vld && !iutlb_addr_hit
                          && !iutlb_off_hit;
@@ -2044,25 +2044,25 @@ assign iutlb_swp_en       = ifu_mmu_va_vld && iutlb_addr_hit_vld && !iutlb_addr_
 //----------------------------------------------------------
 //                  Selecting Info from uTLB
 //----------------------------------------------------------
-assign iutlb_hit_pa_fst[PPN_WIDTH-1:0] = 
+assign iutlb_hit_pa_fst[PPN_WIDTH-1:0] =
                   {PPN_WIDTH{iutlb_entry_hit[0]}}  & entry0_ppn[PPN_WIDTH-1:0]
                 | {PPN_WIDTH{iutlb_entry_hit[8]}}  & entry8_ppn[PPN_WIDTH-1:0]
                 | {PPN_WIDTH{iutlb_entry_hit[16]}} & entry16_ppn[PPN_WIDTH-1:0]
                 | {PPN_WIDTH{iutlb_entry_hit[24]}} & entry24_ppn[PPN_WIDTH-1:0];
 
-assign iutlb_hit_pgs_fst[PGS_WIDTH-1:0] = 
+assign iutlb_hit_pgs_fst[PGS_WIDTH-1:0] =
                   {PGS_WIDTH{iutlb_entry_hit[0]}}  & entry0_pgs[PGS_WIDTH-1:0]
                 | {PGS_WIDTH{iutlb_entry_hit[8]}}  & entry8_pgs[PGS_WIDTH-1:0]
                 | {PGS_WIDTH{iutlb_entry_hit[16]}} & entry16_pgs[PGS_WIDTH-1:0]
                 | {PGS_WIDTH{iutlb_entry_hit[24]}} & entry24_pgs[PGS_WIDTH-1:0];
 
-assign iutlb_hit_flg_fst[FLG_WIDTH-1:0] = 
+assign iutlb_hit_flg_fst[FLG_WIDTH-1:0] =
                   {FLG_WIDTH{iutlb_entry_hit[0]}}  & entry0_flg[FLG_WIDTH-1:0]
                 | {FLG_WIDTH{iutlb_entry_hit[8]}}  & entry8_flg[FLG_WIDTH-1:0]
                 | {FLG_WIDTH{iutlb_entry_hit[16]}} & entry16_flg[FLG_WIDTH-1:0]
                 | {FLG_WIDTH{iutlb_entry_hit[24]}} & entry24_flg[FLG_WIDTH-1:0];
 
-assign iutlb_hit_pa_scd[PPN_WIDTH-1:0] = 
+assign iutlb_hit_pa_scd[PPN_WIDTH-1:0] =
                   {PPN_WIDTH{iutlb_entry_hit[1]}}  & entry1_ppn[PPN_WIDTH-1:0]
                 | {PPN_WIDTH{iutlb_entry_hit[2]}}  & entry2_ppn[PPN_WIDTH-1:0]
                 | {PPN_WIDTH{iutlb_entry_hit[3]}}  & entry3_ppn[PPN_WIDTH-1:0]
@@ -2092,7 +2092,7 @@ assign iutlb_hit_pa_scd[PPN_WIDTH-1:0] =
                 | {PPN_WIDTH{iutlb_entry_hit[30]}} & entry30_ppn[PPN_WIDTH-1:0]
                 | {PPN_WIDTH{iutlb_entry_hit[31]}} & entry31_ppn[PPN_WIDTH-1:0];
 
-assign iutlb_hit_pgs_scd[PGS_WIDTH-1:0] =  
+assign iutlb_hit_pgs_scd[PGS_WIDTH-1:0] =
                   {PGS_WIDTH{iutlb_entry_hit[1]}}  & entry1_pgs[PGS_WIDTH-1:0]
                 | {PGS_WIDTH{iutlb_entry_hit[2]}}  & entry2_pgs[PGS_WIDTH-1:0]
                 | {PGS_WIDTH{iutlb_entry_hit[3]}}  & entry3_pgs[PGS_WIDTH-1:0]
@@ -2122,7 +2122,7 @@ assign iutlb_hit_pgs_scd[PGS_WIDTH-1:0] =
                 | {PGS_WIDTH{iutlb_entry_hit[30]}} & entry30_pgs[PGS_WIDTH-1:0]
                 | {PGS_WIDTH{iutlb_entry_hit[31]}} & entry31_pgs[PGS_WIDTH-1:0];
 
-assign iutlb_hit_flg_scd[FLG_WIDTH-1:0] =  
+assign iutlb_hit_flg_scd[FLG_WIDTH-1:0] =
                   {FLG_WIDTH{iutlb_entry_hit[1]}}  & entry1_flg[FLG_WIDTH-1:0]
                 | {FLG_WIDTH{iutlb_entry_hit[2]}}  & entry2_flg[FLG_WIDTH-1:0]
                 | {FLG_WIDTH{iutlb_entry_hit[3]}}  & entry3_flg[FLG_WIDTH-1:0]
@@ -2203,17 +2203,17 @@ assign iutlb_off_pgs[PGS_WIDTH-1:0] = 3'b1;
 assign iutlb_off_flg[FLG_WIDTH-1:0] = {sysmap_mmu_flg2[4:0], 5'b00010, 3'b111, 1'b1};
 
 //assign iutlb_bypass_hit = iutlb_wfc;
-//assign iutlb_hit_pa_drct[PPN_WIDTH-1:0] =  
+//assign iutlb_hit_pa_drct[PPN_WIDTH-1:0] =
 //          {PPN_WIDTH{iutlb_bypass_hit}} & iutlb_bypass_pa[PPN_WIDTH-1:0]
 //        | {PPN_WIDTH{iutlb_off_hit}}    & iutlb_off_pa[PPN_WIDTH-1:0]
 //        | {PPN_WIDTH{iutlb_scd}}        & iutlb_hit_pa_scd_flop[PPN_WIDTH-1:0];
 //
-//assign iutlb_hit_pgs_drct[PGS_WIDTH-1:0] =  
+//assign iutlb_hit_pgs_drct[PGS_WIDTH-1:0] =
 //          {PGS_WIDTH{iutlb_bypass_hit}} & iutlb_bypass_pgs[PGS_WIDTH-1:0]
 //        | {PGS_WIDTH{iutlb_off_hit}}    & iutlb_off_pgs[PGS_WIDTH-1:0]
 //        | {PGS_WIDTH{iutlb_scd}}        & iutlb_hit_pgs_scd_flop[PGS_WIDTH-1:0];
 //
-//assign iutlb_hit_flg_drct[FLG_WIDTH-1:0] =  
+//assign iutlb_hit_flg_drct[FLG_WIDTH-1:0] =
 //          {FLG_WIDTH{iutlb_bypass_hit}} & iutlb_bypass_flg[FLG_WIDTH-1:0]
 //        | {FLG_WIDTH{iutlb_off_hit}}    & iutlb_off_flg[FLG_WIDTH-1:0]
 //        | {FLG_WIDTH{iutlb_scd}}        & iutlb_hit_flg_scd_flop[FLG_WIDTH-1:0];
@@ -2289,37 +2289,37 @@ assign mmu_pmp_pa2[PPN_WIDTH-1:0] = iutlb_pa_buf[PPN_WIDTH-1:0];
 
 
 //----------------------------------------------------------
-//                  MUX the final pa 
+//                  MUX the final pa
 //----------------------------------------------------------
 //assign pa_drct_sel = iutlb_bypass_hit || iutlb_off_hit || iutlb_scd;
 
 assign pa_offset[VPN_WIDTH-1:0] = ifu_mmu_va[VPN_WIDTH+10:11];
 
-assign pa_fin[PPN_WIDTH-1:0] =  
+assign pa_fin[PPN_WIDTH-1:0] =
           {PPN_WIDTH{iutlb_off_hit}}  & iutlb_off_pa[PPN_WIDTH-1:0]
         | {PPN_WIDTH{iutlb_addr_hit}} & iutlb_hit_pa_fst[PPN_WIDTH-1:0];
 
-assign pgs_fin[PGS_WIDTH-1:0] =  
+assign pgs_fin[PGS_WIDTH-1:0] =
           {PGS_WIDTH{iutlb_off_hit}}  & iutlb_off_pgs[PGS_WIDTH-1:0]
         | {PGS_WIDTH{iutlb_addr_hit}} & iutlb_hit_pgs_fst[PGS_WIDTH-1:0];
 
-assign flg_fin[FLG_WIDTH-1:0] =  
+assign flg_fin[FLG_WIDTH-1:0] =
           {FLG_WIDTH{iutlb_off_hit}}  & iutlb_off_flg[FLG_WIDTH-1:0]
         | {FLG_WIDTH{iutlb_addr_hit}} & iutlb_hit_flg_fst[FLG_WIDTH-1:0];
 
-//assign pa_fin[PPN_WIDTH-1:0]  = pa_drct_sel 
+//assign pa_fin[PPN_WIDTH-1:0]  = pa_drct_sel
 //                              ? iutlb_hit_pa_drct[PPN_WIDTH-1:0]
 //                              : iutlb_hit_pa_fst[PPN_WIDTH-1:0];
 //
-//assign pgs_fin[PGS_WIDTH-1:0] = pa_drct_sel 
+//assign pgs_fin[PGS_WIDTH-1:0] = pa_drct_sel
 //                              ? iutlb_hit_pgs_drct[PGS_WIDTH-1:0]
 //                              : iutlb_hit_pgs_fst[PGS_WIDTH-1:0];
 //
-//assign flg_fin[FLG_WIDTH-1:0] = pa_drct_sel 
+//assign flg_fin[FLG_WIDTH-1:0] = pa_drct_sel
 //                              ? iutlb_hit_flg_drct[FLG_WIDTH-1:0]
 //                              : iutlb_hit_flg_fst[FLG_WIDTH-1:0];
 
-assign iutlb_pa_aft_bypass[PPN_WIDTH-1:0] =  
+assign iutlb_pa_aft_bypass[PPN_WIDTH-1:0] =
      {PPN_WIDTH{pgs_fin[2]}} & {pa_fin[PPN_WIDTH-1:VPN_PERLEL*2], pa_offset[VPN_PERLEL*2-1:0]}
    | {PPN_WIDTH{pgs_fin[1]}} & {pa_fin[PPN_WIDTH-1:VPN_PERLEL*1], pa_offset[VPN_PERLEL*1-1:0]}
    | {PPN_WIDTH{pgs_fin[0]}} &  pa_fin[PPN_WIDTH-1:0];

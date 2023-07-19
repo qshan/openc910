@@ -27,32 +27,32 @@ module ct_f_spsram_512x44(
 );
 
 // &Ports; @26
-input   [8 :0]  A;           
-input           CEN;         
-input           CLK;         
-input   [43:0]  D;           
-input           GWEN;        
-input   [43:0]  WEN;         
-output  [43:0]  Q;           
+input   [8 :0]  A;
+input           CEN;
+input           CLK;
+input   [43:0]  D;
+input           GWEN;
+input   [43:0]  WEN;
+output  [43:0]  Q;
 
 // &Regs; @27
-reg     [8 :0]  addr_holding; 
+reg     [8 :0]  addr_holding;
 
 // &Wires; @28
-wire    [8 :0]  A;           
-wire            CEN;         
-wire            CLK;         
-wire    [43:0]  D;           
-wire            GWEN;        
-wire    [43:0]  Q;           
-wire    [43:0]  WEN;         
-wire    [8 :0]  addr;        
-wire    [21:0]  ram0_din;    
-wire    [21:0]  ram0_dout;   
-wire            ram0_wen;    
-wire    [21:0]  ram1_din;    
-wire    [21:0]  ram1_dout;   
-wire            ram1_wen;    
+wire    [8 :0]  A;
+wire            CEN;
+wire            CLK;
+wire    [43:0]  D;
+wire            GWEN;
+wire    [43:0]  Q;
+wire    [43:0]  WEN;
+wire    [8 :0]  addr;
+wire    [21:0]  ram0_din;
+wire    [21:0]  ram0_dout;
+wire            ram0_wen;
+wire    [21:0]  ram1_din;
+wire    [21:0]  ram1_dout;
+wire            ram1_wen;
 
 
 parameter ADDR_WIDTH = 9;

@@ -43,75 +43,75 @@ module ct_mp_clk_top(
 );
 
 // &Ports; @23
-input          axim_clk_en;                   
-input          l2c_data_ram_clk_en_bank_0;    
-input          l2c_data_ram_clk_en_bank_1;    
-input          l2c_tag_ram_clk_en_bank_0;     
-input          l2c_tag_ram_clk_en_bank_1;     
-input          pad_had_jtg_tclk;              
-input   [2:0]  pad_l2c_data_mbist_clk_ratio;  
-input   [2:0]  pad_l2c_tag_mbist_clk_ratio;   
-input          pad_yy_dft_clk_rst_b;          
-input          pad_yy_icg_scan_en;            
-input          pad_yy_mbist_mode;             
-input          pad_yy_scan_mode;              
-input          phl_rst_b;                     
-input          pll_cpu_clk;                   
-output         apb_clk;                       
-output         apb_clk_en;                    
-output         axim_clk_en_f;                 
-output         forever_core0_clk;             
-output         forever_core1_clk;             
-output         forever_cpuclk;                
-output         forever_jtgclk;                
-output         l2c_data_clk_bank_0;           
-output         l2c_data_clk_bank_1;           
-output         l2c_tag_clk_bank_0;            
-output         l2c_tag_clk_bank_1;            
+input          axim_clk_en;
+input          l2c_data_ram_clk_en_bank_0;
+input          l2c_data_ram_clk_en_bank_1;
+input          l2c_tag_ram_clk_en_bank_0;
+input          l2c_tag_ram_clk_en_bank_1;
+input          pad_had_jtg_tclk;
+input   [2:0]  pad_l2c_data_mbist_clk_ratio;
+input   [2:0]  pad_l2c_tag_mbist_clk_ratio;
+input          pad_yy_dft_clk_rst_b;
+input          pad_yy_icg_scan_en;
+input          pad_yy_mbist_mode;
+input          pad_yy_scan_mode;
+input          phl_rst_b;
+input          pll_cpu_clk;
+output         apb_clk;
+output         apb_clk_en;
+output         axim_clk_en_f;
+output         forever_core0_clk;
+output         forever_core1_clk;
+output         forever_cpuclk;
+output         forever_jtgclk;
+output         l2c_data_clk_bank_0;
+output         l2c_data_clk_bank_1;
+output         l2c_tag_clk_bank_0;
+output         l2c_tag_clk_bank_1;
 
 // &Regs; @24
-reg            apb_clk_en_f;                  
-reg            axim_clk_en_f;                 
-reg     [2:0]  l2c_data_ram_bist_clk_ratio;   
-reg     [2:0]  l2c_tag_ram_bist_clk_ratio;    
-reg            peripheral_clk_en;             
+reg            apb_clk_en_f;
+reg            axim_clk_en_f;
+reg     [2:0]  l2c_data_ram_bist_clk_ratio;
+reg     [2:0]  l2c_tag_ram_bist_clk_ratio;
+reg            peripheral_clk_en;
 
 // &Wires; @25
-wire           apb_clk_en;                    
-wire           axim_clk_en;                   
-wire           bist_clk;                      
-wire           bist_clk_en;                   
-wire           data_ram_bist_cnt_idle;        
-wire           data_ram_clk_en_bank_0;        
-wire           data_ram_clk_en_bank_1;        
-wire           forever_core0_clk;             
-wire           forever_core1_clk;             
-wire           forever_cpuclk;                
-wire           forever_jtgclk;                
-wire           l2c_data_clk_bank_0;           
-wire           l2c_data_clk_bank_0_before_occ; 
-wire           l2c_data_clk_bank_1;           
-wire           l2c_data_clk_bank_1_before_occ; 
-wire           l2c_data_ram_clk_en_bank_0;    
-wire           l2c_data_ram_clk_en_bank_1;    
-wire           l2c_tag_clk_bank_0;            
-wire           l2c_tag_clk_bank_0_before_occ; 
-wire           l2c_tag_clk_bank_1;            
-wire           l2c_tag_clk_bank_1_before_occ; 
-wire           l2c_tag_ram_clk_en_bank_0;     
-wire           l2c_tag_ram_clk_en_bank_1;     
-wire           pad_had_jtg_tclk;              
-wire    [2:0]  pad_l2c_data_mbist_clk_ratio;  
-wire    [2:0]  pad_l2c_tag_mbist_clk_ratio;   
-wire           pad_yy_dft_clk_rst_b;          
-wire           pad_yy_icg_scan_en;            
-wire           pad_yy_mbist_mode;             
-wire           pad_yy_scan_mode;              
-wire           phl_rst_b;                     
-wire           pll_cpu_clk;                   
-wire           tag_ram_bist_cnt_idle;         
-wire           tag_ram_clk_en_bank_0;         
-wire           tag_ram_clk_en_bank_1;         
+wire           apb_clk_en;
+wire           axim_clk_en;
+wire           bist_clk;
+wire           bist_clk_en;
+wire           data_ram_bist_cnt_idle;
+wire           data_ram_clk_en_bank_0;
+wire           data_ram_clk_en_bank_1;
+wire           forever_core0_clk;
+wire           forever_core1_clk;
+wire           forever_cpuclk;
+wire           forever_jtgclk;
+wire           l2c_data_clk_bank_0;
+wire           l2c_data_clk_bank_0_before_occ;
+wire           l2c_data_clk_bank_1;
+wire           l2c_data_clk_bank_1_before_occ;
+wire           l2c_data_ram_clk_en_bank_0;
+wire           l2c_data_ram_clk_en_bank_1;
+wire           l2c_tag_clk_bank_0;
+wire           l2c_tag_clk_bank_0_before_occ;
+wire           l2c_tag_clk_bank_1;
+wire           l2c_tag_clk_bank_1_before_occ;
+wire           l2c_tag_ram_clk_en_bank_0;
+wire           l2c_tag_ram_clk_en_bank_1;
+wire           pad_had_jtg_tclk;
+wire    [2:0]  pad_l2c_data_mbist_clk_ratio;
+wire    [2:0]  pad_l2c_tag_mbist_clk_ratio;
+wire           pad_yy_dft_clk_rst_b;
+wire           pad_yy_icg_scan_en;
+wire           pad_yy_mbist_mode;
+wire           pad_yy_scan_mode;
+wire           phl_rst_b;
+wire           pll_cpu_clk;
+wire           tag_ram_bist_cnt_idle;
+wire           tag_ram_clk_en_bank_0;
+wire           tag_ram_clk_en_bank_1;
 
 
 // //&Depend("BUFGCE.v"); @27
@@ -216,7 +216,7 @@ gated_clk_cell  x_data_bist_gated_clk (
 //          .clk_out       (bist_clk           ) @163
 //         ); @164
 
-always@(posedge bist_clk or negedge pad_yy_dft_clk_rst_b) 
+always@(posedge bist_clk or negedge pad_yy_dft_clk_rst_b)
 begin
   if (!pad_yy_dft_clk_rst_b)
     l2c_data_ram_bist_clk_ratio[2:0] <= 3'b0;
@@ -278,7 +278,7 @@ assign l2c_data_clk_bank_1 = l2c_data_clk_bank_1_before_occ;
 // &Instance("clk_buf_cell", "x_l2c_data_bank1_clk_buf"); @232
 // &Connect(.buf_in   (l2c_data_clk_bank_1_before_occ), @233
 //          .buf_out  (l2c_data_clk_bank_1)); @234
-         
+
 //================================================
 //            L2C TAG CLOCK
 //================================================

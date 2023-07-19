@@ -56,14 +56,14 @@ wire temp_xor_clk            ;
 
 integer i;
 
-initial 
+initial
 begin
 bht_mem_passed =1'b0;
 
 
 ////memory test
-           temp_data_CLK               = 1'b0; 
-           temp_data_cen_internal      = 1'b0; 
+           temp_data_CLK               = 1'b0;
+           temp_data_cen_internal      = 1'b0;
            temp_data_wen_internal      = {LOCAL_DATA_WE_WIDTH{1'b1}};
            temp_data_addr_internal     = {LOCAL_DATA_ADDR_WIDTH{1'b0}};
            temp_data_din_internal      = {LOCAL_DATA_DATA_WIDTH{1'b0}};
@@ -73,9 +73,9 @@ bht_mem_passed =1'b0;
            @(posedge temp_data_CLK)
 
            //write
-           //$display("$$$$$$$$  data array  memory cen test cen ==1 test...                          $");   
+           //$display("$$$$$$$$  data array  memory cen test cen ==1 test...                          $");
            #0.1 temp_data_wen_internal   = {LOCAL_DATA_WE_WIDTH{1'b0}};
-           #0.1 temp_data_cen_internal  = 1'b0; 
+           #0.1 temp_data_cen_internal  = 1'b0;
            for(i=1;i<10;i=i+1)     //set address 1~9
            begin
                @(posedge temp_data_CLK)
@@ -85,10 +85,10 @@ bht_mem_passed =1'b0;
            end
 
            //read
-           //$display("$$$$$$$$  data array  memory cen test cen ==1 test...                          $");   
+           //$display("$$$$$$$$  data array  memory cen test cen ==1 test...                          $");
            @(posedge temp_data_CLK)
            #0.1 temp_data_wen_internal   = {LOCAL_DATA_WE_WIDTH{1'b1}};
-           #0.1 temp_data_cen_internal  = 1'b0; 
+           #0.1 temp_data_cen_internal  = 1'b0;
            for(i=1;i<10;i=i+1)     //set address 1~9
            begin
                @(posedge temp_data_CLK)
@@ -96,20 +96,20 @@ bht_mem_passed =1'b0;
                 temp_data_din_internal  <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + i;
                 golden_data             <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + i;
                @(posedge temp_data_CLK)
-               #0.1   
-                   //$display("$address = %h temp_data_q_internal = %h , golden_data =%h \n",temp_data_addr_internal,temp_data_q_internal,golden_data);    
+               #0.1
+                   //$display("$address = %h temp_data_q_internal = %h , golden_data =%h \n",temp_data_addr_internal,temp_data_q_internal,golden_data);
                if(temp_data_q_internal !== golden_data)
                begin
-                   //$display("$          Sorry, address %h memory write check fail ! @_@     $",temp_data_addr_internal);    
+                   //$display("$          Sorry, address %h memory write check fail ! @_@     $",temp_data_addr_internal);
                    $finish;
                end
            end
 
            //cen==0 test
-           //$display("$$$$$$$$$$  data array  memory cen test cen ==1  test passed                     $\n");   
-           //$display("$$$$$$$$$$  data array  memory cen test  cen ==0 test...                         $");    
+           //$display("$$$$$$$$$$  data array  memory cen test cen ==1  test passed                     $\n");
+           //$display("$$$$$$$$$$  data array  memory cen test  cen ==0 test...                         $");
            #0.1 temp_data_wen_internal   = {LOCAL_DATA_WE_WIDTH{1'b0}};
-           #0.1 temp_data_cen_internal  = 1'b1; 
+           #0.1 temp_data_cen_internal  = 1'b1;
 
            for(i=10;i<15;i=i+1)     //set address 10 ~15
            begin
@@ -118,11 +118,11 @@ bht_mem_passed =1'b0;
                 temp_data_din_internal  <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 2;
                 golden_data             <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 2;
                @(posedge temp_data_CLK)
-               #0.1   
-                   //$display("$          address = %h temp_data_q_internal = %h , golden_data =%h \n",temp_data_addr_internal,temp_data_q_internal,golden_data);    
+               #0.1
+                   //$display("$          address = %h temp_data_q_internal = %h , golden_data =%h \n",temp_data_addr_internal,temp_data_q_internal,golden_data);
                if(temp_data_q_internal === golden_data)
                begin
-                   //$display("$          Sorry, address %h memory write check fail ! @_@     $",temp_data_addr_internal);    
+                   //$display("$          Sorry, address %h memory write check fail ! @_@     $",temp_data_addr_internal);
                    $finish;
                end
            end
@@ -130,15 +130,15 @@ bht_mem_passed =1'b0;
 
 
            //wen test
-           //$display("$$$$$$$$$  data array  memory cen test  cen ==0 test passed                      $");    
-           //$display("$$$$$$$$$  data array  memory wen test.......                                    $");    
+           //$display("$$$$$$$$$  data array  memory cen test  cen ==0 test passed                      $");
+           //$display("$$$$$$$$$  data array  memory wen test.......                                    $");
            #0.1 temp_data_wen_internal   = {LOCAL_DATA_WE_WIDTH{1'b0}};
-           #0.1 temp_data_cen_internal   = 1'b0; 
+           #0.1 temp_data_cen_internal   = 1'b0;
           for(i=0;i<LOCAL_DATA_WE_WIDTH/2 ;i=i+1)
           begin
                  @(posedge temp_data_CLK)
                   temp_data_addr_internal <= {LOCAL_DATA_ADDR_WIDTH{1'b0}} ;
-                  temp_data_wen_internal  <= {{LOCAL_DATA_WE_WIDTH-2{1'b1}},2'b0} <<2*i ; 
+                  temp_data_wen_internal  <= {{LOCAL_DATA_WE_WIDTH-2{1'b1}},2'b0} <<2*i ;
                   temp_data_din_internal  <= {LOCAL_DATA_DATA_WIDTH{1'b1}} ;
                   golden_data             <= {LOCAL_DATA_DATA_WIDTH{1'b1}} ;
                  @(posedge temp_data_CLK)
@@ -147,26 +147,26 @@ bht_mem_passed =1'b0;
                        golden_data             <= temp_data_din_internal ;
                        data_mask_ff            <= data_mask;
                  @(posedge temp_data_CLK)
-                  #0.1 
-                     // $display("$  address = %h temp_data_q_internal = %h , golden_data =%h,wen=%h \n",temp_data_addr_internal,temp_data_q_internal,(golden_data &(~data_mask)),temp_data_wen_internal);    
+                  #0.1
+                     // $display("$  address = %h temp_data_q_internal = %h , golden_data =%h,wen=%h \n",temp_data_addr_internal,temp_data_q_internal,(golden_data &(~data_mask)),temp_data_wen_internal);
                  if(temp_data_q_internal !== (golden_data &(~data_mask_ff)) )
                  begin
-                     // $display("$  Sorry, temp_data_q_internal = %h , golden_data =%h, wen=%h \n",temp_data_q_internal,golden_data,temp_data_wen_internal);    
+                     // $display("$  Sorry, temp_data_q_internal = %h , golden_data =%h, wen=%h \n",temp_data_q_internal,golden_data,temp_data_wen_internal);
                       $finish;
                  end
            end
-            
+
 
           //write test
-           //$display("$$$$$$$$$  data array  memory wen test passed                                    $");    
-           //$display("$$$$$$$$$  data array  memory write test......                                   $");    
+           //$display("$$$$$$$$$  data array  memory wen test passed                                    $");
+           //$display("$$$$$$$$$  data array  memory write test......                                   $");
            @(posedge temp_data_CLK) //write address 0
            #0.1 temp_data_wen_internal   = {LOCAL_DATA_WE_WIDTH{1'b0}};
-           #0.1 temp_data_cen_internal   = 1'b0; 
+           #0.1 temp_data_cen_internal   = 1'b0;
            for(i=10;i<15;i = i+1)     //set address 10 ~15
            begin
            #0.1 temp_data_wen_internal   = {LOCAL_DATA_WE_WIDTH{1'b0}};
-           #0.1 temp_data_cen_internal   = 1'b0; 
+           #0.1 temp_data_cen_internal   = 1'b0;
                @(posedge temp_data_CLK)
                 temp_data_addr_internal <= {LOCAL_DATA_ADDR_WIDTH{1'b0}} + i;
                 temp_data_din_internal  <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + i;
@@ -175,11 +175,11 @@ bht_mem_passed =1'b0;
                #0.1 temp_data_wen_internal   = {LOCAL_DATA_WE_WIDTH{1'b1}};
                     golden_data             <= temp_data_din_internal ;
                @(posedge temp_data_CLK)
-               #0.1   
-                   //$display("$          address = %h temp_data_q_internal = %h , golden_data =%h \n",temp_data_addr_internal,temp_data_q_internal,golden_data);    
+               #0.1
+                   //$display("$          address = %h temp_data_q_internal = %h , golden_data =%h \n",temp_data_addr_internal,temp_data_q_internal,golden_data);
                if(temp_data_q_internal !== golden_data)
                begin
-                   //$display("$          Sorry, address %h memory write check fail ! @_@     $",temp_data_addr_internal);    
+                   //$display("$          Sorry, address %h memory write check fail ! @_@     $",temp_data_addr_internal);
                    $finish;
                end
            end
@@ -187,10 +187,10 @@ bht_mem_passed =1'b0;
 
 
           //address width check
-           //$display("$$$$$$$$  data array  memory read test passed                                    $");    
-           //$display("$$$$$$$$  data array  memory address width test......                            $");    
-           @(posedge temp_data_CLK) //write address 
-           #0.1 temp_data_cen_internal   = 1'b0; 
+           //$display("$$$$$$$$  data array  memory read test passed                                    $");
+           //$display("$$$$$$$$  data array  memory address width test......                            $");
+           @(posedge temp_data_CLK) //write address
+           #0.1 temp_data_cen_internal   = 1'b0;
            @(posedge temp_data_CLK)
            temp_data_wen_internal  <= {LOCAL_DATA_WE_WIDTH{1'b0}};
            temp_data_addr_internal <= {LOCAL_DATA_ADDR_WIDTH{1'b0}} ;                // 0 address write bb
@@ -198,7 +198,7 @@ bht_mem_passed =1'b0;
            golden_data             <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 8'hbb;
            @(posedge temp_data_CLK)
            temp_data_wen_internal  <= {LOCAL_DATA_WE_WIDTH{1'b0}};
-           temp_data_addr_internal <= { {1{1'b1}},{LOCAL_DATA_ADDR_WIDTH-1{1'b0}} } ; // 1/2 max address 
+           temp_data_addr_internal <= { {1{1'b1}},{LOCAL_DATA_ADDR_WIDTH-1{1'b0}} } ; // 1/2 max address
            temp_data_din_internal  <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 8'haa;
            golden_data             <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 8'haa;
 
@@ -209,10 +209,10 @@ bht_mem_passed =1'b0;
            temp_data_din_internal  <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 8'hff;
            golden_data             <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 8'haa;
            @(posedge temp_data_CLK)
-           #0.1   
+           #0.1
            if(temp_data_q_internal !== golden_data)
            begin
-               //$display("$          Sorry, address %h memory read check fail ! @_@     $",temp_data_addr_internal);    
+               //$display("$          Sorry, address %h memory read check fail ! @_@     $",temp_data_addr_internal);
                $finish;
            end
 
@@ -223,18 +223,18 @@ bht_mem_passed =1'b0;
            temp_data_din_internal  <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 8'hff;
            golden_data             <= {LOCAL_DATA_DATA_WIDTH{1'b0}} + 8'hbb;
            @(posedge temp_data_CLK)
-           #0.1   
+           #0.1
            if(temp_data_q_internal !== golden_data)
            begin
-               //$display("$          Sorry, address %h memory read check fail ! @_@     $",temp_data_addr_internal);    
+               //$display("$          Sorry, address %h memory read check fail ! @_@     $",temp_data_addr_internal);
                $finish;
            end
-           //$display("$$$$$$$$  data array  memory address width test passed                           $");    
-           //$display("$$$$$$$$  data array  memory data width test......                               $");    
+           //$display("$$$$$$$$  data array  memory address width test passed                           $");
+           //$display("$$$$$$$$  data array  memory data width test......                               $");
           //read data check
-     
-           @(posedge temp_data_CLK) //write address 
-           #0.1 temp_data_cen_internal   = 1'b0; 
+
+           @(posedge temp_data_CLK) //write address
+           #0.1 temp_data_cen_internal   = 1'b0;
            @(posedge temp_data_CLK)
            temp_data_wen_internal  <= {LOCAL_DATA_WE_WIDTH{1'b0}};
            temp_data_addr_internal <= {LOCAL_DATA_ADDR_WIDTH{1'b1}} ;
@@ -244,23 +244,23 @@ bht_mem_passed =1'b0;
            #0.1 temp_data_wen_internal   = {LOCAL_DATA_WE_WIDTH{1'b1}};
                 golden_data             <= temp_data_din_internal ;
            @(posedge temp_data_CLK)
-           #0.1   
-               //$display("$          address = %h temp_data_q_internal = %h , golden_data =%h \n",temp_data_addr_internal,temp_data_q_internal,golden_data);    
+           #0.1
+               //$display("$          address = %h temp_data_q_internal = %h , golden_data =%h \n",temp_data_addr_internal,temp_data_q_internal,golden_data);
            if(temp_data_q_internal !== golden_data)
            begin
-               //$display("$          Sorry, address %h memory read check fail ! @_@     $",temp_data_addr_internal);    
+               //$display("$          Sorry, address %h memory read check fail ! @_@     $",temp_data_addr_internal);
                $finish;
            end
-           //$display("$$$$$$$$  data array  memory data width test passed                          $");    
+           //$display("$$$$$$$$  data array  memory data width test passed                          $");
           //read data check
            //$display("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-           //$display("$           data array test PASS!!!!!!!!!!!!!!!!!!!!                     $");    
-           //$display("$           data array test PASS!!!!!!!!!!!!!!!!!!!!                     $");    
-           //$display("$           data array test PASS!!!!!!!!!!!!!!!!!!!!                     $");    
+           //$display("$           data array test PASS!!!!!!!!!!!!!!!!!!!!                     $");
+           //$display("$           data array test PASS!!!!!!!!!!!!!!!!!!!!                     $");
+           //$display("$           data array test PASS!!!!!!!!!!!!!!!!!!!!                     $");
            //$display("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 
 
-           $display("$$$$$$$$  bht  Congratuations PASS!!!!!!!!!                     $");   
+           $display("$$$$$$$$  bht  Congratuations PASS!!!!!!!!!                     $");
            #10
              bht_mem_passed = 1'b1;
 
@@ -277,20 +277,20 @@ end
 //end
 
 
-always 
+always
 #(`CLK_PERIOD/2)  temp_data_CLK = ~temp_data_CLK;
-//always 
+//always
 //#(`CLK_PERIOD/2)  temp_tag_CLK = ~temp_tag_CLK;
-//always 
+//always
 //#(`CLK_PERIOD/2)  temp_dirty_CLK = ~temp_dirty_CLK;
-always 
+always
 #(`CLK_PERIOD/2)  temp_forever_cpuclk = ~temp_forever_cpuclk;
 
 always @(posedge temp_data_CLK)
 begin
 //data array mask
  data_mask <= { {temp_data_wen_internal[63:0]} };
-end 
+end
 
 
 

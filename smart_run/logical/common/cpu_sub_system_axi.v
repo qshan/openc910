@@ -65,11 +65,11 @@ module cpu_sub_system_axi
   had_pad_jtg_tdo_en                          ,
   //-------------------
 `ifdef PMU_LP_MODE_TEST
-  pmu_cpu_pwr_on , 
-  pmu_cpu_iso_in , 
-  pmu_cpu_iso_out, 
-  pmu_cpu_save   , 
-  pmu_cpu_restore, 
+  pmu_cpu_pwr_on ,
+  pmu_cpu_iso_in ,
+  pmu_cpu_iso_out,
+  pmu_cpu_save   ,
+  pmu_cpu_restore,
 `endif
   xx_intc_vld                                 ,
   per_clk                                     ,
@@ -80,7 +80,7 @@ module cpu_sub_system_axi
 
 
 ///////////////////////////////////////////////////
-// Input/Output Declarations 
+// Input/Output Declarations
 ///////////////////////////////////////////////////
 input                  axim_clk_en                              ;
 input                  pad_biu_arready                          ;
@@ -129,20 +129,20 @@ output                 had_pad_jtg_tdo_en                       ;
 
 //----------------------------------------------------------------------
 `ifdef PMU_LP_MODE_TEST
-input                  pmu_cpu_pwr_on ; 
-input                  pmu_cpu_iso_in ; 
-input                  pmu_cpu_iso_out; 
-input                  pmu_cpu_save   ; 
-input                  pmu_cpu_restore; 
+input                  pmu_cpu_pwr_on ;
+input                  pmu_cpu_iso_in ;
+input                  pmu_cpu_iso_out;
+input                  pmu_cpu_save   ;
+input                  pmu_cpu_restore;
 `endif
-input                  per_clk;                
-input      [39 :0]     xx_intc_vld;            
-input                  i_pad_jtg_tms;          
-output     [7  :0]     biu_pad_wid;            
-output     [1  :0]     biu_pad_lpmd_b;         
+input                  per_clk;
+input      [39 :0]     xx_intc_vld;
+input                  i_pad_jtg_tms;
+output     [7  :0]     biu_pad_wid;
+output     [1  :0]     biu_pad_lpmd_b;
 
 ///////////////////////////////////////////////////
-// Wire Declarations 
+// Wire Declarations
 ///////////////////////////////////////////////////
 wire                   axim_clk_en                              ;
 wire                   pad_biu_arready                          ;
@@ -194,13 +194,13 @@ wire                   had_pad_jtg_tdo                             ;
 wire                   had_pad_jtg_tdo_en                          ;
 
 //----------------------------------------------------------------------
-wire     [7  : 0]     biu_pad_wid;            
-wire     [63 : 0]     xx_intc_int;            
-wire     [39 : 0]     xx_intc_vld;            
+wire     [7  : 0]     biu_pad_wid;
+wire     [63 : 0]     xx_intc_int;
+wire     [39 : 0]     xx_intc_vld;
 reg      [63 : 0]     pad_cpu_sys_cnt;
 
 ///////////////////////////////////////////////////
-// Module Instantiation 
+// Module Instantiation
 ///////////////////////////////////////////////////
 rv_integration_platform  x_rv_integration_platform (
     .axim_clk_en                                  (axim_clk_en                              ),
@@ -369,15 +369,15 @@ assign pad_plic_int_vld[144 - 1 : 32] = 'h0;
 assign pad_plic_int_cfg  = 'b0;
 
 
-// for fiting AXI3 system bus 
-wire [7  :0]  tmp_biu_pad_awid     ;            
+// for fiting AXI3 system bus
+wire [7  :0]  tmp_biu_pad_awid     ;
 wire          tmp_biu_pad_awvalid  ;
 wire          tmp_biu_pad_wvalid   ;
-wire          tmp_biu_pad_wlast    ; 
+wire          tmp_biu_pad_wlast    ;
 wire          tmp_pad_biu_awready  ;
 wire          tmp_pad_biu_wready   ;
 
-assign # 0.1  tmp_biu_pad_awid    = biu_pad_awid; 
+assign # 0.1  tmp_biu_pad_awid    = biu_pad_awid;
 assign # 0.1  tmp_biu_pad_awvalid = biu_pad_awvalid;
 assign # 0.1  tmp_biu_pad_wvalid  = biu_pad_wvalid;
 assign # 0.1  tmp_biu_pad_wlast   = biu_pad_wlast;
@@ -386,7 +386,7 @@ assign # 0.1  tmp_pad_biu_wready  = pad_biu_wready;
 
 wid_for_axi4 wid_for_axi4 (
   .biu_pad_awid         (tmp_biu_pad_awid),
-  .biu_pad_awvalid      (tmp_biu_pad_awvalid), 
+  .biu_pad_awvalid      (tmp_biu_pad_awvalid),
   .biu_pad_wvalid       (tmp_biu_pad_wvalid),
   .biu_pad_wlast        (tmp_biu_pad_wlast),
   .pad_biu_awready      (tmp_pad_biu_awready),

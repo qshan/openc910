@@ -51,89 +51,89 @@ module ct_lsu_pfu_pfb_tsm(
 );
 
 // &Ports; @27
-input           cp0_lsu_icg_en;            
-input           cp0_yy_clk_en;             
-input   [1 :0]  cp0_yy_priv_mode;          
-input           cpurst_b;                  
-input           entry_act_vld;             
-input           entry_biu_pe_req_grnt;     
-input           entry_clk;                 
-input           entry_create_dp_vld;       
-input           entry_create_vld;          
-input           entry_from_lfb_dcache_hit; 
-input           entry_from_lfb_dcache_miss; 
-input           entry_l1_biu_pe_req_set;   
-input           entry_l1_mmu_pe_req_set;   
-input           entry_l2_biu_pe_req_set;   
-input           entry_l2_mmu_pe_req_set;   
-input           entry_mmu_pe_req_grnt;     
-input           entry_pf_inst_vld;         
-input           entry_pop_vld;             
-input           entry_reinit_vld;          
-input   [10:0]  entry_stride;              
-input           entry_stride_neg;          
-input           forever_cpuclk;            
-input           pad_yy_icg_scan_en;        
-input   [39:0]  pipe_va;                   
-output          entry_biu_pe_req;          
-output  [1 :0]  entry_biu_pe_req_src;      
-output          entry_dcache_hit_pop_req;  
-output  [39:0]  entry_inst_new_va;         
-output          entry_mmu_pe_req;          
-output  [1 :0]  entry_mmu_pe_req_src;      
-output  [1 :0]  entry_priv_mode;           
-output          entry_tsm_is_judge;        
-output          entry_vld;                 
+input           cp0_lsu_icg_en;
+input           cp0_yy_clk_en;
+input   [1 :0]  cp0_yy_priv_mode;
+input           cpurst_b;
+input           entry_act_vld;
+input           entry_biu_pe_req_grnt;
+input           entry_clk;
+input           entry_create_dp_vld;
+input           entry_create_vld;
+input           entry_from_lfb_dcache_hit;
+input           entry_from_lfb_dcache_miss;
+input           entry_l1_biu_pe_req_set;
+input           entry_l1_mmu_pe_req_set;
+input           entry_l2_biu_pe_req_set;
+input           entry_l2_mmu_pe_req_set;
+input           entry_mmu_pe_req_grnt;
+input           entry_pf_inst_vld;
+input           entry_pop_vld;
+input           entry_reinit_vld;
+input   [10:0]  entry_stride;
+input           entry_stride_neg;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+input   [39:0]  pipe_va;
+output          entry_biu_pe_req;
+output  [1 :0]  entry_biu_pe_req_src;
+output          entry_dcache_hit_pop_req;
+output  [39:0]  entry_inst_new_va;
+output          entry_mmu_pe_req;
+output  [1 :0]  entry_mmu_pe_req_src;
+output  [1 :0]  entry_priv_mode;
+output          entry_tsm_is_judge;
+output          entry_vld;
 
 // &Regs; @28
-reg             entry_already_dcache_hit;  
-reg             entry_biu_pe_req;          
-reg     [1 :0]  entry_biu_pe_req_src;      
-reg     [39:0]  entry_inst_new_va;         
-reg             entry_mmu_pe_req;          
-reg     [1 :0]  entry_mmu_pe_req_src;      
-reg     [1 :0]  entry_priv_mode;           
-reg     [1 :0]  entry_top_next_state;      
-reg     [1 :0]  entry_top_state;           
+reg             entry_already_dcache_hit;
+reg             entry_biu_pe_req;
+reg     [1 :0]  entry_biu_pe_req_src;
+reg     [39:0]  entry_inst_new_va;
+reg             entry_mmu_pe_req;
+reg     [1 :0]  entry_mmu_pe_req_src;
+reg     [1 :0]  entry_priv_mode;
+reg     [1 :0]  entry_top_next_state;
+reg     [1 :0]  entry_top_state;
 
 // &Wires; @29
-wire            cp0_lsu_icg_en;            
-wire            cp0_yy_clk_en;             
-wire    [1 :0]  cp0_yy_priv_mode;          
-wire            cpurst_b;                  
-wire            entry_act_vld;             
-wire            entry_biu_pe_req_grnt;     
-wire            entry_biu_pe_req_set;      
-wire    [1 :0]  entry_biu_pe_req_set_src;  
-wire            entry_clk;                 
-wire            entry_create_dp_vld;       
-wire            entry_create_vld;          
-wire            entry_dcache_hit_pop_req;  
-wire            entry_from_lfb_dcache_hit; 
-wire            entry_from_lfb_dcache_miss; 
-wire            entry_inst_new_va_cross_4k; 
-wire            entry_l1_biu_pe_req_set;   
-wire            entry_l1_mmu_pe_req_set;   
-wire            entry_l2_biu_pe_req_set;   
-wire            entry_l2_mmu_pe_req_set;   
-wire            entry_mmu_pe_req_grnt;     
-wire            entry_mmu_pe_req_set;      
-wire    [1 :0]  entry_mmu_pe_req_set_src;  
-wire            entry_pf_inst_vld;         
-wire            entry_pf_inst_vld_clk;     
-wire            entry_pf_inst_vld_clk_en;  
-wire    [39:0]  entry_pipe_va_add_stride;  
-wire            entry_pop_vld;             
-wire            entry_reinit_vld;          
-wire    [10:0]  entry_stride;              
-wire    [39:0]  entry_stride_ext;          
-wire            entry_stride_neg;          
-wire    [12:0]  entry_sum_4k;              
-wire            entry_tsm_is_judge;        
-wire            entry_vld;                 
-wire            forever_cpuclk;            
-wire            pad_yy_icg_scan_en;        
-wire    [39:0]  pipe_va;                   
+wire            cp0_lsu_icg_en;
+wire            cp0_yy_clk_en;
+wire    [1 :0]  cp0_yy_priv_mode;
+wire            cpurst_b;
+wire            entry_act_vld;
+wire            entry_biu_pe_req_grnt;
+wire            entry_biu_pe_req_set;
+wire    [1 :0]  entry_biu_pe_req_set_src;
+wire            entry_clk;
+wire            entry_create_dp_vld;
+wire            entry_create_vld;
+wire            entry_dcache_hit_pop_req;
+wire            entry_from_lfb_dcache_hit;
+wire            entry_from_lfb_dcache_miss;
+wire            entry_inst_new_va_cross_4k;
+wire            entry_l1_biu_pe_req_set;
+wire            entry_l1_mmu_pe_req_set;
+wire            entry_l2_biu_pe_req_set;
+wire            entry_l2_mmu_pe_req_set;
+wire            entry_mmu_pe_req_grnt;
+wire            entry_mmu_pe_req_set;
+wire    [1 :0]  entry_mmu_pe_req_set_src;
+wire            entry_pf_inst_vld;
+wire            entry_pf_inst_vld_clk;
+wire            entry_pf_inst_vld_clk_en;
+wire    [39:0]  entry_pipe_va_add_stride;
+wire            entry_pop_vld;
+wire            entry_reinit_vld;
+wire    [10:0]  entry_stride;
+wire    [39:0]  entry_stride_ext;
+wire            entry_stride_neg;
+wire    [12:0]  entry_sum_4k;
+wire            entry_tsm_is_judge;
+wire            entry_vld;
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
+wire    [39:0]  pipe_va;
 
 
 parameter IDLE                = 2'b00,
@@ -141,7 +141,7 @@ parameter IDLE                = 2'b00,
           JUDGE               = 2'b11;
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 //pf_inst_vld clk
 assign entry_pf_inst_vld_clk_en = entry_vld

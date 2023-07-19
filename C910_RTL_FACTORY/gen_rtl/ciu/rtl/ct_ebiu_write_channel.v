@@ -108,411 +108,411 @@ module ct_ebiu_write_channel(
 );
 
 // &Ports; @24
-input            ciu_icg_en;                     
-input            ciu_so_ostd_dis;                
-input            clk_en;                         
-input            cpurst_b;                       
-input   [39 :0]  ebiuif_ebiu_araddr;             
-input            forever_cpuclk;                 
-input            ncq_ebiu_awvalid;               
-input            ncq_ebiu_b_grant;               
-input            ncq_ebiu_wvalid;                
-input   [39 :0]  ncq_xx_araddr;                  
-input            ncq_xx_aw_needissue;            
-input   [39 :0]  ncq_xx_awaddr;                  
-input   [1  :0]  ncq_xx_awbar;                   
-input   [1  :0]  ncq_xx_awburst;                 
-input   [3  :0]  ncq_xx_awcache;                 
-input   [1  :0]  ncq_xx_awdomain;                
-input   [7  :0]  ncq_xx_awid;                    
-input   [7  :0]  ncq_xx_awlen;                   
-input            ncq_xx_awlock;                  
-input   [2  :0]  ncq_xx_awprot;                  
-input   [2  :0]  ncq_xx_awsize;                  
-input   [2  :0]  ncq_xx_awsnoop;                 
-input   [127:0]  ncq_xx_wdata;                   
-input   [7  :0]  ncq_xx_wid;                     
-input            ncq_xx_wlast;                   
-input   [15 :0]  ncq_xx_wstrb;                   
-input            pad_ebiu_awready;               
-input   [7  :0]  pad_ebiu_bid;                   
-input   [1  :0]  pad_ebiu_bresp;                 
-input            pad_ebiu_bvalid;                
-input            pad_ebiu_wready;                
-input            pad_yy_icg_scan_en;             
-input   [7  :0]  snb0_yy_snpext_index;           
-input   [7  :0]  snb1_yy_snpext_index;           
-input   [39 :0]  vb_ebiu_awaddr;                 
-input   [1  :0]  vb_ebiu_awbar;                  
-input   [1  :0]  vb_ebiu_awburst;                
-input   [3  :0]  vb_ebiu_awcache;                
-input   [1  :0]  vb_ebiu_awdomain;               
-input   [5  :0]  vb_ebiu_awid;                   
-input   [7  :0]  vb_ebiu_awlen;                  
-input            vb_ebiu_awlock;                 
-input   [2  :0]  vb_ebiu_awprot;                 
-input   [2  :0]  vb_ebiu_awsize;                 
-input   [2  :0]  vb_ebiu_awsnoop;                
-input            vb_ebiu_awvalid;                
-input            vb_ebiu_b_grant;                
-input   [2  :0]  vb_ebiu_mid;                    
-input   [127:0]  vb_ebiu_wdata;                  
-input   [5  :0]  vb_ebiu_wid;                    
-input            vb_ebiu_wlast;                  
-input   [15 :0]  vb_ebiu_wstrb;                  
-input            vb_ebiu_wvalid;                 
-output  [31 :0]  ca_rd_addr_hit_cawt;            
-output           ebiu_ncq_aw_grant;              
-output           ebiu_ncq_aw_grant_gated;        
-output  [7  :0]  ebiu_ncq_bid;                   
-output  [1  :0]  ebiu_ncq_bresp;                 
-output           ebiu_ncq_bvalid;                
-output           ebiu_ncq_w_grant;               
-output  [39 :0]  ebiu_pad_awaddr;                
-output  [1  :0]  ebiu_pad_awburst;               
-output  [3  :0]  ebiu_pad_awcache;               
-output  [7  :0]  ebiu_pad_awid;                  
-output  [7  :0]  ebiu_pad_awlen;                 
-output           ebiu_pad_awlock;                
-output  [2  :0]  ebiu_pad_awprot;                
-output  [2  :0]  ebiu_pad_awsize;                
-output           ebiu_pad_awvalid;               
-output           ebiu_pad_back;                  
-output           ebiu_pad_bready;                
-output  [127:0]  ebiu_pad_wdata;                 
-output           ebiu_pad_wlast;                 
-output  [15 :0]  ebiu_pad_wstrb;                 
-output           ebiu_pad_wvalid;                
-output           ebiu_piu0_no_op;                
-output           ebiu_piu1_no_op;                
-output           ebiu_piu2_no_op;                
-output           ebiu_piu3_no_op;                
-output           ebiu_vb_aw_grant;               
-output           ebiu_vb_aw_grant_gated;         
-output  [4  :0]  ebiu_vb_bid;                    
-output  [1  :0]  ebiu_vb_bresp;                  
-output           ebiu_vb_bvalid;                 
-output           ebiu_vb_w_grant;                
-output           ebiu_write_channel_no_op;       
-output  [15 :0]  nc_wo_rd_depd_ncwt;             
-output  [3  :0]  ncq_so_vld;                     
-output           snb0_snpext_depd_ebiu;          
-output           snb1_snpext_depd_ebiu;          
+input            ciu_icg_en;
+input            ciu_so_ostd_dis;
+input            clk_en;
+input            cpurst_b;
+input   [39 :0]  ebiuif_ebiu_araddr;
+input            forever_cpuclk;
+input            ncq_ebiu_awvalid;
+input            ncq_ebiu_b_grant;
+input            ncq_ebiu_wvalid;
+input   [39 :0]  ncq_xx_araddr;
+input            ncq_xx_aw_needissue;
+input   [39 :0]  ncq_xx_awaddr;
+input   [1  :0]  ncq_xx_awbar;
+input   [1  :0]  ncq_xx_awburst;
+input   [3  :0]  ncq_xx_awcache;
+input   [1  :0]  ncq_xx_awdomain;
+input   [7  :0]  ncq_xx_awid;
+input   [7  :0]  ncq_xx_awlen;
+input            ncq_xx_awlock;
+input   [2  :0]  ncq_xx_awprot;
+input   [2  :0]  ncq_xx_awsize;
+input   [2  :0]  ncq_xx_awsnoop;
+input   [127:0]  ncq_xx_wdata;
+input   [7  :0]  ncq_xx_wid;
+input            ncq_xx_wlast;
+input   [15 :0]  ncq_xx_wstrb;
+input            pad_ebiu_awready;
+input   [7  :0]  pad_ebiu_bid;
+input   [1  :0]  pad_ebiu_bresp;
+input            pad_ebiu_bvalid;
+input            pad_ebiu_wready;
+input            pad_yy_icg_scan_en;
+input   [7  :0]  snb0_yy_snpext_index;
+input   [7  :0]  snb1_yy_snpext_index;
+input   [39 :0]  vb_ebiu_awaddr;
+input   [1  :0]  vb_ebiu_awbar;
+input   [1  :0]  vb_ebiu_awburst;
+input   [3  :0]  vb_ebiu_awcache;
+input   [1  :0]  vb_ebiu_awdomain;
+input   [5  :0]  vb_ebiu_awid;
+input   [7  :0]  vb_ebiu_awlen;
+input            vb_ebiu_awlock;
+input   [2  :0]  vb_ebiu_awprot;
+input   [2  :0]  vb_ebiu_awsize;
+input   [2  :0]  vb_ebiu_awsnoop;
+input            vb_ebiu_awvalid;
+input            vb_ebiu_b_grant;
+input   [2  :0]  vb_ebiu_mid;
+input   [127:0]  vb_ebiu_wdata;
+input   [5  :0]  vb_ebiu_wid;
+input            vb_ebiu_wlast;
+input   [15 :0]  vb_ebiu_wstrb;
+input            vb_ebiu_wvalid;
+output  [31 :0]  ca_rd_addr_hit_cawt;
+output           ebiu_ncq_aw_grant;
+output           ebiu_ncq_aw_grant_gated;
+output  [7  :0]  ebiu_ncq_bid;
+output  [1  :0]  ebiu_ncq_bresp;
+output           ebiu_ncq_bvalid;
+output           ebiu_ncq_w_grant;
+output  [39 :0]  ebiu_pad_awaddr;
+output  [1  :0]  ebiu_pad_awburst;
+output  [3  :0]  ebiu_pad_awcache;
+output  [7  :0]  ebiu_pad_awid;
+output  [7  :0]  ebiu_pad_awlen;
+output           ebiu_pad_awlock;
+output  [2  :0]  ebiu_pad_awprot;
+output  [2  :0]  ebiu_pad_awsize;
+output           ebiu_pad_awvalid;
+output           ebiu_pad_back;
+output           ebiu_pad_bready;
+output  [127:0]  ebiu_pad_wdata;
+output           ebiu_pad_wlast;
+output  [15 :0]  ebiu_pad_wstrb;
+output           ebiu_pad_wvalid;
+output           ebiu_piu0_no_op;
+output           ebiu_piu1_no_op;
+output           ebiu_piu2_no_op;
+output           ebiu_piu3_no_op;
+output           ebiu_vb_aw_grant;
+output           ebiu_vb_aw_grant_gated;
+output  [4  :0]  ebiu_vb_bid;
+output  [1  :0]  ebiu_vb_bresp;
+output           ebiu_vb_bvalid;
+output           ebiu_vb_w_grant;
+output           ebiu_write_channel_no_op;
+output  [15 :0]  nc_wo_rd_depd_ncwt;
+output  [3  :0]  ncq_so_vld;
+output           snb0_snpext_depd_ebiu;
+output           snb1_snpext_depd_ebiu;
 
 // &Regs; @25
-reg              aw_vb_sel;                      
-reg     [4  :0]  cawt_create_ptr;                
-reg     [39 :0]  cur_waddr_buf_awaddr;           
-reg     [1  :0]  cur_waddr_buf_awbar;            
-reg     [1  :0]  cur_waddr_buf_awburst;          
-reg     [3  :0]  cur_waddr_buf_awcache;          
-reg     [1  :0]  cur_waddr_buf_awdomain;         
-reg     [7  :0]  cur_waddr_buf_awid;             
-reg     [7  :0]  cur_waddr_buf_awlen;            
-reg              cur_waddr_buf_awlock;           
-reg     [2  :0]  cur_waddr_buf_awprot;           
-reg     [2  :0]  cur_waddr_buf_awsize;           
-reg     [2  :0]  cur_waddr_buf_awsnoop;          
-reg              cur_waddr_buf_awvalid;          
-reg     [127:0]  cur_wdata_buf_wdata;            
-reg              cur_wdata_buf_wlast;            
-reg     [15 :0]  cur_wdata_buf_wstrb;            
-reg              cur_wdata_buf_wvalid;           
-reg              ebiu_pad_back;                  
-reg              ebiu_pad_bready;                
-reg     [4  :0]  ebiu_vb_bid;                    
-reg              ebiu_vb_bvalid;                 
-reg     [3  :0]  ncq_so_bus_cnt_core0;           
-reg     [3  :0]  ncq_so_bus_cnt_core1;           
-reg     [3  :0]  ncq_so_bus_cnt_core2;           
-reg     [3  :0]  ncq_so_bus_cnt_core3;           
-reg     [1  :0]  ncq_so_ex_fail_core0_cur_state; 
-reg     [1  :0]  ncq_so_ex_fail_core0_next_state; 
-reg     [1  :0]  ncq_so_ex_fail_core1_cur_state; 
-reg     [1  :0]  ncq_so_ex_fail_core1_next_state; 
-reg     [1  :0]  ncq_so_ex_fail_core2_cur_state; 
-reg     [1  :0]  ncq_so_ex_fail_core2_next_state; 
-reg     [1  :0]  ncq_so_ex_fail_core3_cur_state; 
-reg     [1  :0]  ncq_so_ex_fail_core3_next_state; 
-reg     [2  :0]  ncq_so_ex_fail_mid;             
-reg     [3  :0]  ncwt_bresp_ptr;                 
-reg     [3  :0]  ncwt_create_ptr;                
-reg     [3  :0]  ncwt_wdata_ptr;                 
-reg     [9  :0]  ncwt_wo_bus;                    
-reg     [3  :0]  ncwt_wo_ex_pass_ptr_core0;      
-reg     [3  :0]  ncwt_wo_ex_pass_ptr_core1;      
-reg     [3  :0]  ncwt_wo_ex_pass_ptr_core2;      
-reg     [3  :0]  ncwt_wo_ex_pass_ptr_core3;      
-reg     [15 :0]  w_order_needissue;              
-reg     [4  :0]  woq_create_ptr;                 
-reg     [4  :0]  woq_pop_ptr;                    
-reg     [15 :0]  wr_data_order_source;           
+reg              aw_vb_sel;
+reg     [4  :0]  cawt_create_ptr;
+reg     [39 :0]  cur_waddr_buf_awaddr;
+reg     [1  :0]  cur_waddr_buf_awbar;
+reg     [1  :0]  cur_waddr_buf_awburst;
+reg     [3  :0]  cur_waddr_buf_awcache;
+reg     [1  :0]  cur_waddr_buf_awdomain;
+reg     [7  :0]  cur_waddr_buf_awid;
+reg     [7  :0]  cur_waddr_buf_awlen;
+reg              cur_waddr_buf_awlock;
+reg     [2  :0]  cur_waddr_buf_awprot;
+reg     [2  :0]  cur_waddr_buf_awsize;
+reg     [2  :0]  cur_waddr_buf_awsnoop;
+reg              cur_waddr_buf_awvalid;
+reg     [127:0]  cur_wdata_buf_wdata;
+reg              cur_wdata_buf_wlast;
+reg     [15 :0]  cur_wdata_buf_wstrb;
+reg              cur_wdata_buf_wvalid;
+reg              ebiu_pad_back;
+reg              ebiu_pad_bready;
+reg     [4  :0]  ebiu_vb_bid;
+reg              ebiu_vb_bvalid;
+reg     [3  :0]  ncq_so_bus_cnt_core0;
+reg     [3  :0]  ncq_so_bus_cnt_core1;
+reg     [3  :0]  ncq_so_bus_cnt_core2;
+reg     [3  :0]  ncq_so_bus_cnt_core3;
+reg     [1  :0]  ncq_so_ex_fail_core0_cur_state;
+reg     [1  :0]  ncq_so_ex_fail_core0_next_state;
+reg     [1  :0]  ncq_so_ex_fail_core1_cur_state;
+reg     [1  :0]  ncq_so_ex_fail_core1_next_state;
+reg     [1  :0]  ncq_so_ex_fail_core2_cur_state;
+reg     [1  :0]  ncq_so_ex_fail_core2_next_state;
+reg     [1  :0]  ncq_so_ex_fail_core3_cur_state;
+reg     [1  :0]  ncq_so_ex_fail_core3_next_state;
+reg     [2  :0]  ncq_so_ex_fail_mid;
+reg     [3  :0]  ncwt_bresp_ptr;
+reg     [3  :0]  ncwt_create_ptr;
+reg     [3  :0]  ncwt_wdata_ptr;
+reg     [9  :0]  ncwt_wo_bus;
+reg     [3  :0]  ncwt_wo_ex_pass_ptr_core0;
+reg     [3  :0]  ncwt_wo_ex_pass_ptr_core1;
+reg     [3  :0]  ncwt_wo_ex_pass_ptr_core2;
+reg     [3  :0]  ncwt_wo_ex_pass_ptr_core3;
+reg     [15 :0]  w_order_needissue;
+reg     [4  :0]  woq_create_ptr;
+reg     [4  :0]  woq_pop_ptr;
+reg     [15 :0]  wr_data_order_source;
 
 // &Wires; @26
-wire             aw_needissue;                   
-wire             awdp_clk;                       
-wire             awdp_clk_en;                    
-wire    [7  :0]  awid_after;                     
-wire             back_vld;                       
-wire    [9  :0]  bfifo_create_bus;               
-wire             bfifo_create_en;                
-wire             bfifo_empty;                    
-wire             bfifo_full;                     
-wire    [7  :0]  bfifo_pop_bid;                  
-wire    [1  :0]  bfifo_pop_bresp;                
-wire    [9  :0]  bfifo_pop_bus;                  
-wire             bfifo_pop_bus_vld;              
-wire             bfifo_pop_en;                   
-wire             bready_set;                     
-wire             bvalid_so;                      
-wire             bvalid_vb;                      
-wire             bvalid_wo;                      
-wire             bvalid_wo_ex;                   
-wire    [31 :0]  ca_rd_addr_hit_cawt;            
-wire    [31 :0]  ca_wr_addr_hit_cawt;            
-wire    [31 :0]  cawt_create_dp_en;              
-wire    [31 :0]  cawt_create_en;                 
-wire             cawt_ctrl_clk;                  
-wire             cawt_ctrl_clk_en;               
-wire             cawt_empty;                     
-wire             cawt_full;                      
-wire    [31 :0]  cawt_piu0_sel;                  
-wire    [31 :0]  cawt_piu1_sel;                  
-wire    [31 :0]  cawt_piu2_sel;                  
-wire    [31 :0]  cawt_piu3_sel;                  
-wire    [31 :0]  cawt_pop_en;                    
-wire    [31 :0]  cawt_vld;                       
-wire             ciu_icg_en;                     
-wire             ciu_so_ostd_dis;                
-wire             clk_en;                         
-wire             cpurst_b;                       
-wire             ctrl_clk;                       
-wire             ctrl_clk_en;                    
-wire             cur_waddr_buf_ready;            
-wire             cur_wdata_buf_ready;            
-wire             ebiu_ncq_aw_grant;              
-wire             ebiu_ncq_aw_grant_gated;        
-wire             ebiu_ncq_aw_so_grant;           
-wire             ebiu_ncq_aw_so_grant_core0;     
-wire             ebiu_ncq_aw_so_grant_core1;     
-wire             ebiu_ncq_aw_so_grant_core2;     
-wire             ebiu_ncq_aw_so_grant_core3;     
-wire             ebiu_ncq_aw_so_grant_gated;     
-wire             ebiu_ncq_aw_wo_grant;           
-wire             ebiu_ncq_aw_wo_grant_core0;     
-wire             ebiu_ncq_aw_wo_grant_core1;     
-wire             ebiu_ncq_aw_wo_grant_core2;     
-wire             ebiu_ncq_aw_wo_grant_core3;     
-wire             ebiu_ncq_aw_wo_grant_gated;     
-wire    [7  :0]  ebiu_ncq_bid;                   
-wire    [1  :0]  ebiu_ncq_bresp;                 
-wire             ebiu_ncq_bvalid;                
-wire             ebiu_ncq_w_grant;               
-wire             ebiu_ncq_w_so_grant;            
-wire             ebiu_ncq_w_so_grant_core0;      
-wire             ebiu_ncq_w_so_grant_core1;      
-wire             ebiu_ncq_w_so_grant_core2;      
-wire             ebiu_ncq_w_so_grant_core3;      
-wire             ebiu_ncq_w_wo_grant;            
-wire    [39 :0]  ebiu_pad_awaddr;                
-wire    [1  :0]  ebiu_pad_awburst;               
-wire    [3  :0]  ebiu_pad_awcache;               
-wire    [7  :0]  ebiu_pad_awid;                  
-wire    [7  :0]  ebiu_pad_awlen;                 
-wire             ebiu_pad_awlock;                
-wire    [2  :0]  ebiu_pad_awprot;                
-wire    [2  :0]  ebiu_pad_awsize;                
-wire             ebiu_pad_awvalid;               
-wire    [127:0]  ebiu_pad_wdata;                 
-wire             ebiu_pad_wlast;                 
-wire    [15 :0]  ebiu_pad_wstrb;                 
-wire             ebiu_pad_wvalid;                
-wire             ebiu_piu0_no_op;                
-wire             ebiu_piu1_no_op;                
-wire             ebiu_piu2_no_op;                
-wire             ebiu_piu3_no_op;                
-wire             ebiu_vb_aw_grant;               
-wire             ebiu_vb_aw_grant_gated;         
-wire    [1  :0]  ebiu_vb_bresp;                  
-wire             ebiu_vb_w_grant;                
-wire             ebiu_write_channel_no_op;       
-wire    [39 :0]  ebiuif_ebiu_araddr;             
-wire    [9  :0]  entry0_ncwt_bus;                
-wire    [9  :0]  entry10_ncwt_bus;               
-wire    [9  :0]  entry11_ncwt_bus;               
-wire    [9  :0]  entry12_ncwt_bus;               
-wire    [9  :0]  entry13_ncwt_bus;               
-wire    [9  :0]  entry14_ncwt_bus;               
-wire    [9  :0]  entry15_ncwt_bus;               
-wire    [9  :0]  entry1_ncwt_bus;                
-wire    [9  :0]  entry2_ncwt_bus;                
-wire    [9  :0]  entry3_ncwt_bus;                
-wire    [9  :0]  entry4_ncwt_bus;                
-wire    [9  :0]  entry5_ncwt_bus;                
-wire    [9  :0]  entry6_ncwt_bus;                
-wire    [9  :0]  entry7_ncwt_bus;                
-wire    [9  :0]  entry8_ncwt_bus;                
-wire    [9  :0]  entry9_ncwt_bus;                
-wire             forever_cpuclk;                 
-wire    [15 :0]  nc_wo_rd_depd_ncwt;             
-wire    [15 :0]  nc_wo_wr_dped_ncwt;             
-wire             ncq_aw_core0;                   
-wire             ncq_aw_core1;                   
-wire             ncq_aw_core2;                   
-wire             ncq_aw_core3;                   
-wire             ncq_aw_ex;                      
-wire             ncq_aw_ex_fail;                 
-wire             ncq_aw_req;                     
-wire             ncq_aw_sel;                     
-wire             ncq_aw_so;                      
-wire             ncq_aw_wo;                      
-wire             ncq_b_core0;                    
-wire             ncq_b_core1;                    
-wire             ncq_b_core2;                    
-wire             ncq_b_core3;                    
-wire             ncq_b_so;                       
-wire             ncq_b_wo;                       
-wire             ncq_ebiu_awvalid;               
-wire             ncq_ebiu_b_grant;               
-wire             ncq_ebiu_b_so_grant;            
-wire             ncq_ebiu_b_so_grant_core0;      
-wire             ncq_ebiu_b_so_grant_core1;      
-wire             ncq_ebiu_b_so_grant_core2;      
-wire             ncq_ebiu_b_so_grant_core3;      
-wire             ncq_ebiu_b_wo_grant;            
-wire             ncq_ebiu_wvalid;                
-wire    [7  :0]  ncq_so_bid;                     
-wire    [1  :0]  ncq_so_bresp;                   
-wire    [7  :0]  ncq_so_bus_bid;                 
-wire    [1  :0]  ncq_so_bus_bresp;               
-wire             ncq_so_bus_bvalid;              
-wire             ncq_so_bus_cnt_dec_core0;       
-wire             ncq_so_bus_cnt_dec_core1;       
-wire             ncq_so_bus_cnt_dec_core2;       
-wire             ncq_so_bus_cnt_dec_core3;       
-wire             ncq_so_bus_cnt_full_core0;      
-wire             ncq_so_bus_cnt_full_core1;      
-wire             ncq_so_bus_cnt_full_core2;      
-wire             ncq_so_bus_cnt_full_core3;      
-wire             ncq_so_bus_cnt_inc_core0;       
-wire             ncq_so_bus_cnt_inc_core1;       
-wire             ncq_so_bus_cnt_inc_core2;       
-wire             ncq_so_bus_cnt_inc_core3;       
-wire             ncq_so_bus_cnt_zero_core0;      
-wire             ncq_so_bus_cnt_zero_core1;      
-wire             ncq_so_bus_cnt_zero_core2;      
-wire             ncq_so_bus_cnt_zero_core3;      
-wire             ncq_so_bus_grant;               
-wire             ncq_so_bvalid;                  
-wire             ncq_so_clk;                     
-wire             ncq_so_clk_en;                  
-wire             ncq_so_empty;                   
-wire    [7  :0]  ncq_so_ex_fail_bid;             
-wire    [1  :0]  ncq_so_ex_fail_bresp;           
-wire             ncq_so_ex_fail_bvalid;          
-wire             ncq_so_ex_fail_bvalid_core0;    
-wire             ncq_so_ex_fail_bvalid_core1;    
-wire             ncq_so_ex_fail_bvalid_core2;    
-wire             ncq_so_ex_fail_bvalid_core3;    
-wire             ncq_so_ex_fail_grant;           
-wire             ncq_so_ex_fail_vld_core0;       
-wire             ncq_so_ex_fail_vld_core1;       
-wire             ncq_so_ex_fail_vld_core2;       
-wire             ncq_so_ex_fail_vld_core3;       
-wire    [3  :0]  ncq_so_vld;                     
-wire             ncq_w_core0;                    
-wire             ncq_w_core1;                    
-wire             ncq_w_core2;                    
-wire             ncq_w_core3;                    
-wire             ncq_w_req;                      
-wire             ncq_w_so;                       
-wire             ncq_w_wo;                       
-wire    [7  :0]  ncq_wo_bid;                     
-wire    [1  :0]  ncq_wo_bresp;                   
-wire             ncq_wo_bvalid;                  
-wire             ncq_wo_clk;                     
-wire             ncq_wo_clk_en;                  
-wire    [39 :0]  ncq_xx_araddr;                  
-wire             ncq_xx_aw_needissue;            
-wire    [39 :0]  ncq_xx_awaddr;                  
-wire    [1  :0]  ncq_xx_awbar;                   
-wire    [1  :0]  ncq_xx_awburst;                 
-wire    [3  :0]  ncq_xx_awcache;                 
-wire    [1  :0]  ncq_xx_awdomain;                
-wire    [7  :0]  ncq_xx_awid;                    
-wire    [7  :0]  ncq_xx_awlen;                   
-wire             ncq_xx_awlock;                  
-wire    [2  :0]  ncq_xx_awprot;                  
-wire    [2  :0]  ncq_xx_awsize;                  
-wire    [2  :0]  ncq_xx_awsnoop;                 
-wire    [127:0]  ncq_xx_wdata;                   
-wire    [7  :0]  ncq_xx_wid;                     
-wire             ncq_xx_wlast;                   
-wire    [15 :0]  ncq_xx_wstrb;                   
-wire    [15 :0]  ncwt_bresp_accept_en;           
-wire    [3  :0]  ncwt_bus_bresp_ptr;             
-wire    [15 :0]  ncwt_bus_bresp_updt_en;         
-wire    [15 :0]  ncwt_bvalid;                    
-wire    [15 :0]  ncwt_create_dp_en;              
-wire    [15 :0]  ncwt_create_en;                 
-wire             ncwt_ctrl_clk;                  
-wire             ncwt_ctrl_clk_en;               
-wire             ncwt_empty;                     
-wire             ncwt_full;                      
-wire    [15 :0]  ncwt_piu0_sel;                  
-wire    [15 :0]  ncwt_piu1_sel;                  
-wire    [15 :0]  ncwt_piu2_sel;                  
-wire    [15 :0]  ncwt_piu3_sel;                  
-wire    [15 :0]  ncwt_vld;                       
-wire    [15 :0]  ncwt_wdata_create_en;           
-wire             pad_ebiu_awready;               
-wire    [7  :0]  pad_ebiu_bid;                   
-wire    [1  :0]  pad_ebiu_bresp;                 
-wire             pad_ebiu_bvalid;                
-wire             pad_ebiu_wready;                
-wire             pad_yy_icg_scan_en;             
-wire    [31 :0]  snb0_snpext_addr_hit_cawt;      
-wire             snb0_snpext_depd_ebiu;          
-wire    [7  :0]  snb0_yy_snpext_index;           
-wire    [31 :0]  snb1_snpext_addr_hit_cawt;      
-wire             snb1_snpext_depd_ebiu;          
-wire    [7  :0]  snb1_yy_snpext_index;           
-wire             vb_aw_req;                      
-wire             vb_aw_sel;                      
-wire             vb_b_clk;                       
-wire             vb_b_clk_en;                    
-wire    [39 :0]  vb_ebiu_awaddr;                 
-wire    [1  :0]  vb_ebiu_awbar;                  
-wire    [1  :0]  vb_ebiu_awburst;                
-wire    [3  :0]  vb_ebiu_awcache;                
-wire    [1  :0]  vb_ebiu_awdomain;               
-wire    [7  :0]  vb_ebiu_awlen;                  
-wire             vb_ebiu_awlock;                 
-wire    [2  :0]  vb_ebiu_awprot;                 
-wire    [2  :0]  vb_ebiu_awsize;                 
-wire    [2  :0]  vb_ebiu_awsnoop;                
-wire             vb_ebiu_awvalid;                
-wire    [2  :0]  vb_ebiu_mid;                    
-wire    [127:0]  vb_ebiu_wdata;                  
-wire    [5  :0]  vb_ebiu_wid;                    
-wire             vb_ebiu_wlast;                  
-wire    [15 :0]  vb_ebiu_wstrb;                  
-wire             vb_ebiu_wvalid;                 
-wire             vb_w_req;                       
-wire             w_needissue;                    
-wire             w_needissue_pre;                
-wire             wdp_clk;                        
-wire             wdp_clk_en;                     
-wire             wlast;                          
-wire    [3  :0]  wo_ex_pass_bid;                 
-wire             woq_empty;                      
-wire             woq_full;                       
-wire             wr_data_create_en;              
-wire             wr_data_pop_en;                 
-wire             wr_data_sel_ncq;                
-wire             wr_data_sel_vb;                 
-wire             wr_req_create_en;               
-wire             wr_req_pop_en;                  
+wire             aw_needissue;
+wire             awdp_clk;
+wire             awdp_clk_en;
+wire    [7  :0]  awid_after;
+wire             back_vld;
+wire    [9  :0]  bfifo_create_bus;
+wire             bfifo_create_en;
+wire             bfifo_empty;
+wire             bfifo_full;
+wire    [7  :0]  bfifo_pop_bid;
+wire    [1  :0]  bfifo_pop_bresp;
+wire    [9  :0]  bfifo_pop_bus;
+wire             bfifo_pop_bus_vld;
+wire             bfifo_pop_en;
+wire             bready_set;
+wire             bvalid_so;
+wire             bvalid_vb;
+wire             bvalid_wo;
+wire             bvalid_wo_ex;
+wire    [31 :0]  ca_rd_addr_hit_cawt;
+wire    [31 :0]  ca_wr_addr_hit_cawt;
+wire    [31 :0]  cawt_create_dp_en;
+wire    [31 :0]  cawt_create_en;
+wire             cawt_ctrl_clk;
+wire             cawt_ctrl_clk_en;
+wire             cawt_empty;
+wire             cawt_full;
+wire    [31 :0]  cawt_piu0_sel;
+wire    [31 :0]  cawt_piu1_sel;
+wire    [31 :0]  cawt_piu2_sel;
+wire    [31 :0]  cawt_piu3_sel;
+wire    [31 :0]  cawt_pop_en;
+wire    [31 :0]  cawt_vld;
+wire             ciu_icg_en;
+wire             ciu_so_ostd_dis;
+wire             clk_en;
+wire             cpurst_b;
+wire             ctrl_clk;
+wire             ctrl_clk_en;
+wire             cur_waddr_buf_ready;
+wire             cur_wdata_buf_ready;
+wire             ebiu_ncq_aw_grant;
+wire             ebiu_ncq_aw_grant_gated;
+wire             ebiu_ncq_aw_so_grant;
+wire             ebiu_ncq_aw_so_grant_core0;
+wire             ebiu_ncq_aw_so_grant_core1;
+wire             ebiu_ncq_aw_so_grant_core2;
+wire             ebiu_ncq_aw_so_grant_core3;
+wire             ebiu_ncq_aw_so_grant_gated;
+wire             ebiu_ncq_aw_wo_grant;
+wire             ebiu_ncq_aw_wo_grant_core0;
+wire             ebiu_ncq_aw_wo_grant_core1;
+wire             ebiu_ncq_aw_wo_grant_core2;
+wire             ebiu_ncq_aw_wo_grant_core3;
+wire             ebiu_ncq_aw_wo_grant_gated;
+wire    [7  :0]  ebiu_ncq_bid;
+wire    [1  :0]  ebiu_ncq_bresp;
+wire             ebiu_ncq_bvalid;
+wire             ebiu_ncq_w_grant;
+wire             ebiu_ncq_w_so_grant;
+wire             ebiu_ncq_w_so_grant_core0;
+wire             ebiu_ncq_w_so_grant_core1;
+wire             ebiu_ncq_w_so_grant_core2;
+wire             ebiu_ncq_w_so_grant_core3;
+wire             ebiu_ncq_w_wo_grant;
+wire    [39 :0]  ebiu_pad_awaddr;
+wire    [1  :0]  ebiu_pad_awburst;
+wire    [3  :0]  ebiu_pad_awcache;
+wire    [7  :0]  ebiu_pad_awid;
+wire    [7  :0]  ebiu_pad_awlen;
+wire             ebiu_pad_awlock;
+wire    [2  :0]  ebiu_pad_awprot;
+wire    [2  :0]  ebiu_pad_awsize;
+wire             ebiu_pad_awvalid;
+wire    [127:0]  ebiu_pad_wdata;
+wire             ebiu_pad_wlast;
+wire    [15 :0]  ebiu_pad_wstrb;
+wire             ebiu_pad_wvalid;
+wire             ebiu_piu0_no_op;
+wire             ebiu_piu1_no_op;
+wire             ebiu_piu2_no_op;
+wire             ebiu_piu3_no_op;
+wire             ebiu_vb_aw_grant;
+wire             ebiu_vb_aw_grant_gated;
+wire    [1  :0]  ebiu_vb_bresp;
+wire             ebiu_vb_w_grant;
+wire             ebiu_write_channel_no_op;
+wire    [39 :0]  ebiuif_ebiu_araddr;
+wire    [9  :0]  entry0_ncwt_bus;
+wire    [9  :0]  entry10_ncwt_bus;
+wire    [9  :0]  entry11_ncwt_bus;
+wire    [9  :0]  entry12_ncwt_bus;
+wire    [9  :0]  entry13_ncwt_bus;
+wire    [9  :0]  entry14_ncwt_bus;
+wire    [9  :0]  entry15_ncwt_bus;
+wire    [9  :0]  entry1_ncwt_bus;
+wire    [9  :0]  entry2_ncwt_bus;
+wire    [9  :0]  entry3_ncwt_bus;
+wire    [9  :0]  entry4_ncwt_bus;
+wire    [9  :0]  entry5_ncwt_bus;
+wire    [9  :0]  entry6_ncwt_bus;
+wire    [9  :0]  entry7_ncwt_bus;
+wire    [9  :0]  entry8_ncwt_bus;
+wire    [9  :0]  entry9_ncwt_bus;
+wire             forever_cpuclk;
+wire    [15 :0]  nc_wo_rd_depd_ncwt;
+wire    [15 :0]  nc_wo_wr_dped_ncwt;
+wire             ncq_aw_core0;
+wire             ncq_aw_core1;
+wire             ncq_aw_core2;
+wire             ncq_aw_core3;
+wire             ncq_aw_ex;
+wire             ncq_aw_ex_fail;
+wire             ncq_aw_req;
+wire             ncq_aw_sel;
+wire             ncq_aw_so;
+wire             ncq_aw_wo;
+wire             ncq_b_core0;
+wire             ncq_b_core1;
+wire             ncq_b_core2;
+wire             ncq_b_core3;
+wire             ncq_b_so;
+wire             ncq_b_wo;
+wire             ncq_ebiu_awvalid;
+wire             ncq_ebiu_b_grant;
+wire             ncq_ebiu_b_so_grant;
+wire             ncq_ebiu_b_so_grant_core0;
+wire             ncq_ebiu_b_so_grant_core1;
+wire             ncq_ebiu_b_so_grant_core2;
+wire             ncq_ebiu_b_so_grant_core3;
+wire             ncq_ebiu_b_wo_grant;
+wire             ncq_ebiu_wvalid;
+wire    [7  :0]  ncq_so_bid;
+wire    [1  :0]  ncq_so_bresp;
+wire    [7  :0]  ncq_so_bus_bid;
+wire    [1  :0]  ncq_so_bus_bresp;
+wire             ncq_so_bus_bvalid;
+wire             ncq_so_bus_cnt_dec_core0;
+wire             ncq_so_bus_cnt_dec_core1;
+wire             ncq_so_bus_cnt_dec_core2;
+wire             ncq_so_bus_cnt_dec_core3;
+wire             ncq_so_bus_cnt_full_core0;
+wire             ncq_so_bus_cnt_full_core1;
+wire             ncq_so_bus_cnt_full_core2;
+wire             ncq_so_bus_cnt_full_core3;
+wire             ncq_so_bus_cnt_inc_core0;
+wire             ncq_so_bus_cnt_inc_core1;
+wire             ncq_so_bus_cnt_inc_core2;
+wire             ncq_so_bus_cnt_inc_core3;
+wire             ncq_so_bus_cnt_zero_core0;
+wire             ncq_so_bus_cnt_zero_core1;
+wire             ncq_so_bus_cnt_zero_core2;
+wire             ncq_so_bus_cnt_zero_core3;
+wire             ncq_so_bus_grant;
+wire             ncq_so_bvalid;
+wire             ncq_so_clk;
+wire             ncq_so_clk_en;
+wire             ncq_so_empty;
+wire    [7  :0]  ncq_so_ex_fail_bid;
+wire    [1  :0]  ncq_so_ex_fail_bresp;
+wire             ncq_so_ex_fail_bvalid;
+wire             ncq_so_ex_fail_bvalid_core0;
+wire             ncq_so_ex_fail_bvalid_core1;
+wire             ncq_so_ex_fail_bvalid_core2;
+wire             ncq_so_ex_fail_bvalid_core3;
+wire             ncq_so_ex_fail_grant;
+wire             ncq_so_ex_fail_vld_core0;
+wire             ncq_so_ex_fail_vld_core1;
+wire             ncq_so_ex_fail_vld_core2;
+wire             ncq_so_ex_fail_vld_core3;
+wire    [3  :0]  ncq_so_vld;
+wire             ncq_w_core0;
+wire             ncq_w_core1;
+wire             ncq_w_core2;
+wire             ncq_w_core3;
+wire             ncq_w_req;
+wire             ncq_w_so;
+wire             ncq_w_wo;
+wire    [7  :0]  ncq_wo_bid;
+wire    [1  :0]  ncq_wo_bresp;
+wire             ncq_wo_bvalid;
+wire             ncq_wo_clk;
+wire             ncq_wo_clk_en;
+wire    [39 :0]  ncq_xx_araddr;
+wire             ncq_xx_aw_needissue;
+wire    [39 :0]  ncq_xx_awaddr;
+wire    [1  :0]  ncq_xx_awbar;
+wire    [1  :0]  ncq_xx_awburst;
+wire    [3  :0]  ncq_xx_awcache;
+wire    [1  :0]  ncq_xx_awdomain;
+wire    [7  :0]  ncq_xx_awid;
+wire    [7  :0]  ncq_xx_awlen;
+wire             ncq_xx_awlock;
+wire    [2  :0]  ncq_xx_awprot;
+wire    [2  :0]  ncq_xx_awsize;
+wire    [2  :0]  ncq_xx_awsnoop;
+wire    [127:0]  ncq_xx_wdata;
+wire    [7  :0]  ncq_xx_wid;
+wire             ncq_xx_wlast;
+wire    [15 :0]  ncq_xx_wstrb;
+wire    [15 :0]  ncwt_bresp_accept_en;
+wire    [3  :0]  ncwt_bus_bresp_ptr;
+wire    [15 :0]  ncwt_bus_bresp_updt_en;
+wire    [15 :0]  ncwt_bvalid;
+wire    [15 :0]  ncwt_create_dp_en;
+wire    [15 :0]  ncwt_create_en;
+wire             ncwt_ctrl_clk;
+wire             ncwt_ctrl_clk_en;
+wire             ncwt_empty;
+wire             ncwt_full;
+wire    [15 :0]  ncwt_piu0_sel;
+wire    [15 :0]  ncwt_piu1_sel;
+wire    [15 :0]  ncwt_piu2_sel;
+wire    [15 :0]  ncwt_piu3_sel;
+wire    [15 :0]  ncwt_vld;
+wire    [15 :0]  ncwt_wdata_create_en;
+wire             pad_ebiu_awready;
+wire    [7  :0]  pad_ebiu_bid;
+wire    [1  :0]  pad_ebiu_bresp;
+wire             pad_ebiu_bvalid;
+wire             pad_ebiu_wready;
+wire             pad_yy_icg_scan_en;
+wire    [31 :0]  snb0_snpext_addr_hit_cawt;
+wire             snb0_snpext_depd_ebiu;
+wire    [7  :0]  snb0_yy_snpext_index;
+wire    [31 :0]  snb1_snpext_addr_hit_cawt;
+wire             snb1_snpext_depd_ebiu;
+wire    [7  :0]  snb1_yy_snpext_index;
+wire             vb_aw_req;
+wire             vb_aw_sel;
+wire             vb_b_clk;
+wire             vb_b_clk_en;
+wire    [39 :0]  vb_ebiu_awaddr;
+wire    [1  :0]  vb_ebiu_awbar;
+wire    [1  :0]  vb_ebiu_awburst;
+wire    [3  :0]  vb_ebiu_awcache;
+wire    [1  :0]  vb_ebiu_awdomain;
+wire    [7  :0]  vb_ebiu_awlen;
+wire             vb_ebiu_awlock;
+wire    [2  :0]  vb_ebiu_awprot;
+wire    [2  :0]  vb_ebiu_awsize;
+wire    [2  :0]  vb_ebiu_awsnoop;
+wire             vb_ebiu_awvalid;
+wire    [2  :0]  vb_ebiu_mid;
+wire    [127:0]  vb_ebiu_wdata;
+wire    [5  :0]  vb_ebiu_wid;
+wire             vb_ebiu_wlast;
+wire    [15 :0]  vb_ebiu_wstrb;
+wire             vb_ebiu_wvalid;
+wire             vb_w_req;
+wire             w_needissue;
+wire             w_needissue_pre;
+wire             wdp_clk;
+wire             wdp_clk_en;
+wire             wlast;
+wire    [3  :0]  wo_ex_pass_bid;
+wire             woq_empty;
+wire             woq_full;
+wire             wr_data_create_en;
+wire             wr_data_pop_en;
+wire             wr_data_sel_ncq;
+wire             wr_data_sel_vb;
+wire             wr_req_create_en;
+wire             wr_req_pop_en;
 
 
 parameter ADDRW    = `PA_WIDTH;
@@ -563,7 +563,7 @@ begin
 end
 
 //==========================================================
-//           write addr channel                        
+//           write addr channel
 //cur_waddr_buf:
 //| cur_waddr_buf_awvalid | cur_raddr_buf_awid | cur_raddr_buf_awaddr |
 //|             ..._awlen |         ..._awsize |          ..._awburst |
@@ -597,7 +597,7 @@ assign wr_req_create_en = ebiu_ncq_aw_grant || ebiu_vb_aw_grant;
 assign cur_waddr_buf_ready = (!cur_waddr_buf_awvalid || pad_ebiu_awready)
                            && clk_en;
 
-assign wr_req_pop_en = cur_waddr_buf_awvalid && pad_ebiu_awready 
+assign wr_req_pop_en = cur_waddr_buf_awvalid && pad_ebiu_awready
                      && clk_en;
 
 always @(posedge ctrl_clk or negedge cpurst_b)
@@ -608,7 +608,7 @@ begin
     cur_waddr_buf_awvalid <= 1'b1;
   else if(wr_req_pop_en)
     cur_waddr_buf_awvalid <= 1'b0;
-  else 
+  else
     cur_waddr_buf_awvalid <= cur_waddr_buf_awvalid;
 end
 
@@ -646,7 +646,7 @@ begin
       cur_waddr_buf_awdomain[1:0]      <= ncq_xx_awdomain[1:0];
       cur_waddr_buf_awbar[1:0]         <= ncq_xx_awbar[1:0];
     end
-    else 
+    else
     begin
       cur_waddr_buf_awid[7:0]          <= {3'b111,cawt_create_ptr[4:0]};
       cur_waddr_buf_awaddr[ADDRW-1:0]  <= vb_ebiu_awaddr[ADDRW-1:0];
@@ -678,7 +678,7 @@ assign ebiu_pad_awaddr[ADDRW-1:0] = cur_waddr_buf_awaddr[ADDRW-1:0];
 
 
 //==========================================================
-//           write data channel                        
+//           write data channel
 // transmit write req (addr & data)
 //==========================================================
 parameter WD_ORDER_ENTRY = 16;
@@ -734,7 +734,7 @@ begin
     for(i=0;i<WD_ORDER_ENTRY;i=i+1)
       w_order_needissue[i] <= 1'b1;
   end
-  else 
+  else
   begin
     for(i=0;i<WD_ORDER_ENTRY;i=i+1)
     begin
@@ -742,7 +742,7 @@ begin
         w_order_needissue[i] <= w_needissue_pre;
       else
         w_order_needissue[i] <= w_order_needissue[i];
-    end 
+    end
   end
 end
 
@@ -751,7 +751,7 @@ assign wr_data_sel_vb  =  wr_data_order_source[woq_pop_ptr[3:0]] && !woq_empty;
 assign wr_data_sel_ncq = !wr_data_order_source[woq_pop_ptr[3:0]] && !woq_empty;
 
 //--------------------------------------
-//           write data channel                        
+//           write data channel
 //cur_wdata_buf:
 //| cur_wdata_buf_wvalid |
 //| cur_wdata_buf_wdata  | cur_wdata_buf_wstrb | cur_wdata_buf_wlast |
@@ -767,7 +767,7 @@ assign ebiu_ncq_w_grant = ncq_w_req && cur_wdata_buf_ready;
 assign ebiu_vb_w_grant  = vb_w_req && cur_wdata_buf_ready;
 
 assign wr_data_create_en = ebiu_ncq_w_grant || ebiu_vb_w_grant;
-assign wr_data_pop_en    = cur_wdata_buf_wvalid && pad_ebiu_wready 
+assign wr_data_pop_en    = cur_wdata_buf_wvalid && pad_ebiu_wready
                         && clk_en;
 
 always @(posedge ctrl_clk or negedge cpurst_b)
@@ -860,7 +860,7 @@ end
 assign ebiu_vb_bresp[1:0] = 2'b00;
 
 //==========================================================
-//           write resp channel                        
+//           write resp channel
 // transmit resp from bus to req source(lsu)
 //cur_bresp_buf:
 //| bfifo_pop_bus_vld |
@@ -879,7 +879,7 @@ assign bfifo_create_bus[BWIDTH-1:0] = {pad_ebiu_bid[7:0],
                                        pad_ebiu_bresp[1:0]};
 
 assign bfifo_pop_en = bfifo_pop_bus_vld & (!bvalid_so | ncq_ebiu_b_so_grant);
-                           
+
 ct_fifo #(.WIDTH(BWIDTH), .DEPTH(2), .PTR_W(1)) x_ct_ebiu_bfifo(
   .clk                 (forever_cpuclk       ),
   .rst_b               (cpurst_b             ),
@@ -894,7 +894,7 @@ ct_fifo #(.WIDTH(BWIDTH), .DEPTH(2), .PTR_W(1)) x_ct_ebiu_bfifo(
   .pad_yy_icg_scan_en  (pad_yy_icg_scan_en   ),
   .fifo_icg_en         (ciu_icg_en           )
 );
-    
+
 assign bfifo_pop_bid[7:0]   = bfifo_pop_bus[9:2];
 assign bfifo_pop_bresp[1:0] = bfifo_pop_bus[1:0];
 
@@ -904,7 +904,7 @@ assign bfifo_pop_bresp[1:0] = bfifo_pop_bus[1:0];
 //--------------------------------------
 // &Force("output", "ebiu_pad_bready"); @504
 
-assign bready_set = bfifo_empty | 
+assign bready_set = bfifo_empty |
                    ~bfifo_full & (bfifo_pop_en | ~bfifo_create_en) |
                     bfifo_full &  bfifo_pop_en & ~bfifo_create_en;
 
@@ -1069,7 +1069,7 @@ assign ncq_so_vld[3:0] = {ncq_so_ex_fail_vld_core3 | !ncq_so_bus_cnt_zero_core3,
 assign ncq_so_empty = !(|ncq_so_vld[3:0]);
 
 //================================================
-//             so lock gm_fail 
+//             so lock gm_fail
 //             core0
 //================================================
 parameter IDLE = 2'b00;
@@ -1121,7 +1121,7 @@ assign ncq_so_ex_fail_vld_core0 = ncq_so_ex_fail_core0_cur_state != IDLE;
 assign ncq_so_ex_fail_bvalid_core0 = ncq_so_ex_fail_core0_cur_state == BVLD;
 
 //================================================
-//             so lock gm_fail 
+//             so lock gm_fail
 //             core1
 //================================================
 always @(posedge ncq_so_clk or negedge cpurst_b)
@@ -1169,7 +1169,7 @@ assign ncq_so_ex_fail_vld_core1 = ncq_so_ex_fail_core1_cur_state != IDLE;
 assign ncq_so_ex_fail_bvalid_core1 = ncq_so_ex_fail_core1_cur_state == BVLD;
 
 //================================================
-//             so lock gm_fail 
+//             so lock gm_fail
 //             core2
 //================================================
 
@@ -1218,7 +1218,7 @@ assign ncq_so_ex_fail_vld_core2 = ncq_so_ex_fail_core2_cur_state != IDLE;
 assign ncq_so_ex_fail_bvalid_core2 = ncq_so_ex_fail_core2_cur_state == BVLD;
 
 //================================================
-//             so lock gm_fail 
+//             so lock gm_fail
 //             core3
 //================================================
 
@@ -1267,7 +1267,7 @@ assign ncq_so_ex_fail_vld_core3 = ncq_so_ex_fail_core3_cur_state != IDLE;
 assign ncq_so_ex_fail_bvalid_core3 = ncq_so_ex_fail_core3_cur_state == BVLD;
 
 //================================================
-//             so counter: 
+//             so counter:
 // record the number of so requests waiting for bus bresp
 //================================================
 assign ncq_so_bus_bvalid     = bfifo_pop_bus_vld & bvalid_so;
@@ -1430,7 +1430,7 @@ assign ncq_wo_bresp[1:0] = ncwt_wo_bus[1:0];
 //================================================
 // NCWT POP PTR: using to receive bresp from bus
 //================================================
-//since WO & LOCK & GM_PASS remain sending original awid to BUS, 
+//since WO & LOCK & GM_PASS remain sending original awid to BUS,
 //so ncwt entry ID should be hold in a specific buffer.
 always @(posedge ncq_wo_clk or negedge cpurst_b)
 begin
@@ -1464,7 +1464,7 @@ begin
     ncwt_wo_ex_pass_ptr_core3[3:0] <= ncwt_create_ptr[3:0];
 end
 
-assign wo_ex_pass_bid[3:0] = bfifo_pop_bid[6] 
+assign wo_ex_pass_bid[3:0] = bfifo_pop_bid[6]
                              ? bfifo_pop_bid[5] ? ncwt_wo_ex_pass_ptr_core3[3:0]
                                                     : ncwt_wo_ex_pass_ptr_core2[3:0]
                              : bfifo_pop_bid[5] ? ncwt_wo_ex_pass_ptr_core1[3:0]
@@ -1473,7 +1473,7 @@ assign wo_ex_pass_bid[3:0] = bfifo_pop_bid[6]
 assign ncwt_bus_bresp_ptr[3:0]      = bvalid_wo_ex ? wo_ex_pass_bid[3:0] : bfifo_pop_bid[3:0];
 assign ncwt_bus_bresp_updt_en[15:0] = (16'b1 << ncwt_bus_bresp_ptr[3:0]) & {16{bfifo_pop_bus_vld & bvalid_wo}};
 
-                           
+
 //==============================================================================
 //                 ca_write_table maintance
 //           using to record all weak order cacheable requests
@@ -1518,7 +1518,7 @@ assign ebiu_piu1_no_op = !(|(cawt_vld[31:0] & cawt_piu1_sel[31:0])) &
 
 assign ebiu_piu2_no_op = !(|(cawt_vld[31:0] & cawt_piu2_sel[31:0])) &
                          !(|(ncwt_vld[15:0] & ncwt_piu2_sel[15:0])) &
-                         !ncq_so_vld[2];    
+                         !ncq_so_vld[2];
 
 assign ebiu_piu3_no_op = !(|(cawt_vld[31:0] & cawt_piu3_sel[31:0])) &
                          !(|(ncwt_vld[15:0] & ncwt_piu3_sel[15:0])) &
@@ -3002,7 +3002,7 @@ gated_clk_cell  x_ebiu_ncq_wo_gated_clk (
 //          .local_en    (ncq_wo_clk_en), @1288
 //          .clk_out     (ncq_wo_clk)); @1289
 
-assign ctrl_clk_en = ncq_ebiu_awvalid || vb_ebiu_awvalid || wr_req_pop_en || 
+assign ctrl_clk_en = ncq_ebiu_awvalid || vb_ebiu_awvalid || wr_req_pop_en ||
                      wr_data_create_en || wr_data_pop_en ||
                      clk_en && (bready_set || ebiu_pad_bready) ||
                      bfifo_create_en || ebiu_pad_back;

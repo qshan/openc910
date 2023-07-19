@@ -40,58 +40,58 @@ module ct_ciu_bmbif_kid(
 );
 
 // &Ports; @21
-input          ciu_icg_en;         
-input          cpurst_b;           
-input          forever_cpuclk;     
-input          pad_yy_icg_scan_en; 
-input   [8:0]  piu0_bmbif_req_bus; 
-input          piu0_bmbif_xx_req;  
-input   [8:0]  piu1_bmbif_req_bus; 
-input          piu1_bmbif_xx_req;  
-input   [8:0]  piu2_bmbif_req_bus; 
-input          piu2_bmbif_xx_req;  
-input   [8:0]  piu3_bmbif_req_bus; 
-input          piu3_bmbif_xx_req;  
-input          xx_bmbif_bar_grant; 
-output         bmbif_piu0_xx_grant; 
-output         bmbif_piu1_xx_grant; 
-output         bmbif_piu2_xx_grant; 
-output         bmbif_piu3_xx_grant; 
-output         bmbif_xx_bar_req;   
-output  [2:0]  bmbif_xx_mid;       
-output  [8:0]  bmbif_xx_req_bus;   
+input          ciu_icg_en;
+input          cpurst_b;
+input          forever_cpuclk;
+input          pad_yy_icg_scan_en;
+input   [8:0]  piu0_bmbif_req_bus;
+input          piu0_bmbif_xx_req;
+input   [8:0]  piu1_bmbif_req_bus;
+input          piu1_bmbif_xx_req;
+input   [8:0]  piu2_bmbif_req_bus;
+input          piu2_bmbif_xx_req;
+input   [8:0]  piu3_bmbif_req_bus;
+input          piu3_bmbif_xx_req;
+input          xx_bmbif_bar_grant;
+output         bmbif_piu0_xx_grant;
+output         bmbif_piu1_xx_grant;
+output         bmbif_piu2_xx_grant;
+output         bmbif_piu3_xx_grant;
+output         bmbif_xx_bar_req;
+output  [2:0]  bmbif_xx_mid;
+output  [8:0]  bmbif_xx_req_bus;
 
 // &Regs; @22
 
 // &Wires; @23
-wire           bmbif_piu0_xx_grant; 
-wire           bmbif_piu1_xx_grant; 
-wire           bmbif_piu2_xx_grant; 
-wire           bmbif_piu3_xx_grant; 
-wire           bmbif_xx_bar_req;   
-wire           bmbif_xx_clk;       
-wire           bmbif_xx_clk_en;    
-wire    [2:0]  bmbif_xx_mid;       
-wire    [8:0]  bmbif_xx_req_bus;   
-wire           ciu_icg_en;         
-wire           forever_cpuclk;     
-wire           pad_yy_icg_scan_en; 
-wire    [8:0]  piu0_bmbif_req_bus; 
-wire           piu0_bmbif_xx_req;  
-wire    [8:0]  piu1_bmbif_req_bus; 
-wire           piu1_bmbif_xx_req;  
-wire    [8:0]  piu2_bmbif_req_bus; 
-wire           piu2_bmbif_xx_req;  
-wire    [8:0]  piu3_bmbif_req_bus; 
-wire           piu3_bmbif_xx_req;  
-wire    [3:0]  xx_bar_sel;         
-wire    [3:0]  xx_bar_valid;       
-wire           xx_bmbif_bar_grant; 
-wire    [3:0]  xx_fifo_create_bus; 
-wire           xx_fifo_create_en;  
-wire    [3:0]  xx_fifo_pop_bus;    
-wire           xx_fifo_pop_bus_vld; 
-wire           xx_fifo_pop_en;     
+wire           bmbif_piu0_xx_grant;
+wire           bmbif_piu1_xx_grant;
+wire           bmbif_piu2_xx_grant;
+wire           bmbif_piu3_xx_grant;
+wire           bmbif_xx_bar_req;
+wire           bmbif_xx_clk;
+wire           bmbif_xx_clk_en;
+wire    [2:0]  bmbif_xx_mid;
+wire    [8:0]  bmbif_xx_req_bus;
+wire           ciu_icg_en;
+wire           forever_cpuclk;
+wire           pad_yy_icg_scan_en;
+wire    [8:0]  piu0_bmbif_req_bus;
+wire           piu0_bmbif_xx_req;
+wire    [8:0]  piu1_bmbif_req_bus;
+wire           piu1_bmbif_xx_req;
+wire    [8:0]  piu2_bmbif_req_bus;
+wire           piu2_bmbif_xx_req;
+wire    [8:0]  piu3_bmbif_req_bus;
+wire           piu3_bmbif_xx_req;
+wire    [3:0]  xx_bar_sel;
+wire    [3:0]  xx_bar_valid;
+wire           xx_bmbif_bar_grant;
+wire    [3:0]  xx_fifo_create_bus;
+wire           xx_fifo_create_en;
+wire    [3:0]  xx_fifo_pop_bus;
+wire           xx_fifo_pop_bus_vld;
+wire           xx_fifo_pop_en;
 
 
 // &Force("nonport", "bmbif_xx_clk"); @25
@@ -166,7 +166,7 @@ ct_fifo #(.WIDTH(4),.DEPTH(4),.PTR_W(2)) x_ct_bmbif_xx_fifo(
 );
 
 assign bmbif_xx_bar_req = xx_fifo_pop_bus_vld;
-assign bmbif_xx_req_bus[8:0] = 
+assign bmbif_xx_req_bus[8:0] =
          {9{xx_fifo_pop_bus[3]}} & piu3_bmbif_req_bus[8:0] |
          {9{xx_fifo_pop_bus[2]}} & piu2_bmbif_req_bus[8:0] |
          {9{xx_fifo_pop_bus[1]}} & piu1_bmbif_req_bus[8:0] |
@@ -180,4 +180,4 @@ assign bmbif_xx_mid[0] = xx_fifo_pop_bus[3] | xx_fifo_pop_bus[1];
 endmodule
 
 
- 
+

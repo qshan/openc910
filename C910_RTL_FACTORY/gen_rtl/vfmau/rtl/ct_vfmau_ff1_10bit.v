@@ -20,14 +20,14 @@ module ct_vfmau_ff1_10bit(
 );
 
 // &Ports; @24
-input   [9:0]  ff1_data;  
-output  [3:0]  ff1_result; 
+input   [9:0]  ff1_data;
+output  [3:0]  ff1_result;
 
 // &Regs; @25
-reg     [3:0]  ff1_result; 
+reg     [3:0]  ff1_result;
 
 // &Wires; @26
-wire    [9:0]  ff1_data;  
+wire    [9:0]  ff1_data;
 
 
 // &CombBeg; @28

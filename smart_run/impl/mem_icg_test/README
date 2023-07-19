@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-step1: modify filelist 
+step1: modify filelist
     modify filelist_[cpu_name]
     modify cpu_top
     added: of meory lib and other lib may neeed to filelist

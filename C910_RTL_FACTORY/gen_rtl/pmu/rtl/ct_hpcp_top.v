@@ -139,756 +139,756 @@ module ct_hpcp_top(
 );
 
 // &Ports; @23
-input            biu_hpcp_cmplt;                    
-input   [3  :0]  biu_hpcp_l2of_int;                 
-input   [127:0]  biu_hpcp_rdata;                    
-input   [63 :0]  biu_hpcp_time;                     
-input            cp0_hpcp_icg_en;                   
-input   [11 :0]  cp0_hpcp_index;                    
-input            cp0_hpcp_int_disable;              
-input   [31 :0]  cp0_hpcp_mcntwen;                  
-input   [3  :0]  cp0_hpcp_op;                       
-input            cp0_hpcp_pmdm;                     
-input            cp0_hpcp_pmds;                     
-input            cp0_hpcp_pmdu;                     
-input            cp0_hpcp_sel;                      
-input   [63 :0]  cp0_hpcp_src0;                     
-input   [63 :0]  cp0_hpcp_wdata;                    
-input   [1  :0]  cp0_yy_priv_mode;                  
-input            cpurst_b;                          
-input            forever_cpuclk;                    
-input            idu_hpcp_backend_stall;            
-input            idu_hpcp_fence_sync_vld;           
-input   [6  :0]  idu_hpcp_ir_inst0_type;            
-input            idu_hpcp_ir_inst0_vld;             
-input   [6  :0]  idu_hpcp_ir_inst1_type;            
-input            idu_hpcp_ir_inst1_vld;             
-input   [6  :0]  idu_hpcp_ir_inst2_type;            
-input            idu_hpcp_ir_inst2_vld;             
-input   [6  :0]  idu_hpcp_ir_inst3_type;            
-input            idu_hpcp_ir_inst3_vld;             
-input            idu_hpcp_rf_inst_vld;              
-input            idu_hpcp_rf_pipe0_inst_vld;        
-input            idu_hpcp_rf_pipe0_lch_fail_vld;    
-input            idu_hpcp_rf_pipe1_inst_vld;        
-input            idu_hpcp_rf_pipe1_lch_fail_vld;    
-input            idu_hpcp_rf_pipe2_inst_vld;        
-input            idu_hpcp_rf_pipe2_lch_fail_vld;    
-input            idu_hpcp_rf_pipe3_inst_vld;        
-input            idu_hpcp_rf_pipe3_lch_fail_vld;    
-input            idu_hpcp_rf_pipe3_reg_lch_fail_vld; 
-input            idu_hpcp_rf_pipe4_inst_vld;        
-input            idu_hpcp_rf_pipe4_lch_fail_vld;    
-input            idu_hpcp_rf_pipe4_reg_lch_fail_vld; 
-input            idu_hpcp_rf_pipe5_inst_vld;        
-input            idu_hpcp_rf_pipe5_lch_fail_vld;    
-input            idu_hpcp_rf_pipe5_reg_lch_fail_vld; 
-input            idu_hpcp_rf_pipe6_inst_vld;        
-input            idu_hpcp_rf_pipe6_lch_fail_vld;    
-input            idu_hpcp_rf_pipe7_inst_vld;        
-input            idu_hpcp_rf_pipe7_lch_fail_vld;    
-input            ifu_hpcp_btb_inst;                 
-input            ifu_hpcp_btb_mispred;              
-input            ifu_hpcp_frontend_stall;           
-input            ifu_hpcp_icache_access;            
-input            ifu_hpcp_icache_miss;              
-input            lsu_hpcp_cache_read_access;        
-input            lsu_hpcp_cache_read_miss;          
-input            lsu_hpcp_cache_write_access;       
-input            lsu_hpcp_cache_write_miss;         
-input            lsu_hpcp_fence_stall;              
-input            lsu_hpcp_ld_stall_cross_4k;        
-input            lsu_hpcp_ld_stall_other;           
-input            lsu_hpcp_replay_data_discard;      
-input            lsu_hpcp_replay_discard_sq;        
-input            lsu_hpcp_st_stall_cross_4k;        
-input            lsu_hpcp_st_stall_other;           
-input   [1  :0]  lsu_hpcp_unalign_inst;             
-input            mmu_hpcp_dutlb_miss;               
-input            mmu_hpcp_iutlb_miss;               
-input            mmu_hpcp_jtlb_miss;                
-input            pad_yy_icg_scan_en;                
-input            rtu_hpcp_inst0_ack_int;            
-input            rtu_hpcp_inst0_bht_mispred;        
-input            rtu_hpcp_inst0_condbr;             
-input   [39 :0]  rtu_hpcp_inst0_cur_pc;             
-input            rtu_hpcp_inst0_jmp;                
-input            rtu_hpcp_inst0_jmp_mispred;        
-input            rtu_hpcp_inst0_jmp_pc_offset_8m;   
-input   [1  :0]  rtu_hpcp_inst0_num;                
-input   [2  :0]  rtu_hpcp_inst0_pc_offset;          
-input            rtu_hpcp_inst0_spec_fail;          
-input            rtu_hpcp_inst0_split;              
-input            rtu_hpcp_inst0_store;              
-input            rtu_hpcp_inst0_vld;                
-input            rtu_hpcp_inst1_condbr;             
-input   [39 :0]  rtu_hpcp_inst1_cur_pc;             
-input            rtu_hpcp_inst1_jmp;                
-input            rtu_hpcp_inst1_jmp_pc_offset_8m;   
-input   [1  :0]  rtu_hpcp_inst1_num;                
-input   [2  :0]  rtu_hpcp_inst1_pc_offset;          
-input            rtu_hpcp_inst1_split;              
-input            rtu_hpcp_inst1_store;              
-input            rtu_hpcp_inst1_vld;                
-input            rtu_hpcp_inst2_condbr;             
-input   [39 :0]  rtu_hpcp_inst2_cur_pc;             
-input            rtu_hpcp_inst2_jmp;                
-input            rtu_hpcp_inst2_jmp_pc_offset_8m;   
-input   [1  :0]  rtu_hpcp_inst2_num;                
-input   [2  :0]  rtu_hpcp_inst2_pc_offset;          
-input            rtu_hpcp_inst2_split;              
-input            rtu_hpcp_inst2_store;              
-input            rtu_hpcp_inst2_vld;                
-input            rtu_hpcp_trace_inst0_chgflow;      
-input   [38 :0]  rtu_hpcp_trace_inst0_next_pc;      
-input            rtu_hpcp_trace_inst1_chgflow;      
-input   [38 :0]  rtu_hpcp_trace_inst1_next_pc;      
-input            rtu_hpcp_trace_inst2_chgflow;      
-input   [38 :0]  rtu_hpcp_trace_inst2_next_pc;      
-input            rtu_yy_xx_dbgon;                   
-input            rtu_yy_xx_flush;                   
-output  [3  :0]  hpcp_biu_cnt_en;                   
-output  [15 :0]  hpcp_biu_op;                       
-output           hpcp_biu_sel;                      
-output  [63 :0]  hpcp_biu_wdata;                    
-output           hpcp_cp0_cmplt;                    
-output  [63 :0]  hpcp_cp0_data;                     
-output           hpcp_cp0_int_vld;                  
-output           hpcp_cp0_sce;                      
-output           hpcp_idu_cnt_en;                   
-output           hpcp_ifu_cnt_en;                   
-output           hpcp_lsu_cnt_en;                   
-output           hpcp_mmu_cnt_en;                   
-output           hpcp_rtu_cnt_en;                   
+input            biu_hpcp_cmplt;
+input   [3  :0]  biu_hpcp_l2of_int;
+input   [127:0]  biu_hpcp_rdata;
+input   [63 :0]  biu_hpcp_time;
+input            cp0_hpcp_icg_en;
+input   [11 :0]  cp0_hpcp_index;
+input            cp0_hpcp_int_disable;
+input   [31 :0]  cp0_hpcp_mcntwen;
+input   [3  :0]  cp0_hpcp_op;
+input            cp0_hpcp_pmdm;
+input            cp0_hpcp_pmds;
+input            cp0_hpcp_pmdu;
+input            cp0_hpcp_sel;
+input   [63 :0]  cp0_hpcp_src0;
+input   [63 :0]  cp0_hpcp_wdata;
+input   [1  :0]  cp0_yy_priv_mode;
+input            cpurst_b;
+input            forever_cpuclk;
+input            idu_hpcp_backend_stall;
+input            idu_hpcp_fence_sync_vld;
+input   [6  :0]  idu_hpcp_ir_inst0_type;
+input            idu_hpcp_ir_inst0_vld;
+input   [6  :0]  idu_hpcp_ir_inst1_type;
+input            idu_hpcp_ir_inst1_vld;
+input   [6  :0]  idu_hpcp_ir_inst2_type;
+input            idu_hpcp_ir_inst2_vld;
+input   [6  :0]  idu_hpcp_ir_inst3_type;
+input            idu_hpcp_ir_inst3_vld;
+input            idu_hpcp_rf_inst_vld;
+input            idu_hpcp_rf_pipe0_inst_vld;
+input            idu_hpcp_rf_pipe0_lch_fail_vld;
+input            idu_hpcp_rf_pipe1_inst_vld;
+input            idu_hpcp_rf_pipe1_lch_fail_vld;
+input            idu_hpcp_rf_pipe2_inst_vld;
+input            idu_hpcp_rf_pipe2_lch_fail_vld;
+input            idu_hpcp_rf_pipe3_inst_vld;
+input            idu_hpcp_rf_pipe3_lch_fail_vld;
+input            idu_hpcp_rf_pipe3_reg_lch_fail_vld;
+input            idu_hpcp_rf_pipe4_inst_vld;
+input            idu_hpcp_rf_pipe4_lch_fail_vld;
+input            idu_hpcp_rf_pipe4_reg_lch_fail_vld;
+input            idu_hpcp_rf_pipe5_inst_vld;
+input            idu_hpcp_rf_pipe5_lch_fail_vld;
+input            idu_hpcp_rf_pipe5_reg_lch_fail_vld;
+input            idu_hpcp_rf_pipe6_inst_vld;
+input            idu_hpcp_rf_pipe6_lch_fail_vld;
+input            idu_hpcp_rf_pipe7_inst_vld;
+input            idu_hpcp_rf_pipe7_lch_fail_vld;
+input            ifu_hpcp_btb_inst;
+input            ifu_hpcp_btb_mispred;
+input            ifu_hpcp_frontend_stall;
+input            ifu_hpcp_icache_access;
+input            ifu_hpcp_icache_miss;
+input            lsu_hpcp_cache_read_access;
+input            lsu_hpcp_cache_read_miss;
+input            lsu_hpcp_cache_write_access;
+input            lsu_hpcp_cache_write_miss;
+input            lsu_hpcp_fence_stall;
+input            lsu_hpcp_ld_stall_cross_4k;
+input            lsu_hpcp_ld_stall_other;
+input            lsu_hpcp_replay_data_discard;
+input            lsu_hpcp_replay_discard_sq;
+input            lsu_hpcp_st_stall_cross_4k;
+input            lsu_hpcp_st_stall_other;
+input   [1  :0]  lsu_hpcp_unalign_inst;
+input            mmu_hpcp_dutlb_miss;
+input            mmu_hpcp_iutlb_miss;
+input            mmu_hpcp_jtlb_miss;
+input            pad_yy_icg_scan_en;
+input            rtu_hpcp_inst0_ack_int;
+input            rtu_hpcp_inst0_bht_mispred;
+input            rtu_hpcp_inst0_condbr;
+input   [39 :0]  rtu_hpcp_inst0_cur_pc;
+input            rtu_hpcp_inst0_jmp;
+input            rtu_hpcp_inst0_jmp_mispred;
+input            rtu_hpcp_inst0_jmp_pc_offset_8m;
+input   [1  :0]  rtu_hpcp_inst0_num;
+input   [2  :0]  rtu_hpcp_inst0_pc_offset;
+input            rtu_hpcp_inst0_spec_fail;
+input            rtu_hpcp_inst0_split;
+input            rtu_hpcp_inst0_store;
+input            rtu_hpcp_inst0_vld;
+input            rtu_hpcp_inst1_condbr;
+input   [39 :0]  rtu_hpcp_inst1_cur_pc;
+input            rtu_hpcp_inst1_jmp;
+input            rtu_hpcp_inst1_jmp_pc_offset_8m;
+input   [1  :0]  rtu_hpcp_inst1_num;
+input   [2  :0]  rtu_hpcp_inst1_pc_offset;
+input            rtu_hpcp_inst1_split;
+input            rtu_hpcp_inst1_store;
+input            rtu_hpcp_inst1_vld;
+input            rtu_hpcp_inst2_condbr;
+input   [39 :0]  rtu_hpcp_inst2_cur_pc;
+input            rtu_hpcp_inst2_jmp;
+input            rtu_hpcp_inst2_jmp_pc_offset_8m;
+input   [1  :0]  rtu_hpcp_inst2_num;
+input   [2  :0]  rtu_hpcp_inst2_pc_offset;
+input            rtu_hpcp_inst2_split;
+input            rtu_hpcp_inst2_store;
+input            rtu_hpcp_inst2_vld;
+input            rtu_hpcp_trace_inst0_chgflow;
+input   [38 :0]  rtu_hpcp_trace_inst0_next_pc;
+input            rtu_hpcp_trace_inst1_chgflow;
+input   [38 :0]  rtu_hpcp_trace_inst1_next_pc;
+input            rtu_hpcp_trace_inst2_chgflow;
+input   [38 :0]  rtu_hpcp_trace_inst2_next_pc;
+input            rtu_yy_xx_dbgon;
+input            rtu_yy_xx_flush;
+output  [3  :0]  hpcp_biu_cnt_en;
+output  [15 :0]  hpcp_biu_op;
+output           hpcp_biu_sel;
+output  [63 :0]  hpcp_biu_wdata;
+output           hpcp_cp0_cmplt;
+output  [63 :0]  hpcp_cp0_data;
+output           hpcp_cp0_int_vld;
+output           hpcp_cp0_sce;
+output           hpcp_idu_cnt_en;
+output           hpcp_ifu_cnt_en;
+output           hpcp_lsu_cnt_en;
+output           hpcp_mmu_cnt_en;
+output           hpcp_rtu_cnt_en;
 
 // &Regs; @24
-reg     [3  :0]  biu_hpcp_l2of_int_ff;              
-reg     [5  :0]  cnt0_event_index;                  
-reg     [5  :0]  cnt1_event_index;                  
-reg     [5  :0]  cnt2_event_index;                  
-reg     [5  :0]  cnt3_event_index;                  
-reg     [31 :0]  cnt_mask;                          
-reg              cnt_mode_dis;                      
-reg     [1  :0]  cur_state;                         
-reg              cy;                                
-reg     [63 :0]  data_out;                          
-reg              hpcp_stop_vld_ff;                  
-reg     [28 :0]  hpm;                               
-reg              hpmep_high_vld;                    
-reg     [62 :0]  hpmep_reg;                         
-reg              hpmsp_high_vld;                    
-reg     [62 :0]  hpmsp_reg;                         
-reg              ir;                                
-reg              l2cnt_cmplt_ff;                    
-reg     [31 :0]  l2of_data;                         
-reg     [31 :0]  l2of_int;                          
-reg     [1  :0]  next_state;                        
-reg              sce;                               
-reg     [1  :0]  tme;                               
-reg              ts;                                
+reg     [3  :0]  biu_hpcp_l2of_int_ff;
+reg     [5  :0]  cnt0_event_index;
+reg     [5  :0]  cnt1_event_index;
+reg     [5  :0]  cnt2_event_index;
+reg     [5  :0]  cnt3_event_index;
+reg     [31 :0]  cnt_mask;
+reg              cnt_mode_dis;
+reg     [1  :0]  cur_state;
+reg              cy;
+reg     [63 :0]  data_out;
+reg              hpcp_stop_vld_ff;
+reg     [28 :0]  hpm;
+reg              hpmep_high_vld;
+reg     [62 :0]  hpmep_reg;
+reg              hpmsp_high_vld;
+reg     [62 :0]  hpmsp_reg;
+reg              ir;
+reg              l2cnt_cmplt_ff;
+reg     [31 :0]  l2of_data;
+reg     [31 :0]  l2of_int;
+reg     [1  :0]  next_state;
+reg              sce;
+reg     [1  :0]  tme;
+reg              ts;
 
 // &Wires @25
-wire             bht_mispred;                       
-wire             biu_hpcp_cmplt;                    
-wire    [3  :0]  biu_hpcp_l2of_int;                 
-wire    [127:0]  biu_hpcp_rdata;                    
-wire    [63 :0]  biu_hpcp_time;                     
-wire    [5  :0]  cnt0_event_index_clr_data;         
-wire    [5  :0]  cnt0_event_index_set_data;         
-wire    [5  :0]  cnt1_event_index_clr_data;         
-wire    [5  :0]  cnt1_event_index_set_data;         
-wire    [5  :0]  cnt2_event_index_clr_data;         
-wire    [5  :0]  cnt2_event_index_set_data;         
-wire    [5  :0]  cnt3_event_index_clr_data;         
-wire    [5  :0]  cnt3_event_index_set_data;         
-wire    [31 :0]  cnt_bit_mask;                      
-wire    [31 :0]  cnt_bit_sel;                       
-wire             cnt_index_less_than_limit;         
-wire             cnt_mask_clr;                      
-wire    [31 :0]  cnt_mask_clr_data;                 
-wire             cnt_mask_set;                      
-wire    [31 :0]  cnt_mask_set_data;                 
-wire             cnt_mode_dis_pre;                  
-wire    [31 :0]  cntinten;                          
-wire    [63 :0]  cntinten_value;                    
-wire    [31 :0]  cntinten_wen;                      
-wire    [31 :0]  cntof;                             
-wire    [31 :0]  cntof_int;                         
-wire    [63 :0]  cntof_value;                       
-wire    [31 :0]  cntof_wen;                         
-wire    [31 :0]  counter_overflow;                  
-wire             cp0_hpcp_icg_en;                   
-wire    [11 :0]  cp0_hpcp_index;                    
-wire             cp0_hpcp_int_disable;              
-wire    [31 :0]  cp0_hpcp_mcntwen;                  
-wire    [3  :0]  cp0_hpcp_op;                       
-wire             cp0_hpcp_pmdm;                     
-wire             cp0_hpcp_pmds;                     
-wire             cp0_hpcp_pmdu;                     
-wire             cp0_hpcp_sel;                      
-wire    [63 :0]  cp0_hpcp_src0;                     
-wire    [63 :0]  cp0_hpcp_wdata;                    
-wire    [1  :0]  cp0_yy_priv_mode;                  
-wire             cpurst_b;                          
-wire             end_vld;                           
-wire    [3  :0]  event01_adder;                     
-wire    [3  :0]  event02_adder;                     
-wire    [3  :0]  event03_adder;                     
-wire    [3  :0]  event04_adder;                     
-wire    [3  :0]  event05_adder;                     
-wire    [3  :0]  event06_adder;                     
-wire    [3  :0]  event07_adder;                     
-wire    [3  :0]  event08_adder;                     
-wire    [3  :0]  event09_adder;                     
-wire    [3  :0]  event10_adder;                     
-wire    [3  :0]  event11_adder;                     
-wire    [3  :0]  event12_adder;                     
-wire    [3  :0]  event13_adder;                     
-wire    [3  :0]  event14_adder;                     
-wire    [3  :0]  event15_adder;                     
-wire    [3  :0]  event16_adder;                     
-wire    [3  :0]  event17_adder;                     
-wire    [3  :0]  event18_adder;                     
-wire    [3  :0]  event19_adder;                     
-wire    [3  :0]  event20_adder;                     
-wire    [3  :0]  event21_adder;                     
-wire    [3  :0]  event22_adder;                     
-wire    [3  :0]  event23_adder;                     
-wire    [3  :0]  event24_adder;                     
-wire    [3  :0]  event25_adder;                     
-wire    [3  :0]  event26_adder;                     
-wire    [3  :0]  event27_adder;                     
-wire    [3  :0]  event28_adder;                     
-wire    [3  :0]  event29_adder;                     
-wire    [3  :0]  event30_adder;                     
-wire    [3  :0]  event31_adder;                     
-wire    [3  :0]  event32_adder;                     
-wire    [3  :0]  event33_adder;                     
-wire    [3  :0]  event34_adder;                     
-wire    [3  :0]  event35_adder;                     
-wire    [3  :0]  event36_adder;                     
-wire    [3  :0]  event37_adder;                     
-wire    [3  :0]  event38_adder;                     
-wire    [3  :0]  event39_adder;                     
-wire    [3  :0]  event40_adder;                     
-wire    [3  :0]  event41_adder;                     
-wire    [3  :0]  event42_adder;                     
-wire             forever_cpuclk;                    
-wire             hpcp_backend_stall;                
-wire    [3  :0]  hpcp_biu_cnt_en;                   
-wire    [15 :0]  hpcp_biu_op;                       
-wire             hpcp_biu_sel;                      
-wire    [63 :0]  hpcp_biu_wdata;                    
-wire             hpcp_branch_target_inst;           
-wire             hpcp_branch_target_mispred;        
-wire             hpcp_clk;                          
-wire             hpcp_clk_en;                       
-wire             hpcp_cnt_en;                       
-wire             hpcp_cp0_cmplt;                    
-wire    [63 :0]  hpcp_cp0_data;                     
-wire             hpcp_cp0_int_vld;                  
-wire             hpcp_cp0_sce;                      
-wire             hpcp_dcache_read_access;           
-wire             hpcp_dcache_read_miss;             
-wire             hpcp_dcache_write_access;          
-wire             hpcp_dcache_write_miss;            
-wire             hpcp_end_vld;                      
-wire             hpcp_fence_stall;                  
-wire             hpcp_fence_sync_vld;               
-wire             hpcp_frontend_stall;               
-wire             hpcp_icache_access;                
-wire             hpcp_icache_miss;                  
-wire             hpcp_idu_cnt_en;                   
-wire             hpcp_ifu_cnt_en;                   
-wire             hpcp_inst0_jmp_over_8m;            
-wire             hpcp_inst1_jmp_over_8m;            
-wire             hpcp_inst2_jmp_over_8m;            
-wire             hpcp_int_ack;                      
-wire             hpcp_int_disable;                  
-wire    [6  :0]  hpcp_ir_inst0_type;                
-wire             hpcp_ir_inst0_vld;                 
-wire    [6  :0]  hpcp_ir_inst1_type;                
-wire             hpcp_ir_inst1_vld;                 
-wire    [6  :0]  hpcp_ir_inst2_type;                
-wire             hpcp_ir_inst2_vld;                 
-wire    [6  :0]  hpcp_ir_inst3_type;                
-wire             hpcp_ir_inst3_vld;                 
-wire             hpcp_ld_cross_4k_stall;            
-wire             hpcp_ld_other_stall;               
-wire             hpcp_lsu_cnt_en;                   
-wire             hpcp_mmu_cnt_en;                   
-wire             hpcp_retire_bht_mispred;           
-wire             hpcp_retire_inst0_condbr;          
-wire             hpcp_retire_inst0_jmp;             
-wire    [1  :0]  hpcp_retire_inst0_num;             
-wire    [2  :0]  hpcp_retire_inst0_offset;          
-wire    [39 :0]  hpcp_retire_inst0_pc;              
-wire             hpcp_retire_inst0_split;           
-wire             hpcp_retire_inst0_store;           
-wire             hpcp_retire_inst0_vld;             
-wire             hpcp_retire_inst1_condbr;          
-wire             hpcp_retire_inst1_jmp;             
-wire    [1  :0]  hpcp_retire_inst1_num;             
-wire    [2  :0]  hpcp_retire_inst1_offset;          
-wire    [39 :0]  hpcp_retire_inst1_pc;              
-wire             hpcp_retire_inst1_split;           
-wire             hpcp_retire_inst1_store;           
-wire             hpcp_retire_inst1_vld;             
-wire             hpcp_retire_inst2_condbr;          
-wire             hpcp_retire_inst2_jmp;             
-wire    [1  :0]  hpcp_retire_inst2_num;             
-wire    [2  :0]  hpcp_retire_inst2_offset;          
-wire    [39 :0]  hpcp_retire_inst2_pc;              
-wire             hpcp_retire_inst2_split;           
-wire             hpcp_retire_inst2_store;           
-wire             hpcp_retire_inst2_vld;             
-wire             hpcp_retire_jmp_mispred;           
-wire             hpcp_retire_spec_fail;             
-wire             hpcp_rf_inst_vld;                  
-wire             hpcp_rf_pipe0_inst_vld;            
-wire             hpcp_rf_pipe0_lch_fail_vld;        
-wire             hpcp_rf_pipe1_inst_vld;            
-wire             hpcp_rf_pipe1_lch_fail_vld;        
-wire             hpcp_rf_pipe2_inst_vld;            
-wire             hpcp_rf_pipe2_lch_fail_vld;        
-wire             hpcp_rf_pipe3_inst_vld;            
-wire             hpcp_rf_pipe3_lch_fail_vld;        
-wire             hpcp_rf_pipe3_reg_lch_fail_vld;    
-wire             hpcp_rf_pipe4_inst_vld;            
-wire             hpcp_rf_pipe4_lch_fail_vld;        
-wire             hpcp_rf_pipe4_reg_lch_fail_vld;    
-wire             hpcp_rf_pipe5_inst_vld;            
-wire             hpcp_rf_pipe5_lch_fail_vld;        
-wire             hpcp_rf_pipe5_reg_lch_fail_vld;    
-wire             hpcp_rf_pipe6_inst_vld;            
-wire             hpcp_rf_pipe6_lch_fail_vld;        
-wire             hpcp_rf_pipe7_inst_vld;            
-wire             hpcp_rf_pipe7_lch_fail_vld;        
-wire             hpcp_rtu_cnt_en;                   
-wire             hpcp_sq_data_discard;              
-wire             hpcp_sq_discard;                   
-wire             hpcp_st_cross_4k_stall;            
-wire             hpcp_st_other_stall;               
-wire             hpcp_start_vld;                    
-wire             hpcp_stop_vld;                     
-wire             hpcp_tlb_dutlb_miss;               
-wire             hpcp_tlb_iutlb_miss;               
-wire             hpcp_tlb_jtlb_miss;                
-wire             hpcp_trigger_vld;                  
-wire    [1  :0]  hpcp_unalign_inst;                 
-wire    [63 :0]  hpcp_wdata;                        
-wire             hpcp_wen;                          
-wire             hpcp_xx_cnt_en;                    
-wire             hpmep_eq_retire0_pc;               
-wire             hpmep_eq_retire1_pc;               
-wire             hpmep_eq_retire2_pc;               
-wire             hpmep_ge_retire0_ed_pc;            
-wire             hpmep_ge_retire1_ed_pc;            
-wire             hpmep_ge_retire2_ed_pc;            
-wire             hpmep_high_test;                   
-wire    [3  :0]  hpmep_sub_retire0_ed_pc;           
-wire             hpmep_sub_retire0_high_zero;       
-wire    [39 :0]  hpmep_sub_retire0_st_pc;           
-wire    [3  :0]  hpmep_sub_retire1_ed_pc;           
-wire             hpmep_sub_retire1_high_zero;       
-wire    [39 :0]  hpmep_sub_retire1_st_pc;           
-wire    [3  :0]  hpmep_sub_retire2_ed_pc;           
-wire             hpmep_sub_retire2_high_zero;       
-wire    [39 :0]  hpmep_sub_retire2_st_pc;           
-wire             hpmsp_eq_retire0_pc;               
-wire             hpmsp_eq_retire1_pc;               
-wire             hpmsp_eq_retire2_pc;               
-wire             hpmsp_high_test;                   
-wire             hpmsp_le_retire0_st_pc;            
-wire             hpmsp_le_retire1_st_pc;            
-wire             hpmsp_le_retire2_st_pc;            
-wire    [3  :0]  hpmsp_sub_retire0_ed_pc;           
-wire             hpmsp_sub_retire0_high_zero;       
-wire    [39 :0]  hpmsp_sub_retire0_st_pc;           
-wire    [3  :0]  hpmsp_sub_retire1_ed_pc;           
-wire             hpmsp_sub_retire1_high_zero;       
-wire    [39 :0]  hpmsp_sub_retire1_st_pc;           
-wire    [3  :0]  hpmsp_sub_retire2_ed_pc;           
-wire             hpmsp_sub_retire2_high_zero;       
-wire    [39 :0]  hpmsp_sub_retire2_st_pc;           
-wire             idu_hpcp_backend_stall;            
-wire             idu_hpcp_fence_sync_vld;           
-wire    [6  :0]  idu_hpcp_ir_inst0_type;            
-wire             idu_hpcp_ir_inst0_vld;             
-wire    [6  :0]  idu_hpcp_ir_inst1_type;            
-wire             idu_hpcp_ir_inst1_vld;             
-wire    [6  :0]  idu_hpcp_ir_inst2_type;            
-wire             idu_hpcp_ir_inst2_vld;             
-wire    [6  :0]  idu_hpcp_ir_inst3_type;            
-wire             idu_hpcp_ir_inst3_vld;             
-wire             idu_hpcp_rf_inst_vld;              
-wire             idu_hpcp_rf_pipe0_inst_vld;        
-wire             idu_hpcp_rf_pipe0_lch_fail_vld;    
-wire             idu_hpcp_rf_pipe1_inst_vld;        
-wire             idu_hpcp_rf_pipe1_lch_fail_vld;    
-wire             idu_hpcp_rf_pipe2_inst_vld;        
-wire             idu_hpcp_rf_pipe2_lch_fail_vld;    
-wire             idu_hpcp_rf_pipe3_inst_vld;        
-wire             idu_hpcp_rf_pipe3_lch_fail_vld;    
-wire             idu_hpcp_rf_pipe3_reg_lch_fail_vld; 
-wire             idu_hpcp_rf_pipe4_inst_vld;        
-wire             idu_hpcp_rf_pipe4_lch_fail_vld;    
-wire             idu_hpcp_rf_pipe4_reg_lch_fail_vld; 
-wire             idu_hpcp_rf_pipe5_inst_vld;        
-wire             idu_hpcp_rf_pipe5_lch_fail_vld;    
-wire             idu_hpcp_rf_pipe5_reg_lch_fail_vld; 
-wire             idu_hpcp_rf_pipe6_inst_vld;        
-wire             idu_hpcp_rf_pipe6_lch_fail_vld;    
-wire             idu_hpcp_rf_pipe7_inst_vld;        
-wire             idu_hpcp_rf_pipe7_lch_fail_vld;    
-wire             ifu_hpcp_btb_inst;                 
-wire             ifu_hpcp_btb_mispred;              
-wire             ifu_hpcp_frontend_stall;           
-wire             ifu_hpcp_icache_access;            
-wire             ifu_hpcp_icache_miss;              
-wire             inst0_condbr;                      
-wire             inst0_jmp;                         
-wire             inst0_long_jump;                   
-wire             inst0_store;                       
-wire    [1  :0]  inst0_vld;                         
-wire             inst1_condbr;                      
-wire             inst1_jmp;                         
-wire             inst1_long_jump;                   
-wire             inst1_store;                       
-wire    [1  :0]  inst1_vld;                         
-wire             inst2_condbr;                      
-wire             inst2_jmp;                         
-wire             inst2_long_jump;                   
-wire             inst2_store;                       
-wire    [1  :0]  inst2_vld;                         
-wire             int_ack_vld;                       
-wire             ir_inst0_alu;                      
-wire             ir_inst0_csr;                      
-wire             ir_inst0_ecall;                    
-wire             ir_inst0_fpu;                      
-wire             ir_inst0_ldst;                     
-wire             ir_inst0_sync;                     
-wire             ir_inst0_vec;                      
-wire             ir_inst1_alu;                      
-wire             ir_inst1_csr;                      
-wire             ir_inst1_ecall;                    
-wire             ir_inst1_fpu;                      
-wire             ir_inst1_ldst;                     
-wire             ir_inst1_sync;                     
-wire             ir_inst1_vec;                      
-wire             ir_inst2_alu;                      
-wire             ir_inst2_csr;                      
-wire             ir_inst2_ecall;                    
-wire             ir_inst2_fpu;                      
-wire             ir_inst2_ldst;                     
-wire             ir_inst2_sync;                     
-wire             ir_inst2_vec;                      
-wire             ir_inst3_alu;                      
-wire             ir_inst3_csr;                      
-wire             ir_inst3_ecall;                    
-wire             ir_inst3_fpu;                      
-wire             ir_inst3_ldst;                     
-wire             ir_inst3_sync;                     
-wire             ir_inst3_vec;                      
-wire             jmp_mispred;                       
-wire             l2_ra_sel;                         
-wire             l2_rm_sel;                         
-wire             l2_wa_sel;                         
-wire             l2_wm_sel;                         
-wire    [3  :0]  l2cnt_en;                          
-wire    [15 :0]  l2cnt_idx;                         
-wire             l2cnt_ra_cnt_en;                   
-wire    [31 :0]  l2cnt_ra_inhbt;                    
-wire    [3  :0]  l2cnt_reg_idx;                     
-wire             l2cnt_rm_cnt_en;                   
-wire    [31 :0]  l2cnt_rm_inhbt;                    
-wire             l2cnt_sel;                         
-wire             l2cnt_wa_cnt_en;                   
-wire    [31 :0]  l2cnt_wa_inhbt;                    
-wire    [63 :0]  l2cnt_wdata;                       
-wire             l2cnt_wm_cnt_en;                   
-wire    [31 :0]  l2cnt_wm_inhbt;                    
-wire    [31 :0]  l2of_data0_shift;                  
-wire    [31 :0]  l2of_data1_shift;                  
-wire    [31 :0]  l2of_data2_shift;                  
-wire    [31 :0]  l2of_data3_shift;                  
-wire    [31 :0]  l2of_data_updt;                    
-wire             l2of_data_updt_vld;                
-wire    [31 :0]  l2of_int_updt;                     
-wire             l2of_int_updt_vld;                 
-wire    [3  :0]  l2of_wdata;                        
-wire    [3  :0]  l2of_wen;                          
-wire    [31 :0]  l2of_wen0_shift;                   
-wire    [31 :0]  l2of_wen1_shift;                   
-wire    [31 :0]  l2of_wen2_shift;                   
-wire    [31 :0]  l2of_wen3_shift;                   
-wire             lsu_hpcp_cache_read_access;        
-wire             lsu_hpcp_cache_read_miss;          
-wire             lsu_hpcp_cache_write_access;       
-wire             lsu_hpcp_cache_write_miss;         
-wire             lsu_hpcp_fence_stall;              
-wire             lsu_hpcp_ld_stall_cross_4k;        
-wire             lsu_hpcp_ld_stall_other;           
-wire             lsu_hpcp_replay_data_discard;      
-wire             lsu_hpcp_replay_discard_sq;        
-wire             lsu_hpcp_st_stall_cross_4k;        
-wire             lsu_hpcp_st_stall_other;           
-wire    [1  :0]  lsu_hpcp_unalign_inst;             
-wire             mcntinhbt_clk_en;                  
-wire    [63 :0]  mcntinhbt_value;                   
-wire             mcntinhbt_wen;                     
-wire             mcntinten_clk_en;                  
-wire    [63 :0]  mcntinten_value;                   
-wire             mcntinten_wen;                     
-wire             mcntof_clk_en;                     
-wire    [63 :0]  mcntof_value;                      
-wire             mcntof_wen;                        
-wire    [3  :0]  mcycle_adder;                      
-wire             mcycle_clk_en;                     
-wire             mcycle_en;                         
-wire             mcycle_of;                         
-wire    [63 :0]  mcycle_value;                      
-wire             mcycle_wen;                        
-wire    [3  :0]  mhpmcnt10_adder;                   
-wire             mhpmcnt10_clk_en;                  
-wire             mhpmcnt10_en;                      
-wire             mhpmcnt10_of;                      
-wire    [63 :0]  mhpmcnt10_value;                   
-wire             mhpmcnt10_wen;                     
-wire    [3  :0]  mhpmcnt11_adder;                   
-wire             mhpmcnt11_clk_en;                  
-wire             mhpmcnt11_en;                      
-wire             mhpmcnt11_of;                      
-wire    [63 :0]  mhpmcnt11_value;                   
-wire             mhpmcnt11_wen;                     
-wire    [3  :0]  mhpmcnt12_adder;                   
-wire             mhpmcnt12_clk_en;                  
-wire             mhpmcnt12_en;                      
-wire             mhpmcnt12_of;                      
-wire    [63 :0]  mhpmcnt12_value;                   
-wire             mhpmcnt12_wen;                     
-wire    [3  :0]  mhpmcnt13_adder;                   
-wire             mhpmcnt13_clk_en;                  
-wire             mhpmcnt13_en;                      
-wire             mhpmcnt13_of;                      
-wire    [63 :0]  mhpmcnt13_value;                   
-wire             mhpmcnt13_wen;                     
-wire    [3  :0]  mhpmcnt14_adder;                   
-wire             mhpmcnt14_clk_en;                  
-wire             mhpmcnt14_en;                      
-wire             mhpmcnt14_of;                      
-wire    [63 :0]  mhpmcnt14_value;                   
-wire             mhpmcnt14_wen;                     
-wire    [3  :0]  mhpmcnt15_adder;                   
-wire             mhpmcnt15_clk_en;                  
-wire             mhpmcnt15_en;                      
-wire             mhpmcnt15_of;                      
-wire    [63 :0]  mhpmcnt15_value;                   
-wire             mhpmcnt15_wen;                     
-wire    [3  :0]  mhpmcnt16_adder;                   
-wire             mhpmcnt16_clk_en;                  
-wire             mhpmcnt16_en;                      
-wire             mhpmcnt16_of;                      
-wire    [63 :0]  mhpmcnt16_value;                   
-wire             mhpmcnt16_wen;                     
-wire    [3  :0]  mhpmcnt17_adder;                   
-wire             mhpmcnt17_clk_en;                  
-wire             mhpmcnt17_en;                      
-wire             mhpmcnt17_of;                      
-wire    [63 :0]  mhpmcnt17_value;                   
-wire             mhpmcnt17_wen;                     
-wire    [3  :0]  mhpmcnt18_adder;                   
-wire             mhpmcnt18_clk_en;                  
-wire             mhpmcnt18_en;                      
-wire             mhpmcnt18_of;                      
-wire    [63 :0]  mhpmcnt18_value;                   
-wire             mhpmcnt18_wen;                     
-wire    [3  :0]  mhpmcnt3_adder;                    
-wire             mhpmcnt3_clk_en;                   
-wire             mhpmcnt3_en;                       
-wire             mhpmcnt3_of;                       
-wire    [63 :0]  mhpmcnt3_value;                    
-wire             mhpmcnt3_wen;                      
-wire    [3  :0]  mhpmcnt4_adder;                    
-wire             mhpmcnt4_clk_en;                   
-wire             mhpmcnt4_en;                       
-wire             mhpmcnt4_of;                       
-wire    [63 :0]  mhpmcnt4_value;                    
-wire             mhpmcnt4_wen;                      
-wire    [3  :0]  mhpmcnt5_adder;                    
-wire             mhpmcnt5_clk_en;                   
-wire             mhpmcnt5_en;                       
-wire             mhpmcnt5_of;                       
-wire    [63 :0]  mhpmcnt5_value;                    
-wire             mhpmcnt5_wen;                      
-wire    [3  :0]  mhpmcnt6_adder;                    
-wire             mhpmcnt6_clk_en;                   
-wire             mhpmcnt6_en;                       
-wire             mhpmcnt6_of;                       
-wire    [63 :0]  mhpmcnt6_value;                    
-wire             mhpmcnt6_wen;                      
-wire    [3  :0]  mhpmcnt7_adder;                    
-wire             mhpmcnt7_clk_en;                   
-wire             mhpmcnt7_en;                       
-wire             mhpmcnt7_of;                       
-wire    [63 :0]  mhpmcnt7_value;                    
-wire             mhpmcnt7_wen;                      
-wire    [3  :0]  mhpmcnt8_adder;                    
-wire             mhpmcnt8_clk_en;                   
-wire             mhpmcnt8_en;                       
-wire             mhpmcnt8_of;                       
-wire    [63 :0]  mhpmcnt8_value;                    
-wire             mhpmcnt8_wen;                      
-wire    [3  :0]  mhpmcnt9_adder;                    
-wire             mhpmcnt9_clk_en;                   
-wire             mhpmcnt9_en;                       
-wire             mhpmcnt9_of;                       
-wire    [63 :0]  mhpmcnt9_value;                    
-wire             mhpmcnt9_wen;                      
-wire             mhpmcr_clk_en;                     
-wire    [63 :0]  mhpmcr_value;                      
-wire             mhpmcr_wen;                        
-wire             mhpmep_clk_en;                     
-wire    [63 :0]  mhpmep_value;                      
-wire             mhpmep_wen;                        
-wire             mhpmevt10_clk_en;                  
-wire    [63 :0]  mhpmevt10_value;                   
-wire             mhpmevt10_wen;                     
-wire             mhpmevt11_clk_en;                  
-wire    [63 :0]  mhpmevt11_value;                   
-wire             mhpmevt11_wen;                     
-wire             mhpmevt12_clk_en;                  
-wire    [63 :0]  mhpmevt12_value;                   
-wire             mhpmevt12_wen;                     
-wire             mhpmevt13_clk_en;                  
-wire    [63 :0]  mhpmevt13_value;                   
-wire             mhpmevt13_wen;                     
-wire             mhpmevt14_clk_en;                  
-wire    [63 :0]  mhpmevt14_value;                   
-wire             mhpmevt14_wen;                     
-wire             mhpmevt15_clk_en;                  
-wire    [63 :0]  mhpmevt15_value;                   
-wire             mhpmevt15_wen;                     
-wire             mhpmevt16_clk_en;                  
-wire    [63 :0]  mhpmevt16_value;                   
-wire             mhpmevt16_wen;                     
-wire             mhpmevt17_clk_en;                  
-wire    [63 :0]  mhpmevt17_value;                   
-wire             mhpmevt17_wen;                     
-wire             mhpmevt18_clk_en;                  
-wire    [63 :0]  mhpmevt18_value;                   
-wire             mhpmevt18_wen;                     
-wire             mhpmevt3_clk_en;                   
-wire    [63 :0]  mhpmevt3_value;                    
-wire             mhpmevt3_wen;                      
-wire             mhpmevt4_clk_en;                   
-wire    [63 :0]  mhpmevt4_value;                    
-wire             mhpmevt4_wen;                      
-wire             mhpmevt5_clk_en;                   
-wire    [63 :0]  mhpmevt5_value;                    
-wire             mhpmevt5_wen;                      
-wire             mhpmevt6_clk_en;                   
-wire    [63 :0]  mhpmevt6_value;                    
-wire             mhpmevt6_wen;                      
-wire             mhpmevt7_clk_en;                   
-wire    [63 :0]  mhpmevt7_value;                    
-wire             mhpmevt7_wen;                      
-wire             mhpmevt8_clk_en;                   
-wire    [63 :0]  mhpmevt8_value;                    
-wire             mhpmevt8_wen;                      
-wire             mhpmevt9_clk_en;                   
-wire    [63 :0]  mhpmevt9_value;                    
-wire             mhpmevt9_wen;                      
-wire             mhpmsp_clk_en;                     
-wire    [63 :0]  mhpmsp_value;                      
-wire             mhpmsp_wen;                        
-wire    [3  :0]  minstret_adder;                    
-wire             minstret_clk_en;                   
-wire             minstret_en;                       
-wire             minstret_of;                       
-wire    [63 :0]  minstret_value;                    
-wire             minstret_wen;                      
-wire             mmu_hpcp_dutlb_miss;               
-wire             mmu_hpcp_iutlb_miss;               
-wire             mmu_hpcp_jtlb_miss;                
-wire             ofcnt_sel;                         
-wire             pad_yy_icg_scan_en;                
-wire             pipe0_inst_vld;                    
-wire             pipe0_lch_fail;                    
-wire             pipe1_inst_vld;                    
-wire             pipe1_lch_fail;                    
-wire             pipe2_inst_vld;                    
-wire             pipe2_lch_fail;                    
-wire             pipe3_inst_vld;                    
-wire             pipe3_lch_fail;                    
-wire             pipe3_reg_lch_fail;                
-wire             pipe4_inst_vld;                    
-wire             pipe4_lch_fail;                    
-wire             pipe4_reg_lch_fail;                
-wire             pipe5_inst_vld;                    
-wire             pipe5_lch_fail;                    
-wire             pipe5_reg_lch_fail;                
-wire             pipe6_inst_vld;                    
-wire             pipe6_lch_fail;                    
-wire             pipe7_inst_vld;                    
-wire             pipe7_lch_fail;                    
-wire             rtu_hpcp_inst0_ack_int;            
-wire             rtu_hpcp_inst0_bht_mispred;        
-wire             rtu_hpcp_inst0_condbr;             
-wire    [39 :0]  rtu_hpcp_inst0_cur_pc;             
-wire             rtu_hpcp_inst0_jmp;                
-wire             rtu_hpcp_inst0_jmp_mispred;        
-wire             rtu_hpcp_inst0_jmp_pc_offset_8m;   
-wire    [1  :0]  rtu_hpcp_inst0_num;                
-wire    [2  :0]  rtu_hpcp_inst0_pc_offset;          
-wire             rtu_hpcp_inst0_spec_fail;          
-wire             rtu_hpcp_inst0_split;              
-wire             rtu_hpcp_inst0_store;              
-wire             rtu_hpcp_inst0_vld;                
-wire             rtu_hpcp_inst1_condbr;             
-wire    [39 :0]  rtu_hpcp_inst1_cur_pc;             
-wire             rtu_hpcp_inst1_jmp;                
-wire             rtu_hpcp_inst1_jmp_pc_offset_8m;   
-wire    [1  :0]  rtu_hpcp_inst1_num;                
-wire    [2  :0]  rtu_hpcp_inst1_pc_offset;          
-wire             rtu_hpcp_inst1_split;              
-wire             rtu_hpcp_inst1_store;              
-wire             rtu_hpcp_inst1_vld;                
-wire             rtu_hpcp_inst2_condbr;             
-wire    [39 :0]  rtu_hpcp_inst2_cur_pc;             
-wire             rtu_hpcp_inst2_jmp;                
-wire             rtu_hpcp_inst2_jmp_pc_offset_8m;   
-wire    [1  :0]  rtu_hpcp_inst2_num;                
-wire    [2  :0]  rtu_hpcp_inst2_pc_offset;          
-wire             rtu_hpcp_inst2_split;              
-wire             rtu_hpcp_inst2_store;              
-wire             rtu_hpcp_inst2_vld;                
-wire             rtu_yy_xx_dbgon;                   
-wire             rtu_yy_xx_flush;                   
-wire             scntinhbt_clk_en;                  
-wire    [31 :0]  scntinhbt_updt_value;              
-wire    [63 :0]  scntinhbt_value;                   
-wire             scntinhbt_wen;                     
-wire             scntinten_clk_en;                  
-wire    [63 :0]  scntinten_value;                   
-wire             scntinten_wen;                     
-wire             scntof_clk_en;                     
-wire    [63 :0]  scntof_value;                      
-wire             scntof_wen;                        
-wire             shpmcr_clk_en;                     
-wire    [63 :0]  shpmcr_value;                      
-wire             shpmcr_wen;                        
-wire             shpmep_clk_en;                     
-wire    [63 :0]  shpmep_value;                      
-wire             shpmep_wen;                        
-wire             shpmsp_clk_en;                     
-wire    [63 :0]  shpmsp_value;                      
-wire             shpmsp_wen;                        
-wire             spec_fail;                         
-wire             start_vld;                         
-wire             stop_vld;                          
-wire             sync_stall;                        
-wire             trigger_vld;                       
+wire             bht_mispred;
+wire             biu_hpcp_cmplt;
+wire    [3  :0]  biu_hpcp_l2of_int;
+wire    [127:0]  biu_hpcp_rdata;
+wire    [63 :0]  biu_hpcp_time;
+wire    [5  :0]  cnt0_event_index_clr_data;
+wire    [5  :0]  cnt0_event_index_set_data;
+wire    [5  :0]  cnt1_event_index_clr_data;
+wire    [5  :0]  cnt1_event_index_set_data;
+wire    [5  :0]  cnt2_event_index_clr_data;
+wire    [5  :0]  cnt2_event_index_set_data;
+wire    [5  :0]  cnt3_event_index_clr_data;
+wire    [5  :0]  cnt3_event_index_set_data;
+wire    [31 :0]  cnt_bit_mask;
+wire    [31 :0]  cnt_bit_sel;
+wire             cnt_index_less_than_limit;
+wire             cnt_mask_clr;
+wire    [31 :0]  cnt_mask_clr_data;
+wire             cnt_mask_set;
+wire    [31 :0]  cnt_mask_set_data;
+wire             cnt_mode_dis_pre;
+wire    [31 :0]  cntinten;
+wire    [63 :0]  cntinten_value;
+wire    [31 :0]  cntinten_wen;
+wire    [31 :0]  cntof;
+wire    [31 :0]  cntof_int;
+wire    [63 :0]  cntof_value;
+wire    [31 :0]  cntof_wen;
+wire    [31 :0]  counter_overflow;
+wire             cp0_hpcp_icg_en;
+wire    [11 :0]  cp0_hpcp_index;
+wire             cp0_hpcp_int_disable;
+wire    [31 :0]  cp0_hpcp_mcntwen;
+wire    [3  :0]  cp0_hpcp_op;
+wire             cp0_hpcp_pmdm;
+wire             cp0_hpcp_pmds;
+wire             cp0_hpcp_pmdu;
+wire             cp0_hpcp_sel;
+wire    [63 :0]  cp0_hpcp_src0;
+wire    [63 :0]  cp0_hpcp_wdata;
+wire    [1  :0]  cp0_yy_priv_mode;
+wire             cpurst_b;
+wire             end_vld;
+wire    [3  :0]  event01_adder;
+wire    [3  :0]  event02_adder;
+wire    [3  :0]  event03_adder;
+wire    [3  :0]  event04_adder;
+wire    [3  :0]  event05_adder;
+wire    [3  :0]  event06_adder;
+wire    [3  :0]  event07_adder;
+wire    [3  :0]  event08_adder;
+wire    [3  :0]  event09_adder;
+wire    [3  :0]  event10_adder;
+wire    [3  :0]  event11_adder;
+wire    [3  :0]  event12_adder;
+wire    [3  :0]  event13_adder;
+wire    [3  :0]  event14_adder;
+wire    [3  :0]  event15_adder;
+wire    [3  :0]  event16_adder;
+wire    [3  :0]  event17_adder;
+wire    [3  :0]  event18_adder;
+wire    [3  :0]  event19_adder;
+wire    [3  :0]  event20_adder;
+wire    [3  :0]  event21_adder;
+wire    [3  :0]  event22_adder;
+wire    [3  :0]  event23_adder;
+wire    [3  :0]  event24_adder;
+wire    [3  :0]  event25_adder;
+wire    [3  :0]  event26_adder;
+wire    [3  :0]  event27_adder;
+wire    [3  :0]  event28_adder;
+wire    [3  :0]  event29_adder;
+wire    [3  :0]  event30_adder;
+wire    [3  :0]  event31_adder;
+wire    [3  :0]  event32_adder;
+wire    [3  :0]  event33_adder;
+wire    [3  :0]  event34_adder;
+wire    [3  :0]  event35_adder;
+wire    [3  :0]  event36_adder;
+wire    [3  :0]  event37_adder;
+wire    [3  :0]  event38_adder;
+wire    [3  :0]  event39_adder;
+wire    [3  :0]  event40_adder;
+wire    [3  :0]  event41_adder;
+wire    [3  :0]  event42_adder;
+wire             forever_cpuclk;
+wire             hpcp_backend_stall;
+wire    [3  :0]  hpcp_biu_cnt_en;
+wire    [15 :0]  hpcp_biu_op;
+wire             hpcp_biu_sel;
+wire    [63 :0]  hpcp_biu_wdata;
+wire             hpcp_branch_target_inst;
+wire             hpcp_branch_target_mispred;
+wire             hpcp_clk;
+wire             hpcp_clk_en;
+wire             hpcp_cnt_en;
+wire             hpcp_cp0_cmplt;
+wire    [63 :0]  hpcp_cp0_data;
+wire             hpcp_cp0_int_vld;
+wire             hpcp_cp0_sce;
+wire             hpcp_dcache_read_access;
+wire             hpcp_dcache_read_miss;
+wire             hpcp_dcache_write_access;
+wire             hpcp_dcache_write_miss;
+wire             hpcp_end_vld;
+wire             hpcp_fence_stall;
+wire             hpcp_fence_sync_vld;
+wire             hpcp_frontend_stall;
+wire             hpcp_icache_access;
+wire             hpcp_icache_miss;
+wire             hpcp_idu_cnt_en;
+wire             hpcp_ifu_cnt_en;
+wire             hpcp_inst0_jmp_over_8m;
+wire             hpcp_inst1_jmp_over_8m;
+wire             hpcp_inst2_jmp_over_8m;
+wire             hpcp_int_ack;
+wire             hpcp_int_disable;
+wire    [6  :0]  hpcp_ir_inst0_type;
+wire             hpcp_ir_inst0_vld;
+wire    [6  :0]  hpcp_ir_inst1_type;
+wire             hpcp_ir_inst1_vld;
+wire    [6  :0]  hpcp_ir_inst2_type;
+wire             hpcp_ir_inst2_vld;
+wire    [6  :0]  hpcp_ir_inst3_type;
+wire             hpcp_ir_inst3_vld;
+wire             hpcp_ld_cross_4k_stall;
+wire             hpcp_ld_other_stall;
+wire             hpcp_lsu_cnt_en;
+wire             hpcp_mmu_cnt_en;
+wire             hpcp_retire_bht_mispred;
+wire             hpcp_retire_inst0_condbr;
+wire             hpcp_retire_inst0_jmp;
+wire    [1  :0]  hpcp_retire_inst0_num;
+wire    [2  :0]  hpcp_retire_inst0_offset;
+wire    [39 :0]  hpcp_retire_inst0_pc;
+wire             hpcp_retire_inst0_split;
+wire             hpcp_retire_inst0_store;
+wire             hpcp_retire_inst0_vld;
+wire             hpcp_retire_inst1_condbr;
+wire             hpcp_retire_inst1_jmp;
+wire    [1  :0]  hpcp_retire_inst1_num;
+wire    [2  :0]  hpcp_retire_inst1_offset;
+wire    [39 :0]  hpcp_retire_inst1_pc;
+wire             hpcp_retire_inst1_split;
+wire             hpcp_retire_inst1_store;
+wire             hpcp_retire_inst1_vld;
+wire             hpcp_retire_inst2_condbr;
+wire             hpcp_retire_inst2_jmp;
+wire    [1  :0]  hpcp_retire_inst2_num;
+wire    [2  :0]  hpcp_retire_inst2_offset;
+wire    [39 :0]  hpcp_retire_inst2_pc;
+wire             hpcp_retire_inst2_split;
+wire             hpcp_retire_inst2_store;
+wire             hpcp_retire_inst2_vld;
+wire             hpcp_retire_jmp_mispred;
+wire             hpcp_retire_spec_fail;
+wire             hpcp_rf_inst_vld;
+wire             hpcp_rf_pipe0_inst_vld;
+wire             hpcp_rf_pipe0_lch_fail_vld;
+wire             hpcp_rf_pipe1_inst_vld;
+wire             hpcp_rf_pipe1_lch_fail_vld;
+wire             hpcp_rf_pipe2_inst_vld;
+wire             hpcp_rf_pipe2_lch_fail_vld;
+wire             hpcp_rf_pipe3_inst_vld;
+wire             hpcp_rf_pipe3_lch_fail_vld;
+wire             hpcp_rf_pipe3_reg_lch_fail_vld;
+wire             hpcp_rf_pipe4_inst_vld;
+wire             hpcp_rf_pipe4_lch_fail_vld;
+wire             hpcp_rf_pipe4_reg_lch_fail_vld;
+wire             hpcp_rf_pipe5_inst_vld;
+wire             hpcp_rf_pipe5_lch_fail_vld;
+wire             hpcp_rf_pipe5_reg_lch_fail_vld;
+wire             hpcp_rf_pipe6_inst_vld;
+wire             hpcp_rf_pipe6_lch_fail_vld;
+wire             hpcp_rf_pipe7_inst_vld;
+wire             hpcp_rf_pipe7_lch_fail_vld;
+wire             hpcp_rtu_cnt_en;
+wire             hpcp_sq_data_discard;
+wire             hpcp_sq_discard;
+wire             hpcp_st_cross_4k_stall;
+wire             hpcp_st_other_stall;
+wire             hpcp_start_vld;
+wire             hpcp_stop_vld;
+wire             hpcp_tlb_dutlb_miss;
+wire             hpcp_tlb_iutlb_miss;
+wire             hpcp_tlb_jtlb_miss;
+wire             hpcp_trigger_vld;
+wire    [1  :0]  hpcp_unalign_inst;
+wire    [63 :0]  hpcp_wdata;
+wire             hpcp_wen;
+wire             hpcp_xx_cnt_en;
+wire             hpmep_eq_retire0_pc;
+wire             hpmep_eq_retire1_pc;
+wire             hpmep_eq_retire2_pc;
+wire             hpmep_ge_retire0_ed_pc;
+wire             hpmep_ge_retire1_ed_pc;
+wire             hpmep_ge_retire2_ed_pc;
+wire             hpmep_high_test;
+wire    [3  :0]  hpmep_sub_retire0_ed_pc;
+wire             hpmep_sub_retire0_high_zero;
+wire    [39 :0]  hpmep_sub_retire0_st_pc;
+wire    [3  :0]  hpmep_sub_retire1_ed_pc;
+wire             hpmep_sub_retire1_high_zero;
+wire    [39 :0]  hpmep_sub_retire1_st_pc;
+wire    [3  :0]  hpmep_sub_retire2_ed_pc;
+wire             hpmep_sub_retire2_high_zero;
+wire    [39 :0]  hpmep_sub_retire2_st_pc;
+wire             hpmsp_eq_retire0_pc;
+wire             hpmsp_eq_retire1_pc;
+wire             hpmsp_eq_retire2_pc;
+wire             hpmsp_high_test;
+wire             hpmsp_le_retire0_st_pc;
+wire             hpmsp_le_retire1_st_pc;
+wire             hpmsp_le_retire2_st_pc;
+wire    [3  :0]  hpmsp_sub_retire0_ed_pc;
+wire             hpmsp_sub_retire0_high_zero;
+wire    [39 :0]  hpmsp_sub_retire0_st_pc;
+wire    [3  :0]  hpmsp_sub_retire1_ed_pc;
+wire             hpmsp_sub_retire1_high_zero;
+wire    [39 :0]  hpmsp_sub_retire1_st_pc;
+wire    [3  :0]  hpmsp_sub_retire2_ed_pc;
+wire             hpmsp_sub_retire2_high_zero;
+wire    [39 :0]  hpmsp_sub_retire2_st_pc;
+wire             idu_hpcp_backend_stall;
+wire             idu_hpcp_fence_sync_vld;
+wire    [6  :0]  idu_hpcp_ir_inst0_type;
+wire             idu_hpcp_ir_inst0_vld;
+wire    [6  :0]  idu_hpcp_ir_inst1_type;
+wire             idu_hpcp_ir_inst1_vld;
+wire    [6  :0]  idu_hpcp_ir_inst2_type;
+wire             idu_hpcp_ir_inst2_vld;
+wire    [6  :0]  idu_hpcp_ir_inst3_type;
+wire             idu_hpcp_ir_inst3_vld;
+wire             idu_hpcp_rf_inst_vld;
+wire             idu_hpcp_rf_pipe0_inst_vld;
+wire             idu_hpcp_rf_pipe0_lch_fail_vld;
+wire             idu_hpcp_rf_pipe1_inst_vld;
+wire             idu_hpcp_rf_pipe1_lch_fail_vld;
+wire             idu_hpcp_rf_pipe2_inst_vld;
+wire             idu_hpcp_rf_pipe2_lch_fail_vld;
+wire             idu_hpcp_rf_pipe3_inst_vld;
+wire             idu_hpcp_rf_pipe3_lch_fail_vld;
+wire             idu_hpcp_rf_pipe3_reg_lch_fail_vld;
+wire             idu_hpcp_rf_pipe4_inst_vld;
+wire             idu_hpcp_rf_pipe4_lch_fail_vld;
+wire             idu_hpcp_rf_pipe4_reg_lch_fail_vld;
+wire             idu_hpcp_rf_pipe5_inst_vld;
+wire             idu_hpcp_rf_pipe5_lch_fail_vld;
+wire             idu_hpcp_rf_pipe5_reg_lch_fail_vld;
+wire             idu_hpcp_rf_pipe6_inst_vld;
+wire             idu_hpcp_rf_pipe6_lch_fail_vld;
+wire             idu_hpcp_rf_pipe7_inst_vld;
+wire             idu_hpcp_rf_pipe7_lch_fail_vld;
+wire             ifu_hpcp_btb_inst;
+wire             ifu_hpcp_btb_mispred;
+wire             ifu_hpcp_frontend_stall;
+wire             ifu_hpcp_icache_access;
+wire             ifu_hpcp_icache_miss;
+wire             inst0_condbr;
+wire             inst0_jmp;
+wire             inst0_long_jump;
+wire             inst0_store;
+wire    [1  :0]  inst0_vld;
+wire             inst1_condbr;
+wire             inst1_jmp;
+wire             inst1_long_jump;
+wire             inst1_store;
+wire    [1  :0]  inst1_vld;
+wire             inst2_condbr;
+wire             inst2_jmp;
+wire             inst2_long_jump;
+wire             inst2_store;
+wire    [1  :0]  inst2_vld;
+wire             int_ack_vld;
+wire             ir_inst0_alu;
+wire             ir_inst0_csr;
+wire             ir_inst0_ecall;
+wire             ir_inst0_fpu;
+wire             ir_inst0_ldst;
+wire             ir_inst0_sync;
+wire             ir_inst0_vec;
+wire             ir_inst1_alu;
+wire             ir_inst1_csr;
+wire             ir_inst1_ecall;
+wire             ir_inst1_fpu;
+wire             ir_inst1_ldst;
+wire             ir_inst1_sync;
+wire             ir_inst1_vec;
+wire             ir_inst2_alu;
+wire             ir_inst2_csr;
+wire             ir_inst2_ecall;
+wire             ir_inst2_fpu;
+wire             ir_inst2_ldst;
+wire             ir_inst2_sync;
+wire             ir_inst2_vec;
+wire             ir_inst3_alu;
+wire             ir_inst3_csr;
+wire             ir_inst3_ecall;
+wire             ir_inst3_fpu;
+wire             ir_inst3_ldst;
+wire             ir_inst3_sync;
+wire             ir_inst3_vec;
+wire             jmp_mispred;
+wire             l2_ra_sel;
+wire             l2_rm_sel;
+wire             l2_wa_sel;
+wire             l2_wm_sel;
+wire    [3  :0]  l2cnt_en;
+wire    [15 :0]  l2cnt_idx;
+wire             l2cnt_ra_cnt_en;
+wire    [31 :0]  l2cnt_ra_inhbt;
+wire    [3  :0]  l2cnt_reg_idx;
+wire             l2cnt_rm_cnt_en;
+wire    [31 :0]  l2cnt_rm_inhbt;
+wire             l2cnt_sel;
+wire             l2cnt_wa_cnt_en;
+wire    [31 :0]  l2cnt_wa_inhbt;
+wire    [63 :0]  l2cnt_wdata;
+wire             l2cnt_wm_cnt_en;
+wire    [31 :0]  l2cnt_wm_inhbt;
+wire    [31 :0]  l2of_data0_shift;
+wire    [31 :0]  l2of_data1_shift;
+wire    [31 :0]  l2of_data2_shift;
+wire    [31 :0]  l2of_data3_shift;
+wire    [31 :0]  l2of_data_updt;
+wire             l2of_data_updt_vld;
+wire    [31 :0]  l2of_int_updt;
+wire             l2of_int_updt_vld;
+wire    [3  :0]  l2of_wdata;
+wire    [3  :0]  l2of_wen;
+wire    [31 :0]  l2of_wen0_shift;
+wire    [31 :0]  l2of_wen1_shift;
+wire    [31 :0]  l2of_wen2_shift;
+wire    [31 :0]  l2of_wen3_shift;
+wire             lsu_hpcp_cache_read_access;
+wire             lsu_hpcp_cache_read_miss;
+wire             lsu_hpcp_cache_write_access;
+wire             lsu_hpcp_cache_write_miss;
+wire             lsu_hpcp_fence_stall;
+wire             lsu_hpcp_ld_stall_cross_4k;
+wire             lsu_hpcp_ld_stall_other;
+wire             lsu_hpcp_replay_data_discard;
+wire             lsu_hpcp_replay_discard_sq;
+wire             lsu_hpcp_st_stall_cross_4k;
+wire             lsu_hpcp_st_stall_other;
+wire    [1  :0]  lsu_hpcp_unalign_inst;
+wire             mcntinhbt_clk_en;
+wire    [63 :0]  mcntinhbt_value;
+wire             mcntinhbt_wen;
+wire             mcntinten_clk_en;
+wire    [63 :0]  mcntinten_value;
+wire             mcntinten_wen;
+wire             mcntof_clk_en;
+wire    [63 :0]  mcntof_value;
+wire             mcntof_wen;
+wire    [3  :0]  mcycle_adder;
+wire             mcycle_clk_en;
+wire             mcycle_en;
+wire             mcycle_of;
+wire    [63 :0]  mcycle_value;
+wire             mcycle_wen;
+wire    [3  :0]  mhpmcnt10_adder;
+wire             mhpmcnt10_clk_en;
+wire             mhpmcnt10_en;
+wire             mhpmcnt10_of;
+wire    [63 :0]  mhpmcnt10_value;
+wire             mhpmcnt10_wen;
+wire    [3  :0]  mhpmcnt11_adder;
+wire             mhpmcnt11_clk_en;
+wire             mhpmcnt11_en;
+wire             mhpmcnt11_of;
+wire    [63 :0]  mhpmcnt11_value;
+wire             mhpmcnt11_wen;
+wire    [3  :0]  mhpmcnt12_adder;
+wire             mhpmcnt12_clk_en;
+wire             mhpmcnt12_en;
+wire             mhpmcnt12_of;
+wire    [63 :0]  mhpmcnt12_value;
+wire             mhpmcnt12_wen;
+wire    [3  :0]  mhpmcnt13_adder;
+wire             mhpmcnt13_clk_en;
+wire             mhpmcnt13_en;
+wire             mhpmcnt13_of;
+wire    [63 :0]  mhpmcnt13_value;
+wire             mhpmcnt13_wen;
+wire    [3  :0]  mhpmcnt14_adder;
+wire             mhpmcnt14_clk_en;
+wire             mhpmcnt14_en;
+wire             mhpmcnt14_of;
+wire    [63 :0]  mhpmcnt14_value;
+wire             mhpmcnt14_wen;
+wire    [3  :0]  mhpmcnt15_adder;
+wire             mhpmcnt15_clk_en;
+wire             mhpmcnt15_en;
+wire             mhpmcnt15_of;
+wire    [63 :0]  mhpmcnt15_value;
+wire             mhpmcnt15_wen;
+wire    [3  :0]  mhpmcnt16_adder;
+wire             mhpmcnt16_clk_en;
+wire             mhpmcnt16_en;
+wire             mhpmcnt16_of;
+wire    [63 :0]  mhpmcnt16_value;
+wire             mhpmcnt16_wen;
+wire    [3  :0]  mhpmcnt17_adder;
+wire             mhpmcnt17_clk_en;
+wire             mhpmcnt17_en;
+wire             mhpmcnt17_of;
+wire    [63 :0]  mhpmcnt17_value;
+wire             mhpmcnt17_wen;
+wire    [3  :0]  mhpmcnt18_adder;
+wire             mhpmcnt18_clk_en;
+wire             mhpmcnt18_en;
+wire             mhpmcnt18_of;
+wire    [63 :0]  mhpmcnt18_value;
+wire             mhpmcnt18_wen;
+wire    [3  :0]  mhpmcnt3_adder;
+wire             mhpmcnt3_clk_en;
+wire             mhpmcnt3_en;
+wire             mhpmcnt3_of;
+wire    [63 :0]  mhpmcnt3_value;
+wire             mhpmcnt3_wen;
+wire    [3  :0]  mhpmcnt4_adder;
+wire             mhpmcnt4_clk_en;
+wire             mhpmcnt4_en;
+wire             mhpmcnt4_of;
+wire    [63 :0]  mhpmcnt4_value;
+wire             mhpmcnt4_wen;
+wire    [3  :0]  mhpmcnt5_adder;
+wire             mhpmcnt5_clk_en;
+wire             mhpmcnt5_en;
+wire             mhpmcnt5_of;
+wire    [63 :0]  mhpmcnt5_value;
+wire             mhpmcnt5_wen;
+wire    [3  :0]  mhpmcnt6_adder;
+wire             mhpmcnt6_clk_en;
+wire             mhpmcnt6_en;
+wire             mhpmcnt6_of;
+wire    [63 :0]  mhpmcnt6_value;
+wire             mhpmcnt6_wen;
+wire    [3  :0]  mhpmcnt7_adder;
+wire             mhpmcnt7_clk_en;
+wire             mhpmcnt7_en;
+wire             mhpmcnt7_of;
+wire    [63 :0]  mhpmcnt7_value;
+wire             mhpmcnt7_wen;
+wire    [3  :0]  mhpmcnt8_adder;
+wire             mhpmcnt8_clk_en;
+wire             mhpmcnt8_en;
+wire             mhpmcnt8_of;
+wire    [63 :0]  mhpmcnt8_value;
+wire             mhpmcnt8_wen;
+wire    [3  :0]  mhpmcnt9_adder;
+wire             mhpmcnt9_clk_en;
+wire             mhpmcnt9_en;
+wire             mhpmcnt9_of;
+wire    [63 :0]  mhpmcnt9_value;
+wire             mhpmcnt9_wen;
+wire             mhpmcr_clk_en;
+wire    [63 :0]  mhpmcr_value;
+wire             mhpmcr_wen;
+wire             mhpmep_clk_en;
+wire    [63 :0]  mhpmep_value;
+wire             mhpmep_wen;
+wire             mhpmevt10_clk_en;
+wire    [63 :0]  mhpmevt10_value;
+wire             mhpmevt10_wen;
+wire             mhpmevt11_clk_en;
+wire    [63 :0]  mhpmevt11_value;
+wire             mhpmevt11_wen;
+wire             mhpmevt12_clk_en;
+wire    [63 :0]  mhpmevt12_value;
+wire             mhpmevt12_wen;
+wire             mhpmevt13_clk_en;
+wire    [63 :0]  mhpmevt13_value;
+wire             mhpmevt13_wen;
+wire             mhpmevt14_clk_en;
+wire    [63 :0]  mhpmevt14_value;
+wire             mhpmevt14_wen;
+wire             mhpmevt15_clk_en;
+wire    [63 :0]  mhpmevt15_value;
+wire             mhpmevt15_wen;
+wire             mhpmevt16_clk_en;
+wire    [63 :0]  mhpmevt16_value;
+wire             mhpmevt16_wen;
+wire             mhpmevt17_clk_en;
+wire    [63 :0]  mhpmevt17_value;
+wire             mhpmevt17_wen;
+wire             mhpmevt18_clk_en;
+wire    [63 :0]  mhpmevt18_value;
+wire             mhpmevt18_wen;
+wire             mhpmevt3_clk_en;
+wire    [63 :0]  mhpmevt3_value;
+wire             mhpmevt3_wen;
+wire             mhpmevt4_clk_en;
+wire    [63 :0]  mhpmevt4_value;
+wire             mhpmevt4_wen;
+wire             mhpmevt5_clk_en;
+wire    [63 :0]  mhpmevt5_value;
+wire             mhpmevt5_wen;
+wire             mhpmevt6_clk_en;
+wire    [63 :0]  mhpmevt6_value;
+wire             mhpmevt6_wen;
+wire             mhpmevt7_clk_en;
+wire    [63 :0]  mhpmevt7_value;
+wire             mhpmevt7_wen;
+wire             mhpmevt8_clk_en;
+wire    [63 :0]  mhpmevt8_value;
+wire             mhpmevt8_wen;
+wire             mhpmevt9_clk_en;
+wire    [63 :0]  mhpmevt9_value;
+wire             mhpmevt9_wen;
+wire             mhpmsp_clk_en;
+wire    [63 :0]  mhpmsp_value;
+wire             mhpmsp_wen;
+wire    [3  :0]  minstret_adder;
+wire             minstret_clk_en;
+wire             minstret_en;
+wire             minstret_of;
+wire    [63 :0]  minstret_value;
+wire             minstret_wen;
+wire             mmu_hpcp_dutlb_miss;
+wire             mmu_hpcp_iutlb_miss;
+wire             mmu_hpcp_jtlb_miss;
+wire             ofcnt_sel;
+wire             pad_yy_icg_scan_en;
+wire             pipe0_inst_vld;
+wire             pipe0_lch_fail;
+wire             pipe1_inst_vld;
+wire             pipe1_lch_fail;
+wire             pipe2_inst_vld;
+wire             pipe2_lch_fail;
+wire             pipe3_inst_vld;
+wire             pipe3_lch_fail;
+wire             pipe3_reg_lch_fail;
+wire             pipe4_inst_vld;
+wire             pipe4_lch_fail;
+wire             pipe4_reg_lch_fail;
+wire             pipe5_inst_vld;
+wire             pipe5_lch_fail;
+wire             pipe5_reg_lch_fail;
+wire             pipe6_inst_vld;
+wire             pipe6_lch_fail;
+wire             pipe7_inst_vld;
+wire             pipe7_lch_fail;
+wire             rtu_hpcp_inst0_ack_int;
+wire             rtu_hpcp_inst0_bht_mispred;
+wire             rtu_hpcp_inst0_condbr;
+wire    [39 :0]  rtu_hpcp_inst0_cur_pc;
+wire             rtu_hpcp_inst0_jmp;
+wire             rtu_hpcp_inst0_jmp_mispred;
+wire             rtu_hpcp_inst0_jmp_pc_offset_8m;
+wire    [1  :0]  rtu_hpcp_inst0_num;
+wire    [2  :0]  rtu_hpcp_inst0_pc_offset;
+wire             rtu_hpcp_inst0_spec_fail;
+wire             rtu_hpcp_inst0_split;
+wire             rtu_hpcp_inst0_store;
+wire             rtu_hpcp_inst0_vld;
+wire             rtu_hpcp_inst1_condbr;
+wire    [39 :0]  rtu_hpcp_inst1_cur_pc;
+wire             rtu_hpcp_inst1_jmp;
+wire             rtu_hpcp_inst1_jmp_pc_offset_8m;
+wire    [1  :0]  rtu_hpcp_inst1_num;
+wire    [2  :0]  rtu_hpcp_inst1_pc_offset;
+wire             rtu_hpcp_inst1_split;
+wire             rtu_hpcp_inst1_store;
+wire             rtu_hpcp_inst1_vld;
+wire             rtu_hpcp_inst2_condbr;
+wire    [39 :0]  rtu_hpcp_inst2_cur_pc;
+wire             rtu_hpcp_inst2_jmp;
+wire             rtu_hpcp_inst2_jmp_pc_offset_8m;
+wire    [1  :0]  rtu_hpcp_inst2_num;
+wire    [2  :0]  rtu_hpcp_inst2_pc_offset;
+wire             rtu_hpcp_inst2_split;
+wire             rtu_hpcp_inst2_store;
+wire             rtu_hpcp_inst2_vld;
+wire             rtu_yy_xx_dbgon;
+wire             rtu_yy_xx_flush;
+wire             scntinhbt_clk_en;
+wire    [31 :0]  scntinhbt_updt_value;
+wire    [63 :0]  scntinhbt_value;
+wire             scntinhbt_wen;
+wire             scntinten_clk_en;
+wire    [63 :0]  scntinten_value;
+wire             scntinten_wen;
+wire             scntof_clk_en;
+wire    [63 :0]  scntof_value;
+wire             scntof_wen;
+wire             shpmcr_clk_en;
+wire    [63 :0]  shpmcr_value;
+wire             shpmcr_wen;
+wire             shpmep_clk_en;
+wire    [63 :0]  shpmep_value;
+wire             shpmep_wen;
+wire             shpmsp_clk_en;
+wire    [63 :0]  shpmsp_value;
+wire             shpmsp_wen;
+wire             spec_fail;
+wire             start_vld;
+wire             stop_vld;
+wire             sync_stall;
+wire             trigger_vld;
 
 
 // &Depend("cpu_cfig.h"); @27
@@ -896,7 +896,7 @@ wire             trigger_vld;
 //define total counter num
 parameter HPMCNT_NUM   = 42;
 parameter HPMEVT_WIDTH = 6;
-     
+
 // performance monitor regs list in C960
 // Machine Counter Setup
 parameter MCNTINHBT = 12'h320;
@@ -1045,7 +1045,7 @@ parameter HPMCNT30 = 12'hC1E;
 parameter HPMCNT31 = 12'hC1F;
 
 //==========================================================
-//                     Gated clk 
+//                     Gated clk
 //==========================================================
 // &Instance("gated_clk_cell", "x_hpcp_gated_clk"); @183
 gated_clk_cell  x_hpcp_gated_clk (
@@ -1064,8 +1064,8 @@ gated_clk_cell  x_hpcp_gated_clk (
 //          .module_en   (cp0_hpcp_icg_en), @187
 //          .local_en    (hpcp_clk_en), @188
 //          .clk_out     (hpcp_clk)); @189
-assign hpcp_clk_en = mcntinhbt_clk_en 
-                  || mcntinten_clk_en 
+assign hpcp_clk_en = mcntinhbt_clk_en
+                  || mcntinten_clk_en
                   || mhpmcr_clk_en
                   || mhpmsp_clk_en
                   || mhpmep_clk_en
@@ -1078,7 +1078,7 @@ assign hpcp_clk_en = mcntinhbt_clk_en
                   || scntof_clk_en
                   || biu_hpcp_cmplt
                   || l2of_int_updt_vld
-                  || l2of_data_updt_vld  
+                  || l2of_data_updt_vld
                   || cp0_hpcp_sel
                   || hpcp_cp0_cmplt
                   || rtu_yy_xx_flush
@@ -1212,20 +1212,20 @@ assign hpcp_fence_sync_vld            = idu_hpcp_fence_sync_vld;
 assign hpcp_fence_stall               = lsu_hpcp_fence_stall;
 
 //==============================================================================
-// Write signal 
+// Write signal
 //==============================================================================
 //machine mode counter inhibit
 //machine counter write en
-assign hpcp_wen        = cp0_hpcp_op[3] && (cur_state[1:0] == EX2); 
+assign hpcp_wen        = cp0_hpcp_op[3] && (cur_state[1:0] == EX2);
 
 assign mcntinhbt_wen   = (cp0_hpcp_index[11:0] == MCNTINHBT ) && hpcp_wen;
-assign mcntinten_wen   = (cp0_hpcp_index[11:0] == MCNTINTEN ) && hpcp_wen; 
-assign mcntof_wen      = (cp0_hpcp_index[11:0] == MCNTOF    ) && hpcp_wen; 
-assign mhpmcr_wen      = (cp0_hpcp_index[11:0] == MHPMCR    ) && hpcp_wen; 
-assign mhpmsp_wen      = (cp0_hpcp_index[11:0] == MHPMSP    ) && hpcp_wen; 
-assign mhpmep_wen      = (cp0_hpcp_index[11:0] == MHPMEP    ) && hpcp_wen; 
+assign mcntinten_wen   = (cp0_hpcp_index[11:0] == MCNTINTEN ) && hpcp_wen;
+assign mcntof_wen      = (cp0_hpcp_index[11:0] == MCNTOF    ) && hpcp_wen;
+assign mhpmcr_wen      = (cp0_hpcp_index[11:0] == MHPMCR    ) && hpcp_wen;
+assign mhpmsp_wen      = (cp0_hpcp_index[11:0] == MHPMSP    ) && hpcp_wen;
+assign mhpmep_wen      = (cp0_hpcp_index[11:0] == MHPMEP    ) && hpcp_wen;
 
-//mhpmevt write enable 
+//mhpmevt write enable
 assign mhpmevt3_wen    = (cp0_hpcp_index[11:0] == MHPMEVT3 ) && hpcp_wen;
 assign mhpmevt4_wen    = (cp0_hpcp_index[11:0] == MHPMEVT4 ) && hpcp_wen;
 assign mhpmevt5_wen    = (cp0_hpcp_index[11:0] == MHPMEVT5 ) && hpcp_wen;
@@ -1243,34 +1243,34 @@ assign mhpmevt16_wen   = (cp0_hpcp_index[11:0] == MHPMEVT16) && hpcp_wen;
 assign mhpmevt17_wen   = (cp0_hpcp_index[11:0] == MHPMEVT17) && hpcp_wen;
 assign mhpmevt18_wen   = (cp0_hpcp_index[11:0] == MHPMEVT18) && hpcp_wen;
 
-// counter write enable signal                      
+// counter write enable signal
 assign mcycle_wen      = ((cp0_hpcp_index[11:0] == MCYCLE)    || (cp0_hpcp_index[11:0] == SCYCLE)   ) && hpcp_wen;
 assign minstret_wen    = ((cp0_hpcp_index[11:0] == MINSTRET)  || (cp0_hpcp_index[11:0] == SINSTRET) ) && hpcp_wen;
 
-assign mhpmcnt3_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT3)  || (cp0_hpcp_index[11:0] == SHPMCNT3) ) && hpcp_wen; 
-assign mhpmcnt4_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT4)  || (cp0_hpcp_index[11:0] == SHPMCNT4) ) && hpcp_wen; 
-assign mhpmcnt5_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT5)  || (cp0_hpcp_index[11:0] == SHPMCNT5) ) && hpcp_wen; 
-assign mhpmcnt6_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT6)  || (cp0_hpcp_index[11:0] == SHPMCNT6) ) && hpcp_wen; 
-assign mhpmcnt7_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT7)  || (cp0_hpcp_index[11:0] == SHPMCNT7) ) && hpcp_wen; 
-assign mhpmcnt8_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT8)  || (cp0_hpcp_index[11:0] == SHPMCNT8) ) && hpcp_wen; 
-assign mhpmcnt9_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT9)  || (cp0_hpcp_index[11:0] == SHPMCNT9) ) && hpcp_wen; 
-assign mhpmcnt10_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT10) || (cp0_hpcp_index[11:0] == SHPMCNT10)) && hpcp_wen; 
-assign mhpmcnt11_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT11) || (cp0_hpcp_index[11:0] == SHPMCNT11)) && hpcp_wen; 
-assign mhpmcnt12_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT12) || (cp0_hpcp_index[11:0] == SHPMCNT12)) && hpcp_wen; 
-assign mhpmcnt13_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT13) || (cp0_hpcp_index[11:0] == SHPMCNT13)) && hpcp_wen; 
-assign mhpmcnt14_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT14) || (cp0_hpcp_index[11:0] == SHPMCNT14)) && hpcp_wen; 
-assign mhpmcnt15_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT15) || (cp0_hpcp_index[11:0] == SHPMCNT15)) && hpcp_wen; 
-assign mhpmcnt16_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT16) || (cp0_hpcp_index[11:0] == SHPMCNT16)) && hpcp_wen; 
-assign mhpmcnt17_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT17) || (cp0_hpcp_index[11:0] == SHPMCNT17)) && hpcp_wen; 
-assign mhpmcnt18_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT18) || (cp0_hpcp_index[11:0] == SHPMCNT18)) && hpcp_wen; 
+assign mhpmcnt3_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT3)  || (cp0_hpcp_index[11:0] == SHPMCNT3) ) && hpcp_wen;
+assign mhpmcnt4_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT4)  || (cp0_hpcp_index[11:0] == SHPMCNT4) ) && hpcp_wen;
+assign mhpmcnt5_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT5)  || (cp0_hpcp_index[11:0] == SHPMCNT5) ) && hpcp_wen;
+assign mhpmcnt6_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT6)  || (cp0_hpcp_index[11:0] == SHPMCNT6) ) && hpcp_wen;
+assign mhpmcnt7_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT7)  || (cp0_hpcp_index[11:0] == SHPMCNT7) ) && hpcp_wen;
+assign mhpmcnt8_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT8)  || (cp0_hpcp_index[11:0] == SHPMCNT8) ) && hpcp_wen;
+assign mhpmcnt9_wen    = ((cp0_hpcp_index[11:0] == MHPMCNT9)  || (cp0_hpcp_index[11:0] == SHPMCNT9) ) && hpcp_wen;
+assign mhpmcnt10_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT10) || (cp0_hpcp_index[11:0] == SHPMCNT10)) && hpcp_wen;
+assign mhpmcnt11_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT11) || (cp0_hpcp_index[11:0] == SHPMCNT11)) && hpcp_wen;
+assign mhpmcnt12_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT12) || (cp0_hpcp_index[11:0] == SHPMCNT12)) && hpcp_wen;
+assign mhpmcnt13_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT13) || (cp0_hpcp_index[11:0] == SHPMCNT13)) && hpcp_wen;
+assign mhpmcnt14_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT14) || (cp0_hpcp_index[11:0] == SHPMCNT14)) && hpcp_wen;
+assign mhpmcnt15_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT15) || (cp0_hpcp_index[11:0] == SHPMCNT15)) && hpcp_wen;
+assign mhpmcnt16_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT16) || (cp0_hpcp_index[11:0] == SHPMCNT16)) && hpcp_wen;
+assign mhpmcnt17_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT17) || (cp0_hpcp_index[11:0] == SHPMCNT17)) && hpcp_wen;
+assign mhpmcnt18_wen   = ((cp0_hpcp_index[11:0] == MHPMCNT18) || (cp0_hpcp_index[11:0] == SHPMCNT18)) && hpcp_wen;
 
 //Supervisor counter write en
 assign scntinhbt_wen   = (cp0_hpcp_index[11:0] == SCNTINHBT ) && hpcp_wen;
-assign scntinten_wen   = (cp0_hpcp_index[11:0] == SCNTINTEN ) && hpcp_wen; 
-assign scntof_wen      = (cp0_hpcp_index[11:0] == SCNTOF    ) && hpcp_wen; 
-assign shpmcr_wen      = (cp0_hpcp_index[11:0] == SHPMCR    ) && hpcp_wen; 
-assign shpmsp_wen      = (cp0_hpcp_index[11:0] == SHPMSP    ) && hpcp_wen; 
-assign shpmep_wen      = (cp0_hpcp_index[11:0] == SHPMEP    ) && hpcp_wen; 
+assign scntinten_wen   = (cp0_hpcp_index[11:0] == SCNTINTEN ) && hpcp_wen;
+assign scntof_wen      = (cp0_hpcp_index[11:0] == SCNTOF    ) && hpcp_wen;
+assign shpmcr_wen      = (cp0_hpcp_index[11:0] == SHPMCR    ) && hpcp_wen;
+assign shpmsp_wen      = (cp0_hpcp_index[11:0] == SHPMSP    ) && hpcp_wen;
+assign shpmep_wen      = (cp0_hpcp_index[11:0] == SHPMEP    ) && hpcp_wen;
 
 //==============================================================================
 //                Counter Control Signals
@@ -1290,8 +1290,8 @@ assign cnt_mode_dis_pre = (cp0_yy_priv_mode[1:0] == 2'b11) && cp0_hpcp_pmdm
 
 assign hpcp_cnt_en  = (tme[1:0] == 2'b00)
                    || (tme[1:0] == 2'b01) && ts
-                   || (tme[1:0] == 2'b10) && ts; 
-                 
+                   || (tme[1:0] == 2'b10) && ts;
+
 
 // enable counter
 assign mcycle_en    = !rtu_yy_xx_dbgon && !cnt_mode_dis && !mcntinhbt_value[0];
@@ -1313,7 +1313,7 @@ assign mhpmcnt15_en = !rtu_yy_xx_dbgon && !cnt_mode_dis && !cnt_mask[15] && !mcn
 assign mhpmcnt16_en = !rtu_yy_xx_dbgon && !cnt_mode_dis && !cnt_mask[16] && !mcntinhbt_value[16] && (|mhpmevt16_value[HPMEVT_WIDTH-1:0]);
 assign mhpmcnt17_en = !rtu_yy_xx_dbgon && !cnt_mode_dis && !cnt_mask[17] && !mcntinhbt_value[17] && (|mhpmevt17_value[HPMEVT_WIDTH-1:0]);
 assign mhpmcnt18_en = !rtu_yy_xx_dbgon && !cnt_mode_dis && !cnt_mask[18] && !mcntinhbt_value[18] && (|mhpmevt18_value[HPMEVT_WIDTH-1:0]);
-                                                            
+
 //==============================================================================
 //                Counter Adders
 //==============================================================================
@@ -1331,7 +1331,7 @@ assign minstret_adder[3:0] = ({2'b0,inst0_vld[1:0]} & {2'b0,hpcp_retire_inst0_nu
                            + ({2'b0,inst1_vld[1:0]} & {2'b0,hpcp_retire_inst1_num[1:0]})
                            + ({2'b0,inst2_vld[1:0]} & {2'b0,hpcp_retire_inst2_num[1:0]});
 
-//3.universal counter 
+//3.universal counter
 assign bht_mispred        = hpcp_retire_inst0_vld && hpcp_retire_bht_mispred;
 
 assign inst0_condbr       = hpcp_retire_inst0_vld && hpcp_retire_inst0_condbr;
@@ -1419,13 +1419,13 @@ assign event06_adder[3:0] = {3'b0,bht_mispred};
 assign event07_adder[3:0] = {3'b0,inst0_condbr} + {3'b0,inst1_condbr} + {3'b0,inst2_condbr};
 assign event08_adder[3:0] = {3'b0,jmp_mispred};
 assign event09_adder[3:0] = {3'b0,inst0_jmp} + {3'b0,inst1_jmp}  + {3'b0,inst2_jmp};
-assign event10_adder[3:0] = {3'b0,spec_fail}; 
+assign event10_adder[3:0] = {3'b0,spec_fail};
 assign event11_adder[3:0] = {3'b0,inst0_store} + {3'b0,inst1_store} + {3'b0,inst2_store};
-assign event12_adder[3:0] = {3'b0,hpcp_dcache_read_access}; 
-assign event13_adder[3:0] = {3'b0,hpcp_dcache_read_miss}; 
+assign event12_adder[3:0] = {3'b0,hpcp_dcache_read_access};
+assign event13_adder[3:0] = {3'b0,hpcp_dcache_read_miss};
 assign event14_adder[3:0] = {3'b0,hpcp_dcache_write_access};
 assign event15_adder[3:0] = {3'b0,hpcp_dcache_write_miss};
-//tie to zero for L2 counter 
+//tie to zero for L2 counter
 assign event16_adder[3:0] = 4'b0;
 assign event17_adder[3:0] = 4'b0;
 assign event18_adder[3:0] = 4'b0;
@@ -1437,30 +1437,30 @@ assign event19_adder[3:0] = 4'b0;
 assign event20_adder[3:0] = {3'b0,pipe0_lch_fail} + {3'b0,pipe1_lch_fail} + {3'b0,pipe2_lch_fail}
                           + {3'b0,pipe3_lch_fail} + {3'b0,pipe4_lch_fail} + {3'b0,pipe5_lch_fail}
                           + {3'b0,pipe6_lch_fail} + {3'b0,pipe7_lch_fail};
-assign event21_adder[3:0] = {3'b0,pipe3_reg_lch_fail} + {3'b0,pipe4_reg_lch_fail} + {3'b0,pipe5_reg_lch_fail}; 
+assign event21_adder[3:0] = {3'b0,pipe3_reg_lch_fail} + {3'b0,pipe4_reg_lch_fail} + {3'b0,pipe5_reg_lch_fail};
 assign event22_adder[3:0] = {3'b0,pipe0_inst_vld} + {3'b0,pipe1_inst_vld} + {3'b0,pipe2_inst_vld}
                           + {3'b0,pipe3_inst_vld} + {3'b0,pipe4_inst_vld} + {3'b0,pipe5_inst_vld}
                           + {3'b0,pipe6_inst_vld} + {3'b0,pipe7_inst_vld};
 assign event23_adder[3:0] = {3'b0,hpcp_ld_cross_4k_stall} + {3'b0,hpcp_st_cross_4k_stall};
 assign event24_adder[3:0] = {3'b0,hpcp_ld_other_stall} + {3'b0,hpcp_st_other_stall};
-assign event25_adder[3:0] = {3'b0,hpcp_sq_discard}; 
+assign event25_adder[3:0] = {3'b0,hpcp_sq_discard};
 assign event26_adder[3:0] = {3'b0,hpcp_sq_data_discard};
 assign event27_adder[3:0] = {3'b0,hpcp_branch_target_mispred};
 assign event28_adder[3:0] = {3'b0,hpcp_branch_target_inst};
-assign event29_adder[3:0] = {3'b0,ir_inst0_alu}  + {3'b0,ir_inst1_alu}  + {3'b0,ir_inst2_alu}  + {3'b0,ir_inst3_alu}; 
-assign event30_adder[3:0] = {3'b0,ir_inst0_ldst} + {3'b0,ir_inst1_ldst} + {3'b0,ir_inst2_ldst} + {3'b0,ir_inst3_ldst}; 
-assign event31_adder[3:0] = {3'b0,ir_inst0_vec}  + {3'b0,ir_inst1_vec}  + {3'b0,ir_inst2_vec}  + {3'b0,ir_inst3_vec}; 
-assign event32_adder[3:0] = {3'b0,ir_inst0_csr}  + {3'b0,ir_inst1_csr}  + {3'b0,ir_inst2_csr}  + {3'b0,ir_inst3_csr}; 
-assign event33_adder[3:0] = {3'b0,ir_inst0_sync} + {3'b0,ir_inst1_sync} + {3'b0,ir_inst2_sync} + {3'b0,ir_inst3_sync}; 
+assign event29_adder[3:0] = {3'b0,ir_inst0_alu}  + {3'b0,ir_inst1_alu}  + {3'b0,ir_inst2_alu}  + {3'b0,ir_inst3_alu};
+assign event30_adder[3:0] = {3'b0,ir_inst0_ldst} + {3'b0,ir_inst1_ldst} + {3'b0,ir_inst2_ldst} + {3'b0,ir_inst3_ldst};
+assign event31_adder[3:0] = {3'b0,ir_inst0_vec}  + {3'b0,ir_inst1_vec}  + {3'b0,ir_inst2_vec}  + {3'b0,ir_inst3_vec};
+assign event32_adder[3:0] = {3'b0,ir_inst0_csr}  + {3'b0,ir_inst1_csr}  + {3'b0,ir_inst2_csr}  + {3'b0,ir_inst3_csr};
+assign event33_adder[3:0] = {3'b0,ir_inst0_sync} + {3'b0,ir_inst1_sync} + {3'b0,ir_inst2_sync} + {3'b0,ir_inst3_sync};
 assign event34_adder[3:0] = {2'b0,hpcp_unalign_inst[1:0]};
 assign event35_adder[3:0] = {3'b0,int_ack_vld};
 assign event36_adder[3:0] = {3'b0,hpcp_int_disable};
-assign event37_adder[3:0] = {3'b0,ir_inst0_ecall}  + {3'b0,ir_inst1_ecall}  + {3'b0,ir_inst2_ecall} + {3'b0,ir_inst3_ecall}; 
+assign event37_adder[3:0] = {3'b0,ir_inst0_ecall}  + {3'b0,ir_inst1_ecall}  + {3'b0,ir_inst2_ecall} + {3'b0,ir_inst3_ecall};
 assign event38_adder[3:0] = {3'b0,inst0_long_jump} + {3'b0,inst1_long_jump} + {3'b0,inst2_long_jump};
 assign event39_adder[3:0] = {3'b0,hpcp_frontend_stall};
 assign event40_adder[3:0] = {3'b0,hpcp_backend_stall};
-assign event41_adder[3:0] = {3'b0,sync_stall}; 
-assign event42_adder[3:0] = {3'b0,ir_inst0_fpu} + {3'b0,ir_inst1_fpu} + {3'b0,ir_inst2_fpu} + {3'b0,ir_inst3_fpu}; 
+assign event41_adder[3:0] = {3'b0,sync_stall};
+assign event42_adder[3:0] = {3'b0,ir_inst0_fpu} + {3'b0,ir_inst1_fpu} + {3'b0,ir_inst2_fpu} + {3'b0,ir_inst3_fpu};
 
 
 //select adder for hpmcnt[n]
@@ -2289,7 +2289,7 @@ ct_hpcp_adder_sel  x_ct_hpcp_adder_sel_18 (
 // &Instance("ct_hpcp_adder_sel", "x_ct_hpcp_adder_sel_31"); @737
 
 //==========================================================
-//                 Clk Enable of Gated Cell 
+//                 Clk Enable of Gated Cell
 //==========================================================
 assign mcntinhbt_clk_en  =  mcntinhbt_wen;
 assign mcntinten_clk_en  =  mcntinten_wen;
@@ -2303,22 +2303,22 @@ assign scntof_clk_en     =  scntof_wen;
 assign shpmcr_clk_en     =  shpmcr_wen;
 assign shpmsp_clk_en     =  shpmsp_wen;
 assign shpmep_clk_en     =  shpmep_wen;
-assign mhpmevt3_clk_en   =  mhpmevt3_wen; 
-assign mhpmevt4_clk_en   =  mhpmevt4_wen; 
-assign mhpmevt5_clk_en   =  mhpmevt5_wen; 
-assign mhpmevt6_clk_en   =  mhpmevt6_wen; 
-assign mhpmevt7_clk_en   =  mhpmevt7_wen; 
-assign mhpmevt8_clk_en   =  mhpmevt8_wen; 
-assign mhpmevt9_clk_en   =  mhpmevt9_wen; 
-assign mhpmevt10_clk_en  =  mhpmevt10_wen; 
-assign mhpmevt11_clk_en  =  mhpmevt11_wen; 
-assign mhpmevt12_clk_en  =  mhpmevt12_wen; 
-assign mhpmevt13_clk_en  =  mhpmevt13_wen; 
-assign mhpmevt14_clk_en  =  mhpmevt14_wen; 
-assign mhpmevt15_clk_en  =  mhpmevt15_wen; 
-assign mhpmevt16_clk_en  =  mhpmevt16_wen; 
-assign mhpmevt17_clk_en  =  mhpmevt17_wen; 
-assign mhpmevt18_clk_en  =  mhpmevt18_wen; 
+assign mhpmevt3_clk_en   =  mhpmevt3_wen;
+assign mhpmevt4_clk_en   =  mhpmevt4_wen;
+assign mhpmevt5_clk_en   =  mhpmevt5_wen;
+assign mhpmevt6_clk_en   =  mhpmevt6_wen;
+assign mhpmevt7_clk_en   =  mhpmevt7_wen;
+assign mhpmevt8_clk_en   =  mhpmevt8_wen;
+assign mhpmevt9_clk_en   =  mhpmevt9_wen;
+assign mhpmevt10_clk_en  =  mhpmevt10_wen;
+assign mhpmevt11_clk_en  =  mhpmevt11_wen;
+assign mhpmevt12_clk_en  =  mhpmevt12_wen;
+assign mhpmevt13_clk_en  =  mhpmevt13_wen;
+assign mhpmevt14_clk_en  =  mhpmevt14_wen;
+assign mhpmevt15_clk_en  =  mhpmevt15_wen;
+assign mhpmevt16_clk_en  =  mhpmevt16_wen;
+assign mhpmevt17_clk_en  =  mhpmevt17_wen;
+assign mhpmevt18_clk_en  =  mhpmevt18_wen;
 assign mcycle_clk_en     =  mcycle_en    || mcycle_wen    || mcycle_of   ;
 assign minstret_clk_en   =  minstret_en  || minstret_wen  || minstret_of ;
 assign mhpmcnt3_clk_en   =  mhpmcnt3_en  || mhpmcnt3_wen  || mhpmcnt3_of ;
@@ -2353,11 +2353,11 @@ assign hpcp_wdata[63:0] = cp0_hpcp_wdata[63:0];
 // +----+----+------+----+--+----+----+-------+-------+
 //    |    |           |       |   |   |          |
 //    |    |           |       |   |   |          +------ TME
-//    |    |           |       |   |   |       
-//    |    |           |       |   |   |   
+//    |    |           |       |   |   |
+//    |    |           |       |   |   |
 //    |    |           |       |   +--------------------- PMDU
 //    |    |           |       +------------------------- PMDS
-//    |    |           |         
+//    |    |           |
 //    |    |           +--------------------------------- PMDM
 //    |    +--------------------------------------------- SCE
 //    +-------------------------------------------------- TS
@@ -2372,19 +2372,19 @@ begin
       sce      <= 1'b0;
       tme[1:0] <= 2'b0;
     end
-  else if(mhpmcr_wen) 
+  else if(mhpmcr_wen)
     begin
-      sce      <= hpcp_wdata[62]; 
+      sce      <= hpcp_wdata[62];
       tme[1:0] <= hpcp_wdata[1:0];
     end
-  else if(shpmcr_wen) 
+  else if(shpmcr_wen)
     begin
-      sce      <= sce; //sce can be modified on m-mode 
+      sce      <= sce; //sce can be modified on m-mode
       tme[1:0] <= hpcp_wdata[1:0];
     end
   else
     begin
-      sce      <= sce;  
+      sce      <= sce;
       tme[1:0] <= tme[1:0];
     end
 end
@@ -2423,21 +2423,21 @@ assign hpmsp_sub_retire0_st_pc[39:0] = {1'b0,hpmsp_reg[38:0]} - {1'b0,hpcp_retir
 assign hpmsp_sub_retire0_ed_pc[3:0]  = {1'b0,hpmsp_sub_retire0_st_pc[2:0]} - {1'b0,hpcp_retire_inst0_offset[2:0]};
 assign hpmsp_sub_retire0_high_zero   = !(|hpmsp_sub_retire0_st_pc[39:3]);
 assign hpmsp_eq_retire0_pc           = hpmsp_reg[38:0] == hpcp_retire_inst0_pc[39:1];
-assign hpmsp_le_retire0_st_pc        = hpmsp_sub_retire0_st_pc[39] 
+assign hpmsp_le_retire0_st_pc        = hpmsp_sub_retire0_st_pc[39]
                                     || !(|hpmsp_sub_retire0_st_pc[39:0]);
 
 assign hpmsp_sub_retire1_st_pc[39:0] = {1'b0,hpmsp_reg[38:0]} - {1'b0,hpcp_retire_inst1_pc[39:1]} ;
 assign hpmsp_sub_retire1_ed_pc[3:0]  = {1'b0,hpmsp_sub_retire1_st_pc[2:0]} - {1'b0,hpcp_retire_inst1_offset[2:0]};
 assign hpmsp_sub_retire1_high_zero   = !(|hpmsp_sub_retire1_st_pc[39:3]);
 assign hpmsp_eq_retire1_pc           = hpmsp_reg[38:0] == hpcp_retire_inst1_pc[39:1];
-assign hpmsp_le_retire1_st_pc        = hpmsp_sub_retire1_st_pc[39] 
+assign hpmsp_le_retire1_st_pc        = hpmsp_sub_retire1_st_pc[39]
                                     || !(|hpmsp_sub_retire1_st_pc[39:0]);
 
 assign hpmsp_sub_retire2_st_pc[39:0] = {1'b0,hpmsp_reg[38:0]} - {1'b0,hpcp_retire_inst2_pc[39:1]} ;
 assign hpmsp_sub_retire2_ed_pc[3:0]  = {1'b0,hpmsp_sub_retire2_st_pc[2:0]} - {1'b0,hpcp_retire_inst2_offset[2:0]};
 assign hpmsp_sub_retire2_high_zero   = !(|hpmsp_sub_retire2_st_pc[39:3]);
 assign hpmsp_eq_retire2_pc           = hpmsp_reg[38:0] == hpcp_retire_inst2_pc[39:1];
-assign hpmsp_le_retire2_st_pc        = hpmsp_sub_retire2_st_pc[39] 
+assign hpmsp_le_retire2_st_pc        = hpmsp_sub_retire2_st_pc[39]
                                     || !(|hpmsp_sub_retire2_st_pc[39:0]);
 
 //end point
@@ -2445,7 +2445,7 @@ assign hpmep_sub_retire0_st_pc[39:0] = {1'b0,hpmep_reg[38:0]} - {1'b0,hpcp_retir
 assign hpmep_sub_retire0_ed_pc[3:0]  = {1'b0,hpmep_sub_retire0_st_pc[2:0]} - {1'b0,hpcp_retire_inst0_offset[2:0]};
 assign hpmep_sub_retire0_high_zero   = !(|hpmep_sub_retire0_st_pc[39:3]);
 assign hpmep_eq_retire0_pc           = hpmep_reg[38:0] == hpcp_retire_inst0_pc[39:1];
-assign hpmep_ge_retire0_ed_pc        = !hpmep_sub_retire0_st_pc[39] 
+assign hpmep_ge_retire0_ed_pc        = !hpmep_sub_retire0_st_pc[39]
                                     &&  (hpmep_sub_retire0_high_zero && (!hpmep_sub_retire0_ed_pc[3])
                                          || !hpmep_sub_retire0_high_zero
                                          || hpcp_retire_inst0_num[1:0] == 2'b01);
@@ -2454,7 +2454,7 @@ assign hpmep_sub_retire1_st_pc[39:0] = {1'b0,hpmep_reg[38:0]} - {1'b0,hpcp_retir
 assign hpmep_sub_retire1_ed_pc[3:0]  = {1'b0,hpmep_sub_retire1_st_pc[2:0]} - {1'b0,hpcp_retire_inst1_offset[2:0]};
 assign hpmep_sub_retire1_high_zero   = !(|hpmep_sub_retire1_st_pc[39:3]);
 assign hpmep_eq_retire1_pc           = hpmep_reg[38:0] == hpcp_retire_inst1_pc[39:1];
-assign hpmep_ge_retire1_ed_pc        = !hpmep_sub_retire1_st_pc[39] 
+assign hpmep_ge_retire1_ed_pc        = !hpmep_sub_retire1_st_pc[39]
                                     &&  (hpmep_sub_retire1_high_zero && (!hpmep_sub_retire1_ed_pc[3])
                                          || !hpmep_sub_retire1_high_zero
                                          || hpcp_retire_inst1_num[1:0] == 2'b01);
@@ -2463,19 +2463,19 @@ assign hpmep_sub_retire2_st_pc[39:0] = {1'b0,hpmep_reg[38:0]} - {1'b0,hpcp_retir
 assign hpmep_sub_retire2_ed_pc[3:0]  = {1'b0,hpmep_sub_retire2_st_pc[2:0]} - {1'b0,hpcp_retire_inst2_offset[2:0]};
 assign hpmep_sub_retire2_high_zero   = !(|hpmep_sub_retire2_st_pc[39:3]);
 assign hpmep_eq_retire2_pc           = hpmep_reg[38:0] == hpcp_retire_inst2_pc[39:1];
-assign hpmep_ge_retire2_ed_pc        = !hpmep_sub_retire2_st_pc[39] 
+assign hpmep_ge_retire2_ed_pc        = !hpmep_sub_retire2_st_pc[39]
                                     &&  (hpmep_sub_retire2_high_zero && (!hpmep_sub_retire2_ed_pc[3])
                                          || !hpmep_sub_retire2_high_zero
                                          || hpcp_retire_inst2_num[1:0] == 2'b01);
 
 assign trigger_vld = (hpmsp_sub_retire0_high_zero && hpmsp_sub_retire0_ed_pc[3] || hpmsp_eq_retire0_pc) && hpcp_retire_inst0_vld
-                  || (hpmsp_sub_retire1_high_zero && hpmsp_sub_retire1_ed_pc[3] || hpmsp_eq_retire1_pc) && hpcp_retire_inst1_vld 
-                  || (hpmsp_sub_retire2_high_zero && hpmsp_sub_retire2_ed_pc[3] || hpmsp_eq_retire2_pc) && hpcp_retire_inst2_vld; 
+                  || (hpmsp_sub_retire1_high_zero && hpmsp_sub_retire1_ed_pc[3] || hpmsp_eq_retire1_pc) && hpcp_retire_inst1_vld
+                  || (hpmsp_sub_retire2_high_zero && hpmsp_sub_retire2_ed_pc[3] || hpmsp_eq_retire2_pc) && hpcp_retire_inst2_vld;
 
 assign stop_vld    = (hpmep_sub_retire0_high_zero && hpmep_sub_retire0_ed_pc[3] || hpmep_eq_retire0_pc) && hpcp_retire_inst0_vld
-                  || (hpmep_sub_retire1_high_zero && hpmep_sub_retire1_ed_pc[3] || hpmep_eq_retire1_pc) && hpcp_retire_inst1_vld 
-                  || (hpmep_sub_retire2_high_zero && hpmep_sub_retire2_ed_pc[3] || hpmep_eq_retire2_pc) && hpcp_retire_inst2_vld; 
-                  
+                  || (hpmep_sub_retire1_high_zero && hpmep_sub_retire1_ed_pc[3] || hpmep_eq_retire1_pc) && hpcp_retire_inst1_vld
+                  || (hpmep_sub_retire2_high_zero && hpmep_sub_retire2_ed_pc[3] || hpmep_eq_retire2_pc) && hpcp_retire_inst2_vld;
+
 assign start_vld   = hpmsp_le_retire0_st_pc && hpmep_ge_retire0_ed_pc && hpcp_retire_inst0_vld
                   || hpmsp_le_retire1_st_pc && hpmep_ge_retire1_ed_pc && hpcp_retire_inst1_vld
                   || hpmsp_le_retire2_st_pc && hpmep_ge_retire2_ed_pc && hpcp_retire_inst2_vld;
@@ -2483,12 +2483,12 @@ assign start_vld   = hpmsp_le_retire0_st_pc && hpmep_ge_retire0_ed_pc && hpcp_re
 assign end_vld     = !(hpmsp_le_retire0_st_pc && hpmep_ge_retire0_ed_pc) && hpcp_retire_inst0_vld
                   || !(hpmsp_le_retire1_st_pc && hpmep_ge_retire1_ed_pc) && hpcp_retire_inst1_vld
                   || !(hpmsp_le_retire2_st_pc && hpmep_ge_retire2_ed_pc) && hpcp_retire_inst2_vld;
- 
-assign hpcp_trigger_vld = trigger_vld && hpmsp_high_vld && hpmep_high_vld && (tme[1:0] == 2'b01);                
-assign hpcp_stop_vld    = stop_vld    && hpmsp_high_vld && hpmep_high_vld && (tme[1:0] == 2'b01);                
-assign hpcp_start_vld   = start_vld   && hpmsp_high_vld && hpmep_high_vld && (tme[1:0] == 2'b10);                
-assign hpcp_end_vld     = end_vld     && hpmsp_high_vld && hpmep_high_vld && (tme[1:0] == 2'b10);                
- 
+
+assign hpcp_trigger_vld = trigger_vld && hpmsp_high_vld && hpmep_high_vld && (tme[1:0] == 2'b01);
+assign hpcp_stop_vld    = stop_vld    && hpmsp_high_vld && hpmep_high_vld && (tme[1:0] == 2'b01);
+assign hpcp_start_vld   = start_vld   && hpmsp_high_vld && hpmep_high_vld && (tme[1:0] == 2'b10);
+assign hpcp_end_vld     = end_vld     && hpmsp_high_vld && hpmep_high_vld && (tme[1:0] == 2'b10);
+
 //==================================================================
 // M/SHPMSP - Machine/Supervisor Start Point PC Register
 //==================================================================
@@ -2502,7 +2502,7 @@ begin
   else if(mhpmsp_wen || shpmsp_wen)
   begin
     hpmsp_reg[62:0] <= hpcp_wdata[63:1];
-    hpmsp_high_vld  <= hpmsp_high_test; 
+    hpmsp_high_vld  <= hpmsp_high_test;
   end
   else
   begin
@@ -2512,7 +2512,7 @@ begin
 end
 
 //if start pc high 24 bit should be signed extended from bit 39
-assign hpmsp_high_test   = (&hpcp_wdata[63:39]) || (!(|hpcp_wdata[63:39]));                 
+assign hpmsp_high_test   = (&hpcp_wdata[63:39]) || (!(|hpcp_wdata[63:39]));
 assign mhpmsp_value[63:0] = {hpmsp_reg[62:0],1'b0};
 assign shpmsp_value[63:0] = {hpmsp_reg[62:0],1'b0};
 
@@ -2538,7 +2538,7 @@ begin
   end
 end
 
-assign hpmep_high_test   = (&hpcp_wdata[63:39]) || (!(|hpcp_wdata[63:39]));                 
+assign hpmep_high_test   = (&hpcp_wdata[63:39]) || (!(|hpcp_wdata[63:39]));
 assign mhpmep_value[63:0] = {hpmep_reg[62:0],1'b0};
 assign shpmep_value[63:0] = {hpmep_reg[62:0],1'b0};
 
@@ -2564,7 +2564,7 @@ assign mcntinhbt_value[63:0] = {32'b0,hpm[28:0], ir, 1'b0, cy};
 assign scntinhbt_value[63:0] = {32'b0,hpm[28:0], ir, 1'b0, cy} & {32'b0,cp0_hpcp_mcntwen[31:0]};
 
 
-assign scntinhbt_updt_value[31:0] = ((~cp0_hpcp_mcntwen[31:0])& {hpm[28:0],ir,1'b0,cy}) 
+assign scntinhbt_updt_value[31:0] = ((~cp0_hpcp_mcntwen[31:0])& {hpm[28:0],ir,1'b0,cy})
                                   | (  cp0_hpcp_mcntwen[31:0] & hpcp_wdata[31:0]);
 //=====================================
 // HPM31~3/IR/CY bit in mnountinhibt
@@ -2577,15 +2577,15 @@ begin
       ir        <= 1'b0;
       cy        <= 1'b0;
     end
-  else if(mcntinhbt_wen) 
+  else if(mcntinhbt_wen)
     begin
       hpm[28:0] <= hpcp_wdata[31:3];
       ir        <= hpcp_wdata[2];
       cy        <= hpcp_wdata[0];
     end
-  else if(scntinhbt_wen) 
+  else if(scntinhbt_wen)
     begin
-      hpm[28:0] <= scntinhbt_updt_value[31:3]; 
+      hpm[28:0] <= scntinhbt_updt_value[31:3];
       ir        <= scntinhbt_updt_value[2];
       cy        <= scntinhbt_updt_value[0];
     end
@@ -2616,12 +2616,12 @@ end
 
 assign cntinten_value[63:0]  = {32'b0,cntinten[31:0]};
 assign mcntinten_value[63:0] = cntinten_value[63:0];
-assign scntinten_value[63:0] = cntinten_value[63:0] & {32'b0,cp0_hpcp_mcntwen[31:0]}; 
+assign scntinten_value[63:0] = cntinten_value[63:0] & {32'b0,cp0_hpcp_mcntwen[31:0]};
 
 //======================================
 // HPM31~3/IR/CY Int enable bit in m/scountinten
 //=====================================
-assign cntinten_wen[31:0] = {32{mcntinten_wen}} 
+assign cntinten_wen[31:0] = {32{mcntinten_wen}}
                           | {32{scntinten_wen}} & cp0_hpcp_mcntwen[31:0];
 
 // &ConnRule(s/_x$/[0]/); @1118
@@ -2990,7 +2990,7 @@ begin
   if(!cpurst_b)
     l2of_data[31:0] <= 32'b0;
   else if(l2of_data_updt_vld)
-    l2of_data[31:0] <= l2of_data_updt[31:0]; 
+    l2of_data[31:0] <= l2of_data_updt[31:0];
   else
     l2of_data[31:0] <= l2of_data[31:0];
 end
@@ -3002,7 +3002,7 @@ begin
     biu_hpcp_l2of_int_ff[3:0] <= 4'b0;
   end
   else if(l2of_int_updt_vld) begin
-    l2of_int[31:0]            <= l2of_int_updt[31:0]; 
+    l2of_int[31:0]            <= l2of_int_updt[31:0];
     biu_hpcp_l2of_int_ff[3:0] <= biu_hpcp_l2of_int[3:0];
   end
 end
@@ -3019,17 +3019,17 @@ assign l2of_int_updt[31:0]  = {31'b0,biu_hpcp_l2of_int[0]} << cnt0_event_index[5
                             | {31'b0,biu_hpcp_l2of_int[2]} << cnt2_event_index[5:0]
                             | {31'b0,biu_hpcp_l2of_int[3]} << cnt3_event_index[5:0];
 
-assign cntof_value[63:0]  = {32'b0,cntof[31:0]}     & {32'b0,~cnt_mask[31:0]} 
+assign cntof_value[63:0]  = {32'b0,cntof[31:0]}     & {32'b0,~cnt_mask[31:0]}
                           | {32'b0,l2of_data[31:0]} & {32'b0, cnt_mask[31:0]};
-assign cntof_int[31:0]    = cntof[31:0]    & (~cnt_mask[31:0]) 
-                          | l2of_int[31:0] & ( cnt_mask[31:0]);                          
-assign mcntof_value[63:0] = cntof_value[63:0]; 
-assign scntof_value[63:0] = cntof_value[63:0] & {32'b0,cp0_hpcp_mcntwen[31:0]}; 
+assign cntof_int[31:0]    = cntof[31:0]    & (~cnt_mask[31:0])
+                          | l2of_int[31:0] & ( cnt_mask[31:0]);
+assign mcntof_value[63:0] = cntof_value[63:0];
+assign scntof_value[63:0] = cntof_value[63:0] & {32'b0,cp0_hpcp_mcntwen[31:0]};
 
 //======================================
 // HPM31~3/IR/CY bit in mcountof
 //======================================
-assign cntof_wen[31:0] = {32{mcntof_wen}} 
+assign cntof_wen[31:0] = {32{mcntof_wen}}
                        | {32{scntof_wen}} & cp0_hpcp_mcntwen[31:0];
 
 // &ConnRule(s/_x$/[0]/); @1278
@@ -3695,9 +3695,9 @@ ct_hpcp_event  x_hpcp_mhpmevent18 (
 // &Instance("ct_hpcp_event", "x_hpcp_mhpmevent31"); @1489
 
 //==========================================================
-//                       Counters 
+//                       Counters
 //==========================================================
-// Cycle counter 
+// Cycle counter
 // &ConnRule(s/^cnt/mcycle/); @1496
 // &Instance("ct_hpcp_cnt", "x_hpcp_mcycle"); @1497
 ct_hpcp_cnt  x_hpcp_mcycle (
@@ -4116,8 +4116,8 @@ begin
     SHPMCR     : data_out[63:0] = shpmcr_value[63:0];
     SHPMSP     : data_out[63:0] = shpmsp_value[63:0];
     SHPMEP     : data_out[63:0] = shpmep_value[63:0];
-    MHPMEVT3   : data_out[63:0] = mhpmevt3_value[63:0]; 
-    MHPMEVT4   : data_out[63:0] = mhpmevt4_value[63:0]; 
+    MHPMEVT3   : data_out[63:0] = mhpmevt3_value[63:0];
+    MHPMEVT4   : data_out[63:0] = mhpmevt4_value[63:0];
     MHPMEVT5   : data_out[63:0] = mhpmevt5_value[63:0];
     MHPMEVT6   : data_out[63:0] = mhpmevt6_value[63:0];
     MHPMEVT7   : data_out[63:0] = mhpmevt7_value[63:0];
@@ -4133,8 +4133,8 @@ begin
     MHPMEVT17  : data_out[63:0] = mhpmevt17_value[63:0];
     MHPMEVT18  : data_out[63:0] = mhpmevt18_value[63:0];
     MCYCLE     : data_out[63:0] = mcycle_value[63:0];
-    MINSTRET   : data_out[63:0] = minstret_value[63:0]; 
-    MHPMCNT3   : data_out[63:0] = mhpmcnt3_value[63:0]; 
+    MINSTRET   : data_out[63:0] = minstret_value[63:0];
+    MHPMCNT3   : data_out[63:0] = mhpmcnt3_value[63:0];
     MHPMCNT4   : data_out[63:0] = mhpmcnt4_value[63:0];
     MHPMCNT5   : data_out[63:0] = mhpmcnt5_value[63:0];
     MHPMCNT6   : data_out[63:0] = mhpmcnt6_value[63:0];
@@ -4151,8 +4151,8 @@ begin
     MHPMCNT17  : data_out[63:0] = mhpmcnt17_value[63:0];
     MHPMCNT18  : data_out[63:0] = mhpmcnt18_value[63:0];
     SCYCLE     : data_out[63:0] = mcycle_value[63:0];
-    SINSTRET   : data_out[63:0] = minstret_value[63:0]; 
-    SHPMCNT3   : data_out[63:0] = mhpmcnt3_value[63:0]; 
+    SINSTRET   : data_out[63:0] = minstret_value[63:0];
+    SHPMCNT3   : data_out[63:0] = mhpmcnt3_value[63:0];
     SHPMCNT4   : data_out[63:0] = mhpmcnt4_value[63:0];
     SHPMCNT5   : data_out[63:0] = mhpmcnt5_value[63:0];
     SHPMCNT6   : data_out[63:0] = mhpmcnt6_value[63:0];
@@ -4168,10 +4168,10 @@ begin
     SHPMCNT16  : data_out[63:0] = mhpmcnt16_value[63:0];
     SHPMCNT17  : data_out[63:0] = mhpmcnt17_value[63:0];
     SHPMCNT18  : data_out[63:0] = mhpmcnt18_value[63:0];
-    CYCLE      : data_out[63:0] = mcycle_value[63:0]; 
+    CYCLE      : data_out[63:0] = mcycle_value[63:0];
     TIME       : data_out[63:0] = biu_hpcp_time[63:0];
     INSTRET    : data_out[63:0] = minstret_value[63:0];
-    HPMCNT3    : data_out[63:0] = mhpmcnt3_value[63:0]; 
+    HPMCNT3    : data_out[63:0] = mhpmcnt3_value[63:0];
     HPMCNT4    : data_out[63:0] = mhpmcnt4_value[63:0];
     HPMCNT5    : data_out[63:0] = mhpmcnt5_value[63:0];
     HPMCNT6    : data_out[63:0] = mhpmcnt6_value[63:0];
@@ -4240,34 +4240,34 @@ assign cnt_mask_set = ((cp0_hpcp_index[11:5] == 7'h19) && (|cp0_hpcp_index[4:0])
                    && cnt_index_less_than_limit
                    && (hpcp_wdata[HPMEVT_WIDTH-1:2] == 4'b0100)
                    && (!(|hpcp_wdata[63:HPMEVT_WIDTH]))
-                   && hpcp_wen;    
+                   && hpcp_wen;
 
 //1. select event counter
-//2. write operation              
-//3. l2 cnt has been set     
+//2. write operation
+//3. l2 cnt has been set
 assign cnt_mask_clr = ((cp0_hpcp_index[11:5] == 7'h19) && (|cp0_hpcp_index[4:0]))
 //                   && (hpcp_wdata[HPMEVT_WIDTH-1:0] == {HPMEVT_WIDTH{1'b0}})
                    && cnt_bit_mask[0]
-                   && hpcp_wen; 
+                   && hpcp_wen;
 
 assign cnt_bit_sel[31:0]              = 32'b1 << cp0_hpcp_index[4:0];
 
 assign cnt_mask_set_data[31:0]        = cnt_mask[31:0] | cnt_bit_sel[31:0];
 assign cnt_mask_clr_data[31:0]        = cnt_mask[31:0] & (~cnt_bit_sel[31:0]);
 
-assign cnt0_event_index_set_data[5:0] = (hpcp_wdata[1:0] == 2'b00) ? {1'b0,cp0_hpcp_index[4:0]} : cnt0_event_index[5:0]; 
-assign cnt1_event_index_set_data[5:0] = (hpcp_wdata[1:0] == 2'b01) ? {1'b0,cp0_hpcp_index[4:0]} : cnt1_event_index[5:0]; 
-assign cnt2_event_index_set_data[5:0] = (hpcp_wdata[1:0] == 2'b10) ? {1'b0,cp0_hpcp_index[4:0]} : cnt2_event_index[5:0]; 
-assign cnt3_event_index_set_data[5:0] = (hpcp_wdata[1:0] == 2'b11) ? {1'b0,cp0_hpcp_index[4:0]} : cnt3_event_index[5:0]; 
+assign cnt0_event_index_set_data[5:0] = (hpcp_wdata[1:0] == 2'b00) ? {1'b0,cp0_hpcp_index[4:0]} : cnt0_event_index[5:0];
+assign cnt1_event_index_set_data[5:0] = (hpcp_wdata[1:0] == 2'b01) ? {1'b0,cp0_hpcp_index[4:0]} : cnt1_event_index[5:0];
+assign cnt2_event_index_set_data[5:0] = (hpcp_wdata[1:0] == 2'b10) ? {1'b0,cp0_hpcp_index[4:0]} : cnt2_event_index[5:0];
+assign cnt3_event_index_set_data[5:0] = (hpcp_wdata[1:0] == 2'b11) ? {1'b0,cp0_hpcp_index[4:0]} : cnt3_event_index[5:0];
 
 assign l2_ra_sel                      = cp0_hpcp_index[4:0] == cnt0_event_index[4:0];
 assign l2_rm_sel                      = cp0_hpcp_index[4:0] == cnt1_event_index[4:0];
 assign l2_wa_sel                      = cp0_hpcp_index[4:0] == cnt2_event_index[4:0];
 assign l2_wm_sel                      = cp0_hpcp_index[4:0] == cnt3_event_index[4:0];
-assign cnt0_event_index_clr_data[5:0] = (l2_ra_sel) ? {1'b1,5'b0} : cnt0_event_index[5:0]; 
-assign cnt1_event_index_clr_data[5:0] = (l2_rm_sel) ? {1'b1,5'b0} : cnt1_event_index[5:0]; 
-assign cnt2_event_index_clr_data[5:0] = (l2_wa_sel) ? {1'b1,5'b0} : cnt2_event_index[5:0]; 
-assign cnt3_event_index_clr_data[5:0] = (l2_wm_sel) ? {1'b1,5'b0} : cnt3_event_index[5:0]; 
+assign cnt0_event_index_clr_data[5:0] = (l2_ra_sel) ? {1'b1,5'b0} : cnt0_event_index[5:0];
+assign cnt1_event_index_clr_data[5:0] = (l2_rm_sel) ? {1'b1,5'b0} : cnt1_event_index[5:0];
+assign cnt2_event_index_clr_data[5:0] = (l2_wa_sel) ? {1'b1,5'b0} : cnt2_event_index[5:0];
+assign cnt3_event_index_clr_data[5:0] = (l2_wm_sel) ? {1'b1,5'b0} : cnt3_event_index[5:0];
 
 assign cnt_bit_mask[31:0]             = cnt_mask[31:0] >> cp0_hpcp_index[4:0];
 
@@ -4283,9 +4283,9 @@ assign l2of_wen2_shift[31:0]   = cntof_wen[31:0] >> cnt2_event_index[5:0];
 assign l2of_wen3_shift[31:0]   = cntof_wen[31:0] >> cnt3_event_index[5:0];
 
 assign l2of_wdata[3:0]         = {l2of_data3_shift[0],l2of_data2_shift[0],l2of_data1_shift[0],l2of_data0_shift[0]};
-assign l2of_wen[3:0]           = {l2of_wen3_shift[0],l2of_wen2_shift[0] ,l2of_wen1_shift[0],l2of_wen0_shift[0]};    
+assign l2of_wen[3:0]           = {l2of_wen3_shift[0],l2of_wen2_shift[0] ,l2of_wen1_shift[0],l2of_wen0_shift[0]};
 
-assign l2cnt_wdata[63:0]       = (ofcnt_sel) 
+assign l2cnt_wdata[63:0]       = (ofcnt_sel)
                                ? {60'b0,l2of_wdata[3:0]}
                                : cp0_hpcp_src0[63:0];
 ///2. l2 cnt en
@@ -4305,7 +4305,7 @@ assign l2cnt_reg_idx[3:0]  = {1'b1,
                               ofcnt_sel,
                               !ofcnt_sel && (l2_wa_sel || l2_wm_sel),
                               !ofcnt_sel && (l2_rm_sel || l2_wm_sel)
-                             };   
+                             };
 
 assign l2cnt_idx[15:0]     = {4'b0,l2of_wen[3:0],l2cnt_reg_idx[3:0],cp0_hpcp_op[3:0]};
 
@@ -4336,14 +4336,14 @@ end
 assign hpcp_cp0_cmplt      = (l2cnt_sel && cnt_bit_mask[0] || ofcnt_sel)
                            ? l2cnt_cmplt_ff && (cur_state[1:0] == EX2)
                            : (cur_state[1:0] == EX2);
-assign hpcp_cp0_data[63:0] = (l2cnt_sel && cnt_bit_mask[0]) 
+assign hpcp_cp0_data[63:0] = (l2cnt_sel && cnt_bit_mask[0])
                            ? biu_hpcp_rdata[63:0]
                            : data_out[63:0];
 assign hpcp_cp0_int_vld    = |(cntinten_value[31:0] & cntof_int[31:0]);
 assign hpcp_cp0_sce        = sce;
 
 assign hpcp_xx_cnt_en   = !rtu_yy_xx_dbgon && !cnt_mode_dis;
-   
+
 //==========================================================
 // Output to BIU
 //==========================================================
@@ -4355,7 +4355,7 @@ assign hpcp_biu_op[15:0]    = l2cnt_idx[15:0];
 //==========================================================
 // Output to IFU
 //==========================================================
-assign hpcp_ifu_cnt_en  = hpcp_xx_cnt_en; 
+assign hpcp_ifu_cnt_en  = hpcp_xx_cnt_en;
 
 //==========================================================
 // Output to MMU
@@ -4364,7 +4364,7 @@ assign hpcp_mmu_cnt_en  = hpcp_xx_cnt_en;
 //==========================================================
 // Output to IDU
 //==========================================================
-assign hpcp_idu_cnt_en  = hpcp_xx_cnt_en; 
+assign hpcp_idu_cnt_en  = hpcp_xx_cnt_en;
 
 //==========================================================
 // Output to RTU
@@ -4374,7 +4374,7 @@ assign hpcp_rtu_cnt_en  = hpcp_xx_cnt_en;
 //==========================================================
 // Output to LSU
 //==========================================================
-assign hpcp_lsu_cnt_en  = hpcp_xx_cnt_en; 
+assign hpcp_lsu_cnt_en  = hpcp_xx_cnt_en;
 
 //==========================================================
 // Trace monitor

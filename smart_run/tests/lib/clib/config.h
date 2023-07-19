@@ -18,7 +18,7 @@ limitations under the License.
  * Some CPU configure infomation:
  * Data type, Baudrate for UART;
  * MGU, CACHE, SPM, System Frequency.
- *  
+ *
  */
 
 #ifndef __DEMO_CONFIG_H
@@ -33,7 +33,7 @@ limitations under the License.
 #endif
 
 /************************************
- *  UART Terminal 
+ *  UART Terminal
  * (8 data bitbs, ODD, 1 stop bits)
  ***********************************/
 
@@ -51,7 +51,7 @@ limitations under the License.
 /* CPU frequence definition */
 #define SYS_FREQ			100000000   /* MHz */
 /* APB frequence definition */
-#define APB_FREQ			100000000   /* MHz */ 
+#define APB_FREQ			100000000   /* MHz */
 
 #define CLOCKS_PER_SEC    APB_FREQ
 /*******************************
@@ -59,7 +59,7 @@ limitations under the License.
  ******************************/
 
 /* 0 - rw; 1 - rwc; 2 - rwc; 3 - rw */
-#define CONFIG_CK510_MGU_BLOCKS		0xff06 
+#define CONFIG_CK510_MGU_BLOCKS		0xff06
 
 /* 0 - baseaddr: 0x0; size: 4G */
 #define CONFIG_CK510_MGU_REGION1	0x3f
@@ -83,7 +83,7 @@ limitations under the License.
 #define	CONFIG_CKCORE_SPM_ENABLE	1
 /* Uniform SPM ? */
 #define	CONFIG_CKCORE_SPM_UNIFORM	0
-/* 
+/*
  * Instruction SPM start address mapping
  * Data SPM start address mapping
  * Fixed with ckcore.ld ?
@@ -100,7 +100,7 @@ limitations under the License.
 #define	CONFIG_CKCORE_ISPM_ADDRESS	__ckcore_ispm
 #define	CONFIG_CKCORE_DSPM_ADDRESS	__ckcore_dspm
 #endif
-/* 
+/*
  * SPM Size
  * Fixed with target.
  * please modify ckcore.ld.

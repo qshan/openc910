@@ -38,53 +38,53 @@ module ct_ifu_l0_btb_entry(
 );
 
 // &Ports; @23
-input           cp0_ifu_btb_en;    
-input           cp0_ifu_icg_en;    
-input           cp0_ifu_l0btb_en;  
-input           cp0_yy_clk_en;     
-input           cpurst_b;          
-input           entry_inv;         
-input           entry_update;      
-input           entry_update_cnt;  
-input   [36:0]  entry_update_data; 
-input           entry_update_ras;  
-input           entry_update_vld;  
-input   [3 :0]  entry_wen;         
-input           forever_cpuclk;    
-input           pad_yy_icg_scan_en; 
-output          entry_cnt;         
-output          entry_ras;         
-output  [14:0]  entry_tag;         
-output  [19:0]  entry_target;      
-output          entry_vld;         
-output  [1 :0]  entry_way_pred;    
+input           cp0_ifu_btb_en;
+input           cp0_ifu_icg_en;
+input           cp0_ifu_l0btb_en;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           entry_inv;
+input           entry_update;
+input           entry_update_cnt;
+input   [36:0]  entry_update_data;
+input           entry_update_ras;
+input           entry_update_vld;
+input   [3 :0]  entry_wen;
+input           forever_cpuclk;
+input           pad_yy_icg_scan_en;
+output          entry_cnt;
+output          entry_ras;
+output  [14:0]  entry_tag;
+output  [19:0]  entry_target;
+output          entry_vld;
+output  [1 :0]  entry_way_pred;
 
 // &Regs; @24
-reg             entry_cnt;         
-reg             entry_ras;         
-reg     [14:0]  entry_tag;         
-reg     [19:0]  entry_target;      
-reg             entry_vld;         
-reg     [1 :0]  entry_way_pred;    
+reg             entry_cnt;
+reg             entry_ras;
+reg     [14:0]  entry_tag;
+reg     [19:0]  entry_target;
+reg             entry_vld;
+reg     [1 :0]  entry_way_pred;
 
 // &Wires; @25
-wire            cp0_ifu_btb_en;    
-wire            cp0_ifu_icg_en;    
-wire            cp0_ifu_l0btb_en;  
-wire            cp0_yy_clk_en;     
-wire            cpurst_b;          
-wire            entry_clk;         
-wire            entry_clk_en;      
-wire            entry_inv;         
-wire            entry_update;      
-wire            entry_update_cnt;  
-wire    [36:0]  entry_update_data; 
-wire            entry_update_en;   
-wire            entry_update_ras;  
-wire            entry_update_vld;  
-wire    [3 :0]  entry_wen;         
-wire            forever_cpuclk;    
-wire            pad_yy_icg_scan_en; 
+wire            cp0_ifu_btb_en;
+wire            cp0_ifu_icg_en;
+wire            cp0_ifu_l0btb_en;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            entry_clk;
+wire            entry_clk_en;
+wire            entry_inv;
+wire            entry_update;
+wire            entry_update_cnt;
+wire    [36:0]  entry_update_data;
+wire            entry_update_en;
+wire            entry_update_ras;
+wire            entry_update_vld;
+wire    [3 :0]  entry_wen;
+wire            forever_cpuclk;
+wire            pad_yy_icg_scan_en;
 
 
 // &Instance("gated_clk_cell", "x_l0_btb_entry_gatedclk"); @27
@@ -106,12 +106,12 @@ gated_clk_cell  x_l0_btb_entry_gatedclk (
 //          .clk_out     (entry_clk     ) @33
 //         ); @34
 assign entry_clk_en     = entry_update_en;
-assign entry_update_en = entry_update 
+assign entry_update_en = entry_update
                        && cp0_ifu_btb_en
-                       && cp0_ifu_l0btb_en; 
+                       && cp0_ifu_l0btb_en;
 
 //=========================================================
-// contents of one L0 BTB entry 
+// contents of one L0 BTB entry
 //=========================================================
 // +-----------+-----------+---------------+--------------+
 // | entry_vld | tag[10:0] | way_pred[1:0] | target[19:0] |
@@ -174,7 +174,7 @@ begin
   end
   else
   begin
-    entry_tag[14:0]     <= entry_tag[14:0]; 
+    entry_tag[14:0]     <= entry_tag[14:0];
     entry_way_pred[1:0] <= entry_way_pred[1:0];
     entry_target[19:0]  <= entry_target[19:0];
   end

@@ -44,72 +44,72 @@ module ct_had_serial(
 );
 
 // &Ports; @24
-input           io_serial_tdi;         
-input           ir_xx_baba_reg_sel;    
-input           ir_xx_babb_reg_sel;    
-input           ir_xx_bama_reg_sel;    
-input           ir_xx_bamb_reg_sel;    
-input           ir_xx_csr_reg_sel;     
-input           ir_xx_daddr_reg_sel;   
-input           ir_xx_dbgfifo2_reg_sel; 
-input           ir_xx_dbgfifo_reg_sel; 
-input           ir_xx_ddata_reg_sel;   
-input           ir_xx_mbca_reg_sel;    
-input           ir_xx_mbcb_reg_sel;    
-input           ir_xx_otc_reg_sel;     
-input           ir_xx_pc_reg_sel;      
-input           ir_xx_pcfifo_reg_sel;  
-input           ir_xx_pipefifo_reg_sel; 
-input           ir_xx_wbbr_reg_sel;    
-input   [63:0]  regs_serial_data;      
-input           sm_serial_capture_dr;  
-input           sm_serial_shift_dr;    
-input           sm_serial_shift_ir;    
-input           sm_xx_write_en;        
-input           tclk;                  
-input           trst_b;                
-output          serial_io_tdo;         
-output  [63:0]  serial_xx_data;        
+input           io_serial_tdi;
+input           ir_xx_baba_reg_sel;
+input           ir_xx_babb_reg_sel;
+input           ir_xx_bama_reg_sel;
+input           ir_xx_bamb_reg_sel;
+input           ir_xx_csr_reg_sel;
+input           ir_xx_daddr_reg_sel;
+input           ir_xx_dbgfifo2_reg_sel;
+input           ir_xx_dbgfifo_reg_sel;
+input           ir_xx_ddata_reg_sel;
+input           ir_xx_mbca_reg_sel;
+input           ir_xx_mbcb_reg_sel;
+input           ir_xx_otc_reg_sel;
+input           ir_xx_pc_reg_sel;
+input           ir_xx_pcfifo_reg_sel;
+input           ir_xx_pipefifo_reg_sel;
+input           ir_xx_wbbr_reg_sel;
+input   [63:0]  regs_serial_data;
+input           sm_serial_capture_dr;
+input           sm_serial_shift_dr;
+input           sm_serial_shift_ir;
+input           sm_xx_write_en;
+input           tclk;
+input           trst_b;
+output          serial_io_tdo;
+output  [63:0]  serial_xx_data;
 
 // &Regs; @25
-reg             parity;                
-reg     [63:0]  serial_shifter;        
-reg     [63:0]  serial_shifter_pre;    
-reg             tdo;                   
+reg             parity;
+reg     [63:0]  serial_shifter;
+reg     [63:0]  serial_shifter_pre;
+reg             tdo;
 
 // &Wires; @26
-wire            io_serial_tdi;         
-wire            ir_xx_baba_reg_sel;    
-wire            ir_xx_babb_reg_sel;    
-wire            ir_xx_bama_reg_sel;    
-wire            ir_xx_bamb_reg_sel;    
-wire            ir_xx_csr_reg_sel;     
-wire            ir_xx_daddr_reg_sel;   
-wire            ir_xx_dbgfifo2_reg_sel; 
-wire            ir_xx_dbgfifo_reg_sel; 
-wire            ir_xx_ddata_reg_sel;   
-wire            ir_xx_mbca_reg_sel;    
-wire            ir_xx_mbcb_reg_sel;    
-wire            ir_xx_otc_reg_sel;     
-wire            ir_xx_pc_reg_sel;      
-wire            ir_xx_pcfifo_reg_sel;  
-wire            ir_xx_pipefifo_reg_sel; 
-wire            ir_xx_wbbr_reg_sel;    
-wire    [63:0]  regs_serial_data;      
-wire            serial_io_tdo;         
-wire            serial_shifter_16_sel; 
-wire            serial_shifter_32_sel; 
-wire            serial_shifter_64_sel; 
-wire            serial_shifter_8_sel;  
-wire    [63:0]  serial_shifter_dr_pre; 
-wire    [63:0]  serial_xx_data;        
-wire            sm_serial_capture_dr;  
-wire            sm_serial_shift_dr;    
-wire            sm_serial_shift_ir;    
-wire            sm_xx_write_en;        
-wire            tclk;                  
-wire            tdi;                   
-wire            trst_b;                
+wire            io_serial_tdi;
+wire            ir_xx_baba_reg_sel;
+wire            ir_xx_babb_reg_sel;
+wire            ir_xx_bama_reg_sel;
+wire            ir_xx_bamb_reg_sel;
+wire            ir_xx_csr_reg_sel;
+wire            ir_xx_daddr_reg_sel;
+wire            ir_xx_dbgfifo2_reg_sel;
+wire            ir_xx_dbgfifo_reg_sel;
+wire            ir_xx_ddata_reg_sel;
+wire            ir_xx_mbca_reg_sel;
+wire            ir_xx_mbcb_reg_sel;
+wire            ir_xx_otc_reg_sel;
+wire            ir_xx_pc_reg_sel;
+wire            ir_xx_pcfifo_reg_sel;
+wire            ir_xx_pipefifo_reg_sel;
+wire            ir_xx_wbbr_reg_sel;
+wire    [63:0]  regs_serial_data;
+wire            serial_io_tdo;
+wire            serial_shifter_16_sel;
+wire            serial_shifter_32_sel;
+wire            serial_shifter_64_sel;
+wire            serial_shifter_8_sel;
+wire    [63:0]  serial_shifter_dr_pre;
+wire    [63:0]  serial_xx_data;
+wire            sm_serial_capture_dr;
+wire            sm_serial_shift_dr;
+wire            sm_serial_shift_ir;
+wire            sm_xx_write_en;
+wire            tclk;
+wire            tdi;
+wire            trst_b;
 
 
 //==============================================================================
@@ -120,22 +120,22 @@ wire            trst_b;
 // 4. how to shift DR in JTAG_5 interface
 //==============================================================================
 
-assign serial_shifter_8_sel = 
+assign serial_shifter_8_sel =
             ir_xx_otc_reg_sel
          || ir_xx_mbca_reg_sel
          || ir_xx_mbcb_reg_sel
          || ir_xx_bama_reg_sel
          || ir_xx_bamb_reg_sel;
 
-assign serial_shifter_16_sel = 
+assign serial_shifter_16_sel =
             ir_xx_csr_reg_sel;
 
-assign serial_shifter_32_sel = 
+assign serial_shifter_32_sel =
             !(serial_shifter_8_sel
            || serial_shifter_16_sel
            || serial_shifter_64_sel);
 
-assign serial_shifter_64_sel = 
+assign serial_shifter_64_sel =
             ir_xx_pipefifo_reg_sel
          || ir_xx_baba_reg_sel
          || ir_xx_babb_reg_sel

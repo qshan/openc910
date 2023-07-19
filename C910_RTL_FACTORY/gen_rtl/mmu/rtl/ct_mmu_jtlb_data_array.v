@@ -28,49 +28,49 @@ module ct_mmu_jtlb_data_array(
 );
 
 // &Ports; @24
-input           cp0_mmu_icg_en;    
-input           forever_cpuclk;    
-input           jtlb_data_cen0;    
-input           jtlb_data_cen1;    
-input   [83:0]  jtlb_data_din;     
-input   [7 :0]  jtlb_data_idx;     
-input   [3 :0]  jtlb_data_wen;     
-input           pad_yy_icg_scan_en; 
-output  [83:0]  jtlb_data_dout0;   
-output  [83:0]  jtlb_data_dout1;   
+input           cp0_mmu_icg_en;
+input           forever_cpuclk;
+input           jtlb_data_cen0;
+input           jtlb_data_cen1;
+input   [83:0]  jtlb_data_din;
+input   [7 :0]  jtlb_data_idx;
+input   [3 :0]  jtlb_data_wen;
+input           pad_yy_icg_scan_en;
+output  [83:0]  jtlb_data_dout0;
+output  [83:0]  jtlb_data_dout1;
 
 // &Regs; @25
 
 // &Wires; @26
-wire            cp0_mmu_icg_en;    
-wire            forever_cpuclk;    
-wire    [83:0]  jtlb_data_bwen0;   
-wire    [83:0]  jtlb_data_bwen0_b; 
-wire    [83:0]  jtlb_data_bwen1;   
-wire    [83:0]  jtlb_data_bwen1_b; 
-wire            jtlb_data_cen0;    
-wire            jtlb_data_cen0_b;  
-wire            jtlb_data_cen1;    
-wire            jtlb_data_cen1_b;  
-wire            jtlb_data_clk;     
-wire            jtlb_data_clk_en;  
-wire    [83:0]  jtlb_data_din;     
-wire    [83:0]  jtlb_data_dout0;   
-wire    [83:0]  jtlb_data_dout1;   
-wire            jtlb_data_gwen0;   
-wire            jtlb_data_gwen0_b; 
-wire            jtlb_data_gwen1;   
-wire            jtlb_data_gwen1_b; 
-wire    [7 :0]  jtlb_data_idx;     
-wire    [3 :0]  jtlb_data_wen;     
-wire            pad_yy_icg_scan_en; 
+wire            cp0_mmu_icg_en;
+wire            forever_cpuclk;
+wire    [83:0]  jtlb_data_bwen0;
+wire    [83:0]  jtlb_data_bwen0_b;
+wire    [83:0]  jtlb_data_bwen1;
+wire    [83:0]  jtlb_data_bwen1_b;
+wire            jtlb_data_cen0;
+wire            jtlb_data_cen0_b;
+wire            jtlb_data_cen1;
+wire            jtlb_data_cen1_b;
+wire            jtlb_data_clk;
+wire            jtlb_data_clk_en;
+wire    [83:0]  jtlb_data_din;
+wire    [83:0]  jtlb_data_dout0;
+wire    [83:0]  jtlb_data_dout1;
+wire            jtlb_data_gwen0;
+wire            jtlb_data_gwen0_b;
+wire            jtlb_data_gwen1;
+wire            jtlb_data_gwen1_b;
+wire    [7 :0]  jtlb_data_idx;
+wire    [3 :0]  jtlb_data_wen;
+wire            pad_yy_icg_scan_en;
 
 
 
 //==========================================================
 //                  Gate Cell
 //==========================================================
-assign jtlb_data_clk_en = jtlb_data_cen1 || jtlb_data_cen0; 
+assign jtlb_data_clk_en = jtlb_data_cen1 || jtlb_data_cen0;
 // &Instance("gated_clk_cell", "x_jtlb_data_gateclk"); @33
 gated_clk_cell  x_jtlb_data_gateclk (
   .clk_in             (forever_cpuclk    ),

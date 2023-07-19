@@ -27,60 +27,60 @@ module ct_idu_rf_pipe7_decd(
 );
 
 // &Ports; @28
-input   [31:0]  pipe7_decd_opcode;     
-input   [1 :0]  pipe7_decd_vsew;       
-output  [11:0]  pipe7_decd_eu_sel;     
-output  [19:0]  pipe7_decd_func;       
-output  [2 :0]  pipe7_decd_imm0;       
-output  [5 :0]  pipe7_decd_inst_type;  
-output  [2 :0]  pipe7_decd_oper_size;  
-output  [2 :0]  pipe7_decd_ready_stage; 
-output  [4 :0]  pipe7_decd_vimm;       
+input   [31:0]  pipe7_decd_opcode;
+input   [1 :0]  pipe7_decd_vsew;
+output  [11:0]  pipe7_decd_eu_sel;
+output  [19:0]  pipe7_decd_func;
+output  [2 :0]  pipe7_decd_imm0;
+output  [5 :0]  pipe7_decd_inst_type;
+output  [2 :0]  pipe7_decd_oper_size;
+output  [2 :0]  pipe7_decd_ready_stage;
+output  [4 :0]  pipe7_decd_vimm;
 
 // &Regs; @29
-reg     [4 :0]  decd_eu_sel;           
-reg     [4 :0]  decd_fmau_eu_sel;      
-reg     [19:0]  decd_fmau_func;        
-reg     [2 :0]  decd_fmau_ready_stage; 
-reg     [19:0]  decd_func;             
-reg     [2 :0]  decd_ready_stage;      
-reg     [11:0]  decd_vec_eu_sel;       
-reg     [11:0]  decd_vec_eu_sel_0;     
-reg     [11:0]  decd_vec_eu_sel_1;     
-reg     [11:0]  decd_vec_eu_sel_2;     
-reg     [19:0]  decd_vec_func;         
-reg     [19:0]  decd_vec_func_0;       
-reg     [19:0]  decd_vec_func_1;       
-reg     [19:0]  decd_vec_func_2;       
-reg     [2 :0]  decd_vec_ready_stage;  
-reg     [2 :0]  decd_vec_ready_stage_0; 
-reg     [2 :0]  decd_vec_ready_stage_1; 
-reg     [2 :0]  decd_vec_ready_stage_2; 
+reg     [4 :0]  decd_eu_sel;
+reg     [4 :0]  decd_fmau_eu_sel;
+reg     [19:0]  decd_fmau_func;
+reg     [2 :0]  decd_fmau_ready_stage;
+reg     [19:0]  decd_func;
+reg     [2 :0]  decd_ready_stage;
+reg     [11:0]  decd_vec_eu_sel;
+reg     [11:0]  decd_vec_eu_sel_0;
+reg     [11:0]  decd_vec_eu_sel_1;
+reg     [11:0]  decd_vec_eu_sel_2;
+reg     [19:0]  decd_vec_func;
+reg     [19:0]  decd_vec_func_0;
+reg     [19:0]  decd_vec_func_1;
+reg     [19:0]  decd_vec_func_2;
+reg     [2 :0]  decd_vec_ready_stage;
+reg     [2 :0]  decd_vec_ready_stage_0;
+reg     [2 :0]  decd_vec_ready_stage_1;
+reg     [2 :0]  decd_vec_ready_stage_2;
 
 // &Wires; @30
-wire    [4 :0]  decd_fpu_eu_sel;       
-wire    [19:0]  decd_fpu_func;         
-wire    [2 :0]  decd_fpu_ready_stage;  
-wire    [31:0]  decd_op;               
-wire    [2 :0]  decd_scalar_size;      
-wire    [1 :0]  decd_sew;              
-wire            decd_vec_inst;         
-wire            decd_vec_opi;          
-wire            decd_vec_opm;          
-wire    [11:0]  pipe7_decd_eu_sel;     
-wire    [19:0]  pipe7_decd_func;       
-wire    [2 :0]  pipe7_decd_imm0;       
-wire    [5 :0]  pipe7_decd_inst_type;  
-wire    [31:0]  pipe7_decd_opcode;     
-wire    [2 :0]  pipe7_decd_oper_size;  
-wire    [2 :0]  pipe7_decd_ready_stage; 
-wire    [4 :0]  pipe7_decd_vimm;       
-wire    [1 :0]  pipe7_decd_vsew;       
-wire    [19:0]  vfcvt_func;            
-wire    [2 :0]  vfmadd_ready_stage;    
-wire    [19:0]  vfmau_func_mask;       
-wire    [2 :0]  vfmau_inst_size;       
-wire    [2 :0]  vfmul_ready_stage;     
+wire    [4 :0]  decd_fpu_eu_sel;
+wire    [19:0]  decd_fpu_func;
+wire    [2 :0]  decd_fpu_ready_stage;
+wire    [31:0]  decd_op;
+wire    [2 :0]  decd_scalar_size;
+wire    [1 :0]  decd_sew;
+wire            decd_vec_inst;
+wire            decd_vec_opi;
+wire            decd_vec_opm;
+wire    [11:0]  pipe7_decd_eu_sel;
+wire    [19:0]  pipe7_decd_func;
+wire    [2 :0]  pipe7_decd_imm0;
+wire    [5 :0]  pipe7_decd_inst_type;
+wire    [31:0]  pipe7_decd_opcode;
+wire    [2 :0]  pipe7_decd_oper_size;
+wire    [2 :0]  pipe7_decd_ready_stage;
+wire    [4 :0]  pipe7_decd_vimm;
+wire    [1 :0]  pipe7_decd_vsew;
+wire    [19:0]  vfcvt_func;
+wire    [2 :0]  vfmadd_ready_stage;
+wire    [19:0]  vfmau_func_mask;
+wire    [2 :0]  vfmau_inst_size;
+wire    [2 :0]  vfmul_ready_stage;
 
 
 //==========================================================
@@ -152,11 +152,11 @@ parameter FDIVD  = 20'b0001_00000000000000_01;
 parameter FSQRTD = 20'b0001_00000000000000_10;
 
 
-//  19       17      16       15      14     13   12  11  10    9  
+//  19       17      16       15      14     13   12  11  10    9
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//|   |   |SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max | 
+//|   |   |SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max |
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//  8       7      6    5     4 
+//  8       7      6    5     4
 //+------+------+-----+--+--------+------+------+-------+-----------------+
 //|  min | cnvt | sgn | mv | clas |
 //+------+------+-----+--+--------+------+------+-------+-----------------+
@@ -202,11 +202,11 @@ parameter VFNCVTFF          = 20'b0000_0010_0000_1000_0110;
 
 
 //VFADD
-//  19  18   17      16       15      14     13   12  11  10    9  
+//  19  18   17      16       15      14     13   12  11  10    9
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//|   clas|SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max | 
+//|   clas|SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max |
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//  8       7      6    5     4 
+//  8       7      6    5     4
 //+------+------+-----+--+--------+------+------+-------+-----------------+
 //|  min | cnvt | sgn | mv |  |
 //+------+------+-----+--+--------+------+------+-------+-----------------+
@@ -247,11 +247,11 @@ parameter VFREDMIN     = 20'b0000_0000_0001_0000_0010;
 parameter VFREDMIN64   = 20'b0000_0000_0001_0000_0011;
 
 //Single
-//  19  18   17      16       15      14     13   12  11  10    9  
+//  19  18   17      16       15      14     13   12  11  10    9
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//|   clas|SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max | 
+//|   clas|SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max |
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//  8       7      6    5     4 
+//  8       7      6    5     4
 //+------+------+-----+--+--------+------+------+-------+-----------------+
 //|  min | cnvt | sgn | mv |  |
 //+------+------+-----+--+--------+------+------+-------+-----------------+
@@ -292,11 +292,11 @@ parameter FCLASSD      = 20'b0111_0000_0000_0000_0000;
 //parameter VFCLASS      = 20'b0000_000000_001_0000_000;
 //Scalar FADD
 
-//  19  18   17      16       15      14     13   12  11  10    9  
+//  19  18   17      16       15      14     13   12  11  10    9
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//|   clas|SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max | 
+//|   clas|SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max |
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//  8       7      6    5     4 
+//  8       7      6    5     4
 //+------+------+-----+--+--------+------+------+-------+-----------------+
 //|  min | cnvt | sgn | mv |  |
 //+------+------+-----+--+--------+------+------+-------+-----------------+
@@ -310,13 +310,13 @@ parameter FCLASSD      = 20'b0111_0000_0000_0000_0000;
 //+------+------+-----+--+--------+------+------+-------+-------+
 //| add |      |                         |      |   red | order |
 //+------+------+-----+--+--------+------+------+-------+-------+
-//half 
-parameter FADDH = 20'b0010_0001_0000_0000_0000;     
+//half
+parameter FADDH = 20'b0010_0001_0000_0000_0000;
 parameter FSUBH = 20'b0010_0000_1000_0000_0000;
-                                    
+
 parameter FMAXH = 20'b0010_0000_0010_0000_0000;
 parameter FMINH = 20'b0010_0000_0001_0000_0000;
-                                    
+
 parameter FEQH  = 20'b0010_0000_0100_0000_0001;
 parameter FLTH  = 20'b0010_0000_0100_0000_0010;
 parameter FLEH  = 20'b0010_0000_0100_0000_0100;
@@ -324,23 +324,23 @@ parameter FLEH  = 20'b0010_0000_0100_0000_0100;
 
 
 //Single
-parameter FADDS = 20'b0010_1001_0000_0000_0000;     
+parameter FADDS = 20'b0010_1001_0000_0000_0000;
 parameter FSUBS = 20'b0010_1000_1000_0000_0000;
-                                     
+
 parameter FMAXS = 20'b0010_1000_0010_0000_0000;
 parameter FMINS = 20'b0010_1000_0001_0000_0000;
-                                     
+
 parameter FEQS  = 20'b0010_1000_0100_0000_0001;
 parameter FLTS  = 20'b0010_1000_0100_0000_0010;
 parameter FLES  = 20'b0010_1000_0100_0000_0100;
-                                      
-//Double                              
-parameter FADDD = 20'b0011_0001_0000_0000_0000;     
+
+//Double
+parameter FADDD = 20'b0011_0001_0000_0000_0000;
 parameter FSUBD = 20'b0011_0000_1000_0000_0000;
-                                     
+
 parameter FMAXD = 20'b0011_0000_0010_0000_0000;
 parameter FMIND = 20'b0011_0000_0001_0000_0000;
-                                     
+
 parameter FEQD  = 20'b0011_0000_0100_0000_0001;
 parameter FLTD  = 20'b0011_0000_0100_0000_0010;
 parameter FLED  = 20'b0011_0000_0100_0000_0100;
@@ -360,11 +360,11 @@ parameter FLED  = 20'b0011_0000_0100_0000_0100;
 //ITOF: 1: covert integer to floating-point
 //      0: covert floating-point to intege
 //
-//  19  18   17      16       15      14     13   12  11  10    9  
+//  19  18   17      16       15      14     13   12  11  10    9
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//|   clas|SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max | 
+//|   clas|SCAlAR| DOUBLE |SINGLE|WIDDEN|WIDDEN2|ADD|sub|cmp| max |
 //+---+---+------+--------+------+------+-------+---+---+---+-----+-------+
-//  8       7      6    5     4 
+//  8       7      6    5     4
 //+------+------+-----+--+--------+------+------+-------+-----------------+
 //|  min | cnvt | sgn | mv |  |
 //+------+------+-----+--+--------+------+------+-------+-----------------+
@@ -493,7 +493,7 @@ assign pipe7_decd_func[FUNC_WIDTH-1:0]  = decd_vec_inst ? decd_vec_func[FUNC_WID
                                                         : decd_fpu_func[FUNC_WIDTH-1:0];
 
 assign pipe7_decd_ready_stage[2:0]      = decd_vec_inst ? decd_vec_ready_stage[2:0]
-                                                        : decd_fpu_ready_stage[2:0]; 
+                                                        : decd_fpu_ready_stage[2:0];
 
 assign pipe7_decd_vimm[4:0] = decd_op[19:15];
 //----------------------------------------------------------
@@ -890,7 +890,7 @@ casez({decd_op[31:25],decd_op[21:20],decd_op[13:12]})
     decd_func[FUNC_WIDTH-1:0]         = FCLASSH;
     decd_ready_stage[READY_WIDTH-1:0] = 3'b0;
   end
-  default           : begin   
+  default           : begin
   end
 endcase
 // &CombEnd @857
@@ -920,7 +920,7 @@ casez({decd_op[26:25],decd_op[3:2]})
     decd_fmau_func[FUNC_WIDTH-1:0]         = FMSUBH;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b010;
   end
-  4'b1010 : begin  //fnmsub.h 
+  4'b1010 : begin  //fnmsub.h
     decd_fmau_eu_sel[EU_WIDTH-1:0]         = FMAU;
     decd_fmau_func[FUNC_WIDTH-1:0]         = FNMSUBH;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b010;
@@ -935,12 +935,12 @@ casez({decd_op[26:25],decd_op[3:2]})
     decd_fmau_func[FUNC_WIDTH-1:0]         = FMADDS;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b100;
   end
-  4'b0001 : begin  //fmsub.s 
+  4'b0001 : begin  //fmsub.s
     decd_fmau_eu_sel[EU_WIDTH-1:0]         = FMAU;
     decd_fmau_func[FUNC_WIDTH-1:0]         = FMSUBS;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b100;
   end
-  4'b0010 : begin  //fnmsub.s 
+  4'b0010 : begin  //fnmsub.s
     decd_fmau_eu_sel[EU_WIDTH-1:0]         = FMAU;
     decd_fmau_func[FUNC_WIDTH-1:0]         = FNMSUBS;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b100;
@@ -955,7 +955,7 @@ casez({decd_op[26:25],decd_op[3:2]})
     decd_fmau_func[FUNC_WIDTH-1:0]         = FMADDD;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b100;
   end
-  4'b0101 : begin  //fmsub.d 
+  4'b0101 : begin  //fmsub.d
     decd_fmau_eu_sel[EU_WIDTH-1:0]         = FMAU;
     decd_fmau_func[FUNC_WIDTH-1:0]         = FMSUBD;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b100;
@@ -965,12 +965,12 @@ casez({decd_op[26:25],decd_op[3:2]})
     decd_fmau_func[FUNC_WIDTH-1:0]         = FNMSUBD;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b100;
   end
-  4'b0111 : begin  //fnmadd.d 
+  4'b0111 : begin  //fnmadd.d
     decd_fmau_eu_sel[EU_WIDTH-1:0]         = FMAU;
     decd_fmau_func[FUNC_WIDTH-1:0]         = FNMADDD;
     decd_fmau_ready_stage[READY_WIDTH-1:0] = 3'b100;
   end
-  default           : begin   
+  default           : begin
   end
 endcase
 // &CombEnd @933
@@ -1056,32 +1056,32 @@ parameter VCOMPRESS   = 20'b0000_0000_0000_0000_1100;
 //-------------------------------------------------------------------------------------
 //| VMV  | VMG  | XOR  |  OR  | AND  |      |      |      |      |LOGIC |      |      |
 //-------------------------------------------------------------------------------------
-parameter VAND    = 20'b0000_0000_0000_1000_0100;               
-parameter VORR    = 20'b0000_0000_0001_0000_0100;               
-parameter VXOR    = 20'b0000_0000_0010_0000_0100;               
-parameter VMGE    = 20'b0000_0000_0100_0000_0100;               
-parameter VMOV    = 20'b0000_0000_1000_0000_0100;               
+parameter VAND    = 20'b0000_0000_0000_1000_0100;
+parameter VORR    = 20'b0000_0000_0001_0000_0100;
+parameter VXOR    = 20'b0000_0000_0010_0000_0100;
+parameter VMGE    = 20'b0000_0000_0100_0000_0100;
+parameter VMOV    = 20'b0000_0000_1000_0000_0100;
 //-------------------------------------------------------------------------------------
 //|  11  |  10  |  9   |  8   |  7   |  6   |  5   |  4   |  3   |  2   |  1   |  0   |
 //-------------------------------------------------------------------------------------
 //| NOTB | NOTA | XOR  |  OR  | AND  | AND  |      |      | MLG  |      |      |      |
 //-------------------------------------------------------------------------------------
-parameter VMAND    = 20'b0000_0000_0000_1000_1000;               
-parameter VMNAND   = 20'b0000_0000_0100_1000_1000;               
-parameter VMANDN   = 20'b0000_0000_1000_1000_1000;               
-parameter VMXOR    = 20'b0000_0000_0010_0000_1000;               
-parameter VMNXOR   = 20'b0000_0000_0110_0000_1000;               
-parameter VMORR    = 20'b0000_0000_0001_0000_1000;               
-parameter VMNORR   = 20'b0000_0000_0101_0000_1000;               
-parameter VMORRN   = 20'b0000_0000_1001_0000_1000;               
+parameter VMAND    = 20'b0000_0000_0000_1000_1000;
+parameter VMNAND   = 20'b0000_0000_0100_1000_1000;
+parameter VMANDN   = 20'b0000_0000_1000_1000_1000;
+parameter VMXOR    = 20'b0000_0000_0010_0000_1000;
+parameter VMNXOR   = 20'b0000_0000_0110_0000_1000;
+parameter VMORR    = 20'b0000_0000_0001_0000_1000;
+parameter VMNORR   = 20'b0000_0000_0101_0000_1000;
+parameter VMORRN   = 20'b0000_0000_1001_0000_1000;
 //-------------------------------------------------------------------------------------
 //|  11  |  10  |  9   |  8   |  7   |  6   |  5   |  4   |  3   |  2   |  1   |  0   |
 //-------------------------------------------------------------------------------------
 //|      |      |      |      |MUNARY|FIRST | POPC | MSK  |      |      |      |      |
 //-------------------------------------------------------------------------------------
-parameter VMPOP    = 20'b0000_0000_0000_0011_0000;               
-parameter VMFIRST  = 20'b0000_0000_0000_0101_0000;               
-parameter VMUNARY0 = 20'b0000_0000_0000_1001_0000;      
+parameter VMPOP    = 20'b0000_0000_0000_0011_0000;
+parameter VMFIRST  = 20'b0000_0000_0000_0101_0000;
+parameter VMUNARY0 = 20'b0000_0000_0000_1001_0000;
 //-------------------------------------------------------------------------------------
 //|  11  |  10  |  9   |  8   |  7   |  6   |  5   |  4   |  3   |  2   |  1   |  0   |
 //-------------------------------------------------------------------------------------
@@ -1402,7 +1402,7 @@ decd_vec_ready_stage_0[VEC_READY_WIDTH-1:0]  = {VEC_READY_WIDTH{1'b0}};
       decd_vec_func_0[VEC_FUNC_WIDTH-1:0]          = VWSMACCUS;
       decd_vec_ready_stage_0[VEC_READY_WIDTH-1:0]  = EX4_READY;
       end
-    default: begin   
+    default: begin
       end
 endcase
 // &CombEnd; @1360
@@ -1670,7 +1670,7 @@ decd_vec_ready_stage_1[VEC_READY_WIDTH-1:0]  = {VEC_READY_WIDTH{1'b0}};
       decd_vec_func_1[VEC_FUNC_WIDTH-1:0]          = VWMACCUS;
       decd_vec_ready_stage_1[VEC_READY_WIDTH-1:0]  = EX4_READY;
       end
-    default: begin   
+    default: begin
       end
 endcase
 // &CombEnd; @1624
@@ -1763,23 +1763,23 @@ decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = {VEC_READY_WIDTH{1'b0}};
     end
 
     6'b001010:begin //vfsgnjx.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFSGNJX;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
     6'b001100:begin //vfmv.f.s
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFMVFS;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
 
     6'b001101:begin //vfmv.s.f
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFMVSF;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
     6'b011000:begin //vfeq.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFEQ;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
@@ -1803,147 +1803,147 @@ decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = {VEC_READY_WIDTH{1'b0}};
     end
 
     6'b011101:begin //vfgt.vf
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFLT;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
 
     6'b011111:begin //vfge.vf
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFLE;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
 
     6'b011010:begin //vford.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFORD;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
 
     6'b100011:begin //vfclass.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFCLASS;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
 
     6'b010111:begin //vfmerge.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FSPU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFMERG;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
 
     6'b100010:begin //vfcvt.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FCNVT}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FCNVT};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = vfcvt_func[VEC_FUNC_WIDTH-1:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX3_READY;
     end
 
     6'b000011:begin //vfredosum.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFOREDSUM;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX4_READY;
     end
 
     6'b000001:begin //vfredsum.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = decd_sew[1:0] == 2'b11 ? VFREDSUM64 : VFREDSUM;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX4_READY;
     end
 
     6'b000111:begin //vfredmax.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = decd_sew[1:0] == 2'b11 ? VFREDMAX64 : VFREDMAX;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX4_READY;
     end
 
     6'b000101:begin //vfredmin.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = decd_sew[1:0] == 2'b11 ? VFREDMIN64 : VFREDMIN;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX4_READY;
     end
 
     6'b110011:begin //vfwredosum.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFWOREDSUM;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX4_READY;
     end
-    
+
     6'b110001:begin //vfwredsum.vv
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FADD};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = decd_sew[1:0] == 2'b11 ? VFWREDSUM64 : VFWREDSUM;
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX4_READY;
     end
     6'b100100:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFMUL | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmul_ready_stage[2:0];
-    end     
+    end
     6'b111000:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFWMUL | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX4_READY;
-    end     
+    end
     6'b101100:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFMACC | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmadd_ready_stage[2:0];
-    end     
+    end
     6'b101101:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFNMACC | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmadd_ready_stage[2:0];
-    end     
+    end
     6'b101110:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFMSAC | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmadd_ready_stage[2:0];
-    end     
+    end
     6'b101111:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFNMSAC | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmadd_ready_stage[2:0];
-    end     
+    end
     6'b101000:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFMADD | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmadd_ready_stage[2:0];
-    end     
+    end
     6'b101001:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFNMADD | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmadd_ready_stage[2:0];
-    end     
+    end
     6'b101010:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFMSUB | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmadd_ready_stage[2:0];
-    end     
+    end
     6'b101011:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFNMSUB | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = vfmadd_ready_stage[2:0];
-    end     
+    end
     6'b111100:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFWMACC | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX5_READY;
-    end     
+    end
     6'b111101:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFWNMACC | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX5_READY;
-    end     
+    end
     6'b111110:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFWMSAC | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX5_READY;
-    end     
+    end
     6'b111111:begin
-      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU}; 
+      decd_vec_eu_sel_2[VEC_EU_WIDTH-1:0]          = {7'b0,FMAU};
       decd_vec_func_2[VEC_FUNC_WIDTH-1:0]          = VFWNMSAC | vfmau_func_mask[19:0];
       decd_vec_ready_stage_2[VEC_READY_WIDTH-1:0]  = EX5_READY;
-    end     
-    default: begin   
+    end
+    default: begin
       end
 endcase
 // &CombEnd; @1889
@@ -1953,8 +1953,8 @@ assign vfmul_ready_stage[2:0]  = (pipe7_decd_vsew[1:0] == 2'b01)
                                : EX4_READY;
 assign vfmadd_ready_stage[2:0] = (pipe7_decd_vsew[1:0] == 2'b01)
                                ? EX4_READY
-                               : EX5_READY;                                
-                               
+                               : EX5_READY;
+
 assign vfmau_inst_size[0]    = pipe7_decd_vsew[1:0] == 2'b11; //double
 assign vfmau_inst_size[1]    = pipe7_decd_vsew[1:0] == 2'b10; //single
 assign vfmau_inst_size[2]    = pipe7_decd_vsew[1:0] == 2'b01; //half
@@ -1976,10 +1976,10 @@ assign vfcvt_func[VEC_FUNC_WIDTH-1:0] = {20{(decd_op[19:15] == 5'b00000)}} & VFC
                                         {20{(decd_op[19:15] == 5'b10100)}} & VFNCVTFF;
 
 assign decd_vec_opi = (decd_op[14:12] == 3'b000) ||
-                      (decd_op[14:12] == 3'b011) ||  
-                      (decd_op[14:12] == 3'b100); 
+                      (decd_op[14:12] == 3'b011) ||
+                      (decd_op[14:12] == 3'b100);
 
-assign decd_vec_opm = (decd_op[14:12] == 3'b010) ||  
+assign decd_vec_opm = (decd_op[14:12] == 3'b010) ||
                       (decd_op[14:12] == 3'b110);
 
 // &CombBeg; @1924

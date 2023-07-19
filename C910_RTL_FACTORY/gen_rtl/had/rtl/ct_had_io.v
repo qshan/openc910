@@ -25,24 +25,24 @@ module ct_had_io(
 );
 
 // &Ports; @24
-input        pad_had_jtg_tdi;   
-input        serial_io_tdo;     
-input        sm_io_tdo_en;      
-output       had_pad_jtg_tdo;   
-output       had_pad_jtg_tdo_en; 
-output       io_serial_tdi;     
-output       io_sm_tap_en;      
+input        pad_had_jtg_tdi;
+input        serial_io_tdo;
+input        sm_io_tdo_en;
+output       had_pad_jtg_tdo;
+output       had_pad_jtg_tdo_en;
+output       io_serial_tdi;
+output       io_sm_tap_en;
 
 // &Regs; @25
 
 // &Wires; @26
-wire         had_pad_jtg_tdo;   
-wire         had_pad_jtg_tdo_en; 
-wire         io_serial_tdi;     
-wire         io_sm_tap_en;      
-wire         pad_had_jtg_tdi;   
-wire         serial_io_tdo;     
-wire         sm_io_tdo_en;      
+wire         had_pad_jtg_tdo;
+wire         had_pad_jtg_tdo_en;
+wire         io_serial_tdi;
+wire         io_sm_tap_en;
+wire         pad_had_jtg_tdi;
+wire         serial_io_tdo;
+wire         sm_io_tdo_en;
 
 
 //===============================================================

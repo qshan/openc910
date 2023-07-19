@@ -31,76 +31,76 @@ module ct_pmp_acc(
 );
 
 // &Ports; @25
-input   [1 :0]  cp0_pmp_mpp;        
-input   [1 :0]  cur_priv_mode;      
-input   [27:0]  mmu_pmp_pa_y;       
-input           pmp_mprv_status_y;  
-input   [28:0]  pmpaddr0_value;     
-input   [28:0]  pmpaddr1_value;     
-input   [28:0]  pmpaddr2_value;     
-input   [28:0]  pmpaddr3_value;     
-input   [28:0]  pmpaddr4_value;     
-input   [28:0]  pmpaddr5_value;     
-input   [28:0]  pmpaddr6_value;     
-input   [28:0]  pmpaddr7_value;     
-input   [63:0]  pmpcfg0_value;      
-input   [63:0]  pmpcfg2_value;      
-output  [3 :0]  pmp_mmu_flg_y;      
+input   [1 :0]  cp0_pmp_mpp;
+input   [1 :0]  cur_priv_mode;
+input   [27:0]  mmu_pmp_pa_y;
+input           pmp_mprv_status_y;
+input   [28:0]  pmpaddr0_value;
+input   [28:0]  pmpaddr1_value;
+input   [28:0]  pmpaddr2_value;
+input   [28:0]  pmpaddr3_value;
+input   [28:0]  pmpaddr4_value;
+input   [28:0]  pmpaddr5_value;
+input   [28:0]  pmpaddr6_value;
+input   [28:0]  pmpaddr7_value;
+input   [63:0]  pmpcfg0_value;
+input   [63:0]  pmpcfg2_value;
+output  [3 :0]  pmp_mmu_flg_y;
 
 // &Regs; @26
-reg     [3 :0]  pmp_mmu_flg_y;      
+reg     [3 :0]  pmp_mmu_flg_y;
 
 // &Wires; @27
-wire    [1 :0]  addr_match_mode0;   
-wire    [1 :0]  addr_match_mode1;   
-wire    [1 :0]  addr_match_mode2;   
-wire    [1 :0]  addr_match_mode3;   
-wire    [1 :0]  addr_match_mode4;   
-wire    [1 :0]  addr_match_mode5;   
-wire    [1 :0]  addr_match_mode6;   
-wire    [1 :0]  addr_match_mode7;   
-wire            cp0_mach_mode;      
-wire    [1 :0]  cp0_pmp_mpp;        
-wire    [1 :0]  cp0_priv_mode;      
-wire    [1 :0]  cur_priv_mode;      
-wire            mmu_addr_ge_bottom0; 
-wire            mmu_addr_ge_bottom1; 
-wire            mmu_addr_ge_bottom2; 
-wire            mmu_addr_ge_bottom3; 
-wire            mmu_addr_ge_bottom4; 
-wire            mmu_addr_ge_bottom5; 
-wire            mmu_addr_ge_bottom6; 
-wire            mmu_addr_ge_bottom7; 
-wire            mmu_addr_ge_upaddr0; 
-wire            mmu_addr_ge_upaddr1; 
-wire            mmu_addr_ge_upaddr2; 
-wire            mmu_addr_ge_upaddr3; 
-wire            mmu_addr_ge_upaddr4; 
-wire            mmu_addr_ge_upaddr5; 
-wire            mmu_addr_ge_upaddr6; 
-wire            mmu_addr_ge_upaddr7; 
-wire    [27:0]  mmu_pmp_pa_y;       
-wire    [3 :0]  pmp_default_flg;    
-wire    [15:0]  pmp_hit;            
-wire            pmp_mmu_hit0;       
-wire            pmp_mmu_hit1;       
-wire            pmp_mmu_hit2;       
-wire            pmp_mmu_hit3;       
-wire            pmp_mmu_hit4;       
-wire            pmp_mmu_hit5;       
-wire            pmp_mmu_hit6;       
-wire            pmp_mmu_hit7;       
-wire            pmp_mprv_status_y;  
-wire    [28:0]  pmpaddr0_value;     
-wire    [28:0]  pmpaddr1_value;     
-wire    [28:0]  pmpaddr2_value;     
-wire    [28:0]  pmpaddr3_value;     
-wire    [28:0]  pmpaddr4_value;     
-wire    [28:0]  pmpaddr5_value;     
-wire    [28:0]  pmpaddr6_value;     
-wire    [28:0]  pmpaddr7_value;     
-wire    [63:0]  pmpcfg0_value;      
-wire    [63:0]  pmpcfg2_value;      
+wire    [1 :0]  addr_match_mode0;
+wire    [1 :0]  addr_match_mode1;
+wire    [1 :0]  addr_match_mode2;
+wire    [1 :0]  addr_match_mode3;
+wire    [1 :0]  addr_match_mode4;
+wire    [1 :0]  addr_match_mode5;
+wire    [1 :0]  addr_match_mode6;
+wire    [1 :0]  addr_match_mode7;
+wire            cp0_mach_mode;
+wire    [1 :0]  cp0_pmp_mpp;
+wire    [1 :0]  cp0_priv_mode;
+wire    [1 :0]  cur_priv_mode;
+wire            mmu_addr_ge_bottom0;
+wire            mmu_addr_ge_bottom1;
+wire            mmu_addr_ge_bottom2;
+wire            mmu_addr_ge_bottom3;
+wire            mmu_addr_ge_bottom4;
+wire            mmu_addr_ge_bottom5;
+wire            mmu_addr_ge_bottom6;
+wire            mmu_addr_ge_bottom7;
+wire            mmu_addr_ge_upaddr0;
+wire            mmu_addr_ge_upaddr1;
+wire            mmu_addr_ge_upaddr2;
+wire            mmu_addr_ge_upaddr3;
+wire            mmu_addr_ge_upaddr4;
+wire            mmu_addr_ge_upaddr5;
+wire            mmu_addr_ge_upaddr6;
+wire            mmu_addr_ge_upaddr7;
+wire    [27:0]  mmu_pmp_pa_y;
+wire    [3 :0]  pmp_default_flg;
+wire    [15:0]  pmp_hit;
+wire            pmp_mmu_hit0;
+wire            pmp_mmu_hit1;
+wire            pmp_mmu_hit2;
+wire            pmp_mmu_hit3;
+wire            pmp_mmu_hit4;
+wire            pmp_mmu_hit5;
+wire            pmp_mmu_hit6;
+wire            pmp_mmu_hit7;
+wire            pmp_mprv_status_y;
+wire    [28:0]  pmpaddr0_value;
+wire    [28:0]  pmpaddr1_value;
+wire    [28:0]  pmpaddr2_value;
+wire    [28:0]  pmpaddr3_value;
+wire    [28:0]  pmpaddr4_value;
+wire    [28:0]  pmpaddr5_value;
+wire    [28:0]  pmpaddr6_value;
+wire    [28:0]  pmpaddr7_value;
+wire    [63:0]  pmpcfg0_value;
+wire    [63:0]  pmpcfg2_value;
 
 
 // priviledged mode judgement
@@ -110,20 +110,20 @@ assign cp0_mach_mode      = cp0_priv_mode[1:0] == 2'b11;
 
 // get bottom compare infor from last entry
 // &Force("nonport", "mmu_addr_ge_upaddr7"); @35
-assign {mmu_addr_ge_bottom7, mmu_addr_ge_bottom6, 
+assign {mmu_addr_ge_bottom7, mmu_addr_ge_bottom6,
         mmu_addr_ge_bottom5, mmu_addr_ge_bottom4,
         mmu_addr_ge_bottom3, mmu_addr_ge_bottom2,
-        mmu_addr_ge_bottom1, mmu_addr_ge_bottom0} = 
-       {mmu_addr_ge_upaddr6, mmu_addr_ge_upaddr5, 
+        mmu_addr_ge_bottom1, mmu_addr_ge_bottom0} =
+       {mmu_addr_ge_upaddr6, mmu_addr_ge_upaddr5,
         mmu_addr_ge_upaddr4, mmu_addr_ge_upaddr3,
         mmu_addr_ge_upaddr2, mmu_addr_ge_upaddr1,
         mmu_addr_ge_upaddr0, 1'b1};
 
 // gather the hit information
-assign pmp_hit[7:0] = {pmp_mmu_hit7, pmp_mmu_hit6, 
+assign pmp_hit[7:0] = {pmp_mmu_hit7, pmp_mmu_hit6,
                        pmp_mmu_hit5, pmp_mmu_hit4,
                        pmp_mmu_hit3, pmp_mmu_hit2,
-                       pmp_mmu_hit1, pmp_mmu_hit0}; 
+                       pmp_mmu_hit1, pmp_mmu_hit0};
 
 // get addr match mode from pmp configure register
 assign addr_match_mode0[1:0] = pmpcfg0_value[4:3]  ;

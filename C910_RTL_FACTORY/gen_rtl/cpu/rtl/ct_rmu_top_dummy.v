@@ -23,27 +23,27 @@ module ct_rmu_top_dummy(
 );
 
 // &Ports; @3
-input           apb_clk;   
-input           apbrst_b;  
-input           penable;   
-input           psel_rmr;  
-output          perr_rmr;  
-output  [31:0]  prdata_rmr; 
-output          pready_rmr; 
+input           apb_clk;
+input           apbrst_b;
+input           penable;
+input           psel_rmr;
+output          perr_rmr;
+output  [31:0]  prdata_rmr;
+output          pready_rmr;
 
 // &Regs; @4
-reg             perr_rmr;  
-reg             pready_rmr; 
+reg             perr_rmr;
+reg             pready_rmr;
 
 // &Wires; @5
-wire            acc_err;   
-wire            apb_clk;   
-wire            apbrst_b;  
-wire    [31:0]  data_out;  
-wire            penable;   
-wire    [31:0]  prdata_rmr; 
-wire            priv_err;  
-wire            psel_rmr;  
+wire            acc_err;
+wire            apb_clk;
+wire            apbrst_b;
+wire    [31:0]  data_out;
+wire            penable;
+wire    [31:0]  prdata_rmr;
+wire            priv_err;
+wire            psel_rmr;
 
 
 always @(posedge apb_clk or negedge apbrst_b)
@@ -52,7 +52,7 @@ begin
     pready_rmr <= 1'b0;
   else if (psel_rmr & !penable)
     pready_rmr <= 1'b1;
-  else 
+  else
     pready_rmr <= 1'b0;
 end
 

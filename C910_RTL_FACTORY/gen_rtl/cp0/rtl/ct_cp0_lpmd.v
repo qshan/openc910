@@ -39,64 +39,64 @@ module ct_cp0_lpmd(
 );
 
 // &Ports; @25
-input          biu_yy_xx_no_op;   
-input          cpurst_b;          
-input          forever_cpuclk;    
-input          had_cp0_xx_dbg;    
-input          ifu_yy_xx_no_op;   
-input          inst_lpmd_ex1_ex2; 
-input          lsu_yy_xx_no_op;   
-input          mmu_yy_xx_no_op;   
-input          pad_yy_icg_scan_en; 
-input          regs_lpmd_int_vld; 
-input          regs_xx_icg_en;    
-input          rtu_yy_xx_dbgon;   
-input          rtu_yy_xx_flush;   
-output  [1:0]  cp0_biu_lpmd_b;    
-output  [1:0]  cp0_had_lpmd_b;    
-output         cp0_ifu_no_op_req; 
-output         cp0_lsu_no_op_req; 
-output         cp0_mmu_no_op_req; 
-output         cp0_yy_clk_en;     
-output         lpmd_cmplt;        
-output  [1:0]  lpmd_top_cur_state; 
+input          biu_yy_xx_no_op;
+input          cpurst_b;
+input          forever_cpuclk;
+input          had_cp0_xx_dbg;
+input          ifu_yy_xx_no_op;
+input          inst_lpmd_ex1_ex2;
+input          lsu_yy_xx_no_op;
+input          mmu_yy_xx_no_op;
+input          pad_yy_icg_scan_en;
+input          regs_lpmd_int_vld;
+input          regs_xx_icg_en;
+input          rtu_yy_xx_dbgon;
+input          rtu_yy_xx_flush;
+output  [1:0]  cp0_biu_lpmd_b;
+output  [1:0]  cp0_had_lpmd_b;
+output         cp0_ifu_no_op_req;
+output         cp0_lsu_no_op_req;
+output         cp0_mmu_no_op_req;
+output         cp0_yy_clk_en;
+output         lpmd_cmplt;
+output  [1:0]  lpmd_top_cur_state;
 
 // &Regs; @26
-reg     [1:0]  cur_state;         
-reg     [1:0]  lpmd_b;            
-reg     [1:0]  next_state;        
+reg     [1:0]  cur_state;
+reg     [1:0]  lpmd_b;
+reg     [1:0]  next_state;
 
 // &Wires; @27
-wire           biu_yy_xx_no_op;   
-wire    [1:0]  cp0_biu_lpmd_b;    
-wire    [1:0]  cp0_had_lpmd_b;    
-wire           cp0_ifu_no_op_req; 
-wire           cp0_lsu_no_op_req; 
-wire           cp0_mmu_no_op_req; 
-wire           cp0_yy_clk_en;     
-wire           cpu_in_lpmd;       
-wire           cpuclk;            
-wire           cpurst_b;          
-wire           forever_cpuclk;    
-wire           had_cp0_xx_dbg;    
-wire           ifu_yy_xx_no_op;   
-wire           inst_lpmd_ex1_ex2; 
-wire           lpmd_ack;          
-wire           lpmd_clk_en;       
-wire           lpmd_cmplt;        
-wire           lpmd_in_wait_state; 
-wire    [1:0]  lpmd_top_cur_state; 
-wire           lsu_yy_xx_no_op;   
-wire           mmu_yy_xx_no_op;   
-wire           pad_yy_icg_scan_en; 
-wire           regs_lpmd_int_vld; 
-wire           regs_xx_icg_en;    
-wire           rtu_yy_xx_dbgon;   
-wire           rtu_yy_xx_flush;   
+wire           biu_yy_xx_no_op;
+wire    [1:0]  cp0_biu_lpmd_b;
+wire    [1:0]  cp0_had_lpmd_b;
+wire           cp0_ifu_no_op_req;
+wire           cp0_lsu_no_op_req;
+wire           cp0_mmu_no_op_req;
+wire           cp0_yy_clk_en;
+wire           cpu_in_lpmd;
+wire           cpuclk;
+wire           cpurst_b;
+wire           forever_cpuclk;
+wire           had_cp0_xx_dbg;
+wire           ifu_yy_xx_no_op;
+wire           inst_lpmd_ex1_ex2;
+wire           lpmd_ack;
+wire           lpmd_clk_en;
+wire           lpmd_cmplt;
+wire           lpmd_in_wait_state;
+wire    [1:0]  lpmd_top_cur_state;
+wire           lsu_yy_xx_no_op;
+wire           mmu_yy_xx_no_op;
+wire           pad_yy_icg_scan_en;
+wire           regs_lpmd_int_vld;
+wire           regs_xx_icg_en;
+wire           rtu_yy_xx_dbgon;
+wire           rtu_yy_xx_flush;
 
 
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 // &Instance("gated_clk_cell", "x_lpmd_gated_clk"); @32
 gated_clk_cell  x_lpmd_gated_clk (
@@ -120,12 +120,12 @@ gated_clk_cell  x_lpmd_gated_clk (
 //----------------------------------------------------------
 // Request the BIU to enter low power mode and do
 // not accept any more transaction from IFU or LSU
-                     
+
 //-------------------FSM of lpmd req logic------------------
 // State Description:
 // IDLE : no lpmd instruction (wfi)
 // WAIT : request biu and wait for biu ack
-//        the lpmd request        
+//        the lpmd request
 // LPMD : wait for wake up and then cmplt lpmd inst
 //----------------------------------------------------------
 
@@ -179,7 +179,7 @@ assign cp0_lsu_no_op_req = lpmd_in_wait_state;
 assign cp0_mmu_no_op_req = lpmd_in_wait_state;
 
 //----------------------------------------------------------
-//               lpmd request ack 
+//               lpmd request ack
 //----------------------------------------------------------
 assign lpmd_ack = lpmd_in_wait_state
                   && ifu_yy_xx_no_op

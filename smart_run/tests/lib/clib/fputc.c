@@ -23,7 +23,7 @@ int fputc(int ch, FILE *stream)
   *(addr_ptr) = ch;
 
   // asm volatile (
-  //     "li   x13, 0x01fffff0 \n\t" 
+  //     "li   x13, 0x01fffff0 \n\t"
   //     "sw   %0, 0(x13) \n\t"
   //     : :"r" (ch): "x13", "memory");
 }

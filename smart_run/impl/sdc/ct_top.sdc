@@ -83,17 +83,17 @@ if {$synopsys_program_name=="pt_shell"} {
 if {$parent_path==""} {
    set CLK_PORTS	[get_ports {*clk *clock *tck}]
    set DATA_INPUTS	[remove_from_collection [all_inputs] $CLK_PORTS]
-   
+
    set_max_fanout $MAX_FANOUT [current_design]
    set_max_transition $MAX_TRANSITION [current_design]
    set_input_transition 0.1 $CLK_PORTS
    set_load [expr [load_of [get_lib_pins */$LOAD_PIN]]*5.0] [all_outputs]
    set_driving_cell -lib_cell $DRIVING_CELL $DATA_INPUTS
-   
+
    create_clock [get_ports pll_core_clk] -name CPU_CLK -period $CPU_PERIOD
-   
-   create_clock -name V_CPUCLK -period $CPU_PERIOD 
-    
+
+   create_clock -name V_CPUCLK -period $CPU_PERIOD
+
    set_clock_uncertainty -setup $SETUP_UNCERTAINTY [all_clocks]
    set_clock_uncertainty -hold $HOLD_UNCERTAINTY [all_clocks]
 }
@@ -103,7 +103,7 @@ if {$parent_path==""} {
 ################################################################################
 
 ################################################################################
-# Timing Exceptions 
+# Timing Exceptions
 ################################################################################
 
 
@@ -120,7 +120,7 @@ pad_biu_st_int
 if {$parent_path==""} {
    set_input_delay  -max [expr $CPU_PERIOD*-2] -clock V_CPUCLK [get_ports $ASYNC_NORM_IN]
    set_input_delay  -min 0 -clock V_CPUCLK [get_ports $ASYNC_NORM_IN]
-   
+
 } else {
   eval  set_max_delay [expr $CPU_PERIOD*3] -ignore_clock_latency [get_args_port_pin [list_add_prefix $ASYNC_NORM_IN $parent_path]]
 }
@@ -192,7 +192,7 @@ if {$parent_path==""} {
 
 # Debug IO, can set false path
 set DEBUG {
-*pad_retire* 
+*pad_retire*
 *pad_mstatus*
 }
 
@@ -204,7 +204,7 @@ if {$parent_path==""} {
 
 
 ################################################################################
-# DFT signals 
+# DFT signals
 ################################################################################
 
 if {$parent_path==""} {

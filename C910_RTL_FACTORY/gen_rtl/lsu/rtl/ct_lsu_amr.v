@@ -35,67 +35,67 @@ module ct_lsu_amr(
 );
 
 // &Ports; @25
-input           cp0_lsu_amr;               
-input           cp0_lsu_amr2;              
-input           cp0_lsu_icg_en;            
-input           cp0_lsu_no_op_req;         
-input           cp0_yy_clk_en;             
-input           cpurst_b;                  
-input           forever_cpuclk;            
-input           icc_idle;                  
-input           pad_yy_icg_scan_en;        
-input   [39:0]  wmb_ce_addr;               
-input   [15:0]  wmb_ce_bytes_vld;          
-input           wmb_ce_ca_st_inst;         
-input           wmb_ce_pop_vld;            
-input           wmb_ce_vld;                
-output          amr_l2_mem_set;            
-output          amr_wa_cancel;             
-output  [2 :0]  lsu_had_amr_state;         
+input           cp0_lsu_amr;
+input           cp0_lsu_amr2;
+input           cp0_lsu_icg_en;
+input           cp0_lsu_no_op_req;
+input           cp0_yy_clk_en;
+input           cpurst_b;
+input           forever_cpuclk;
+input           icc_idle;
+input           pad_yy_icg_scan_en;
+input   [39:0]  wmb_ce_addr;
+input   [15:0]  wmb_ce_bytes_vld;
+input           wmb_ce_ca_st_inst;
+input           wmb_ce_pop_vld;
+input           wmb_ce_vld;
+output          amr_l2_mem_set;
+output          amr_wa_cancel;
+output  [2 :0]  lsu_had_amr_state;
 
 // &Regs; @26
-reg     [35:0]  amr_addr_tto4;             
-reg     [15:0]  amr_bytes_vld;             
-reg     [5 :0]  amr_cnt;                   
-reg     [2 :0]  amr_next_state;            
-reg     [2 :0]  amr_state;                 
+reg     [35:0]  amr_addr_tto4;
+reg     [15:0]  amr_bytes_vld;
+reg     [5 :0]  amr_cnt;
+reg     [2 :0]  amr_next_state;
+reg     [2 :0]  amr_state;
 
 // &Wires; @27
-wire    [35:0]  amr_addr_distance;         
-wire            amr_addr_hit;              
-wire            amr_addr_hit_eq;           
-wire            amr_addr_hit_normal_update; 
-wire            amr_bytes_vld_cross;       
-wire            amr_bytes_vld_full;        
-wire    [15:0]  amr_bytes_vld_next;        
-wire            amr_clk;                   
-wire            amr_clk_en;                
-wire            amr_cnt_met_set;           
-wire    [39:0]  amr_from_wmb_ce_addr;      
-wire            amr_judge_cancel;          
-wire            amr_judge_fail;            
-wire            amr_judge_flush;           
-wire            amr_l2_mem_set;            
-wire            amr_not_idle;              
-wire            amr_update_clk;            
-wire            amr_update_clk_en;         
-wire            amr_update_vld;            
-wire            amr_wa_cancel;             
-wire            cp0_lsu_amr;               
-wire            cp0_lsu_amr2;              
-wire            cp0_lsu_icg_en;            
-wire            cp0_lsu_no_op_req;         
-wire            cp0_yy_clk_en;             
-wire            cpurst_b;                  
-wire            forever_cpuclk;            
-wire            icc_idle;                  
-wire    [2 :0]  lsu_had_amr_state;         
-wire            pad_yy_icg_scan_en;        
-wire    [39:0]  wmb_ce_addr;               
-wire    [15:0]  wmb_ce_bytes_vld;          
-wire            wmb_ce_ca_st_inst;         
-wire            wmb_ce_pop_vld;            
-wire            wmb_ce_vld;                
+wire    [35:0]  amr_addr_distance;
+wire            amr_addr_hit;
+wire            amr_addr_hit_eq;
+wire            amr_addr_hit_normal_update;
+wire            amr_bytes_vld_cross;
+wire            amr_bytes_vld_full;
+wire    [15:0]  amr_bytes_vld_next;
+wire            amr_clk;
+wire            amr_clk_en;
+wire            amr_cnt_met_set;
+wire    [39:0]  amr_from_wmb_ce_addr;
+wire            amr_judge_cancel;
+wire            amr_judge_fail;
+wire            amr_judge_flush;
+wire            amr_l2_mem_set;
+wire            amr_not_idle;
+wire            amr_update_clk;
+wire            amr_update_clk_en;
+wire            amr_update_vld;
+wire            amr_wa_cancel;
+wire            cp0_lsu_amr;
+wire            cp0_lsu_amr2;
+wire            cp0_lsu_icg_en;
+wire            cp0_lsu_no_op_req;
+wire            cp0_yy_clk_en;
+wire            cpurst_b;
+wire            forever_cpuclk;
+wire            icc_idle;
+wire    [2 :0]  lsu_had_amr_state;
+wire            pad_yy_icg_scan_en;
+wire    [39:0]  wmb_ce_addr;
+wire    [15:0]  wmb_ce_bytes_vld;
+wire            wmb_ce_ca_st_inst;
+wire            wmb_ce_pop_vld;
+wire            wmb_ce_vld;
 
 
 parameter JUDGE     = 3'b000,
@@ -103,7 +103,7 @@ parameter JUDGE     = 3'b000,
           MEM_SET_1 = 3'b011,//1 add cancel write allocate
           MEM_SET_2 = 3'b111;//2 add cancel l2 write allocate
 //==========================================================
-//                 Instance of Gated Cell  
+//                 Instance of Gated Cell
 //==========================================================
 //amr pop clk is for addr and bytes_vld when sq pops a entry
 assign amr_clk_en     = cp0_lsu_amr
@@ -278,7 +278,7 @@ assign amr_addr_hit    = amr_bytes_vld_full
 assign amr_addr_distance[`PA_WIDTH-5:0] = amr_from_wmb_ce_addr[`PA_WIDTH-1:4] - amr_addr_tto4[`PA_WIDTH-5:0];
 
 //distance equal to 0
-assign amr_addr_hit_eq = !(|amr_addr_distance[`PA_WIDTH-5:0]); 
+assign amr_addr_hit_eq = !(|amr_addr_distance[`PA_WIDTH-5:0]);
 
 //distance equal to +1 or -1 means normal update
 assign amr_addr_hit_normal_update = amr_addr_distance[0]
@@ -304,8 +304,8 @@ assign amr_bytes_vld_full       = &amr_bytes_vld[15:0];
 //                : amr_addr_tto4[`PA_WIDTH-5:0]
 //                  + {{`PA_WIDTH-5{1'b0}},1'b1};
 
-//cross hit means there is a common bit 1 both in 
-//amr_bytes_vld and wmb_ce_bytes_vld 
+//cross hit means there is a common bit 1 both in
+//amr_bytes_vld and wmb_ce_bytes_vld
 assign amr_bytes_vld_cross  = |(amr_bytes_vld[15:0] & wmb_ce_bytes_vld[15:0]);
 
 //---------------------judge flush--------------------------
