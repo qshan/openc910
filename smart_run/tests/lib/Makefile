@@ -60,6 +60,7 @@ endif
 
 
 CFLAGS += --specs=nano.specs
+CFLAGS += -save-temps
 
 LINKFLAGS = -Tlinker.lcf -nostartfiles ${FLAG_MARCH} ${FLAG_ABI}
 
